@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define CAFE_TYPE_XSETTINGS_PLUGIN                (cafe_xsettings_plugin_get_type ())
-#define CAFE_XSETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPlugin))
-#define CAFE_XSETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
+#define CAFE_XSETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_PLUGIN, CafeXSettingsPlugin))
+#define CAFE_XSETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_PLUGIN, CafeXSettingsPluginClass))
 #define CAFE_IS_XSETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_XSETTINGS_PLUGIN))
 #define CAFE_IS_XSETTINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CAFE_TYPE_XSETTINGS_PLUGIN))
-#define CAFE_XSETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
+#define CAFE_XSETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_XSETTINGS_PLUGIN, CafeXSettingsPluginClass))
 
-typedef struct MateXSettingsPluginPrivate MateXSettingsPluginPrivate;
-
-typedef struct
-{
-        MateSettingsPlugin          parent;
-        MateXSettingsPluginPrivate *priv;
-} MateXSettingsPlugin;
+typedef struct CafeXSettingsPluginPrivate CafeXSettingsPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
-} MateXSettingsPluginClass;
+        CafeSettingsPlugin          parent;
+        CafeXSettingsPluginPrivate *priv;
+} CafeXSettingsPlugin;
+
+typedef struct
+{
+        CafeSettingsPluginClass parent_class;
+} CafeXSettingsPluginClass;
 
 GType   cafe_xsettings_plugin_get_type            (void) G_GNUC_CONST;
 

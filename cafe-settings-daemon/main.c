@@ -223,13 +223,13 @@ bus_register (DBusGConnection *bus)
 }
 
 static void
-on_session_over (DBusGProxy *proxy, MateSettingsManager *manager)
+on_session_over (DBusGProxy *proxy, CafeSettingsManager *manager)
 {
         /* not used, see on_session_end instead */
 }
 
 static void
-on_session_query_end (DBusGProxy *proxy, guint flags, MateSettingsManager *manager)
+on_session_query_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manager)
 {
         GError *error = NULL;
         gboolean ret = FALSE;
@@ -247,7 +247,7 @@ on_session_query_end (DBusGProxy *proxy, guint flags, MateSettingsManager *manag
 }
 
 static void
-on_session_end (DBusGProxy *proxy, guint flags, MateSettingsManager *manager)
+on_session_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manager)
 {
         GError *error = NULL;
         gboolean ret = FALSE;
@@ -290,7 +290,7 @@ on_term_signal_pipe_closed (GIOChannel *source,
 }
 
 static void
-watch_for_term_signal (MateSettingsManager *manager)
+watch_for_term_signal (CafeSettingsManager *manager)
 {
         GIOChannel *channel;
 
@@ -312,7 +312,7 @@ watch_for_term_signal (MateSettingsManager *manager)
 }
 
 static void
-set_session_over_handler (DBusGConnection *bus, MateSettingsManager *manager)
+set_session_over_handler (DBusGConnection *bus, CafeSettingsManager *manager)
 {
         DBusGProxy *session_proxy;
         DBusGProxy *private_proxy;
@@ -459,7 +459,7 @@ static void debug_changed (GSettings *settings, gchar *key, gpointer user_data)
 int
 main (int argc, char *argv[])
 {
-        MateSettingsManager *manager;
+        CafeSettingsManager *manager;
         DBusGConnection      *bus;
         gboolean              res;
         GError               *error;

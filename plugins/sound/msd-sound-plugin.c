@@ -64,7 +64,7 @@ msd_sound_plugin_finalize (GObject *object)
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         GError *error = NULL;
 
@@ -77,7 +77,7 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating sound plugin");
         msd_sound_manager_stop (MSD_SOUND_PLUGIN (plugin)->priv->manager);
@@ -87,7 +87,7 @@ static void
 msd_sound_plugin_class_init (MsdSoundPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_sound_plugin_finalize;
 

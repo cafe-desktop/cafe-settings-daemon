@@ -51,9 +51,9 @@
 
 struct MsdBackgroundManagerPrivate {
 	GSettings       *settings;
-	MateBG          *bg;
+	CafeBG          *bg;
 	cairo_surface_t *surface;
-	MateBGCrossfade *fade;
+	CafeBGCrossfade *fade;
 	GList           *scr_sizes;
 
 	gboolean         msd_can_draw;
@@ -232,7 +232,7 @@ draw_background (MsdBackgroundManager *manager,
 }
 
 static void
-on_bg_changed (MateBG               *bg,
+on_bg_changed (CafeBG               *bg,
 	       MsdBackgroundManager *manager)
 {
 	g_debug ("Background changed");
@@ -240,7 +240,7 @@ on_bg_changed (MateBG               *bg,
 }
 
 static void
-on_bg_transitioned (MateBG               *bg,
+on_bg_transitioned (CafeBG               *bg,
 		    MsdBackgroundManager *manager)
 {
 	g_debug ("Background transitioned");

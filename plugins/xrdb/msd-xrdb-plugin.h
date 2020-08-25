@@ -42,13 +42,13 @@ typedef struct MsdXrdbPluginPrivate MsdXrdbPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin   parent;
+        CafeSettingsPlugin   parent;
         MsdXrdbPluginPrivate *priv;
 } MsdXrdbPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdXrdbPluginClass;
 
 GType   msd_xrdb_plugin_get_type            (void) G_GNUC_CONST;

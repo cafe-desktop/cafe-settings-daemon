@@ -67,11 +67,11 @@ struct _MsdMediaKeysManagerPrivate
 {
 #ifdef HAVE_LIBCAFEMIXER
         /* Volume bits */
-        MateMixerContext       *context;
-        MateMixerStream        *stream;
-        MateMixerStream        *source_stream;
-        MateMixerStreamControl *control;
-        MateMixerStreamControl *source_control;
+        CafeMixerContext       *context;
+        CafeMixerStream        *stream;
+        CafeMixerStream        *source_stream;
+        CafeMixerStreamControl *control;
+        CafeMixerStreamControl *source_control;
 #endif
         GtkWidget        *dialog;
         GSettings        *settings;
@@ -708,7 +708,7 @@ do_sound_action (MsdMediaKeysManager *manager,
         guint    volume_min, volume_max;
         guint    volume_step;
         guint    volume_last;
-        MateMixerStreamControl *control;
+        CafeMixerStreamControl *control;
 
         gboolean is_input_control =
                 type == MIC_MUTE_KEY ? TRUE : FALSE;
@@ -790,8 +790,8 @@ do_sound_action (MsdMediaKeysManager *manager,
 static void
 update_default_output (MsdMediaKeysManager *manager)
 {
-        MateMixerStream        *stream;
-        MateMixerStreamControl *control = NULL;
+        CafeMixerStream        *stream;
+        CafeMixerStreamControl *control = NULL;
 
         stream = cafe_mixer_context_get_default_output_stream (manager->priv->context);
         if (stream != NULL)
@@ -804,7 +804,7 @@ update_default_output (MsdMediaKeysManager *manager)
         g_clear_object (&manager->priv->control);
 
         if (control != NULL) {
-                MateMixerStreamControlFlags flags = cafe_mixer_stream_control_get_flags (control);
+                CafeMixerStreamControlFlags flags = cafe_mixer_stream_control_get_flags (control);
 
                 /* Do not use the stream if it is not possible to mute it or
                  * change the volume */
@@ -823,8 +823,8 @@ update_default_output (MsdMediaKeysManager *manager)
 static void
 update_default_input (MsdMediaKeysManager *manager)
 {
-        MateMixerStream        *stream;
-        MateMixerStreamControl *control = NULL;
+        CafeMixerStream        *stream;
+        CafeMixerStreamControl *control = NULL;
 
         stream = cafe_mixer_context_get_default_input_stream (manager->priv->context);
         if (stream != NULL)
@@ -837,7 +837,7 @@ update_default_input (MsdMediaKeysManager *manager)
         g_clear_object (&manager->priv->source_control);
 
         if (control != NULL) {
-                MateMixerStreamControlFlags flags = cafe_mixer_stream_control_get_flags (control);
+                CafeMixerStreamControlFlags flags = cafe_mixer_stream_control_get_flags (control);
 
                 /* Do not use the stream if it is not possible to mute it or
                  * change the volume */
@@ -853,7 +853,7 @@ update_default_input (MsdMediaKeysManager *manager)
 }
 
 static void
-on_context_state_notify (MateMixerContext    *context,
+on_context_state_notify (CafeMixerContext    *context,
                          GParamSpec          *pspec,
                          MsdMediaKeysManager *manager)
 {
@@ -862,7 +862,7 @@ on_context_state_notify (MateMixerContext    *context,
 }
 
 static void
-on_context_default_output_notify (MateMixerContext    *context,
+on_context_default_output_notify (CafeMixerContext    *context,
                                   GParamSpec          *pspec,
                                   MsdMediaKeysManager *manager)
 {
@@ -870,7 +870,7 @@ on_context_default_output_notify (MateMixerContext    *context,
 }
 
 static void
-on_context_default_input_notify (MateMixerContext    *context,
+on_context_default_input_notify (CafeMixerContext    *context,
                                  GParamSpec          *pspec,
                                  MsdMediaKeysManager *manager)
 {
@@ -878,12 +878,12 @@ on_context_default_input_notify (MateMixerContext    *context,
 }
 
 static void
-on_context_stream_removed (MateMixerContext    *context,
+on_context_stream_removed (CafeMixerContext    *context,
                            const gchar         *name,
                            MsdMediaKeysManager *manager)
 {
         if (manager->priv->stream != NULL) {
-                MateMixerStream *stream =
+                CafeMixerStream *stream =
                         cafe_mixer_context_get_stream (manager->priv->context, name);
 
                 if (stream == manager->priv->stream) {
@@ -892,7 +892,7 @@ on_context_stream_removed (MateMixerContext    *context,
                 }
         }
         if (manager->priv->source_stream != NULL) {
-                MateMixerStream *stream =
+                CafeMixerStream *stream =
                         cafe_mixer_context_get_stream (manager->priv->context, name);
 
                 if (stream == manager->priv->source_stream) {

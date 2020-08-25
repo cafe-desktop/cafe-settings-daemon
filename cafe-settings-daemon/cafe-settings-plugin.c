@@ -23,29 +23,29 @@
 
 #include "cafe-settings-plugin.h"
 
-G_DEFINE_TYPE (MateSettingsPlugin, cafe_settings_plugin, G_TYPE_OBJECT)
+G_DEFINE_TYPE (CafeSettingsPlugin, cafe_settings_plugin, G_TYPE_OBJECT)
 
 static void
-dummy (MateSettingsPlugin *plugin)
+dummy (CafeSettingsPlugin *plugin)
 {
         /* Empty */
 }
 
 static void
-cafe_settings_plugin_class_init (MateSettingsPluginClass *klass)
+cafe_settings_plugin_class_init (CafeSettingsPluginClass *klass)
 {
         klass->activate = dummy;
         klass->deactivate = dummy;
 }
 
 static void
-cafe_settings_plugin_init (MateSettingsPlugin *plugin)
+cafe_settings_plugin_init (CafeSettingsPlugin *plugin)
 {
         /* Empty */
 }
 
 void
-cafe_settings_plugin_activate (MateSettingsPlugin *plugin)
+cafe_settings_plugin_activate (CafeSettingsPlugin *plugin)
 {
         g_return_if_fail (CAFE_IS_SETTINGS_PLUGIN (plugin));
 
@@ -53,7 +53,7 @@ cafe_settings_plugin_activate (MateSettingsPlugin *plugin)
 }
 
 void
-cafe_settings_plugin_deactivate  (MateSettingsPlugin *plugin)
+cafe_settings_plugin_deactivate  (CafeSettingsPlugin *plugin)
 {
         g_return_if_fail (CAFE_IS_SETTINGS_PLUGIN (plugin));
 

@@ -150,7 +150,7 @@ msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Khi đặt là « true » (đúng), Mate sẽ nhớ tính trạng của LED NumLock (Khóa Số)"
+"Khi đặt là « true » (đúng), Cafe sẽ nhớ tính trạng của LED NumLock (Khóa Số)"
 " giữa hai phiên chạy."
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:45

@@ -42,13 +42,13 @@ typedef struct MsdClipboardPluginPrivate MsdClipboardPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin    parent;
+        CafeSettingsPlugin    parent;
         MsdClipboardPluginPrivate *priv;
 } MsdClipboardPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdClipboardPluginClass;
 
 GType   msd_clipboard_plugin_get_type            (void) G_GNUC_CONST;

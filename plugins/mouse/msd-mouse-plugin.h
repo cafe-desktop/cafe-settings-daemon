@@ -42,13 +42,13 @@ typedef struct MsdMousePluginPrivate MsdMousePluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin    parent;
+        CafeSettingsPlugin    parent;
         MsdMousePluginPrivate *priv;
 } MsdMousePlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdMousePluginClass;
 
 GType   msd_mouse_plugin_get_type            (void) G_GNUC_CONST;

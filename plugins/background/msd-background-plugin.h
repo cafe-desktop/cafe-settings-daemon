@@ -43,12 +43,12 @@ extern "C" {
 	typedef struct MsdBackgroundPluginPrivate MsdBackgroundPluginPrivate;
 
 	typedef struct {
-		MateSettingsPlugin          parent;
+		CafeSettingsPlugin          parent;
 		MsdBackgroundPluginPrivate* priv;
 	} MsdBackgroundPlugin;
 
 	typedef struct {
-		MateSettingsPluginClass parent_class;
+		CafeSettingsPluginClass parent_class;
 	} MsdBackgroundPluginClass;
 
 	GType

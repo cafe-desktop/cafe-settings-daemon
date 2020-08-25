@@ -32,14 +32,14 @@
 #include "cafe-settings-plugin.h"
 #include "cafe-settings-profile.h"
 
-#define CAFE_SETTINGS_PLUGIN_INFO_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoPrivate))
+#define CAFE_SETTINGS_PLUGIN_INFO_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), CAFE_TYPE_SETTINGS_PLUGIN_INFO, CafeSettingsPluginInfoPrivate))
 
 #define PLUGIN_GROUP "CAFE Settings Plugin"
 
 #define PLUGIN_PRIORITY_MAX 1
 #define PLUGIN_PRIORITY_DEFAULT 100
 
-struct MateSettingsPluginInfoPrivate
+struct CafeSettingsPluginInfoPrivate
 {
         char                    *file;
         GSettings               *settings;
@@ -53,7 +53,7 @@ struct MateSettingsPluginInfoPrivate
         char                    *copyright;
         char                    *website;
 
-        MateSettingsPlugin     *plugin;
+        CafeSettingsPlugin     *plugin;
 
         int                      enabled : 1;
         int                      active : 1;
@@ -78,12 +78,12 @@ enum {
 
 static guint signals [LAST_SIGNAL] = { 0, };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MateSettingsPluginInfo, cafe_settings_plugin_info, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CafeSettingsPluginInfo, cafe_settings_plugin_info, G_TYPE_OBJECT)
 
 static void
 cafe_settings_plugin_info_finalize (GObject *object)
 {
-        MateSettingsPluginInfo *info;
+        CafeSettingsPluginInfo *info;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (object));
@@ -117,7 +117,7 @@ cafe_settings_plugin_info_finalize (GObject *object)
 }
 
 static void
-cafe_settings_plugin_info_class_init (MateSettingsPluginInfoClass *klass)
+cafe_settings_plugin_info_class_init (CafeSettingsPluginInfoClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -127,7 +127,7 @@ cafe_settings_plugin_info_class_init (MateSettingsPluginInfoClass *klass)
                 g_signal_new ("activated",
                               G_TYPE_FROM_CLASS (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (MateSettingsPluginInfoClass, activated),
+                              G_STRUCT_OFFSET (CafeSettingsPluginInfoClass, activated),
                               NULL,
                               NULL,
                               g_cclosure_marshal_VOID__VOID,
@@ -137,7 +137,7 @@ cafe_settings_plugin_info_class_init (MateSettingsPluginInfoClass *klass)
                 g_signal_new ("deactivated",
                               G_TYPE_FROM_CLASS (object_class),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (MateSettingsPluginInfoClass, deactivated),
+                              G_STRUCT_OFFSET (CafeSettingsPluginInfoClass, deactivated),
                               NULL,
                               NULL,
                               g_cclosure_marshal_VOID__VOID,
@@ -146,22 +146,22 @@ cafe_settings_plugin_info_class_init (MateSettingsPluginInfoClass *klass)
 }
 
 static void
-cafe_settings_plugin_info_init (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_init (CafeSettingsPluginInfo *info)
 {
         info->priv = CAFE_SETTINGS_PLUGIN_INFO_GET_PRIVATE (info);
 }
 
 static void
-debug_info (MateSettingsPluginInfo *info)
+debug_info (CafeSettingsPluginInfo *info)
 {
-        g_debug ("MateSettingsPluginInfo: name='%s' file='%s' location='%s'",
+        g_debug ("CafeSettingsPluginInfo: name='%s' file='%s' location='%s'",
                  info->priv->name,
                  info->priv->file,
                  info->priv->location);
 }
 
 static gboolean
-cafe_settings_plugin_info_fill_from_file (MateSettingsPluginInfo *info,
+cafe_settings_plugin_info_fill_from_file (CafeSettingsPluginInfo *info,
                                            const char              *filename)
 {
         GKeyFile *plugin_file = NULL;
@@ -268,7 +268,7 @@ cafe_settings_plugin_info_fill_from_file (MateSettingsPluginInfo *info,
 static void
 plugin_enabled_cb (GSettings              *settings,
                    gchar                  *key,
-                   MateSettingsPluginInfo *info)
+                   CafeSettingsPluginInfo *info)
 {
         if (g_settings_get_boolean (info->priv->settings, key)) {
                 cafe_settings_plugin_info_activate (info);
@@ -277,10 +277,10 @@ plugin_enabled_cb (GSettings              *settings,
         }
 }
 
-MateSettingsPluginInfo *
+CafeSettingsPluginInfo *
 cafe_settings_plugin_info_new_from_file (const char *filename)
 {
-        MateSettingsPluginInfo *info;
+        CafeSettingsPluginInfo *info;
         gboolean                 res;
 
         info = g_object_new (CAFE_TYPE_SETTINGS_PLUGIN_INFO, NULL);
@@ -295,14 +295,14 @@ cafe_settings_plugin_info_new_from_file (const char *filename)
 }
 
 static void
-_deactivate_plugin (MateSettingsPluginInfo *info)
+_deactivate_plugin (CafeSettingsPluginInfo *info)
 {
         cafe_settings_plugin_deactivate (info->priv->plugin);
         g_signal_emit (info, signals [DEACTIVATED], 0);
 }
 
 gboolean
-cafe_settings_plugin_info_deactivate (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_deactivate (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), FALSE);
 
@@ -320,7 +320,7 @@ cafe_settings_plugin_info_deactivate (MateSettingsPluginInfo *info)
 
 
 static gboolean
-load_plugin_module (MateSettingsPluginInfo *info)
+load_plugin_module (CafeSettingsPluginInfo *info)
 {
         char    *path;
         char    *dirname;
@@ -371,7 +371,7 @@ out:
 }
 
 static gboolean
-_activate_plugin (MateSettingsPluginInfo *info)
+_activate_plugin (CafeSettingsPluginInfo *info)
 {
         gboolean res = TRUE;
 
@@ -395,7 +395,7 @@ _activate_plugin (MateSettingsPluginInfo *info)
 }
 
 gboolean
-cafe_settings_plugin_info_activate (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_activate (CafeSettingsPluginInfo *info)
 {
 
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), FALSE);
@@ -417,7 +417,7 @@ cafe_settings_plugin_info_activate (MateSettingsPluginInfo *info)
 }
 
 gboolean
-cafe_settings_plugin_info_is_active (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_is_active (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), FALSE);
 
@@ -425,7 +425,7 @@ cafe_settings_plugin_info_is_active (MateSettingsPluginInfo *info)
 }
 
 gboolean
-cafe_settings_plugin_info_get_enabled (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_enabled (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), FALSE);
 
@@ -433,7 +433,7 @@ cafe_settings_plugin_info_get_enabled (MateSettingsPluginInfo *info)
 }
 
 gboolean
-cafe_settings_plugin_info_is_available (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_is_available (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), FALSE);
 
@@ -441,7 +441,7 @@ cafe_settings_plugin_info_is_available (MateSettingsPluginInfo *info)
 }
 
 const char *
-cafe_settings_plugin_info_get_name (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_name (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), NULL);
 
@@ -449,7 +449,7 @@ cafe_settings_plugin_info_get_name (MateSettingsPluginInfo *info)
 }
 
 const char *
-cafe_settings_plugin_info_get_description (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_description (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), NULL);
 
@@ -457,7 +457,7 @@ cafe_settings_plugin_info_get_description (MateSettingsPluginInfo *info)
 }
 
 const char **
-cafe_settings_plugin_info_get_authors (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_authors (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), (const char **)NULL);
 
@@ -465,7 +465,7 @@ cafe_settings_plugin_info_get_authors (MateSettingsPluginInfo *info)
 }
 
 const char *
-cafe_settings_plugin_info_get_website (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_website (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), NULL);
 
@@ -473,7 +473,7 @@ cafe_settings_plugin_info_get_website (MateSettingsPluginInfo *info)
 }
 
 const char *
-cafe_settings_plugin_info_get_copyright (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_copyright (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), NULL);
 
@@ -482,7 +482,7 @@ cafe_settings_plugin_info_get_copyright (MateSettingsPluginInfo *info)
 
 
 const char *
-cafe_settings_plugin_info_get_location (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_location (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), NULL);
 
@@ -490,7 +490,7 @@ cafe_settings_plugin_info_get_location (MateSettingsPluginInfo *info)
 }
 
 int
-cafe_settings_plugin_info_get_priority (MateSettingsPluginInfo *info)
+cafe_settings_plugin_info_get_priority (CafeSettingsPluginInfo *info)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info), PLUGIN_PRIORITY_DEFAULT);
 
@@ -498,7 +498,7 @@ cafe_settings_plugin_info_get_priority (MateSettingsPluginInfo *info)
 }
 
 void
-cafe_settings_plugin_info_set_priority (MateSettingsPluginInfo *info,
+cafe_settings_plugin_info_set_priority (CafeSettingsPluginInfo *info,
                                          int                      priority)
 {
         g_return_if_fail (CAFE_IS_SETTINGS_PLUGIN_INFO (info));
@@ -507,7 +507,7 @@ cafe_settings_plugin_info_set_priority (MateSettingsPluginInfo *info,
 }
 
 void
-cafe_settings_plugin_info_set_schema (MateSettingsPluginInfo *info,
+cafe_settings_plugin_info_set_schema (CafeSettingsPluginInfo *info,
                                       gchar                  *schema)
 {
 	int priority;

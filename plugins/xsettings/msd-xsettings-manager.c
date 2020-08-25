@@ -83,7 +83,7 @@
 #define HIDPI_MIN_HEIGHT 1500
 
 typedef struct _TranslationEntry TranslationEntry;
-typedef void (* TranslationFunc) (MateXSettingsManager  *manager,
+typedef void (* TranslationFunc) (CafeXSettingsManager  *manager,
                                   TranslationEntry      *trans,
                                   GVariant              *value);
 
@@ -95,7 +95,7 @@ struct _TranslationEntry {
         TranslationFunc translate;
 };
 
-struct MateXSettingsManagerPrivate
+struct CafeXSettingsManagerPrivate
 {
         XSettingsManager **managers;
         GHashTable *gsettings;
@@ -112,7 +112,7 @@ enum {
 
 static void cafe_xsettings_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MateXSettingsManager, cafe_xsettings_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CafeXSettingsManager, cafe_xsettings_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -123,7 +123,7 @@ msd_xsettings_error_quark (void)
 }
 
 static void
-translate_bool_int (MateXSettingsManager  *manager,
+translate_bool_int (CafeXSettingsManager  *manager,
                     TranslationEntry      *trans,
                     GVariant              *value)
 {
@@ -136,7 +136,7 @@ translate_bool_int (MateXSettingsManager  *manager,
 }
 
 static void
-translate_int_int (MateXSettingsManager  *manager,
+translate_int_int (CafeXSettingsManager  *manager,
                    TranslationEntry      *trans,
                    GVariant              *value)
 {
@@ -149,7 +149,7 @@ translate_int_int (MateXSettingsManager  *manager,
 }
 
 static void
-translate_string_string (MateXSettingsManager  *manager,
+translate_string_string (CafeXSettingsManager  *manager,
                          TranslationEntry      *trans,
                          GVariant              *value)
 {
@@ -163,7 +163,7 @@ translate_string_string (MateXSettingsManager  *manager,
 }
 
 static void
-translate_string_string_toolbar (MateXSettingsManager  *manager,
+translate_string_string_toolbar (CafeXSettingsManager  *manager,
                                  TranslationEntry      *trans,
                                  GVariant              *value)
 {
@@ -271,7 +271,7 @@ get_window_scale_auto ()
 }
 
 static int
-get_window_scale (MateXSettingsManager *manager)
+get_window_scale (CafeXSettingsManager *manager)
 {
         GSettings   *gsettings;
         gint         scale;
@@ -364,7 +364,7 @@ typedef struct
         int         cursor_size;
         const char *rgba;
         const char *hintstyle;
-} MateXftSettings;
+} CafeXftSettings;
 
 static const char *rgba_types[] = { "rgb", "bgr", "vbgr", "vrgb" };
 
@@ -372,8 +372,8 @@ static const char *rgba_types[] = { "rgb", "bgr", "vbgr", "vrgb" };
  * This probably could be done a bit more cleanly with g_settings_get_enum
  */
 static void
-xft_settings_get (MateXSettingsManager *manager,
-                  MateXftSettings *settings)
+xft_settings_get (CafeXSettingsManager *manager,
+                  CafeXftSettings *settings)
 {
         GSettings *mouse_gsettings;
         char      *antialiasing;
@@ -517,7 +517,7 @@ delayed_toggle_bg_draw (gboolean value)
 }
 
 static void
-scale_change_workarounds (MateXSettingsManager *manager, int new_scale)
+scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
 {
         if (manager->priv->window_scale == new_scale)
                 return;
@@ -585,8 +585,8 @@ scale_change_workarounds (MateXSettingsManager *manager, int new_scale)
 }
 
 static void
-xft_settings_set_xsettings (MateXSettingsManager *manager,
-                            MateXftSettings      *settings)
+xft_settings_set_xsettings (CafeXSettingsManager *manager,
+                            CafeXftSettings      *settings)
 {
         int i;
 
@@ -642,7 +642,7 @@ update_property (GString *props, const gchar* key, const gchar* value)
 }
 
 static void
-xft_settings_set_xresources (MateXftSettings *settings)
+xft_settings_set_xresources (CafeXftSettings *settings)
 {
         GString    *add_string;
         char        dpibuf[G_ASCII_DTOSTR_BUF_SIZE];
@@ -690,9 +690,9 @@ xft_settings_set_xresources (MateXftSettings *settings)
  * X resources
  */
 static void
-update_xft_settings (MateXSettingsManager *manager)
+update_xft_settings (CafeXSettingsManager *manager)
 {
-        MateXftSettings settings;
+        CafeXftSettings settings;
 
         cafe_settings_profile_start (NULL);
 
@@ -705,7 +705,7 @@ update_xft_settings (MateXSettingsManager *manager)
 
 static void
 recalculate_scale_callback (GdkScreen            *screen,
-                            MateXSettingsManager *manager)
+                            CafeXSettingsManager *manager)
 {
         int i;
         int new_scale = get_window_scale (manager);
@@ -723,7 +723,7 @@ recalculate_scale_callback (GdkScreen            *screen,
 static void
 xft_callback (GSettings            *gsettings,
               const gchar          *key,
-              MateXSettingsManager *manager)
+              CafeXSettingsManager *manager)
 {
         int i;
 
@@ -736,7 +736,7 @@ xft_callback (GSettings            *gsettings,
 
 static void
 fontconfig_callback (fontconfig_monitor_handle_t *handle,
-                     MateXSettingsManager       *manager)
+                     CafeXSettingsManager       *manager)
 {
         int i;
         int timestamp = time (NULL);
@@ -751,7 +751,7 @@ fontconfig_callback (fontconfig_monitor_handle_t *handle,
 }
 
 static gboolean
-start_fontconfig_monitor_idle_cb (MateXSettingsManager *manager)
+start_fontconfig_monitor_idle_cb (CafeXSettingsManager *manager)
 {
         cafe_settings_profile_start (NULL);
 
@@ -763,7 +763,7 @@ start_fontconfig_monitor_idle_cb (MateXSettingsManager *manager)
 }
 
 static void
-start_fontconfig_monitor (MateXSettingsManager  *manager)
+start_fontconfig_monitor (CafeXSettingsManager  *manager)
 {
         cafe_settings_profile_start (NULL);
 
@@ -775,7 +775,7 @@ start_fontconfig_monitor (MateXSettingsManager  *manager)
 }
 
 static void
-stop_fontconfig_monitor (MateXSettingsManager  *manager)
+stop_fontconfig_monitor (CafeXSettingsManager  *manager)
 {
         if (manager->priv->fontconfig_handle) {
                 fontconfig_monitor_stop (manager->priv->fontconfig_handle);
@@ -784,7 +784,7 @@ stop_fontconfig_monitor (MateXSettingsManager  *manager)
 }
 
 static void
-process_value (MateXSettingsManager *manager,
+process_value (CafeXSettingsManager *manager,
                TranslationEntry     *trans,
                GVariant             *value)
 {
@@ -815,7 +815,7 @@ find_translation_entry (GSettings *gsettings, const char *key)
 static void
 xsettings_callback (GSettings             *gsettings,
                     const char            *key,
-                    MateXSettingsManager  *manager)
+                    CafeXSettingsManager  *manager)
 {
         TranslationEntry *trans;
         int               i;
@@ -865,7 +865,7 @@ terminate_cb (void *data)
 }
 
 static gboolean
-setup_xsettings_managers (MateXSettingsManager *manager)
+setup_xsettings_managers (CafeXSettingsManager *manager)
 {
         GdkDisplay *display;
         gboolean    res;
@@ -901,7 +901,7 @@ setup_xsettings_managers (MateXSettingsManager *manager)
 }
 
 gboolean
-cafe_xsettings_manager_start (MateXSettingsManager *manager,
+cafe_xsettings_manager_start (CafeXSettingsManager *manager,
                                GError               **error)
 {
         guint        i;
@@ -980,9 +980,9 @@ cafe_xsettings_manager_start (MateXSettingsManager *manager,
 }
 
 void
-cafe_xsettings_manager_stop (MateXSettingsManager *manager)
+cafe_xsettings_manager_stop (CafeXSettingsManager *manager)
 {
-        MateXSettingsManagerPrivate *p = manager->priv;
+        CafeXSettingsManagerPrivate *p = manager->priv;
         int i;
 
         g_debug ("Stopping xsettings manager");
@@ -1010,7 +1010,7 @@ cafe_xsettings_manager_stop (MateXSettingsManager *manager)
 }
 
 static void
-cafe_xsettings_manager_class_init (MateXSettingsManagerClass *klass)
+cafe_xsettings_manager_class_init (CafeXSettingsManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -1018,7 +1018,7 @@ cafe_xsettings_manager_class_init (MateXSettingsManagerClass *klass)
 }
 
 static void
-cafe_xsettings_manager_init (MateXSettingsManager *manager)
+cafe_xsettings_manager_init (CafeXSettingsManager *manager)
 {
         manager->priv = cafe_xsettings_manager_get_instance_private (manager);
 }
@@ -1026,7 +1026,7 @@ cafe_xsettings_manager_init (MateXSettingsManager *manager)
 static void
 cafe_xsettings_manager_finalize (GObject *object)
 {
-        MateXSettingsManager *xsettings_manager;
+        CafeXSettingsManager *xsettings_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CAFE_IS_XSETTINGS_MANAGER (object));
@@ -1038,7 +1038,7 @@ cafe_xsettings_manager_finalize (GObject *object)
         G_OBJECT_CLASS (cafe_xsettings_manager_parent_class)->finalize (object);
 }
 
-MateXSettingsManager *
+CafeXSettingsManager *
 cafe_xsettings_manager_new (void)
 {
         if (manager_object != NULL) {

@@ -65,7 +65,7 @@ msd_media_keys_plugin_dispose (GObject *object)
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         gboolean res;
         GError  *error = NULL;
@@ -83,7 +83,7 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating media_keys plugin");
         msd_media_keys_manager_stop (MSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager);
@@ -93,7 +93,7 @@ static void
 msd_media_keys_plugin_class_init (MsdMediaKeysPluginClass *klass)
 {
         GObjectClass            *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->dispose = msd_media_keys_plugin_dispose;
 

@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define CAFE_TYPE_XSETTINGS_MANAGER         (cafe_xsettings_manager_get_type ())
-#define CAFE_XSETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManager))
-#define CAFE_XSETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
+#define CAFE_XSETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_MANAGER, CafeXSettingsManager))
+#define CAFE_XSETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_MANAGER, CafeXSettingsManagerClass))
 #define CAFE_IS_XSETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_XSETTINGS_MANAGER))
 #define CAFE_IS_XSETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CAFE_TYPE_XSETTINGS_MANAGER))
-#define CAFE_XSETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
+#define CAFE_XSETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_XSETTINGS_MANAGER, CafeXSettingsManagerClass))
 
-typedef struct MateXSettingsManagerPrivate MateXSettingsManagerPrivate;
+typedef struct CafeXSettingsManagerPrivate CafeXSettingsManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MateXSettingsManagerPrivate *priv;
-} MateXSettingsManager;
+        CafeXSettingsManagerPrivate *priv;
+} CafeXSettingsManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MateXSettingsManagerClass;
+} CafeXSettingsManagerClass;
 
 GType                   cafe_xsettings_manager_get_type            (void);
 
-MateXSettingsManager * cafe_xsettings_manager_new                 (void);
-gboolean                cafe_xsettings_manager_start               (MateXSettingsManager *manager,
+CafeXSettingsManager * cafe_xsettings_manager_new                 (void);
+gboolean                cafe_xsettings_manager_start               (CafeXSettingsManager *manager,
                                                                      GError               **error);
-void                    cafe_xsettings_manager_stop                (MateXSettingsManager *manager);
+void                    cafe_xsettings_manager_stop                (CafeXSettingsManager *manager);
 
 #ifdef __cplusplus
 }

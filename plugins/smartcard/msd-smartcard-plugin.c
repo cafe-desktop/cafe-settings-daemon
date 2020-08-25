@@ -249,7 +249,7 @@ smartcard_removed_cb (MsdSmartcardManager *card_monitor,
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         GError *error;
         MsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
@@ -300,7 +300,7 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         MsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
 
@@ -327,7 +327,7 @@ static void
 msd_smartcard_plugin_class_init (MsdSmartcardPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_smartcard_plugin_finalize;
 

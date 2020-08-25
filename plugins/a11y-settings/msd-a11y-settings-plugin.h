@@ -40,13 +40,13 @@ typedef struct MsdA11ySettingsPluginPrivate MsdA11ySettingsPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin           parent;
+        CafeSettingsPlugin           parent;
         MsdA11ySettingsPluginPrivate *priv;
 } MsdA11ySettingsPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdA11ySettingsPluginClass;
 
 GType   msd_a11y_settings_plugin_get_type            (void) G_GNUC_CONST;

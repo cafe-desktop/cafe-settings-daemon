@@ -65,7 +65,7 @@ msd_mouse_plugin_finalize (GObject *object)
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         gboolean res;
         GError  *error;
@@ -81,7 +81,7 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating mouse plugin");
         msd_mouse_manager_stop (MSD_MOUSE_PLUGIN (plugin)->priv->manager);
@@ -91,7 +91,7 @@ static void
 msd_mouse_plugin_class_init (MsdMousePluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_mouse_plugin_finalize;
 

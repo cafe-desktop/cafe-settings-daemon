@@ -28,30 +28,30 @@
 G_BEGIN_DECLS
 
 #define CAFE_TYPE_SETTINGS_PLUGIN              (cafe_settings_plugin_get_type())
-#define CAFE_SETTINGS_PLUGIN(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CAFE_TYPE_SETTINGS_PLUGIN, MateSettingsPlugin))
-#define CAFE_SETTINGS_PLUGIN_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  CAFE_TYPE_SETTINGS_PLUGIN, MateSettingsPluginClass))
+#define CAFE_SETTINGS_PLUGIN(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CAFE_TYPE_SETTINGS_PLUGIN, CafeSettingsPlugin))
+#define CAFE_SETTINGS_PLUGIN_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  CAFE_TYPE_SETTINGS_PLUGIN, CafeSettingsPluginClass))
 #define CAFE_IS_SETTINGS_PLUGIN(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CAFE_TYPE_SETTINGS_PLUGIN))
 #define CAFE_IS_SETTINGS_PLUGIN_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CAFE_TYPE_SETTINGS_PLUGIN))
-#define CAFE_SETTINGS_PLUGIN_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj),  CAFE_TYPE_SETTINGS_PLUGIN, MateSettingsPluginClass))
+#define CAFE_SETTINGS_PLUGIN_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj),  CAFE_TYPE_SETTINGS_PLUGIN, CafeSettingsPluginClass))
 
 typedef struct
 {
         GObject parent;
-} MateSettingsPlugin;
+} CafeSettingsPlugin;
 
 typedef struct
 {
         GObjectClass parent_class;
 
         /* Virtual public methods */
-        void            (*activate)                     (MateSettingsPlugin *plugin);
-        void            (*deactivate)                   (MateSettingsPlugin *plugin);
-} MateSettingsPluginClass;
+        void            (*activate)                     (CafeSettingsPlugin *plugin);
+        void            (*deactivate)                   (CafeSettingsPlugin *plugin);
+} CafeSettingsPluginClass;
 
 GType            cafe_settings_plugin_get_type           (void) G_GNUC_CONST;
 
-void             cafe_settings_plugin_activate           (MateSettingsPlugin *plugin);
-void             cafe_settings_plugin_deactivate         (MateSettingsPlugin *plugin);
+void             cafe_settings_plugin_activate           (CafeSettingsPlugin *plugin);
+void             cafe_settings_plugin_deactivate         (CafeSettingsPlugin *plugin);
 
 /*
  * Utility macro used to register plugins

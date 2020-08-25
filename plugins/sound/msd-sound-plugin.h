@@ -42,13 +42,13 @@ typedef struct MsdSoundPluginPrivate MsdSoundPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin parent;
+        CafeSettingsPlugin parent;
         MsdSoundPluginPrivate *priv;
 } MsdSoundPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdSoundPluginClass;
 
 GType msd_sound_plugin_get_type (void) G_GNUC_CONST;

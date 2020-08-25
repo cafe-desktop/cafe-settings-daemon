@@ -24,14 +24,14 @@
 
 #include <gmodule.h>
 
-typedef struct _MateSettingsModuleClass MateSettingsModuleClass;
+typedef struct _CafeSettingsModuleClass CafeSettingsModuleClass;
 
-struct _MateSettingsModuleClass
+struct _CafeSettingsModuleClass
 {
         GTypeModuleClass parent_class;
 };
 
-struct _MateSettingsModule
+struct _CafeSettingsModule
 {
         GTypeModule parent_instance;
 
@@ -41,15 +41,15 @@ struct _MateSettingsModule
         GType       type;
 };
 
-typedef GType (*MateSettingsModuleRegisterFunc) (GTypeModule *);
+typedef GType (*CafeSettingsModuleRegisterFunc) (GTypeModule *);
 
-G_DEFINE_TYPE (MateSettingsModule, cafe_settings_module, G_TYPE_TYPE_MODULE)
+G_DEFINE_TYPE (CafeSettingsModule, cafe_settings_module, G_TYPE_TYPE_MODULE)
 
 static gboolean
 cafe_settings_module_load (GTypeModule *gmodule)
 {
-        MateSettingsModule            *module;
-        MateSettingsModuleRegisterFunc register_func;
+        CafeSettingsModule            *module;
+        CafeSettingsModuleRegisterFunc register_func;
         gboolean                        res;
 
         module = CAFE_SETTINGS_MODULE (gmodule);
@@ -88,7 +88,7 @@ cafe_settings_module_load (GTypeModule *gmodule)
 static void
 cafe_settings_module_unload (GTypeModule *gmodule)
 {
-        MateSettingsModule *module = CAFE_SETTINGS_MODULE (gmodule);
+        CafeSettingsModule *module = CAFE_SETTINGS_MODULE (gmodule);
 
         g_debug ("Unloading %s", module->path);
 
@@ -99,7 +99,7 @@ cafe_settings_module_unload (GTypeModule *gmodule)
 }
 
 const gchar *
-cafe_settings_module_get_path (MateSettingsModule *module)
+cafe_settings_module_get_path (CafeSettingsModule *module)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_MODULE (module), NULL);
 
@@ -107,7 +107,7 @@ cafe_settings_module_get_path (MateSettingsModule *module)
 }
 
 GObject *
-cafe_settings_module_new_object (MateSettingsModule *module)
+cafe_settings_module_new_object (CafeSettingsModule *module)
 {
         g_debug ("Creating object of type %s", g_type_name (module->type));
 
@@ -119,17 +119,17 @@ cafe_settings_module_new_object (MateSettingsModule *module)
 }
 
 static void
-cafe_settings_module_init (MateSettingsModule *module)
+cafe_settings_module_init (CafeSettingsModule *module)
 {
-        g_debug ("MateSettingsModule %p initialising", module);
+        g_debug ("CafeSettingsModule %p initialising", module);
 }
 
 static void
 cafe_settings_module_finalize (GObject *object)
 {
-        MateSettingsModule *module = CAFE_SETTINGS_MODULE (object);
+        CafeSettingsModule *module = CAFE_SETTINGS_MODULE (object);
 
-        g_debug ("MateSettingsModule %p finalizing", module);
+        g_debug ("CafeSettingsModule %p finalizing", module);
 
         g_free (module->path);
 
@@ -137,7 +137,7 @@ cafe_settings_module_finalize (GObject *object)
 }
 
 static void
-cafe_settings_module_class_init (MateSettingsModuleClass *class)
+cafe_settings_module_class_init (CafeSettingsModuleClass *class)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (class);
         GTypeModuleClass *module_class = G_TYPE_MODULE_CLASS (class);
@@ -148,10 +148,10 @@ cafe_settings_module_class_init (MateSettingsModuleClass *class)
         module_class->unload = cafe_settings_module_unload;
 }
 
-MateSettingsModule *
+CafeSettingsModule *
 cafe_settings_module_new (const char *path)
 {
-        MateSettingsModule *result;
+        CafeSettingsModule *result;
 
         if (path == NULL || path[0] == '\0') {
                 return NULL;

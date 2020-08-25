@@ -41,12 +41,12 @@ extern "C" {
 typedef struct MsdHousekeepingPluginPrivate MsdHousekeepingPluginPrivate;
 
 typedef struct {
-        MateSettingsPlugin		 parent;
+        CafeSettingsPlugin		 parent;
         MsdHousekeepingPluginPrivate	*priv;
 } MsdHousekeepingPlugin;
 
 typedef struct {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdHousekeepingPluginClass;
 
 GType   msd_housekeeping_plugin_get_type		(void) G_GNUC_CONST;

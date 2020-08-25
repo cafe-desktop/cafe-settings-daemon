@@ -67,7 +67,7 @@ msd_rfkill_plugin_finalize (GObject *object)
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         gboolean res;
         GError  *error;
@@ -83,7 +83,7 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating rfkill plugin");
         msd_rfkill_manager_stop (MSD_RFKILL_PLUGIN (plugin)->priv->manager);
@@ -93,7 +93,7 @@ static void
 msd_rfkill_plugin_class_init (MsdRfkillPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_rfkill_plugin_finalize;
 

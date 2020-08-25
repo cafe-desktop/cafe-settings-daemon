@@ -147,7 +147,7 @@ msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Jos arvo on tosi, Mate muistaa NumLock-näppäimen ja valon tilan istuntojen "
+"Jos arvo on tosi, Cafe muistaa NumLock-näppäimen ja valon tilan istuntojen "
 "välillä."
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:45

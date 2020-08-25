@@ -42,13 +42,13 @@ typedef struct MsdTypingBreakPluginPrivate MsdTypingBreakPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin    parent;
+        CafeSettingsPlugin    parent;
         MsdTypingBreakPluginPrivate *priv;
 } MsdTypingBreakPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdTypingBreakPluginClass;
 
 GType   msd_typing_break_plugin_get_type            (void) G_GNUC_CONST;

@@ -265,7 +265,7 @@
 
 ### cafe-settings-daemon 1.14.0
 
-  * Drop MateConf migration script
+  * Drop CafeConf migration script
   * media-keys: add setting to enable/disable OSD
   * touchpad: support edge and two-finger scrolling independently
     (use separate GSettings keys for them)
@@ -310,7 +310,7 @@
   * Port media-keys plugin to libcafemixer
   * Remove GStreamer bits, make libcafemixer, libcanberra and PulseAudio
     optional dependencies
-  * Adapt to cafe-desktop MateRR* API changes. Thanks to monsta for testing.
+  * Adapt to cafe-desktop CafeRR* API changes. Thanks to monsta for testing.
 
 ### cafe-settings-daemon 1.8.0
 

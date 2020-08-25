@@ -28,50 +28,50 @@
 extern "C" {
 #endif
 #define CAFE_TYPE_SETTINGS_PLUGIN_INFO              (cafe_settings_plugin_info_get_type())
-#define CAFE_SETTINGS_PLUGIN_INFO(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfo))
-#define CAFE_SETTINGS_PLUGIN_INFO_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoClass))
+#define CAFE_SETTINGS_PLUGIN_INFO(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CAFE_TYPE_SETTINGS_PLUGIN_INFO, CafeSettingsPluginInfo))
+#define CAFE_SETTINGS_PLUGIN_INFO_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  CAFE_TYPE_SETTINGS_PLUGIN_INFO, CafeSettingsPluginInfoClass))
 #define CAFE_IS_SETTINGS_PLUGIN_INFO(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CAFE_TYPE_SETTINGS_PLUGIN_INFO))
 #define CAFE_IS_SETTINGS_PLUGIN_INFO_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CAFE_TYPE_SETTINGS_PLUGIN_INFO))
-#define CAFE_SETTINGS_PLUGIN_INFO_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj),  CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoClass))
+#define CAFE_SETTINGS_PLUGIN_INFO_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj),  CAFE_TYPE_SETTINGS_PLUGIN_INFO, CafeSettingsPluginInfoClass))
 
-typedef struct MateSettingsPluginInfoPrivate MateSettingsPluginInfoPrivate;
+typedef struct CafeSettingsPluginInfoPrivate CafeSettingsPluginInfoPrivate;
 
 typedef struct
 {
         GObject                         parent;
-        MateSettingsPluginInfoPrivate *priv;
-} MateSettingsPluginInfo;
+        CafeSettingsPluginInfoPrivate *priv;
+} CafeSettingsPluginInfo;
 
 typedef struct
 {
         GObjectClass parent_class;
 
-        void          (* activated)         (MateSettingsPluginInfo *info);
-        void          (* deactivated)       (MateSettingsPluginInfo *info);
-} MateSettingsPluginInfoClass;
+        void          (* activated)         (CafeSettingsPluginInfo *info);
+        void          (* deactivated)       (CafeSettingsPluginInfo *info);
+} CafeSettingsPluginInfoClass;
 
 GType            cafe_settings_plugin_info_get_type           (void) G_GNUC_CONST;
 
-MateSettingsPluginInfo *cafe_settings_plugin_info_new_from_file (const char *filename);
+CafeSettingsPluginInfo *cafe_settings_plugin_info_new_from_file (const char *filename);
 
-gboolean         cafe_settings_plugin_info_activate        (MateSettingsPluginInfo *info);
-gboolean         cafe_settings_plugin_info_deactivate      (MateSettingsPluginInfo *info);
+gboolean         cafe_settings_plugin_info_activate        (CafeSettingsPluginInfo *info);
+gboolean         cafe_settings_plugin_info_deactivate      (CafeSettingsPluginInfo *info);
 
-gboolean         cafe_settings_plugin_info_is_active       (MateSettingsPluginInfo *info);
-gboolean         cafe_settings_plugin_info_get_enabled     (MateSettingsPluginInfo *info);
-gboolean         cafe_settings_plugin_info_is_available    (MateSettingsPluginInfo *info);
+gboolean         cafe_settings_plugin_info_is_active       (CafeSettingsPluginInfo *info);
+gboolean         cafe_settings_plugin_info_get_enabled     (CafeSettingsPluginInfo *info);
+gboolean         cafe_settings_plugin_info_is_available    (CafeSettingsPluginInfo *info);
 
-const char      *cafe_settings_plugin_info_get_name        (MateSettingsPluginInfo *info);
-const char      *cafe_settings_plugin_info_get_description (MateSettingsPluginInfo *info);
-const char     **cafe_settings_plugin_info_get_authors     (MateSettingsPluginInfo *info);
-const char      *cafe_settings_plugin_info_get_website     (MateSettingsPluginInfo *info);
-const char      *cafe_settings_plugin_info_get_copyright   (MateSettingsPluginInfo *info);
-const char      *cafe_settings_plugin_info_get_location    (MateSettingsPluginInfo *info);
-int              cafe_settings_plugin_info_get_priority    (MateSettingsPluginInfo *info);
+const char      *cafe_settings_plugin_info_get_name        (CafeSettingsPluginInfo *info);
+const char      *cafe_settings_plugin_info_get_description (CafeSettingsPluginInfo *info);
+const char     **cafe_settings_plugin_info_get_authors     (CafeSettingsPluginInfo *info);
+const char      *cafe_settings_plugin_info_get_website     (CafeSettingsPluginInfo *info);
+const char      *cafe_settings_plugin_info_get_copyright   (CafeSettingsPluginInfo *info);
+const char      *cafe_settings_plugin_info_get_location    (CafeSettingsPluginInfo *info);
+int              cafe_settings_plugin_info_get_priority    (CafeSettingsPluginInfo *info);
 
-void             cafe_settings_plugin_info_set_priority    (MateSettingsPluginInfo *info,
+void             cafe_settings_plugin_info_set_priority    (CafeSettingsPluginInfo *info,
                                                             int                     priority);
-void             cafe_settings_plugin_info_set_schema      (MateSettingsPluginInfo *info,
+void             cafe_settings_plugin_info_set_schema      (CafeSettingsPluginInfo *info,
                                                             gchar                  *schema);
 #ifdef __cplusplus
 }

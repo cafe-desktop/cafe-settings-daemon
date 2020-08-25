@@ -916,7 +916,7 @@ msgstr ""
 
 #: data/cafe-settings-daemon.desktop.in.in:4
 msgid "CAFE Settings Daemon"
-msgstr "Mate Achtergronddienst voor instellingen"
+msgstr "Cafe Achtergronddienst voor instellingen"
 
 #: cafe-settings-daemon/main.c:65
 msgid "Enable debugging code"

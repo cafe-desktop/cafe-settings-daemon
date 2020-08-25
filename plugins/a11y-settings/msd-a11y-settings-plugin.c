@@ -65,7 +65,7 @@ msd_a11y_settings_plugin_finalize (GObject *object)
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         gboolean res;
         GError  *error;
@@ -81,7 +81,7 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating a11y-settings plugin");
         msd_a11y_settings_manager_stop (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager);
@@ -91,7 +91,7 @@ static void
 msd_a11y_settings_plugin_class_init (MsdA11ySettingsPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_a11y_settings_plugin_finalize;
 

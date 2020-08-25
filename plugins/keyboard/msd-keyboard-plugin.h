@@ -42,13 +42,13 @@ typedef struct MsdKeyboardPluginPrivate MsdKeyboardPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin    parent;
+        CafeSettingsPlugin    parent;
         MsdKeyboardPluginPrivate *priv;
 } MsdKeyboardPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdKeyboardPluginClass;
 
 GType   msd_keyboard_plugin_get_type            (void) G_GNUC_CONST;

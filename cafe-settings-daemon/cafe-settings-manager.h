@@ -28,34 +28,34 @@ extern "C" {
 #endif
 
 #define CAFE_TYPE_SETTINGS_MANAGER         (cafe_settings_manager_get_type ())
-#define CAFE_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManager))
-#define CAFE_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
+#define CAFE_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_SETTINGS_MANAGER, CafeSettingsManager))
+#define CAFE_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_SETTINGS_MANAGER, CafeSettingsManagerClass))
 #define CAFE_IS_SETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_SETTINGS_MANAGER))
 #define CAFE_IS_SETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CAFE_TYPE_SETTINGS_MANAGER))
-#define CAFE_SETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
+#define CAFE_SETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_SETTINGS_MANAGER, CafeSettingsManagerClass))
 
-typedef struct MateSettingsManagerPrivate MateSettingsManagerPrivate;
+typedef struct CafeSettingsManagerPrivate CafeSettingsManagerPrivate;
 
 typedef struct
 {
         GObject                      parent;
-        MateSettingsManagerPrivate  *priv;
-} MateSettingsManager;
+        CafeSettingsManagerPrivate  *priv;
+} CafeSettingsManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
 
-        void          (* plugin_activated)         (MateSettingsManager *manager,
+        void          (* plugin_activated)         (CafeSettingsManager *manager,
                                                     const char           *name);
-        void          (* plugin_deactivated)       (MateSettingsManager *manager,
+        void          (* plugin_deactivated)       (CafeSettingsManager *manager,
                                                     const char           *name);
-} MateSettingsManagerClass;
+} CafeSettingsManagerClass;
 
 typedef enum
 {
         CAFE_SETTINGS_MANAGER_ERROR_GENERAL
-} MateSettingsManagerError;
+} CafeSettingsManagerError;
 
 enum
 {
@@ -69,14 +69,14 @@ enum
 GQuark                 cafe_settings_manager_error_quark         (void);
 GType                  cafe_settings_manager_get_type   (void);
 
-MateSettingsManager * cafe_settings_manager_new        (void);
+CafeSettingsManager * cafe_settings_manager_new        (void);
 
-gboolean               cafe_settings_manager_start      (MateSettingsManager *manager,
+gboolean               cafe_settings_manager_start      (CafeSettingsManager *manager,
                                                           gint                load_init_flag,
                                                           GError            **error);
-void                   cafe_settings_manager_stop       (MateSettingsManager *manager);
+void                   cafe_settings_manager_stop       (CafeSettingsManager *manager);
 
-gboolean               cafe_settings_manager_awake      (MateSettingsManager *manager,
+gboolean               cafe_settings_manager_awake      (CafeSettingsManager *manager,
                                                           GError              **error);
 
 #ifdef __cplusplus

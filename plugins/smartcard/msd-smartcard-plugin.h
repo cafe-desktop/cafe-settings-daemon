@@ -42,13 +42,13 @@ typedef struct MsdSmartcardPluginPrivate MsdSmartcardPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin parent;
+        CafeSettingsPlugin parent;
         MsdSmartcardPluginPrivate *priv;
 } MsdSmartcardPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdSmartcardPluginClass;
 
 GType msd_smartcard_plugin_get_type (void) G_GNUC_CONST;

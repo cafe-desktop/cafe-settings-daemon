@@ -27,18 +27,18 @@
 #include "msd-xsettings-plugin.h"
 #include "msd-xsettings-manager.h"
 
-struct MateXSettingsPluginPrivate {
-        MateXSettingsManager *manager;
+struct CafeXSettingsPluginPrivate {
+        CafeXSettingsManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MateXSettingsPlugin, cafe_xsettings_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CafeXSettingsPlugin, cafe_xsettings_plugin)
 
 static void
-cafe_xsettings_plugin_init (MateXSettingsPlugin *plugin)
+cafe_xsettings_plugin_init (CafeXSettingsPlugin *plugin)
 {
         plugin->priv = cafe_xsettings_plugin_get_instance_private (plugin);
 
-        g_debug ("MateXSettingsPlugin initializing");
+        g_debug ("CafeXSettingsPlugin initializing");
 
         plugin->priv->manager = cafe_xsettings_manager_new ();
 }
@@ -46,12 +46,12 @@ cafe_xsettings_plugin_init (MateXSettingsPlugin *plugin)
 static void
 cafe_xsettings_plugin_finalize (GObject *object)
 {
-        MateXSettingsPlugin *plugin;
+        CafeXSettingsPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (CAFE_IS_XSETTINGS_PLUGIN (object));
 
-        g_debug ("MateXSettingsPlugin finalizing");
+        g_debug ("CafeXSettingsPlugin finalizing");
 
         plugin = CAFE_XSETTINGS_PLUGIN (object);
 
@@ -65,7 +65,7 @@ cafe_xsettings_plugin_finalize (GObject *object)
 }
 
 static void
-impl_activate (MateSettingsPlugin *plugin)
+impl_activate (CafeSettingsPlugin *plugin)
 {
         gboolean res;
         GError  *error;
@@ -81,17 +81,17 @@ impl_activate (MateSettingsPlugin *plugin)
 }
 
 static void
-impl_deactivate (MateSettingsPlugin *plugin)
+impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating xsettings plugin");
         cafe_xsettings_manager_stop (CAFE_XSETTINGS_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-cafe_xsettings_plugin_class_init (MateXSettingsPluginClass *klass)
+cafe_xsettings_plugin_class_init (CafeXSettingsPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
+        CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = cafe_xsettings_plugin_finalize;
 
@@ -100,6 +100,6 @@ cafe_xsettings_plugin_class_init (MateXSettingsPluginClass *klass)
 }
 
 static void
-cafe_xsettings_plugin_class_finalize (MateXSettingsPluginClass *klass)
+cafe_xsettings_plugin_class_finalize (CafeXSettingsPluginClass *klass)
 {
 }

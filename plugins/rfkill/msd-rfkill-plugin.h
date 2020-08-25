@@ -43,13 +43,13 @@ typedef struct _MsdRfkillPluginPrivate  MsdRfkillPluginPrivate;
 
 struct _MsdRfkillPlugin
 {
-        MateSettingsPlugin          parent;
+        CafeSettingsPlugin          parent;
         MsdRfkillPluginPrivate  *priv;
 };
 
 struct _MsdRfkillPluginClass
 {
-        MateSettingsPluginClass     parent_class;
+        CafeSettingsPluginClass     parent_class;
 };
 
 GType msd_rfkill_plugin_get_type (void) G_GNUC_CONST;

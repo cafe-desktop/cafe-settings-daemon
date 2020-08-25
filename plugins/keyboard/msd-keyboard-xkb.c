@@ -58,11 +58,11 @@ static GSettings* settings_kbd;
 static XklEngine* xkl_engine;
 static XklConfigRegistry* xkl_registry = NULL;
 
-static MatekbdDesktopConfig current_desktop_config;
-static MatekbdKeyboardConfig current_kbd_config;
+static CafekbdDesktopConfig current_desktop_config;
+static CafekbdKeyboardConfig current_kbd_config;
 
 /* never terminated */
-static MatekbdKeyboardConfig initial_sys_kbd_config;
+static CafekbdKeyboardConfig initial_sys_kbd_config;
 
 static gboolean inited_ok = FALSE;
 
@@ -358,7 +358,7 @@ show_hide_icon ()
 }
 
 static gboolean
-try_activating_xkb_config_if_new (MatekbdKeyboardConfig *
+try_activating_xkb_config_if_new (CafekbdKeyboardConfig *
 				  current_sys_kbd_config)
 {
 	/* Activate - only if different! */
@@ -436,7 +436,7 @@ filter_xkb_config (void)
 static void
 apply_xkb_settings (void)
 {
-	MatekbdKeyboardConfig current_sys_kbd_config;
+	CafekbdKeyboardConfig current_sys_kbd_config;
 
 	if (!inited_ok)
 		return;

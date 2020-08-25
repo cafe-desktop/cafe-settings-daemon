@@ -43,13 +43,13 @@ typedef struct _MsdMediaKeysPluginPrivate  MsdMediaKeysPluginPrivate;
 
 struct _MsdMediaKeysPlugin
 {
-        MateSettingsPlugin          parent;
+        CafeSettingsPlugin          parent;
         MsdMediaKeysPluginPrivate  *priv;
 };
 
 struct _MsdMediaKeysPluginClass
 {
-        MateSettingsPluginClass     parent_class;
+        CafeSettingsPluginClass     parent_class;
 };
 
 GType msd_media_keys_plugin_get_type (void) G_GNUC_CONST;

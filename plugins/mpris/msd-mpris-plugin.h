@@ -44,13 +44,13 @@ typedef struct MsdMprisPluginPrivate MsdMprisPluginPrivate;
 
 typedef struct
 {
-        MateSettingsPlugin    parent;
+        CafeSettingsPlugin    parent;
         MsdMprisPluginPrivate *priv;
 } MsdMprisPlugin;
 
 typedef struct
 {
-        MateSettingsPluginClass parent_class;
+        CafeSettingsPluginClass parent_class;
 } MsdMprisPluginClass;
 
 GType   msd_mpris_plugin_get_type            (void) G_GNUC_CONST;
