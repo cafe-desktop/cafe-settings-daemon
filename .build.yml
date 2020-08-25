@@ -38,6 +38,7 @@ requires:
     - gcc
     - g++
     - git
+    - gobject-introspection
     - gtk-doc-tools
     - libcanberra-gtk3-dev
     - libdbus-glib-1-dev
@@ -72,6 +73,7 @@ requires:
     - desktop-file-utils
     - gcc
     - git
+    - gobject-introspection-devel
     - gtk3-devel
     - iso-codes-devel
     - libSM-devel
@@ -92,6 +94,7 @@ requires:
     - gcc
     - g++
     - git
+    - gobject-introspection
     - gtk-doc-tools
     - libcanberra-gtk3-dev
     - libdbus-glib-1-dev
