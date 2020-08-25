@@ -9,7 +9,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: MATE Desktop Environment\n"
+"Project-Id-Version: CAFE Desktop Environment\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-31 13:03+0200\n"
 "PO-Revision-Date: 2018-03-12 08:16+0000\n"
@@ -522,7 +522,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: ../data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in.h:38
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: ../data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in.h:39
@@ -683,7 +683,7 @@ msgid ""
 msgstr ""
 
 #: ../data/mate-settings-daemon.desktop.in.in.h:1
-msgid "MATE Settings Daemon"
+msgid "CAFE Settings Daemon"
 msgstr ""
 
 #: ../mate-settings-daemon/main.c:65

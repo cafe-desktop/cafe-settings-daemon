@@ -12,7 +12,7 @@ librfkill_la_SOURCES = 		\
 librfkill_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
 	-I$(top_srcdir)/data/				\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DLIBEXECDIR=\""$(libexecdir)"\" 		\
 	$(AM_CPPFLAGS)
 

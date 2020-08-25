@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -136,7 +136,7 @@ msgstr "NumLock 상태 기억"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr "참으로 설정하면, 마테에서 세션이 바뀌어도 NumLock 표시등의 상태를 기억합니다."
 
@@ -673,7 +673,7 @@ msgid "Launch settings"
 msgstr "설정 실행"
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr "마테 설정을 실행하는 바인딩."
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -840,7 +840,7 @@ msgstr ""
 "않으면, 이 키로 지정한 파일을 대신 사용합니다."
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
+msgid "CAFE Settings Daemon"
 msgstr "마테 설정 데몬"
 
 #: mate-settings-daemon/main.c:65

@@ -18,7 +18,7 @@ libxrdb_la_SOURCES = 		\
 libxrdb_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
 	-DSYSCONFDIR=\""$(sysconfdir)"\"	\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libxrdb_la_CFLAGS =			\

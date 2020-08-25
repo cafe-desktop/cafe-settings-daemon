@@ -13,7 +13,7 @@ AC_INIT([mate-settings-daemon],
 AC_CONFIG_SRCDIR([mate-settings-daemon/mate-settings-manager.c])
 AC_CONFIG_MACRO_DIR([m4])
 
-MATE_COMPILE_WARNINGS
+CAFE_COMPILE_WARNINGS
 
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-xz tar-ustar check-news])
 AM_MAINTAINER_MODE([enable])
@@ -44,8 +44,8 @@ MSD_INTLTOOL_PLUGIN_RULE='%.mate-settings-plugin:   %.mate-settings-plugin.in   
 AC_SUBST([MSD_INTLTOOL_PLUGIN_RULE])
 
 dnl Unconditionally use this dir to avoid a circular dep with matecc
-MATE_KEYBINDINGS_KEYSDIR="${datadir}/mate-control-center/keybindings"
-AC_SUBST(MATE_KEYBINDINGS_KEYSDIR)
+CAFE_KEYBINDINGS_KEYSDIR="${datadir}/mate-control-center/keybindings"
+AC_SUBST(CAFE_KEYBINDINGS_KEYSDIR)
 
 dnl ---------------------------------------------------------------------------
 dnl - Dependencies
@@ -55,10 +55,10 @@ DBUS_GLIB_REQUIRED_VERSION=0.74
 GLIB_REQUIRED_VERSION=2.50.0
 GIO_REQUIRED_VERSION=2.50.0
 GTK_REQUIRED_VERSION=3.22.0
-MATE_DESKTOP_REQUIRED_VERSION=1.23.2
-LIBMATEKBD_REQUIRED_VERSION=1.17.0
+CAFE_DESKTOP_REQUIRED_VERSION=1.23.2
+LIBCAFEKBD_REQUIRED_VERSION=1.17.0
 LIBNOTIFY_REQUIRED_VERSION=0.7.0
-LIBMATEMIXER_REQUIRED_VERSION=1.10.0
+LIBCAFEMIXER_REQUIRED_VERSION=1.10.0
 
 PKG_CHECK_MODULES(SETTINGS_DAEMON,
 	glib-2.0 >= $GLIB_REQUIRED_VERSION
@@ -92,7 +92,7 @@ GLIB_GSETTINGS
 dnl ---------------------------------------------------------------------------
 dnl - Check for mate-desktop
 dnl ---------------------------------------------------------------------------
-PKG_CHECK_MODULES(MATE_DESKTOP, mate-desktop-2.0 >= $MATE_DESKTOP_REQUIRED_VERSION)
+PKG_CHECK_MODULES(CAFE_DESKTOP, mate-desktop-2.0 >= $CAFE_DESKTOP_REQUIRED_VERSION)
 
 dnl ---------------------------------------------------------------------------
 dnl - Check for libnotify
@@ -198,9 +198,9 @@ dnl ---------------------------------------------------------------------------
 
 AC_CHECK_X_HEADERS([X11/extensions/XKB.h])
 
-PKG_CHECK_MODULES(LIBMATEKBDUI, [libmatekbdui >= $LIBMATEKBD_REQUIRED_VERSION libmatekbd >= $LIBMATEKBD_REQUIRED_VERSION libxklavier >= 5.2])
-AC_SUBST(LIBMATEKBDUI_CFLAGS)
-AC_SUBST(LIBMATEKBDUI_LIBS)
+PKG_CHECK_MODULES(LIBCAFEKBDUI, [libmatekbdui >= $LIBCAFEKBD_REQUIRED_VERSION libmatekbd >= $LIBCAFEKBD_REQUIRED_VERSION libxklavier >= 5.2])
+AC_SUBST(LIBCAFEKBDUI_CFLAGS)
+AC_SUBST(LIBCAFEKBDUI_LIBS)
 
 dnl ---------------------------------------------------------------------------
 dnl - Check for sound & mixer libraries
@@ -250,15 +250,15 @@ AC_ARG_WITH(libmatemixer,
     with_libmatemixer=$withval, with_libmatemixer=auto)
 
 if test "x$with_libmatemixer" != "xno"; then
-    PKG_CHECK_MODULES(LIBMATEMIXER, libmatemixer >= $LIBMATEMIXER_REQUIRED_VERSION,
-              [AC_DEFINE(HAVE_LIBMATEMIXER, 1, [Define if libmatemixer is available])
+    PKG_CHECK_MODULES(LIBCAFEMIXER, libmatemixer >= $LIBCAFEMIXER_REQUIRED_VERSION,
+              [AC_DEFINE(HAVE_LIBCAFEMIXER, 1, [Define if libmatemixer is available])
               have_libmatemixer=yes], have_libmatemixer=no)
     if test "x$have_libmatemixer" = xno -a "x$with_libmatemixer" = xyes; then
         AC_MSG_ERROR([libmatemixer support requested but library not found])
     fi
 fi
-AC_SUBST(LIBMATEMIXER_CFLAGS)
-AC_SUBST(LIBMATEMIXER_LIBS)
+AC_SUBST(LIBCAFEMIXER_CFLAGS)
+AC_SUBST(LIBCAFEMIXER_LIBS)
 
 dnl ---------------------------------------------------------------------------
 dnl - Housekeeping plugin stuff

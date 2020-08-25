@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -140,10 +140,10 @@ msgstr "Lembrar o estado de Bloq Num"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Cando está definido como verdadeiro, MATE lembrará o estado do LED de Bloq "
+"Cando está definido como verdadeiro, CAFE lembrará o estado do LED de Bloq "
 "Num entre as sesións."
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:45
@@ -741,8 +741,8 @@ msgid "Launch settings"
 msgstr "Iniciar os axustes"
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
-msgstr "Combinación para iniciar os axustes do MATE."
+msgid "Binding to launch CAFE settings."
+msgstr "Combinación para iniciar os axustes do CAFE."
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
 msgid "Lock screen"
@@ -921,8 +921,8 @@ msgstr ""
 "usarase no seu canto o ficheiro especificado nesta chave."
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
-msgstr "Servizo de axustes do MATE"
+msgid "CAFE Settings Daemon"
+msgstr "Servizo de axustes do CAFE"
 
 #: mate-settings-daemon/main.c:65
 msgid "Enable debugging code"

@@ -19,7 +19,7 @@ test_a11y_preferences_dialog_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon			\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
 test_a11y_preferences_dialog_CFLAGS =	\
@@ -48,7 +48,7 @@ liba11y_keyboard_la_SOURCES = 		\
 
 liba11y_keyboard_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DGTKBUILDERDIR=\""$(gtkbuilderdir)"\" \
 	$(AM_CPPFLAGS)
 

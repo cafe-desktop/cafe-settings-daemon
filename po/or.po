@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -138,7 +138,7 @@ msgstr "ନ୍ଯୁମଲକ ଚାବିର ଅବସ୍ଥା ମନେ ର�
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
 "ସତ ବିନ୍ଯାସ କରାଯାଇଥିଲେ, ନୋମ ବିଭିନ୍ନ ଅଧିବେଶନ ମଧ୍ଯରେ ନ୍ଯୁମଲକ ଚାବିର ଅବସ୍ଥା ମନେ "
@@ -679,7 +679,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -842,8 +842,8 @@ msgid ""
 msgstr ""
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
-msgstr "MATE ବିନ୍ୟାସ ଡେମନ"
+msgid "CAFE Settings Daemon"
+msgstr "CAFE ବିନ୍ୟାସ ଡେମନ"
 
 #: mate-settings-daemon/main.c:65
 msgid "Enable debugging code"

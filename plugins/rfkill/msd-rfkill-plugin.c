@@ -33,7 +33,7 @@ struct _MsdRfkillPluginPrivate
         MsdRfkillManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdRfkillPlugin, msd_rfkill_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdRfkillPlugin, msd_rfkill_plugin)
 
 static void
 msd_rfkill_plugin_init (MsdRfkillPlugin *plugin)
@@ -93,7 +93,7 @@ static void
 msd_rfkill_plugin_class_init (MsdRfkillPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_rfkill_plugin_finalize;
 

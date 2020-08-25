@@ -17,7 +17,7 @@ libclipboard_la_SOURCES = 	\
 
 libclipboard_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libclipboard_la_CFLAGS =		\

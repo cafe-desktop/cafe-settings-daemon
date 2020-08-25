@@ -40,7 +40,7 @@
 #include <gio/gio.h>
 #include <dbus/dbus-glib.h>
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
+#define CAFE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-rr-config.h>
 #include <libmate-desktop/mate-rr.h>
 #include <libmate-desktop/mate-rr-labeler.h>
@@ -107,10 +107,10 @@ struct MsdXrandrManagerPrivate
 };
 
 static const MateRRRotation possible_rotations[] = {
-        MATE_RR_ROTATION_0,
-        MATE_RR_ROTATION_90,
-        MATE_RR_ROTATION_180,
-        MATE_RR_ROTATION_270
+        CAFE_RR_ROTATION_0,
+        CAFE_RR_ROTATION_90,
+        CAFE_RR_ROTATION_180,
+        CAFE_RR_ROTATION_270
         /* We don't allow REFLECT_X or REFLECT_Y for now, as mate-display-properties doesn't allow them, either */
 };
 
@@ -309,7 +309,7 @@ show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
 
 /* This function centralizes the use of mate_rr_config_apply_from_filename_with_time().
  *
- * Optionally filters out MATE_RR_ERROR_NO_MATCHING_CONFIG from
+ * Optionally filters out CAFE_RR_ERROR_NO_MATCHING_CONFIG from
  * mate_rr_config_apply_from_filename_with_time(), since that is not usually an error.
  */
 static gboolean
@@ -333,7 +333,7 @@ apply_configuration_from_filename (MsdXrandrManager *manager,
         if (success)
                 return TRUE;
 
-        if (g_error_matches (my_error, MATE_RR_ERROR, MATE_RR_ERROR_NO_MATCHING_CONFIG)) {
+        if (g_error_matches (my_error, CAFE_RR_ERROR, CAFE_RR_ERROR_NO_MATCHING_CONFIG)) {
                 if (no_matching_config_is_an_error)
                         goto fail;
 
@@ -760,7 +760,7 @@ make_clone_setup (MateRRScreen *screen)
 
                         if (best_rate > 0) {
                                 mate_rr_output_info_set_active (info, TRUE);
-                                mate_rr_output_info_set_rotation (info, MATE_RR_ROTATION_0);
+                                mate_rr_output_info_set_rotation (info, CAFE_RR_ROTATION_0);
                                 mate_rr_output_info_set_refresh_rate (info, best_rate);
                                 mate_rr_output_info_set_geometry (info, 0, 0, width, height);
                         }
@@ -836,7 +836,7 @@ turn_on (MateRRScreen *screen,
         if (mode) {
                 mate_rr_output_info_set_active (info, TRUE);
                 mate_rr_output_info_set_geometry (info, x, y, mate_rr_mode_get_width (mode), mate_rr_mode_get_height (mode));
-                mate_rr_output_info_set_rotation (info, MATE_RR_ROTATION_0);
+                mate_rr_output_info_set_rotation (info, CAFE_RR_ROTATION_0);
                 mate_rr_output_info_set_refresh_rate (info, mate_rr_mode_get_freq (mode));
 
                 return TRUE;
@@ -1427,7 +1427,7 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
 
                 if (mate_rr_output_info_is_connected (output) && !mate_rr_output_info_is_active (output)) {
                         mate_rr_output_info_set_active (output, TRUE);
-                        mate_rr_output_info_set_rotation (output, MATE_RR_ROTATION_0);
+                        mate_rr_output_info_set_rotation (output, CAFE_RR_ROTATION_0);
                         just_turned_on = g_list_prepend (just_turned_on, GINT_TO_POINTER (i));
                 } else if (!mate_rr_output_info_is_connected (output) && mate_rr_output_info_is_active (output))
                         mate_rr_output_info_set_active (output, FALSE);
@@ -1493,7 +1493,7 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
                 if (applicable)
                         break;
 
-                is_bounds_error = g_error_matches (error, MATE_RR_ERROR, MATE_RR_ERROR_BOUNDS_ERROR);
+                is_bounds_error = g_error_matches (error, CAFE_RR_ERROR, CAFE_RR_ERROR_BOUNDS_ERROR);
                 g_error_free (error);
 
                 if (!is_bounds_error)
@@ -1609,7 +1609,7 @@ on_randr_event (MateRRScreen *screen, gpointer data)
                         /* We don't bother checking the error type.
                          *
                          * Both G_FILE_ERROR_NOENT and
-                         * MATE_RR_ERROR_NO_MATCHING_CONFIG would mean, "there
+                         * CAFE_RR_ERROR_NO_MATCHING_CONFIG would mean, "there
                          * was no configuration to apply, or none that matched
                          * the current outputs", and in that case we need to run
                          * our fallback.
@@ -2083,10 +2083,10 @@ add_items_for_rotations (MsdXrandrManager *manager, MateRROutputInfo *output, Ma
                 const char *	name;
         } RotationInfo;
         static const RotationInfo rotations[] = {
-                { MATE_RR_ROTATION_0, N_("Normal") },
-                { MATE_RR_ROTATION_90, N_("Left") },
-                { MATE_RR_ROTATION_270, N_("Right") },
-                { MATE_RR_ROTATION_180, N_("Upside Down") },
+                { CAFE_RR_ROTATION_0, N_("Normal") },
+                { CAFE_RR_ROTATION_90, N_("Left") },
+                { CAFE_RR_ROTATION_270, N_("Right") },
+                { CAFE_RR_ROTATION_180, N_("Upside Down") },
                 /* We don't allow REFLECT_X or REFLECT_Y for now, as mate-display-properties doesn't allow them, either */
         };
 
@@ -2410,7 +2410,7 @@ apply_intended_configuration (MsdXrandrManager *manager, const char *intended_fi
         if (!result) {
                 if (my_error) {
                         if (!g_error_matches (my_error, G_FILE_ERROR, G_FILE_ERROR_NOENT) &&
-                            !g_error_matches (my_error, MATE_RR_ERROR, MATE_RR_ERROR_NO_MATCHING_CONFIG))
+                            !g_error_matches (my_error, CAFE_RR_ERROR, CAFE_RR_ERROR_NO_MATCHING_CONFIG))
                                 error_message (manager, _("Could not apply the stored configuration for monitors"), my_error, NULL);
 
                         g_error_free (my_error);

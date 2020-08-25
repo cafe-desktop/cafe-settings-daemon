@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -143,7 +143,7 @@ msgstr "NumLock-ന്റെ അവസ്ഥ ഓര്‍മ്മിക്ക�
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
 "ശരിയെന്നു് സജ്ജീകരിച്ചാല്‍ ഗ്നോം നംലോക്ക് എന്ന എല്‍ഇഡിയുടെ അവസ്ഥ "
@@ -687,7 +687,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -850,7 +850,7 @@ msgid ""
 msgstr ""
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
+msgid "CAFE Settings Daemon"
 msgstr "ഗ്നോമിലെ സജ്ജീകരണങ്ങളുടെ നിരന്തരപ്രവൃത്തി"
 
 #: mate-settings-daemon/main.c:65

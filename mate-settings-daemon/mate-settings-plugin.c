@@ -47,15 +47,15 @@ mate_settings_plugin_init (MateSettingsPlugin *plugin)
 void
 mate_settings_plugin_activate (MateSettingsPlugin *plugin)
 {
-        g_return_if_fail (MATE_IS_SETTINGS_PLUGIN (plugin));
+        g_return_if_fail (CAFE_IS_SETTINGS_PLUGIN (plugin));
 
-        MATE_SETTINGS_PLUGIN_GET_CLASS (plugin)->activate (plugin);
+        CAFE_SETTINGS_PLUGIN_GET_CLASS (plugin)->activate (plugin);
 }
 
 void
 mate_settings_plugin_deactivate  (MateSettingsPlugin *plugin)
 {
-        g_return_if_fail (MATE_IS_SETTINGS_PLUGIN (plugin));
+        g_return_if_fail (CAFE_IS_SETTINGS_PLUGIN (plugin));
 
-        MATE_SETTINGS_PLUGIN_GET_CLASS (plugin)->deactivate (plugin);
+        CAFE_SETTINGS_PLUGIN_GET_CLASS (plugin)->deactivate (plugin);
 }

@@ -38,7 +38,7 @@
     <key name="remember-numlock-state" type="b">
       <default>true</default>
       <summary>Remember NumLock state</summary>
-      <description>When set to true, MATE will remember the state of the NumLock LED between sessions.</description>
+      <description>When set to true, CAFE will remember the state of the NumLock LED between sessions.</description>
     </key>
     <key name="numlock-state" enum="org.mate.peripherals-keyboard.NumLockState">
       <default>'unknown'</default>

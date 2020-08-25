@@ -31,7 +31,7 @@ struct MsdKeybindingsPluginPrivate {
         MsdKeybindingsManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeybindingsPlugin, msd_keybindings_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeybindingsPlugin, msd_keybindings_plugin)
 
 static void
 msd_keybindings_plugin_init (MsdKeybindingsPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_keybindings_plugin_class_init (MsdKeybindingsPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_keybindings_plugin_finalize;
 

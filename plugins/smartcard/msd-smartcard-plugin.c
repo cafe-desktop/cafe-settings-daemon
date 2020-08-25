@@ -60,7 +60,7 @@ typedef enum
 #define MSD_SMARTCARD_SCHEMA "org.mate.peripherals-smartcard"
 #define KEY_REMOVE_ACTION "removal-action"
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSmartcardPlugin, msd_smartcard_plugin);
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSmartcardPlugin, msd_smartcard_plugin);
 
 static void
 simulate_user_activity (MsdSmartcardPlugin *plugin)
@@ -327,7 +327,7 @@ static void
 msd_smartcard_plugin_class_init (MsdSmartcardPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_smartcard_plugin_finalize;
 

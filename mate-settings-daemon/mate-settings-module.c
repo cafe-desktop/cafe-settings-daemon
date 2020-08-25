@@ -52,7 +52,7 @@ mate_settings_module_load (GTypeModule *gmodule)
         MateSettingsModuleRegisterFunc register_func;
         gboolean                        res;
 
-        module = MATE_SETTINGS_MODULE (gmodule);
+        module = CAFE_SETTINGS_MODULE (gmodule);
 
         g_debug ("Loading %s", module->path);
 
@@ -88,7 +88,7 @@ mate_settings_module_load (GTypeModule *gmodule)
 static void
 mate_settings_module_unload (GTypeModule *gmodule)
 {
-        MateSettingsModule *module = MATE_SETTINGS_MODULE (gmodule);
+        MateSettingsModule *module = CAFE_SETTINGS_MODULE (gmodule);
 
         g_debug ("Unloading %s", module->path);
 
@@ -101,7 +101,7 @@ mate_settings_module_unload (GTypeModule *gmodule)
 const gchar *
 mate_settings_module_get_path (MateSettingsModule *module)
 {
-        g_return_val_if_fail (MATE_IS_SETTINGS_MODULE (module), NULL);
+        g_return_val_if_fail (CAFE_IS_SETTINGS_MODULE (module), NULL);
 
         return module->path;
 }
@@ -127,7 +127,7 @@ mate_settings_module_init (MateSettingsModule *module)
 static void
 mate_settings_module_finalize (GObject *object)
 {
-        MateSettingsModule *module = MATE_SETTINGS_MODULE (object);
+        MateSettingsModule *module = CAFE_SETTINGS_MODULE (object);
 
         g_debug ("MateSettingsModule %p finalizing", module);
 
@@ -157,7 +157,7 @@ mate_settings_module_new (const char *path)
                 return NULL;
         }
 
-        result = g_object_new (MATE_TYPE_SETTINGS_MODULE, NULL);
+        result = g_object_new (CAFE_TYPE_SETTINGS_MODULE, NULL);
 
         g_type_module_set_name (G_TYPE_MODULE (result), path);
         result->path = g_strdup (path);

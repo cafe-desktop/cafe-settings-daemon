@@ -42,7 +42,7 @@ main (int argc, char* argv[])
 {
 	MsdBackgroundManager* manager;
 
-	bindtextdomain(GETTEXT_PACKAGE, MATE_SETTINGS_LOCALEDIR);
+	bindtextdomain(GETTEXT_PACKAGE, CAFE_SETTINGS_LOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 	textdomain(GETTEXT_PACKAGE);
 

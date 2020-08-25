@@ -39,15 +39,15 @@
 #include <gdk/gdkx.h>
 #include <gio/gio.h>
 
-#define MATE_DESKTOP_USE_UNSTABLE_API
+#define CAFE_DESKTOP_USE_UNSTABLE_API
 #include <libmate-desktop/mate-bg.h>
 #include <X11/Xatom.h>
 
 #include "mate-settings-profile.h"
 #include "msd-background-manager.h"
 
-#define MATE_SESSION_MANAGER_DBUS_NAME "org.gnome.SessionManager"
-#define MATE_SESSION_MANAGER_DBUS_PATH "/org/gnome/SessionManager"
+#define CAFE_SESSION_MANAGER_DBUS_NAME "org.gnome.SessionManager"
+#define CAFE_SESSION_MANAGER_DBUS_PATH "/org/gnome/SessionManager"
 
 struct MsdBackgroundManagerPrivate {
 	GSettings       *settings;
@@ -75,21 +75,21 @@ static gpointer manager_object = NULL;
 static gboolean
 msd_can_draw_bg (MsdBackgroundManager *manager)
 {
-	return g_settings_get_boolean (manager->priv->settings, MATE_BG_KEY_DRAW_BACKGROUND);
+	return g_settings_get_boolean (manager->priv->settings, CAFE_BG_KEY_DRAW_BACKGROUND);
 }
 
 /* Whether to change background with a fade effect */
 static gboolean
 can_fade_bg (MsdBackgroundManager *manager)
 {
-	return g_settings_get_boolean (manager->priv->settings, MATE_BG_KEY_BACKGROUND_FADE);
+	return g_settings_get_boolean (manager->priv->settings, CAFE_BG_KEY_BACKGROUND_FADE);
 }
 
 /* Whether Caja is configured to draw desktop (show-desktop-icons) */
 static gboolean
 caja_can_draw_bg (MsdBackgroundManager *manager)
 {
-	return g_settings_get_boolean (manager->priv->settings, MATE_BG_KEY_SHOW_DESKTOP);
+	return g_settings_get_boolean (manager->priv->settings, CAFE_BG_KEY_SHOW_DESKTOP);
 }
 
 static gboolean
@@ -458,9 +458,9 @@ draw_bg_after_session_loads (MsdBackgroundManager *manager)
 	manager->priv->proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SESSION,
 							      flags,
 							      NULL, /* GDBusInterfaceInfo */
-							      MATE_SESSION_MANAGER_DBUS_NAME,
-							      MATE_SESSION_MANAGER_DBUS_PATH,
-							      MATE_SESSION_MANAGER_DBUS_NAME,
+							      CAFE_SESSION_MANAGER_DBUS_NAME,
+							      CAFE_SESSION_MANAGER_DBUS_PATH,
+							      CAFE_SESSION_MANAGER_DBUS_NAME,
 							      NULL, /* GCancellable */
 							      &error);
 	if (manager->priv->proxy == NULL) {
@@ -485,14 +485,14 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 	g_debug ("Starting background manager");
 	mate_settings_profile_start (NULL);
 
-	p->settings = g_settings_new (MATE_BG_SCHEMA);
+	p->settings = g_settings_new (CAFE_BG_SCHEMA);
 
 	p->msd_can_draw = msd_can_draw_bg (manager);
 	p->caja_can_draw = caja_can_draw_bg (manager);
 
-	g_signal_connect (p->settings, "changed::" MATE_BG_KEY_DRAW_BACKGROUND,
+	g_signal_connect (p->settings, "changed::" CAFE_BG_KEY_DRAW_BACKGROUND,
 			  G_CALLBACK (on_bg_handling_changed), manager);
-	g_signal_connect (p->settings, "changed::" MATE_BG_KEY_SHOW_DESKTOP,
+	g_signal_connect (p->settings, "changed::" CAFE_BG_KEY_SHOW_DESKTOP,
 			  G_CALLBACK (on_bg_handling_changed), manager);
 
 	/* If Caja is set to draw the background, it is very likely in our session.

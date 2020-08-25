@@ -20,8 +20,8 @@
  *
  */
 
-#ifndef __MATE_SETTINGS_PROFILE_H
-#define __MATE_SETTINGS_PROFILE_H
+#ifndef __CAFE_SETTINGS_PROFILE_H
+#define __CAFE_SETTINGS_PROFILE_H
 
 #include <glib.h>
 
@@ -54,4 +54,4 @@ void            _mate_settings_profile_log    (const char *func,
 }
 #endif
 
-#endif /* __MATE_SETTINGS_PROFILE_H */
+#endif /* __CAFE_SETTINGS_PROFILE_H */

@@ -55,12 +55,12 @@
 #define KEY_ACCEL_PROFILE                "accel-profile"
 
 /* Mouse settings */
-#define MATE_MOUSE_SCHEMA                "org.mate.peripherals-mouse"
+#define CAFE_MOUSE_SCHEMA                "org.mate.peripherals-mouse"
 #define KEY_MOUSE_LOCATE_POINTER         "locate-pointer"
 #define KEY_MIDDLE_BUTTON_EMULATION      "middle-button-enabled"
 
 /* Touchpad settings */
-#define MATE_TOUCHPAD_SCHEMA             "org.mate.peripherals-touchpad"
+#define CAFE_TOUCHPAD_SCHEMA             "org.mate.peripherals-touchpad"
 #define KEY_TOUCHPAD_DISABLE_W_TYPING    "disable-while-typing"
 #define KEY_TOUCHPAD_TWO_FINGER_CLICK    "two-finger-click"
 #define KEY_TOUCHPAD_THREE_FINGER_CLICK  "three-finger-click"
@@ -77,7 +77,7 @@
 
 
 #if 0   /* FIXME need to fork (?) mousetweaks for this to work */
-#define MATE_MOUSE_A11Y_SCHEMA           "org.mate.accessibility-mouse"
+#define CAFE_MOUSE_A11Y_SCHEMA           "org.mate.accessibility-mouse"
 #define KEY_MOUSE_A11Y_DWELL_ENABLE      "dwell-enable"
 #define KEY_MOUSE_A11Y_DELAY_ENABLE      "delay-enable"
 #endif
@@ -1633,14 +1633,14 @@ set_mousetweaks_daemon (MsdMouseManager *manager,
                         GtkWidget *dialog;
 
                         GSettings *settings;
-                        settings = g_settings_new (MATE_MOUSE_A11Y_SCHEMA);
+                        settings = g_settings_new (CAFE_MOUSE_A11Y_SCHEMA);
                         if (dwell_enable)
                                 g_settings_set_boolean (settings,
-                                                        MATE_MOUSE_A11Y_KEY_DWELL_ENABLE,
+                                                        CAFE_MOUSE_A11Y_KEY_DWELL_ENABLE,
                                                         FALSE);
                         else if (delay_enable)
                                 g_settings_set_boolean (settings,
-                                                        MATE_MOUSE_A11Y_KEY_DELAY_ENABLE,
+                                                        CAFE_MOUSE_A11Y_KEY_DELAY_ENABLE,
                                                         FALSE);
                         g_object_unref (settings);
 
@@ -1763,8 +1763,8 @@ msd_mouse_manager_idle_cb (MsdMouseManager *manager)
 {
         mate_settings_profile_start (NULL);
 
-        manager->priv->settings_mouse = g_settings_new (MATE_MOUSE_SCHEMA);
-        manager->priv->settings_touchpad = g_settings_new (MATE_TOUCHPAD_SCHEMA);
+        manager->priv->settings_mouse = g_settings_new (CAFE_MOUSE_SCHEMA);
+        manager->priv->settings_touchpad = g_settings_new (CAFE_TOUCHPAD_SCHEMA);
 
         g_signal_connect (manager->priv->settings_mouse, "changed",
                           G_CALLBACK (mouse_callback), manager);

@@ -11,7 +11,7 @@ libsmartcard_la_SOURCES = \
 
 libsmartcard_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon \
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
 	-DLIBDIR=\""$(libdir)"\" \
 	-DMSD_SMARTCARD_MANAGER_NSS_DB=\""$(NSS_DATABASE)"\" \
@@ -19,7 +19,7 @@ libsmartcard_la_CPPFLAGS = \
 
 libsmartcard_la_CFLAGS = \
 	$(SETTINGS_PLUGIN_CFLAGS)	\
-	$(MATE_CFLAGS)			\
+	$(CAFE_CFLAGS)			\
 	$(NSS_CFLAGS)			\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)

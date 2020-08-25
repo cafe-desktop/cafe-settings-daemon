@@ -31,7 +31,7 @@ struct MsdHousekeepingPluginPrivate {
         MsdHousekeepingManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdHousekeepingPlugin, msd_housekeeping_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdHousekeepingPlugin, msd_housekeeping_plugin)
 
 static void
 msd_housekeeping_plugin_init (MsdHousekeepingPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_housekeeping_plugin_class_init (MsdHousekeepingPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_housekeeping_plugin_finalize;
 

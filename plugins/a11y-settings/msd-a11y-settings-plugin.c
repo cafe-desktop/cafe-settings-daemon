@@ -31,7 +31,7 @@ struct MsdA11ySettingsPluginPrivate {
         MsdA11ySettingsManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11ySettingsPlugin, msd_a11y_settings_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11ySettingsPlugin, msd_a11y_settings_plugin)
 
 static void
 msd_a11y_settings_plugin_init (MsdA11ySettingsPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_a11y_settings_plugin_class_init (MsdA11ySettingsPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_a11y_settings_plugin_finalize;
 

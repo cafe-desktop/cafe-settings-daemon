@@ -285,7 +285,7 @@ _load_all (MateSettingsManager *manager)
         mate_settings_profile_start (NULL);
 
         /* load system plugins */
-        _load_dir (manager, MATE_SETTINGS_PLUGINDIR G_DIR_SEPARATOR_S);
+        _load_dir (manager, CAFE_SETTINGS_PLUGINDIR G_DIR_SEPARATOR_S);
 
         manager->priv->plugins = g_slist_sort (manager->priv->plugins, (GCompareFunc) compare_priority);
         g_slist_foreach (manager->priv->plugins, (GFunc) maybe_activate_plugin, manager);
@@ -359,8 +359,8 @@ mate_settings_manager_start (MateSettingsManager *manager,
         if (!g_module_supported ()) {
                 g_warning ("mate-settings-daemon is not able to initialize the plugins.");
                 g_set_error (error,
-                             MATE_SETTINGS_MANAGER_ERROR,
-                             MATE_SETTINGS_MANAGER_ERROR_GENERAL,
+                             CAFE_SETTINGS_MANAGER_ERROR,
+                             CAFE_SETTINGS_MANAGER_ERROR_GENERAL,
                              "Plugins not supported");
 
                 goto out;
@@ -389,7 +389,7 @@ mate_settings_manager_dispose (GObject *object)
 {
         MateSettingsManager *manager;
 
-        manager = MATE_SETTINGS_MANAGER (object);
+        manager = CAFE_SETTINGS_MANAGER (object);
 
         mate_settings_manager_stop (manager);
 
@@ -425,7 +425,7 @@ mate_settings_manager_class_init (MateSettingsManagerClass *klass)
                               G_TYPE_NONE,
                               1, G_TYPE_STRING);
 
-        dbus_g_object_type_install_info (MATE_TYPE_SETTINGS_MANAGER, &dbus_glib_mate_settings_manager_object_info);
+        dbus_g_object_type_install_info (CAFE_TYPE_SETTINGS_MANAGER, &dbus_glib_mate_settings_manager_object_info);
 }
 
 static void
@@ -449,9 +449,9 @@ mate_settings_manager_finalize (GObject *object)
         MateSettingsManager *manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MATE_IS_SETTINGS_MANAGER (object));
+        g_return_if_fail (CAFE_IS_SETTINGS_MANAGER (object));
 
-        manager = MATE_SETTINGS_MANAGER (object);
+        manager = CAFE_SETTINGS_MANAGER (object);
 
         g_return_if_fail (manager->priv != NULL);
 
@@ -466,7 +466,7 @@ mate_settings_manager_new (void)
         } else {
                 gboolean res;
 
-                manager_object = g_object_new (MATE_TYPE_SETTINGS_MANAGER,
+                manager_object = g_object_new (CAFE_TYPE_SETTINGS_MANAGER,
                                                NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
@@ -477,5 +477,5 @@ mate_settings_manager_new (void)
                 }
         }
 
-        return MATE_SETTINGS_MANAGER (manager_object);
+        return CAFE_SETTINGS_MANAGER (manager_object);
 }

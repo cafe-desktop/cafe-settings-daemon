@@ -93,7 +93,7 @@
     <key name="control-center" type="s">
       <default>'XF86Tools'</default>
       <summary>Launch settings</summary>
-      <description>Binding to launch MATE settings.</description>
+      <description>Binding to launch CAFE settings.</description>
     </key>
     <key name="screensaver" type="s">
       <default>'&lt;Control&gt;&lt;Alt&gt;l'</default>

@@ -61,13 +61,13 @@ libxrandr_la_SOURCES = 		\
 libxrandr_la_CPPFLAGS =						\
 	-I$(top_srcdir)/mate-settings-daemon			\
 	-DBINDIR=\"$(bindir)\"					\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
 libxrandr_la_CFLAGS =			\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
 	$(LIBNOTIFY_CFLAGS)		\
-	$(MATE_DESKTOP_CFLAGS)		\
+	$(CAFE_DESKTOP_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)
 
@@ -77,7 +77,7 @@ libxrandr_la_LDFLAGS = 			\
 libxrandr_la_LIBADD  =			\
 	$(SETTINGS_PLUGIN_LIBS)		\
 	$(LIBNOTIFY_LIBS)		\
-	$(MATE_DESKTOP_LIBS)
+	$(CAFE_DESKTOP_LIBS)
 
 plugin_in_files =			\
 	xrandr.mate-settings-plugin.desktop.in

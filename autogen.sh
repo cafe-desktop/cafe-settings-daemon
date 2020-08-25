@@ -13,12 +13,12 @@ PKG_NAME="mate-settings-daemon"
 }
 
 which mate-autogen || {
-    echo "You need to install mate-common from the MATE Git"
+    echo "You need to install mate-common from the CAFE Git"
     exit 1
 }
 
 REQUIRED_AUTOMAKE_VERSION=1.9
-USE_MATE2_MACROS=1
+USE_CAFE2_MACROS=1
 USE_COMMON_DOC_BUILD=yes
 
 . mate-autogen

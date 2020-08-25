@@ -38,12 +38,12 @@ libmedia_keys_la_CPPFLAGS = \
 	-I$(top_srcdir)/plugins/common				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
 libmedia_keys_la_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
-	$(LIBMATEMIXER_CFLAGS)		\
+	$(LIBCAFEMIXER_CFLAGS)		\
 	$(LIBCANBERRA_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)			\
@@ -55,7 +55,7 @@ libmedia_keys_la_LDFLAGS = 		\
 libmedia_keys_la_LIBADD  = \
 	$(top_builddir)/plugins/common/libcommon.la \
 	$(SETTINGS_PLUGIN_LIBS) \
-	$(LIBMATEMIXER_LIBS) \
+	$(LIBCAFEMIXER_LIBS) \
 	$(LIBCANBERRA_LIBS) \
 	-lm
 
@@ -81,7 +81,7 @@ test_media_window_CPPFLAGS = \
 	-DDATADIR=\""$(datadir)"\"				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
 test_media_window_CFLAGS =		\
@@ -111,12 +111,12 @@ test_media_keys_CPPFLAGS = \
 	-I$(top_srcdir)/plugins/common				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
 test_media_keys_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
-	$(LIBMATEMIXER_CFLAGS)		\
+	$(LIBCAFEMIXER_CFLAGS)		\
 	$(LIBCANBERRA_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)			\
@@ -127,7 +127,7 @@ test_media_keys_LDADD = \
 	$(top_builddir)/plugins/common/libcommon.la \
 	$(SETTINGS_DAEMON_LIBS) \
 	$(SETTINGS_PLUGIN_LIBS) \
-	$(LIBMATEMIXER_LIBS) \
+	$(LIBCAFEMIXER_LIBS) \
 	$(LIBCANBERRA_LIBS) \
 	-lm
 

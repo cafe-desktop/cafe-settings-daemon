@@ -32,7 +32,7 @@
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
 
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
 #include <libmatemixer/matemixer.h>
 #endif
 
@@ -65,7 +65,7 @@ typedef struct {
 
 struct _MsdMediaKeysManagerPrivate
 {
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
         /* Volume bits */
         MateMixerContext       *context;
         MateMixerStream        *stream;
@@ -656,7 +656,7 @@ do_touchpad_action (MsdMediaKeysManager *manager)
         g_object_unref (settings);
 }
 
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
 static void
 update_dialog (MsdMediaKeysManager *manager,
                guint                volume,
@@ -808,8 +808,8 @@ update_default_output (MsdMediaKeysManager *manager)
 
                 /* Do not use the stream if it is not possible to mute it or
                  * change the volume */
-                if (!(flags & MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE) &&
-                    !(flags & MATE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE))
+                if (!(flags & CAFE_MIXER_STREAM_CONTROL_MUTE_WRITABLE) &&
+                    !(flags & CAFE_MIXER_STREAM_CONTROL_VOLUME_WRITABLE))
                         return;
 
                 manager->priv->stream  = g_object_ref (stream);
@@ -841,7 +841,7 @@ update_default_input (MsdMediaKeysManager *manager)
 
                 /* Do not use the stream if it is not possible to mute it or
                  * change the volume */
-                if (!(flags & MATE_MIXER_STREAM_CONTROL_MUTE_WRITABLE))
+                if (!(flags & CAFE_MIXER_STREAM_CONTROL_MUTE_WRITABLE))
                         return;
 
                 manager->priv->source_stream  = g_object_ref (stream);
@@ -901,7 +901,7 @@ on_context_stream_removed (MateMixerContext    *context,
                 }
         }
 }
-#endif /* HAVE_LIBMATEMIXER */
+#endif /* HAVE_LIBCAFEMIXER */
 
 static gboolean
 get_rfkill_property (MsdMediaKeysManager *manager,
@@ -1198,22 +1198,22 @@ do_action (MsdMediaKeysManager *manager,
         case VOLUME_DOWN_KEY:
         case VOLUME_UP_KEY:
         case MIC_MUTE_KEY:
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
                 do_sound_action (manager, type, FALSE);
 #endif
                 break;
         case MUTE_QUIET_KEY:
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
                 do_sound_action (manager, MUTE_KEY, TRUE);
 #endif
                 break;
         case VOLUME_DOWN_QUIET_KEY:
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
                 do_sound_action (manager, VOLUME_DOWN_KEY, TRUE);
 #endif
                 break;
         case VOLUME_UP_QUIET_KEY:
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
                 do_sound_action (manager, VOLUME_UP_KEY, TRUE);
 #endif
                 break;
@@ -1475,7 +1475,7 @@ msd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
 {
         mate_settings_profile_start (NULL);
 
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
         if (G_LIKELY (mate_mixer_is_initialized ())) {
                 mate_settings_profile_start ("mate_mixer_context_new");
 
@@ -1576,7 +1576,7 @@ msd_media_keys_manager_stop (MsdMediaKeysManager *manager)
                 g_clear_object (&priv->rfkill_cancellable);
         }
 
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
         g_clear_object (&priv->stream);
         g_clear_object (&priv->source_stream);
         g_clear_object (&priv->control);

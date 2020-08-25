@@ -31,7 +31,7 @@ struct MsdMousePluginPrivate {
         MsdMouseManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMousePlugin, msd_mouse_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMousePlugin, msd_mouse_plugin)
 
 static void
 msd_mouse_plugin_init (MsdMousePlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_mouse_plugin_class_init (MsdMousePluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_mouse_plugin_finalize;
 

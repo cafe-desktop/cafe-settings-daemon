@@ -31,7 +31,7 @@ struct MsdXrdbPluginPrivate {
         MsdXrdbManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdXrdbPlugin, msd_xrdb_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdXrdbPlugin, msd_xrdb_plugin)
 
 static void
 msd_xrdb_plugin_init (MsdXrdbPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_xrdb_plugin_class_init (MsdXrdbPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_xrdb_plugin_finalize;
 

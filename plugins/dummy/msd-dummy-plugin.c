@@ -31,7 +31,7 @@ struct MsdDummyPluginPrivate {
         MsdDummyManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdDummyPlugin, msd_dummy_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdDummyPlugin, msd_dummy_plugin)
 
 static void
 msd_dummy_plugin_init (MsdDummyPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_dummy_plugin_class_init (MsdDummyPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_dummy_plugin_finalize;
 

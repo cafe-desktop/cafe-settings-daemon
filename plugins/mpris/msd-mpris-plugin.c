@@ -33,7 +33,7 @@ struct MsdMprisPluginPrivate {
         MsdMprisManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMprisPlugin, msd_mpris_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMprisPlugin, msd_mpris_plugin)
 
 static void
 msd_mpris_plugin_init (MsdMprisPlugin *plugin)
@@ -93,7 +93,7 @@ static void
 msd_mpris_plugin_class_init (MsdMprisPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_mpris_plugin_finalize;
 

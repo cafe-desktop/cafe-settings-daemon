@@ -55,7 +55,7 @@ man_MANS = \
 	msd-locate-pointer.1
 
 #disabled until we support it
-xmldir = @MATE_KEYBINDINGS_KEYSDIR@
+xmldir = @CAFE_KEYBINDINGS_KEYSDIR@
 xml_in_files = 50-accessibility.xml.in
 xml_DATA = $(xml_in_files:.xml.in=.xml)
 

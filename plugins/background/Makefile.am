@@ -12,19 +12,19 @@ test_background_SOURCES = 		\
 
 test_background_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 test_background_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
-	$(MATE_DESKTOP_CFLAGS)		\
+	$(CAFE_DESKTOP_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)
 
 test_background_LDADD =		\
 	$(top_builddir)/mate-settings-daemon/libmsd-profile.la	\
 	$(SETTINGS_PLUGIN_LIBS)	\
-	$(MATE_DESKTOP_LIBS)		\
+	$(CAFE_DESKTOP_LIBS)		\
 	$(X11_LIBS) \
 	$(NULL)
 
@@ -42,12 +42,12 @@ libbackground_la_SOURCES = 		\
 libbackground_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
 	-I$(top_srcdir)/plugins/background/libbackground   \
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libbackground_la_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
-	$(MATE_DESKTOP_CFLAGS)		\
+	$(CAFE_DESKTOP_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)
 
@@ -57,7 +57,7 @@ libbackground_la_LDFLAGS = 		\
 
 libbackground_la_LIBADD  = 		\
 	$(SETTINGS_PLUGIN_LIBS)		\
-	$(MATE_DESKTOP_LIBS)		\
+	$(CAFE_DESKTOP_LIBS)		\
 	$(NULL)
 
 plugin_in_files = 		\

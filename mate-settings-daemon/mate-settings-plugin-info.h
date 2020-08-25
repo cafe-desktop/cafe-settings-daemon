@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MATE_SETTINGS_PLUGIN_INFO_H__
-#define __MATE_SETTINGS_PLUGIN_INFO_H__
+#ifndef __CAFE_SETTINGS_PLUGIN_INFO_H__
+#define __CAFE_SETTINGS_PLUGIN_INFO_H__
 
 #include <glib-object.h>
 #include <gmodule.h>
@@ -27,12 +27,12 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define MATE_TYPE_SETTINGS_PLUGIN_INFO              (mate_settings_plugin_info_get_type())
-#define MATE_SETTINGS_PLUGIN_INFO(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), MATE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfo))
-#define MATE_SETTINGS_PLUGIN_INFO_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  MATE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoClass))
-#define MATE_IS_SETTINGS_PLUGIN_INFO(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), MATE_TYPE_SETTINGS_PLUGIN_INFO))
-#define MATE_IS_SETTINGS_PLUGIN_INFO_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), MATE_TYPE_SETTINGS_PLUGIN_INFO))
-#define MATE_SETTINGS_PLUGIN_INFO_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj),  MATE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoClass))
+#define CAFE_TYPE_SETTINGS_PLUGIN_INFO              (mate_settings_plugin_info_get_type())
+#define CAFE_SETTINGS_PLUGIN_INFO(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfo))
+#define CAFE_SETTINGS_PLUGIN_INFO_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoClass))
+#define CAFE_IS_SETTINGS_PLUGIN_INFO(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CAFE_TYPE_SETTINGS_PLUGIN_INFO))
+#define CAFE_IS_SETTINGS_PLUGIN_INFO_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CAFE_TYPE_SETTINGS_PLUGIN_INFO))
+#define CAFE_SETTINGS_PLUGIN_INFO_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj),  CAFE_TYPE_SETTINGS_PLUGIN_INFO, MateSettingsPluginInfoClass))
 
 typedef struct MateSettingsPluginInfoPrivate MateSettingsPluginInfoPrivate;
 
@@ -77,4 +77,4 @@ void             mate_settings_plugin_info_set_schema      (MateSettingsPluginIn
 }
 #endif
 
-#endif  /* __MATE_SETTINGS_PLUGIN_INFO_H__ */
+#endif  /* __CAFE_SETTINGS_PLUGIN_INFO_H__ */

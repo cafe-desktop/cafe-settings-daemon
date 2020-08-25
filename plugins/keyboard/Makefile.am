@@ -27,12 +27,12 @@ libkeyboard_la_SOURCES = 	\
 libkeyboard_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
 	-DDATADIR=\""$(pkgdatadir)"\"	\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libkeyboard_la_CFLAGS =			\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
-	$(LIBMATEKBDUI_CFLAGS)		\
+	$(LIBCAFEKBDUI_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)			\
 	$(NULL)
@@ -43,7 +43,7 @@ libkeyboard_la_LDFLAGS = 	\
 
 libkeyboard_la_LIBADD  = 	\
 	$(SETTINGS_PLUGIN_LIBS)	\
-	$(LIBMATEKBDUI_LIBS)	\
+	$(LIBCAFEKBDUI_LIBS)	\
 	$(NULL)
 
 plugin_in_files = 		\

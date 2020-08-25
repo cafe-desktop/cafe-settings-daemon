@@ -50,7 +50,7 @@ struct MsdSoundManagerPrivate
         guint timeout;
 };
 
-#define MATE_SOUND_SCHEMA "org.mate.sound"
+#define CAFE_SOUND_SCHEMA "org.mate.sound"
 
 static void msd_sound_manager_finalize (GObject *object);
 
@@ -265,7 +265,7 @@ msd_sound_manager_start (MsdSoundManager *manager,
 #ifdef HAVE_PULSE
 
         /* We listen for change of the selected theme ... */
-        manager->priv->settings = g_settings_new (MATE_SOUND_SCHEMA);
+        manager->priv->settings = g_settings_new (CAFE_SOUND_SCHEMA);
 
         g_signal_connect (manager->priv->settings, "changed",  G_CALLBACK (gsettings_notify_cb), manager);
 

@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MATE_SETTINGS_MANAGER_H
-#define __MATE_SETTINGS_MANAGER_H
+#ifndef __CAFE_SETTINGS_MANAGER_H
+#define __CAFE_SETTINGS_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MATE_TYPE_SETTINGS_MANAGER         (mate_settings_manager_get_type ())
-#define MATE_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MATE_TYPE_SETTINGS_MANAGER, MateSettingsManager))
-#define MATE_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MATE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
-#define MATE_IS_SETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MATE_TYPE_SETTINGS_MANAGER))
-#define MATE_IS_SETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MATE_TYPE_SETTINGS_MANAGER))
-#define MATE_SETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MATE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
+#define CAFE_TYPE_SETTINGS_MANAGER         (mate_settings_manager_get_type ())
+#define CAFE_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManager))
+#define CAFE_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
+#define CAFE_IS_SETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_SETTINGS_MANAGER))
+#define CAFE_IS_SETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CAFE_TYPE_SETTINGS_MANAGER))
+#define CAFE_SETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
 
 typedef struct MateSettingsManagerPrivate MateSettingsManagerPrivate;
 
@@ -54,7 +54,7 @@ typedef struct
 
 typedef enum
 {
-        MATE_SETTINGS_MANAGER_ERROR_GENERAL
+        CAFE_SETTINGS_MANAGER_ERROR_GENERAL
 } MateSettingsManagerError;
 
 enum
@@ -64,7 +64,7 @@ enum
         PLUGIN_LOAD_DEFER
 };
 
-#define MATE_SETTINGS_MANAGER_ERROR mate_settings_manager_error_quark ()
+#define CAFE_SETTINGS_MANAGER_ERROR mate_settings_manager_error_quark ()
 
 GQuark                 mate_settings_manager_error_quark         (void);
 GType                  mate_settings_manager_get_type   (void);
@@ -83,4 +83,4 @@ gboolean               mate_settings_manager_awake      (MateSettingsManager *ma
 }
 #endif
 
-#endif /* __MATE_SETTINGS_MANAGER_H */
+#endif /* __CAFE_SETTINGS_MANAGER_H */

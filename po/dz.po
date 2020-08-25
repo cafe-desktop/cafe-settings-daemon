@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -125,7 +125,7 @@ msgstr "ཨང་ལྡེའི་གནས་ལུགས་ སེམས་�
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
 "བདེན་པ་གུ་གཞི་སྒྲིག་འབདཝ་ད་ཇི་ནོམ་གྱིས་ ལཱ་ཡུན་ཚུ་གི་བར་ན་ ཨང་ལྡེའི་ "
@@ -660,7 +660,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -821,7 +821,7 @@ msgid ""
 msgstr ""
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
+msgid "CAFE Settings Daemon"
 msgstr ""
 
 #: mate-settings-daemon/main.c:65

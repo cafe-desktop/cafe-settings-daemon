@@ -31,7 +31,7 @@ struct MsdXrandrPluginPrivate {
         MsdXrandrManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdXrandrPlugin, msd_xrandr_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdXrandrPlugin, msd_xrandr_plugin)
 
 static void
 msd_xrandr_plugin_init (MsdXrandrPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_xrandr_plugin_class_init (MsdXrandrPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_xrandr_plugin_finalize;
 

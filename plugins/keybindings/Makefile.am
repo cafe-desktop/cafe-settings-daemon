@@ -16,7 +16,7 @@ libkeybindings_la_SOURCES = 		\
 libkeybindings_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
 	-I$(top_srcdir)/plugins/common			\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libkeybindings_la_CFLAGS =		\

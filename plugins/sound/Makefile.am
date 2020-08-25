@@ -9,12 +9,12 @@ libsound_la_SOURCES = \
 
 libsound_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon \
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libsound_la_CFLAGS = \
 	$(SETTINGS_PLUGIN_CFLAGS) \
-	$(MATE_CFLAGS) \
+	$(CAFE_CFLAGS) \
 	$(PULSE_CFLAGS) \
 	$(AM_CFLAGS) \
 	$(WARN_CFLAGS)

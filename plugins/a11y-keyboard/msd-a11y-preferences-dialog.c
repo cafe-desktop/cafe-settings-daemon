@@ -659,7 +659,7 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
                 gtk_widget_set_sensitive (widget, FALSE);
         }
         gtk_widget_set_no_show_all (widget, TRUE);
-        if (config_have_at_gsettings_condition ("MATE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_KEYBOARD_ENABLED)) {
+        if (config_have_at_gsettings_condition ("CAFE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_KEYBOARD_ENABLED)) {
                 gtk_widget_show_all (widget);
         } else {
                 gtk_widget_hide (widget);
@@ -678,7 +678,7 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
                 gtk_widget_set_sensitive (widget, FALSE);
         }
         gtk_widget_set_no_show_all (widget, TRUE);
-        if (config_have_at_gsettings_condition ("MATE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_READER_ENABLED)) {
+        if (config_have_at_gsettings_condition ("CAFE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_READER_ENABLED)) {
                 gtk_widget_show_all (widget);
         } else {
                 gtk_widget_hide (widget);
@@ -697,7 +697,7 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
                 gtk_widget_set_sensitive (widget, FALSE);
         }
         gtk_widget_set_no_show_all (widget, TRUE);
-        if (config_have_at_gsettings_condition ("MATE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_MAGNIFIER_ENABLED)) {
+        if (config_have_at_gsettings_condition ("CAFE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_MAGNIFIER_ENABLED)) {
                 gtk_widget_show_all (widget);
         } else {
                 gtk_widget_hide (widget);

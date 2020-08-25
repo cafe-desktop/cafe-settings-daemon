@@ -31,7 +31,7 @@ struct MsdClipboardPluginPrivate {
         MsdClipboardManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdClipboardPlugin, msd_clipboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdClipboardPlugin, msd_clipboard_plugin)
 
 static void
 msd_clipboard_plugin_init (MsdClipboardPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_clipboard_plugin_class_init (MsdClipboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_clipboard_plugin_finalize;
 

@@ -13,7 +13,7 @@ libtyping_break_la_SOURCES = 		\
 
 libtyping_break_la_CPPFLAGS = \
 	-I$(top_srcdir)/mate-settings-daemon		\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
 libtyping_break_la_CFLAGS =		\

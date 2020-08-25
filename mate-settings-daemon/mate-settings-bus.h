@@ -19,8 +19,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef __MATE_SETTINGS_BUS_H
-#define __MATE_SETTINGS_BUS_H
+#ifndef __CAFE_SETTINGS_BUS_H
+#define __CAFE_SETTINGS_BUS_H
 
 #include <glib-object.h>
 
@@ -30,4 +30,4 @@ char *                    mate_settings_get_chassis_type            (void);
 
 G_END_DECLS
 
-#endif /* __MATE_SETTINGS_BUS_H */
+#endif /* __CAFE_SETTINGS_BUS_H */

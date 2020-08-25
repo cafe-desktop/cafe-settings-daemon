@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -138,9 +138,9 @@ msgstr "NumLock の状態を保存する"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
-msgstr "TRUE にすると、MATE が NumLock の LED の状態をセッションをまたいで記憶します。"
+msgstr "TRUE にすると、CAFE が NumLock の LED の状態をセッションをまたいで記憶します。"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
@@ -443,7 +443,7 @@ msgstr "このプラグインの有効化"
 #: data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml.in:6
 #: data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml.in:6
 msgid "Whether this plugin would be activated by mate-settings-daemon or not"
-msgstr "このプラグインを MATE設定デーモンで有効にするかどうか"
+msgstr "このプラグインを CAFE設定デーモンで有効にするかどうか"
 
 #: data/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:10
 #: data/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:10
@@ -485,7 +485,7 @@ msgstr "このプラグインを利用する優先度"
 #: data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml.in:11
 #: data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml.in:11
 msgid "Priority to use for this plugin in mate-settings-daemon startup queue"
-msgstr "MATE設定デーモンのスタートアップキューでのこのプラグインの優先度"
+msgstr "CAFE設定デーモンのスタートアップキューでのこのプラグインの優先度"
 
 #: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:15
 msgid "Free percentage notify threshold"
@@ -669,7 +669,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -796,7 +796,7 @@ msgid ""
 "configuration)."
 msgstr ""
 "通常、 "
-"MATE設定デーモンは、スタートアップ時に外部モニタやラップトップモニタがオンになっているかどうかを検出して内蔵および外付けのモニタを設定し、クローンモードとサイドバイサイドモードのどちらが適切かを判断します。これらの機能はこのキーをTrueにすることで無効にすることができ、モニタの設定には(明示的なユーザ設定がある場合を除き)一切関与しなくなります。"
+"CAFE設定デーモンは、スタートアップ時に外部モニタやラップトップモニタがオンになっているかどうかを検出して内蔵および外付けのモニタを設定し、クローンモードとサイドバイサイドモードのどちらが適切かを判断します。これらの機能はこのキーをTrueにすることで無効にすることができ、モニタの設定には(明示的なユーザ設定がある場合を除き)一切関与しなくなります。"
 
 #: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:25
 msgid "Turn on external monitor after system boot"
@@ -836,8 +836,8 @@ msgstr ""
 "と同様のものです。もしそのようなファイルが無い場合、あるいはあったとしてもモニタの設定に合わない場合、このキーで指定されたファイルが代わりに使われます。"
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
-msgstr "MATE 設定デーモン"
+msgid "CAFE Settings Daemon"
+msgstr "CAFE 設定デーモン"
 
 #: mate-settings-daemon/main.c:65
 msgid "Enable debugging code"

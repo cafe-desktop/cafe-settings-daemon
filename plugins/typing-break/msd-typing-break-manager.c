@@ -41,7 +41,7 @@
 #include "mate-settings-profile.h"
 #include "msd-typing-break-manager.h"
 
-#define MATE_BREAK_SCHEMA "org.mate.typing-break"
+#define CAFE_BREAK_SCHEMA "org.mate.typing-break"
 
 struct MsdTypingBreakManagerPrivate
 {
@@ -157,7 +157,7 @@ msd_typing_break_manager_start (MsdTypingBreakManager *manager,
         g_debug ("Starting typing_break manager");
         mate_settings_profile_start (NULL);
 
-        manager->priv->settings = g_settings_new (MATE_BREAK_SCHEMA);
+        manager->priv->settings = g_settings_new (CAFE_BREAK_SCHEMA);
 
         g_signal_connect (manager->priv->settings,
                           "changed::enabled",

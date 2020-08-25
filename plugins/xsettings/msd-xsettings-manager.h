@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MATE_XSETTINGS_MANAGER_H
-#define __MATE_XSETTINGS_MANAGER_H
+#ifndef __CAFE_XSETTINGS_MANAGER_H
+#define __CAFE_XSETTINGS_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MATE_TYPE_XSETTINGS_MANAGER         (mate_xsettings_manager_get_type ())
-#define MATE_XSETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MATE_TYPE_XSETTINGS_MANAGER, MateXSettingsManager))
-#define MATE_XSETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MATE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
-#define MATE_IS_XSETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MATE_TYPE_XSETTINGS_MANAGER))
-#define MATE_IS_XSETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MATE_TYPE_XSETTINGS_MANAGER))
-#define MATE_XSETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MATE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
+#define CAFE_TYPE_XSETTINGS_MANAGER         (mate_xsettings_manager_get_type ())
+#define CAFE_XSETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManager))
+#define CAFE_XSETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
+#define CAFE_IS_XSETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_XSETTINGS_MANAGER))
+#define CAFE_IS_XSETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CAFE_TYPE_XSETTINGS_MANAGER))
+#define CAFE_XSETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
 
 typedef struct MateXSettingsManagerPrivate MateXSettingsManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    mate_xsettings_manager_stop                (MateXSetting
 }
 #endif
 
-#endif /* __MATE_XSETTINGS_MANAGER_H */
+#endif /* __CAFE_XSETTINGS_MANAGER_H */

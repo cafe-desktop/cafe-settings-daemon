@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -131,9 +131,9 @@ msgstr "記住 NumLock 狀態"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
-msgstr "設定為真時，MATE 將記住 NumLock LED 於作業階段之間的狀態。"
+msgstr "設定為真時，CAFE 將記住 NumLock LED 於作業階段之間的狀態。"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
@@ -659,7 +659,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -826,8 +826,8 @@ msgstr ""
 "~/.config/monitors.xml。如果使用者沒有這個檔案，或是雖然有卻不符含使用者的螢幕設定，就會以這個設定鍵指定的檔案來代替。"
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
-msgstr "MATE 設定值守護程式"
+msgid "CAFE Settings Daemon"
+msgstr "CAFE 設定值守護程式"
 
 #: mate-settings-daemon/main.c:65
 msgid "Enable debugging code"

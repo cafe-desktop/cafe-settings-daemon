@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -141,7 +141,7 @@ msgstr "Памти стање закључаних бројева"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
 "Када је постављено, Мејт ће памтити стање ЛЕД лампице тастера закључаних "
@@ -724,7 +724,7 @@ msgid "Launch settings"
 msgstr "Подешавања покретања"
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr "Пречица за покретање Мејтових подешавања."
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -901,7 +901,7 @@ msgstr ""
 "нема такве датотеке, или се она не поклапа са подешавањима екрана."
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
+msgid "CAFE Settings Daemon"
 msgstr "Мејтов услужник подешавања"
 
 #: mate-settings-daemon/main.c:65

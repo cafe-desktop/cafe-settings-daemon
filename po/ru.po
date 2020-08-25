@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -145,10 +145,10 @@ msgstr "Запоминать состояние NumLock"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Если этот ключ установлен, MATE будет сохранять состояние индикатора NumLock"
+"Если этот ключ установлен, CAFE будет сохранять состояние индикатора NumLock"
 " между сеансами."
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:45
@@ -736,8 +736,8 @@ msgid "Launch settings"
 msgstr "Параметры запуска"
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
-msgstr "Комбинация клавиш для запуска настроек MATE."
+msgid "Binding to launch CAFE settings."
+msgstr "Комбинация клавиш для запуска настроек CAFE."
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
 msgid "Lock screen"
@@ -913,8 +913,8 @@ msgstr ""
 " будет использоваться указанный в данном ключе файл."
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
-msgstr "Демон параметров MATE"
+msgid "CAFE Settings Daemon"
+msgstr "Демон параметров CAFE"
 
 #: mate-settings-daemon/main.c:65
 msgid "Enable debugging code"

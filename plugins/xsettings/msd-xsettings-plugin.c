@@ -31,7 +31,7 @@ struct MateXSettingsPluginPrivate {
         MateXSettingsManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MateXSettingsPlugin, mate_xsettings_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MateXSettingsPlugin, mate_xsettings_plugin)
 
 static void
 mate_xsettings_plugin_init (MateXSettingsPlugin *plugin)
@@ -49,11 +49,11 @@ mate_xsettings_plugin_finalize (GObject *object)
         MateXSettingsPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MATE_IS_XSETTINGS_PLUGIN (object));
+        g_return_if_fail (CAFE_IS_XSETTINGS_PLUGIN (object));
 
         g_debug ("MateXSettingsPlugin finalizing");
 
-        plugin = MATE_XSETTINGS_PLUGIN (object);
+        plugin = CAFE_XSETTINGS_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -73,7 +73,7 @@ impl_activate (MateSettingsPlugin *plugin)
         g_debug ("Activating xsettings plugin");
 
         error = NULL;
-        res = mate_xsettings_manager_start (MATE_XSETTINGS_PLUGIN (plugin)->priv->manager, &error);
+        res = mate_xsettings_manager_start (CAFE_XSETTINGS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start xsettings manager: %s", error->message);
                 g_error_free (error);
@@ -84,14 +84,14 @@ static void
 impl_deactivate (MateSettingsPlugin *plugin)
 {
         g_debug ("Deactivating xsettings plugin");
-        mate_xsettings_manager_stop (MATE_XSETTINGS_PLUGIN (plugin)->priv->manager);
+        mate_xsettings_manager_stop (CAFE_XSETTINGS_PLUGIN (plugin)->priv->manager);
 }
 
 static void
 mate_xsettings_plugin_class_init (MateXSettingsPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = mate_xsettings_plugin_finalize;
 

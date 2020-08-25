@@ -43,8 +43,8 @@
 
 #define GTK_RESPONSE_PRINT 2
 
-#define MATEKBD_DESKTOP_SCHEMA "org.mate.peripherals-keyboard-xkb.general"
-#define MATEKBD_KBD_SCHEMA "org.mate.peripherals-keyboard-xkb.kbd"
+#define CAFEKBD_DESKTOP_SCHEMA "org.mate.peripherals-keyboard-xkb.general"
+#define CAFEKBD_KBD_SCHEMA "org.mate.peripherals-keyboard-xkb.kbd"
 
 #define KNOWN_FILES_KEY "known-file-list"
 #define DISABLE_INDICATOR_KEY "disable-indicator"
@@ -585,8 +585,8 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 	if (xkl_engine) {
 		inited_ok = TRUE;
 
-		settings_desktop = g_settings_new (MATEKBD_DESKTOP_SCHEMA);
-		settings_kbd = g_settings_new (MATEKBD_KBD_SCHEMA);
+		settings_desktop = g_settings_new (CAFEKBD_DESKTOP_SCHEMA);
+		settings_kbd = g_settings_new (CAFEKBD_KBD_SCHEMA);
 
 		matekbd_desktop_config_init (&current_desktop_config,
 		                             xkl_engine);

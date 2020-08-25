@@ -49,10 +49,10 @@
 #define DEBUG_KEY             "mate-settings-daemon"
 #define DEBUG_SCHEMA          "org.mate.debug"
 
-#define MATE_SESSION_DBUS_NAME      "org.gnome.SessionManager"
-#define MATE_SESSION_DBUS_OBJECT    "/org/gnome/SessionManager"
-#define MATE_SESSION_DBUS_INTERFACE "org.gnome.SessionManager"
-#define MATE_SESSION_PRIVATE_DBUS_INTERFACE "org.gnome.SessionManager.ClientPrivate"
+#define CAFE_SESSION_DBUS_NAME      "org.gnome.SessionManager"
+#define CAFE_SESSION_DBUS_OBJECT    "/org/gnome/SessionManager"
+#define CAFE_SESSION_DBUS_INTERFACE "org.gnome.SessionManager"
+#define CAFE_SESSION_PRIVATE_DBUS_INTERFACE "org.gnome.SessionManager.ClientPrivate"
 
 /* this is kept only for compatibility with custom .desktop files */
 static gboolean   no_daemon    = TRUE;
@@ -327,9 +327,9 @@ set_session_over_handler (DBusGConnection *bus, MateSettingsManager *manager)
 
         session_proxy =
                  dbus_g_proxy_new_for_name (bus,
-                                            MATE_SESSION_DBUS_NAME,
-                                            MATE_SESSION_DBUS_OBJECT,
-                                            MATE_SESSION_DBUS_INTERFACE);
+                                            CAFE_SESSION_DBUS_NAME,
+                                            CAFE_SESSION_DBUS_OBJECT,
+                                            CAFE_SESSION_DBUS_INTERFACE);
 
         dbus_g_object_register_marshaller (
                 g_cclosure_marshal_VOID__VOID,
@@ -363,8 +363,8 @@ set_session_over_handler (DBusGConnection *bus, MateSettingsManager *manager)
                 }
                 else {
                         /* get org.gnome.SessionManager.ClientPrivate interface */
-                        private_proxy = dbus_g_proxy_new_for_name_owner (bus, MATE_SESSION_DBUS_NAME,
-                                                                         client_id, MATE_SESSION_PRIVATE_DBUS_INTERFACE,
+                        private_proxy = dbus_g_proxy_new_for_name_owner (bus, CAFE_SESSION_DBUS_NAME,
+                                                                         client_id, CAFE_SESSION_PRIVATE_DBUS_INTERFACE,
                                                                          &error);
                         if (private_proxy == NULL) {
                                 g_warning ("DBUS error: %s", error->message);
@@ -469,7 +469,7 @@ main (int argc, char *argv[])
 
         mate_settings_profile_start (NULL);
 
-        bindtextdomain (GETTEXT_PACKAGE, MATE_SETTINGS_LOCALEDIR);
+        bindtextdomain (GETTEXT_PACKAGE, CAFE_SETTINGS_LOCALEDIR);
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         textdomain (GETTEXT_PACKAGE);
         setlocale (LC_ALL, "");

@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef MATE_SETTINGS_MODULE_H
-#define MATE_SETTINGS_MODULE_H
+#ifndef CAFE_SETTINGS_MODULE_H
+#define CAFE_SETTINGS_MODULE_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MATE_TYPE_SETTINGS_MODULE               (mate_settings_module_get_type ())
-#define MATE_SETTINGS_MODULE(obj)               (G_TYPE_CHECK_INSTANCE_CAST ((obj), MATE_TYPE_SETTINGS_MODULE, MateSettingsModule))
-#define MATE_SETTINGS_MODULE_CLASS(klass)       (G_TYPE_CHECK_CLASS_CAST ((klass), MATE_TYPE_SETTINGS_MODULE, MateSettingsModuleClass))
-#define MATE_IS_SETTINGS_MODULE(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MATE_TYPE_SETTINGS_MODULE))
-#define MATE_IS_SETTINGS_MODULE_CLASS(klass)    (G_TYPE_CHECK_CLASS_TYPE ((obj), MATE_TYPE_SETTINGS_MODULE))
-#define MATE_SETTINGS_MODULE_GET_CLASS(obj)     (G_TYPE_INSTANCE_GET_CLASS((obj), MATE_TYPE_SETTINGS_MODULE, MateSettingsModuleClass))
+#define CAFE_TYPE_SETTINGS_MODULE               (mate_settings_module_get_type ())
+#define CAFE_SETTINGS_MODULE(obj)               (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFE_TYPE_SETTINGS_MODULE, MateSettingsModule))
+#define CAFE_SETTINGS_MODULE_CLASS(klass)       (G_TYPE_CHECK_CLASS_CAST ((klass), CAFE_TYPE_SETTINGS_MODULE, MateSettingsModuleClass))
+#define CAFE_IS_SETTINGS_MODULE(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFE_TYPE_SETTINGS_MODULE))
+#define CAFE_IS_SETTINGS_MODULE_CLASS(klass)    (G_TYPE_CHECK_CLASS_TYPE ((obj), CAFE_TYPE_SETTINGS_MODULE))
+#define CAFE_SETTINGS_MODULE_GET_CLASS(obj)     (G_TYPE_INSTANCE_GET_CLASS((obj), CAFE_TYPE_SETTINGS_MODULE, MateSettingsModuleClass))
 
 typedef struct _MateSettingsModule MateSettingsModule;
 

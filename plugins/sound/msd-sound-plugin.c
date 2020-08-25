@@ -31,7 +31,7 @@ struct MsdSoundPluginPrivate {
         MsdSoundManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSoundPlugin, msd_sound_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSoundPlugin, msd_sound_plugin)
 
 static void
 msd_sound_plugin_init (MsdSoundPlugin *plugin)
@@ -87,7 +87,7 @@ static void
 msd_sound_plugin_class_init (MsdSoundPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_sound_plugin_finalize;
 

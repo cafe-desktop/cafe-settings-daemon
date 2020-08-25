@@ -2,9 +2,9 @@ NULL =
 
 AM_CPPFLAGS = \
 	-DDATADIR=\""$(datadir)"\"				\
-	-DMATE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
+	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	-DLIBEXECDIR=\""$(libexecdir)"\" 			\
-	-DMATE_SETTINGS_PLUGINDIR=\""$(plugindir)"\"		\
+	-DCAFE_SETTINGS_PLUGINDIR=\""$(plugindir)"\"		\
 	$(WARN_CFLAGS)						\
 	$(DISABLE_DEPRECATED_CFLAGS)				\
 	$(SETTINGS_DAEMON_CFLAGS)				\
@@ -75,7 +75,7 @@ mate_settings_daemon_CPPFLAGS = \
 	$(AM_CPPFLAGS)
 
 mate_settings_daemon_CFLAGS = 		\
-	$(MATE_DESKTOP_CFLAGS)          \
+	$(CAFE_DESKTOP_CFLAGS)          \
 	$(AM_CFLAGS)
 
 mate_settings_daemon_LDFLAGS = 	\
@@ -84,7 +84,7 @@ mate_settings_daemon_LDFLAGS = 	\
 mate_settings_daemon_LDADD = 		\
 	libmsd-profile.la		\
 	$(SETTINGS_DAEMON_LIBS)	\
-	$(MATE_DESKTOP_LIBS)    \
+	$(CAFE_DESKTOP_LIBS)    \
 	$(LIBNOTIFY_LIBS)
 
 EXTRA_DIST = 				\

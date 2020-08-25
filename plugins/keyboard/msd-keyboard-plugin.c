@@ -31,7 +31,7 @@ struct MsdKeyboardPluginPrivate {
         MsdKeyboardManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeyboardPlugin, msd_keyboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeyboardPlugin, msd_keyboard_plugin)
 
 static void
 msd_keyboard_plugin_init (MsdKeyboardPlugin *plugin)
@@ -91,7 +91,7 @@ static void
 msd_keyboard_plugin_class_init (MsdKeyboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->finalize = msd_keyboard_plugin_finalize;
 

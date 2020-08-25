@@ -1029,9 +1029,9 @@ mate_xsettings_manager_finalize (GObject *object)
         MateXSettingsManager *xsettings_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MATE_IS_XSETTINGS_MANAGER (object));
+        g_return_if_fail (CAFE_IS_XSETTINGS_MANAGER (object));
 
-        xsettings_manager = MATE_XSETTINGS_MANAGER (object);
+        xsettings_manager = CAFE_XSETTINGS_MANAGER (object);
 
         g_return_if_fail (xsettings_manager->priv != NULL);
 
@@ -1044,10 +1044,10 @@ mate_xsettings_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MATE_TYPE_XSETTINGS_MANAGER, NULL);
+                manager_object = g_object_new (CAFE_TYPE_XSETTINGS_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MATE_XSETTINGS_MANAGER (manager_object);
+        return CAFE_XSETTINGS_MANAGER (manager_object);
 }

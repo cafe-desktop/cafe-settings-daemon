@@ -25,7 +25,7 @@
 #include <glib/gi18n-lib.h>
 #include <glib-object.h>
 
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
 #include <libmatemixer/matemixer.h>
 #endif
 
@@ -38,7 +38,7 @@ struct _MsdMediaKeysPluginPrivate
         MsdMediaKeysManager *manager;
 };
 
-MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMediaKeysPlugin, msd_media_keys_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMediaKeysPlugin, msd_media_keys_plugin)
 
 static void
 msd_media_keys_plugin_init (MsdMediaKeysPlugin *plugin)
@@ -72,7 +72,7 @@ impl_activate (MateSettingsPlugin *plugin)
 
         g_debug ("Activating media_keys plugin");
 
-#ifdef HAVE_LIBMATEMIXER
+#ifdef HAVE_LIBCAFEMIXER
         mate_mixer_init ();
 #endif
         res = msd_media_keys_manager_start (MSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager, &error);
@@ -93,7 +93,7 @@ static void
 msd_media_keys_plugin_class_init (MsdMediaKeysPluginClass *klass)
 {
         GObjectClass            *object_class = G_OBJECT_CLASS (klass);
-        MateSettingsPluginClass *plugin_class = MATE_SETTINGS_PLUGIN_CLASS (klass);
+        MateSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
         object_class->dispose = msd_media_keys_plugin_dispose;
 

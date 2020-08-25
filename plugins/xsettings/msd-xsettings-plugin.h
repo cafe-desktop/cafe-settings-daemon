@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MATE_XSETTINGS_PLUGIN_H__
-#define __MATE_XSETTINGS_PLUGIN_H__
+#ifndef __CAFE_XSETTINGS_PLUGIN_H__
+#define __CAFE_XSETTINGS_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -31,12 +31,12 @@
 extern "C" {
 #endif
 
-#define MATE_TYPE_XSETTINGS_PLUGIN                (mate_xsettings_plugin_get_type ())
-#define MATE_XSETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MATE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPlugin))
-#define MATE_XSETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MATE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
-#define MATE_IS_XSETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MATE_TYPE_XSETTINGS_PLUGIN))
-#define MATE_IS_XSETTINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MATE_TYPE_XSETTINGS_PLUGIN))
-#define MATE_XSETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MATE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
+#define CAFE_TYPE_XSETTINGS_PLUGIN                (mate_xsettings_plugin_get_type ())
+#define CAFE_XSETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPlugin))
+#define CAFE_XSETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
+#define CAFE_IS_XSETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_XSETTINGS_PLUGIN))
+#define CAFE_IS_XSETTINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CAFE_TYPE_XSETTINGS_PLUGIN))
+#define CAFE_XSETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
 
 typedef struct MateXSettingsPluginPrivate MateXSettingsPluginPrivate;
 
@@ -60,4 +60,4 @@ G_MODULE_EXPORT GType register_mate_settings_plugin (GTypeModule *module);
 }
 #endif
 
-#endif /* __MATE_XSETTINGS_PLUGIN_H__ */
+#endif /* __CAFE_XSETTINGS_PLUGIN_H__ */

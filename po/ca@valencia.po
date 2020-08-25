@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR MATE Desktop Environment team
+# Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the mate-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
@@ -144,10 +144,10 @@ msgstr "Recorda l'estat de la tecla de fixació de teclat numèric"
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:41
 msgid ""
-"When set to true, MATE will remember the state of the NumLock LED between "
+"When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Quan s'estableix a cert, el MATE recordarà l'estat del led de la tecla de "
+"Quan s'estableix a cert, el CAFE recordarà l'estat del led de la tecla de "
 "fixació de teclat numèric entre sessions."
 
 #: data/org.mate.peripherals-keyboard.gschema.xml.in:45
@@ -729,7 +729,7 @@ msgid "Launch settings"
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
-msgid "Binding to launch MATE settings."
+msgid "Binding to launch CAFE settings."
 msgstr ""
 
 #: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
@@ -911,8 +911,8 @@ msgstr ""
 "aquesta clau."
 
 #: data/mate-settings-daemon.desktop.in.in:4
-msgid "MATE Settings Daemon"
-msgstr "Dimoni de paràmetres del MATE"
+msgid "CAFE Settings Daemon"
+msgstr "Dimoni de paràmetres del CAFE"
 
 #: mate-settings-daemon/main.c:65
 msgid "Enable debugging code"
