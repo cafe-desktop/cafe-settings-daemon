@@ -57,6 +57,7 @@ requires:
     - libxklavier-dev
     - libxrandr-dev
     - libxt-dev
+    - libtool
     - make
     - policykit-1
     - x11proto-kb-dev
@@ -104,6 +105,7 @@ requires:
     - libpolkit-gobject-1-dev
     - libpulse-dev
     - libstartup-notification0-dev
+    - libtool
     - libx11-dev
     - libxext-dev
     - libxi-dev
