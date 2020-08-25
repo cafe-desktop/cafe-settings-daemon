@@ -9,6 +9,7 @@ requires:
     - clang
     - dbus-glib
     - gcc
+    - dconf
     - gettext
     - git
     - gobject-introspection
