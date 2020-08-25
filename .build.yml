@@ -15,7 +15,6 @@ requires:
     - gtk3
     - gobject-introspection
     - gtk-doc
-    - intltool
     - iso-codes
     - libcanberra
     - libnotify
@@ -127,11 +126,6 @@ variables:
     -enable-checker security.insecureAPI.strcpy"'
 
 before_scripts:
-  - if [ ${DISTRO_NAME} == "debian" ];then
-  -     curl -Ls -o debian.sh https://github.com/cafe-desktop/cafe-dev-scripts/raw/master/travis/debian.sh
-  - bash ./debian.sh
-  - fi
-
   # Install cafe-common from master branch
   - cd ${START_DIR}
   - git clone --depth 1  https://github.com/cafe-desktop/cafe-common.git -b master cafe-common-master
