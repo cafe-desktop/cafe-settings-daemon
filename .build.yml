@@ -30,6 +30,7 @@ requires:
   debian:
     # Useful URL: https://github.com/cafe-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-cafe-team/cafe-settings-daemon
+    - autoconf-archive
     - autopoint
     - clang
     - clang-tools
@@ -82,6 +83,7 @@ requires:
     - redhat-rpm-config
 
   ubuntu:
+    - autoconf-archive
     - autopoint
     - clang
     - clang-tools
