@@ -18,6 +18,7 @@ requires:
     - iso-codes
     - libcanberra
     - libnotify
+    - libxklavier
     - make
     - nss
     - polkit
@@ -73,6 +74,7 @@ requires:
     - libSM-devel
     - libcanberra-devel
     - libnotify-devel
+    - libxklavier-devel
     - make
     - nss-devel
     - polkit-devel
