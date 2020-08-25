@@ -36,6 +36,7 @@ requires:
     - clang-tools
     - cppcheck
     - gcc
+    - gettext
     - g++
     - git
     - gobject-introspection
@@ -94,6 +95,7 @@ requires:
     - clang-tools
     - gcc
     - g++
+    - gettext
     - git
     - gobject-introspection
     - gtk-doc-tools
