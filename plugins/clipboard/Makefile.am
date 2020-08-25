@@ -16,7 +16,7 @@ libclipboard_la_SOURCES = 	\
 	$(NULL)
 
 libclipboard_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
@@ -34,10 +34,10 @@ libclipboard_la_LIBADD  = 	\
 	$(NULL)
 
 plugin_in_files = 		\
-	clipboard.mate-settings-plugin.desktop.in	\
+	clipboard.cafe-settings-plugin.desktop.in	\
 	$(NULL)
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)	\

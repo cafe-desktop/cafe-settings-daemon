@@ -24,7 +24,7 @@
 #include <glib/gi18n-lib.h>
 #include <gmodule.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 #include "msd-rfkill-manager.h"
 #include "msd-rfkill-plugin.h"
 

@@ -10,7 +10,7 @@ libsmartcard_la_SOURCES = \
 	msd-smartcard-manager.c
 
 libsmartcard_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon \
+	-I$(top_srcdir)/cafe-settings-daemon \
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
 	-DLIBDIR=\""$(libdir)"\" \
@@ -32,9 +32,9 @@ libsmartcard_la_LIBADD = \
 	$(NSS_LIBS)
 
 plugin_in_files = \
-	smartcard.mate-settings-plugin.desktop.in
+	smartcard.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 $(plugin_DATA): $(plugin_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@

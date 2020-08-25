@@ -39,22 +39,22 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-xsettings-manager.h"
 #include "xsettings-manager.h"
 #include "fontconfig-monitor.h"
 #include "wm-common.h"
 
-#define MOUSE_SCHEMA          "org.mate.peripherals-mouse"
-#define INTERFACE_SCHEMA      "org.mate.interface"
-#define SOUND_SCHEMA          "org.mate.sound"
+#define MOUSE_SCHEMA          "org.cafe.peripherals-mouse"
+#define INTERFACE_SCHEMA      "org.cafe.interface"
+#define SOUND_SCHEMA          "org.cafe.sound"
 
 #define CURSOR_THEME_KEY      "cursor-theme"
 #define CURSOR_SIZE_KEY       "cursor-size"
 #define SCALING_FACTOR_KEY    "window-scaling-factor"
 #define SCALING_FACTOR_QT_KEY "window-scaling-factor-qt-sync"
 
-#define FONT_RENDER_SCHEMA    "org.mate.font-rendering"
+#define FONT_RENDER_SCHEMA    "org.cafe.font-rendering"
 #define FONT_ANTIALIASING_KEY "antialiasing"
 #define FONT_HINTING_KEY      "hinting"
 #define FONT_RGBA_ORDER_KEY   "rgba-order"
@@ -110,9 +110,9 @@ enum {
         MSD_XSETTINGS_ERROR_INIT
 };
 
-static void mate_xsettings_manager_finalize (GObject *object);
+static void cafe_xsettings_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MateXSettingsManager, mate_xsettings_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MateXSettingsManager, cafe_xsettings_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -509,7 +509,7 @@ delayed_toggle_bg_draw (gboolean value)
 {
         GSettings *settings;
 
-        settings = g_settings_new ("org.mate.background");
+        settings = g_settings_new ("org.cafe.background");
         g_settings_set_boolean (settings, "show-desktop-icons", value);
         g_object_unref (settings);
 
@@ -556,13 +556,13 @@ scale_change_workarounds (MateXSettingsManager *manager, int new_scale)
                 }
                 g_free (wm);
 
-                /* Restart mate-panel */
-                /* FIXME: The ideal scenario would be for mate-panel to respect window scaling and thus
+                /* Restart cafe-panel */
+                /* FIXME: The ideal scenario would be for cafe-panel to respect window scaling and thus
                  * resize itself. Currently this is not happening, so msd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
-                gchar *mate_panel[3] = {"killall", "mate-panel", NULL};
-                if (!g_spawn_async (NULL, mate_panel, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
-                        g_warning ("There was a problem restarting mate-panel: %s", error->message);
+                gchar *cafe_panel[3] = {"killall", "cafe-panel", NULL};
+                if (!g_spawn_async (NULL, cafe_panel, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
+                        g_warning ("There was a problem restarting cafe-panel: %s", error->message);
                         g_clear_error (&error);
                 }
 
@@ -571,7 +571,7 @@ scale_change_workarounds (MateXSettingsManager *manager, int new_scale)
                  * resize itself. Currently this is not happening, so msd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
                 GSettings *desktop_settings;
-                desktop_settings = g_settings_new ("org.mate.background");
+                desktop_settings = g_settings_new ("org.cafe.background");
                 if (g_settings_get_boolean (desktop_settings, "show-desktop-icons")) {
                         /* Delay the toggle to allow enough time for the desktop to redraw */
                         g_timeout_add_seconds (1, (GSourceFunc) delayed_toggle_bg_draw, (gpointer) FALSE);
@@ -590,7 +590,7 @@ xft_settings_set_xsettings (MateXSettingsManager *manager,
 {
         int i;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         for (i = 0; manager->priv->managers [i]; i++) {
                 xsettings_manager_set_int (manager->priv->managers [i], "Xft/Antialias", settings->antialias);
@@ -605,7 +605,7 @@ xft_settings_set_xsettings (MateXSettingsManager *manager,
                 xsettings_manager_set_int (manager->priv->managers [i], "Gtk/CursorThemeSize", settings->cursor_size);
                 xsettings_manager_set_string (manager->priv->managers [i], "Gtk/CursorThemeName", settings->cursor_theme);
         }
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         scale_change_workarounds (manager, settings->window_scale);
 }
@@ -648,7 +648,7 @@ xft_settings_set_xresources (MateXftSettings *settings)
         char        dpibuf[G_ASCII_DTOSTR_BUF_SIZE];
         Display    *dpy;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         /* get existing properties */
         dpy = XOpenDisplay (NULL);
@@ -683,7 +683,7 @@ xft_settings_set_xresources (MateXftSettings *settings)
 
         g_string_free (add_string, TRUE);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 /* We mirror the Xft properties both through XSETTINGS and through
@@ -694,13 +694,13 @@ update_xft_settings (MateXSettingsManager *manager)
 {
         MateXftSettings settings;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         xft_settings_get (manager, &settings);
         xft_settings_set_xsettings (manager, &settings);
         xft_settings_set_xresources (&settings);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void
@@ -741,23 +741,23 @@ fontconfig_callback (fontconfig_monitor_handle_t *handle,
         int i;
         int timestamp = time (NULL);
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         for (i = 0; manager->priv->managers [i]; i++) {
                 xsettings_manager_set_int (manager->priv->managers [i], "Fontconfig/Timestamp", timestamp);
                 xsettings_manager_notify (manager->priv->managers [i]);
         }
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static gboolean
 start_fontconfig_monitor_idle_cb (MateXSettingsManager *manager)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         manager->priv->fontconfig_handle = fontconfig_monitor_start ((GFunc) fontconfig_callback, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return FALSE;
 }
@@ -765,13 +765,13 @@ start_fontconfig_monitor_idle_cb (MateXSettingsManager *manager)
 static void
 start_fontconfig_monitor (MateXSettingsManager  *manager)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         fontconfig_cache_init ();
 
         g_idle_add ((GSourceFunc) start_fontconfig_monitor_idle_cb, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void
@@ -842,7 +842,7 @@ xsettings_callback (GSettings             *gsettings,
         for (i = 0; manager->priv->managers [i]; i++) {
                 xsettings_manager_set_string (manager->priv->managers [i],
                                               "Net/FallbackIconTheme",
-                                              "mate");
+                                              "cafe");
         }
 
         for (i = 0; manager->priv->managers [i]; i++) {
@@ -901,7 +901,7 @@ setup_xsettings_managers (MateXSettingsManager *manager)
 }
 
 gboolean
-mate_xsettings_manager_start (MateXSettingsManager *manager,
+cafe_xsettings_manager_start (MateXSettingsManager *manager,
                                GError               **error)
 {
         guint        i;
@@ -909,7 +909,7 @@ mate_xsettings_manager_start (MateXSettingsManager *manager,
         GdkScreen   *screen;
 
         g_debug ("Starting xsettings manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         if (!setup_xsettings_managers (manager)) {
                 g_set_error (error, MSD_XSETTINGS_ERROR,
@@ -968,19 +968,19 @@ mate_xsettings_manager_start (MateXSettingsManager *manager,
         for (i = 0; manager->priv->managers [i]; i++)
                 xsettings_manager_set_string (manager->priv->managers [i],
                                               "Net/FallbackIconTheme",
-                                              "mate");
+                                              "cafe");
 
         for (i = 0; manager->priv->managers [i]; i++) {
                 xsettings_manager_notify (manager->priv->managers [i]);
         }
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }
 
 void
-mate_xsettings_manager_stop (MateXSettingsManager *manager)
+cafe_xsettings_manager_stop (MateXSettingsManager *manager)
 {
         MateXSettingsManagerPrivate *p = manager->priv;
         int i;
@@ -1010,21 +1010,21 @@ mate_xsettings_manager_stop (MateXSettingsManager *manager)
 }
 
 static void
-mate_xsettings_manager_class_init (MateXSettingsManagerClass *klass)
+cafe_xsettings_manager_class_init (MateXSettingsManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = mate_xsettings_manager_finalize;
+        object_class->finalize = cafe_xsettings_manager_finalize;
 }
 
 static void
-mate_xsettings_manager_init (MateXSettingsManager *manager)
+cafe_xsettings_manager_init (MateXSettingsManager *manager)
 {
-        manager->priv = mate_xsettings_manager_get_instance_private (manager);
+        manager->priv = cafe_xsettings_manager_get_instance_private (manager);
 }
 
 static void
-mate_xsettings_manager_finalize (GObject *object)
+cafe_xsettings_manager_finalize (GObject *object)
 {
         MateXSettingsManager *xsettings_manager;
 
@@ -1035,11 +1035,11 @@ mate_xsettings_manager_finalize (GObject *object)
 
         g_return_if_fail (xsettings_manager->priv != NULL);
 
-        G_OBJECT_CLASS (mate_xsettings_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (cafe_xsettings_manager_parent_class)->finalize (object);
 }
 
 MateXSettingsManager *
-mate_xsettings_manager_new (void)
+cafe_xsettings_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

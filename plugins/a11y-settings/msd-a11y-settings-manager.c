@@ -34,7 +34,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-a11y-settings-manager.h"
 
 struct MsdA11ySettingsManagerPrivate
@@ -83,9 +83,9 @@ msd_a11y_settings_manager_start (MsdA11ySettingsManager *manager,
                                  GError                **error)
 {
         g_debug ("Starting a11y_settings manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
-	manager->priv->interface_settings = g_settings_new ("org.mate.interface");
+	manager->priv->interface_settings = g_settings_new ("org.cafe.interface");
 	manager->priv->a11y_apps_settings = g_settings_new ("org.gnome.desktop.a11y.applications");
 
 	g_signal_connect (G_OBJECT (manager->priv->a11y_apps_settings), "changed",
@@ -99,7 +99,7 @@ msd_a11y_settings_manager_start (MsdA11ySettingsManager *manager,
 	    g_settings_get_boolean (manager->priv->a11y_apps_settings, "screen-reader-enabled"))
 		g_settings_set_boolean (manager->priv->interface_settings, "accessibility", TRUE);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
         return TRUE;
 }
 

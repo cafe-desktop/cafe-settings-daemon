@@ -10,7 +10,7 @@ libmpris_la_SOURCES = 		\
 	msd-mpris-plugin.h
 
 libmpris_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
@@ -26,9 +26,9 @@ libmpris_la_LIBADD  = 		\
 	$(SETTINGS_PLUGIN_LIBS)
 
 plugin_in_files = 		\
-	mpris.mate-settings-plugin.desktop.in
+	mpris.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)

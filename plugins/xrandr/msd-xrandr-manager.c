@@ -41,19 +41,19 @@
 #include <dbus/dbus-glib.h>
 
 #define CAFE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-rr-config.h>
-#include <libmate-desktop/mate-rr.h>
-#include <libmate-desktop/mate-rr-labeler.h>
-#include <libmate-desktop/mate-desktop-utils.h>
+#include <libcafe-desktop/cafe-rr-config.h>
+#include <libcafe-desktop/cafe-rr.h>
+#include <libcafe-desktop/cafe-rr-labeler.h>
+#include <libcafe-desktop/cafe-desktop-utils.h>
 
 #ifdef HAVE_LIBNOTIFY
 #include <libnotify/notify.h>
 #endif
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-xrandr-manager.h"
 
-#define CONF_SCHEMA                                    "org.mate.SettingsDaemon.plugins.xrandr"
+#define CONF_SCHEMA                                    "org.cafe.SettingsDaemon.plugins.xrandr"
 #define CONF_KEY_SHOW_NOTIFICATION_ICON                "show-notification-icon"
 #define CONF_KEY_USE_XORG_MONITOR_SETTINGS             "use-xorg-monitor-settings"
 #define CONF_KEY_TURN_ON_EXTERNAL_MONITORS_AT_STARTUP  "turn-on-external-monitors-at-startup"
@@ -72,10 +72,10 @@
 #define MSD_XRANDR_ICON_NAME "msd-xrandr"
 
 /* executable of the control center's display configuration capplet */
-#define MSD_XRANDR_DISPLAY_CAPPLET "mate-display-properties"
+#define MSD_XRANDR_DISPLAY_CAPPLET "cafe-display-properties"
 
-#define MSD_DBUS_PATH "/org/mate/SettingsDaemon"
-#define MSD_DBUS_NAME "org.mate.SettingsDaemon"
+#define MSD_DBUS_PATH "/org/cafe/SettingsDaemon"
+#define MSD_DBUS_NAME "org.cafe.SettingsDaemon"
 #define MSD_XRANDR_DBUS_PATH MSD_DBUS_PATH "/XRANDR"
 #define MSD_XRANDR_DBUS_NAME MSD_DBUS_NAME ".XRANDR"
 
@@ -111,7 +111,7 @@ static const MateRRRotation possible_rotations[] = {
         CAFE_RR_ROTATION_90,
         CAFE_RR_ROTATION_180,
         CAFE_RR_ROTATION_270
-        /* We don't allow REFLECT_X or REFLECT_Y for now, as mate-display-properties doesn't allow them, either */
+        /* We don't allow REFLECT_X or REFLECT_Y for now, as cafe-display-properties doesn't allow them, either */
 };
 
 static void msd_xrandr_manager_finalize (GObject *object);
@@ -182,19 +182,19 @@ log_msg (const char *format, ...)
 static void
 log_output (MateRROutputInfo *output)
 {
-        gchar *name = mate_rr_output_info_get_name (output);
-        gchar *display_name = mate_rr_output_info_get_display_name (output);
+        gchar *name = cafe_rr_output_info_get_name (output);
+        gchar *display_name = cafe_rr_output_info_get_display_name (output);
 
         log_msg ("        %s: ", name ? name : "unknown");
 
-        if (mate_rr_output_info_is_connected (output)) {
-                if (mate_rr_output_info_is_active (output)) {
+        if (cafe_rr_output_info_is_connected (output)) {
+                if (cafe_rr_output_info_is_active (output)) {
                         int x, y, width, height;
-                        mate_rr_output_info_get_geometry (output, &x, &y, &width, &height);
+                        cafe_rr_output_info_get_geometry (output, &x, &y, &width, &height);
                         log_msg ("%dx%d@%d +%d+%d",
                                  width,
                                  height,
-                                 mate_rr_output_info_get_refresh_rate (output),
+                                 cafe_rr_output_info_get_refresh_rate (output),
                                  x,
                                  y);
                 } else
@@ -205,7 +205,7 @@ log_output (MateRROutputInfo *output)
         if (display_name)
                 log_msg (" (%s)", display_name);
 
-        if (mate_rr_output_info_get_primary (output))
+        if (cafe_rr_output_info_get_primary (output))
                 log_msg (" (primary output)");
 
         log_msg ("\n");
@@ -215,9 +215,9 @@ static void
 log_configuration (MateRRConfig *config)
 {
         int i;
-        MateRROutputInfo **outputs = mate_rr_config_get_outputs (config);
+        MateRROutputInfo **outputs = cafe_rr_config_get_outputs (config);
 
-        log_msg ("        cloned: %s\n", mate_rr_config_get_clone (config) ? "yes" : "no");
+        log_msg ("        cloned: %s\n", cafe_rr_config_get_clone (config) ? "yes" : "no");
 
         for (i = 0; outputs[i] != NULL; i++)
                 log_output (outputs[i]);
@@ -247,10 +247,10 @@ log_screen (MateRRScreen *screen)
         if (!log_file)
                 return;
 
-        config = mate_rr_config_new_current (screen, NULL);
+        config = cafe_rr_config_new_current (screen, NULL);
 
-        mate_rr_screen_get_ranges (screen, &min_w, &max_w, &min_h, &max_h);
-        mate_rr_screen_get_timestamps (screen, &change_timestamp, &config_timestamp);
+        cafe_rr_screen_get_ranges (screen, &min_w, &max_w, &min_h, &max_h);
+        cafe_rr_screen_get_timestamps (screen, &change_timestamp, &config_timestamp);
 
         log_msg ("        Screen min(%d, %d), max(%d, %d), change=%u %c config=%u\n",
                  min_w, min_h,
@@ -290,7 +290,7 @@ show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
         guint32 change_timestamp, config_timestamp;
         static int serial;
 
-        mate_rr_screen_get_timestamps (priv->rw_screen, &change_timestamp, &config_timestamp);
+        cafe_rr_screen_get_timestamps (priv->rw_screen, &change_timestamp, &config_timestamp);
 
         dialog = gtk_message_dialog_new (NULL,
                                          0,
@@ -307,10 +307,10 @@ show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
 #endif
 }
 
-/* This function centralizes the use of mate_rr_config_apply_from_filename_with_time().
+/* This function centralizes the use of cafe_rr_config_apply_from_filename_with_time().
  *
  * Optionally filters out CAFE_RR_ERROR_NO_MATCHING_CONFIG from
- * mate_rr_config_apply_from_filename_with_time(), since that is not usually an error.
+ * cafe_rr_config_apply_from_filename_with_time(), since that is not usually an error.
  */
 static gboolean
 apply_configuration_from_filename (MsdXrandrManager *manager,
@@ -329,7 +329,7 @@ apply_configuration_from_filename (MsdXrandrManager *manager,
         g_free (str);
 
         my_error = NULL;
-        success = mate_rr_config_apply_from_filename_with_time (priv->rw_screen, filename, timestamp, &my_error);
+        success = cafe_rr_config_apply_from_filename_with_time (priv->rw_screen, filename, timestamp, &my_error);
         if (success)
                 return TRUE;
 
@@ -349,7 +349,7 @@ fail:
         return FALSE;
 }
 
-/* This function centralizes the use of mate_rr_config_apply_with_time().
+/* This function centralizes the use of cafe_rr_config_apply_with_time().
  *
  * Applies a configuration and displays an error message if an error happens.
  * We just return whether setting the configuration succeeded.
@@ -362,7 +362,7 @@ apply_configuration_and_display_error (MsdXrandrManager *manager, MateRRConfig *
         gboolean success;
 
         error = NULL;
-        success = mate_rr_config_apply_with_time (config, priv->rw_screen, timestamp, &error);
+        success = cafe_rr_config_apply_with_time (config, priv->rw_screen, timestamp, &error);
         if (!success) {
                 log_msg ("Could not switch to the following configuration (timestamp %u): %s\n", timestamp, error->message);
                 log_configuration (config);
@@ -376,7 +376,7 @@ apply_configuration_and_display_error (MsdXrandrManager *manager, MateRRConfig *
 static void
 restore_backup_configuration_without_messages (const char *backup_filename, const char *intended_filename)
 {
-        backup_filename = mate_rr_config_get_backup_filename ();
+        backup_filename = cafe_rr_config_get_backup_filename ();
         rename (backup_filename, intended_filename);
 }
 
@@ -534,8 +534,8 @@ confirm_with_user_idle_cb (gpointer data)
         char *backup_filename;
         char *intended_filename;
 
-        backup_filename = mate_rr_config_get_backup_filename ();
-        intended_filename = mate_rr_config_get_intended_filename ();
+        backup_filename = cafe_rr_config_get_backup_filename ();
+        intended_filename = cafe_rr_config_get_intended_filename ();
 
         if (user_says_things_are_ok (confirmation->manager, confirmation->parent_window))
                 unlink (backup_filename);
@@ -569,8 +569,8 @@ try_to_apply_intended_configuration (MsdXrandrManager *manager, GdkWindow *paren
 
         /* Try to apply the intended configuration */
 
-        backup_filename = mate_rr_config_get_backup_filename ();
-        intended_filename = mate_rr_config_get_intended_filename ();
+        backup_filename = cafe_rr_config_get_backup_filename ();
+        intended_filename = cafe_rr_config_get_intended_filename ();
 
         result = apply_configuration_from_filename (manager, intended_filename, FALSE, timestamp, error);
         if (!result) {
@@ -594,7 +594,7 @@ out:
         return result;
 }
 
-/* DBus method for org.mate.SettingsDaemon.XRANDR ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
+/* DBus method for org.cafe.SettingsDaemon.XRANDR ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
 static gboolean
 msd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
                                         GError          **error)
@@ -602,7 +602,7 @@ msd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
         return try_to_apply_intended_configuration (manager, NULL, GDK_CURRENT_TIME, error);
 }
 
-/* DBus method for org.mate.SettingsDaemon.XRANDR_2 ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
+/* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
 static gboolean
 msd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
                                           gint64            parent_window_id,
@@ -633,14 +633,14 @@ is_laptop (MateRRScreen *screen, MateRROutputInfo *output)
 {
         MateRROutput *rr_output;
 
-        rr_output = mate_rr_screen_get_output_by_name (screen, mate_rr_output_info_get_name (output));
-        return mate_rr_output_is_laptop (rr_output);
+        rr_output = cafe_rr_screen_get_output_by_name (screen, cafe_rr_output_info_get_name (output));
+        return cafe_rr_output_is_laptop (rr_output);
 }
 
 static gboolean
 get_clone_size (MateRRScreen *screen, int *width, int *height)
 {
-        MateRRMode **modes = mate_rr_screen_list_clone_modes (screen);
+        MateRRMode **modes = cafe_rr_screen_list_clone_modes (screen);
         int best_w, best_h;
         int i;
 
@@ -651,8 +651,8 @@ get_clone_size (MateRRScreen *screen, int *width, int *height)
                 MateRRMode *mode = modes[i];
                 int w, h;
 
-                w = mate_rr_mode_get_width (mode);
-                h = mate_rr_mode_get_height (mode);
+                w = cafe_rr_mode_get_width (mode);
+                h = cafe_rr_mode_get_height (mode);
 
                 if (w * h > best_w * best_h) {
                         best_w = w;
@@ -677,13 +677,13 @@ print_output (MateRROutputInfo *info)
 {
         int x, y, width, height;
 
-        g_print ("  Output: %s attached to %s\n", mate_rr_output_info_get_display_name (info), mate_rr_output_info_get_name (info));
-        g_print ("     status: %s\n", mate_rr_output_info_is_active (info) ? "on" : "off");
+        g_print ("  Output: %s attached to %s\n", cafe_rr_output_info_get_display_name (info), cafe_rr_output_info_get_name (info));
+        g_print ("     status: %s\n", cafe_rr_output_info_is_active (info) ? "on" : "off");
 
-        mate_rr_output_info_get_geometry (info, &x, &y, &width, &height);
+        cafe_rr_output_info_get_geometry (info, &x, &y, &width, &height);
         g_print ("     width: %d\n", width);
         g_print ("     height: %d\n", height);
-        g_print ("     rate: %d\n", mate_rr_output_info_get_refresh_rate (info));
+        g_print ("     rate: %d\n", cafe_rr_output_info_get_refresh_rate (info));
         g_print ("     position: %d %d\n", x, y);
 }
 
@@ -699,7 +699,7 @@ print_configuration (MateRRConfig *config, const char *header)
                 return;
         }
 
-        outputs = mate_rr_config_get_outputs (config);
+        outputs = cafe_rr_config_get_outputs (config);
         for (i = 0; outputs[i] != NULL; ++i)
                 print_output (outputs[i]);
 }
@@ -710,10 +710,10 @@ config_is_all_off (MateRRConfig *config)
         int j;
         MateRROutputInfo **outputs;
 
-        outputs = mate_rr_config_get_outputs (config);
+        outputs = cafe_rr_config_get_outputs (config);
 
         for (j = 0; outputs[j] != NULL; ++j) {
-                if (mate_rr_output_info_is_active (outputs[j])) {
+                if (cafe_rr_output_info_is_active (outputs[j])) {
                         return FALSE;
                 }
         }
@@ -732,17 +732,17 @@ make_clone_setup (MateRRScreen *screen)
         if (!get_clone_size (screen, &width, &height))
                 return NULL;
 
-        result = mate_rr_config_new_current (screen, NULL);
-        outputs = mate_rr_config_get_outputs (result);
+        result = cafe_rr_config_new_current (screen, NULL);
+        outputs = cafe_rr_config_get_outputs (result);
 
         for (i = 0; outputs[i] != NULL; ++i) {
                 MateRROutputInfo *info = outputs[i];
 
-                mate_rr_output_info_set_active (info, FALSE);
-                if (mate_rr_output_info_is_connected (info)) {
+                cafe_rr_output_info_set_active (info, FALSE);
+                if (cafe_rr_output_info_is_connected (info)) {
                         MateRROutput *output =
-                                mate_rr_screen_get_output_by_name (screen, mate_rr_output_info_get_name (info));
-                        MateRRMode **modes = mate_rr_output_list_modes (output);
+                                cafe_rr_screen_get_output_by_name (screen, cafe_rr_output_info_get_name (info));
+                        MateRRMode **modes = cafe_rr_output_list_modes (output);
                         int j;
                         int best_rate = 0;
 
@@ -750,19 +750,19 @@ make_clone_setup (MateRRScreen *screen)
                                 MateRRMode *mode = modes[j];
                                 int w, h;
 
-                                w = mate_rr_mode_get_width (mode);
-                                h = mate_rr_mode_get_height (mode);
+                                w = cafe_rr_mode_get_width (mode);
+                                h = cafe_rr_mode_get_height (mode);
 
                                 if (w == width && h == height) {
-                                        best_rate = mate_rr_mode_get_freq (mode);
+                                        best_rate = cafe_rr_mode_get_freq (mode);
                                 }
                         }
 
                         if (best_rate > 0) {
-                                mate_rr_output_info_set_active (info, TRUE);
-                                mate_rr_output_info_set_rotation (info, CAFE_RR_ROTATION_0);
-                                mate_rr_output_info_set_refresh_rate (info, best_rate);
-                                mate_rr_output_info_set_geometry (info, 0, 0, width, height);
+                                cafe_rr_output_info_set_active (info, TRUE);
+                                cafe_rr_output_info_set_rotation (info, CAFE_RR_ROTATION_0);
+                                cafe_rr_output_info_set_refresh_rate (info, best_rate);
+                                cafe_rr_output_info_set_geometry (info, 0, 0, width, height);
                         }
                 }
         }
@@ -787,11 +787,11 @@ find_best_mode (MateRROutput *output)
         int i;
         MateRRMode *best_mode;
 
-        preferred = mate_rr_output_get_preferred_mode (output);
+        preferred = cafe_rr_output_get_preferred_mode (output);
         if (preferred)
                 return preferred;
 
-        modes = mate_rr_output_list_modes (output);
+        modes = cafe_rr_output_list_modes (output);
         if (!modes)
                 return NULL;
 
@@ -802,9 +802,9 @@ find_best_mode (MateRROutput *output)
                 int w, h, r;
                 int size;
 
-                w = mate_rr_mode_get_width (modes[i]);
-                h = mate_rr_mode_get_height (modes[i]);
-                r = mate_rr_mode_get_freq  (modes[i]);
+                w = cafe_rr_mode_get_width (modes[i]);
+                h = cafe_rr_mode_get_height (modes[i]);
+                r = cafe_rr_mode_get_freq  (modes[i]);
 
                 size = w * h;
 
@@ -830,14 +830,14 @@ turn_on (MateRRScreen *screen,
          MateRROutputInfo *info,
          int x, int y)
 {
-        MateRROutput *output = mate_rr_screen_get_output_by_name (screen, mate_rr_output_info_get_name (info));
+        MateRROutput *output = cafe_rr_screen_get_output_by_name (screen, cafe_rr_output_info_get_name (info));
         MateRRMode *mode = find_best_mode (output);
 
         if (mode) {
-                mate_rr_output_info_set_active (info, TRUE);
-                mate_rr_output_info_set_geometry (info, x, y, mate_rr_mode_get_width (mode), mate_rr_mode_get_height (mode));
-                mate_rr_output_info_set_rotation (info, CAFE_RR_ROTATION_0);
-                mate_rr_output_info_set_refresh_rate (info, mate_rr_mode_get_freq (mode));
+                cafe_rr_output_info_set_active (info, TRUE);
+                cafe_rr_output_info_set_geometry (info, x, y, cafe_rr_mode_get_width (mode), cafe_rr_mode_get_height (mode));
+                cafe_rr_output_info_set_rotation (info, CAFE_RR_ROTATION_0);
+                cafe_rr_output_info_set_refresh_rate (info, cafe_rr_mode_get_freq (mode));
 
                 return TRUE;
         }
@@ -849,17 +849,17 @@ static MateRRConfig *
 make_primary_only_setup (MateRRScreen *screen)
 {
         /*Leave all of the monitors turned on, just change from mirror to xinerama layout*/
-        MateRRConfig *result = mate_rr_config_new_current (screen, NULL);
-        MateRROutputInfo **outputs = mate_rr_config_get_outputs (result);
+        MateRRConfig *result = cafe_rr_config_new_current (screen, NULL);
+        MateRROutputInfo **outputs = cafe_rr_config_get_outputs (result);
         int i, x, width,height;
         x = 0;
 
         for (i = 0; outputs[i] != NULL; ++i) {
                 MateRROutputInfo *info = outputs[i];
-                width = mate_rr_output_info_get_preferred_width (info);
-                height = mate_rr_output_info_get_preferred_height (info);
-                mate_rr_output_info_set_geometry (info, x, 0, width, height);
-                mate_rr_output_info_set_active (info, TRUE);
+                width = cafe_rr_output_info_get_preferred_width (info);
+                height = cafe_rr_output_info_get_preferred_height (info);
+                cafe_rr_output_info_set_geometry (info, x, 0, width, height);
+                cafe_rr_output_info_set_active (info, TRUE);
                 x = x + width;
         }
 
@@ -868,7 +868,7 @@ make_primary_only_setup (MateRRScreen *screen)
                 result = NULL;
         }
 
-        mate_rr_config_set_clone (result, FALSE);
+        cafe_rr_config_set_clone (result, FALSE);
         print_configuration (result, "Primary only setup");
 
         return result;
@@ -878,8 +878,8 @@ static MateRRConfig *
 make_laptop_setup (MateRRScreen *screen)
 {
         /* Turn on the laptop, disable everything else */
-        MateRRConfig *result = mate_rr_config_new_current (screen, NULL);
-        MateRROutputInfo **outputs = mate_rr_config_get_outputs (result);
+        MateRRConfig *result = cafe_rr_config_new_current (screen, NULL);
+        MateRROutputInfo **outputs = cafe_rr_config_get_outputs (result);
         int i;
 
         for (i = 0; outputs[i] != NULL; ++i) {
@@ -893,7 +893,7 @@ make_laptop_setup (MateRRScreen *screen)
                         }
                 }
                 else {
-                        mate_rr_output_info_set_active (info, FALSE);
+                        cafe_rr_output_info_set_active (info, FALSE);
                 }
         }
 
@@ -915,7 +915,7 @@ turn_on_and_get_rightmost_offset (MateRRScreen *screen, MateRROutputInfo *info, 
 {
         if (turn_on (screen, info, x, 0)) {
                 int width;
-                mate_rr_output_info_get_geometry (info, NULL, NULL, &width, NULL);
+                cafe_rr_output_info_get_geometry (info, NULL, NULL, &width, NULL);
                 x += width;
         }
 
@@ -928,8 +928,8 @@ make_xinerama_setup (MateRRScreen *screen)
         /* Turn on everything that has a preferred mode, and
          * position it from left to right
          */
-        MateRRConfig *result = mate_rr_config_new_current (screen, NULL);
-	MateRROutputInfo **outputs = mate_rr_config_get_outputs (result);
+        MateRRConfig *result = cafe_rr_config_new_current (screen, NULL);
+	MateRROutputInfo **outputs = cafe_rr_config_get_outputs (result);
         int i;
         int x;
 
@@ -944,7 +944,7 @@ make_xinerama_setup (MateRRScreen *screen)
         for (i = 0; outputs[i] != NULL; ++i) {
                 MateRROutputInfo *info = outputs[i];
 
-                if (mate_rr_output_info_is_connected (info) && !is_laptop (screen, info))
+                if (cafe_rr_output_info_is_connected (info) && !is_laptop (screen, info))
                         x = turn_on_and_get_rightmost_offset (screen, info, x);
         }
 
@@ -965,18 +965,18 @@ make_other_setup (MateRRScreen *screen)
          * from (0, 0)
          */
 
-        MateRRConfig *result = mate_rr_config_new_current (screen, NULL);
-        MateRROutputInfo **outputs = mate_rr_config_get_outputs (result);
+        MateRRConfig *result = cafe_rr_config_new_current (screen, NULL);
+        MateRROutputInfo **outputs = cafe_rr_config_get_outputs (result);
         int i;
 
         for (i = 0; outputs[i] != NULL; ++i) {
                 MateRROutputInfo *info = outputs[i];
 
                 if (is_laptop (screen, info)) {
-                        mate_rr_output_info_set_active (info, FALSE);
+                        cafe_rr_output_info_set_active (info, FALSE);
                 }
                 else {
-                        if (mate_rr_output_info_is_connected (info))
+                        if (cafe_rr_output_info_is_connected (info))
                                 turn_on (screen, info, 0, 0);
                }
         }
@@ -1016,7 +1016,7 @@ sanitize (MsdXrandrManager *manager, GPtrArray *array)
                         MateRRConfig *this = array->pdata[j];
                         MateRRConfig *other = array->pdata[i];
 
-                        if (this && other && mate_rr_config_equal (this, other)) {
+                        if (this && other && cafe_rr_config_equal (this, other)) {
                                 g_debug ("removing duplicate configuration");
                                 g_object_unref (this);
                                 array->pdata[j] = NULL;
@@ -1046,7 +1046,7 @@ sanitize (MsdXrandrManager *manager, GPtrArray *array)
                         GError *error;
 
                         error = NULL;
-                        if (!mate_rr_config_applicable (config, manager->priv->rw_screen, &error)) { /* NULL-GError */
+                        if (!cafe_rr_config_applicable (config, manager->priv->rw_screen, &error)) { /* NULL-GError */
                                 g_debug ("removing configuration which is not applicable because %s", error->message);
                                 g_error_free (error);
 
@@ -1098,7 +1098,7 @@ generate_fn_f7_configs (MsdXrandrManager *mgr)
                 mgr->priv->current_fn_f7_config = -1;
         }
 
-        g_ptr_array_add (array, mate_rr_config_new_current (screen, NULL));
+        g_ptr_array_add (array, cafe_rr_config_new_current (screen, NULL));
         g_ptr_array_add (array, make_clone_setup (screen));
         g_ptr_array_add (array, make_xinerama_setup (screen));
         g_ptr_array_add (array, make_laptop_setup (screen));
@@ -1170,7 +1170,7 @@ handle_fn_f7 (MsdXrandrManager *mgr, guint32 timestamp)
         log_msg ("Handling XF86Display hotkey - timestamp %u\n", timestamp);
 
         error = NULL;
-        if (!mate_rr_screen_refresh (screen, &error) && error) {
+        if (!cafe_rr_screen_refresh (screen, &error) && error) {
                 char *str;
 
                 str = g_strdup_printf (_("Could not refresh the screen information: %s"), error->message);
@@ -1187,11 +1187,11 @@ handle_fn_f7 (MsdXrandrManager *mgr, guint32 timestamp)
                 log_configurations (priv->fn_f7_configs);
         }
 
-        current = mate_rr_config_new_current (screen, NULL);
+        current = cafe_rr_config_new_current (screen, NULL);
 
         if (priv->fn_f7_configs &&
-            (!mate_rr_config_match (current, priv->fn_f7_configs[0]) ||
-             !mate_rr_config_equal (current, priv->fn_f7_configs[mgr->priv->current_fn_f7_config]))) {
+            (!cafe_rr_config_match (current, priv->fn_f7_configs[0]) ||
+             !cafe_rr_config_equal (current, priv->fn_f7_configs[mgr->priv->current_fn_f7_config]))) {
                     /* Our view of the world is incorrect, so regenerate the
                      * configurations
                      */
@@ -1229,7 +1229,7 @@ handle_fn_f7 (MsdXrandrManager *mgr, guint32 timestamp)
                  * assume here that we do want this event to go through still,
                  * since kernel timestamps may be skewed wrt the X server.
                  */
-                mate_rr_screen_get_timestamps (screen, NULL, &server_timestamp);
+                cafe_rr_screen_get_timestamps (screen, NULL, &server_timestamp);
                 if (timestamp < server_timestamp)
                         timestamp = server_timestamp;
 
@@ -1253,7 +1253,7 @@ static MateRROutputInfo *
 get_laptop_output_info (MateRRScreen *screen, MateRRConfig *config)
 {
         int i;
-        MateRROutputInfo **outputs = mate_rr_config_get_outputs (config);
+        MateRROutputInfo **outputs = cafe_rr_config_get_outputs (config);
 
         for (i = 0; outputs[i] != NULL; i++) {
                 if (is_laptop (screen, outputs[i]))
@@ -1326,7 +1326,7 @@ handle_rotate_windows (MsdXrandrManager *mgr, guint32 timestamp)
 
         /* Which output? */
 
-        current = mate_rr_config_new_current (screen, NULL);
+        current = cafe_rr_config_new_current (screen, NULL);
 
         rotatable_output_info = get_laptop_output_info (screen, current);
         if (rotatable_output_info == NULL) {
@@ -1337,16 +1337,16 @@ handle_rotate_windows (MsdXrandrManager *mgr, guint32 timestamp)
         /* Which rotation? */
 
         get_allowed_rotations_for_output (current, priv->rw_screen, rotatable_output_info, &num_allowed_rotations, &allowed_rotations);
-        next_rotation = get_next_rotation (allowed_rotations, mate_rr_output_info_get_rotation (rotatable_output_info));
+        next_rotation = get_next_rotation (allowed_rotations, cafe_rr_output_info_get_rotation (rotatable_output_info));
 
-        if (next_rotation == mate_rr_output_info_get_rotation (rotatable_output_info)) {
+        if (next_rotation == cafe_rr_output_info_get_rotation (rotatable_output_info)) {
                 g_debug ("No rotations are supported other than the current one; XF86RotateWindows key will do nothing");
                 goto out;
         }
 
         /* Rotate */
 
-        mate_rr_output_info_set_rotation (rotatable_output_info, next_rotation);
+        cafe_rr_output_info_set_rotation (rotatable_output_info, next_rotation);
 
         apply_configuration_and_display_error (mgr, current, timestamp);
 
@@ -1405,7 +1405,7 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
         GError *error;
         gboolean applicable;
 
-        config = mate_rr_config_new_current (priv->rw_screen, NULL);
+        config = cafe_rr_config_new_current (priv->rw_screen, NULL);
 
         /* For outputs that are connected and on (i.e. they have a CRTC assigned
          * to them, so they are getting a signal), we leave them as they are
@@ -1420,17 +1420,17 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
          */
 
         just_turned_on = NULL;
-        outputs = mate_rr_config_get_outputs (config);
+        outputs = cafe_rr_config_get_outputs (config);
 
         for (i = 0; outputs[i] != NULL; i++) {
                 MateRROutputInfo *output = outputs[i];
 
-                if (mate_rr_output_info_is_connected (output) && !mate_rr_output_info_is_active (output)) {
-                        mate_rr_output_info_set_active (output, TRUE);
-                        mate_rr_output_info_set_rotation (output, CAFE_RR_ROTATION_0);
+                if (cafe_rr_output_info_is_connected (output) && !cafe_rr_output_info_is_active (output)) {
+                        cafe_rr_output_info_set_active (output, TRUE);
+                        cafe_rr_output_info_set_rotation (output, CAFE_RR_ROTATION_0);
                         just_turned_on = g_list_prepend (just_turned_on, GINT_TO_POINTER (i));
-                } else if (!mate_rr_output_info_is_connected (output) && mate_rr_output_info_is_active (output))
-                        mate_rr_output_info_set_active (output, FALSE);
+                } else if (!cafe_rr_output_info_is_connected (output) && cafe_rr_output_info_is_active (output))
+                        cafe_rr_output_info_set_active (output, FALSE);
         }
 
         /* Now, lay out the outputs from left to right.  Put first the outputs
@@ -1447,12 +1447,12 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
                 if (g_list_find (just_turned_on, GINT_TO_POINTER (i)))
                         continue;
 
-                if (mate_rr_output_info_is_active (output)) {
+                if (cafe_rr_output_info_is_active (output)) {
                         int width, height;
-                        g_assert (mate_rr_output_info_is_connected (output));
+                        g_assert (cafe_rr_output_info_is_connected (output));
 
-                        mate_rr_output_info_get_geometry (output, NULL, NULL, &width, &height);
-			mate_rr_output_info_set_geometry (output, x, 0, width, height);
+                        cafe_rr_output_info_get_geometry (output, NULL, NULL, &width, &height);
+			cafe_rr_output_info_set_geometry (output, x, 0, width, height);
 
                         x += width;
                 }
@@ -1467,11 +1467,11 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
                 i = GPOINTER_TO_INT (l->data);
                 output = outputs[i];
 
-                g_assert (mate_rr_output_info_is_active (output) && mate_rr_output_info_is_connected (output));
+                g_assert (cafe_rr_output_info_is_active (output) && cafe_rr_output_info_is_connected (output));
 
                 /* since the output was off, use its preferred width/height (it doesn't have a real width/height yet) */
-                width = mate_rr_output_info_get_preferred_width (output);
-                mate_rr_output_info_set_geometry (output, x, 0, width, mate_rr_output_info_get_preferred_height (output));
+                width = cafe_rr_output_info_get_preferred_width (output);
+                cafe_rr_output_info_set_geometry (output, x, 0, width, cafe_rr_output_info_get_preferred_height (output));
 
                 x += width;
         }
@@ -1488,7 +1488,7 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
                 gboolean is_bounds_error;
 
                 error = NULL;
-                applicable = mate_rr_config_applicable (config, priv->rw_screen, &error);
+                applicable = cafe_rr_config_applicable (config, priv->rw_screen, &error);
 
                 if (applicable)
                         break;
@@ -1504,7 +1504,7 @@ auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
                         l = l->next;
 
                         output = outputs[i];
-                        mate_rr_output_info_set_active (output, FALSE);
+                        cafe_rr_output_info_set_active (output, FALSE);
                 } else
                         break;
         }
@@ -1547,7 +1547,7 @@ apply_color_profiles (void)
         gboolean ret;
         GError *error = NULL;
 
-        /* run the mate-color-manager apply program */
+        /* run the cafe-color-manager apply program */
         ret = g_spawn_command_line_async (BINDIR "/gcm-apply", &error);
         if (!ret) {
                 /* only print the warning if the binary is installed */
@@ -1568,7 +1568,7 @@ on_randr_event (MateRRScreen *screen, gpointer data)
         if (!priv->running)
                 return;
 
-        mate_rr_screen_get_timestamps (screen, &change_timestamp, &config_timestamp);
+        cafe_rr_screen_get_timestamps (screen, &change_timestamp, &config_timestamp);
 
         log_open ();
         log_msg ("Got RANDR event with timestamps change=%u %c config=%u\n",
@@ -1599,7 +1599,7 @@ on_randr_event (MateRRScreen *screen, gpointer data)
 
                 show_timestamps_dialog (manager, "need to deal with reconfiguration, as config > change");
 
-                intended_filename = mate_rr_config_get_intended_filename ();
+                intended_filename = cafe_rr_config_get_intended_filename ();
 
                 error = NULL;
                 success = apply_configuration_from_filename (manager, intended_filename, TRUE, config_timestamp, &error);
@@ -1634,7 +1634,7 @@ on_randr_event (MateRRScreen *screen, gpointer data)
                         log_msg ("Applied stored configuration to deal with event\n");
         }
 
-        /* poke mate-color-manager */
+        /* poke cafe-color-manager */
         apply_color_profiles ();
 
         refresh_tray_icon_menu_if_active (manager, MAX (change_timestamp, config_timestamp));
@@ -1654,7 +1654,7 @@ run_display_capplet (GtkWidget *widget)
                 screen = gdk_screen_get_default ();
 
         error = NULL;
-        if (!mate_gdk_spawn_command_line_on_screen (screen, MSD_XRANDR_DISPLAY_CAPPLET, &error)) {
+        if (!cafe_gdk_spawn_command_line_on_screen (screen, MSD_XRANDR_DISPLAY_CAPPLET, &error)) {
                 GtkWidget *dialog;
 
                 dialog = gtk_message_dialog_new_with_markup (NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
@@ -1684,7 +1684,7 @@ status_icon_popup_menu_selection_done_cb (GtkMenuShell *menu_shell, gpointer dat
         gtk_widget_destroy (priv->popup_menu);
         priv->popup_menu = NULL;
 
-        mate_rr_labeler_hide (priv->labeler);
+        cafe_rr_labeler_hide (priv->labeler);
         g_object_unref (priv->labeler);
         priv->labeler = NULL;
 
@@ -1761,7 +1761,7 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, MateRROutputInfo *ou
         g_signal_connect (item, "size-allocate",
                           G_CALLBACK (title_item_size_allocate_cb), NULL);
 
-        str = g_markup_printf_escaped ("<b>%s</b>", mate_rr_output_info_get_display_name (output));
+        str = g_markup_printf_escaped ("<b>%s</b>", cafe_rr_output_info_get_display_name (output));
         label = gtk_label_new (NULL);
         gtk_label_set_markup (GTK_LABEL (label), str);
         g_free (str);
@@ -1775,20 +1775,20 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, MateRROutputInfo *ou
         gtk_widget_set_margin_bottom (label, OUTPUT_TITLE_ITEM_BORDER + OUTPUT_TITLE_ITEM_PADDING);
 
         /*Load the icon unless the user has icons in menus turned off*/
-        icon_settings = g_settings_new ("org.mate.interface");
+        icon_settings = g_settings_new ("org.cafe.interface");
         if (g_settings_get_boolean (icon_settings, "menus-have-icons")){
             gtk_container_add (GTK_CONTAINER (box), image);
             }
         gtk_container_add (GTK_CONTAINER (box), label);
         gtk_container_add (GTK_CONTAINER (item), box);
 
-        mate_rr_labeler_get_rgba_for_output (priv->labeler, output, &color);
+        cafe_rr_labeler_get_rgba_for_output (priv->labeler, output, &color);
 
         color_string = gdk_rgba_to_string (&color);
 
         /*This can be overriden by themes, check all label:insensitive entries if it does not show up*/
         string = g_string_new(NULL);
-        g_string_append (string, ".mate-panel-menu-bar menuitem.xrandr-applet:disabled>box>label{\n");
+        g_string_append (string, ".cafe-panel-menu-bar menuitem.xrandr-applet:disabled>box>label{\n");
         /*g_string_append (string, "color: black;"); Does not work-overridden in all themes*/
         g_string_append (string, "padding-left: 4px; padding-right: 4px;");
         g_string_append (string, "border-color: gray;");
@@ -1796,7 +1796,7 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, MateRROutputInfo *ou
         g_string_append (string, "border-style: inset;");
         g_string_append (string, "background-image: none;");
         /*Bright color for active monitor, dimmed for inactive monitor*/
-        if (mate_rr_output_info_is_active (output)){
+        if (cafe_rr_output_info_is_active (output)){
                 g_string_append (string, "background-color:");
                 g_string_append (string, color_string);
                 g_string_append (string, ";");
@@ -1832,7 +1832,7 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, MateRROutputInfo *ou
         provider = gtk_css_provider_new ();
 
         gtk_css_provider_load_from_data (provider,
-            ".mate-panel-menu-bar menuitem.xrandr-applet:disabled>box>image{\n"
+            ".cafe-panel-menu-bar menuitem.xrandr-applet:disabled>box>image{\n"
              "opacity: 1.0; \n"
              "-gtk-icon-style:regular; \n" /* symbolic icons would get the disabled color*/
              "-gtk-icon-effect: none; \n"
@@ -1857,10 +1857,10 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, MateRROutputInfo *ou
                       g_strcmp0 (theme_name, "Bluebird") == 0 ||
                       g_strcmp0 (theme_name, "Greybird") == 0){
             gtk_css_provider_load_from_data (provider2,
-                    ".mate-panel-menu-bar menuitem.xrandr-applet:disabled>box>label{\n"
+                    ".cafe-panel-menu-bar menuitem.xrandr-applet:disabled>box>label{\n"
                     "color: black;\n"
                     "}"
-                    ".mate-panel-menu-bar menuitem.xrandr-applet.monitor-off:disabled>box>label{\n"
+                    ".cafe-panel-menu-bar menuitem.xrandr-applet.monitor-off:disabled>box>label{\n"
                      "color: alpha (black, 0.6);\n"
                     "}",
                     -1, NULL);
@@ -1896,7 +1896,7 @@ get_allowed_rotations_for_output (MateRRConfig *config,
         *out_num_rotations = 0;
         *out_rotations = 0;
 
-        current_rotation = mate_rr_output_info_get_rotation (output);
+        current_rotation = cafe_rr_output_info_get_rotation (output);
 
         /* Yay for brute force */
 
@@ -1905,20 +1905,20 @@ get_allowed_rotations_for_output (MateRRConfig *config,
 
                 rotation_to_test = possible_rotations[i];
 
-                mate_rr_output_info_set_rotation (output, rotation_to_test);
+                cafe_rr_output_info_set_rotation (output, rotation_to_test);
 
-                if (mate_rr_config_applicable (config, rr_screen, NULL)) { /* NULL-GError */
+                if (cafe_rr_config_applicable (config, rr_screen, NULL)) { /* NULL-GError */
                         (*out_num_rotations)++;
                         (*out_rotations) |= rotation_to_test;
                 }
         }
 
-        mate_rr_output_info_set_rotation (output, current_rotation);
+        cafe_rr_output_info_set_rotation (output, current_rotation);
 
         if (*out_num_rotations == 0 || *out_rotations == 0) {
                 g_warning ("Huh, output %p says it doesn't support any rotations, and yet it has a current rotation?", output);
                 *out_num_rotations = 1;
-                *out_rotations = mate_rr_output_info_get_rotation (output);
+                *out_rotations = cafe_rr_output_info_get_rotation (output);
         }
 }
 
@@ -1948,20 +1948,20 @@ ensure_current_configuration_is_saved (void)
         MateRRScreen *rr_screen;
         MateRRConfig *rr_config;
 
-        /* Normally, mate_rr_config_save() creates a backup file based on the
+        /* Normally, cafe_rr_config_save() creates a backup file based on the
          * old monitors.xml.  However, if *that* file didn't exist, there is
          * nothing from which to create a backup.  So, here we'll save the
          * current/unchanged configuration and then let our caller call
-         * mate_rr_config_save() again with the new/changed configuration, so
+         * cafe_rr_config_save() again with the new/changed configuration, so
          * that there *will* be a backup file in the end.
          */
 
-        rr_screen = mate_rr_screen_new (gdk_screen_get_default (), NULL); /* NULL-GError */
+        rr_screen = cafe_rr_screen_new (gdk_screen_get_default (), NULL); /* NULL-GError */
         if (!rr_screen)
                 return;
 
-        rr_config = mate_rr_config_new_current (rr_screen, NULL);
-        mate_rr_config_save (rr_config, NULL); /* NULL-GError */
+        rr_config = cafe_rr_config_new_current (rr_screen, NULL);
+        cafe_rr_config_save (rr_config, NULL); /* NULL-GError */
 
         g_object_unref (rr_config);
         g_object_unref (rr_screen);
@@ -1979,25 +1979,25 @@ monitor_activate_cb (GtkCheckMenuItem *item, gpointer data)
 
         output = g_object_get_data (G_OBJECT (item), "output");
 
-        /*This is borrowed from the capplet in mate-control-center
+        /*This is borrowed from the capplet in cafe-control-center
          *And shares the same limitations concerning monitors
          *which have been turned off and back on without being reconfigured
          */
         if (gtk_check_menu_item_get_active (item)){
                 int x, y, width, height;
-                mate_rr_output_info_get_geometry (output, &x, &y, NULL, NULL);
-                width = mate_rr_output_info_get_preferred_width (output);
-                height = mate_rr_output_info_get_preferred_height (output);
-                mate_rr_output_info_set_geometry (output, x, y, width, height);
-                mate_rr_output_info_set_active (output, TRUE);
+                cafe_rr_output_info_get_geometry (output, &x, &y, NULL, NULL);
+                width = cafe_rr_output_info_get_preferred_width (output);
+                height = cafe_rr_output_info_get_preferred_height (output);
+                cafe_rr_output_info_set_geometry (output, x, y, width, height);
+                cafe_rr_output_info_set_active (output, TRUE);
 
         }
         else{
-                mate_rr_output_info_set_active (output, FALSE);
+                cafe_rr_output_info_set_active (output, FALSE);
         }
 
         error = NULL;
-        if (!mate_rr_config_save (priv->configuration, &error)) {
+        if (!cafe_rr_config_save (priv->configuration, &error)) {
                 error_message (manager, _("Could not save monitor configuration"), error, NULL);
                 if (error)
                         g_error_free (error);
@@ -2026,10 +2026,10 @@ output_rotation_item_activate_cb (GtkCheckMenuItem *item, gpointer data)
         output = g_object_get_data (G_OBJECT (item), "output");
         rotation = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (item), "rotation"));
 
-        mate_rr_output_info_set_rotation (output, rotation);
+        cafe_rr_output_info_set_rotation (output, rotation);
 
         error = NULL;
-        if (!mate_rr_config_save (priv->configuration, &error)) {
+        if (!cafe_rr_config_save (priv->configuration, &error)) {
                 error_message (manager, _("Could not save monitor configuration"), error, NULL);
                 if (error)
                         g_error_free (error);
@@ -2055,7 +2055,7 @@ mirror_outputs_cb(GtkCheckMenuItem *item, gpointer data)
                         error_message (manager, _("Mirroring outputs not supported"), NULL, NULL);
                 }
 
-                mate_rr_config_save (config, NULL);
+                cafe_rr_config_save (config, NULL);
                 try_to_apply_intended_configuration (manager, NULL, gtk_get_current_event_time (), NULL);
 
                 g_object_unref (config);
@@ -2068,7 +2068,7 @@ mirror_outputs_cb(GtkCheckMenuItem *item, gpointer data)
                 /*If nothing worked, bring up the display capplet so the user can reconfigure*/
                 if (config == NULL)
                          run_display_capplet(GTK_WIDGET(item));
-                mate_rr_config_save (config, NULL);
+                cafe_rr_config_save (config, NULL);
                 try_to_apply_intended_configuration (manager, NULL, gtk_get_current_event_time (), NULL);
 
                 g_object_unref (config);
@@ -2087,7 +2087,7 @@ add_items_for_rotations (MsdXrandrManager *manager, MateRROutputInfo *output, Ma
                 { CAFE_RR_ROTATION_90, N_("Left") },
                 { CAFE_RR_ROTATION_270, N_("Right") },
                 { CAFE_RR_ROTATION_180, N_("Upside Down") },
-                /* We don't allow REFLECT_X or REFLECT_Y for now, as mate-display-properties doesn't allow them, either */
+                /* We don't allow REFLECT_X or REFLECT_Y for now, as cafe-display-properties doesn't allow them, either */
         };
 
         struct MsdXrandrManagerPrivate *priv = manager->priv;
@@ -2117,7 +2117,7 @@ add_items_for_rotations (MsdXrandrManager *manager, MateRROutputInfo *output, Ma
 
                 item = gtk_radio_menu_item_new_with_label (group, _(rotations[i].name));
                 /*HERE*/
-                if (!(mate_rr_output_info_is_active (output))){
+                if (!(cafe_rr_output_info_is_active (output))){
                     gtk_widget_set_sensitive (item, FALSE); /*Rotation can't be set from the OFF state*/
                 }
                 gtk_widget_show_all (item);
@@ -2131,7 +2131,7 @@ add_items_for_rotations (MsdXrandrManager *manager, MateRROutputInfo *output, Ma
 
                 group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (item));
 
-                if (rot == mate_rr_output_info_get_rotation (output)) {
+                if (rot == cafe_rr_output_info_get_rotation (output)) {
                         active_item = item;
                         active_item_activate_id = activate_id;
                 }
@@ -2174,7 +2174,7 @@ add_enable_option_for_output (MsdXrandrManager *manager, MateRROutputInfo *outpu
 
         item = gtk_check_menu_item_new();
 
-        if (mate_rr_output_info_is_active (output)){
+        if (cafe_rr_output_info_is_active (output)){
                 gtk_menu_item_set_label (GTK_MENU_ITEM(item), _("ON"));
                 gtk_widget_set_tooltip_text(item, _("Turn this monitor off"));
         }
@@ -2196,7 +2196,7 @@ add_enable_option_for_output (MsdXrandrManager *manager, MateRROutputInfo *outpu
         */
         g_signal_handler_block (item, activate_id);
 
-        if (mate_rr_output_info_is_active (output)){
+        if (cafe_rr_output_info_is_active (output)){
             gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), TRUE);
         }
         else{
@@ -2226,9 +2226,9 @@ add_menu_items_for_outputs (MsdXrandrManager *manager)
         int i;
         MateRROutputInfo **outputs;
 
-        outputs = mate_rr_config_get_outputs (priv->configuration);
+        outputs = cafe_rr_config_get_outputs (priv->configuration);
         for (i = 0; outputs[i] != NULL; i++) {
-                if (mate_rr_output_info_is_connected (outputs[i]))
+                if (cafe_rr_output_info_is_connected (outputs[i]))
                         add_menu_items_for_output (manager, outputs[i]);
         }
 }
@@ -2249,7 +2249,7 @@ add_menu_items_for_clone (MsdXrandrManager *manager)
         /*Block the handler until the GUI is set up no matter what the monitor state*/
         g_signal_handler_block (item, activate_id);
 
-        if (mate_rr_config_get_clone(priv->configuration)){
+        if (cafe_rr_config_get_clone(priv->configuration)){
             gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), TRUE);
         }
         else{
@@ -2269,10 +2269,10 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
         GSettings *icon_settings;
 
         g_assert (priv->configuration == NULL);
-        priv->configuration = mate_rr_config_new_current (priv->rw_screen, NULL);
+        priv->configuration = cafe_rr_config_new_current (priv->rw_screen, NULL);
 
         g_assert (priv->labeler == NULL);
-        priv->labeler = mate_rr_labeler_new (priv->configuration);
+        priv->labeler = cafe_rr_labeler_new (priv->configuration);
 
         g_assert (priv->popup_menu == NULL);
         priv->popup_menu = gtk_menu_new ();
@@ -2290,7 +2290,7 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
         image = gtk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_MENU);
         label = gtk_label_new_with_mnemonic(_("_Configure Display Settings…"));
         /*Load the icon unless the user has icons in menus turned off*/
-        icon_settings = g_settings_new ("org.mate.interface");
+        icon_settings = g_settings_new ("org.cafe.interface");
         if (g_settings_get_boolean (icon_settings, "menus-have-icons")){
             gtk_container_add (GTK_CONTAINER (box), image);
             g_signal_connect (item, "size-allocate",
@@ -2313,11 +2313,11 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
         GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
         gtk_widget_set_visual(GTK_WIDGET(toplevel), visual);
-        /*Set up the gtk theme class from mate-panel*/
+        /*Set up the gtk theme class from cafe-panel*/
         GtkStyleContext *context;
         context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
         gtk_style_context_add_class(context,"gnome-panel-menu-bar");
-        gtk_style_context_add_class(context,"mate-panel-menu-bar");
+        gtk_style_context_add_class(context,"cafe-panel-menu-bar");
 
         gtk_menu_popup (GTK_MENU (priv->popup_menu), NULL, NULL,
                         gtk_status_icon_position_menu,
@@ -2456,8 +2456,8 @@ apply_stored_configuration_at_startup (MsdXrandrManager *manager, guint32 timest
         char *backup_filename;
         char *intended_filename;
 
-        backup_filename = mate_rr_config_get_backup_filename ();
-        intended_filename = mate_rr_config_get_intended_filename ();
+        backup_filename = cafe_rr_config_get_backup_filename ();
+        intended_filename = cafe_rr_config_get_intended_filename ();
 
         /* 1. See if there was a "saved" configuration.  If there is one, it means
          * that the user had selected to change the display configuration, but the
@@ -2528,12 +2528,12 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
         GdkDisplay      *display;
 
         g_debug ("Starting xrandr manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         log_open ();
         log_msg ("------------------------------------------------------------\nSTARTING XRANDR PLUGIN\n");
 
-        manager->priv->rw_screen = mate_rr_screen_new (gdk_screen_get_default (), error);
+        manager->priv->rw_screen = cafe_rr_screen_new (gdk_screen_get_default (), error);
 
         if (manager->priv->rw_screen == NULL) {
                 log_msg ("Could not initialize the RANDR plugin%s%s\n",
@@ -2599,7 +2599,7 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
 
         log_close ();
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

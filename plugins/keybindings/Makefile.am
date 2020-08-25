@@ -14,7 +14,7 @@ libkeybindings_la_SOURCES = 		\
 	$(NULL)
 
 libkeybindings_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-I$(top_srcdir)/plugins/common			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
@@ -36,10 +36,10 @@ libkeybindings_la_LIBADD  = 		\
 	$(NULL)
 
 plugin_in_files = 		\
-	keybindings.mate-settings-plugin.desktop.in	\
+	keybindings.cafe-settings-plugin.desktop.in	\
 	$(NULL)
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)	\

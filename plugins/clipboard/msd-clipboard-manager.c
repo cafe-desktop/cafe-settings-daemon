@@ -43,7 +43,7 @@
 #include "xutils.h"
 #include "list.h"
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-clipboard-manager.h"
 
 struct MsdClipboardManagerPrivate
@@ -859,7 +859,7 @@ start_clipboard_idle_cb (MsdClipboardManager *manager)
         XClientMessageEvent xev;
 
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         init_atoms (manager->priv->display);
 
@@ -923,7 +923,7 @@ start_clipboard_idle_cb (MsdClipboardManager *manager)
                 /* FIXME: manager->priv->terminate (manager->priv->cb_data); */
         }
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return FALSE;
 }
@@ -932,11 +932,11 @@ gboolean
 msd_clipboard_manager_start (MsdClipboardManager *manager,
                              GError             **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         g_idle_add ((GSourceFunc) start_clipboard_idle_cb, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

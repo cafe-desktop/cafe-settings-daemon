@@ -39,15 +39,15 @@
 #include <libnotify/notify.h>
 #endif /* HAVE_LIBNOTIFY */
 
-#include "mate-settings-manager.h"
-#include "mate-settings-profile.h"
+#include "cafe-settings-manager.h"
+#include "cafe-settings-profile.h"
 
-#include <libmate-desktop/mate-gsettings.h>
+#include <libcafe-desktop/cafe-gsettings.h>
 
-#define MSD_DBUS_NAME         "org.mate.SettingsDaemon"
+#define MSD_DBUS_NAME         "org.cafe.SettingsDaemon"
 
-#define DEBUG_KEY             "mate-settings-daemon"
-#define DEBUG_SCHEMA          "org.mate.debug"
+#define DEBUG_KEY             "cafe-settings-daemon"
+#define DEBUG_SCHEMA          "org.cafe.debug"
 
 #define CAFE_SESSION_DBUS_NAME      "org.gnome.SessionManager"
 #define CAFE_SESSION_DBUS_OBJECT    "/org/gnome/SessionManager"
@@ -195,7 +195,7 @@ bus_register (DBusGConnection *bus)
         DBusGProxy      *bus_proxy;
         gboolean         ret;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         ret = FALSE;
 
@@ -217,7 +217,7 @@ bus_register (DBusGConnection *bus)
         g_debug ("Successfully connected to D-Bus");
 
  out:
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return ret;
 }
@@ -263,7 +263,7 @@ on_session_end (DBusGProxy *proxy, guint flags, MateSettingsManager *manager)
                 g_error_free (error);
         }
 
-        mate_settings_manager_stop (manager);
+        cafe_settings_manager_stop (manager);
         gtk_main_quit ();
 }
 
@@ -323,7 +323,7 @@ set_session_over_handler (DBusGConnection *bus, MateSettingsManager *manager)
 
         g_assert (bus != NULL);
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         session_proxy =
                  dbus_g_proxy_new_for_name (bus,
@@ -346,13 +346,13 @@ set_session_over_handler (DBusGConnection *bus, MateSettingsManager *manager)
                                      manager,
                                      NULL);
 
-        /* Register with mate-session */
+        /* Register with cafe-session */
         startup_id = g_getenv ("DESKTOP_AUTOSTART_ID");
         if (startup_id != NULL && *startup_id != '\0') {
                 res = dbus_g_proxy_call (session_proxy,
                                          "RegisterClient",
                                          &error,
-                                         G_TYPE_STRING, "mate-settings-daemon",
+                                         G_TYPE_STRING, "cafe-settings-daemon",
                                          G_TYPE_STRING, startup_id,
                                          G_TYPE_INVALID,
                                          DBUS_TYPE_G_OBJECT_PATH, &client_id,
@@ -390,7 +390,7 @@ set_session_over_handler (DBusGConnection *bus, MateSettingsManager *manager)
         }
 
         watch_for_term_signal (manager);
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void
@@ -417,7 +417,7 @@ parse_args (int *argc, char ***argv)
         GError *error;
         GOptionContext *context;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
 
         context = g_option_context_new (NULL);
@@ -438,7 +438,7 @@ parse_args (int *argc, char ***argv)
 
         g_option_context_free (context);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         if (debug)
             g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
@@ -467,7 +467,7 @@ main (int argc, char *argv[])
 
         manager = NULL;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         bindtextdomain (GETTEXT_PACKAGE, CAFE_SETTINGS_LOCALEDIR);
         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -477,7 +477,7 @@ main (int argc, char *argv[])
         parse_args (&argc, &argv);
 
         /* Allows to enable/disable debug from GSettings only if it is not set from argument */
-        if (mate_gsettings_schema_exists (DEBUG_SCHEMA))
+        if (cafe_gsettings_schema_exists (DEBUG_SCHEMA))
         {
                 debug_settings = g_settings_new (DEBUG_SCHEMA);
                 debug = g_settings_get_boolean (debug_settings, DEBUG_KEY);
@@ -488,12 +488,12 @@ main (int argc, char *argv[])
 		}
         }
 
-        mate_settings_profile_start ("opening gtk display");
+        cafe_settings_profile_start ("opening gtk display");
         if (! gtk_init_check (NULL, NULL)) {
                 g_warning ("Unable to initialize GTK+");
                 exit (EXIT_FAILURE);
         }
-        mate_settings_profile_end ("opening gtk display");
+        cafe_settings_profile_end ("opening gtk display");
 
         g_log_set_default_handler (msd_log_default_handler, NULL);
 
@@ -508,12 +508,12 @@ main (int argc, char *argv[])
         }
 
 #ifdef HAVE_LIBNOTIFY
-        notify_init ("mate-settings-daemon");
+        notify_init ("cafe-settings-daemon");
 #endif /* HAVE_LIBNOTIFY */
 
-        mate_settings_profile_start ("mate_settings_manager_new");
-        manager = mate_settings_manager_new ();
-        mate_settings_profile_end ("mate_settings_manager_new");
+        cafe_settings_profile_start ("cafe_settings_manager_new");
+        manager = cafe_settings_manager_new ();
+        cafe_settings_profile_end ("cafe_settings_manager_new");
         if (manager == NULL) {
                 g_warning ("Unable to register object");
                 goto out;
@@ -523,7 +523,7 @@ main (int argc, char *argv[])
          * Initialization phase. Otherwise, wait for an Awake etc. */
         if (g_getenv ("DBUS_STARTER_BUS_TYPE") == NULL) {
                 error = NULL;
-                res = mate_settings_manager_start (manager, PLUGIN_LOAD_INIT, &error);
+                res = cafe_settings_manager_start (manager, PLUGIN_LOAD_INIT, &error);
                 if (! res) {
                         g_warning ("Unable to start: %s", error->message);
                         g_error_free (error);
@@ -533,10 +533,10 @@ main (int argc, char *argv[])
         set_session_over_handler (bus, manager);
 
         /* If we aren't started by dbus then load the plugins automatically after
-         * mate-settings-daemon has registered itself. Otherwise, wait for an Awake etc. */
+         * cafe-settings-daemon has registered itself. Otherwise, wait for an Awake etc. */
         if (g_getenv ("DBUS_STARTER_BUS_TYPE") == NULL) {
                 error = NULL;
-                res = mate_settings_manager_start (manager, PLUGIN_LOAD_DEFER, &error);
+                res = cafe_settings_manager_start (manager, PLUGIN_LOAD_DEFER, &error);
                 if (! res) {
                         g_warning ("Unable to start: %s", error->message);
                         g_error_free (error);
@@ -570,7 +570,7 @@ main (int argc, char *argv[])
 #endif /* HAVE_LIBNOTIFY */
 
         g_debug ("SettingsDaemon finished");
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return 0;
 }

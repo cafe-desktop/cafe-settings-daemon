@@ -26,10 +26,10 @@
 #include <gio/gio.h>
 #include <string.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-rfkill-manager.h"
 #include "rfkill-glib.h"
-#include "mate-settings-bus.h"
+#include "cafe-settings-bus.h"
 
 struct MsdRfkillManagerPrivate
 {
@@ -58,15 +58,15 @@ struct MsdRfkillManagerPrivate
         gchar                   *chassis_type;
 };
 
-#define MSD_DBUS_NAME "org.mate.SettingsDaemon"
-#define MSD_DBUS_PATH "/org/mate/SettingsDaemon"
+#define MSD_DBUS_NAME "org.cafe.SettingsDaemon"
+#define MSD_DBUS_PATH "/org/cafe/SettingsDaemon"
 
 #define MSD_RFKILL_DBUS_NAME MSD_DBUS_NAME ".Rfkill"
 #define MSD_RFKILL_DBUS_PATH MSD_DBUS_PATH "/Rfkill"
 
 static const gchar introspection_xml[] =
 "<node>"
-"  <interface name='org.mate.SettingsDaemon.Rfkill'>"
+"  <interface name='org.cafe.SettingsDaemon.Rfkill'>"
 "    <annotation name='org.freedesktop.DBus.GLib.CSymbol' value='msd_rfkill_manager'/>"
 "    <property name='AirplaneMode' type='b' access='readwrite'/>"
 "    <property name='HardwareAirplaneMode' type='b' access='read'/>"
@@ -626,7 +626,7 @@ gboolean
 msd_rfkill_manager_start (MsdRfkillManager *manager,
                          GError         **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         manager->priv->introspection_data = g_dbus_node_info_new_for_xml (introspection_xml, NULL);
         g_assert (manager->priv->introspection_data != NULL);
@@ -640,7 +640,7 @@ msd_rfkill_manager_start (MsdRfkillManager *manager,
 
         manager->priv->cancellable = g_cancellable_new ();
 
-        manager->priv->chassis_type = mate_settings_get_chassis_type ();
+        manager->priv->chassis_type = cafe_settings_get_chassis_type ();
 
         g_dbus_proxy_new_for_bus (G_BUS_TYPE_SYSTEM,
                                   G_DBUS_PROXY_FLAGS_NONE,
@@ -665,7 +665,7 @@ msd_rfkill_manager_start (MsdRfkillManager *manager,
                    (GAsyncReadyCallback) on_bus_gotten,
                    manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

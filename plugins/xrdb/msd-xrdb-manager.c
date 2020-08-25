@@ -37,12 +37,12 @@
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-xrdb-manager.h"
 
 #define SYSTEM_AD_DIR    SYSCONFDIR "/xrdb"
 #define GENERAL_AD       SYSTEM_AD_DIR "/General.ad"
-#define USER_AD_DIR      ".config/mate/xrdb"
+#define USER_AD_DIR      ".config/cafe/xrdb"
 #define USER_X_RESOURCES ".Xresources"
 #define USER_X_DEFAULTS  ".Xdefaults"
 
@@ -424,7 +424,7 @@ apply_settings (MsdXrdbManager *manager,
         GSList     *p;
         GError     *error;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         command = "xrdb -merge -quiet";
 
@@ -467,7 +467,7 @@ apply_settings (MsdXrdbManager *manager,
         spawn_with_input (command, string->str);
         g_string_free (string, TRUE);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return;
 }
@@ -484,12 +484,12 @@ gboolean
 msd_xrdb_manager_start (MsdXrdbManager *manager,
                         GError        **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         /* the initialization is done here otherwise
-           mate_settings_xsettings_load would generate
+           cafe_settings_xsettings_load would generate
            false hit as gtk-theme-name is set to Default in
-           mate_settings_xsettings_init */
+           cafe_settings_xsettings_init */
         g_signal_connect (gtk_settings_get_default (),
                           "notify::gtk-theme-name",
                           G_CALLBACK (theme_changed),
@@ -498,7 +498,7 @@ msd_xrdb_manager_start (MsdXrdbManager *manager,
         manager->priv->widget = gtk_window_new (GTK_WINDOW_TOPLEVEL);
         gtk_widget_realize (manager->priv->widget);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

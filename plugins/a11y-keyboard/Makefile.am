@@ -16,7 +16,7 @@ test_a11y_preferences_dialog_SOURCES =		\
 	$(NULL)
 
 test_a11y_preferences_dialog_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon			\
+	-I$(top_srcdir)/cafe-settings-daemon			\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
@@ -47,7 +47,7 @@ liba11y_keyboard_la_SOURCES = 		\
 	$(NULL)
 
 liba11y_keyboard_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DGTKBUILDERDIR=\""$(gtkbuilderdir)"\" \
 	$(AM_CPPFLAGS)
@@ -69,10 +69,10 @@ liba11y_keyboard_la_LIBADD  = 		\
 	$(NULL)
 
 plugin_in_files = 		\
-	a11y-keyboard.mate-settings-plugin.desktop.in	\
+	a11y-keyboard.cafe-settings-plugin.desktop.in	\
 	$(NULL)
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)	\

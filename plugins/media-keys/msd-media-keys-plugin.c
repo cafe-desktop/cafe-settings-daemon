@@ -26,10 +26,10 @@
 #include <glib-object.h>
 
 #ifdef HAVE_LIBCAFEMIXER
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 #endif
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 #include "msd-media-keys-plugin.h"
 #include "msd-media-keys-manager.h"
 
@@ -73,7 +73,7 @@ impl_activate (MateSettingsPlugin *plugin)
         g_debug ("Activating media_keys plugin");
 
 #ifdef HAVE_LIBCAFEMIXER
-        mate_mixer_init ();
+        cafe_mixer_init ();
 #endif
         res = msd_media_keys_manager_start (MSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {

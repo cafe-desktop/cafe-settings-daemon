@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define CAFE_TYPE_XSETTINGS_MANAGER         (mate_xsettings_manager_get_type ())
+#define CAFE_TYPE_XSETTINGS_MANAGER         (cafe_xsettings_manager_get_type ())
 #define CAFE_XSETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManager))
 #define CAFE_XSETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_MANAGER, MateXSettingsManagerClass))
 #define CAFE_IS_XSETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_XSETTINGS_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MateXSettingsManagerClass;
 
-GType                   mate_xsettings_manager_get_type            (void);
+GType                   cafe_xsettings_manager_get_type            (void);
 
-MateXSettingsManager * mate_xsettings_manager_new                 (void);
-gboolean                mate_xsettings_manager_start               (MateXSettingsManager *manager,
+MateXSettingsManager * cafe_xsettings_manager_new                 (void);
+gboolean                cafe_xsettings_manager_start               (MateXSettingsManager *manager,
                                                                      GError               **error);
-void                    mate_xsettings_manager_stop                (MateXSettingsManager *manager);
+void                    cafe_xsettings_manager_stop                (MateXSettingsManager *manager);
 
 #ifdef __cplusplus
 }

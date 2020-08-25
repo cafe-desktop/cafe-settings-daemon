@@ -25,7 +25,7 @@
 #include <glib-object.h>
 #include <gmodule.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -56,7 +56,7 @@ extern "C" {
 
 	/* All the plugins must implement this function */
 	G_MODULE_EXPORT GType
-	register_mate_settings_plugin (GTypeModule* module);
+	register_cafe_settings_plugin (GTypeModule* module);
 //}
 
 #ifdef __cplusplus

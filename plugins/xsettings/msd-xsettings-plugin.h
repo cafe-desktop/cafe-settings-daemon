@@ -25,13 +25,13 @@
 #include <glib-object.h>
 #include <gmodule.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define CAFE_TYPE_XSETTINGS_PLUGIN                (mate_xsettings_plugin_get_type ())
+#define CAFE_TYPE_XSETTINGS_PLUGIN                (cafe_xsettings_plugin_get_type ())
 #define CAFE_XSETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPlugin))
 #define CAFE_XSETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_XSETTINGS_PLUGIN, MateXSettingsPluginClass))
 #define CAFE_IS_XSETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_XSETTINGS_PLUGIN))
@@ -51,10 +51,10 @@ typedef struct
         MateSettingsPluginClass parent_class;
 } MateXSettingsPluginClass;
 
-GType   mate_xsettings_plugin_get_type            (void) G_GNUC_CONST;
+GType   cafe_xsettings_plugin_get_type            (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
-G_MODULE_EXPORT GType register_mate_settings_plugin (GTypeModule *module);
+G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 
 #ifdef __cplusplus
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
-  <interface name="org.mate.SettingsDaemon.MediaKeys">
+  <interface name="org.cafe.SettingsDaemon.MediaKeys">
     <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="msd_media_keys_manager"/>
     <method name="GrabMediaPlayerKeys">
       <arg name="application" direction="in" type="s"/>

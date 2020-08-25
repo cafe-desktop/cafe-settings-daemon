@@ -53,7 +53,7 @@ get_bus_proxy (DBusGConnection *connection)
         return bus_proxy;
 }
 
-#define BUS_NAME "org.mate.SettingsDaemon.DateTimeMechanism"
+#define BUS_NAME "org.cafe.SettingsDaemon.DateTimeMechanism"
 
 static gboolean
 acquire_name_on_proxy (DBusGProxy *bus_proxy)

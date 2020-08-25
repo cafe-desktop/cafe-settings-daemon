@@ -23,7 +23,7 @@
 
 #include "msd-keygrab.h"
 
-#define BINDING_SCHEMA "org.mate.SettingsDaemon.plugins.media-keys"
+#define BINDING_SCHEMA "org.cafe.SettingsDaemon.plugins.media-keys"
 
 enum {
         TOUCHPAD_KEY,

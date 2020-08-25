@@ -44,18 +44,18 @@
 
 #define GTKBUILDER_UI_FILE "msd-a11y-preferences-dialog.ui"
 
-#define KEY_A11Y_SCHEMA              "org.mate.accessibility-keyboard"
+#define KEY_A11Y_SCHEMA              "org.cafe.accessibility-keyboard"
 #define KEY_STICKY_KEYS_ENABLED      "stickykeys-enable"
 #define KEY_BOUNCE_KEYS_ENABLED      "bouncekeys-enable"
 #define KEY_SLOW_KEYS_ENABLED        "slowkeys-enable"
 #define KEY_MOUSE_KEYS_ENABLED       "mousekeys-enable"
 
-#define KEY_AT_SCHEMA                   "org.mate.applications-at"
+#define KEY_AT_SCHEMA                   "org.cafe.applications-at"
 #define KEY_AT_SCREEN_KEYBOARD_ENABLED  "screen-keyboard-enabled"
 #define KEY_AT_SCREEN_MAGNIFIER_ENABLED "screen-magnifier-enabled"
 #define KEY_AT_SCREEN_READER_ENABLED    "screen-reader-enabled"
 
-#define FONT_RENDER_SCHEMA        "org.mate.font-rendering"
+#define FONT_RENDER_SCHEMA        "org.cafe.font-rendering"
 #define KEY_FONT_DPI              "dpi"
 
 /* X servers sometimes lie about the screen's physical dimensions, so we cannot
@@ -76,12 +76,12 @@
 #define DPI_FACTOR_LARGEST 2.0
 #define DPI_DEFAULT        96
 
-#define KEY_INTERFACE_SCHEMA   "org.mate.interface"
+#define KEY_INTERFACE_SCHEMA   "org.cafe.interface"
 #define KEY_GTK_THEME          "gtk-theme"
 #define KEY_COLOR_SCHEME       "gtk-color-scheme"
 #define KEY_ICON_THEME         "icon-theme"
 
-#define KEY_MARCO_SCHEMA    "org.mate.Marco"
+#define KEY_MARCO_SCHEMA    "org.cafe.Marco"
 #define KEY_MARCO_THEME     "theme"
 
 #define HIGH_CONTRAST_THEME    "HighContrast"

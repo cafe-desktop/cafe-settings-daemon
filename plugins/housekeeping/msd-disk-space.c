@@ -45,9 +45,9 @@
 
 #define CHECK_EVERY_X_SECONDS      60
 
-#define DISK_SPACE_ANALYZER        "mate-disk-usage-analyzer"
+#define DISK_SPACE_ANALYZER        "cafe-disk-usage-analyzer"
 
-#define SETTINGS_HOUSEKEEPING_SCHEMA      "org.mate.SettingsDaemon.plugins.housekeeping"
+#define SETTINGS_HOUSEKEEPING_SCHEMA      "org.cafe.SettingsDaemon.plugins.housekeeping"
 #define SETTINGS_FREE_PC_NOTIFY_KEY       "free-percent-notify"
 #define SETTINGS_FREE_PC_NOTIFY_AGAIN_KEY "free-percent-notify-again"
 #define SETTINGS_FREE_SIZE_NO_NOTIFY      "free-size-gb-no-notify"

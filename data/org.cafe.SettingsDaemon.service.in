@@ -1,3 +1,3 @@
 [D-BUS Service]
-Name=org.mate.SettingsDaemon
-Exec=@libexecdir@/mate-settings-daemon
+Name=org.cafe.SettingsDaemon
+Exec=@libexecdir@/cafe-settings-daemon

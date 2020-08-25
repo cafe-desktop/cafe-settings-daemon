@@ -15,7 +15,7 @@ ICON_FILES = 			\
 	msd-xrandr.svg
 
 install-data-local:
-	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)/mate-settings-daemon/xrandr
+	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)/cafe-settings-daemon/xrandr
 	$(mkinstalldirs) $(DESTDIR)$(icondir)/16x16/$(context)
 	$(mkinstalldirs) $(DESTDIR)$(icondir)/22x22/$(context)
 	$(mkinstalldirs) $(DESTDIR)$(icondir)/24x24/$(context)
@@ -59,7 +59,7 @@ libxrandr_la_SOURCES = 		\
 	msd-xrandr-manager.c
 
 libxrandr_la_CPPFLAGS =						\
-	-I$(top_srcdir)/mate-settings-daemon			\
+	-I$(top_srcdir)/cafe-settings-daemon			\
 	-DBINDIR=\"$(bindir)\"					\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
@@ -80,9 +80,9 @@ libxrandr_la_LIBADD  =			\
 	$(CAFE_DESKTOP_LIBS)
 
 plugin_in_files =			\
-	xrandr.mate-settings-plugin.desktop.in
+	xrandr.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = $(plugin_in_files) $(ICON_FILES) msd-xrandr-manager.xml
 CLEANFILES = $(plugin_DATA) $(BUILT_SOURCES)

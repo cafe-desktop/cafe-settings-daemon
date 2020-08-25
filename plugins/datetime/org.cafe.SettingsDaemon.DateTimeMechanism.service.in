@@ -1,4 +1,4 @@
 [D-BUS Service]
-Name=org.mate.SettingsDaemon.DateTimeMechanism
+Name=org.cafe.SettingsDaemon.DateTimeMechanism
 Exec=@LIBEXECDIR@/msd-datetime-mechanism
 User=root

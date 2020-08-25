@@ -26,7 +26,7 @@
 #include <glib-object.h>
 #include <gmodule.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 
 G_BEGIN_DECLS
 
@@ -55,7 +55,7 @@ struct _MsdMediaKeysPluginClass
 GType msd_media_keys_plugin_get_type (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
-G_MODULE_EXPORT GType register_mate_settings_plugin (GTypeModule *module);
+G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 
 G_END_DECLS
 

@@ -33,16 +33,16 @@
 #include <dbus/dbus-glib-lowlevel.h>
 #include <gio/gio.h>
 
-#include "mate-settings-plugin-info.h"
-#include "mate-settings-manager.h"
-#include "mate-settings-manager-glue.h"
-#include "mate-settings-profile.h"
+#include "cafe-settings-plugin-info.h"
+#include "cafe-settings-manager.h"
+#include "cafe-settings-manager-glue.h"
+#include "cafe-settings-profile.h"
 
-#define MSD_MANAGER_DBUS_PATH "/org/mate/SettingsDaemon"
+#define MSD_MANAGER_DBUS_PATH "/org/cafe/SettingsDaemon"
 
-#define DEFAULT_SETTINGS_PREFIX "org.mate.SettingsDaemon"
+#define DEFAULT_SETTINGS_PREFIX "org.cafe.SettingsDaemon"
 
-#define PLUGIN_EXT ".mate-settings-plugin"
+#define PLUGIN_EXT ".cafe-settings-plugin"
 
 struct MateSettingsManagerPrivate
 {
@@ -60,18 +60,18 @@ enum {
 
 static guint signals [LAST_SIGNAL] = { 0, };
 
-static void     mate_settings_manager_finalize    (GObject *object);
+static void     cafe_settings_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MateSettingsManager, mate_settings_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MateSettingsManager, cafe_settings_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 GQuark
-mate_settings_manager_error_quark (void)
+cafe_settings_manager_error_quark (void)
 {
         static GQuark ret = 0;
         if (ret == 0) {
-                ret = g_quark_from_static_string ("mate_settings_manager_error");
+                ret = g_quark_from_static_string ("cafe_settings_manager_error");
         }
 
         return ret;
@@ -81,25 +81,25 @@ static void
 maybe_activate_plugin (MateSettingsPluginInfo *info,
                        MateSettingsManager    *manager)
 {
-        if (mate_settings_plugin_info_get_enabled (info)) {
+        if (cafe_settings_plugin_info_get_enabled (info)) {
                 int plugin_priority;
-                plugin_priority = mate_settings_plugin_info_get_priority (info);
+                plugin_priority = cafe_settings_plugin_info_get_priority (info);
 
                 if (manager->priv->load_init_flag == PLUGIN_LOAD_ALL ||
                    (manager->priv->load_init_flag == PLUGIN_LOAD_INIT && plugin_priority <= manager->priv->init_load_priority) ||
                    (manager->priv->load_init_flag == PLUGIN_LOAD_DEFER && plugin_priority > manager->priv->init_load_priority)) {
                         gboolean res;
-                        res = mate_settings_plugin_info_activate (info);
+                        res = cafe_settings_plugin_info_activate (info);
                         if (res) {
-                                g_debug ("Plugin %s: active", mate_settings_plugin_info_get_location (info));
+                                g_debug ("Plugin %s: active", cafe_settings_plugin_info_get_location (info));
                         } else {
-                                g_debug ("Plugin %s: activation failed", mate_settings_plugin_info_get_location (info));
+                                g_debug ("Plugin %s: activation failed", cafe_settings_plugin_info_get_location (info));
                         }
                 } else {
-                        g_debug ("Plugin %s: loading deferred or previously loaded", mate_settings_plugin_info_get_location (info));
+                        g_debug ("Plugin %s: loading deferred or previously loaded", cafe_settings_plugin_info_get_location (info));
                 }
         } else {
-                g_debug ("Plugin %s: inactive", mate_settings_plugin_info_get_location (info));
+                g_debug ("Plugin %s: inactive", cafe_settings_plugin_info_get_location (info));
         }
 }
 
@@ -110,8 +110,8 @@ compare_location (MateSettingsPluginInfo *a,
         const char *loc_a;
         const char *loc_b;
 
-        loc_a = mate_settings_plugin_info_get_location (a);
-        loc_b = mate_settings_plugin_info_get_location (b);
+        loc_a = cafe_settings_plugin_info_get_location (a);
+        loc_b = cafe_settings_plugin_info_get_location (b);
 
         if (loc_a == NULL || loc_b == NULL) {
                 return -1;
@@ -127,8 +127,8 @@ compare_priority (MateSettingsPluginInfo *a,
         int prio_a;
         int prio_b;
 
-        prio_a = mate_settings_plugin_info_get_priority (a);
-        prio_b = mate_settings_plugin_info_get_priority (b);
+        prio_a = cafe_settings_plugin_info_get_priority (a);
+        prio_b = cafe_settings_plugin_info_get_priority (b);
 
         return prio_a - prio_b;
 }
@@ -138,7 +138,7 @@ on_plugin_activated (MateSettingsPluginInfo *info,
                      MateSettingsManager    *manager)
 {
         const char *name;
-        name = mate_settings_plugin_info_get_location (info);
+        name = cafe_settings_plugin_info_get_location (info);
         g_debug ("MateSettingsManager: emitting plugin-activated %s", name);
         g_signal_emit (manager, signals [PLUGIN_ACTIVATED], 0, name);
 }
@@ -148,7 +148,7 @@ on_plugin_deactivated (MateSettingsPluginInfo *info,
                        MateSettingsManager    *manager)
 {
         const char *name;
-        name = mate_settings_plugin_info_get_location (info);
+        name = cafe_settings_plugin_info_get_location (info);
         g_debug ("MateSettingsManager: emitting plugin-deactivated %s", name);
         g_signal_emit (manager, signals [PLUGIN_DEACTIVATED], 0, name);
 }
@@ -197,9 +197,9 @@ _load_file (MateSettingsManager *manager,
         GSList                  *l;
 
         g_debug ("Loading plugin: %s", filename);
-        mate_settings_profile_start ("%s", filename);
+        cafe_settings_profile_start ("%s", filename);
 
-        info = mate_settings_plugin_info_new_from_file (filename);
+        info = cafe_settings_plugin_info_new_from_file (filename);
         if (info == NULL) {
                 goto out;
         }
@@ -213,7 +213,7 @@ _load_file (MateSettingsManager *manager,
 
         schema = g_strdup_printf ("%s.plugins.%s",
                                   DEFAULT_SETTINGS_PREFIX,
-                                  mate_settings_plugin_info_get_location (info));
+                                  cafe_settings_plugin_info_get_location (info));
 
 	/* Ignore unknown schemas or else we'll assert */
 	if (is_schema (schema)) {
@@ -226,7 +226,7 @@ _load_file (MateSettingsManager *manager,
 		                 G_CALLBACK (on_plugin_deactivated), manager);
 
 	       /* Also sets priority for plugins */
-	       mate_settings_plugin_info_set_schema (info, schema);
+	       cafe_settings_plugin_info_set_schema (info, schema);
 	} else {
 	       g_warning ("Ignoring unknown module '%s'", schema);
 	}
@@ -238,7 +238,7 @@ _load_file (MateSettingsManager *manager,
                 g_object_unref (info);
         }
 
-        mate_settings_profile_end ("%s", filename);
+        cafe_settings_profile_end ("%s", filename);
 }
 
 static void
@@ -250,7 +250,7 @@ _load_dir (MateSettingsManager *manager,
         const char *name;
 
         g_debug ("Loading settings plugins from dir: %s", path);
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         error = NULL;
         d = g_dir_open (path, 0, &error);
@@ -276,27 +276,27 @@ _load_dir (MateSettingsManager *manager,
 
         g_dir_close (d);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void
 _load_all (MateSettingsManager *manager)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         /* load system plugins */
         _load_dir (manager, CAFE_SETTINGS_PLUGINDIR G_DIR_SEPARATOR_S);
 
         manager->priv->plugins = g_slist_sort (manager->priv->plugins, (GCompareFunc) compare_priority);
         g_slist_foreach (manager->priv->plugins, (GFunc) maybe_activate_plugin, manager);
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void
 _unload_plugin (MateSettingsPluginInfo *info, gpointer user_data)
 {
-        if (mate_settings_plugin_info_get_enabled (info)) {
-                mate_settings_plugin_info_deactivate (info);
+        if (cafe_settings_plugin_info_get_enabled (info)) {
+                cafe_settings_plugin_info_deactivate (info);
         }
         g_object_unref (info);
 }
@@ -311,17 +311,17 @@ _unload_all (MateSettingsManager *manager)
 
 /*
   Example:
-  dbus-send --session --dest=org.mate.SettingsDaemon \
+  dbus-send --session --dest=org.cafe.SettingsDaemon \
   --type=method_call --print-reply --reply-timeout=2000 \
-  /org/mate/SettingsDaemon \
-  org.mate.SettingsDaemon.Awake
+  /org/cafe/SettingsDaemon \
+  org.cafe.SettingsDaemon.Awake
 */
 gboolean
-mate_settings_manager_awake (MateSettingsManager *manager,
+cafe_settings_manager_awake (MateSettingsManager *manager,
                               GError              **error)
 {
         g_debug ("Awake called");
-        return mate_settings_manager_start (manager, PLUGIN_LOAD_ALL, error);
+        return cafe_settings_manager_start (manager, PLUGIN_LOAD_ALL, error);
 }
 
 static gboolean
@@ -344,7 +344,7 @@ register_manager (MateSettingsManager *manager)
 }
 
 gboolean
-mate_settings_manager_start (MateSettingsManager *manager,
+cafe_settings_manager_start (MateSettingsManager *manager,
                               gint               load_init_flag,
                               GError             **error)
 {
@@ -354,10 +354,10 @@ mate_settings_manager_start (MateSettingsManager *manager,
 
         ret = FALSE;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         if (!g_module_supported ()) {
-                g_warning ("mate-settings-daemon is not able to initialize the plugins.");
+                g_warning ("cafe-settings-daemon is not able to initialize the plugins.");
                 g_set_error (error,
                              CAFE_SETTINGS_MANAGER_ERROR,
                              CAFE_SETTINGS_MANAGER_ERROR_GENERAL,
@@ -371,13 +371,13 @@ mate_settings_manager_start (MateSettingsManager *manager,
 
         ret = TRUE;
  out:
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return ret;
 }
 
 void
-mate_settings_manager_stop (MateSettingsManager *manager)
+cafe_settings_manager_stop (MateSettingsManager *manager)
 {
         g_debug ("Stopping settings manager");
 
@@ -385,24 +385,24 @@ mate_settings_manager_stop (MateSettingsManager *manager)
 }
 
 static void
-mate_settings_manager_dispose (GObject *object)
+cafe_settings_manager_dispose (GObject *object)
 {
         MateSettingsManager *manager;
 
         manager = CAFE_SETTINGS_MANAGER (object);
 
-        mate_settings_manager_stop (manager);
+        cafe_settings_manager_stop (manager);
 
-        G_OBJECT_CLASS (mate_settings_manager_parent_class)->dispose (object);
+        G_OBJECT_CLASS (cafe_settings_manager_parent_class)->dispose (object);
 }
 
 static void
-mate_settings_manager_class_init (MateSettingsManagerClass *klass)
+cafe_settings_manager_class_init (MateSettingsManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->dispose = mate_settings_manager_dispose;
-        object_class->finalize = mate_settings_manager_finalize;
+        object_class->dispose = cafe_settings_manager_dispose;
+        object_class->finalize = cafe_settings_manager_finalize;
 
         signals [PLUGIN_ACTIVATED] =
                 g_signal_new ("plugin-activated",
@@ -425,16 +425,16 @@ mate_settings_manager_class_init (MateSettingsManagerClass *klass)
                               G_TYPE_NONE,
                               1, G_TYPE_STRING);
 
-        dbus_g_object_type_install_info (CAFE_TYPE_SETTINGS_MANAGER, &dbus_glib_mate_settings_manager_object_info);
+        dbus_g_object_type_install_info (CAFE_TYPE_SETTINGS_MANAGER, &dbus_glib_cafe_settings_manager_object_info);
 }
 
 static void
-mate_settings_manager_init (MateSettingsManager *manager)
+cafe_settings_manager_init (MateSettingsManager *manager)
 {
         char      *schema;
         GSettings *settings;
 
-        manager->priv = mate_settings_manager_get_instance_private (manager);
+        manager->priv = cafe_settings_manager_get_instance_private (manager);
 
         schema = g_strdup_printf ("%s.plugins", DEFAULT_SETTINGS_PREFIX);
         if (is_schema (schema)) {
@@ -444,7 +444,7 @@ mate_settings_manager_init (MateSettingsManager *manager)
 }
 
 static void
-mate_settings_manager_finalize (GObject *object)
+cafe_settings_manager_finalize (GObject *object)
 {
         MateSettingsManager *manager;
 
@@ -455,11 +455,11 @@ mate_settings_manager_finalize (GObject *object)
 
         g_return_if_fail (manager->priv != NULL);
 
-        G_OBJECT_CLASS (mate_settings_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (cafe_settings_manager_parent_class)->finalize (object);
 }
 
 MateSettingsManager *
-mate_settings_manager_new (void)
+cafe_settings_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

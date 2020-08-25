@@ -11,7 +11,7 @@ test_background_SOURCES = 		\
 	$(NULL)
 
 test_background_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
@@ -22,7 +22,7 @@ test_background_CFLAGS =		\
 	$(WARN_CFLAGS)
 
 test_background_LDADD =		\
-	$(top_builddir)/mate-settings-daemon/libmsd-profile.la	\
+	$(top_builddir)/cafe-settings-daemon/libmsd-profile.la	\
 	$(SETTINGS_PLUGIN_LIBS)	\
 	$(CAFE_DESKTOP_LIBS)		\
 	$(X11_LIBS) \
@@ -40,7 +40,7 @@ libbackground_la_SOURCES = 		\
 	$(NULL)
 
 libbackground_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-I$(top_srcdir)/plugins/background/libbackground   \
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
@@ -61,10 +61,10 @@ libbackground_la_LIBADD  = 		\
 	$(NULL)
 
 plugin_in_files = 		\
-	background.mate-settings-plugin.desktop.in	\
+	background.cafe-settings-plugin.desktop.in	\
 	$(NULL)
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)	\

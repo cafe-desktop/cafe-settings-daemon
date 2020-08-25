@@ -93,7 +93,7 @@ grab_key_real (guint      keycode,
  * all combinations of the ignored modifiers and those actually used
  * for the binding (if any).
  *
- * inspired by all_combinations from mate-panel/mate-panel/global-keys.c
+ * inspired by all_combinations from cafe-panel/cafe-panel/global-keys.c
  *
  * This may generate X errors.  The correct way to use this is like:
  *

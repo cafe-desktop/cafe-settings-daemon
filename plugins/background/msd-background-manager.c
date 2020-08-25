@@ -40,10 +40,10 @@
 #include <gio/gio.h>
 
 #define CAFE_DESKTOP_USE_UNSTABLE_API
-#include <libmate-desktop/mate-bg.h>
+#include <libcafe-desktop/cafe-bg.h>
 #include <X11/Xatom.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-background-manager.h"
 
 #define CAFE_SESSION_MANAGER_DBUS_NAME "org.gnome.SessionManager"
@@ -190,17 +190,17 @@ real_draw_bg (MsdBackgroundManager *manager,
 	gint height  = HeightOfScreen (gdk_x11_screen_get_xscreen (screen)) / scale;
 
 	free_bg_surface (manager);
-	p->surface = mate_bg_create_surface_scale (p->bg, window, width, height, scale, TRUE);
+	p->surface = cafe_bg_create_surface_scale (p->bg, window, width, height, scale, TRUE);
 
 	if (p->do_fade)
 	{
 		free_fade (manager);
-		p->fade = mate_bg_set_surface_as_root_with_crossfade (screen, p->surface);
+		p->fade = cafe_bg_set_surface_as_root_with_crossfade (screen, p->surface);
 		g_signal_connect_swapped (p->fade, "finished", G_CALLBACK (free_fade), manager);
 	}
 	else
 	{
-		mate_bg_set_surface_as_root (screen, p->surface);
+		cafe_bg_set_surface_as_root (screen, p->surface);
 	}
 	p->scr_sizes = g_list_prepend (p->scr_sizes, g_strdup_printf ("%dx%d", width, height));
 }
@@ -214,7 +214,7 @@ draw_background (MsdBackgroundManager *manager,
 	if (!p->msd_can_draw || p->draw_in_progress || caja_is_drawing_bg (manager))
 		return;
 
-	mate_settings_profile_start (NULL);
+	cafe_settings_profile_start (NULL);
 
 	GdkDisplay *display   = gdk_display_get_default ();
 
@@ -228,7 +228,7 @@ draw_background (MsdBackgroundManager *manager,
 	p->scr_sizes = g_list_reverse (p->scr_sizes);
 
 	p->draw_in_progress = FALSE;
-	mate_settings_profile_end (NULL);
+	cafe_settings_profile_end (NULL);
 }
 
 static void
@@ -298,11 +298,11 @@ connect_screen_signals (MsdBackgroundManager *manager)
 static gboolean
 settings_change_event_idle_cb (MsdBackgroundManager *manager)
 {
-	mate_settings_profile_start ("settings_change_event_idle_cb");
+	cafe_settings_profile_start ("settings_change_event_idle_cb");
 
-	mate_bg_load_from_preferences (manager->priv->bg);
+	cafe_bg_load_from_preferences (manager->priv->bg);
 
-	mate_settings_profile_end ("settings_change_event_idle_cb");
+	cafe_settings_profile_end ("settings_change_event_idle_cb");
 
 	return FALSE;   /* remove from the list of event sources */
 }
@@ -334,7 +334,7 @@ setup_background (MsdBackgroundManager *manager)
 	MsdBackgroundManagerPrivate *p = manager->priv;
 	g_return_if_fail (p->bg == NULL);
 
-	p->bg = mate_bg_new();
+	p->bg = cafe_bg_new();
 
 	p->draw_in_progress = FALSE;
 
@@ -342,7 +342,7 @@ setup_background (MsdBackgroundManager *manager)
 
 	g_signal_connect(p->bg, "transitioned", G_CALLBACK (on_bg_transitioned), manager);
 
-	mate_bg_load_from_gsettings (p->bg, p->settings);
+	cafe_bg_load_from_gsettings (p->bg, p->settings);
 
 	connect_screen_signals (manager);
 
@@ -381,7 +381,7 @@ on_bg_handling_changed (GSettings            *settings,
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
-	mate_settings_profile_start (NULL);
+	cafe_settings_profile_start (NULL);
 
 	if (caja_is_drawing_bg (manager))
 	{
@@ -393,7 +393,7 @@ on_bg_handling_changed (GSettings            *settings,
 		setup_background (manager);
 	}
 
-	mate_settings_profile_end (NULL);
+	cafe_settings_profile_end (NULL);
 }
 
 static gboolean
@@ -483,7 +483,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
 	g_debug ("Starting background manager");
-	mate_settings_profile_start (NULL);
+	cafe_settings_profile_start (NULL);
 
 	p->settings = g_settings_new (CAFE_BG_SCHEMA);
 
@@ -511,7 +511,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 		}
 	}
 
-	mate_settings_profile_end (NULL);
+	cafe_settings_profile_end (NULL);
 
 	return TRUE;
 }

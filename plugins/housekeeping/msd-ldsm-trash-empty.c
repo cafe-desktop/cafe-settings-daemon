@@ -23,7 +23,7 @@
 
 #include "msd-ldsm-trash-empty.h"
 
-#define CAJA_PREFS_SCHEMA "org.mate.caja.preferences"
+#define CAJA_PREFS_SCHEMA "org.cafe.caja.preferences"
 #define CAJA_CONFIRM_TRASH_KEY "confirm-trash"
 
 /* Some of this code has been borrowed from the trash-applet, courtesy of Ryan Lortie */

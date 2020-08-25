@@ -39,15 +39,15 @@
 #include <gio/gio.h>
 #include <dconf.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-keybindings-manager.h"
 #include "dconf-util.h"
 
 #include "msd-keygrab.h"
 #include "eggaccelerators.h"
 
-#define GSETTINGS_KEYBINDINGS_DIR "/org/mate/desktop/keybindings/"
-#define CUSTOM_KEYBINDING_SCHEMA "org.mate.control-center.keybinding"
+#define GSETTINGS_KEYBINDINGS_DIR "/org/cafe/desktop/keybindings/"
+#define CUSTOM_KEYBINDING_SCHEMA "org.cafe.control-center.keybinding"
 
 typedef struct {
         char *binding_str;
@@ -396,7 +396,7 @@ screen_exec_display_string (GdkScreen *screen)
  * %NULL on error. Use g_strfreev() to free it.
  *
  * mainly ripped from egg_screen_exec_display_string in
- * mate-panel/egg-screen-exec.c
+ * cafe-panel/egg-screen-exec.c
  **/
 static char **
 get_exec_environment (XEvent *xevent)
@@ -527,7 +527,7 @@ msd_keybindings_manager_start (MsdKeybindingsManager *manager,
         XWindowAttributes atts;
 
         g_debug ("Starting keybindings manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         dpy = gdk_display_get_default ();
         xdpy = GDK_DISPLAY_XDISPLAY (dpy);
@@ -556,7 +556,7 @@ msd_keybindings_manager_start (MsdKeybindingsManager *manager,
         dconf_client_watch_fast (manager->priv->client, GSETTINGS_KEYBINDINGS_DIR);
         g_signal_connect (manager->priv->client, "changed", G_CALLBACK (bindings_callback), manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

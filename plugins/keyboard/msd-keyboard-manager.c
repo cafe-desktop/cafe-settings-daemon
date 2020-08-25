@@ -41,12 +41,12 @@
 #include <X11/keysym.h>
 #endif
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-keyboard-manager.h"
 
 #include "msd-keyboard-xkb.h"
 
-#define MSD_KEYBOARD_SCHEMA "org.mate.peripherals-keyboard"
+#define MSD_KEYBOARD_SCHEMA "org.cafe.peripherals-keyboard"
 
 #define KEY_REPEAT         "repeat"
 #define KEY_CLICK          "click"
@@ -279,7 +279,7 @@ msd_keyboard_manager_apply_settings (MsdKeyboardManager *manager)
 static gboolean
 start_keyboard_idle_cb (MsdKeyboardManager *manager)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         g_debug ("Starting keyboard manager");
 
@@ -302,7 +302,7 @@ start_keyboard_idle_cb (MsdKeyboardManager *manager)
         numlock_install_xkb_callback (manager);
 #endif /* HAVE_X11_EXTENSIONS_XKB_H */
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return FALSE;
 }
@@ -311,11 +311,11 @@ gboolean
 msd_keyboard_manager_start (MsdKeyboardManager *manager,
                             GError            **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         g_idle_add ((GSourceFunc) start_keyboard_idle_cb, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

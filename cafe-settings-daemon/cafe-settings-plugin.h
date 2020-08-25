@@ -27,7 +27,7 @@
 
 G_BEGIN_DECLS
 
-#define CAFE_TYPE_SETTINGS_PLUGIN              (mate_settings_plugin_get_type())
+#define CAFE_TYPE_SETTINGS_PLUGIN              (cafe_settings_plugin_get_type())
 #define CAFE_SETTINGS_PLUGIN(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CAFE_TYPE_SETTINGS_PLUGIN, MateSettingsPlugin))
 #define CAFE_SETTINGS_PLUGIN_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  CAFE_TYPE_SETTINGS_PLUGIN, MateSettingsPluginClass))
 #define CAFE_IS_SETTINGS_PLUGIN(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CAFE_TYPE_SETTINGS_PLUGIN))
@@ -48,10 +48,10 @@ typedef struct
         void            (*deactivate)                   (MateSettingsPlugin *plugin);
 } MateSettingsPluginClass;
 
-GType            mate_settings_plugin_get_type           (void) G_GNUC_CONST;
+GType            cafe_settings_plugin_get_type           (void) G_GNUC_CONST;
 
-void             mate_settings_plugin_activate           (MateSettingsPlugin *plugin);
-void             mate_settings_plugin_deactivate         (MateSettingsPlugin *plugin);
+void             cafe_settings_plugin_activate           (MateSettingsPlugin *plugin);
+void             cafe_settings_plugin_deactivate         (MateSettingsPlugin *plugin);
 
 /*
  * Utility macro used to register plugins
@@ -60,7 +60,7 @@ void             mate_settings_plugin_deactivate         (MateSettingsPlugin *pl
  */
 #define _REGISTER_PLUGIN_FUNC(plugin_name)                                     \
 G_MODULE_EXPORT GType                                                          \
-register_mate_settings_plugin (GTypeModule *type_module)                       \
+register_cafe_settings_plugin (GTypeModule *type_module)                       \
 {                                                                              \
         plugin_name##_register_type (type_module);                             \
                                                                                \

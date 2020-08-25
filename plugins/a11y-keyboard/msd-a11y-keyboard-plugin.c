@@ -23,7 +23,7 @@
 #include <glib/gi18n-lib.h>
 #include <gmodule.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 #include "msd-a11y-keyboard-plugin.h"
 #include "msd-a11y-keyboard-manager.h"
 

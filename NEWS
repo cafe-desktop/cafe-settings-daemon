@@ -1,16 +1,16 @@
-### mate-settings-daemon 1.24.1
+### cafe-settings-daemon 1.24.1
 
   * update translations
   * plugin xsettings: Fix memory leak on delayed_toggle_bg_draw
   * mpris: Use namespace instead of a whitelist for player names
   * build: silent build warnings for distcheck
-  * housekeeping: Fix iconname of mate-disk-usage-analyzer
+  * housekeeping: Fix iconname of cafe-disk-usage-analyzer
 
-### mate-settings-daemon 1.24.0
+### cafe-settings-daemon 1.24.0
 
   * update translations
 
-### mate-settings-daemon 1.23.3
+### cafe-settings-daemon 1.23.3
 
   * update translations
   * require DBUS >= 1.10.0
@@ -25,10 +25,10 @@
   * Fix placeholder in Spanish translation
 
 
-### mate-settings-daemon 1.23.2
+### cafe-settings-daemon 1.23.2
 
   * update translations
-  * mate-settings-plugin: remove useless macro CAFE_SETTINGS_PLUGIN_REGISTER
+  * cafe-settings-plugin: remove useless macro CAFE_SETTINGS_PLUGIN_REGISTER
   * msd-clipboard-plugin: avoid 'g_type_class_add_private'
   * msd-clipboard-manager: avoid 'g_type_class_add_private'
   * msd-smartcard-plugin: avoid 'g_type_class_add_private'
@@ -62,13 +62,13 @@
   * msd-keybindings-manager: avoid 'g_type_class_add_private'
   * system-timezone: avoid 'g_type_class_add_private'
   * msd-datetime-mechanism: avoid 'g_type_class_add_private'
-  * CI: fix mate-desktop version for using cppcheck
+  * CI: fix cafe-desktop version for using cppcheck
 
-### mate-settings-daemon 1.23.1
+### cafe-settings-daemon 1.23.1
 
   * update translations
-  * travis: update mate-desktop required version
-  * Add remaining peripheral schemas from mate-desktop
+  * travis: update cafe-desktop required version
+  * Add remaining peripheral schemas from cafe-desktop
   * mouse: Add acceleration profiles
   * plugins a11y-settings: fix deprecated g_type_class_add_private
   * plugins a11y-keyboard: fix deprecated g_type_class_add_private
@@ -86,7 +86,7 @@
   * Remove trailing whitespaces
   * fix deprecated g_type_class_add_private
 
-### mate-settings-daemon 1.23.0
+### cafe-settings-daemon 1.23.0
 
   * update translations
   * media-keys: Execute default instant messaging application defined by schema
@@ -96,14 +96,14 @@
   * [ci] Add cppcheck html report
   * [ci] Enable Clang Static Analyzer
 
-### mate-settings-daemon 1.22.0
+### cafe-settings-daemon 1.22.0
 
   * update translations
   * Initialize travis support
   * disable deprecation warnings for distcheck
   * media-keys: Execute default calculator application defined by schema
 
-### mate-settings-daemon 1.21.2
+### cafe-settings-daemon 1.21.2
 
   * update translations
   * media-keys: Add microphone mute key support
@@ -119,7 +119,7 @@
   * media-keys: Add support for display switch OSD
   * media-keys: Don't show a level when muted
 
-### mate-settings-daemon 1.21.1
+### cafe-settings-daemon 1.21.1
 
   * update translations
   * media-keys: Add test for rfkill OSD icons
@@ -129,16 +129,16 @@
   * media-keys: Remove test for screen brightness OSD icons
   * media-keys: Add support for Killswitch media keys
   * rfkill: Add RFKill support plugin on Linux systems
-  * Add shortcut to start mate-control-center
+  * Add shortcut to start cafe-control-center
   * media-keys: Add test for touchpad OSD icons
   * media-keys: Remove touchpad OSD icons and use theme's instead
   * media-keys: Simplify touchpad OSD
   * media-keys: Add support for XF86TouchpadOn/Off
-  * Add support for org.mate.accessibility-keyboard.stickykeys-latch-to-lock
+  * Add support for org.cafe.accessibility-keyboard.stickykeys-latch-to-lock
   * Xrandr:remove an unused function
   * daemon: fix a memory leak
   * daemon: Stop using deprecated GSettings API
-  * require mate-desktop-1.21.1
+  * require cafe-desktop-1.21.1
   * xsettings: add setting to enable/disable primary paste from middlemouse
   * xsettings: replace deprecated gdk_error_trap_push/pop
   * xrandr-manager: replace deprecated gdk_error_trap_push/pop
@@ -151,12 +151,12 @@
   * msd-input-helper: replace deprecated gdk_error_trap_push/pop
   * plugins: avoid deprecated 'gdk_keymap_get_default'
 
-### mate-settings-daemon 1.21.0
+### cafe-settings-daemon 1.21.0
 
   * Translations update
   * xrandr-applet-popup: add an icon for configuration item
   * xrandr-applet-popup: add item to mirror displays
-  * bump mate-desktop requirement
+  * bump cafe-desktop requirement
   * Make setting QT_SCALE_FACTOR optional.
   * xrandr-applet-popup: dim menuitems for disabled monitor
   * xrandr-applet-popup: enable turning monitors on an off
@@ -176,15 +176,15 @@
   * Prevent media-keys bindings from swallowing modifier keys
   * Scale OSD size correctly on HiDPI displays (#212)
 
-### mate-settings-daemon 1.20.0
+### cafe-settings-daemon 1.20.0
 
-  * bump required version of mate-desktop
+  * bump required version of cafe-desktop
   * HiDPI: Load xsettings during initialization phase
   * Add HiDPI configuration in XSettings
   * require GTK+ 3.22 and GLib 2.50
   * Add support for HiDPI displays
 
-### mate-settings-daemon 1.19.2
+### cafe-settings-daemon 1.19.2
 
   * Translations update
   * plugins: G_GNUC_UNUSED in unused but needed variables
@@ -193,7 +193,7 @@
   * msd-mpris-manager.c: Fix build warning:
   * configure.ac: drop GLIB_VERSION_MAX_ALLOWED
 
-### mate-settings-daemon 1.19.1
+### cafe-settings-daemon 1.19.1
 
   * Translations update
   * touchpad: disable clickfinger by default
@@ -201,7 +201,7 @@
   * msd-keyboard-xkb: Fix Gdk-CRITICAL warning on creating status bar icon
   * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
 
-### mate-settings-daemon 1.19.0
+### cafe-settings-daemon 1.19.0
 
   * Translations update
   * configure: bump CAFE_DESKTOP_REQUIRED_VERSION
@@ -222,13 +222,13 @@
   * datetime: fix a Wunused-but-set-variable warning
   * add GlobalMenu support
 
-### mate-settings-daemon 1.18.0
+### cafe-settings-daemon 1.18.0
 
   * NEWS: use consistent, project wide, markdown-like formatting to make
     generating release announcements easier
   * Build: require XInput unconditionally
-  * Build: require libmatemixer >= 1.10, libxklavier >= 5.2, dconf >= 0.13
-  * Build: require libmatekbd and libmate-desktop >= 1.17
+  * Build: require libcafemixer >= 1.10, libxklavier >= 5.2, dconf >= 0.13
+  * Build: require libcafekbd and libcafe-desktop >= 1.17
   * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
     build option
   * Add libinput support for mouse and touchpad
@@ -238,13 +238,13 @@
   * Some fixes and cleanups
   * Translations update
 
-### mate-settings-daemon 1.16.1
+### cafe-settings-daemon 1.16.1
 
-  * GTK+3: fix possible build breakage with libmate-desktop 1.17
+  * GTK+3: fix possible build breakage with libcafe-desktop 1.17
   * GTK+3: fix OSD rendering on non-composited desktop
   * GTK+3: add OSD style class for non-composited desktop
 
-### mate-settings-daemon 1.16.0
+### cafe-settings-daemon 1.16.0
 
   * Change default hinting style to 'hintslight'
   * Use 'rgba' (LCD subpixel) antialiasing by default
@@ -255,7 +255,7 @@
   * Fix some build warnings
   * Translations update
 
-### mate-settings-daemon 1.14.1
+### cafe-settings-daemon 1.14.1
 
   * housekeeping: fix thumbnails cleaning
   * housekeeping: fix text markup
@@ -263,7 +263,7 @@
   * Translations update
   * Make distcheck use currently selected GTK+ version
 
-### mate-settings-daemon 1.14.0
+### cafe-settings-daemon 1.14.0
 
   * Drop MateConf migration script
   * media-keys: add setting to enable/disable OSD
@@ -275,13 +275,13 @@
   * Translations update
   * Fix Changelog generation
 
-### mate-settings-daemon 1.12.1
+### cafe-settings-daemon 1.12.1
 
   * xrandr: install icon in correct directory
   * GTK+3: don't remove xrandr applet background (fixes invisible
     text in some themes)
 
-### mate-settings-daemon 1.12.0
+### cafe-settings-daemon 1.12.0
 
   * Add new keybinding for logout (empty by default)
   * Retrieve strings directly from gschema (requires intltool 0.50.1)
@@ -292,31 +292,31 @@
   * GTK+3: make xrandr tray applet support custom panel themes
   * Some more fixes and cleanups
 
-### mate-settings-daemon 1.10.2
+### cafe-settings-daemon 1.10.2
 
   * a11y: don't use ancient properties
   * housekeeping: don’t monitor fdescfs (special FS in FreeBSD)
-  * keyboard: connect to libmatekbd's GSettings before reading them
+  * keyboard: connect to libcafekbd's GSettings before reading them
   * mouse: use event driven mode for syndaemon, save some power
 
-### mate-settings-daemon 1.10.1
+### cafe-settings-daemon 1.10.1
 
   * Fix media keys issue with multiple players
   * Add some missing manpages
   * Translations update
 
-### mate-settings-daemon 1.10.0
+### cafe-settings-daemon 1.10.0
 
-  * Port media-keys plugin to libmatemixer
-  * Remove GStreamer bits, make libmatemixer, libcanberra and PulseAudio
+  * Port media-keys plugin to libcafemixer
+  * Remove GStreamer bits, make libcafemixer, libcanberra and PulseAudio
     optional dependencies
-  * Adapt to mate-desktop MateRR* API changes. Thanks to monsta for testing.
+  * Adapt to cafe-desktop MateRR* API changes. Thanks to monsta for testing.
 
-### mate-settings-daemon 1.8.0
+### cafe-settings-daemon 1.8.0
 
   * Add GTK3 support
   * Add Middle Click Emulation to mouse manager
 
-### mate-settings-daemon 1.6.0
+### cafe-settings-daemon 1.6.0
 
   * Migration to gsettings

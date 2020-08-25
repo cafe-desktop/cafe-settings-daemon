@@ -16,7 +16,7 @@ libxrdb_la_SOURCES = 		\
 	$(NULL)
 
 libxrdb_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DSYSCONFDIR=\""$(sysconfdir)"\"	\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
@@ -36,10 +36,10 @@ libxrdb_la_LIBADD  = 		\
 	$(NULL)
 
 plugin_in_files = 		\
-	xrdb.mate-settings-plugin.desktop.in	\
+	xrdb.cafe-settings-plugin.desktop.in	\
 	$(NULL)
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)	\

@@ -25,7 +25,7 @@
 #include <glib/gi18n-lib.h>
 #include <gmodule.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 #include "msd-mpris-plugin.h"
 #include "msd-mpris-manager.h"
 

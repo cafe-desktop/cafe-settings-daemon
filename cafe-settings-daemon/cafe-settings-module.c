@@ -20,7 +20,7 @@
 
 #include "config.h"
 
-#include "mate-settings-module.h"
+#include "cafe-settings-module.h"
 
 #include <gmodule.h>
 
@@ -43,10 +43,10 @@ struct _MateSettingsModule
 
 typedef GType (*MateSettingsModuleRegisterFunc) (GTypeModule *);
 
-G_DEFINE_TYPE (MateSettingsModule, mate_settings_module, G_TYPE_TYPE_MODULE)
+G_DEFINE_TYPE (MateSettingsModule, cafe_settings_module, G_TYPE_TYPE_MODULE)
 
 static gboolean
-mate_settings_module_load (GTypeModule *gmodule)
+cafe_settings_module_load (GTypeModule *gmodule)
 {
         MateSettingsModule            *module;
         MateSettingsModuleRegisterFunc register_func;
@@ -65,7 +65,7 @@ mate_settings_module_load (GTypeModule *gmodule)
         }
 
         /* extract symbols from the lib */
-        res = g_module_symbol (module->library, "register_mate_settings_plugin", (void *) &register_func);
+        res = g_module_symbol (module->library, "register_cafe_settings_plugin", (void *) &register_func);
         if (! res) {
                 g_warning ("%s", g_module_error ());
                 g_module_close (module->library);
@@ -78,7 +78,7 @@ mate_settings_module_load (GTypeModule *gmodule)
         module->type = register_func (gmodule);
 
         if (module->type == 0) {
-                g_warning ("Invalid mate settings plugin in module %s", module->path);
+                g_warning ("Invalid cafe settings plugin in module %s", module->path);
                 return FALSE;
         }
 
@@ -86,7 +86,7 @@ mate_settings_module_load (GTypeModule *gmodule)
 }
 
 static void
-mate_settings_module_unload (GTypeModule *gmodule)
+cafe_settings_module_unload (GTypeModule *gmodule)
 {
         MateSettingsModule *module = CAFE_SETTINGS_MODULE (gmodule);
 
@@ -99,7 +99,7 @@ mate_settings_module_unload (GTypeModule *gmodule)
 }
 
 const gchar *
-mate_settings_module_get_path (MateSettingsModule *module)
+cafe_settings_module_get_path (MateSettingsModule *module)
 {
         g_return_val_if_fail (CAFE_IS_SETTINGS_MODULE (module), NULL);
 
@@ -107,7 +107,7 @@ mate_settings_module_get_path (MateSettingsModule *module)
 }
 
 GObject *
-mate_settings_module_new_object (MateSettingsModule *module)
+cafe_settings_module_new_object (MateSettingsModule *module)
 {
         g_debug ("Creating object of type %s", g_type_name (module->type));
 
@@ -119,13 +119,13 @@ mate_settings_module_new_object (MateSettingsModule *module)
 }
 
 static void
-mate_settings_module_init (MateSettingsModule *module)
+cafe_settings_module_init (MateSettingsModule *module)
 {
         g_debug ("MateSettingsModule %p initialising", module);
 }
 
 static void
-mate_settings_module_finalize (GObject *object)
+cafe_settings_module_finalize (GObject *object)
 {
         MateSettingsModule *module = CAFE_SETTINGS_MODULE (object);
 
@@ -133,23 +133,23 @@ mate_settings_module_finalize (GObject *object)
 
         g_free (module->path);
 
-        G_OBJECT_CLASS (mate_settings_module_parent_class)->finalize (object);
+        G_OBJECT_CLASS (cafe_settings_module_parent_class)->finalize (object);
 }
 
 static void
-mate_settings_module_class_init (MateSettingsModuleClass *class)
+cafe_settings_module_class_init (MateSettingsModuleClass *class)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (class);
         GTypeModuleClass *module_class = G_TYPE_MODULE_CLASS (class);
 
-        object_class->finalize = mate_settings_module_finalize;
+        object_class->finalize = cafe_settings_module_finalize;
 
-        module_class->load = mate_settings_module_load;
-        module_class->unload = mate_settings_module_unload;
+        module_class->load = cafe_settings_module_load;
+        module_class->unload = cafe_settings_module_unload;
 }
 
 MateSettingsModule *
-mate_settings_module_new (const char *path)
+cafe_settings_module_new (const char *path)
 {
         MateSettingsModule *result;
 

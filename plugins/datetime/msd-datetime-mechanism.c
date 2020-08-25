@@ -277,7 +277,7 @@ _set_time (MsdDatetimeMechanism  *mechanism,
 {
         GError *error;
 
-        if (!_check_polkit_for_action (mechanism, context, "org.mate.settingsdaemon.datetimemechanism.settime"))
+        if (!_check_polkit_for_action (mechanism, context, "org.cafe.settingsdaemon.datetimemechanism.settime"))
                 return FALSE;
 
         if (settimeofday (tv, NULL) != 0) {
@@ -435,7 +435,7 @@ msd_datetime_mechanism_set_timezone (MsdDatetimeMechanism  *mechanism,
         reset_killtimer ();
         g_debug ("SetTimezone('%s') called", zone_file);
 
-        if (!_check_polkit_for_action (mechanism, context, "org.mate.settingsdaemon.datetimemechanism.settimezone"))
+        if (!_check_polkit_for_action (mechanism, context, "org.cafe.settingsdaemon.datetimemechanism.settimezone"))
                 return FALSE;
 
         error = NULL;
@@ -544,7 +544,7 @@ msd_datetime_mechanism_set_hardware_clock_using_utc (MsdDatetimeMechanism  *mech
         error = NULL;
 
         if (!_check_polkit_for_action (mechanism, context,
-                                       "org.mate.settingsdaemon.datetimemechanism.configurehwclock"))
+                                       "org.cafe.settingsdaemon.datetimemechanism.configurehwclock"))
                 return FALSE;
 
         if (g_file_test ("/sbin/hwclock",
@@ -630,7 +630,7 @@ msd_datetime_mechanism_can_set_time (MsdDatetimeMechanism  *mechanism,
                                      DBusGMethodInvocation *context)
 {
         check_can_do (mechanism,
-                      "org.mate.settingsdaemon.datetimemechanism.settime",
+                      "org.cafe.settingsdaemon.datetimemechanism.settime",
                       context);
 
         return TRUE;
@@ -641,7 +641,7 @@ msd_datetime_mechanism_can_set_timezone (MsdDatetimeMechanism  *mechanism,
                                          DBusGMethodInvocation *context)
 {
         check_can_do (mechanism,
-                      "org.mate.settingsdaemon.datetimemechanism.settimezone",
+                      "org.cafe.settingsdaemon.datetimemechanism.settimezone",
                       context);
 
         return TRUE;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<KeyListEntries group="system" name="Accessibility" schema="org.mate.SettingsDaemon.plugins.media-keys">
+<KeyListEntries group="system" name="Accessibility" schema="org.cafe.SettingsDaemon.plugins.media-keys">
 
 	<KeyListEntry name="magnifier" description="Toggle magnifier"/>
 	<KeyListEntry name="screenreader" description="Toggle screen reader"/>

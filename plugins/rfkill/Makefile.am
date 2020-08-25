@@ -10,7 +10,7 @@ librfkill_la_SOURCES = 		\
 	rfkill.h
 
 librfkill_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-I$(top_srcdir)/data/				\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DLIBEXECDIR=\""$(libexecdir)"\" 		\
@@ -30,15 +30,15 @@ librfkill_la_LIBADD  =						\
 	$(RFKILL_LIBS)						\
 	$(SETTINGS_PLUGIN_LIBS)
 
-plugin_in_files = rfkill.mate-settings-plugin.desktop.in
+plugin_in_files = rfkill.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 $(plugin_DATA): $(plugin_in_files)
 	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 udevrulesdir = $(prefix)/lib/udev/rules.d
-udevrules_DATA = 61-mate-settings-daemon-rfkill.rules
+udevrules_DATA = 61-cafe-settings-daemon-rfkill.rules
 
 EXTRA_DIST = $(plugin_in_files) $(udevrules_DATA)
 CLEANFILES = $(plugin_DATA)

@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define CAFE_TYPE_SETTINGS_MANAGER         (mate_settings_manager_get_type ())
+#define CAFE_TYPE_SETTINGS_MANAGER         (cafe_settings_manager_get_type ())
 #define CAFE_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManager))
 #define CAFE_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CAFE_TYPE_SETTINGS_MANAGER, MateSettingsManagerClass))
 #define CAFE_IS_SETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CAFE_TYPE_SETTINGS_MANAGER))
@@ -64,19 +64,19 @@ enum
         PLUGIN_LOAD_DEFER
 };
 
-#define CAFE_SETTINGS_MANAGER_ERROR mate_settings_manager_error_quark ()
+#define CAFE_SETTINGS_MANAGER_ERROR cafe_settings_manager_error_quark ()
 
-GQuark                 mate_settings_manager_error_quark         (void);
-GType                  mate_settings_manager_get_type   (void);
+GQuark                 cafe_settings_manager_error_quark         (void);
+GType                  cafe_settings_manager_get_type   (void);
 
-MateSettingsManager * mate_settings_manager_new        (void);
+MateSettingsManager * cafe_settings_manager_new        (void);
 
-gboolean               mate_settings_manager_start      (MateSettingsManager *manager,
+gboolean               cafe_settings_manager_start      (MateSettingsManager *manager,
                                                           gint                load_init_flag,
                                                           GError            **error);
-void                   mate_settings_manager_stop       (MateSettingsManager *manager);
+void                   cafe_settings_manager_stop       (MateSettingsManager *manager);
 
-gboolean               mate_settings_manager_awake      (MateSettingsManager *manager,
+gboolean               cafe_settings_manager_awake      (MateSettingsManager *manager,
                                                           GError              **error);
 
 #ifdef __cplusplus

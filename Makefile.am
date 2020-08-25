@@ -4,7 +4,7 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS = 			\
 	po 			\
-	mate-settings-daemon	\
+	cafe-settings-daemon	\
 	plugins			\
 	data			\
 	$(NULL)

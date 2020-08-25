@@ -24,7 +24,7 @@
 #include <glib/gstdio.h>
 #include <string.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-housekeeping-manager.h"
 #include "msd-disk-space.h"
 
@@ -34,7 +34,7 @@
 #define INTERVAL_TWO_MINUTES 2*60
 
 /* Thumbnail cleaner */
-#define THUMB_CACHE_SCHEMA	"org.mate.thumbnail-cache"
+#define THUMB_CACHE_SCHEMA	"org.cafe.thumbnail-cache"
 #define THUMB_CACHE_KEY_AGE	"maximum-age"
 #define THUMB_CACHE_KEY_SIZE	"maximum-size"
 
@@ -176,7 +176,7 @@ purge_thumbnail_cache (MsdHousekeepingManager *manager)
         path = g_build_filename (g_get_user_cache_dir (),
                                  "thumbnails",
                                  "fail",
-                                 "mate-thumbnail-factory",
+                                 "cafe-thumbnail-factory",
                                  NULL);
         files = read_dir_for_purge (path, files);
         g_free (path);
@@ -242,7 +242,7 @@ msd_housekeeping_manager_start (MsdHousekeepingManager *manager,
                                 GError                **error)
 {
         g_debug ("Starting housekeeping manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         msd_ldsm_setup (FALSE);
 
@@ -258,7 +258,7 @@ msd_housekeeping_manager_start (MsdHousekeepingManager *manager,
         manager->priv->long_term_cb = g_timeout_add_seconds (INTERVAL_ONCE_A_DAY,
                                       (GSourceFunc) do_cleanup,
                                       manager);
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

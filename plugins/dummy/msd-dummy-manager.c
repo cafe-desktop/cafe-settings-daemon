@@ -36,7 +36,7 @@
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-dummy-manager.h"
 
 struct MsdDummyManagerPrivate
@@ -59,8 +59,8 @@ msd_dummy_manager_start (MsdDummyManager *manager,
                                GError               **error)
 {
         g_debug ("Starting dummy manager");
-        mate_settings_profile_start (NULL);
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_start (NULL);
+        cafe_settings_profile_end (NULL);
         return TRUE;
 }
 

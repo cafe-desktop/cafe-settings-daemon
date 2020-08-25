@@ -6,11 +6,11 @@ m4_define([msd_api_version_micro],[1])
 m4_define([msd_api_version],
 	[msd_api_version_major.msd_api_version_minor.msd_api_version_micro])
 
-AC_INIT([mate-settings-daemon],
+AC_INIT([cafe-settings-daemon],
 	[msd_api_version_major.msd_api_version_minor.msd_api_version_micro],
-	[https://mate-desktop.org/])
+	[https://cafe-desktop.org/])
 
-AC_CONFIG_SRCDIR([mate-settings-daemon/mate-settings-manager.c])
+AC_CONFIG_SRCDIR([cafe-settings-daemon/cafe-settings-manager.c])
 AC_CONFIG_MACRO_DIR([m4])
 
 CAFE_COMPILE_WARNINGS
@@ -34,17 +34,17 @@ AC_CONFIG_HEADERS([config.h])
 AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 
-GETTEXT_PACKAGE=mate-settings-daemon
+GETTEXT_PACKAGE=cafe-settings-daemon
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Name of default gettext domain])
 
 AS_AC_EXPAND(LIBEXECDIR, "$libexecdir")
 
-MSD_INTLTOOL_PLUGIN_RULE='%.mate-settings-plugin:   %.mate-settings-plugin.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
+MSD_INTLTOOL_PLUGIN_RULE='%.cafe-settings-plugin:   %.cafe-settings-plugin.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
 AC_SUBST([MSD_INTLTOOL_PLUGIN_RULE])
 
-dnl Unconditionally use this dir to avoid a circular dep with matecc
-CAFE_KEYBINDINGS_KEYSDIR="${datadir}/mate-control-center/keybindings"
+dnl Unconditionally use this dir to avoid a circular dep with cafecc
+CAFE_KEYBINDINGS_KEYSDIR="${datadir}/cafe-control-center/keybindings"
 AC_SUBST(CAFE_KEYBINDINGS_KEYSDIR)
 
 dnl ---------------------------------------------------------------------------
@@ -78,7 +78,7 @@ PKG_CHECK_MODULES(SETTINGS_PLUGIN,
 MSD_PLUGIN_LDFLAGS="-export_dynamic -module -avoid-version -no-undefined"
 case $host_os in
   darwin*)
-    MSD_PLUGIN_LDFLAGS="${MSD_PLUGIN_LDFLAGS} -Wl,-bundle_loader,\$(top_builddir)/mate-settings-daemon/mate-settings-daemon"
+    MSD_PLUGIN_LDFLAGS="${MSD_PLUGIN_LDFLAGS} -Wl,-bundle_loader,\$(top_builddir)/cafe-settings-daemon/cafe-settings-daemon"
     ;;
 esac
 AC_SUBST([MSD_PLUGIN_LDFLAGS])
@@ -90,9 +90,9 @@ AC_PATH_PROG(GLIB_GENMARSHAL, glib-genmarshal)
 GLIB_GSETTINGS
 
 dnl ---------------------------------------------------------------------------
-dnl - Check for mate-desktop
+dnl - Check for cafe-desktop
 dnl ---------------------------------------------------------------------------
-PKG_CHECK_MODULES(CAFE_DESKTOP, mate-desktop-2.0 >= $CAFE_DESKTOP_REQUIRED_VERSION)
+PKG_CHECK_MODULES(CAFE_DESKTOP, cafe-desktop-2.0 >= $CAFE_DESKTOP_REQUIRED_VERSION)
 
 dnl ---------------------------------------------------------------------------
 dnl - Check for libnotify
@@ -198,7 +198,7 @@ dnl ---------------------------------------------------------------------------
 
 AC_CHECK_X_HEADERS([X11/extensions/XKB.h])
 
-PKG_CHECK_MODULES(LIBCAFEKBDUI, [libmatekbdui >= $LIBCAFEKBD_REQUIRED_VERSION libmatekbd >= $LIBCAFEKBD_REQUIRED_VERSION libxklavier >= 5.2])
+PKG_CHECK_MODULES(LIBCAFEKBDUI, [libcafekbdui >= $LIBCAFEKBD_REQUIRED_VERSION libcafekbd >= $LIBCAFEKBD_REQUIRED_VERSION libxklavier >= 5.2])
 AC_SUBST(LIBCAFEKBDUI_CFLAGS)
 AC_SUBST(LIBCAFEKBDUI_LIBS)
 
@@ -244,17 +244,17 @@ fi
 AC_SUBST(LIBCANBERRA_CFLAGS)
 AC_SUBST(LIBCANBERRA_LIBS)
 
-have_libmatemixer=no
-AC_ARG_WITH(libmatemixer,
-    AC_HELP_STRING([--without-libmatemixer], [Disable volume event handling (default: auto)]),
-    with_libmatemixer=$withval, with_libmatemixer=auto)
+have_libcafemixer=no
+AC_ARG_WITH(libcafemixer,
+    AC_HELP_STRING([--without-libcafemixer], [Disable volume event handling (default: auto)]),
+    with_libcafemixer=$withval, with_libcafemixer=auto)
 
-if test "x$with_libmatemixer" != "xno"; then
-    PKG_CHECK_MODULES(LIBCAFEMIXER, libmatemixer >= $LIBCAFEMIXER_REQUIRED_VERSION,
-              [AC_DEFINE(HAVE_LIBCAFEMIXER, 1, [Define if libmatemixer is available])
-              have_libmatemixer=yes], have_libmatemixer=no)
-    if test "x$have_libmatemixer" = xno -a "x$with_libmatemixer" = xyes; then
-        AC_MSG_ERROR([libmatemixer support requested but library not found])
+if test "x$with_libcafemixer" != "xno"; then
+    PKG_CHECK_MODULES(LIBCAFEMIXER, libcafemixer >= $LIBCAFEMIXER_REQUIRED_VERSION,
+              [AC_DEFINE(HAVE_LIBCAFEMIXER, 1, [Define if libcafemixer is available])
+              have_libcafemixer=yes], have_libcafemixer=no)
+    if test "x$have_libcafemixer" = xno -a "x$with_libcafemixer" = xyes; then
+        AC_MSG_ERROR([libcafemixer support requested but library not found])
     fi
 fi
 AC_SUBST(LIBCAFEMIXER_CFLAGS)
@@ -378,7 +378,7 @@ fi
 # Plugins
 # ---------------------------------------------------------------------------
 
-plugindir='$(libdir)/mate-settings-daemon'
+plugindir='$(libdir)/cafe-settings-daemon'
 AC_SUBST([plugindir])
 
 dnl ---------------------------------------------------------------------------
@@ -406,7 +406,7 @@ AC_SUBST(DEBUG_CFLAGS)
 
 AC_OUTPUT([
 Makefile
-mate-settings-daemon/Makefile
+cafe-settings-daemon/Makefile
 plugins/Makefile
 plugins/a11y-keyboard/Makefile
 plugins/a11y-settings/Makefile
@@ -430,34 +430,34 @@ plugins/xrdb/Makefile
 plugins/xrdb/data/Makefile
 plugins/xsettings/Makefile
 data/Makefile
-data/mate-settings-daemon.desktop.in
-data/mate-settings-daemon.pc
-data/mate-settings-daemon-uninstalled.pc
-data/org.mate.applications-at.gschema.xml
-data/org.mate.font-rendering.gschema.xml
-data/org.mate.peripherals-keyboard.gschema.xml
-data/org.mate.peripherals-mouse.gschema.xml
-data/org.mate.peripherals-smartcard.gschema.xml
-data/org.mate.peripherals-touchpad.gschema.xml
-data/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml
-data/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml
-data/org.mate.SettingsDaemon.plugins.background.gschema.xml
-data/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml
-data/org.mate.SettingsDaemon.plugins.datetime.gschema.xml
-data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml
-data/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml
-data/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml
-data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml
-data/org.mate.SettingsDaemon.plugins.mpris.gschema.xml
-data/org.mate.SettingsDaemon.plugins.mouse.gschema.xml
-data/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml
-data/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml
-data/org.mate.SettingsDaemon.plugins.sound.gschema.xml
-data/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml
-data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml
-data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml
-data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml
-data/org.mate.SettingsDaemon.plugins.gschema.xml
+data/cafe-settings-daemon.desktop.in
+data/cafe-settings-daemon.pc
+data/cafe-settings-daemon-uninstalled.pc
+data/org.cafe.applications-at.gschema.xml
+data/org.cafe.font-rendering.gschema.xml
+data/org.cafe.peripherals-keyboard.gschema.xml
+data/org.cafe.peripherals-mouse.gschema.xml
+data/org.cafe.peripherals-smartcard.gschema.xml
+data/org.cafe.peripherals-touchpad.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.a11y-keyboard.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.a11y-settings.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.background.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.clipboard.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.datetime.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.keybindings.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.keyboard.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.mpris.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.mouse.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.rfkill.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.smartcard.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.sound.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.typing-break.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.xrdb.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml
+data/org.cafe.SettingsDaemon.plugins.gschema.xml
 po/Makefile.in
 ])
 
@@ -466,7 +466,7 @@ dnl - Show summary
 dnl ---------------------------------------------------------------------------
 
 echo "
-                mate-settings-daemon $VERSION
+                cafe-settings-daemon $VERSION
                 =============================
 
     prefix:                   ${prefix}
@@ -491,7 +491,7 @@ echo "
     PulseAudio support:       ${have_pulse}
     Libnotify support:        ${have_libnotify}
     Libcanberra support:      ${have_libcanberra}
-    Libmatemixer support:     ${have_libmatemixer}
+    Libcafemixer support:     ${have_libcafemixer}
     Smartcard support:        ${have_smartcard_support}
     RFKill support:           ${enable_rfkill}
 ${NSS_DATABASE:+\

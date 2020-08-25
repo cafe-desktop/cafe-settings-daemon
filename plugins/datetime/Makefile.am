@@ -2,8 +2,8 @@ dbus_servicesdir = $(datadir)/dbus-1/system-services
 dbus_confdir = $(DBUS_SYS_DIR)
 polkitdir = $(datadir)/polkit-1/actions
 
-dbus_services_in_files = org.mate.SettingsDaemon.DateTimeMechanism.service.in
-polkit_in_files = org.mate.settingsdaemon.datetimemechanism.policy.in
+dbus_services_in_files = org.cafe.SettingsDaemon.DateTimeMechanism.service.in
+polkit_in_files = org.cafe.settingsdaemon.datetimemechanism.policy.in
 
 msd-datetime-mechanism-glue.h: $(srcdir)/msd-datetime-mechanism.xml
 	$(AM_V_GEN) dbus-binding-tool \
@@ -37,7 +37,7 @@ dbus_services_DATA = $(dbus_services_in_files:.service.in=.service)
 $(dbus_services_DATA): $(dbus_services_in_files)
 	$(AM_V_GEN)sed -e "s|\@LIBEXECDIR\@|$(libexecdir)|" $< > $@
 
-dbus_conf_DATA = org.mate.SettingsDaemon.DateTimeMechanism.conf
+dbus_conf_DATA = org.cafe.SettingsDaemon.DateTimeMechanism.conf
 
 polkit_DATA = $(polkit_in_files:.policy.in=.policy)
 $(polkit_DATA): $(polkit_in_files)
@@ -50,11 +50,11 @@ endif
 
 EXTRA_DIST =						\
 	$(dbus_services_in_files)			\
-	org.mate.SettingsDaemon.DateTimeMechanism.conf	\
+	org.cafe.SettingsDaemon.DateTimeMechanism.conf	\
 	$(polkit_in_files)				\
 	msd-datetime-mechanism.xml
 
 CLEANFILES = 		\
-	org.mate.SettingsDaemon.DateTimeMechanism.service	\
-	org.mate.settingsdaemon.datetimemechanism.policy	\
+	org.cafe.SettingsDaemon.DateTimeMechanism.service	\
+	org.cafe.settingsdaemon.datetimemechanism.policy	\
 	$(BUILT_SOURCES)

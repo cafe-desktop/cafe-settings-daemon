@@ -1,4 +1,4 @@
-icondir = $(datadir)/icons/mate
+icondir = $(datadir)/icons/cafe
 context = actions
 
 NULL =
@@ -34,7 +34,7 @@ libmedia_keys_la_SOURCES = 		\
 	$(NULL)
 
 libmedia_keys_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon			\
+	-I$(top_srcdir)/cafe-settings-daemon			\
 	-I$(top_srcdir)/plugins/common				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
@@ -60,9 +60,9 @@ libmedia_keys_la_LIBADD  = \
 	-lm
 
 plugin_in_files = 		\
-	media-keys.mate-settings-plugin.desktop.in
+	media-keys.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 noinst_PROGRAMS =				\
 	test-media-keys				\
@@ -76,7 +76,7 @@ test_media_window_SOURCES =			\
 	$(NULL)
 
 test_media_window_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon			\
+	-I$(top_srcdir)/cafe-settings-daemon			\
 	-I$(top_srcdir)/plugins/common				\
 	-DDATADIR=\""$(datadir)"\"				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
@@ -107,7 +107,7 @@ test_media_keys_SOURCES =			\
 	$(NULL)
 
 test_media_keys_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon			\
+	-I$(top_srcdir)/cafe-settings-daemon			\
 	-I$(top_srcdir)/plugins/common				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
 	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
@@ -123,7 +123,7 @@ test_media_keys_CFLAGS =		\
 	$(NULL)
 
 test_media_keys_LDADD = \
-	$(top_builddir)/mate-settings-daemon/libmsd-profile.la \
+	$(top_builddir)/cafe-settings-daemon/libmsd-profile.la \
 	$(top_builddir)/plugins/common/libcommon.la \
 	$(SETTINGS_DAEMON_LIBS) \
 	$(SETTINGS_PLUGIN_LIBS) \

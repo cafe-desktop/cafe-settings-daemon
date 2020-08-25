@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define CAFE_TYPE_SETTINGS_MODULE               (mate_settings_module_get_type ())
+#define CAFE_TYPE_SETTINGS_MODULE               (cafe_settings_module_get_type ())
 #define CAFE_SETTINGS_MODULE(obj)               (G_TYPE_CHECK_INSTANCE_CAST ((obj), CAFE_TYPE_SETTINGS_MODULE, MateSettingsModule))
 #define CAFE_SETTINGS_MODULE_CLASS(klass)       (G_TYPE_CHECK_CLASS_CAST ((klass), CAFE_TYPE_SETTINGS_MODULE, MateSettingsModuleClass))
 #define CAFE_IS_SETTINGS_MODULE(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CAFE_TYPE_SETTINGS_MODULE))
@@ -36,13 +36,13 @@ extern "C" {
 
 typedef struct _MateSettingsModule MateSettingsModule;
 
-GType                    mate_settings_module_get_type          (void) G_GNUC_CONST;
+GType                    cafe_settings_module_get_type          (void) G_GNUC_CONST;
 
-MateSettingsModule     *mate_settings_module_new               (const gchar *path);
+MateSettingsModule     *cafe_settings_module_new               (const gchar *path);
 
-const char              *mate_settings_module_get_path          (MateSettingsModule *module);
+const char              *cafe_settings_module_get_path          (MateSettingsModule *module);
 
-GObject                 *mate_settings_module_new_object        (MateSettingsModule *module);
+GObject                 *cafe_settings_module_new_object        (MateSettingsModule *module);
 
 #ifdef __cplusplus
 }

@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- * mate-settings-keyboard-xkb.h
+ * cafe-settings-keyboard-xkb.h
  *
  * Copyright (C) 2001 Udaltsoft
  *

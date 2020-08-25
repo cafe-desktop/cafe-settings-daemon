@@ -47,11 +47,11 @@
 #include <libnotify/notify.h>
 #endif /* HAVE_LIBNOTIFY */
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-a11y-keyboard-manager.h"
 #include "msd-a11y-preferences-dialog.h"
 
-#define CONFIG_SCHEMA "org.mate.accessibility-keyboard"
+#define CONFIG_SCHEMA "org.cafe.accessibility-keyboard"
 #define NOTIFICATION_TIMEOUT 30
 
 struct MsdA11yKeyboardManagerPrivate
@@ -264,7 +264,7 @@ set_server_from_settings (MsdA11yKeyboardManager *manager)
         gboolean         enable_accessX;
         GdkDisplay      *display;
 
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         desc = get_xkb_desc_rec (manager);
         if (!desc) {
@@ -396,7 +396,7 @@ set_server_from_settings (MsdA11yKeyboardManager *manager)
         XSync (GDK_DISPLAY_XDISPLAY(display), FALSE);
         gdk_x11_display_error_trap_pop_ignored (display);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static gboolean
@@ -432,7 +432,7 @@ ax_response_callback (MsdA11yKeyboardManager *manager,
         case GTK_RESPONSE_HELP:
                 err = NULL;
                 if (!gtk_show_uri_on_window (parent,
-                                   "help:mate-user-guide/goscustaccess-6",
+                                   "help:cafe-user-guide/goscustaccess-6",
                                    gtk_get_current_event_time(),
                                    &err)) {
                         GtkWidget *error_dialog = gtk_message_dialog_new (parent,
@@ -997,7 +997,7 @@ start_a11y_keyboard_idle_cb (MsdA11yKeyboardManager *manager)
         guint        event_mask;
 
         g_debug ("Starting a11y_keyboard manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         if (!xkb_enabled (manager))
                 goto out;
@@ -1031,7 +1031,7 @@ start_a11y_keyboard_idle_cb (MsdA11yKeyboardManager *manager)
         maybe_show_status_icon (manager);
 
  out:
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return FALSE;
 }
@@ -1041,11 +1041,11 @@ gboolean
 msd_a11y_keyboard_manager_start (MsdA11yKeyboardManager *manager,
                                  GError                **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         g_idle_add ((GSourceFunc) start_a11y_keyboard_idle_cb, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }
@@ -1158,7 +1158,7 @@ on_status_icon_activate (GtkStatusIcon          *status_icon,
 static void
 msd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         if (!manager->priv->status_icon) {
 
@@ -1169,7 +1169,7 @@ msd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager)
                                   manager);
         }
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void

@@ -33,14 +33,14 @@
 #include <dbus/dbus-glib-lowlevel.h>
 
 #ifdef HAVE_LIBCAFEMIXER
-#include <libmatemixer/matemixer.h>
+#include <libcafemixer/cafemixer.h>
 #endif
 
 #ifdef HAVE_LIBCANBERRA
 #include <canberra-gtk.h>
 #endif
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-marshal.h"
 #include "msd-media-keys-manager.h"
 #include "msd-media-keys-manager-glue.h"
@@ -50,12 +50,12 @@
 #include "msd-media-keys-window.h"
 #include "msd-input-helper.h"
 
-#define MSD_DBUS_PATH "/org/mate/SettingsDaemon"
-#define MSD_DBUS_NAME "org.mate.SettingsDaemon"
+#define MSD_DBUS_PATH "/org/cafe/SettingsDaemon"
+#define MSD_DBUS_NAME "org.cafe.SettingsDaemon"
 #define MSD_MEDIA_KEYS_DBUS_PATH MSD_DBUS_PATH "/MediaKeys"
 #define MSD_MEDIA_KEYS_DBUS_NAME MSD_DBUS_NAME ".MediaKeys"
 
-#define TOUCHPAD_SCHEMA "org.mate.peripherals-touchpad"
+#define TOUCHPAD_SCHEMA "org.cafe.peripherals-touchpad"
 #define TOUCHPAD_ENABLED_KEY "touchpad-enabled"
 
 typedef struct {
@@ -147,14 +147,14 @@ get_term_command (MsdMediaKeysManager *manager)
 	char *cmd = NULL;
 	GSettings *settings;
 
-	settings = g_settings_new ("org.mate.applications-terminal");
+	settings = g_settings_new ("org.cafe.applications-terminal");
 	cmd_term = g_settings_get_string (settings, "exec");
 	cmd_args = g_settings_get_string (settings, "exec-arg");
 
 	if (cmd_term[0] != '\0') {
 		cmd = g_strdup_printf ("%s %s -e", cmd_term, cmd_args);
 	} else {
-		cmd = g_strdup_printf ("mate-terminal -e");
+		cmd = g_strdup_printf ("cafe-terminal -e");
 	}
 
 	g_free (cmd_args);
@@ -326,7 +326,7 @@ static void init_kbd(MsdMediaKeysManager* manager)
 	GdkDisplay *dpy;
 	gboolean need_flush = FALSE;
 
-	mate_settings_profile_start(NULL);
+	cafe_settings_profile_start(NULL);
 
 	dpy = gdk_display_get_default ();
 	gdk_x11_display_error_trap_push (dpy);
@@ -385,7 +385,7 @@ static void init_kbd(MsdMediaKeysManager* manager)
 		g_warning("Grab failed for some keys, another application may already have access the them.");
 	}
 
-	mate_settings_profile_end(NULL);
+	cafe_settings_profile_end(NULL);
 }
 
 static void
@@ -525,7 +525,7 @@ do_calculator_action (MsdMediaKeysManager *manager)
         GSettings *settings;
         char *calc;
 
-        settings = g_settings_new ("org.mate.applications-calculator");
+        settings = g_settings_new ("org.cafe.applications-calculator");
         calc = g_settings_get_string (settings, "exec");
 
         if (calc)
@@ -541,7 +541,7 @@ do_messenger_action (MsdMediaKeysManager *manager)
         GSettings *settings;
         char *messenger;
 
-        settings = g_settings_new ("org.mate.applications-messenger");
+        settings = g_settings_new ("org.cafe.applications-messenger");
         messenger = g_settings_get_string (settings, "exec");
 
         if (messenger)
@@ -554,13 +554,13 @@ do_messenger_action (MsdMediaKeysManager *manager)
 static void
 do_shutdown_action (MsdMediaKeysManager *manager)
 {
-        execute (manager, "mate-session-save --shutdown-dialog", FALSE, FALSE);
+        execute (manager, "cafe-session-save --shutdown-dialog", FALSE, FALSE);
 }
 
 static void
 do_logout_action (MsdMediaKeysManager *manager)
 {
-        execute (manager, "mate-session-save --logout-dialog", FALSE, FALSE);
+        execute (manager, "cafe-session-save --logout-dialog", FALSE, FALSE);
 }
 
 static void
@@ -691,7 +691,7 @@ update_dialog (MsdMediaKeysManager *manager,
                                         CA_PROP_EVENT_DESCRIPTION, "Volume changed through key press",
                                         CA_PROP_APPLICATION_NAME, PACKAGE_NAME,
                                         CA_PROP_APPLICATION_VERSION, PACKAGE_VERSION,
-                                        CA_PROP_APPLICATION_ID, "org.mate.SettingsDaemon",
+                                        CA_PROP_APPLICATION_ID, "org.cafe.SettingsDaemon",
                                         NULL);
 #endif
 }
@@ -721,8 +721,8 @@ do_sound_action (MsdMediaKeysManager *manager,
 
         /* Theoretically the volume limits might be different for different
          * streams, also the minimum might not always start at 0 */
-        volume_min = mate_mixer_stream_control_get_min_volume (control);
-        volume_max = mate_mixer_stream_control_get_normal_volume (control);
+        volume_min = cafe_mixer_stream_control_get_min_volume (control);
+        volume_max = cafe_mixer_stream_control_get_normal_volume (control);
 
         volume_step = g_settings_get_int (manager->priv->settings, "volume-step");
         if (volume_step <= 0 || volume_step > 100) {
@@ -735,9 +735,9 @@ do_sound_action (MsdMediaKeysManager *manager,
         volume_step = (volume_max - volume_min) * volume_step / 100;
 
         volume = volume_last =
-                mate_mixer_stream_control_get_volume (control);
+                cafe_mixer_stream_control_get_volume (control);
         muted = muted_last =
-                mate_mixer_stream_control_get_mute (control);
+                cafe_mixer_stream_control_get_mute (control);
 
         switch (type) {
         case MUTE_KEY:
@@ -766,14 +766,14 @@ do_sound_action (MsdMediaKeysManager *manager,
         }
 
         if (muted != muted_last) {
-                if (mate_mixer_stream_control_set_mute (control, muted))
+                if (cafe_mixer_stream_control_set_mute (control, muted))
                         sound_changed = TRUE;
                 else
                         muted = muted_last;
         }
 
-        if (volume != mate_mixer_stream_control_get_volume (control)) {
-                if (mate_mixer_stream_control_set_volume (control, volume))
+        if (volume != cafe_mixer_stream_control_get_volume (control)) {
+                if (cafe_mixer_stream_control_set_volume (control, volume))
                         sound_changed = TRUE;
                 else
                         volume = volume_last;
@@ -793,9 +793,9 @@ update_default_output (MsdMediaKeysManager *manager)
         MateMixerStream        *stream;
         MateMixerStreamControl *control = NULL;
 
-        stream = mate_mixer_context_get_default_output_stream (manager->priv->context);
+        stream = cafe_mixer_context_get_default_output_stream (manager->priv->context);
         if (stream != NULL)
-                control = mate_mixer_stream_get_default_control (stream);
+                control = cafe_mixer_stream_get_default_control (stream);
 
         if (stream == manager->priv->stream)
                 return;
@@ -804,7 +804,7 @@ update_default_output (MsdMediaKeysManager *manager)
         g_clear_object (&manager->priv->control);
 
         if (control != NULL) {
-                MateMixerStreamControlFlags flags = mate_mixer_stream_control_get_flags (control);
+                MateMixerStreamControlFlags flags = cafe_mixer_stream_control_get_flags (control);
 
                 /* Do not use the stream if it is not possible to mute it or
                  * change the volume */
@@ -815,7 +815,7 @@ update_default_output (MsdMediaKeysManager *manager)
                 manager->priv->stream  = g_object_ref (stream);
                 manager->priv->control = g_object_ref (control);
                 g_debug ("Default output stream updated to %s",
-                         mate_mixer_stream_get_name (stream));
+                         cafe_mixer_stream_get_name (stream));
         } else
                 g_debug ("Default output stream unset");
 }
@@ -826,9 +826,9 @@ update_default_input (MsdMediaKeysManager *manager)
         MateMixerStream        *stream;
         MateMixerStreamControl *control = NULL;
 
-        stream = mate_mixer_context_get_default_input_stream (manager->priv->context);
+        stream = cafe_mixer_context_get_default_input_stream (manager->priv->context);
         if (stream != NULL)
-                control = mate_mixer_stream_get_default_control (stream);
+                control = cafe_mixer_stream_get_default_control (stream);
 
         if (stream == manager->priv->source_stream)
                 return;
@@ -837,7 +837,7 @@ update_default_input (MsdMediaKeysManager *manager)
         g_clear_object (&manager->priv->source_control);
 
         if (control != NULL) {
-                MateMixerStreamControlFlags flags = mate_mixer_stream_control_get_flags (control);
+                MateMixerStreamControlFlags flags = cafe_mixer_stream_control_get_flags (control);
 
                 /* Do not use the stream if it is not possible to mute it or
                  * change the volume */
@@ -847,7 +847,7 @@ update_default_input (MsdMediaKeysManager *manager)
                 manager->priv->source_stream  = g_object_ref (stream);
                 manager->priv->source_control = g_object_ref (control);
                 g_debug ("Default input stream updated to %s",
-                         mate_mixer_stream_get_name (stream));
+                         cafe_mixer_stream_get_name (stream));
         } else
                 g_debug ("Default input stream unset");
 }
@@ -884,7 +884,7 @@ on_context_stream_removed (MateMixerContext    *context,
 {
         if (manager->priv->stream != NULL) {
                 MateMixerStream *stream =
-                        mate_mixer_context_get_stream (manager->priv->context, name);
+                        cafe_mixer_context_get_stream (manager->priv->context, name);
 
                 if (stream == manager->priv->stream) {
                         g_clear_object (&manager->priv->stream);
@@ -893,7 +893,7 @@ on_context_stream_removed (MateMixerContext    *context,
         }
         if (manager->priv->source_stream != NULL) {
                 MateMixerStream *stream =
-                        mate_mixer_context_get_stream (manager->priv->context, name);
+                        cafe_mixer_context_get_stream (manager->priv->context, name);
 
                 if (stream == manager->priv->source_stream) {
                         g_clear_object (&manager->priv->source_stream);
@@ -1006,7 +1006,7 @@ do_rfkill_action (MsdMediaKeysManager *manager,
         g_dbus_proxy_call (manager->priv->rfkill_proxy,
                            "org.freedesktop.DBus.Properties.Set",
                            g_variant_new ("(ssv)",
-                                          "org.mate.SettingsDaemon.Rfkill",
+                                          "org.cafe.SettingsDaemon.Rfkill",
                                           data->property,
                                           g_variant_new_boolean (new_state)),
                            G_DBUS_CALL_FLAGS_NONE, -1,
@@ -1240,7 +1240,7 @@ do_action (MsdMediaKeysManager *manager,
                 } else if ((cmd = g_find_program_in_path ("tracker-search-tool"))) {
                         execute (manager, "tracker-search-tool", FALSE, FALSE);
                 } else {
-                        execute (manager, "mate-search-tool", FALSE, FALSE);
+                        execute (manager, "cafe-search-tool", FALSE, FALSE);
                 }
                 g_free (cmd);
                 break;
@@ -1248,14 +1248,14 @@ do_action (MsdMediaKeysManager *manager,
                 do_url_action (manager, "mailto");
                 break;
         case CONTROL_CENTER_KEY:
-                if ((cmd = g_find_program_in_path ("mate-control-center")))
-                        execute (manager, "mate-control-center", FALSE, FALSE);
+                if ((cmd = g_find_program_in_path ("cafe-control-center")))
+                        execute (manager, "cafe-control-center", FALSE, FALSE);
 
                 g_free (cmd);
                 break;
         case SCREENSAVER_KEY:
-                if ((cmd = g_find_program_in_path ("mate-screensaver-command"))) {
-                        execute (manager, "mate-screensaver-command --lock", FALSE, FALSE);
+                if ((cmd = g_find_program_in_path ("cafe-screensaver-command"))) {
+                        execute (manager, "cafe-screensaver-command --lock", FALSE, FALSE);
                 } else {
                         execute (manager, "xscreensaver-command -lock", FALSE, FALSE);
                 }
@@ -1403,9 +1403,9 @@ rfkill_appeared_cb (GDBusConnection *connection,
 
         g_dbus_proxy_new_for_bus (G_BUS_TYPE_SESSION,
                                   0, NULL,
-                                  "org.mate.SettingsDaemon.Rfkill",
-                                  "/org/mate/SettingsDaemon/Rfkill",
-                                  "org.mate.SettingsDaemon.Rfkill",
+                                  "org.cafe.SettingsDaemon.Rfkill",
+                                  "/org/cafe/SettingsDaemon/Rfkill",
+                                  "org.cafe.SettingsDaemon.Rfkill",
                                   manager->priv->rfkill_cancellable,
                                   on_rfkill_proxy_ready, manager);
 }
@@ -1418,7 +1418,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
         Display *xdpy;
 
         g_debug ("Starting media_keys manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         dpy = gdk_display_get_default ();
         xdpy = GDK_DISPLAY_XDISPLAY (dpy);
@@ -1437,7 +1437,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
                 Window xwindow;
                 XWindowAttributes atts;
 
-                mate_settings_profile_start ("gdk_window_add_filter");
+                cafe_settings_profile_start ("gdk_window_add_filter");
 
                 window = gdk_screen_get_root_window (l->data);
                 xwindow = GDK_WINDOW_XID (window);
@@ -1455,17 +1455,17 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
                 XSelectInput (xdpy, xwindow, atts.your_event_mask | KeyPressMask);
                 gdk_x11_display_error_trap_pop_ignored (dpy);
 
-                mate_settings_profile_end ("gdk_window_add_filter");
+                cafe_settings_profile_end ("gdk_window_add_filter");
         }
 
         manager->priv->rfkill_watch_id = g_bus_watch_name (G_BUS_TYPE_SESSION,
-                                                           "org.mate.SettingsDaemon.Rfkill",
+                                                           "org.cafe.SettingsDaemon.Rfkill",
                                                            G_BUS_NAME_WATCHER_FLAGS_NONE,
                                                            rfkill_appeared_cb,
                                                            NULL,
                                                            manager, NULL);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return FALSE;
 }
@@ -1473,13 +1473,13 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
 gboolean
 msd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
 #ifdef HAVE_LIBCAFEMIXER
-        if (G_LIKELY (mate_mixer_is_initialized ())) {
-                mate_settings_profile_start ("mate_mixer_context_new");
+        if (G_LIKELY (cafe_mixer_is_initialized ())) {
+                cafe_settings_profile_start ("cafe_mixer_context_new");
 
-                manager->priv->context = mate_mixer_context_new ();
+                manager->priv->context = cafe_mixer_context_new ();
 
                 g_signal_connect (manager->priv->context,
                                   "notify::state",
@@ -1498,14 +1498,14 @@ msd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
                                   G_CALLBACK (on_context_stream_removed),
                                   manager);
 
-                mate_mixer_context_open (manager->priv->context);
+                cafe_mixer_context_open (manager->priv->context);
 
-                mate_settings_profile_end ("mate_mixer_context_new");
+                cafe_settings_profile_end ("cafe_mixer_context_new");
         }
 #endif
         g_idle_add ((GSourceFunc) start_media_keys_idle_cb, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

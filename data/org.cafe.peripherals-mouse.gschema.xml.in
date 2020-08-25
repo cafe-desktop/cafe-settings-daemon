@@ -1,10 +1,10 @@
-<schemalist gettext-domain="mate-desktop">
-  <enum id="org.mate.peripherals-mouse.AccelProfile">
+<schemalist gettext-domain="cafe-desktop">
+  <enum id="org.cafe.peripherals-mouse.AccelProfile">
     <value nick="default" value="0"/>
     <value nick="adaptive" value="1"/>
     <value nick="flat" value="2"/>
   </enum>
-  <schema id="org.mate.peripherals-mouse" path="/org/mate/desktop/peripherals/mouse/">
+  <schema id="org.cafe.peripherals-mouse" path="/org/cafe/desktop/peripherals/mouse/">
     <key name="left-handed" type="b">
       <default>false</default>
       <summary>Mouse button orientation</summary>
@@ -20,7 +20,7 @@
       <summary>Motion Threshold</summary>
       <description>Distance in pixels the pointer must move before accelerated mouse motion is activated.  A value of -1 is the system default.</description>
     </key>
-    <key name="accel-profile" enum="org.mate.peripherals-mouse.AccelProfile">
+    <key name="accel-profile" enum="org.cafe.peripherals-mouse.AccelProfile">
       <default>'default'</default>
       <summary>Acceleration profile</summary>
       <description>Acceleration profile used for connected mice. The acceleration profile can be set to either default ('default') which uses the default acceleration profile for each device, flat ('flat'), which accelerates by a device specific constant factor derived from the configured pointer speed, or adaptive ('adaptive') which adapts the acceleration depending on the mouse movement. If a mouse doesn't support the configured profile, 'default' will be used.</description>

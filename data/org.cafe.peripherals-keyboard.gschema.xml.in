@@ -1,10 +1,10 @@
-<schemalist gettext-domain="mate-desktop">
-  <enum id="org.mate.peripherals-keyboard.NumLockState">
+<schemalist gettext-domain="cafe-desktop">
+  <enum id="org.cafe.peripherals-keyboard.NumLockState">
     <value nick="off" value="0"/>
     <value nick="on" value="1"/>
     <value nick="unknown" value="2"/>
   </enum>
-  <schema id="org.mate.peripherals-keyboard" path="/org/mate/desktop/peripherals/keyboard/">
+  <schema id="org.cafe.peripherals-keyboard" path="/org/cafe/desktop/peripherals/keyboard/">
     <key name="repeat" type="b">
       <default>true</default>
     </key>
@@ -40,7 +40,7 @@
       <summary>Remember NumLock state</summary>
       <description>When set to true, CAFE will remember the state of the NumLock LED between sessions.</description>
     </key>
-    <key name="numlock-state" enum="org.mate.peripherals-keyboard.NumLockState">
+    <key name="numlock-state" enum="org.cafe.peripherals-keyboard.NumLockState">
       <default>'unknown'</default>
       <summary>NumLock state</summary>
       <description>The remembered state of the NumLock LED.</description>

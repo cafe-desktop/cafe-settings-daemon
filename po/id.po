@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR CAFE Desktop Environment team
-# This file is distributed under the same license as the mate-settings-daemon package.
+# This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -15,12 +15,12 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: mate-settings-daemon 1.23.2\n"
-"Report-Msgid-Bugs-To: https://mate-desktop.org/\n"
+"Project-Id-Version: cafe-settings-daemon 1.23.2\n"
+"Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
 "POT-Creation-Date: 2019-11-19 11:28+0100\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>, 2020\n"
-"Language-Team: Indonesian (https://www.transifex.com/mate/teams/13566/id/)\n"
+"Language-Team: Indonesian (https://www.transifex.com/cafe/teams/13566/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,49 +32,49 @@ msgid "Accessibility"
 msgstr "Kemudahan"
 
 #: data/50-accessibility.xml.in:4
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:155
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:155
 msgid "Toggle magnifier"
 msgstr "Jungkitkan kaca pembesar"
 
 #: data/50-accessibility.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:160
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:160
 msgid "Toggle screen reader"
 msgstr "Jungkitkan pembaca layar"
 
 #: data/50-accessibility.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:165
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:165
 msgid "Toggle on-screen keyboard"
 msgstr "Jungkitkan papan tik pada layar"
 
-#: data/org.mate.applications-at.gschema.xml.in:5
+#: data/org.cafe.applications-at.gschema.xml.in:5
 msgid "On-screen keyboard"
 msgstr "Papan tik di layar"
 
-#: data/org.mate.applications-at.gschema.xml.in:6
+#: data/org.cafe.applications-at.gschema.xml.in:6
 msgid "Whether the on-screen keyboard is turned on."
 msgstr "Apakah papan tik pada layar dinyalakan."
 
-#: data/org.mate.applications-at.gschema.xml.in:10
+#: data/org.cafe.applications-at.gschema.xml.in:10
 msgid "Screen magnifier"
 msgstr "Pembesar layar"
 
-#: data/org.mate.applications-at.gschema.xml.in:11
+#: data/org.cafe.applications-at.gschema.xml.in:11
 msgid "Whether the screen magnifier is turned on."
 msgstr "Apakah kaca pembesar layar dinyalakan."
 
-#: data/org.mate.applications-at.gschema.xml.in:15
+#: data/org.cafe.applications-at.gschema.xml.in:15
 msgid "Screen reader"
 msgstr "Pembaca layar"
 
-#: data/org.mate.applications-at.gschema.xml.in:16
+#: data/org.cafe.applications-at.gschema.xml.in:16
 msgid "Whether the screen reader is turned on."
 msgstr "Apakah pembaca layar dinyalakan."
 
-#: data/org.mate.font-rendering.gschema.xml.in:22
+#: data/org.cafe.font-rendering.gschema.xml.in:22
 msgid "DPI"
 msgstr "DPI"
 
-#: data/org.mate.font-rendering.gschema.xml.in:23
+#: data/org.cafe.font-rendering.gschema.xml.in:23
 msgid ""
 "The resolution used for converting font sizes to pixel sizes, in dots per "
 "inch."
@@ -82,11 +82,11 @@ msgstr ""
 "Resolusi yang dipakai untuk mengonversi ukuran fonta ke ukuran piksel, dalam"
 " dot per inci."
 
-#: data/org.mate.font-rendering.gschema.xml.in:27
+#: data/org.cafe.font-rendering.gschema.xml.in:27
 msgid "Antialiasing"
 msgstr "Antialiasing"
 
-#: data/org.mate.font-rendering.gschema.xml.in:28
+#: data/org.cafe.font-rendering.gschema.xml.in:28
 msgid ""
 "The type of antialiasing to use when rendering fonts. Possible values are: "
 "\"none\" for no antialiasing, \"grayscale\" for standard grayscale "
@@ -96,11 +96,11 @@ msgstr ""
 "adalah: \"none\" untuk tanpa antialias, \"grayscale\" untuk antialias skala "
 "abu standar, dan \"rgba\" untuk antialias sub piksel (layar LCD saja)."
 
-#: data/org.mate.font-rendering.gschema.xml.in:32
+#: data/org.cafe.font-rendering.gschema.xml.in:32
 msgid "Hinting"
 msgstr "Hinting"
 
-#: data/org.mate.font-rendering.gschema.xml.in:33
+#: data/org.cafe.font-rendering.gschema.xml.in:33
 msgid ""
 "The type of hinting to use when rendering fonts. Possible values are: "
 "\"none\" for no hinting, \"slight\" for basic, \"medium\" for moderate, and "
@@ -111,11 +111,11 @@ msgstr ""
 "menengah\", dan \"full\" untuk hinting maksimum (dapat menyebabkan distorsi "
 "bentuk huruf)."
 
-#: data/org.mate.font-rendering.gschema.xml.in:37
+#: data/org.cafe.font-rendering.gschema.xml.in:37
 msgid "RGBA order"
 msgstr "Urutan RGBA"
 
-#: data/org.mate.font-rendering.gschema.xml.in:38
+#: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
 "The order of subpixel elements on an LCD screen; only used when antialiasing"
 " is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
@@ -127,23 +127,23 @@ msgstr ""
 "(paling umum), \"bgr\" untuk biru di kiri, \"vrgb\" untuk merah di atas, "
 "\"vbgr\" untuk merah di bawah. "
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:25
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:25
 msgid "possible values are \"on\", \"off\", and \"custom\"."
 msgstr "nilai yang mungkin adalah \"on\", \"off\", dan \"custom\"."
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:35
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:35
 msgid "Keyboard Bell Custom Filename"
 msgstr "Nama Berkas Gubahan Bel Papan Tik"
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:36
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:36
 msgid "File name of the bell sound to be played."
 msgstr "Nama berkas yang digunakan untuk suara bel."
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:40
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:40
 msgid "Remember NumLock state"
 msgstr "Ingat keadaan NumLock"
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:41
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:41
 msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
@@ -151,40 +151,40 @@ msgstr ""
 "Ketika ditetapkan sebagai benar, CAFE akan mengingat keadaan LED NumLock "
 "diantara setiap sesi."
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:45
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
 msgstr "Keadaan NumLock"
 
-#: data/org.mate.peripherals-keyboard.gschema.xml.in:46
+#: data/org.cafe.peripherals-keyboard.gschema.xml.in:46
 msgid "The remembered state of the NumLock LED."
 msgstr "Keadaan LED NumLock yang diingat."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:10
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:10
 msgid "Mouse button orientation"
 msgstr "Orientasi tombol mouse"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:11
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:11
 msgid "Swap left and right mouse buttons for left-handed mice."
 msgstr "Tukar tombol mouse kanan dan kiri untuk pengguna mouse kidal."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:15
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:85
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:15
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:85
 msgid "Motion Acceleration"
 msgstr "Akselerasi Gerak"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:16
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:16
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
 "Faktor pengali kecepatan gerakan mouse. Nilai -1 adalah nilai awal sistem."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:20
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:90
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:20
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:90
 msgid "Motion Threshold"
 msgstr "Threshold Gerak"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:21
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:21
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
@@ -193,12 +193,12 @@ msgstr ""
 "faktor pengali kecepatan mouse diaktifkan. Nilai -1 adalah nilai awal "
 "sistem."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:25
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:95
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:25
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:95
 msgid "Acceleration profile"
 msgstr "Profil percepatan"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:26
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:26
 msgid ""
 "Acceleration profile used for connected mice. The acceleration profile can "
 "be set to either default ('default') which uses the default acceleration "
@@ -216,27 +216,27 @@ msgstr ""
 "bergantung pada pergerakan tetikus. Bila sebuah tetikus tidak mendukung "
 "profil yang dikonfigurasi, 'default' akan dipakai."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:30
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:30
 msgid "Drag Threshold"
 msgstr "Ambang Drag"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:31
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:31
 msgid "Distance before a drag is started."
 msgstr "Jarak sebelum drag dimulai."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:35
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:35
 msgid "Double Click Time"
 msgstr "Waktu Klik Ganda"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:36
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:36
 msgid "Length of a double click."
 msgstr "Lamanya klik ganda."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:40
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:40
 msgid "Middle button emulation"
 msgstr "Emulasi tombol tengah"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:41
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:41
 msgid ""
 "Enables middle mouse button emulation through simultaneous left and right "
 "button click."
@@ -244,11 +244,11 @@ msgstr ""
 "Mengaktifkan tombol mouse tengah melalui simulasi klik tombol kiri dan "
 "kanan."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:45
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:45
 msgid "Locate Pointer"
 msgstr "Pencari Pointer"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:46
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:46
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released."
@@ -256,27 +256,27 @@ msgstr ""
 "Sorot lokasi pointer mouse yang aktif saat tombol Control ditekan dan "
 "dilepas."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:50
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:50
 msgid "Cursor theme"
 msgstr "Tema kursor"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:51
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:51
 msgid "Cursor theme name."
 msgstr "Nama tema kursor."
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:55
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:55
 msgid "Cursor size"
 msgstr "Ukuran kursor"
 
-#: data/org.mate.peripherals-mouse.gschema.xml.in:56
+#: data/org.cafe.peripherals-mouse.gschema.xml.in:56
 msgid "Size of the cursor referenced by cursor_theme."
 msgstr "Ukuran kursor sesuai dengan tema kursor."
 
-#: data/org.mate.peripherals-smartcard.gschema.xml.in:6
+#: data/org.cafe.peripherals-smartcard.gschema.xml.in:6
 msgid "Smartcard removal action"
 msgstr "Aksi pencabutan smartcard"
 
-#: data/org.mate.peripherals-smartcard.gschema.xml.in:7
+#: data/org.cafe.peripherals-smartcard.gschema.xml.in:7
 msgid ""
 "Set this to one of \"none\", \"lock_screen\", or \"force_logout\". The "
 "action will get performed when the smartcard used for log in is removed."
@@ -284,11 +284,11 @@ msgstr ""
 "Isi dengan salah satu dari \"none\", \"lock_screen\", atau \"force_logout\"."
 " Aksi akan dilakukan ketika smartcard yang dipakai untuk log masuk dicabut."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:15
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:15
 msgid "Disable touchpad while typing"
 msgstr "Matikan touchpad ketika mengetik"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:16
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
 "Set this to TRUE if you have problems with accidentally hitting the touchpad"
 " while typing."
@@ -296,84 +296,84 @@ msgstr ""
 "Isi dengan TRUE bila Anda mengalami masalah tak sengaja menyenggol touchpad "
 "ketika mengetik."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:20
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:20
 msgid "Enable mouse clicks with touchpad"
 msgstr "Mengaktifkan klik tetikus dengan touchpad"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:21
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:21
 msgid ""
 "Set this to TRUE to be able to send mouse clicks by tapping on the touchpad."
 msgstr ""
 "Isi dengan TRUE untuk memungkinkan mengirim klik tetikus dengan mengetuk "
 "touchpad."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:25
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:25
 msgid "Enable vertical edge scrolling"
 msgstr "Fungsikan gulir tepi vertikal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:26
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:26
 msgid "Set this to TRUE to allow vertical edge scrolling"
 msgstr "Isi dengan TRUE untuk mengijinkan gulir tepi vertikal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:30
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:30
 msgid "Enable horizontal edge scrolling"
 msgstr "Fungsikan gulir tepi horisontal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:31
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:31
 msgid "Set this to TRUE to allow horizontal edge scrolling"
 msgstr "Isi dengan TRUE untuk mengijinkan gulir tepi horisontal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:35
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:35
 msgid "Enable vertical two-finger scrolling"
 msgstr "Fungsikan gulir dua jari vertikal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:36
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:36
 msgid "Set this to TRUE to allow vertical two-finger scrolling"
 msgstr "Isi dengan TRUE untuk mengijinkan gulir dua jari vertikal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:40
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:40
 msgid "Enable horizontal two-finger scrolling"
 msgstr "Fungsikan gulir dua jari horisontal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:41
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:41
 msgid "Set this to TRUE to allow horizontal two-finger scrolling"
 msgstr "Isi dengan TRUE untuk mengijinkan gulir dua jari horisontal"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:45
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:45
 msgid "Natural scrolling"
 msgstr "Scroll alami"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:46
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:46
 msgid "Set this to true to enable natural (reverse) scrolling for touchpads"
 msgstr ""
 "Isi dengan TRUE untuk mengaktifkan scroll alami (terbalik) untuk touchpad"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:50
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:50
 msgid "Enable touchpad"
 msgstr "Aktifkan touchpad"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:51
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:51
 msgid "Set this to TRUE to enable all touchpads."
 msgstr "Isi dengan TRUE untuk mengaktifkan semua touchpad."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:55
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:55
 msgid "Enabled two-finger button-click emulation"
 msgstr "Aktifkan emulasi klik-tombol dua-jari"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:56
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:61
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:56
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:61
 msgid "0 thru 3, 0 is inactive, 1-3 is button to emulate"
 msgstr "0 hingga 3, 0 tidak aktif, 1-3 adalah tombol emulasi"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:60
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:60
 msgid "Enable three-finger button-click emulation"
 msgstr "Aktifkan emulasi klik-tombol tiga-jari"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:65
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:65
 msgid "One finger tap button"
 msgstr "Tombol tap satu jari "
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:66
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:66
 msgid ""
 "Select the button mapping for one-finger tap. Supported values are: 1: left "
 "mouse button 2: middle mouse button 3: right mouse button"
@@ -381,11 +381,11 @@ msgstr ""
 "Pilih pemetaan tombol untuk tap satu-jari. Nilai yang didukung adalah: 1: "
 "tombol kiri mouse 2: tombol tengah mouse 3: tombol kanan mouse"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:70
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:70
 msgid "Two finger tap button"
 msgstr "Tombol tap dua jari"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:71
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:71
 msgid ""
 "Select the button mapping for two-finger tap. Supported values are: 1: left "
 "mouse button 2: middle mouse button 3: right mouse button"
@@ -393,11 +393,11 @@ msgstr ""
 "Pilih pemetaan tombol untuk tap dua-jari. Nilai yang didukung adalah: 1: "
 "tombol kiri mouse 2: tombol tengah mouse 3: tombol kanan mouse"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:75
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:75
 msgid "Three finger tap button"
 msgstr "Tombol tap tiga jari"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:76
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:76
 msgid ""
 "Select the button mapping for three-finger tap. Supported values are: 1: "
 "left mouse button 2: middle mouse button 3: right mouse button"
@@ -405,11 +405,11 @@ msgstr ""
 "Pilih pemetaan tombol untuk tap tiga-jari. Nilai yang didukung adalah: 1: "
 "tombol kiri mouse 2: tombol tengah mouse 3: tombol kanan mouse"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:80
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:80
 msgid "Touchpad button orientation"
 msgstr "Orientasi tombol touchpad"
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:81
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:81
 msgid ""
 "Swap left and right buttons for left-handed touchpads with 'left', 'right' "
 "for right-handed, 'mouse' to follow the mouse setting."
@@ -417,14 +417,14 @@ msgstr ""
 "Swap ke kiri dan kanan untuk touchpad kidal dengan 'kiri', 'kanan' untuk "
 "tangan kanan, 'tetikus' untuk mengikuti pengaturan tikus."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:86
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:86
 msgid ""
 "Acceleration multiplier for touchpad motion. A value of -1 is the system "
 "default."
 msgstr ""
 "Akselerasi multiplier untuk gerakan touchpad. Nilai -1 adalah bawaan sistem."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:91
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:91
 msgid ""
 "Distance in pixels the pointer must move before accelerated touchpad motion "
 "is activated. A value of -1 is the system default."
@@ -432,7 +432,7 @@ msgstr ""
 "Jarak dalam piksel, pointer harus bergerak sebelum akselerasi gerak touchpad"
 " diaktifkan. Nilai -1 adalah bawaan sistem."
 
-#: data/org.mate.peripherals-touchpad.gschema.xml.in:96
+#: data/org.cafe.peripherals-touchpad.gschema.xml.in:96
 msgid ""
 "Acceleration profile used for touchpad. The acceleration profile can be set "
 "to either default ('default') which uses the default acceleration profile "
@@ -450,98 +450,98 @@ msgstr ""
 "bergantung pada pergerakan touchpad. Bila sebuah touchpad tidak mendukung "
 "profil yang dikonfigurasi, 'default' akan dipakai."
 
-#: data/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.background.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.datetime.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.mouse.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.mpris.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.sound.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml.in:5
-#: data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.background.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.clipboard.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.datetime.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.keybindings.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.keyboard.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.mouse.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.mpris.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.rfkill.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.smartcard.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.sound.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.typing-break.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.xrdb.gschema.xml.in:5
+#: data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml.in:5
 msgid "Activation of this plugin"
 msgstr "Aktivasi plugin ini"
 
-#: data/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.background.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.datetime.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.mouse.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.mpris.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.sound.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml.in:6
-#: data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml.in:6
-msgid "Whether this plugin would be activated by mate-settings-daemon or not"
+#: data/org.cafe.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.background.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.clipboard.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.datetime.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.keybindings.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.keyboard.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.mouse.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.mpris.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.rfkill.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.smartcard.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.sound.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.typing-break.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.xrdb.gschema.xml.in:6
+#: data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml.in:6
+msgid "Whether this plugin would be activated by cafe-settings-daemon or not"
 msgstr ""
-"Apakah plugin ini akan diaktifkan oleh mate-settings-daemon atau tidak"
+"Apakah plugin ini akan diaktifkan oleh cafe-settings-daemon atau tidak"
 
-#: data/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.background.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.datetime.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:15
-#: data/org.mate.SettingsDaemon.plugins.mouse.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.mpris.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.sound.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml.in:10
-#: data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.background.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.clipboard.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.datetime.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.keybindings.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.keyboard.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:15
+#: data/org.cafe.SettingsDaemon.plugins.mouse.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.mpris.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.rfkill.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.smartcard.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.sound.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.typing-break.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.xrdb.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml.in:10
 msgid "Priority to use for this plugin"
 msgstr "Prioritas untuk menggunakan pengaya ini"
 
-#: data/org.mate.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.background.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.clipboard.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.datetime.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.keybindings.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.keyboard.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:16
-#: data/org.mate.SettingsDaemon.plugins.mouse.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.mpris.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.rfkill.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.smartcard.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.sound.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.typing-break.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.xrdb.gschema.xml.in:11
-#: data/org.mate.SettingsDaemon.plugins.xsettings.gschema.xml.in:11
-msgid "Priority to use for this plugin in mate-settings-daemon startup queue"
+#: data/org.cafe.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.background.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.clipboard.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.datetime.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.keybindings.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.keyboard.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:16
+#: data/org.cafe.SettingsDaemon.plugins.mouse.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.mpris.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.rfkill.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.smartcard.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.sound.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.typing-break.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.xrdb.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml.in:11
+msgid "Priority to use for this plugin in cafe-settings-daemon startup queue"
 msgstr ""
-"Prioritas yang digunakan untuk plugin ini pada antrian start mate-settings-"
+"Prioritas yang digunakan untuk plugin ini pada antrian start cafe-settings-"
 "daemon"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:15
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:15
 msgid "Free percentage notify threshold"
 msgstr "Ambang pemberitahuan persentase bebas"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:16
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:16
 msgid ""
 "Percentage free space threshold for initial warning of low disk space. If "
 "the percentage free space drops below this, a warning will be shown."
@@ -550,11 +550,11 @@ msgstr ""
 "disk. Bila persentase ruang bebas kurang dari ini, suatu peringatan akan "
 "ditampilkan"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:20
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:20
 msgid "Subsequent free percentage notify threshold"
 msgstr "Ambang pemberitahun persentase bebas selanjutnya"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:21
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:21
 msgid ""
 "Specify the percentage that the free disk space should reduce by before "
 "issuing a subsequent warning."
@@ -562,11 +562,11 @@ msgstr ""
 "Nyatakan persentase berkurangnya ruang disk bebas sebelum menerbitkan "
 "peringatan selanjutnya "
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:25
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:25
 msgid "Free space no notify threshold"
 msgstr "Ambang tanpa pemberitahuan ruang bebas"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:26
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:26
 msgid ""
 "Specify an amount in GB. If the amount of free space is more than this, no "
 "warning will be shown."
@@ -574,11 +574,11 @@ msgstr ""
 "Nyatakan banyaknya dalam GB. Bila ruang bebas lebih dari ini, tak ada "
 "peringatan yang ditampilkan."
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:30
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:30
 msgid "Minimum notify period for repeated warnings"
 msgstr "Perioda pemberitahuan minimum bagi peringatan berulang"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:31
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:31
 msgid ""
 "Specify a time in minutes. Subsequent warnings for a volume will not appear "
 "more often than this period."
@@ -586,257 +586,257 @@ msgstr ""
 "Nyatakan waktu dalam menit. Peringatan berikutnya bagi suatu volume tidak "
 "akan muncul lebih sering dari perioda ini."
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:35
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:35
 msgid "Mount paths to ignore"
 msgstr "Path pengaitan yang diabaikan"
 
-#: data/org.mate.SettingsDaemon.plugins.housekeeping.gschema.xml.in:36
+#: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:36
 msgid "Specify a list of mount paths to ignore when they run low on space."
 msgstr ""
 "Nyatakan daftar path pengaitan yang diabaikan ketika mereka hampir penuh."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:10
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:10
 msgid "Show OSD notification"
 msgstr "Tampilkan notifikasi OSD"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:11
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:11
 msgid "Whether an OSD notification is shown to notify about changes"
 msgstr ""
 "Apakah notifikasi OSD akan ditampilkan untuk memberitahu akan perubahan"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:20
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:20
 msgid "Volume step"
 msgstr "Tingkatan volume"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:21
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:21
 msgid "Volume step as percentage of volume."
 msgstr "Tingkatan volume suara dalam persentase."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:25
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:25
 msgid "Toggle touchpad"
 msgstr "Jungkit touchpad"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:26
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:26
 msgid "Binding to enable or disable the touchpad."
 msgstr "Binding untuk mengaktifkan atau mematikan touchpad."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:30
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:30
 msgid "Volume mute"
 msgstr "Volume bisu"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:31
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:31
 msgid "Binding to mute the system volume."
 msgstr "Binding untuk mematikan volume suara sistem."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:35
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:35
 msgid "Volume down"
 msgstr "Kecilkan suara"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:36
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:36
 msgid "Binding to lower the system volume."
 msgstr "Binding untuk mengurangi volume suara sistem."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:40
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:40
 msgid "Volume up"
 msgstr "Besarkan suara"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:41
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:41
 msgid "Binding to raise the system volume."
 msgstr "Binding untuk menaikkan volume suara sistem."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:45
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:45
 msgid "Mute the audio quietly"
 msgstr "Bisukan suara diam-diam"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:46
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:46
 msgid "Binding to mute the system volume quietly."
 msgstr "Pengikatan untuk membisukan volume sistem secara diam-diam."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:50
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:50
 msgid "Turn the volume down quietly"
 msgstr "Turunkan volume secara diam-diam"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:51
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:51
 msgid "Binding to lower the system volume quietly."
 msgstr "Pengikatan untuk menurunkan volume suara sistem secara diam-diam."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:55
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:55
 msgid "Turn the volume up quietly"
 msgstr "Naikkan volume suara diam-diam."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:56
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:56
 msgid "Binding to raise the system volume quietly."
 msgstr "Pengikatan untuk menaikkan volume suara sistem secara diam-diam."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:60
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:60
 msgid "Microphone mute/unmute"
 msgstr "Mikrofon bisu/bersuara"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:61
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:61
 msgid "Binding to mute/unmute the microphone."
 msgstr "Pengikatan untuk membisukan/membuat bersuara mikrofon."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:65
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:65
 msgid "Shut down"
 msgstr "Matikan"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:66
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:66
 msgid "Binding to shut down."
 msgstr "Kaitan untuk mematikan."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:70
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:70
 msgid "Log out"
 msgstr "Keluar"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:71
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:71
 msgid "Binding to log out."
 msgstr "Binding untuk log keluar."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:75
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:75
 msgid "Eject"
 msgstr "Keluarkan Media"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:76
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:76
 msgid "Binding to eject an optical disc."
 msgstr "Binding untuk mengeluarkan cakram optik."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:80
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:80
 msgid "Home folder"
 msgstr "Folder rumah"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:81
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:81
 msgid "Binding to open the Home folder."
 msgstr "Binding untuk membuka folder Rumah."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:85
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:85
 msgid "Search"
 msgstr "Pencarian"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:86
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:86
 msgid "Binding to launch the search tool."
 msgstr "Binding untuk meluncurkan alat pencarian."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:90
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:90
 msgid "Launch email client"
 msgstr "Luncurkan klien surel"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:91
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:91
 msgid "Binding to launch the email client."
 msgstr "Binding untuk meluncurkan klien surel."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:95
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:95
 msgid "Launch settings"
 msgstr "Pengaturan peluncuran"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:96
 msgid "Binding to launch CAFE settings."
 msgstr "Pengikatan untuk meluncurkan pengaturan CAFE."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:100
 msgid "Lock screen"
 msgstr "Kunci layar"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:101
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:101
 msgid "Binding to lock the screen."
 msgstr "Binding untuk mengunci layar."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:105
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:105
 msgid "Launch help browser"
 msgstr "Tampilkan layar bantuan"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:106
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:106
 msgid "Binding to launch the help browser."
 msgstr "Binding untuk meluncurkan peramban bantuan."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:110
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:110
 msgid "Launch calculator"
 msgstr "Luncurkan kalkulator"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:111
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:111
 msgid "Binding to launch the calculator."
 msgstr "Binding untuk meluncurkan kalkulator."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:115
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:115
 msgid "Launch instant messenger"
 msgstr "Luncurkan perpesanan instan"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:116
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:116
 msgid "Binding to launch the instant messenger."
 msgstr "Pengikatan untuk meluncurkan pesan instan."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:120
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:120
 msgid "Launch web browser"
 msgstr "Tampilkan perambah web"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:121
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:121
 msgid "Binding to launch the web browser."
 msgstr "Binding untuk meluncurkan peramban web."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:125
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:125
 msgid "Launch media player"
 msgstr "Luncurkan pemutar media"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:126
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:126
 msgid "Binding to launch the media player."
 msgstr "Binding untuk meluncurkan pemutar media."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:130
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:130
 msgid "Play (or play/pause)"
 msgstr "Putar (atau putar/istirahat)"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:131
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:131
 msgid "Binding to start playback (or toggle play/pause)."
 msgstr "Binding untuk mulai memutar (atau jungkit putar/jeda). "
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:135
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:135
 msgid "Pause playback"
 msgstr "Jeda memutar"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:136
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:136
 msgid "Binding to pause playback."
 msgstr "Binding untuk jeda memutar."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:140
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:140
 msgid "Stop playback"
 msgstr "Berhenti memutar"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:141
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:141
 msgid "Binding to stop playback."
 msgstr "Binding untuk berhenti memutar."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:145
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:145
 msgid "Previous track"
 msgstr "Trek sebelumnya"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:146
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:146
 msgid "Binding to skip to previous track."
 msgstr "Binding untuk melompat ke trek sebelumnya."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:150
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:150
 msgid "Next track"
 msgstr "Trek selanjutnya"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:151
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:151
 msgid "Binding to skip to next track."
 msgstr "Binding untuk melompat ke trek selanjutnya."
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:156
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:156
 msgid "Binding to show the screen magnifier"
 msgstr "Binding untuk menampilkan kaca pembesar"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:161
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:161
 msgid "Binding to start the screen reader"
 msgstr "Binding untuk menjalankan pembaca layar"
 
-#: data/org.mate.SettingsDaemon.plugins.media-keys.gschema.xml.in:166
+#: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:166
 msgid "Binding to show the on-screen keyboard"
 msgstr "Binding untuk menampilkan keyboard pada layar"
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:15
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:15
 msgid "Show Displays in Notification Area"
 msgstr "Tunjukkan Tampilan di Area Pemberitahuan"
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:16
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:16
 msgid ""
 "Whether a notification icon with display-related things should be shown in "
 "the panel."
@@ -844,31 +844,31 @@ msgstr ""
 "Bila suatu ikon pemberitahuan dengan hal terkait tampilan mesti ditampilkan "
 "pada panel."
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:20
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:20
 msgid "Do not touch monitor configuration"
 msgstr "Jangan sentuh konfigurasi monitor"
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:21
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:21
 msgid ""
-"Usually, mate-settings-daemon configures internal and external monitors "
+"Usually, cafe-settings-daemon configures internal and external monitors "
 "according to the turn_on_external_monitors_at_startup and "
 "turn_on_laptop_monitor_at_startup settings and determines an appropriate "
 "cloning/side-by-side mode. Setting this key to True disables this, and the "
 "monitor settings are not touched at all (unless there is an explicit user "
 "configuration)."
 msgstr ""
-"Biasanya, mate-settings-daemon mengkonfigurasi monitor internal dan "
+"Biasanya, cafe-settings-daemon mengkonfigurasi monitor internal dan "
 "eksternal berdasarkan pada setting turn_on_external_monitors_at_startup dan "
 "turn_on_laptop_monitor_at_startup dan menentukan mode clone/side-by-side. "
 "Mengatur setting menjadi True akan menonaktifkan hal ini, dan setting "
 "monitor tidak akan disentuh sama sekali (kecuali terdapat konfigurasi "
 "pengguna secara eksplisit)."
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:25
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:25
 msgid "Turn on external monitor after system boot"
 msgstr "Nyalakan monitor eksternal setelah boot sistem"
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
 "Turn on external monitor after system boot if user plugs in external monitor"
 " on system boot."
@@ -876,11 +876,11 @@ msgstr ""
 "Nyalakan monitor eksternal setelah boot sistem bila pengguna menancapkan "
 "monitor eksternal saat boot sistem."
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:30
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:30
 msgid "Turn on laptop monitor after system boot"
 msgstr "Nyalakan monitor laptop setelah boot sistem"
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:31
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:31
 msgid ""
 "Turn on laptop monitor after system boot if user plugs in external monitor "
 "on system boot."
@@ -888,11 +888,11 @@ msgstr ""
 "Nyalakan monitor laptop setelah boot sistem bila pengguna menancapkan "
 "monitor eksternal saat boot sistem."
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:35
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:35
 msgid "File for default configuration for RandR"
 msgstr "Berkas konfigurasi bawaan bagi RandR"
 
-#: data/org.mate.SettingsDaemon.plugins.xrandr.gschema.xml.in:36
+#: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:36
 msgid ""
 "The XRandR plugin will look for a default configuration in the file "
 "specified by this key. This is similar to the ~/.config/monitors.xml that "
@@ -907,31 +907,31 @@ msgstr ""
 "monitor pengguna, maka berkas yang dinyatakan oleh kunci ini dipakai sebagai"
 " gantinya."
 
-#: data/mate-settings-daemon.desktop.in.in:4
+#: data/cafe-settings-daemon.desktop.in.in:4
 msgid "CAFE Settings Daemon"
 msgstr "Daemon Penataan CAFE"
 
-#: mate-settings-daemon/main.c:65
+#: cafe-settings-daemon/main.c:65
 msgid "Enable debugging code"
 msgstr "Aktifkan kode pencarian kesalahan"
 
-#: mate-settings-daemon/main.c:66
+#: cafe-settings-daemon/main.c:66
 msgid "Replace the current daemon"
 msgstr "Ganti daemon saat ini"
 
-#: mate-settings-daemon/main.c:67
+#: cafe-settings-daemon/main.c:67
 msgid "Don't become a daemon"
 msgstr "Jangan menjadi daemon"
 
-#: mate-settings-daemon/main.c:68
+#: cafe-settings-daemon/main.c:68
 msgid "Exit after a time (for debugging)"
 msgstr "Keluar setelah tundaan sejenak (untuk pengawakutuan)"
 
-#: plugins/a11y-keyboard/a11y-keyboard.mate-settings-plugin.desktop.in:5
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility Keyboard"
 msgstr "Papan Tik Aksesibilitas"
 
-#: plugins/a11y-keyboard/a11y-keyboard.mate-settings-plugin.desktop.in:6
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:6
 msgid "Accessibility keyboard plugin"
 msgstr "Plugin papan tik aksesibilitas"
 
@@ -1076,67 +1076,67 @@ msgstr "Aba_ikan penekanan tombol berganda (Tombol Pantul)"
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "Tekan dan ta_han tombol untuk menerimanya (Kunci Lambat)"
 
-#: plugins/a11y-settings/a11y-settings.mate-settings-plugin.desktop.in:5
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility settings"
 msgstr "Pengaturan aksesibilitas"
 
-#: plugins/a11y-settings/a11y-settings.mate-settings-plugin.desktop.in:6
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:6
 msgid "Accessibility settings plugin"
 msgstr "Pengaya pengaturan aksesibilitas"
 
-#: plugins/background/background.mate-settings-plugin.desktop.in:5
+#: plugins/background/background.cafe-settings-plugin.desktop.in:5
 msgid "Background"
 msgstr "Latar Belakang"
 
-#: plugins/background/background.mate-settings-plugin.desktop.in:6
+#: plugins/background/background.cafe-settings-plugin.desktop.in:6
 msgid "Background plugin"
 msgstr "Plugin latar belakang"
 
-#: plugins/clipboard/clipboard.mate-settings-plugin.desktop.in:5
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
 msgid "Clipboard"
 msgstr "Tempel isi clipboard"
 
-#: plugins/clipboard/clipboard.mate-settings-plugin.desktop.in:6
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:6
 msgid "Clipboard plugin"
 msgstr "Plugin clipboard"
 
-#: plugins/datetime/org.mate.settingsdaemon.datetimemechanism.policy.in:12
+#: plugins/datetime/org.cafe.settingsdaemon.datetimemechanism.policy.in:12
 msgid "Change system time zone"
 msgstr "Ubah zona waktu sistem"
 
-#: plugins/datetime/org.mate.settingsdaemon.datetimemechanism.policy.in:13
+#: plugins/datetime/org.cafe.settingsdaemon.datetimemechanism.policy.in:13
 msgid "Privileges are required to change the system time zone."
 msgstr "Hak khusus diperlukan untuk mengubah zona waktu sistem."
 
-#: plugins/datetime/org.mate.settingsdaemon.datetimemechanism.policy.in:21
+#: plugins/datetime/org.cafe.settingsdaemon.datetimemechanism.policy.in:21
 msgid "Change system time"
 msgstr "Ubah waktu sistem"
 
-#: plugins/datetime/org.mate.settingsdaemon.datetimemechanism.policy.in:22
+#: plugins/datetime/org.cafe.settingsdaemon.datetimemechanism.policy.in:22
 msgid "Privileges are required to change the system time."
 msgstr "Hak khusus diperlukan untuk mengubah waktu sistem."
 
-#: plugins/datetime/org.mate.settingsdaemon.datetimemechanism.policy.in:30
+#: plugins/datetime/org.cafe.settingsdaemon.datetimemechanism.policy.in:30
 msgid "Configure hardware clock"
 msgstr "Atur jam perangkat keras"
 
-#: plugins/datetime/org.mate.settingsdaemon.datetimemechanism.policy.in:31
+#: plugins/datetime/org.cafe.settingsdaemon.datetimemechanism.policy.in:31
 msgid "Privileges are required to configure the hardware clock."
 msgstr "Hak khusus diperlukan untuk mengkonfigurasi jam perangkat keras."
 
-#: plugins/dummy/dummy.mate-settings-plugin.desktop.in:5
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
 msgid "Dummy"
 msgstr "Pengganti"
 
-#: plugins/dummy/dummy.mate-settings-plugin.desktop.in:6
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:6
 msgid "Dummy plugin"
 msgstr "Plugin pengganti"
 
-#: plugins/housekeeping/housekeeping.mate-settings-plugin.desktop.in:5
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
 msgid "Housekeeping"
 msgstr "Pemeliharaan"
 
-#: plugins/housekeeping/housekeeping.mate-settings-plugin.desktop.in:6
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:6
 msgid ""
 "Automatically prunes thumbnail caches and other transient files, and warns "
 "about low disk space"
@@ -1253,11 +1253,11 @@ msgstr ""
 msgid "_Empty Trash"
 msgstr "_Kosongkan Tempat Sampah"
 
-#: plugins/keybindings/keybindings.mate-settings-plugin.desktop.in:5
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
 msgid "Keybindings"
 msgstr "Keybinding"
 
-#: plugins/keybindings/keybindings.mate-settings-plugin.desktop.in:6
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:6
 msgid "Keybindings plugin"
 msgstr "Plugin keybinding"
 
@@ -1280,11 +1280,11 @@ msgstr ""
 "Error saat menjalankan (%s)\n"
 "kebetulan ini terhubung ke tombol (%s)"
 
-#: plugins/keyboard/keyboard.mate-settings-plugin.desktop.in:5
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Keyboard"
 msgstr "Papan Ketik"
 
-#: plugins/keyboard/keyboard.mate-settings-plugin.desktop.in:6
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:6
 msgid "Keyboard plugin"
 msgstr "Plugin papan tik"
 
@@ -1329,11 +1329,11 @@ msgstr "_Preferensi Papan Tik"
 msgid "Show _Current Layout"
 msgstr "Tampilkan Tata Letak _Kini"
 
-#: plugins/media-keys/media-keys.mate-settings-plugin.desktop.in:5
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
 msgid "Media keys"
 msgstr "Kunci media"
 
-#: plugins/media-keys/media-keys.mate-settings-plugin.desktop.in:6
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:6
 msgid "Media keys plugin"
 msgstr "Plugin kunci media"
 
@@ -1398,11 +1398,11 @@ msgstr "Mengubah Tata Letak Layar"
 msgid "No External Display"
 msgstr "Tidak Ada Tampilan Eksternal"
 
-#: plugins/mouse/mouse.mate-settings-plugin.desktop.in:5
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
 msgid "Mouse"
 msgstr "Tetikus"
 
-#: plugins/mouse/mouse.mate-settings-plugin.desktop.in:6
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:6
 msgid "Mouse plugin"
 msgstr "Plugin tetikus"
 
@@ -1420,21 +1420,21 @@ msgstr ""
 msgid "Mouse Preferences"
 msgstr "Preferensi Tetikus"
 
-#: plugins/mpris/mpris.mate-settings-plugin.desktop.in:5
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
 msgid "Mpris"
 msgstr "Mpris"
 
-#: plugins/mpris/mpris.mate-settings-plugin.desktop.in:6
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:6
 msgid "Mpris plugin"
 msgstr "pengaya Mpris"
 
 #. Default Priority
 #. Priority=100
-#: plugins/rfkill/rfkill.mate-settings-plugin.desktop.in:7
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
 msgid "Rfkill"
 msgstr "Rfkill"
 
-#: plugins/rfkill/rfkill.mate-settings-plugin.desktop.in:8
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:8
 msgid "Rfkill plugin"
 msgstr "pengaya Rfkill"
 
@@ -1500,27 +1500,27 @@ msgstr "Modul"
 msgid "smartcard driver"
 msgstr "penggerak smartcard"
 
-#: plugins/smartcard/smartcard.mate-settings-plugin.desktop.in:5
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
 msgid "Smartcard"
 msgstr "Smartcard"
 
-#: plugins/smartcard/smartcard.mate-settings-plugin.desktop.in:6
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:6
 msgid "Smartcard plugin"
 msgstr "pengaya Smartcard"
 
-#: plugins/sound/sound.mate-settings-plugin.desktop.in:5
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
 msgid "Sound"
 msgstr "Suara"
 
-#: plugins/sound/sound.mate-settings-plugin.desktop.in:6
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:6
 msgid "Sound Sample Cache plugin"
 msgstr "pengaya Singgahan Cuplikan Suara"
 
-#: plugins/typing-break/typing-break.mate-settings-plugin.desktop.in:5
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
 msgid "Typing Break"
 msgstr "Istirahat Mengetik"
 
-#: plugins/typing-break/typing-break.mate-settings-plugin.desktop.in:6
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:6
 msgid "Typing break plugin"
 msgstr "Plugin istirahat mengetik"
 
@@ -1638,11 +1638,11 @@ msgstr "Atur tatanan tampilan"
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Tak bisa menerapkan konfigurasi tersimpan bagi monitor"
 
-#: plugins/xrandr/xrandr.mate-settings-plugin.desktop.in:5
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
 msgid "XRandR"
 msgstr "XRandR"
 
-#: plugins/xrandr/xrandr.mate-settings-plugin.desktop.in:6
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:6
 msgid "Set up screen size and rotation settings"
 msgstr "Atur tatanan ukuran dan rotasi layar"
 
@@ -1650,18 +1650,18 @@ msgstr "Atur tatanan ukuran dan rotasi layar"
 msgid "Cannot determine user's home directory"
 msgstr "Direktori rumah pemilik tidak dapat ditentukan"
 
-#: plugins/xrdb/xrdb.mate-settings-plugin.desktop.in:5
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
 msgid "X Resource Database"
 msgstr "Basis Data Sumber Daya X"
 
-#: plugins/xrdb/xrdb.mate-settings-plugin.desktop.in:6
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:6
 msgid "Manage the X resource database"
 msgstr "Kelola basis data sumber daya X"
 
-#: plugins/xsettings/xsettings.mate-settings-plugin.desktop.in:5
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
 msgid "X Settings"
 msgstr "Tatanan X"
 
-#: plugins/xsettings/xsettings.mate-settings-plugin.desktop.in:6
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:6
 msgid "Manage X Settings"
 msgstr "Kelola Tatanan X"

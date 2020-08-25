@@ -7,7 +7,7 @@ libmouse_la_SOURCES = 		\
 	msd-mouse-manager.c
 
 libmouse_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon		\
+	-I$(top_srcdir)/cafe-settings-daemon		\
 	-I$(top_srcdir)/plugins/common/			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DLIBEXECDIR=\""$(libexecdir)"\" \
@@ -27,9 +27,9 @@ libmouse_la_LIBADD  =							\
 	$(X11_LIBS)							\
 	$(XINPUT_LIBS)
 
-plugin_in_files = mouse.mate-settings-plugin.desktop.in
+plugin_in_files = mouse.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 libexec_PROGRAMS = msd-locate-pointer
 

@@ -44,7 +44,7 @@
 
 #include <gio/gio.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-mouse-manager.h"
 #include "msd-input-helper.h"
 
@@ -55,12 +55,12 @@
 #define KEY_ACCEL_PROFILE                "accel-profile"
 
 /* Mouse settings */
-#define CAFE_MOUSE_SCHEMA                "org.mate.peripherals-mouse"
+#define CAFE_MOUSE_SCHEMA                "org.cafe.peripherals-mouse"
 #define KEY_MOUSE_LOCATE_POINTER         "locate-pointer"
 #define KEY_MIDDLE_BUTTON_EMULATION      "middle-button-enabled"
 
 /* Touchpad settings */
-#define CAFE_TOUCHPAD_SCHEMA             "org.mate.peripherals-touchpad"
+#define CAFE_TOUCHPAD_SCHEMA             "org.cafe.peripherals-touchpad"
 #define KEY_TOUCHPAD_DISABLE_W_TYPING    "disable-while-typing"
 #define KEY_TOUCHPAD_TWO_FINGER_CLICK    "two-finger-click"
 #define KEY_TOUCHPAD_THREE_FINGER_CLICK  "three-finger-click"
@@ -77,7 +77,7 @@
 
 
 #if 0   /* FIXME need to fork (?) mousetweaks for this to work */
-#define CAFE_MOUSE_A11Y_SCHEMA           "org.mate.accessibility-mouse"
+#define CAFE_MOUSE_A11Y_SCHEMA           "org.cafe.accessibility-mouse"
 #define KEY_MOUSE_A11Y_DWELL_ENABLE      "dwell-enable"
 #define KEY_MOUSE_A11Y_DELAY_ENABLE      "delay-enable"
 #endif
@@ -1761,7 +1761,7 @@ msd_mouse_manager_init (MsdMouseManager *manager)
 static gboolean
 msd_mouse_manager_idle_cb (MsdMouseManager *manager)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         manager->priv->settings_mouse = g_settings_new (CAFE_MOUSE_SCHEMA);
         manager->priv->settings_touchpad = g_settings_new (CAFE_TOUCHPAD_SCHEMA);
@@ -1786,7 +1786,7 @@ msd_mouse_manager_idle_cb (MsdMouseManager *manager)
                                                         KEY_MOUSE_A11Y_DELAY_ENABLE));
 #endif
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return FALSE;
 }
@@ -1795,7 +1795,7 @@ gboolean
 msd_mouse_manager_start (MsdMouseManager *manager,
                          GError         **error)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         if (!supports_xinput_devices ()) {
                 g_debug ("XInput is not supported, not applying any settings");
@@ -1804,7 +1804,7 @@ msd_mouse_manager_start (MsdMouseManager *manager,
 
         g_idle_add ((GSourceFunc) msd_mouse_manager_idle_cb, manager);
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

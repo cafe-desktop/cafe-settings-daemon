@@ -38,10 +38,10 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-typing-break-manager.h"
 
-#define CAFE_BREAK_SCHEMA "org.mate.typing-break"
+#define CAFE_BREAK_SCHEMA "org.cafe.typing-break"
 
 struct MsdTypingBreakManagerPrivate
 {
@@ -85,7 +85,7 @@ static void
 setup_typing_break (MsdTypingBreakManager *manager,
                     gboolean               enabled)
 {
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         if (! enabled) {
                 if (manager->priv->typing_monitor_pid != 0) {
@@ -101,7 +101,7 @@ setup_typing_break (MsdTypingBreakManager *manager,
 
         if (manager->priv->typing_monitor_pid == 0) {
                 GError  *error;
-                char    *argv[] = { "mate-typing-monitor", "-n", NULL };
+                char    *argv[] = { "cafe-typing-monitor", "-n", NULL };
                 gboolean res;
 
                 error = NULL;
@@ -129,7 +129,7 @@ setup_typing_break (MsdTypingBreakManager *manager,
                                                                    manager);
         }
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 }
 
 static void
@@ -155,7 +155,7 @@ msd_typing_break_manager_start (MsdTypingBreakManager *manager,
         gboolean     enabled;
 
         g_debug ("Starting typing_break manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
         manager->priv->settings = g_settings_new (CAFE_BREAK_SCHEMA);
 
@@ -173,7 +173,7 @@ msd_typing_break_manager_start (MsdTypingBreakManager *manager,
                                                manager);
         }
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

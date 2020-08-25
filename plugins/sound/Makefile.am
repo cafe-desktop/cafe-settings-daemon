@@ -8,7 +8,7 @@ libsound_la_SOURCES = \
 	msd-sound-manager.c
 
 libsound_la_CPPFLAGS = \
-	-I$(top_srcdir)/mate-settings-daemon \
+	-I$(top_srcdir)/cafe-settings-daemon \
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	$(AM_CPPFLAGS)
 
@@ -27,9 +27,9 @@ libsound_la_LIBADD = \
 	$(PULSE_LIBS)
 
 plugin_in_files = \
-	sound.mate-settings-plugin.desktop.in
+	sound.cafe-settings-plugin.desktop.in
 
-plugin_DATA = $(plugin_in_files:.mate-settings-plugin.desktop.in=.mate-settings-plugin)
+plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
 EXTRA_DIST = \
 	$(plugin_in_files)

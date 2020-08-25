@@ -42,7 +42,7 @@
 #include <gdk/gdkx.h>
 #include <gtk/gtk.h>
 
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 #include "msd-mpris-manager.h"
 #include "bus-watch-namespace.h"
 
@@ -273,9 +273,9 @@ msd_name_appeared (GDBusConnection     *connection,
                               G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES |
                               G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START,
                               NULL,
-                              "org.mate.SettingsDaemon",
-                              "/org/mate/SettingsDaemon/MediaKeys",
-                              "org.mate.SettingsDaemon.MediaKeys",
+                              "org.cafe.SettingsDaemon",
+                              "/org/cafe/SettingsDaemon/MediaKeys",
+                              "org.cafe.SettingsDaemon.MediaKeys",
                               NULL,
                               (GAsyncReadyCallback) got_proxy_cb,
                               manager);
@@ -298,7 +298,7 @@ msd_mpris_manager_start (MsdMprisManager   *manager,
                          GError           **error)
 {
     g_debug ("Starting mpris manager");
-    mate_settings_profile_start (NULL);
+    cafe_settings_profile_start (NULL);
 
     manager->priv->media_player_queue = g_queue_new();
 
@@ -311,13 +311,13 @@ msd_mpris_manager_start (MsdMprisManager   *manager,
                                                                NULL);
 
     manager->priv->watch_id = g_bus_watch_name (G_BUS_TYPE_SESSION,
-                                                "org.mate.SettingsDaemon",
+                                                "org.cafe.SettingsDaemon",
                                                 G_BUS_NAME_WATCHER_FLAGS_NONE,
                                                 (GBusNameAppearedCallback) msd_name_appeared,
                                                 (GBusNameVanishedCallback) msd_name_vanished,
                                                 manager, NULL);
 
-    mate_settings_profile_end (NULL);
+    cafe_settings_profile_end (NULL);
     return TRUE;
 }
 

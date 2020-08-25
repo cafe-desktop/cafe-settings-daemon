@@ -30,7 +30,7 @@
 
 #include <gio/gio.h>
 
-#include "mate-settings-plugin.h"
+#include "cafe-settings-plugin.h"
 #include "msd-smartcard-plugin.h"
 #include "msd-smartcard-manager.h"
 
@@ -48,16 +48,16 @@ typedef enum
     MSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT,
 } MsdSmartcardRemoveAction;
 
-#define SCREENSAVER_DBUS_NAME      "org.mate.ScreenSaver"
+#define SCREENSAVER_DBUS_NAME      "org.cafe.ScreenSaver"
 #define SCREENSAVER_DBUS_PATH      "/"
-#define SCREENSAVER_DBUS_INTERFACE "org.mate.ScreenSaver"
+#define SCREENSAVER_DBUS_INTERFACE "org.cafe.ScreenSaver"
 
 #define SM_DBUS_NAME      "org.gnome.SessionManager"
 #define SM_DBUS_PATH      "/org/gnome/SessionManager"
 #define SM_DBUS_INTERFACE "org.gnome.SessionManager"
 #define SM_LOGOUT_MODE_FORCE 2
 
-#define MSD_SMARTCARD_SCHEMA "org.mate.peripherals-smartcard"
+#define MSD_SMARTCARD_SCHEMA "org.cafe.peripherals-smartcard"
 #define KEY_REMOVE_ACTION "removal-action"
 
 CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSmartcardPlugin, msd_smartcard_plugin);

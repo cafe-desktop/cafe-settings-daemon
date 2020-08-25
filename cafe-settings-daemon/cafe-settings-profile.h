@@ -31,21 +31,21 @@ extern "C" {
 
 #ifdef ENABLE_PROFILING
 #ifdef G_HAVE_ISO_VARARGS
-#define mate_settings_profile_start(...) _mate_settings_profile_log (G_STRFUNC, "start", __VA_ARGS__)
-#define mate_settings_profile_end(...)   _mate_settings_profile_log (G_STRFUNC, "end", __VA_ARGS__)
-#define mate_settings_profile_msg(...)   _mate_settings_profile_log (NULL, NULL, __VA_ARGS__)
+#define cafe_settings_profile_start(...) _cafe_settings_profile_log (G_STRFUNC, "start", __VA_ARGS__)
+#define cafe_settings_profile_end(...)   _cafe_settings_profile_log (G_STRFUNC, "end", __VA_ARGS__)
+#define cafe_settings_profile_msg(...)   _cafe_settings_profile_log (NULL, NULL, __VA_ARGS__)
 #elif defined(G_HAVE_GNUC_VARARGS)
-#define mate_settings_profile_start(format...) _mate_settings_profile_log (G_STRFUNC, "start", format)
-#define mate_settings_profile_end(format...)   _mate_settings_profile_log (G_STRFUNC, "end", format)
-#define mate_settings_profile_msg(format...)   _mate_settings_profile_log (NULL, NULL, format)
+#define cafe_settings_profile_start(format...) _cafe_settings_profile_log (G_STRFUNC, "start", format)
+#define cafe_settings_profile_end(format...)   _cafe_settings_profile_log (G_STRFUNC, "end", format)
+#define cafe_settings_profile_msg(format...)   _cafe_settings_profile_log (NULL, NULL, format)
 #endif
 #else
-#define mate_settings_profile_start(...)
-#define mate_settings_profile_end(...)
-#define mate_settings_profile_msg(...)
+#define cafe_settings_profile_start(...)
+#define cafe_settings_profile_end(...)
+#define cafe_settings_profile_msg(...)
 #endif
 
-void            _mate_settings_profile_log    (const char *func,
+void            _cafe_settings_profile_log    (const char *func,
                                                 const char *note,
                                                 const char *format,
                                                 ...) G_GNUC_PRINTF (3, 4);

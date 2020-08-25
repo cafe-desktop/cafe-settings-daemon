@@ -31,20 +31,20 @@
 #include <gtk/gtk.h>
 #include <gio/gio.h>
 
-#include <libmatekbd/matekbd-status.h>
-#include <libmatekbd/matekbd-keyboard-drawing.h>
-#include <libmatekbd/matekbd-desktop-config.h>
-#include <libmatekbd/matekbd-keyboard-config.h>
-#include <libmatekbd/matekbd-util.h>
+#include <libcafekbd/cafekbd-status.h>
+#include <libcafekbd/cafekbd-keyboard-drawing.h>
+#include <libcafekbd/cafekbd-desktop-config.h>
+#include <libcafekbd/cafekbd-keyboard-config.h>
+#include <libcafekbd/cafekbd-util.h>
 
 #include "msd-keyboard-xkb.h"
 #include "delayed-dialog.h"
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 
 #define GTK_RESPONSE_PRINT 2
 
-#define CAFEKBD_DESKTOP_SCHEMA "org.mate.peripherals-keyboard-xkb.general"
-#define CAFEKBD_KBD_SCHEMA "org.mate.peripherals-keyboard-xkb.kbd"
+#define CAFEKBD_DESKTOP_SCHEMA "org.cafe.peripherals-keyboard-xkb.general"
+#define CAFEKBD_KBD_SCHEMA "org.cafe.peripherals-keyboard-xkb.kbd"
 
 #define KNOWN_FILES_KEY "known-file-list"
 #define DISABLE_INDICATOR_KEY "disable-indicator"
@@ -128,7 +128,7 @@ activation_error (void)
 						     vendor,
 						     release,
 						     "xprop -root | grep XKB",
-						     "gsettings list-keys org.mate.peripherals-keyboard-xkb.kbd");
+						     "gsettings list-keys org.cafe.peripherals-keyboard-xkb.kbd");
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (gtk_widget_destroy), NULL);
 	msd_delayed_show_dialog (dialog);
@@ -143,10 +143,10 @@ apply_desktop_settings (void)
 		return;
 
 	msd_keyboard_manager_apply_settings (manager);
-	matekbd_desktop_config_load_from_gsettings (&current_desktop_config);
+	cafekbd_desktop_config_load_from_gsettings (&current_desktop_config);
 	/* again, probably it would be nice to compare things
 	   before activating them */
-	matekbd_desktop_config_activate (&current_desktop_config);
+	cafekbd_desktop_config_activate (&current_desktop_config);
 
 	show_leds = g_settings_get_boolean (settings_desktop, DUPLICATE_LEDS_KEY);
 	for (i = sizeof (indicator_icons) / sizeof (indicator_icons[0]);
@@ -169,7 +169,7 @@ popup_menu_launch_capplet ()
 	GdkAppLaunchContext *context;
 	GError *error = NULL;
 
-	info = g_app_info_create_from_commandline ("mate-keyboard-properties", NULL, 0, &error);
+	info = g_app_info_create_from_commandline ("cafe-keyboard-properties", NULL, 0, &error);
 
 	if (info != NULL) {
 		context = gdk_display_get_app_launch_context (gdk_display_get_default ());
@@ -203,7 +203,7 @@ popup_menu_show_layout ()
 	gpointer p = g_hash_table_lookup (preview_dialogs,
 					  GINT_TO_POINTER
 					  (xkl_state->group));
-	gchar **group_names = matekbd_status_get_group_names ();
+	gchar **group_names = cafekbd_status_get_group_names ();
 
 	if (xkl_state->group < 0
 	    || xkl_state->group >= g_strv_length (group_names)) {
@@ -217,7 +217,7 @@ popup_menu_show_layout ()
 	}
 
 	dialog =
-	    matekbd_keyboard_drawing_new_dialog (xkl_state->group,
+	    cafekbd_keyboard_drawing_new_dialog (xkl_state->group,
 					      group_names
 					      [xkl_state->group]);
 	g_signal_connect (dialog, "destroy",
@@ -231,7 +231,7 @@ static void
 popup_menu_set_group (GtkMenuItem * item, gpointer param)
 {
 	gint group_number = GPOINTER_TO_INT (param);
-	XklEngine *engine = matekbd_status_get_xkl_engine ();
+	XklEngine *engine = cafekbd_status_get_xkl_engine ();
 	XklState st;
 	Window cur;
 
@@ -272,9 +272,9 @@ status_icon_popup_menu_cb (GtkStatusIcon * icon, guint button, guint time)
 	/* Set menu and it's toplevel window to follow panel theme */
 	context = gtk_widget_get_style_context (GTK_WIDGET(toplevel));
 	gtk_style_context_add_class(context,"gnome-panel-menu-bar");
-	gtk_style_context_add_class(context,"mate-panel-menu-bar");
+	gtk_style_context_add_class(context,"cafe-panel-menu-bar");
 	int i = 0;
-	gchar **current_name = matekbd_status_get_group_names ();
+	gchar **current_name = cafekbd_status_get_group_names ();
 
 	GtkWidget *item = gtk_menu_item_new_with_mnemonic (_("_Layouts"));
 	gtk_widget_show (item);
@@ -295,7 +295,7 @@ status_icon_popup_menu_cb (GtkStatusIcon * icon, guint button, guint time)
 	gtk_menu_shell_append (GTK_MENU_SHELL (popup_menu), item);
 
 	for (i = 0; *current_name; i++, current_name++) {
-		gchar *image_file = matekbd_status_get_image_filename (i);
+		gchar *image_file = cafekbd_status_get_image_filename (i);
 
 		if (image_file == NULL) {
 			item =
@@ -339,7 +339,7 @@ show_hide_icon ()
 				return;
 
 			xkl_debug (150, "Creating new icon\n");
-			icon = matekbd_status_new ();
+			icon = cafekbd_status_new ();
                         /* commenting out fixes a Gdk-critical warning */
 /*			gtk_status_icon_set_name (icon, "keyboard");*/
 			g_signal_connect (icon, "popup-menu",
@@ -362,9 +362,9 @@ try_activating_xkb_config_if_new (MatekbdKeyboardConfig *
 				  current_sys_kbd_config)
 {
 	/* Activate - only if different! */
-	if (!matekbd_keyboard_config_equals
+	if (!cafekbd_keyboard_config_equals
 	    (&current_kbd_config, current_sys_kbd_config)) {
-		if (matekbd_keyboard_config_activate (&current_kbd_config)) {
+		if (cafekbd_keyboard_config_activate (&current_kbd_config)) {
 			if (pa_callback != NULL) {
 				(*pa_callback) (pa_callback_user_data);
 				return TRUE;
@@ -389,7 +389,7 @@ filter_xkb_config (void)
 	if (!xkl_registry) {
 		xkl_registry =
 		    xkl_config_registry_get_instance (xkl_engine);
-		/* load all materials, unconditionally! */
+		/* load all caferials, unconditionally! */
 		if (!xkl_config_registry_load (xkl_registry, TRUE)) {
 			g_object_unref (xkl_registry);
 			xkl_registry = NULL;
@@ -400,7 +400,7 @@ filter_xkb_config (void)
 	item = xkl_config_item_new ();
 	while (*lv) {
 		xkl_debug (100, "Checking [%s]\n", *lv);
-		if (matekbd_keyboard_config_split_items (*lv, &lname, &vname)) {
+		if (cafekbd_keyboard_config_split_items (*lv, &lname, &vname)) {
 			gboolean should_be_dropped = FALSE;
 			g_snprintf (item->name, sizeof (item->name), "%s",
 				    lname);
@@ -441,12 +441,12 @@ apply_xkb_settings (void)
 	if (!inited_ok)
 		return;
 
-	matekbd_keyboard_config_init (&current_sys_kbd_config, xkl_engine);
+	cafekbd_keyboard_config_init (&current_sys_kbd_config, xkl_engine);
 
-	matekbd_keyboard_config_load_from_gsettings (&current_kbd_config,
+	cafekbd_keyboard_config_load_from_gsettings (&current_kbd_config,
 					      &initial_sys_kbd_config);
 
-	matekbd_keyboard_config_load_from_x_current (&current_sys_kbd_config,
+	cafekbd_keyboard_config_load_from_x_current (&current_sys_kbd_config,
 						  NULL);
 
 	if (!try_activating_xkb_config_if_new (&current_sys_kbd_config)) {
@@ -466,7 +466,7 @@ apply_xkb_settings (void)
 		xkl_debug (100,
 			   "Actual KBD configuration was not changed: redundant notification\n");
 
-	matekbd_keyboard_config_term (&current_sys_kbd_config);
+	cafekbd_keyboard_config_term (&current_sys_kbd_config);
 	show_hide_icon ();
 }
 
@@ -482,8 +482,8 @@ msd_keyboard_xkb_analyze_sysconfig (void)
 	if (!inited_ok)
 		return;
 
-	matekbd_keyboard_config_init (&initial_sys_kbd_config, xkl_engine);
-	matekbd_keyboard_config_load_from_x_initial (&initial_sys_kbd_config,
+	cafekbd_keyboard_config_init (&initial_sys_kbd_config, xkl_engine);
+	cafekbd_keyboard_config_load_from_x_initial (&initial_sys_kbd_config,
 						  NULL);
 }
 
@@ -559,7 +559,7 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 {
 	int i;
 	Display *display = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
-	mate_settings_profile_start (NULL);
+	cafe_settings_profile_start (NULL);
 
 	gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),
 					   DATADIR G_DIR_SEPARATOR_S
@@ -579,28 +579,28 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 	msd_keyboard_update_indicator_icons ();
 
 	manager = kbd_manager;
-	mate_settings_profile_start ("xkl_engine_get_instance");
+	cafe_settings_profile_start ("xkl_engine_get_instance");
 	xkl_engine = xkl_engine_get_instance (display);
-	mate_settings_profile_end ("xkl_engine_get_instance");
+	cafe_settings_profile_end ("xkl_engine_get_instance");
 	if (xkl_engine) {
 		inited_ok = TRUE;
 
 		settings_desktop = g_settings_new (CAFEKBD_DESKTOP_SCHEMA);
 		settings_kbd = g_settings_new (CAFEKBD_KBD_SCHEMA);
 
-		matekbd_desktop_config_init (&current_desktop_config,
+		cafekbd_desktop_config_init (&current_desktop_config,
 		                             xkl_engine);
-		matekbd_keyboard_config_init (&current_kbd_config,
+		cafekbd_keyboard_config_init (&current_kbd_config,
 		                              xkl_engine);
 
 		xkl_engine_backup_names_prop (xkl_engine);
 		msd_keyboard_xkb_analyze_sysconfig ();
 
-		matekbd_desktop_config_start_listen (&current_desktop_config,
+		cafekbd_desktop_config_start_listen (&current_desktop_config,
 		                                     G_CALLBACK (apply_desktop_settings_cb),
 		                                     NULL);
 
-		matekbd_keyboard_config_start_listen (&current_kbd_config,
+		cafekbd_keyboard_config_start_listen (&current_kbd_config,
 		                                      G_CALLBACK (apply_xkb_settings_cb),
 		                                      NULL);
 
@@ -621,22 +621,22 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 				  G_CALLBACK
 				  (msd_keyboard_state_changed), NULL);
 
-		mate_settings_profile_start ("xkl_engine_start_listen");
+		cafe_settings_profile_start ("xkl_engine_start_listen");
 		xkl_engine_start_listen (xkl_engine,
 					 XKLL_MANAGE_LAYOUTS |
 					 XKLL_MANAGE_WINDOW_STATES);
-		mate_settings_profile_end ("xkl_engine_start_listen");
+		cafe_settings_profile_end ("xkl_engine_start_listen");
 
-		mate_settings_profile_start ("apply_desktop_settings");
+		cafe_settings_profile_start ("apply_desktop_settings");
 		apply_desktop_settings ();
-		mate_settings_profile_end ("apply_desktop_settings");
-		mate_settings_profile_start ("apply_xkb_settings");
+		cafe_settings_profile_end ("apply_desktop_settings");
+		cafe_settings_profile_start ("apply_xkb_settings");
 		apply_xkb_settings ();
-		mate_settings_profile_end ("apply_xkb_settings");
+		cafe_settings_profile_end ("apply_xkb_settings");
 	}
 	preview_dialogs = g_hash_table_new (g_direct_hash, g_direct_equal);
 
-	mate_settings_profile_end (NULL);
+	cafe_settings_profile_end (NULL);
 }
 
 void

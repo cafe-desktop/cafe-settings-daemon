@@ -27,10 +27,10 @@
 #include <glib.h>
 #include <gio/gio.h>
 
-#include "mate-settings-bus.h"
+#include "cafe-settings-bus.h"
 
 char *
-mate_settings_get_chassis_type (void)
+cafe_settings_get_chassis_type (void)
 {
         char *ret = NULL;
         GError *error = NULL;

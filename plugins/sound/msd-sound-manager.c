@@ -41,7 +41,7 @@
 #endif
 
 #include "msd-sound-manager.h"
-#include "mate-settings-profile.h"
+#include "cafe-settings-profile.h"
 
 struct MsdSoundManagerPrivate
 {
@@ -50,7 +50,7 @@ struct MsdSoundManagerPrivate
         guint timeout;
 };
 
-#define CAFE_SOUND_SCHEMA "org.mate.sound"
+#define CAFE_SOUND_SCHEMA "org.cafe.sound"
 
 static void msd_sound_manager_finalize (GObject *object);
 
@@ -110,7 +110,7 @@ flush_cache (void)
 
         pa_proplist_sets (pl, PA_PROP_APPLICATION_NAME, PACKAGE_NAME);
         pa_proplist_sets (pl, PA_PROP_APPLICATION_VERSION, PACKAGE_VERSION);
-        pa_proplist_sets (pl, PA_PROP_APPLICATION_ID, "org.mate.SettingsDaemon");
+        pa_proplist_sets (pl, PA_PROP_APPLICATION_ID, "org.cafe.SettingsDaemon");
 
         if (!(c = pa_context_new_with_proplist (pa_mainloop_get_api (ml), PACKAGE_NAME, pl))) {
                 g_debug ("Failed to allocate pa_context");
@@ -260,7 +260,7 @@ msd_sound_manager_start (MsdSoundManager *manager,
 #endif
 
         g_debug ("Starting sound manager");
-        mate_settings_profile_start (NULL);
+        cafe_settings_profile_start (NULL);
 
 #ifdef HAVE_PULSE
 
@@ -296,7 +296,7 @@ msd_sound_manager_start (MsdSoundManager *manager,
         g_strfreev (ps);
 #endif
 
-        mate_settings_profile_end (NULL);
+        cafe_settings_profile_end (NULL);
 
         return TRUE;
 }

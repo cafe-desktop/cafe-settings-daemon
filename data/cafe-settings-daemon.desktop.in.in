@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=CAFE Settings Daemon
-Exec=@LIBEXECDIR@/mate-settings-daemon
+Exec=@LIBEXECDIR@/cafe-settings-daemon
 OnlyShowIn=CAFE;
 X-CAFE-Autostart-Phase=Initialization
 X-CAFE-Autostart-Notify=true
