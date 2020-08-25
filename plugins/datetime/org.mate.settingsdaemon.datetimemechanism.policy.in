@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+
+<policyconfig>
+  <vendor>The MATE Project</vendor>
+  <vendor_url>https://mate-desktop.org/</vendor_url>
+  <icon_name>mate-panel-clock</icon_name>
+
+  <action id="org.mate.settingsdaemon.datetimemechanism.settimezone">
+    <description>Change system time zone</description>
+    <message>Privileges are required to change the system time zone.</message>
+    <defaults>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+  <action id="org.mate.settingsdaemon.datetimemechanism.settime">
+    <description>Change system time</description>
+    <message>Privileges are required to change the system time.</message>
+    <defaults>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+  <action id="org.mate.settingsdaemon.datetimemechanism.configurehwclock">
+    <description>Configure hardware clock</description>
+    <message>Privileges are required to configure the hardware clock.</message>
+    <defaults>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+</policyconfig>

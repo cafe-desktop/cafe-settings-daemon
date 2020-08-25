@@ -1,0 +1,322 @@
+### mate-settings-daemon 1.24.1
+
+  * update translations
+  * plugin xsettings: Fix memory leak on delayed_toggle_bg_draw
+  * mpris: Use namespace instead of a whitelist for player names
+  * build: silent build warnings for distcheck
+  * housekeeping: Fix iconname of mate-disk-usage-analyzer
+
+### mate-settings-daemon 1.24.0
+
+  * update translations
+
+### mate-settings-daemon 1.23.3
+
+  * update translations
+  * require DBUS >= 1.10.0
+  * actually use the configured dbus directory
+  * Default DBUS_SYS_DIR to ${datadir}/dbus-1/system.d
+  * avoid redundant redeclarations
+  * xrandr: add bigger icon sizes for tray-applet
+  * Hide MATE Settings Daemon from Startup Applications capplet
+  * setup GETTEXTDATADIRS environment variable for xgettext
+  * add its files for marco keybindings xml file
+  * switch to use gettext
+  * Fix placeholder in Spanish translation
+
+
+### mate-settings-daemon 1.23.2
+
+  * update translations
+  * mate-settings-plugin: remove useless macro MATE_SETTINGS_PLUGIN_REGISTER
+  * msd-clipboard-plugin: avoid 'g_type_class_add_private'
+  * msd-clipboard-manager: avoid 'g_type_class_add_private'
+  * msd-smartcard-plugin: avoid 'g_type_class_add_private'
+  * msd-smartcard-manager: avoid 'g_type_class_add_private'
+  * msd-smartcard: remove unused struct members
+  * msd-smartcard: avoid 'g_type_class_add_private'
+  * msd-rfkill-manager: avoid 'g_type_class_add_private'
+  * rfkill-glib: avoid 'g_type_class_add_private'
+  * msd-rfkill-plugin: avoid 'g_type_class_add_private'
+  * msd-xsettings-manager: avoid 'g_type_class_add_private'
+  * msd-xsettings-plugin: avoid 'g_type_class_add_private'
+  * msd-xrdb-manager: avoid 'g_type_class_add_private'
+  * msd-xrdb-plugin: avoid 'g_type_class_add_private'
+  * msd-media-keys-window: avoid 'g_type_class_add_private'
+  * msd-media-keys-manager: avoid 'g_type_class_add_private'
+  * msd-media-keys-plugin: avoid 'g_type_class_add_private'
+  * msd-xrandr-plugin: avoid 'g_type_class_add_private'
+  * msd-xrandr-manager: avoid 'g_type_class_add_private'
+  * msd-sound-plugin: avoid 'g_type_class_add_private'
+  * msd-sound-manager: avoid 'g_type_class_add_private'
+  * msd-typing-break-plugin: avoid 'g_type_class_add_private'
+  * msd-typing-break-manager: avoid 'g_type_class_add_private'
+  * msd-dummy-plugin: avoid 'g_type_class_add_private'
+  * msd-dummy-manager: avoid 'g_type_class_add_private'
+  * msd-mpris-manager: avoid 'g_type_class_add_private'
+  * msd-mpris-plugin: avoid 'g_type_class_add_private'
+  * msd-ldsm-dialog: avoid 'g_type_class_add_private'
+  * msd-housekeeping-plugin: avoid 'g_type_class_add_private'
+  * msd-housekeeping-manager: avoid 'g_type_class_add_private'
+  * msd-keybindings-plugin: avoid 'g_type_class_add_private'
+  * msd-keybindings-manager: avoid 'g_type_class_add_private'
+  * system-timezone: avoid 'g_type_class_add_private'
+  * msd-datetime-mechanism: avoid 'g_type_class_add_private'
+  * CI: fix mate-desktop version for using cppcheck
+
+### mate-settings-daemon 1.23.1
+
+  * update translations
+  * travis: update mate-desktop required version
+  * Add remaining peripheral schemas from mate-desktop
+  * mouse: Add acceleration profiles
+  * plugins a11y-settings: fix deprecated g_type_class_add_private
+  * plugins a11y-keyboard: fix deprecated g_type_class_add_private
+  * plugins mouse: fix deprecated g_type_class_add_private
+  * Change media-keys volume-step default from 6 to 5 in the gschema
+    and use only that instead of a redundant constant in the code.
+  * plugins background: fix deprecated g_type_class_add_private
+  * xrandr plugin: i18n dropdown menu
+  * plugins keyboard: fix deprecated g_type_class_add_private
+  * add new macro MATE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE
+  * plugins: drop libXxf86 dependency
+  * plugins housekeeping: optimization code
+  * Avoid build warning
+  * plugins common: fix deprecated g_type_class_add_private
+  * Remove trailing whitespaces
+  * fix deprecated g_type_class_add_private
+
+### mate-settings-daemon 1.23.0
+
+  * update translations
+  * media-keys: Execute default instant messaging application defined by schema
+  * Change url project's website
+  * locate-pointer: Do not grab pointer button when trying to locate
+  * Create FUNDING.yml
+  * [ci] Add cppcheck html report
+  * [ci] Enable Clang Static Analyzer
+
+### mate-settings-daemon 1.22.0
+
+  * update translations
+  * Initialize travis support
+  * disable deprecation warnings for distcheck
+  * media-keys: Execute default calculator application defined by schema
+
+### mate-settings-daemon 1.21.2
+
+  * update translations
+  * media-keys: Add microphone mute key support
+  * msd-xrdb-manager: realize the widget
+  * media-keys: Make sound changes quiet with Alt
+  * msd-xrdb-manager.c: avoid deprecated 'gtk_widget_ensure_style'
+  * media-keys: always round the render coordinates for media icons
+  * media-keys: Tweak the OSD's volume bar position
+  * osd-window: make the window smaller
+  * media-keys: Make icon smaller in OSD
+  * media-keys: Use constant for icon size in OSD
+  * media-keys: Add test for display switch OSD icons
+  * media-keys: Add support for display switch OSD
+  * media-keys: Don't show a level when muted
+
+### mate-settings-daemon 1.21.1
+
+  * update translations
+  * media-keys: Add test for rfkill OSD icons
+  * media-keys: Add label for the touchpad OSD
+  * media-keys: Add labels for the rfkill OSD
+  * media-keys: Remove unuseful show_level argument in msd_media_keys_window_set_action_custom
+  * media-keys: Remove test for screen brightness OSD icons
+  * media-keys: Add support for Killswitch media keys
+  * rfkill: Add RFKill support plugin on Linux systems
+  * Add shortcut to start mate-control-center
+  * media-keys: Add test for touchpad OSD icons
+  * media-keys: Remove touchpad OSD icons and use theme's instead
+  * media-keys: Simplify touchpad OSD
+  * media-keys: Add support for XF86TouchpadOn/Off
+  * Add support for org.mate.accessibility-keyboard.stickykeys-latch-to-lock
+  * Xrandr:remove an unused function
+  * daemon: fix a memory leak
+  * daemon: Stop using deprecated GSettings API
+  * require mate-desktop-1.21.1
+  * xsettings: add setting to enable/disable primary paste from middlemouse
+  * xsettings: replace deprecated gdk_error_trap_push/pop
+  * xrandr-manager: replace deprecated gdk_error_trap_push/pop
+  * mouse-manager: replace deprecated gdk_error_trap_push/pop
+  * media-keys-manager: replace deprecated GdkDeviceManager
+  * keyboard-manager: replace deprecated gdk_error_trap_push/pop
+  * clipboard-manager: replace deprecated gdk_error_trap_push/pop
+  * background-manager: replace deprecated GDK functions
+  * a11y-keyboard-manager: replace deprecated gdk_error_trap_push/pop
+  * msd-input-helper: replace deprecated gdk_error_trap_push/pop
+  * plugins: avoid deprecated 'gdk_keymap_get_default'
+
+### mate-settings-daemon 1.21.0
+
+  * Translations update
+  * xrandr-applet-popup: add an icon for configuration item
+  * xrandr-applet-popup: add item to mirror displays
+  * bump mate-desktop requirement
+  * Make setting QT_SCALE_FACTOR optional.
+  * xrandr-applet-popup: dim menuitems for disabled monitor
+  * xrandr-applet-popup: enable turning monitors on an off
+  * xrandr-applet-popup: show icon only if "menus-have-icons" is not turned off
+  * xrandr-applet-popup: handle Greybird (etc) XFCE themes
+  * Xrandr-applet-popup: Special case the GNOME themes for black text on monitor labels
+  * xrander-applet-popup: remove draw callback
+  * xrandr:fix indent
+  * xrandr-applet-popup: allow themes to override monitor label colors
+  * xrandr-applet-popup: add a border to colored monitor labels
+  * xrandr-applet-popup: use colored bg again in monitor labels
+  * xrandr applet popup: add monitor icons to monitor label menuitems
+  * xrandr-applet: add a style class for menuitems
+  * xrandr-applet: drop non-working bg from menu
+  * xrandr-applet: don't hard code label colors in menu
+  * Support background fallback on HiDPI
+  * Prevent media-keys bindings from swallowing modifier keys
+  * Scale OSD size correctly on HiDPI displays (#212)
+
+### mate-settings-daemon 1.20.0
+
+  * bump required version of mate-desktop
+  * HiDPI: Load xsettings during initialization phase
+  * Add HiDPI configuration in XSettings
+  * require GTK+ 3.22 and GLib 2.50
+  * Add support for HiDPI displays
+
+### mate-settings-daemon 1.19.2
+
+  * Translations update
+  * plugins: G_GNUC_UNUSED in unused but needed variables
+  * xsettings: drop CanChangeAccels which won't work with GTK+3
+  * msd-datetime-mechanism.c: Fix build warnings:
+  * msd-mpris-manager.c: Fix build warning:
+  * configure.ac: drop GLIB_VERSION_MAX_ALLOWED
+
+### mate-settings-daemon 1.19.1
+
+  * Translations update
+  * touchpad: disable clickfinger by default
+  * WidthOfScreen and HeightOfScreen implementation
+  * msd-keyboard-xkb: Fix Gdk-CRITICAL warning on creating status bar icon
+  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+
+### mate-settings-daemon 1.19.0
+
+  * Translations update
+  * configure: bump MATE_DESKTOP_REQUIRED_VERSION
+  * gtk 3.22: avoid deprecated gdk_screen_get_width/height_mm
+  * avoid deprecated gdk_screen_get_width/height
+  * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
+  * msd-a11y-preferences-dialog.ui: clean up deprecations
+  * ally-keyboard: fix help link
+  * don't use deprecated gtk_show_uri
+  * avoid deprecated gdk_screen_get_number
+  * Fix Xrandr applet dying on restart
+  * Request keyboard event reports from global keybindings of other windows (#179)
+  * Restore Polish translation credits from GNOME
+  * msd-xrandr-manager: avoid deprecated gtk_misc_set_padding
+  * keyboard plugin: apply panel menu theme to popup menu
+  * ldsm-dialog: don't use deprecated GTK_STOCK
+  * ldsm-dialog: set max width chars for labels
+  * datetime: fix a Wunused-but-set-variable warning
+  * add GlobalMenu support
+
+### mate-settings-daemon 1.18.0
+
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
+  * Build: require XInput unconditionally
+  * Build: require libmatemixer >= 1.10, libxklavier >= 5.2, dconf >= 0.13
+  * Build: require libmatekbd and libmate-desktop >= 1.17
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+    build option
+  * Add libinput support for mouse and touchpad
+  * Touchpad: add separate settings for handedness (left/right-handed)
+    and motion acceleration/threshold
+  * Background: restore option to let Caja draw background with GTK+ 3.22
+  * Some fixes and cleanups
+  * Translations update
+
+### mate-settings-daemon 1.16.1
+
+  * GTK+3: fix possible build breakage with libmate-desktop 1.17
+  * GTK+3: fix OSD rendering on non-composited desktop
+  * GTK+3: add OSD style class for non-composited desktop
+
+### mate-settings-daemon 1.16.0
+
+  * Change default hinting style to 'hintslight'
+  * Use 'rgba' (LCD subpixel) antialiasing by default
+  * GTK+3: add css theming for OSD (MsdOsdWindow) instead of using
+    hardcoded colors
+  * GTK+3: fix drawing and changing of desktop background with 3.21
+  * GTK+3: fix several deprecations
+  * Fix some build warnings
+  * Translations update
+
+### mate-settings-daemon 1.14.1
+
+  * housekeeping: fix thumbnails cleaning
+  * housekeeping: fix text markup
+  * media-keys: use gnome-calculator binary instead of old gcalctool
+  * Translations update
+  * Make distcheck use currently selected GTK+ version
+
+### mate-settings-daemon 1.14.0
+
+  * Drop MateConf migration script
+  * media-keys: add setting to enable/disable OSD
+  * touchpad: support edge and two-finger scrolling independently
+    (use separate GSettings keys for them)
+  * xsettings: add settings for cursor theme and size
+  * GTK+3: several deprecation fixes
+  * Some more fixes and cleanups
+  * Translations update
+  * Fix Changelog generation
+
+### mate-settings-daemon 1.12.1
+
+  * xrandr: install icon in correct directory
+  * GTK+3: don't remove xrandr applet background (fixes invisible
+    text in some themes)
+
+### mate-settings-daemon 1.12.0
+
+  * Add new keybinding for logout (empty by default)
+  * Retrieve strings directly from gschema (requires intltool 0.50.1)
+  * Switch to org.gnome.SessionManager
+  * Touchpad settings: added support for natural scrolling, 2 finger
+    and 3 finger clicks
+  * Mouse: use syndaemon -K to ignore Ctrl+C and other combos
+  * GTK+3: make xrandr tray applet support custom panel themes
+  * Some more fixes and cleanups
+
+### mate-settings-daemon 1.10.2
+
+  * a11y: don't use ancient properties
+  * housekeeping: don’t monitor fdescfs (special FS in FreeBSD)
+  * keyboard: connect to libmatekbd's GSettings before reading them
+  * mouse: use event driven mode for syndaemon, save some power
+
+### mate-settings-daemon 1.10.1
+
+  * Fix media keys issue with multiple players
+  * Add some missing manpages
+  * Translations update
+
+### mate-settings-daemon 1.10.0
+
+  * Port media-keys plugin to libmatemixer
+  * Remove GStreamer bits, make libmatemixer, libcanberra and PulseAudio
+    optional dependencies
+  * Adapt to mate-desktop MateRR* API changes. Thanks to monsta for testing.
+
+### mate-settings-daemon 1.8.0
+
+  * Add GTK3 support
+  * Add Middle Click Emulation to mouse manager
+
+### mate-settings-daemon 1.6.0
+
+  * Migration to gsettings

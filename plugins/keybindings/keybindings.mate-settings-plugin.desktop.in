@@ -1,0 +1,8 @@
+[MATE Settings Plugin]
+Module=keybindings
+IAge=0
+Name=Keybindings
+Description=Keybindings plugin
+Authors=AUTHOR
+Copyright=Copyright © 2007 AUTHOR
+Website=

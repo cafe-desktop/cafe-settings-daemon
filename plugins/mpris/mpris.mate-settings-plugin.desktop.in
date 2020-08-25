@@ -1,0 +1,8 @@
+[MATE Settings Plugin]
+Module=mpris
+IAge=0
+Name=Mpris
+Description=Mpris plugin
+Authors=Stefano Karapetsas
+Copyright=Copyright © 2013 Stefano Karapetsas
+Website=

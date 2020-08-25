@@ -1,0 +1,8 @@
+[MATE Settings Plugin]
+Module=xrandr
+IAge=0
+Name=XRandR
+Description=Set up screen size and rotation settings
+Authors=Various
+Copyright=Copyright © 2007 Novell
+Website=

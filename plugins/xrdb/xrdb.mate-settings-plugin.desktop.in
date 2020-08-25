@@ -1,0 +1,8 @@
+[MATE Settings Plugin]
+Module=xrdb
+IAge=0
+Name=X Resource Database
+Description=Manage the X resource database
+Authors=Ross Burton
+Copyright=Copyright © 2007 Ross Burton
+Website=
