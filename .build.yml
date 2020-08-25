@@ -38,6 +38,7 @@ requires:
     - gcc
     - g++
     - git
+    - gtk-doc-tools
     - libcanberra-gtk3-dev
     - libdbus-glib-1-dev
     - libdconf-dev
@@ -90,6 +91,7 @@ requires:
     - gcc
     - g++
     - git
+    - gtk-doc-tools
     - libcanberra-gtk3-dev
     - libdbus-glib-1-dev
     - libdconf-dev
