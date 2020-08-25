@@ -12,9 +12,11 @@ requires:
     - dconf
     - gettext
     - git
+    - gtk3
     - gobject-introspection
     - gtk-doc
     - intltool
+    - iso-codes
     - libcanberra
     - libnotify
     - make
