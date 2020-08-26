@@ -60,6 +60,7 @@ requires:
     - libxklavier-dev
     - libxrandr-dev
     - libxt-dev
+    - libxml2-utils
     - libtool
     - make
     - policykit-1
@@ -117,6 +118,7 @@ requires:
     - libxext-dev
     - libxi-dev
     - libxklavier-dev
+    - libxml2-utils
     - libxrandr-dev
     - libxt-dev
     - make
