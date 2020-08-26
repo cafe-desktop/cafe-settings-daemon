@@ -88,6 +88,7 @@ requires:
     - polkit-devel
     - pulseaudio-libs-devel
     - redhat-rpm-config
+    - which
 
   ubuntu:
     - autoconf-archive
