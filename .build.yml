@@ -107,4 +107,4 @@ build_scripts:
   - fi
 
 after_scripts:
-  - make distcheck
+  - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/cafe-applets/raw/master/cpufreq/pixmaps/cpufreq-100.png; fi
