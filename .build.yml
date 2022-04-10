@@ -49,13 +49,9 @@ before_scripts:
   - ./install-from-git https://github.com/cafe-desktop/libcafemixer master
 
 build_scripts:
-  - NOCONFIGURE=1 ./autogen.sh
-  - scan-build $CHECKERS ./configure --prefix=/usr --enable-pulse
-  - if [ $CPU_COUNT -gt 1 ]; then
-  -     scan-build $CHECKERS --keep-cc -o html-report make -j $CPU_COUNT
-  - else
-  -     scan-build $CHECKERS --keep-cc -o html-report make
-  - fi
+  - ./before-build
+  - ./make-scanbuild '--prefix=/usr --enable-pulse --enable-compile-warnings=maximum'
+  - ./after-build
 
 after_scripts:
   - if [ -f "gen-index" ]; then ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/cafe-applets/raw/master/cpufreq/pixmaps/cpufreq-100.png; fi
