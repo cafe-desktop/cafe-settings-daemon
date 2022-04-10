@@ -402,7 +402,7 @@ else
 fi
 AC_SUBST(DEBUG_CFLAGS)
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 cafe-settings-daemon/Makefile
 plugins/Makefile
@@ -458,6 +458,8 @@ data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml
 data/org.cafe.SettingsDaemon.plugins.gschema.xml
 po/Makefile.in
 ])
+
+AC_OUTPUT
 
 dnl ---------------------------------------------------------------------------
 dnl - Show summary
