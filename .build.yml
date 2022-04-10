@@ -42,57 +42,10 @@ requires:
     - x11proto-kb-dev
 
 before_scripts:
-  # Install cafe-common from master branch
-  - cd ${START_DIR}
-  - git clone --depth 1  https://github.com/cafe-desktop/cafe-common.git -b master cafe-common-master
-  - cd cafe-common-master
-  - ./autogen.sh
-  - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
-  -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
-  - else
-  -     ./configure --prefix=/usr
-  - fi
-  - make
-  - make install
-
-  # Install cafe-desktop from master branch
-  - cd ${START_DIR}
-  - git clone --depth 1  https://github.com/cafe-desktop/cafe-desktop.git -b master cafe-desktop-master
-  - cd cafe-desktop-master
-  - ./autogen.sh
-  - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
-  -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
-  - else
-  -     ./configure --prefix=/usr
-  - fi
-  - make
-  - make install
-
-  # Install libcafekbd from master branch
-  - cd ${START_DIR}
-  - git clone --depth 1  https://github.com/cafe-desktop/libcafekbd.git -b master libcafekbd-master
-  - cd libcafekbd-master
-  - ./autogen.sh
-  - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
-  -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
-  - else
-  -     ./configure --prefix=/usr
-  - fi
-  - make
-  - make install
-
-  # Install libcafemixer from master branch
-  - cd ${START_DIR}
-  - git clone --depth 1  https://github.com/cafe-desktop/libcafemixer.git -b master libcafemixer-master
-  - cd libcafemixer-master
-  - ./autogen.sh
-  - if [ ${DISTRO_NAME} == "debian" -o ${DISTRO_NAME} == "ubuntu" ];then
-  -     ./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --libexecdir=/usr/lib/x86_64-linux-gnu
-  - else
-  -     ./configure --prefix=/usr
-  - fi
-  - make
-  - make install
+  - ./install-from-git https://github.com/cafe-desktop/cafe-common master
+  - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
+  - ./install-from-git https://github.com/cafe-desktop/libcafekbd master
+  - ./install-from-git https://github.com/cafe-desktop/libcafemixer master
 
 build_scripts:
   - NOCONFIGURE=1 ./autogen.sh
