@@ -1,6 +1,6 @@
  #include <X11/Xatom.h>
-#include <gdk/gdkx.h>
-#include <gdk/gdk.h>
+#include <cdk/cdkx.h>
+#include <cdk/cdk.h>
 #include <string.h>
 #include <glib.h>
 #include <glib-object.h>
@@ -24,11 +24,11 @@ wm_common_get_window_manager_property (Atom atom)
   if (wm_window == None)
     return NULL;
 
-  utf8_string = gdk_x11_get_xatom_by_name ("UTF8_STRING");
+  utf8_string = cdk_x11_get_xatom_by_name ("UTF8_STRING");
 
-  display = gdk_display_get_default ();
+  display = cdk_display_get_default ();
 
-  gdk_x11_display_error_trap_push (display);
+  cdk_x11_display_error_trap_push (display);
 
   val = NULL;
   result = XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display),
@@ -39,7 +39,7 @@ wm_common_get_window_manager_property (Atom atom)
 			       &type, &format, &nitems,
 			       &bytes_after, (guchar **) &val);
 
-  if (gdk_x11_display_error_trap_pop (display) || result != Success ||
+  if (cdk_x11_display_error_trap_pop (display) || result != Success ||
       type != utf8_string || format != 8 || nitems == 0 ||
       !g_utf8_validate (val, nitems, NULL))
     {
@@ -59,7 +59,7 @@ wm_common_get_window_manager_property (Atom atom)
 char*
 wm_common_get_current_window_manager (void)
 {
-  Atom atom = gdk_x11_get_xatom_by_name ("_NET_WM_NAME");
+  Atom atom = cdk_x11_get_xatom_by_name ("_NET_WM_NAME");
   char *result;
 
   result = wm_common_get_window_manager_property (atom);
@@ -79,10 +79,10 @@ update_wm_window (void)
   gulong nitems;
   gulong bytes_after;
 
-  display = gdk_display_get_default ();
+  display = cdk_display_get_default ();
 
   XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display), GDK_ROOT_WINDOW (),
-		      gdk_x11_get_xatom_by_name ("_NET_SUPPORTING_WM_CHECK"),
+		      cdk_x11_get_xatom_by_name ("_NET_SUPPORTING_WM_CHECK"),
 		      0, G_MAXLONG, False, XA_WINDOW, &type, &format,
 		      &nitems, &bytes_after, (guchar **) &xwindow);
 
@@ -92,11 +92,11 @@ update_wm_window (void)
      return;
     }
 
-  gdk_x11_display_error_trap_push (display);
+  cdk_x11_display_error_trap_push (display);
   XSelectInput (GDK_DISPLAY_XDISPLAY (display), *xwindow, StructureNotifyMask | PropertyChangeMask);
   XSync (GDK_DISPLAY_XDISPLAY (display), False);
 
-  if (gdk_x11_display_error_trap_pop (display))
+  if (cdk_x11_display_error_trap_pop (display))
     {
        XFree (xwindow);
        wm_window = None;

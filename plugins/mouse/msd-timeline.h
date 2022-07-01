@@ -21,7 +21,7 @@
 #define __MSD_TIMELINE_H__
 
 #include <glib-object.h>
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 #ifdef __cplusplus
 extern "C" {

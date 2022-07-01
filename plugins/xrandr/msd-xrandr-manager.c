@@ -34,8 +34,8 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 #include <ctk/ctk.h>
 #include <gio/gio.h>
 #include <dbus/dbus-glib.h>
@@ -503,7 +503,7 @@ user_says_things_are_ok (MsdXrandrManager *manager, GdkWindow *parent_window)
         ctk_widget_realize (timeout.dialog);
 
         if (parent_window)
-                gdk_window_set_transient_for (ctk_widget_get_window (timeout.dialog), parent_window);
+                cdk_window_set_transient_for (ctk_widget_get_window (timeout.dialog), parent_window);
 
         ctk_widget_show_all (timeout.dialog);
         /* We don't use g_timeout_add_seconds() since we actually care that the user sees "real" second ticks in the dialog */
@@ -613,7 +613,7 @@ msd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
         gboolean result;
 
         if (parent_window_id != 0)
-                parent_window = gdk_x11_window_foreign_new_for_display (gdk_display_get_default (), (Window) parent_window_id);
+                parent_window = cdk_x11_window_foreign_new_for_display (cdk_display_get_default (), (Window) parent_window_id);
         else
                 parent_window = NULL;
 
@@ -1651,10 +1651,10 @@ run_display_capplet (CtkWidget *widget)
         if (widget)
                 screen = ctk_widget_get_screen (widget);
         else
-                screen = gdk_screen_get_default ();
+                screen = cdk_screen_get_default ();
 
         error = NULL;
-        if (!cafe_gdk_spawn_command_line_on_screen (screen, MSD_XRANDR_DISPLAY_CAPPLET, &error)) {
+        if (!cafe_cdk_spawn_command_line_on_screen (screen, MSD_XRANDR_DISPLAY_CAPPLET, &error)) {
                 CtkWidget *dialog;
 
                 dialog = ctk_message_dialog_new_with_markup (NULL, 0, CTK_MESSAGE_ERROR, CTK_BUTTONS_OK,
@@ -1784,7 +1784,7 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
 
         cafe_rr_labeler_get_rgba_for_output (priv->labeler, output, &color);
 
-        color_string = gdk_rgba_to_string (&color);
+        color_string = cdk_rgba_to_string (&color);
 
         /*This can be overriden by themes, check all label:insensitive entries if it does not show up*/
         string = g_string_new(NULL);
@@ -1956,7 +1956,7 @@ ensure_current_configuration_is_saved (void)
          * that there *will* be a backup file in the end.
          */
 
-        rr_screen = cafe_rr_screen_new (gdk_screen_get_default (), NULL); /* NULL-GError */
+        rr_screen = cafe_rr_screen_new (cdk_screen_get_default (), NULL); /* NULL-GError */
         if (!rr_screen)
                 return;
 
@@ -2311,7 +2311,7 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
         CtkWidget *toplevel = ctk_widget_get_toplevel (priv->popup_menu);
         /*Fix any failures of compiz/other wm's to communicate with ctk for transparency */
         GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
         /*Set up the ctk theme class from cafe-panel*/
         CtkStyleContext *context;
@@ -2533,7 +2533,7 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
         log_open ();
         log_msg ("------------------------------------------------------------\nSTARTING XRANDR PLUGIN\n");
 
-        manager->priv->rw_screen = cafe_rr_screen_new (gdk_screen_get_default (), error);
+        manager->priv->rw_screen = cafe_rr_screen_new (cdk_screen_get_default (), error);
 
         if (manager->priv->rw_screen == NULL) {
                 log_msg ("Could not initialize the RANDR plugin%s%s\n",
@@ -2556,30 +2556,30 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
                           G_CALLBACK (on_config_changed),
                           manager);
 
-        display = gdk_display_get_default ();
+        display = cdk_display_get_default ();
 
         if (manager->priv->switch_video_mode_keycode) {
-                gdk_x11_display_error_trap_push (display);
+                cdk_x11_display_error_trap_push (display);
 
-                XGrabKey (gdk_x11_get_default_xdisplay(),
+                XGrabKey (cdk_x11_get_default_xdisplay(),
                           manager->priv->switch_video_mode_keycode, AnyModifier,
-                          gdk_x11_get_default_root_xwindow(),
+                          cdk_x11_get_default_root_xwindow(),
                           True, GrabModeAsync, GrabModeAsync);
 
-                gdk_display_flush (display);
-                gdk_x11_display_error_trap_pop_ignored (display);
+                cdk_display_flush (display);
+                cdk_x11_display_error_trap_pop_ignored (display);
         }
 
         if (manager->priv->rotate_windows_keycode) {
-                gdk_x11_display_error_trap_push (display);
+                cdk_x11_display_error_trap_push (display);
 
-                XGrabKey (gdk_x11_get_default_xdisplay(),
+                XGrabKey (cdk_x11_get_default_xdisplay(),
                           manager->priv->rotate_windows_keycode, AnyModifier,
-                          gdk_x11_get_default_root_xwindow(),
+                          cdk_x11_get_default_root_xwindow(),
                           True, GrabModeAsync, GrabModeAsync);
 
-                gdk_display_flush (display);
-                gdk_x11_display_error_trap_pop_ignored (display);
+                cdk_display_flush (display);
+                cdk_x11_display_error_trap_pop_ignored (display);
         }
 
         show_timestamps_dialog (manager, "Startup");
@@ -2591,7 +2591,7 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
         log_msg ("State of screen after initial configuration:\n");
         log_screen (manager->priv->rw_screen);
 
-        gdk_window_add_filter (gdk_get_default_root_window(),
+        cdk_window_add_filter (cdk_get_default_root_window(),
                                (GdkFilterFunc)event_filter,
                                manager);
 
@@ -2613,29 +2613,29 @@ msd_xrandr_manager_stop (MsdXrandrManager *manager)
 
         manager->priv->running = FALSE;
 
-        display = gdk_display_get_default ();
+        display = cdk_display_get_default ();
 
         if (manager->priv->switch_video_mode_keycode) {
-                gdk_x11_display_error_trap_push (display);
+                cdk_x11_display_error_trap_push (display);
 
-                XUngrabKey (gdk_x11_get_default_xdisplay(),
+                XUngrabKey (cdk_x11_get_default_xdisplay(),
                             manager->priv->switch_video_mode_keycode, AnyModifier,
-                            gdk_x11_get_default_root_xwindow());
+                            cdk_x11_get_default_root_xwindow());
 
-                gdk_x11_display_error_trap_pop_ignored (display);
+                cdk_x11_display_error_trap_pop_ignored (display);
         }
 
         if (manager->priv->rotate_windows_keycode) {
-                gdk_x11_display_error_trap_push (display);
+                cdk_x11_display_error_trap_push (display);
 
-                XUngrabKey (gdk_x11_get_default_xdisplay(),
+                XUngrabKey (cdk_x11_get_default_xdisplay(),
                             manager->priv->rotate_windows_keycode, AnyModifier,
-                            gdk_x11_get_default_root_xwindow());
+                            cdk_x11_get_default_root_xwindow());
 
-                gdk_x11_display_error_trap_pop_ignored (display);
+                cdk_x11_display_error_trap_pop_ignored (display);
         }
 
-        gdk_window_remove_filter (gdk_get_default_root_window (),
+        cdk_window_remove_filter (cdk_get_default_root_window (),
                                   (GdkFilterFunc) event_filter,
                                   manager);
 
@@ -2677,9 +2677,9 @@ get_keycode_for_keysym_name (const char *name)
         Display *dpy;
         guint keyval;
 
-        dpy = gdk_x11_get_default_xdisplay ();
+        dpy = cdk_x11_get_default_xdisplay ();
 
-        keyval = gdk_keyval_from_name (name);
+        keyval = cdk_keyval_from_name (name);
         return XKeysymToKeycode (dpy, keyval);
 }
 

@@ -22,8 +22,8 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <gdk/gdkx.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkx.h>
+#include <cdk/cdkkeysyms.h>
 #include <ctk/ctk.h>
 
 enum
@@ -346,7 +346,7 @@ egg_accelerator_parse_virtual (const gchar            *accelerator,
 	}
       else
 	{
-          keyval = gdk_keyval_from_name (accelerator);
+          keyval = cdk_keyval_from_name (accelerator);
 
           if (keyval == 0)
 	    {
@@ -387,7 +387,7 @@ egg_accelerator_parse_virtual (const gchar            *accelerator,
 	      GdkKeymapKey *keys;
 	      gint n_keys, i, j;
 
-	      if (!gdk_keymap_get_entries_for_keyval (gdk_keymap_get_for_display (gdk_display_get_default ()), keyval, &keys, &n_keys)) {
+	      if (!cdk_keymap_get_entries_for_keyval (cdk_keymap_get_for_display (cdk_display_get_default ()), keyval, &keys, &n_keys)) {
  	 	bad_keyval = TRUE;
 	      } else {
 		*accelerator_codes = g_new0 (guint, n_keys + 1);
@@ -412,7 +412,7 @@ egg_accelerator_parse_virtual (const gchar            *accelerator,
     }
 
   if (accelerator_key)
-    *accelerator_key = gdk_keyval_to_lower (keyval);
+    *accelerator_key = cdk_keyval_to_lower (keyval);
   if (accelerator_mods)
     *accelerator_mods = mods;
 
@@ -438,10 +438,10 @@ egg_virtual_accelerator_name (guint                  accelerator_key,
                               EggVirtualModifierType accelerator_mods)
 {
   gchar *ctk_name;
-  GdkModifierType gdkmods = 0;
+  GdkModifierType cdkmods = 0;
 
-  egg_keymap_resolve_virtual_modifiers (NULL, accelerator_mods, &gdkmods);
-  ctk_name = ctk_accelerator_name (accelerator_key, gdkmods);
+  egg_keymap_resolve_virtual_modifiers (NULL, accelerator_mods, &cdkmods);
+  ctk_name = ctk_accelerator_name (accelerator_key, cdkmods);
 
   if (!accelerator_key)
     {
@@ -474,10 +474,10 @@ egg_virtual_accelerator_label (guint                  accelerator_key,
 			       EggVirtualModifierType accelerator_mods)
 {
   gchar *ctk_label;
-  GdkModifierType gdkmods = 0;
+  GdkModifierType cdkmods = 0;
 
-  egg_keymap_resolve_virtual_modifiers (NULL, accelerator_mods, &gdkmods);
-  ctk_label = ctk_accelerator_get_label (accelerator_key, gdkmods);
+  egg_keymap_resolve_virtual_modifiers (NULL, accelerator_mods, &cdkmods);
+  ctk_label = ctk_accelerator_get_label (accelerator_key, cdkmods);
 
   if (!accelerator_key)
     {
@@ -570,7 +570,7 @@ reload_modmap (GdkKeymap *keymap,
   int i;
 
   /* FIXME multihead */
-  xmodmap = XGetModifierMapping (gdk_x11_get_default_xdisplay ());
+  xmodmap = XGetModifierMapping (cdk_x11_get_default_xdisplay ());
 
   memset (modmap->mapping, 0, sizeof (modmap->mapping));
 
@@ -594,7 +594,7 @@ reload_modmap (GdkKeymap *keymap,
       keyvals = NULL;
       n_entries = 0;
 
-      gdk_keymap_get_entries_for_keycode (keymap,
+      cdk_keymap_get_entries_for_keycode (keymap,
                                           keycode,
                                           &keys, &keyvals, &n_entries);
 
@@ -647,7 +647,7 @@ egg_keymap_get_modmap (GdkKeymap *keymap)
   EggModmap *modmap;
 
   if (keymap == NULL)
-    keymap = gdk_keymap_get_for_display (gdk_display_get_default ());
+    keymap = cdk_keymap_get_for_display (cdk_display_get_default ());
 
   /* This is all a hack, much simpler when we can just
    * modify GDK directly.

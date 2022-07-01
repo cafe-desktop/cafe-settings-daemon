@@ -17,7 +17,7 @@
 #ifndef LOCATE_POINTER_H
 #define LOCATE_POINTER_H
 
-#include <gdk/gdk.h>
+#include <cdk/cdk.h>
 
 void msd_locate_pointer (GdkDisplay *display);
 

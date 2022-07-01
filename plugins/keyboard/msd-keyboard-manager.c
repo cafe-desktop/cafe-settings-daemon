@@ -33,8 +33,8 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 
 #ifdef HAVE_X11_EXTENSIONS_XKB_H
 #include <X11/XKBlib.h>
@@ -84,7 +84,7 @@ static gboolean xkb_set_keyboard_autorepeat_rate(int delay, int rate)
 		delay = 1;
 	}
 
-	return XkbSetAutoRepeatRate(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), XkbUseCoreKbd, delay, interval);
+	return XkbSetAutoRepeatRate(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()), XkbUseCoreKbd, delay, interval);
 }
 #endif
 
@@ -99,7 +99,7 @@ typedef enum {
 static void
 numlock_xkb_init (MsdKeyboardManager *manager)
 {
-        Display *dpy = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
+        Display *dpy = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         gboolean have_xkb;
         int opcode, error_base, major, minor;
 
@@ -127,7 +127,7 @@ numlock_xkb_init (MsdKeyboardManager *manager)
 static unsigned
 numlock_NumLock_modifier_mask (void)
 {
-        Display *dpy = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
+        Display *dpy = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         return XkbKeysymToModifiers (dpy, XK_Num_Lock);
 }
 
@@ -135,7 +135,7 @@ static void
 numlock_set_xkb_state (NumLockState new_state)
 {
         unsigned int num_mask;
-        Display *dpy = GDK_DISPLAY_XDISPLAY (gdk_display_get_default ());
+        Display *dpy = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         if (new_state != NUMLOCK_STATE_ON && new_state != NUMLOCK_STATE_OFF)
                 return;
         num_mask = numlock_NumLock_modifier_mask ();
@@ -160,7 +160,7 @@ static void numlock_set_settings_state(GSettings *settings, NumLockState new_sta
 
 static GdkFilterReturn
 numlock_xkb_callback (GdkXEvent *xev_,
-                      GdkEvent *gdkev_,
+                      GdkEvent *cdkev_,
                       gpointer xkb_event_code)
 {
         XEvent *xev = (XEvent *) xev_;
@@ -186,7 +186,7 @@ numlock_install_xkb_callback (MsdKeyboardManager *manager)
         if (!manager->priv->have_xkb)
                 return;
 
-        gdk_window_add_filter (NULL,
+        cdk_window_add_filter (NULL,
                                numlock_xkb_callback,
                                GINT_TO_POINTER (manager->priv->xkb_event_base));
 }
@@ -225,8 +225,8 @@ apply_settings (GSettings          *settings,
         bell_volume   = (volume_string && !strcmp (volume_string, "on")) ? 50 : 0;
         g_free (volume_string);
 
-        display = gdk_display_get_default ();
-        gdk_x11_display_error_trap_push (display);
+        display = cdk_display_get_default ();
+        cdk_x11_display_error_trap_push (display);
         if (repeat) {
                 gboolean rate_set = FALSE;
 
@@ -252,7 +252,7 @@ apply_settings (GSettings          *settings,
         kbdcontrol.bell_percent = bell_volume;
         kbdcontrol.bell_pitch = bell_pitch;
         kbdcontrol.bell_duration = bell_duration;
-        XChangeKeyboardControl (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+        XChangeKeyboardControl (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                                 KBKeyClickPercent | KBBellPercent | KBBellPitch | KBBellDuration,
                                 &kbdcontrol);
 
@@ -267,7 +267,7 @@ apply_settings (GSettings          *settings,
 #endif /* HAVE_X11_EXTENSIONS_XKB_H */
 
         XSync (GDK_DISPLAY_XDISPLAY (display), FALSE);
-        gdk_x11_display_error_trap_pop_ignored (display);
+        cdk_x11_display_error_trap_pop_ignored (display);
 }
 
 void
@@ -334,7 +334,7 @@ msd_keyboard_manager_stop (MsdKeyboardManager *manager)
 
 #if HAVE_X11_EXTENSIONS_XKB_H
         if (p->have_xkb) {
-                gdk_window_remove_filter (NULL,
+                cdk_window_remove_filter (NULL,
                                           numlock_xkb_callback,
                                           GINT_TO_POINTER (p->xkb_event_base));
         }
