@@ -127,12 +127,12 @@ acme_error (char * msg)
         CtkWidget *error_dialog;
 
         error_dialog = ctk_message_dialog_new (NULL,
-                                               GTK_DIALOG_MODAL,
-                                               GTK_MESSAGE_ERROR,
-                                               GTK_BUTTONS_OK,
+                                               CTK_DIALOG_MODAL,
+                                               CTK_MESSAGE_ERROR,
+                                               CTK_BUTTONS_OK,
                                                msg, NULL);
-        ctk_dialog_set_default_response (GTK_DIALOG (error_dialog),
-                                         GTK_RESPONSE_OK);
+        ctk_dialog_set_default_response (CTK_DIALOG (error_dialog),
+                                         CTK_RESPONSE_OK);
         ctk_widget_show (error_dialog);
         g_signal_connect (error_dialog,
                           "response",
@@ -419,7 +419,7 @@ dialog_show (MsdMediaKeysManager *manager)
         GdkRectangle   geometry;
         GdkMonitor    *monitor;
 
-        ctk_window_set_screen (GTK_WINDOW (manager->priv->dialog),
+        ctk_window_set_screen (CTK_WINDOW (manager->priv->dialog),
                                manager->priv->current_screen);
 
         /* Return if OSD notifications are disabled */
@@ -431,7 +431,7 @@ dialog_show (MsdMediaKeysManager *manager)
          * if the window hasn't been mapped, it doesn't necessarily
          * know its true size, yet, so we need to jump through hoops
          */
-        ctk_window_get_default_size (GTK_WINDOW (manager->priv->dialog), &orig_w, &orig_h);
+        ctk_window_get_default_size (CTK_WINDOW (manager->priv->dialog), &orig_w, &orig_h);
         ctk_widget_get_preferred_size (manager->priv->dialog, NULL, &win_req);
 
         if (win_req.width > orig_w) {
@@ -468,7 +468,7 @@ dialog_show (MsdMediaKeysManager *manager)
         x = ((screen_w - orig_w) / 2) + geometry.x;
         y = geometry.y + (screen_h / 2) + (screen_h / 2 - orig_h) / 2;
 
-        ctk_window_move (GTK_WINDOW (manager->priv->dialog), x, y);
+        ctk_window_move (CTK_WINDOW (manager->priv->dialog), x, y);
 
         ctk_widget_show (manager->priv->dialog);
 

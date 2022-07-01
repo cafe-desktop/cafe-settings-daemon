@@ -68,16 +68,16 @@ locate_pointer_paint (MsdLocatePointerData *data,
   width = gdk_window_get_width (data->window);
   height = gdk_window_get_height (data->window);
 
-  style = ctk_widget_get_style_context (GTK_WIDGET (data->widget));
+  style = ctk_widget_get_style_context (CTK_WIDGET (data->widget));
   ctk_style_context_save (style);
-  ctk_style_context_set_state (style, GTK_STATE_FLAG_SELECTED);
-  ctk_style_context_add_class (style, GTK_STYLE_CLASS_VIEW);
+  ctk_style_context_set_state (style, CTK_STATE_FLAG_SELECTED);
+  ctk_style_context_add_class (style, CTK_STYLE_CLASS_VIEW);
   ctk_style_context_get_background_color (style,
                                           ctk_style_context_get_state (style),
                                           &color);
   if (color.alpha == 0.)
     {
-      ctk_style_context_remove_class (style, GTK_STYLE_CLASS_VIEW);
+      ctk_style_context_remove_class (style, CTK_STYLE_CLASS_VIEW);
       ctk_style_context_get_background_color (style,
                                               ctk_style_context_get_state (style),
                                               &color);
@@ -179,14 +179,14 @@ timeline_frame_cb (MsdTimeline *timeline,
 
   if (gdk_screen_is_composited (screen))
     {
-      ctk_widget_queue_draw (GTK_WIDGET (data->widget));
+      ctk_widget_queue_draw (CTK_WIDGET (data->widget));
       data->progress = progress;
     }
   else if (progress >= data->progress + CIRCLES_PROGRESS_INTERVAL)
     {
       /* only invalidate window each circle interval */
       update_shape (data);
-      ctk_widget_queue_draw (GTK_WIDGET (data->widget));
+      ctk_widget_queue_draw (CTK_WIDGET (data->widget));
       data->progress += CIRCLES_PROGRESS_INTERVAL;
     }
 
@@ -262,7 +262,7 @@ timeline_finished_cb (MsdTimeline *timeline,
       set_transparent_shape (data->window);
     }
 
-  ctk_widget_hide (GTK_WIDGET (data->widget));
+  ctk_widget_hide (CTK_WIDGET (data->widget));
 }
 
 static void
@@ -271,7 +271,7 @@ locate_pointer_unrealize_cb (CtkWidget            *widget,
 {
   if (data->window != NULL)
     {
-      ctk_widget_unregister_window (GTK_WIDGET (data->widget),
+      ctk_widget_unregister_window (CTK_WIDGET (data->widget),
                                     data->window);
       gdk_window_destroy (data->window);
     }
@@ -288,14 +288,14 @@ locate_pointer_realize_cb (CtkWidget            *widget,
   GdkWindowAttr attributes;
   gint attributes_mask;
 
-  display = ctk_widget_get_display (GTK_WIDGET (data->widget));
+  display = ctk_widget_get_display (CTK_WIDGET (data->widget));
   screen = gdk_display_get_default_screen (display);
   visual = gdk_screen_get_rgba_visual (screen);
 
   if (visual == NULL)
     visual = gdk_screen_get_system_visual (screen);
 
-  locate_pointer_unrealize_cb (GTK_WIDGET (data->widget), data);
+  locate_pointer_unrealize_cb (CTK_WIDGET (data->widget), data);
 
   attributes_mask = GDK_WA_X | GDK_WA_Y;
   if (visual != NULL)
@@ -314,9 +314,9 @@ locate_pointer_realize_cb (CtkWidget            *widget,
 				 &attributes,
 				 attributes_mask);
 
-  ctk_widget_set_window (GTK_WIDGET (data->widget),
+  ctk_widget_set_window (CTK_WIDGET (data->widget),
                          data->window);
-  ctk_widget_register_window (GTK_WIDGET (data->widget),
+  ctk_widget_register_window (CTK_WIDGET (data->widget),
                               data->window);
 }
 
@@ -343,20 +343,20 @@ msd_locate_pointer_data_new (void)
 
   data = g_new0 (MsdLocatePointerData, 1);
 
-  data->widget = GTK_WINDOW (ctk_window_new (GTK_WINDOW_POPUP));
+  data->widget = CTK_WINDOW (ctk_window_new (CTK_WINDOW_POPUP));
 
-  g_signal_connect (GTK_WIDGET (data->widget), "unrealize",
+  g_signal_connect (CTK_WIDGET (data->widget), "unrealize",
                     G_CALLBACK (locate_pointer_unrealize_cb),
                     data);
-  g_signal_connect (GTK_WIDGET (data->widget), "realize",
+  g_signal_connect (CTK_WIDGET (data->widget), "realize",
                     G_CALLBACK (locate_pointer_realize_cb),
                     data);
-  g_signal_connect (GTK_WIDGET (data->widget), "draw",
+  g_signal_connect (CTK_WIDGET (data->widget), "draw",
                     G_CALLBACK (locate_pointer_draw_cb),
                     data);
 
-  ctk_widget_set_app_paintable (GTK_WIDGET (data->widget), TRUE);
-  ctk_widget_realize (GTK_WIDGET (data->widget));
+  ctk_widget_set_app_paintable (CTK_WIDGET (data->widget), TRUE);
+  ctk_widget_realize (CTK_WIDGET (data->widget));
 
   data->timeline = msd_timeline_new (ANIMATION_LENGTH);
   g_signal_connect (data->timeline, "frame",
@@ -430,7 +430,7 @@ msd_locate_pointer (GdkDisplay *display)
 
   move_locate_pointer_window (data, display);
   composited_changed (screen, data);
-  ctk_widget_show (GTK_WIDGET (data->widget));
+  ctk_widget_show (CTK_WIDGET (data->widget));
 
   msd_timeline_start (data->timeline);
 }

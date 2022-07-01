@@ -1645,17 +1645,17 @@ set_mousetweaks_daemon (MsdMouseManager *manager,
                         g_object_unref (settings);
 
                         dialog = ctk_message_dialog_new (NULL, 0,
-                                                         GTK_MESSAGE_WARNING,
-                                                         GTK_BUTTONS_OK,
+                                                         CTK_MESSAGE_WARNING,
+                                                         CTK_BUTTONS_OK,
                                                          _("Could not enable mouse accessibility features"));
-                        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+                        ctk_message_dialog_format_secondary_text (CTK_MESSAGE_DIALOG (dialog),
                                                                   _("Mouse accessibility requires Mousetweaks "
                                                                     "to be installed on your system."));
-                        ctk_window_set_title (GTK_WINDOW (dialog),
+                        ctk_window_set_title (CTK_WINDOW (dialog),
                                               _("Mouse Preferences"));
-                        ctk_window_set_icon_name (GTK_WINDOW (dialog),
+                        ctk_window_set_icon_name (CTK_WINDOW (dialog),
                                                   "input-mouse");
-                        ctk_dialog_run (GTK_DIALOG (dialog));
+                        ctk_dialog_run (CTK_DIALOG (dialog));
                         ctk_widget_destroy (dialog);
                 }
                 g_error_free (error);

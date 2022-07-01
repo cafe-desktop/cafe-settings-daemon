@@ -294,8 +294,8 @@ show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
 
         dialog = ctk_message_dialog_new (NULL,
                                          0,
-                                         GTK_MESSAGE_INFO,
-                                         GTK_BUTTONS_CLOSE,
+                                         CTK_MESSAGE_INFO,
+                                         CTK_BUTTONS_CLOSE,
                                          "RANDR timestamps (%d):\n%s\nchange: %u\nconfig: %u",
                                          serial++,
                                          msg,
@@ -435,7 +435,7 @@ typedef struct {
 static void
 print_countdown_text (TimeoutDialog *timeout)
 {
-        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (timeout->dialog),
+        ctk_message_dialog_format_secondary_text (CTK_MESSAGE_DIALOG (timeout->dialog),
                                                   ngettext ("The display will be reset to its previous configuration in %d second",
                                                             "The display will be reset to its previous configuration in %d seconds",
                                                             timeout->countdown),
@@ -450,7 +450,7 @@ timeout_cb (gpointer data)
         timeout->countdown--;
 
         if (timeout->countdown == 0) {
-                timeout->response_id = GTK_RESPONSE_CANCEL;
+                timeout->response_id = CTK_RESPONSE_CANCEL;
                 ctk_main_quit ();
         } else {
                 print_countdown_text (timeout);
@@ -464,9 +464,9 @@ timeout_response_cb (CtkDialog *dialog, int response_id, gpointer data)
 {
         TimeoutDialog *timeout = data;
 
-        if (response_id == GTK_RESPONSE_DELETE_EVENT) {
+        if (response_id == CTK_RESPONSE_DELETE_EVENT) {
                 /* The user closed the dialog or pressed ESC, revert */
-                timeout->response_id = GTK_RESPONSE_CANCEL;
+                timeout->response_id = CTK_RESPONSE_CANCEL;
         } else
                 timeout->response_id = response_id;
 
@@ -482,19 +482,19 @@ user_says_things_are_ok (MsdXrandrManager *manager, GdkWindow *parent_window)
         timeout.manager = manager;
 
         timeout.dialog = ctk_message_dialog_new (NULL,
-                                                 GTK_DIALOG_MODAL,
-                                                 GTK_MESSAGE_QUESTION,
-                                                 GTK_BUTTONS_NONE,
+                                                 CTK_DIALOG_MODAL,
+                                                 CTK_MESSAGE_QUESTION,
+                                                 CTK_BUTTONS_NONE,
                                                  _("Does the display look OK?"));
 
         timeout.countdown = CONFIRMATION_DIALOG_SECONDS;
 
         print_countdown_text (&timeout);
 
-        ctk_window_set_icon_name (GTK_WINDOW (timeout.dialog), "preferences-desktop-display");
-        ctk_dialog_add_button (GTK_DIALOG (timeout.dialog), _("_Restore Previous Configuration"), GTK_RESPONSE_CANCEL);
-        ctk_dialog_add_button (GTK_DIALOG (timeout.dialog), _("_Keep This Configuration"), GTK_RESPONSE_ACCEPT);
-        ctk_dialog_set_default_response (GTK_DIALOG (timeout.dialog), GTK_RESPONSE_ACCEPT); /* ah, the optimism */
+        ctk_window_set_icon_name (CTK_WINDOW (timeout.dialog), "preferences-desktop-display");
+        ctk_dialog_add_button (CTK_DIALOG (timeout.dialog), _("_Restore Previous Configuration"), CTK_RESPONSE_CANCEL);
+        ctk_dialog_add_button (CTK_DIALOG (timeout.dialog), _("_Keep This Configuration"), CTK_RESPONSE_ACCEPT);
+        ctk_dialog_set_default_response (CTK_DIALOG (timeout.dialog), CTK_RESPONSE_ACCEPT); /* ah, the optimism */
 
         g_signal_connect (timeout.dialog, "response",
                           G_CALLBACK (timeout_response_cb),
@@ -515,7 +515,7 @@ user_says_things_are_ok (MsdXrandrManager *manager, GdkWindow *parent_window)
         ctk_widget_destroy (timeout.dialog);
         g_source_remove (timeout_id);
 
-        if (timeout.response_id == GTK_RESPONSE_ACCEPT)
+        if (timeout.response_id == CTK_RESPONSE_ACCEPT)
                 return TRUE;
         else
                 return FALSE;
@@ -1134,12 +1134,12 @@ error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to
 #else
         CtkWidget *dialog;
 
-        dialog = ctk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
+        dialog = ctk_message_dialog_new (NULL, CTK_DIALOG_MODAL, CTK_MESSAGE_ERROR, CTK_BUTTONS_CLOSE,
                                          "%s", primary_text);
-        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog), "%s",
+        ctk_message_dialog_format_secondary_text (CTK_MESSAGE_DIALOG (dialog), "%s",
                                                   error_to_display ? error_to_display->message : secondary_text);
 
-        ctk_dialog_run (GTK_DIALOG (dialog));
+        ctk_dialog_run (CTK_DIALOG (dialog));
         ctk_widget_destroy (dialog);
 #endif /* HAVE_LIBNOTIFY */
 }
@@ -1387,7 +1387,7 @@ refresh_tray_icon_menu_if_active (MsdXrandrManager *manager, guint32 timestamp)
         MsdXrandrManagerPrivate *priv = manager->priv;
 
         if (priv->popup_menu) {
-                ctk_menu_shell_cancel (GTK_MENU_SHELL (priv->popup_menu)); /* status_icon_popup_menu_selection_done_cb() will free everything */
+                ctk_menu_shell_cancel (CTK_MENU_SHELL (priv->popup_menu)); /* status_icon_popup_menu_selection_done_cb() will free everything */
                 status_icon_popup_menu (manager, 0, timestamp);
         }
 }
@@ -1657,12 +1657,12 @@ run_display_capplet (CtkWidget *widget)
         if (!cafe_gdk_spawn_command_line_on_screen (screen, MSD_XRANDR_DISPLAY_CAPPLET, &error)) {
                 CtkWidget *dialog;
 
-                dialog = ctk_message_dialog_new_with_markup (NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
+                dialog = ctk_message_dialog_new_with_markup (NULL, 0, CTK_MESSAGE_ERROR, CTK_BUTTONS_OK,
                                                              "<span weight=\"bold\" size=\"larger\">"
                                                              "Display configuration could not be run"
                                                              "</span>\n\n"
                                                              "%s", error->message);
-                ctk_dialog_run (GTK_DIALOG (dialog));
+                ctk_dialog_run (CTK_DIALOG (dialog));
                 ctk_widget_destroy (dialog);
 
                 g_error_free (error);
@@ -1672,7 +1672,7 @@ run_display_capplet (CtkWidget *widget)
 static void
 popup_menu_configure_display_cb (CtkMenuItem *item, gpointer data)
 {
-        run_display_capplet (GTK_WIDGET (item));
+        run_display_capplet (CTK_WIDGET (item));
 }
 
 static void
@@ -1713,13 +1713,13 @@ title_item_size_allocate_cb (CtkWidget *widget, CtkAllocation *allocation, gpoin
          * avoid recursing into this function.
          */
 
-        g_assert (GTK_IS_MENU_ITEM (widget));
+        g_assert (CTK_IS_MENU_ITEM (widget));
 
-        ctk_menu_item_toggle_size_allocate (GTK_MENU_ITEM (widget), 0);
+        ctk_menu_item_toggle_size_allocate (CTK_MENU_ITEM (widget), 0);
 
         g_signal_handlers_block_by_func (widget, title_item_size_allocate_cb, NULL);
 
-        /* Sigh. There is no way to turn on GTK_ALLOC_NEEDED outside of GTK+
+        /* Sigh. There is no way to turn on CTK_ALLOC_NEEDED outside of CTK+
          * itself; also, since calling size_allocate on a widget with the same
          * allcation is a no-op, we need to allocate with a "different" size
          * first.
@@ -1753,8 +1753,8 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
         struct MsdXrandrManagerPrivate *priv = manager->priv;
 
         item = ctk_menu_item_new ();
-        box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-        image = ctk_image_new_from_icon_name ("computer", GTK_ICON_SIZE_MENU);
+        box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
+        image = ctk_image_new_from_icon_name ("computer", CTK_ICON_SIZE_MENU);
         context = ctk_widget_get_style_context (item);
         ctk_style_context_add_class (context, "xrandr-applet");
 
@@ -1763,12 +1763,12 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
 
         str = g_markup_printf_escaped ("<b>%s</b>", cafe_rr_output_info_get_display_name (output));
         label = ctk_label_new (NULL);
-        ctk_label_set_markup (GTK_LABEL (label), str);
+        ctk_label_set_markup (CTK_LABEL (label), str);
         g_free (str);
 
         /* Add padding around the label to fit the box that we'll draw for color-coding */
-        ctk_label_set_xalign (GTK_LABEL (label), 0.0);
-        ctk_label_set_yalign (GTK_LABEL (label), 0.5);
+        ctk_label_set_xalign (CTK_LABEL (label), 0.0);
+        ctk_label_set_yalign (CTK_LABEL (label), 0.5);
         ctk_widget_set_margin_start (label, OUTPUT_TITLE_ITEM_BORDER + OUTPUT_TITLE_ITEM_PADDING);
         ctk_widget_set_margin_end (label, OUTPUT_TITLE_ITEM_BORDER + OUTPUT_TITLE_ITEM_PADDING);
         ctk_widget_set_margin_top (label, OUTPUT_TITLE_ITEM_BORDER + OUTPUT_TITLE_ITEM_PADDING);
@@ -1777,10 +1777,10 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
         /*Load the icon unless the user has icons in menus turned off*/
         icon_settings = g_settings_new ("org.cafe.interface");
         if (g_settings_get_boolean (icon_settings, "menus-have-icons")){
-            ctk_container_add (GTK_CONTAINER (box), image);
+            ctk_container_add (CTK_CONTAINER (box), image);
             }
-        ctk_container_add (GTK_CONTAINER (box), label);
-        ctk_container_add (GTK_CONTAINER (item), box);
+        ctk_container_add (CTK_CONTAINER (box), label);
+        ctk_container_add (CTK_CONTAINER (item), box);
 
         cafe_rr_labeler_get_rgba_for_output (priv->labeler, output, &color);
 
@@ -1817,8 +1817,8 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
         ctk_css_provider_load_from_data (provider,css, -1, NULL);
 
         ctk_style_context_add_provider (context,
-					GTK_STYLE_PROVIDER (provider),
-					GTK_STYLE_PROVIDER_PRIORITY_FALLBACK);
+					CTK_STYLE_PROVIDER (provider),
+					CTK_STYLE_PROVIDER_PRIORITY_FALLBACK);
 
         g_object_unref (provider);
         g_free (color_string);
@@ -1839,8 +1839,8 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
              "}",
              -1, NULL);
         ctk_style_context_add_provider (context,
-					GTK_STYLE_PROVIDER (provider),
-					GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+					CTK_STYLE_PROVIDER (provider),
+					CTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         /*Deal with the GNOME and *bird themes, match display capplet theme */
         provider2 = ctk_css_provider_new ();
@@ -1865,12 +1865,12 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
                     "}",
                     -1, NULL);
             ctk_style_context_add_provider(context,
-					    GTK_STYLE_PROVIDER (provider2),
-					    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+					    CTK_STYLE_PROVIDER (provider2),
+					    CTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
         /*Keep or take this off all other themes as soon as the theme changes*/
         else{
-            ctk_style_context_remove_provider(context, GTK_STYLE_PROVIDER (provider2));
+            ctk_style_context_remove_provider(context, CTK_STYLE_PROVIDER (provider2));
         }
 
         g_object_unref (provider);
@@ -1934,12 +1934,12 @@ add_unsupported_rotation_item (MsdXrandrManager *manager)
 
         label = ctk_label_new (NULL);
         markup = g_strdup_printf ("<i>%s</i>", _("Rotation not supported"));
-        ctk_label_set_markup (GTK_LABEL (label), markup);
+        ctk_label_set_markup (CTK_LABEL (label), markup);
         g_free (markup);
-        ctk_container_add (GTK_CONTAINER (item), label);
+        ctk_container_add (CTK_CONTAINER (item), label);
 
         ctk_widget_show_all (item);
-        ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+        ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
 }
 
 static void
@@ -2067,7 +2067,7 @@ mirror_outputs_cb(CtkCheckMenuItem *item, gpointer data)
                 config = make_primary_only_setup (screen);
                 /*If nothing worked, bring up the display capplet so the user can reconfigure*/
                 if (config == NULL)
-                         run_display_capplet(GTK_WIDGET(item));
+                         run_display_capplet(CTK_WIDGET(item));
                 cafe_rr_config_save (config, NULL);
                 try_to_apply_intended_configuration (manager, NULL, ctk_get_current_event_time (), NULL);
 
@@ -2121,7 +2121,7 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
                     ctk_widget_set_sensitive (item, FALSE); /*Rotation can't be set from the OFF state*/
                 }
                 ctk_widget_show_all (item);
-                ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+                ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
 
                 g_object_set_data (G_OBJECT (item), "output", output);
                 g_object_set_data (G_OBJECT (item), "rotation", GINT_TO_POINTER (rot));
@@ -2129,7 +2129,7 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
                 activate_id = g_signal_connect (item, "activate",
                                                 G_CALLBACK (output_rotation_item_activate_cb), manager);
 
-                group = ctk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (item));
+                group = ctk_radio_menu_item_get_group (CTK_RADIO_MENU_ITEM (item));
 
                 if (rot == cafe_rr_output_info_get_rotation (output)) {
                         active_item = item;
@@ -2143,7 +2143,7 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
                  */
                 g_signal_handler_block (active_item, active_item_activate_id);
 
-                ctk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (active_item), TRUE);
+                ctk_check_menu_item_set_active (CTK_CHECK_MENU_ITEM (active_item), TRUE);
 
                 g_signal_handler_unblock (active_item, active_item_activate_id);
         }
@@ -2175,16 +2175,16 @@ add_enable_option_for_output (MsdXrandrManager *manager, CafeRROutputInfo *outpu
         item = ctk_check_menu_item_new();
 
         if (cafe_rr_output_info_is_active (output)){
-                ctk_menu_item_set_label (GTK_MENU_ITEM(item), _("ON"));
+                ctk_menu_item_set_label (CTK_MENU_ITEM(item), _("ON"));
                 ctk_widget_set_tooltip_text(item, _("Turn this monitor off"));
         }
         else {
-                ctk_menu_item_set_label (GTK_MENU_ITEM(item), _("OFF"));
+                ctk_menu_item_set_label (CTK_MENU_ITEM(item), _("OFF"));
                 ctk_widget_set_tooltip_text(item, _("Turn this monitor on"));
         }
 
         ctk_widget_show_all (item);
-        ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+        ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
 
         g_object_set_data (G_OBJECT (item), "output", output);
 
@@ -2197,10 +2197,10 @@ add_enable_option_for_output (MsdXrandrManager *manager, CafeRROutputInfo *outpu
         g_signal_handler_block (item, activate_id);
 
         if (cafe_rr_output_info_is_active (output)){
-            ctk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), TRUE);
+            ctk_check_menu_item_set_active(CTK_CHECK_MENU_ITEM(item), TRUE);
         }
         else{
-            ctk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), FALSE);
+            ctk_check_menu_item_set_active(CTK_CHECK_MENU_ITEM(item), FALSE);
         }
 
         g_signal_handler_unblock (item, activate_id);
@@ -2213,7 +2213,7 @@ add_menu_items_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
         CtkWidget *item;
 
         item = make_menu_item_for_output_title (manager, output);
-        ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+        ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
 
         add_enable_option_for_output (manager, output);
         add_rotation_items_for_output (manager, output);
@@ -2243,17 +2243,17 @@ add_menu_items_for_clone (MsdXrandrManager *manager)
         item = ctk_check_menu_item_new_with_label(_("Same output all monitors"));
         ctk_widget_set_tooltip_text(item, _("Mirror same output to all monitors and turn them on"));
         ctk_widget_show_all (item);
-        ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+        ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
         activate_id =  g_signal_connect (item, "activate",
                                 G_CALLBACK (mirror_outputs_cb), manager);
         /*Block the handler until the GUI is set up no matter what the monitor state*/
         g_signal_handler_block (item, activate_id);
 
         if (cafe_rr_config_get_clone(priv->configuration)){
-            ctk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), TRUE);
+            ctk_check_menu_item_set_active(CTK_CHECK_MENU_ITEM(item), TRUE);
         }
         else{
-            ctk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), FALSE);
+            ctk_check_menu_item_set_active(CTK_CHECK_MENU_ITEM(item), FALSE);
         }
         g_signal_handler_unblock (item, activate_id);
 }
@@ -2281,28 +2281,28 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
 
         item = ctk_separator_menu_item_new ();
         ctk_widget_show (item);
-        ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+        ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
 
         add_menu_items_for_clone (manager);
 
         item = ctk_menu_item_new();
-        box = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 10);
-        image = ctk_image_new_from_icon_name ("preferences-system", GTK_ICON_SIZE_MENU);
+        box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 10);
+        image = ctk_image_new_from_icon_name ("preferences-system", CTK_ICON_SIZE_MENU);
         label = ctk_label_new_with_mnemonic(_("_Configure Display Settings…"));
         /*Load the icon unless the user has icons in menus turned off*/
         icon_settings = g_settings_new ("org.cafe.interface");
         if (g_settings_get_boolean (icon_settings, "menus-have-icons")){
-            ctk_container_add (GTK_CONTAINER (box), image);
+            ctk_container_add (CTK_CONTAINER (box), image);
             g_signal_connect (item, "size-allocate",
                           G_CALLBACK (title_item_size_allocate_cb), NULL);
             }
-        ctk_container_add (GTK_CONTAINER (box), label);
-        ctk_container_add (GTK_CONTAINER (item), box);
+        ctk_container_add (CTK_CONTAINER (box), label);
+        ctk_container_add (CTK_CONTAINER (item), box);
         ctk_widget_set_tooltip_text(item, _("Open the display configuration dialog (all settings)"));
         g_signal_connect (item, "activate",
                           G_CALLBACK (popup_menu_configure_display_cb), manager);
         ctk_widget_show_all (item);
-        ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
+        ctk_menu_shell_append (CTK_MENU_SHELL (priv->popup_menu), item);
 
         g_signal_connect (priv->popup_menu, "selection-done",
                           G_CALLBACK (status_icon_popup_menu_selection_done_cb), manager);
@@ -2310,16 +2310,16 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
         /*Set up custom theming and forced transparency support*/
         CtkWidget *toplevel = ctk_widget_get_toplevel (priv->popup_menu);
         /*Fix any failures of compiz/other wm's to communicate with ctk for transparency */
-        GdkScreen *screen = ctk_widget_get_screen(GTK_WIDGET(toplevel));
+        GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
-        ctk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+        ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
         /*Set up the ctk theme class from cafe-panel*/
         CtkStyleContext *context;
-        context = ctk_widget_get_style_context (GTK_WIDGET(toplevel));
+        context = ctk_widget_get_style_context (CTK_WIDGET(toplevel));
         ctk_style_context_add_class(context,"gnome-panel-menu-bar");
         ctk_style_context_add_class(context,"cafe-panel-menu-bar");
 
-        ctk_menu_popup (GTK_MENU (priv->popup_menu), NULL, NULL,
+        ctk_menu_popup (CTK_MENU (priv->popup_menu), NULL, NULL,
                         ctk_status_icon_position_menu,
                         priv->status_icon, button, timestamp);
 }

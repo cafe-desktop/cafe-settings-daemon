@@ -18,7 +18,7 @@ test_a11y_preferences_dialog_SOURCES =		\
 test_a11y_preferences_dialog_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon			\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
-	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
+	-DCTKBUILDERDIR=\""$(pkgdatadir)"\"			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
@@ -49,7 +49,7 @@ liba11y_keyboard_la_SOURCES = 		\
 liba11y_keyboard_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
-	-DGTKBUILDERDIR=\""$(ctkbuilderdir)"\" \
+	-DCTKBUILDERDIR=\""$(ctkbuilderdir)"\" \
 	$(AM_CPPFLAGS)
 
 liba11y_keyboard_la_CFLAGS =		\

@@ -181,14 +181,14 @@
   * bump required version of cafe-desktop
   * HiDPI: Load xsettings during initialization phase
   * Add HiDPI configuration in XSettings
-  * require GTK+ 3.22 and GLib 2.50
+  * require CTK+ 3.22 and GLib 2.50
   * Add support for HiDPI displays
 
 ### cafe-settings-daemon 1.19.2
 
   * Translations update
   * plugins: G_GNUC_UNUSED in unused but needed variables
-  * xsettings: drop CanChangeAccels which won't work with GTK+3
+  * xsettings: drop CanChangeAccels which won't work with CTK+3
   * msd-datetime-mechanism.c: Fix build warnings:
   * msd-mpris-manager.c: Fix build warning:
   * configure.ac: drop GLIB_VERSION_MAX_ALLOWED
@@ -217,7 +217,7 @@
   * Restore Polish translation credits from GNOME
   * msd-xrandr-manager: avoid deprecated ctk_misc_set_padding
   * keyboard plugin: apply panel menu theme to popup menu
-  * ldsm-dialog: don't use deprecated GTK_STOCK
+  * ldsm-dialog: don't use deprecated CTK_STOCK
   * ldsm-dialog: set max width chars for labels
   * datetime: fix a Wunused-but-set-variable warning
   * add GlobalMenu support
@@ -229,29 +229,29 @@
   * Build: require XInput unconditionally
   * Build: require libcafemixer >= 1.10, libxklavier >= 5.2, dconf >= 0.13
   * Build: require libcafekbd and libcafe-desktop >= 1.17
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
+  * Move to CTK+3 (require CTK+ >= 3.14), drop CTK+2 code and --with-ctk
     build option
   * Add libinput support for mouse and touchpad
   * Touchpad: add separate settings for handedness (left/right-handed)
     and motion acceleration/threshold
-  * Background: restore option to let Caja draw background with GTK+ 3.22
+  * Background: restore option to let Caja draw background with CTK+ 3.22
   * Some fixes and cleanups
   * Translations update
 
 ### cafe-settings-daemon 1.16.1
 
-  * GTK+3: fix possible build breakage with libcafe-desktop 1.17
-  * GTK+3: fix OSD rendering on non-composited desktop
-  * GTK+3: add OSD style class for non-composited desktop
+  * CTK+3: fix possible build breakage with libcafe-desktop 1.17
+  * CTK+3: fix OSD rendering on non-composited desktop
+  * CTK+3: add OSD style class for non-composited desktop
 
 ### cafe-settings-daemon 1.16.0
 
   * Change default hinting style to 'hintslight'
   * Use 'rgba' (LCD subpixel) antialiasing by default
-  * GTK+3: add css theming for OSD (MsdOsdWindow) instead of using
+  * CTK+3: add css theming for OSD (MsdOsdWindow) instead of using
     hardcoded colors
-  * GTK+3: fix drawing and changing of desktop background with 3.21
-  * GTK+3: fix several deprecations
+  * CTK+3: fix drawing and changing of desktop background with 3.21
+  * CTK+3: fix several deprecations
   * Fix some build warnings
   * Translations update
 
@@ -261,7 +261,7 @@
   * housekeeping: fix text markup
   * media-keys: use gnome-calculator binary instead of old gcalctool
   * Translations update
-  * Make distcheck use currently selected GTK+ version
+  * Make distcheck use currently selected CTK+ version
 
 ### cafe-settings-daemon 1.14.0
 
@@ -270,7 +270,7 @@
   * touchpad: support edge and two-finger scrolling independently
     (use separate GSettings keys for them)
   * xsettings: add settings for cursor theme and size
-  * GTK+3: several deprecation fixes
+  * CTK+3: several deprecation fixes
   * Some more fixes and cleanups
   * Translations update
   * Fix Changelog generation
@@ -278,7 +278,7 @@
 ### cafe-settings-daemon 1.12.1
 
   * xrandr: install icon in correct directory
-  * GTK+3: don't remove xrandr applet background (fixes invisible
+  * CTK+3: don't remove xrandr applet background (fixes invisible
     text in some themes)
 
 ### cafe-settings-daemon 1.12.0
@@ -289,7 +289,7 @@
   * Touchpad settings: added support for natural scrolling, 2 finger
     and 3 finger clicks
   * Mouse: use syndaemon -K to ignore Ctrl+C and other combos
-  * GTK+3: make xrandr tray applet support custom panel themes
+  * CTK+3: make xrandr tray applet support custom panel themes
   * Some more fixes and cleanups
 
 ### cafe-settings-daemon 1.10.2
@@ -314,7 +314,7 @@
 
 ### cafe-settings-daemon 1.8.0
 
-  * Add GTK3 support
+  * Add CTK3 support
   * Add Middle Click Emulation to mouse manager
 
 ### cafe-settings-daemon 1.6.0

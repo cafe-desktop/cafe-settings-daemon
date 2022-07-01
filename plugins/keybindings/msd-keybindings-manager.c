@@ -481,8 +481,8 @@ keybindings_filter (GdkXEvent             *gdk_xevent,
                         g_strfreev (envp);
 
                         if (!retval) {
-                                CtkWidget *dialog = ctk_message_dialog_new (NULL, 0, GTK_MESSAGE_WARNING,
-                                                                            GTK_BUTTONS_CLOSE,
+                                CtkWidget *dialog = ctk_message_dialog_new (NULL, 0, CTK_MESSAGE_WARNING,
+                                                                            CTK_BUTTONS_CLOSE,
                                                                             _("Error while trying to run (%s)\n"\
                                                                               "which is linked to the key (%s)"),
                                                                             binding->action,

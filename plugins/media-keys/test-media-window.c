@@ -138,7 +138,7 @@ test_window (void)
         CtkWidget *window;
 
         window = msd_media_keys_window_new ();
-        ctk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER_ALWAYS);
+        ctk_window_set_position (CTK_WINDOW (window), CTK_WIN_POS_CENTER_ALWAYS);
 
         msd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
                                                 0);
