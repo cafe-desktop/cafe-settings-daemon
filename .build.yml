@@ -39,6 +39,7 @@ requires:
     - libtool
     - make
     - policykit-1
+    - wget
     - x11proto-kb-dev
 
     #packages required for ctk
