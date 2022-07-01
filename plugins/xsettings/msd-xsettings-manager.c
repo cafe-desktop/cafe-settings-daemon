@@ -34,8 +34,8 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 #include <ctk/ctk.h>
 #include <gio/gio.h>
 
@@ -235,16 +235,16 @@ get_window_scale_auto ()
         int width_mm, height_mm;
         int monitor_scale, window_scale;
 
-        display = gdk_display_get_default ();
-        monitor = gdk_display_get_primary_monitor (display);
+        display = cdk_display_get_default ();
+        monitor = cdk_display_get_primary_monitor (display);
 
         /* Use current value as the default */
         window_scale = 1;
 
-        gdk_monitor_get_geometry (monitor, &rect);
-        width_mm = gdk_monitor_get_width_mm (monitor);
-        height_mm = gdk_monitor_get_height_mm (monitor);
-        monitor_scale = gdk_monitor_get_scale_factor (monitor);
+        cdk_monitor_get_geometry (monitor, &rect);
+        width_mm = cdk_monitor_get_width_mm (monitor);
+        height_mm = cdk_monitor_get_height_mm (monitor);
+        monitor_scale = cdk_monitor_get_scale_factor (monitor);
 
         if (rect.height * monitor_scale < HIDPI_MIN_HEIGHT)
                 return 1;
@@ -307,11 +307,11 @@ get_dpi_from_x_server (void)
         GdkScreen *screen;
         double     dpi;
 
-        screen = gdk_screen_get_default ();
+        screen = cdk_screen_get_default ();
         if (screen != NULL) {
                 double width_dpi, height_dpi;
 
-                Screen *xscreen = gdk_x11_screen_get_xscreen (screen);
+                Screen *xscreen = cdk_x11_screen_get_xscreen (screen);
 
                 width_dpi = dpi_from_pixels_and_mm (WidthOfScreen (xscreen), WidthMMOfScreen (xscreen));
                 height_dpi = dpi_from_pixels_and_mm (HeightOfScreen (xscreen), HeightMMOfScreen (xscreen));
@@ -871,10 +871,10 @@ setup_xsettings_managers (CafeXSettingsManager *manager)
         gboolean    res;
         gboolean    terminated;
 
-        display = gdk_display_get_default ();
+        display = cdk_display_get_default ();
 
-        res = xsettings_manager_check_running (gdk_x11_display_get_xdisplay (display),
-                                               gdk_x11_screen_get_screen_number (gdk_screen_get_default ()));
+        res = xsettings_manager_check_running (cdk_x11_display_get_xdisplay (display),
+                                               cdk_x11_screen_get_screen_number (cdk_screen_get_default ()));
         if (res) {
                 g_warning ("You can only run one xsettings manager at a time; exiting");
                 return FALSE;
@@ -886,10 +886,10 @@ setup_xsettings_managers (CafeXSettingsManager *manager)
 
         GdkScreen *screen;
 
-        screen = gdk_display_get_default_screen (display);
+        screen = cdk_display_get_default_screen (display);
 
-        manager->priv->managers [0] = xsettings_manager_new (gdk_x11_display_get_xdisplay (display),
-                                                             gdk_x11_screen_get_screen_number (screen),
+        manager->priv->managers [0] = xsettings_manager_new (cdk_x11_display_get_xdisplay (display),
+                                                             cdk_x11_screen_get_screen_number (screen),
                                                              terminate_cb,
                                                              &terminated);
         if (! manager->priv->managers [0]) {
@@ -955,7 +955,7 @@ cafe_xsettings_manager_start (CafeXSettingsManager *manager,
         }
 
         /* Detect changes in screen resolution */
-        screen = gdk_screen_get_default();
+        screen = cdk_screen_get_default();
         g_signal_connect(screen, "size-changed", G_CALLBACK (recalculate_scale_callback), manager);
         g_signal_connect(screen, "monitors-changed", G_CALLBACK (recalculate_scale_callback), manager);
 

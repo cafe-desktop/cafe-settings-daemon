@@ -140,16 +140,16 @@
   * daemon: Stop using deprecated GSettings API
   * require cafe-desktop-1.21.1
   * xsettings: add setting to enable/disable primary paste from middlemouse
-  * xsettings: replace deprecated gdk_error_trap_push/pop
-  * xrandr-manager: replace deprecated gdk_error_trap_push/pop
-  * mouse-manager: replace deprecated gdk_error_trap_push/pop
+  * xsettings: replace deprecated cdk_error_trap_push/pop
+  * xrandr-manager: replace deprecated cdk_error_trap_push/pop
+  * mouse-manager: replace deprecated cdk_error_trap_push/pop
   * media-keys-manager: replace deprecated GdkDeviceManager
-  * keyboard-manager: replace deprecated gdk_error_trap_push/pop
-  * clipboard-manager: replace deprecated gdk_error_trap_push/pop
+  * keyboard-manager: replace deprecated cdk_error_trap_push/pop
+  * clipboard-manager: replace deprecated cdk_error_trap_push/pop
   * background-manager: replace deprecated GDK functions
-  * a11y-keyboard-manager: replace deprecated gdk_error_trap_push/pop
-  * msd-input-helper: replace deprecated gdk_error_trap_push/pop
-  * plugins: avoid deprecated 'gdk_keymap_get_default'
+  * a11y-keyboard-manager: replace deprecated cdk_error_trap_push/pop
+  * msd-input-helper: replace deprecated cdk_error_trap_push/pop
+  * plugins: avoid deprecated 'cdk_keymap_get_default'
 
 ### cafe-settings-daemon 1.21.0
 
@@ -199,19 +199,19 @@
   * touchpad: disable clickfinger by default
   * WidthOfScreen and HeightOfScreen implementation
   * msd-keyboard-xkb: Fix Gdk-CRITICAL warning on creating status bar icon
-  * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
 
 ### cafe-settings-daemon 1.19.0
 
   * Translations update
   * configure: bump CAFE_DESKTOP_REQUIRED_VERSION
-  * ctk 3.22: avoid deprecated gdk_screen_get_width/height_mm
-  * avoid deprecated gdk_screen_get_width/height
-  * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
+  * ctk 3.22: avoid deprecated cdk_screen_get_width/height_mm
+  * avoid deprecated cdk_screen_get_width/height
+  * avoid deprecated cdk_display_get_screen and cdk_display_get_n_screens
   * msd-a11y-preferences-dialog.ui: clean up deprecations
   * ally-keyboard: fix help link
   * don't use deprecated ctk_show_uri
-  * avoid deprecated gdk_screen_get_number
+  * avoid deprecated cdk_screen_get_number
   * Fix Xrandr applet dying on restart
   * Request keyboard event reports from global keybindings of other windows (#179)
   * Restore Polish translation credits from GNOME

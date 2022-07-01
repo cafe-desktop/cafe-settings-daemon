@@ -26,8 +26,8 @@
 #include <time.h>
 
 #include <glib/gi18n.h>
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 #include <ctk/ctk.h>
 #include <gio/gio.h>
 
@@ -103,8 +103,8 @@ g_strv_behead (gchar **arr)
 static void
 activation_error (void)
 {
-	char const *vendor = ServerVendor (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()));
-	int release = VendorRelease (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()));
+	char const *vendor = ServerVendor (GDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
+	int release = VendorRelease (GDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
 	CtkWidget *dialog;
 
 	/* VNC viewers will not work, do not barrage them with warnings */
@@ -172,7 +172,7 @@ popup_menu_launch_capplet ()
 	info = g_app_info_create_from_commandline ("cafe-keyboard-properties", NULL, 0, &error);
 
 	if (info != NULL) {
-		context = gdk_display_get_app_launch_context (gdk_display_get_default ());
+		context = cdk_display_get_app_launch_context (cdk_display_get_default ());
 		g_app_info_launch (info, NULL,
 				   G_APP_LAUNCH_CONTEXT (context), &error);
 
@@ -198,7 +198,7 @@ static void
 popup_menu_show_layout ()
 {
 	CtkWidget *dialog;
-	XklEngine *engine = xkl_engine_get_instance (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
+	XklEngine *engine = xkl_engine_get_instance (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 	XklState *xkl_state = xkl_engine_get_current_state (engine);
 	gpointer p = g_hash_table_lookup (preview_dialogs,
 					  GINT_TO_POINTER
@@ -244,7 +244,7 @@ popup_menu_set_group (CtkMenuItem * item, gpointer param)
 		xkl_engine_save_state (engine,
 				       xkl_engine_get_current_window
 				       (engine), &st);
-/*    XSetInputFocus(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), cur, RevertToNone, CurrentTime );*/
+/*    XSetInputFocus(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()), cur, RevertToNone, CurrentTime );*/
 	} else {
 		xkl_debug (150,
 			   "??? Enforcing the state %d for unknown window\n",
@@ -267,7 +267,7 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 	toplevel = ctk_widget_get_toplevel (CTK_WIDGET(popup_menu));
 	/* Fix any failures of compiz/other wm's to communicate with ctk for transparency */
 	screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-	visual = gdk_screen_get_rgba_visual(screen);
+	visual = cdk_screen_get_rgba_visual(screen);
 	ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
 	/* Set menu and it's toplevel window to follow panel theme */
 	context = ctk_widget_get_style_context (CTK_WIDGET(toplevel));
@@ -302,7 +302,7 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 			    ctk_menu_item_new_with_label (*current_name);
 		} else {
 			GdkPixbuf *pixbuf =
-			    gdk_pixbuf_new_from_file_at_size (image_file,
+			    cdk_pixbuf_new_from_file_at_size (image_file,
 							      24, 24,
 							      NULL);
 			CtkWidget *img =
@@ -516,7 +516,7 @@ msd_keyboard_update_indicator_icons ()
 {
 	Bool state;
 	int new_state, i;
-	Display *display = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+	Display *display = GDK_DISPLAY_XDISPLAY(cdk_display_get_default());
 	XkbGetNamedIndicator (display, caps_lock, NULL, &state,
 			      NULL, NULL);
 	new_state = state ? 1 : 0;
@@ -558,7 +558,7 @@ void
 msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 {
 	int i;
-	Display *display = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+	Display *display = GDK_DISPLAY_XDISPLAY(cdk_display_get_default());
 	cafe_settings_profile_start (NULL);
 
 	ctk_icon_theme_append_search_path (ctk_icon_theme_get_default (),
@@ -609,7 +609,7 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 		g_signal_connect (settings_kbd, "changed",
 		                  G_CALLBACK (apply_xkb_settings_cb), NULL);
 
-		gdk_window_add_filter (NULL, (GdkFilterFunc)
+		cdk_window_add_filter (NULL, (GdkFilterFunc)
 				       msd_keyboard_xkb_evt_filter, NULL);
 
 		if (xkl_engine_get_features (xkl_engine) &
@@ -663,7 +663,7 @@ msd_keyboard_xkb_shutdown (void)
 				XKLL_MANAGE_LAYOUTS |
 				XKLL_MANAGE_WINDOW_STATES);
 
-	gdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (GdkFilterFunc)
 				  msd_keyboard_xkb_evt_filter, NULL);
 
 	if (settings_desktop != NULL) {

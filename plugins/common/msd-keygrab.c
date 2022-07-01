@@ -22,12 +22,12 @@
 
 #include "config.h"
 
-#include <gdk/gdk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdk.h>
+#include <cdk/cdkx.h>
 #ifdef HAVE_X11_EXTENSIONS_XKB_H
 #include <X11/XKBlib.h>
 #include <X11/extensions/XKB.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 #endif
 
 #include "eggaccelerators.h"
@@ -58,7 +58,7 @@ setup_modifiers (void)
                 /* NumLock can be assigned to varying keys so we need to
                  * resolve and ignore it specially */
                 dynmods = 0;
-                egg_keymap_resolve_virtual_modifiers (gdk_keymap_get_for_display (gdk_display_get_default ()),
+                egg_keymap_resolve_virtual_modifiers (cdk_keymap_get_for_display (cdk_display_get_default ()),
                                                       EGG_VIRTUAL_NUM_LOCK_MASK,
                                                       &dynmods);
 
@@ -74,7 +74,7 @@ grab_key_real (guint      keycode,
                int        mask)
 {
         if (grab) {
-                XGrabKey (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+                XGrabKey (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                           keycode,
                           mask,
                           GDK_WINDOW_XID (root),
@@ -82,7 +82,7 @@ grab_key_real (guint      keycode,
                           GrabModeAsync,
                           GrabModeAsync);
         } else {
-                XUngrabKey (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+                XUngrabKey (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                             keycode,
                             mask,
                             GDK_WINDOW_XID (root));
@@ -97,12 +97,12 @@ grab_key_real (guint      keycode,
  *
  * This may generate X errors.  The correct way to use this is like:
  *
- *        gdk_error_trap_push ();
+ *        cdk_error_trap_push ();
  *
  *        grab_key_unsafe (key, grab, screens);
  *
- *        gdk_flush ();
- *        if (gdk_error_trap_pop ())
+ *        cdk_flush ();
+ *        if (cdk_error_trap_pop ())
  *                g_warning ("Grab failed, another application may already have access to key '%u'",
  *                           key->keycode);
  *
@@ -156,7 +156,7 @@ grab_key_unsafe (Key                 *key,
 
                         for (code = key->keycodes; *code; ++code) {
                                 grab_key_real (*code,
-                                               gdk_screen_get_root_window (screen),
+                                               cdk_screen_get_root_window (screen),
                                                grab,
                                                result | key->state);
                         }
@@ -222,12 +222,12 @@ match_key (Key *key, XEvent *event)
 		group = (event->xkey.state & GDK_KEY_Mode_switch) ? 1 : 0;
 
 	/* Check if we find a keysym that matches our current state */
-	if (gdk_keymap_translate_keyboard_state (gdk_keymap_get_for_display (gdk_display_get_default ()), event->xkey.keycode,
+	if (cdk_keymap_translate_keyboard_state (cdk_keymap_get_for_display (cdk_display_get_default ()), event->xkey.keycode,
 					     event->xkey.state, group,
 					     &keyval, NULL, NULL, &consumed)) {
 		guint lower, upper;
 
-		gdk_keyval_convert_case (keyval, &lower, &upper);
+		cdk_keyval_convert_case (keyval, &lower, &upper);
 
 		/* If we are checking against the lower version of the
 		 * keysym, we might need the Shift state for matching,

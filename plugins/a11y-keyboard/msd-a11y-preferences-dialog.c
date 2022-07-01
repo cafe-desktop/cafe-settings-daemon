@@ -29,7 +29,7 @@
 #include <glib/gi18n.h>
 #include <glib-object.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include <dbus/dbus-glib.h>
 
@@ -169,14 +169,14 @@ get_dpi_from_x_server (void)
         double     dpi;
         int        scale;
 
-        screen = gdk_screen_get_default ();
+        screen = cdk_screen_get_default ();
         if (screen != NULL) {
                 double width_dpi;
                 double height_dpi;
 
-                Screen *xscreen = gdk_x11_screen_get_xscreen (screen);
+                Screen *xscreen = cdk_x11_screen_get_xscreen (screen);
 
-                scale = gdk_window_get_scale_factor (gdk_screen_get_root_window (screen));
+                scale = cdk_window_get_scale_factor (cdk_screen_get_root_window (screen));
                 width_dpi = dpi_from_pixels_and_mm (WidthOfScreen (xscreen), WidthMMOfScreen (xscreen));
                 height_dpi = dpi_from_pixels_and_mm (HeightOfScreen (xscreen), HeightMMOfScreen (xscreen));
 

@@ -222,7 +222,7 @@ msd_timeline_init (MsdTimeline *timeline)
   priv->fps = DEFAULT_FPS;
   priv->duration = 0;
   priv->direction = MSD_TIMELINE_DIRECTION_FORWARD;
-  priv->screen = gdk_screen_get_default ();
+  priv->screen = cdk_screen_get_default ();
 }
 
 static void
@@ -469,7 +469,7 @@ msd_timeline_start (MsdTimeline *timeline)
 
 	  g_signal_emit (timeline, signals [STARTED], 0);
 
-	  priv->source_id = gdk_threads_add_timeout (FRAME_INTERVAL (priv->fps),
+	  priv->source_id = cdk_threads_add_timeout (FRAME_INTERVAL (priv->fps),
 						     (GSourceFunc) msd_timeline_frame_idle_func,
 						     timeline);
 	}
@@ -601,7 +601,7 @@ msd_timeline_set_fps (MsdTimeline *timeline,
   if (msd_timeline_is_running (timeline))
     {
       g_source_remove (priv->source_id);
-      priv->source_id = gdk_threads_add_timeout (FRAME_INTERVAL (priv->fps),
+      priv->source_id = cdk_threads_add_timeout (FRAME_INTERVAL (priv->fps),
 						 (GSourceFunc) msd_timeline_run_frame,
 						 timeline);
     }

@@ -21,7 +21,7 @@
 #include <string.h>
 
 #include <ctk/ctk.h>
-#include <gdk/gdkx.h>
+#include <cdk/cdkx.h>
 
 #include "delayed-dialog.h"
 
@@ -49,11 +49,11 @@ msd_delayed_show_dialog (CtkWidget *dialog)
         char selection_name[10];
         Atom selection_atom;
 
-        /* We can't use gdk_selection_owner_get() for this, because
+        /* We can't use cdk_selection_owner_get() for this, because
          * it's an unknown out-of-process window.
          */
         snprintf (selection_name, sizeof (selection_name), "WM_S%d",
-                  gdk_x11_screen_get_screen_number (screen));
+                  cdk_x11_screen_get_screen_number (screen));
         selection_atom = XInternAtom (xdisplay, selection_name, True);
         if (selection_atom &&
             XGetSelectionOwner (xdisplay, selection_atom) != None) {
@@ -63,7 +63,7 @@ msd_delayed_show_dialog (CtkWidget *dialog)
 
         dialogs = g_slist_prepend (dialogs, dialog);
 
-        gdk_window_add_filter (NULL, message_filter, NULL);
+        cdk_window_add_filter (NULL, message_filter, NULL);
 
         g_timeout_add (5000, delayed_show_timeout, NULL);
 }
@@ -78,7 +78,7 @@ delayed_show_timeout (gpointer data)
         g_slist_free (dialogs);
         dialogs = NULL;
 
-        /* FIXME: There's no gdk_display_remove_client_message_filter */
+        /* FIXME: There's no cdk_display_remove_client_message_filter */
 
         return FALSE;
 }
@@ -112,14 +112,14 @@ message_filter (GdkXEvent *xevent, GdkEvent *event, gpointer data)
                 CtkWidget *dialog = l->data;
                 next = l->next;
 
-                if (gdk_x11_screen_get_screen_number (ctk_widget_get_screen (dialog)) == screen) {
+                if (cdk_x11_screen_get_screen_number (ctk_widget_get_screen (dialog)) == screen) {
                         ctk_widget_show (dialog);
                         dialogs = g_slist_remove (dialogs, dialog);
                 }
         }
 
         if (!dialogs) {
-                gdk_window_remove_filter (NULL, message_filter, NULL);
+                cdk_window_remove_filter (NULL, message_filter, NULL);
         }
 
         XFree (selection_name);
