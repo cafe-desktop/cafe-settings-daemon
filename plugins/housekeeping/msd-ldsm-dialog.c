@@ -49,7 +49,7 @@ struct MsdLdsmDialogPrivate
         gchar *mount_path;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdLdsmDialog, msd_ldsm_dialog, GTK_TYPE_DIALOG);
+G_DEFINE_TYPE_WITH_PRIVATE (MsdLdsmDialog, msd_ldsm_dialog, CTK_TYPE_DIALOG);
 
 static const gchar*
 msd_ldsm_dialog_get_checkbutton_text (MsdLdsmDialog *dialog)
@@ -195,37 +195,37 @@ msd_ldsm_dialog_init (MsdLdsmDialog *dialog)
 
         dialog->priv = msd_ldsm_dialog_get_instance_private (dialog);
 
-        main_vbox = ctk_dialog_get_content_area (GTK_DIALOG (dialog));
+        main_vbox = ctk_dialog_get_content_area (CTK_DIALOG (dialog));
 
         /* Set up all the window stuff here */
-        ctk_window_set_title (GTK_WINDOW (dialog), _("Low Disk Space"));
-        ctk_window_set_icon_name (GTK_WINDOW (dialog),
+        ctk_window_set_title (CTK_WINDOW (dialog), _("Low Disk Space"));
+        ctk_window_set_icon_name (CTK_WINDOW (dialog),
                                   "dialog-warning");
-        ctk_window_set_resizable (GTK_WINDOW (dialog), FALSE);
-        ctk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
-        ctk_window_set_urgency_hint (GTK_WINDOW (dialog), TRUE);
-        ctk_window_set_focus_on_map (GTK_WINDOW (dialog), FALSE);
-        ctk_container_set_border_width (GTK_CONTAINER (dialog), 5);
+        ctk_window_set_resizable (CTK_WINDOW (dialog), FALSE);
+        ctk_window_set_position (CTK_WINDOW (dialog), CTK_WIN_POS_CENTER);
+        ctk_window_set_urgency_hint (CTK_WINDOW (dialog), TRUE);
+        ctk_window_set_focus_on_map (CTK_WINDOW (dialog), FALSE);
+        ctk_container_set_border_width (CTK_CONTAINER (dialog), 5);
 
         /* Create the image */
-        image = ctk_image_new_from_icon_name ("dialog-warning", GTK_ICON_SIZE_DIALOG);
-        ctk_widget_set_halign (image, GTK_ALIGN_START);
-        ctk_widget_set_valign (image, GTK_ALIGN_END);
+        image = ctk_image_new_from_icon_name ("dialog-warning", CTK_ICON_SIZE_DIALOG);
+        ctk_widget_set_halign (image, CTK_ALIGN_START);
+        ctk_widget_set_valign (image, CTK_ALIGN_END);
 
         /* Create the labels */
         dialog->priv->primary_label = ctk_label_new (NULL);
-        ctk_label_set_line_wrap (GTK_LABEL (dialog->priv->primary_label), TRUE);
-        ctk_label_set_single_line_mode (GTK_LABEL (dialog->priv->primary_label), FALSE);
-        ctk_label_set_max_width_chars (GTK_LABEL (dialog->priv->primary_label), 70);
-        ctk_label_set_xalign (GTK_LABEL (dialog->priv->primary_label), 0.0);
-        ctk_label_set_yalign (GTK_LABEL (dialog->priv->primary_label), 0.0);
+        ctk_label_set_line_wrap (CTK_LABEL (dialog->priv->primary_label), TRUE);
+        ctk_label_set_single_line_mode (CTK_LABEL (dialog->priv->primary_label), FALSE);
+        ctk_label_set_max_width_chars (CTK_LABEL (dialog->priv->primary_label), 70);
+        ctk_label_set_xalign (CTK_LABEL (dialog->priv->primary_label), 0.0);
+        ctk_label_set_yalign (CTK_LABEL (dialog->priv->primary_label), 0.0);
 
         dialog->priv->secondary_label = ctk_label_new (NULL);
-        ctk_label_set_line_wrap (GTK_LABEL (dialog->priv->secondary_label), TRUE);
-        ctk_label_set_single_line_mode (GTK_LABEL (dialog->priv->secondary_label), FALSE);
-        ctk_label_set_max_width_chars (GTK_LABEL (dialog->priv->secondary_label), 70);
-        ctk_label_set_xalign (GTK_LABEL (dialog->priv->secondary_label), 0.0);
-        ctk_label_set_yalign (GTK_LABEL (dialog->priv->secondary_label), 0.0);
+        ctk_label_set_line_wrap (CTK_LABEL (dialog->priv->secondary_label), TRUE);
+        ctk_label_set_single_line_mode (CTK_LABEL (dialog->priv->secondary_label), FALSE);
+        ctk_label_set_max_width_chars (CTK_LABEL (dialog->priv->secondary_label), 70);
+        ctk_label_set_xalign (CTK_LABEL (dialog->priv->secondary_label), 0.0);
+        ctk_label_set_yalign (CTK_LABEL (dialog->priv->secondary_label), 0.0);
 
         /* Create the check button to ignore future warnings */
         dialog->priv->ignore_check_button = ctk_check_button_new ();
@@ -233,28 +233,28 @@ msd_ldsm_dialog_init (MsdLdsmDialog *dialog)
          * I suppose it could be possible for the user to manually edit the GSettings key between
          * the mount being checked and the dialog appearing, but I don't think it matters
          * too much */
-        ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->ignore_check_button), FALSE);
+        ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (dialog->priv->ignore_check_button), FALSE);
         g_signal_connect (dialog->priv->ignore_check_button, "toggled",
                           G_CALLBACK (ignore_check_button_toggled_cb), dialog);
 
         /* Now set up the dialog's CtkBox's' */
-        ctk_box_set_spacing (GTK_BOX (main_vbox), 14);
+        ctk_box_set_spacing (CTK_BOX (main_vbox), 14);
 
-        hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
-        ctk_container_set_border_width (GTK_CONTAINER (hbox), 5);
+        hbox = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 12);
+        ctk_container_set_border_width (CTK_CONTAINER (hbox), 5);
 
-        text_vbox = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+        text_vbox = ctk_box_new (CTK_ORIENTATION_VERTICAL, 12);
 
-        ctk_box_pack_start (GTK_BOX (text_vbox), dialog->priv->primary_label, FALSE, FALSE, 0);
-        ctk_box_pack_start (GTK_BOX (text_vbox), dialog->priv->secondary_label, TRUE, TRUE, 0);
-        ctk_box_pack_start (GTK_BOX (text_vbox), dialog->priv->ignore_check_button, FALSE, FALSE, 0);
-        ctk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 0);
-        ctk_box_pack_start (GTK_BOX (hbox), text_vbox, TRUE, TRUE, 0);
-        ctk_box_pack_start (GTK_BOX (main_vbox), hbox, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (text_vbox), dialog->priv->primary_label, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (text_vbox), dialog->priv->secondary_label, TRUE, TRUE, 0);
+        ctk_box_pack_start (CTK_BOX (text_vbox), dialog->priv->ignore_check_button, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (hbox), image, FALSE, FALSE, 0);
+        ctk_box_pack_start (CTK_BOX (hbox), text_vbox, TRUE, TRUE, 0);
+        ctk_box_pack_start (CTK_BOX (main_vbox), hbox, FALSE, FALSE, 0);
 
         /* Set up the action area */
-        ctk_box_set_spacing (GTK_BOX (ctk_dialog_get_action_area (GTK_DIALOG (dialog))), 6);
-        ctk_container_set_border_width (GTK_CONTAINER (ctk_dialog_get_action_area (GTK_DIALOG (dialog))), 5);
+        ctk_box_set_spacing (CTK_BOX (ctk_dialog_get_action_area (CTK_DIALOG (dialog))), 6);
+        ctk_container_set_border_width (CTK_CONTAINER (ctk_dialog_get_action_area (CTK_DIALOG (dialog))), 5);
 
         ctk_widget_show_all (hbox);
 }
@@ -432,39 +432,39 @@ msd_ldsm_dialog_new (gboolean     other_usable_partitions,
 
         /* Add some buttons */
         if (dialog->priv->has_trash) {
-                button_empty_trash = ctk_dialog_add_button (GTK_DIALOG (dialog),
+                button_empty_trash = ctk_dialog_add_button (CTK_DIALOG (dialog),
                                                             _("Empty Trash"),
                                                             MSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH);
-                empty_trash_image = ctk_image_new_from_icon_name ("edit-clear", GTK_ICON_SIZE_BUTTON);
-                ctk_button_set_image (GTK_BUTTON (button_empty_trash), empty_trash_image);
+                empty_trash_image = ctk_image_new_from_icon_name ("edit-clear", CTK_ICON_SIZE_BUTTON);
+                ctk_button_set_image (CTK_BUTTON (button_empty_trash), empty_trash_image);
         }
 
         if (display_baobab) {
-                button_analyze = ctk_dialog_add_button (GTK_DIALOG (dialog),
+                button_analyze = ctk_dialog_add_button (CTK_DIALOG (dialog),
                                                         _("Examine…"),
                                                         MSD_LDSM_DIALOG_RESPONSE_ANALYZE);
-                analyze_image = ctk_image_new_from_icon_name ("cafe-disk-usage-analyzer", GTK_ICON_SIZE_BUTTON);
-                ctk_button_set_image (GTK_BUTTON (button_analyze), analyze_image);
+                analyze_image = ctk_image_new_from_icon_name ("cafe-disk-usage-analyzer", CTK_ICON_SIZE_BUTTON);
+                ctk_button_set_image (CTK_BUTTON (button_analyze), analyze_image);
         }
 
-        button_ignore = ctk_dialog_add_button (GTK_DIALOG (dialog),
+        button_ignore = ctk_dialog_add_button (CTK_DIALOG (dialog),
                                                _("Ignore"),
-                                               GTK_RESPONSE_CANCEL);
-        ignore_image = ctk_image_new_from_stock (GTK_STOCK_CANCEL, GTK_ICON_SIZE_BUTTON);
-        ctk_button_set_image (GTK_BUTTON (button_ignore), ignore_image);
+                                               CTK_RESPONSE_CANCEL);
+        ignore_image = ctk_image_new_from_stock (CTK_STOCK_CANCEL, CTK_ICON_SIZE_BUTTON);
+        ctk_button_set_image (CTK_BUTTON (button_ignore), ignore_image);
 
         ctk_widget_grab_default (button_ignore);
 
         /* Set the label text */
         primary_text = msd_ldsm_dialog_get_primary_text (dialog);
         primary_text_markup = g_markup_printf_escaped ("<big><b>%s</b></big>", primary_text);
-        ctk_label_set_markup (GTK_LABEL (dialog->priv->primary_label), primary_text_markup);
+        ctk_label_set_markup (CTK_LABEL (dialog->priv->primary_label), primary_text_markup);
 
         secondary_text = msd_ldsm_dialog_get_secondary_text (dialog);
-        ctk_label_set_text (GTK_LABEL (dialog->priv->secondary_label), secondary_text);
+        ctk_label_set_text (CTK_LABEL (dialog->priv->secondary_label), secondary_text);
 
         checkbutton_text = msd_ldsm_dialog_get_checkbutton_text (dialog);
-        ctk_button_set_label (GTK_BUTTON (dialog->priv->ignore_check_button), checkbutton_text);
+        ctk_button_set_label (CTK_BUTTON (dialog->priv->ignore_check_button), checkbutton_text);
 
         g_free (primary_text);
         g_free (primary_text_markup);

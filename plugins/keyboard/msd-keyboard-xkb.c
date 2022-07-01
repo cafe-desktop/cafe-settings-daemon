@@ -41,7 +41,7 @@
 #include "delayed-dialog.h"
 #include "cafe-settings-profile.h"
 
-#define GTK_RESPONSE_PRINT 2
+#define CTK_RESPONSE_PRINT 2
 
 #define CAFEKBD_DESKTOP_SCHEMA "org.cafe.peripherals-keyboard-xkb.general"
 #define CAFEKBD_KBD_SCHEMA "org.cafe.peripherals-keyboard-xkb.kbd"
@@ -113,8 +113,8 @@ activation_error (void)
 
 	dialog = ctk_message_dialog_new_with_markup (NULL,
 						     0,
-						     GTK_MESSAGE_ERROR,
-						     GTK_BUTTONS_CLOSE,
+						     CTK_MESSAGE_ERROR,
+						     CTK_BUTTONS_CLOSE,
 						     _
 						     ("Error activating XKB configuration.\n"
 						      "It can happen under various circumstances:\n"
@@ -212,7 +212,7 @@ popup_menu_show_layout ()
 
 	if (p != NULL) {
 		/* existing window */
-		ctk_window_present (GTK_WINDOW (p));
+		ctk_window_present (CTK_WINDOW (p));
 		return;
 	}
 
@@ -261,16 +261,16 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 	GdkScreen *screen;
 	GdkVisual *visual;
 	CtkStyleContext *context;
-	CtkMenu *popup_menu = GTK_MENU (ctk_menu_new ());
-	CtkMenu *groups_menu = GTK_MENU (ctk_menu_new ());
+	CtkMenu *popup_menu = CTK_MENU (ctk_menu_new ());
+	CtkMenu *groups_menu = CTK_MENU (ctk_menu_new ());
 	/*Set up theme and transparency support*/
-	toplevel = ctk_widget_get_toplevel (GTK_WIDGET(popup_menu));
+	toplevel = ctk_widget_get_toplevel (CTK_WIDGET(popup_menu));
 	/* Fix any failures of compiz/other wm's to communicate with ctk for transparency */
-	screen = ctk_widget_get_screen(GTK_WIDGET(toplevel));
+	screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
 	visual = gdk_screen_get_rgba_visual(screen);
-	ctk_widget_set_visual(GTK_WIDGET(toplevel), visual);
+	ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
 	/* Set menu and it's toplevel window to follow panel theme */
-	context = ctk_widget_get_style_context (GTK_WIDGET(toplevel));
+	context = ctk_widget_get_style_context (CTK_WIDGET(toplevel));
 	ctk_style_context_add_class(context,"gnome-panel-menu-bar");
 	ctk_style_context_add_class(context,"cafe-panel-menu-bar");
 	int i = 0;
@@ -278,21 +278,21 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 
 	CtkWidget *item = ctk_menu_item_new_with_mnemonic (_("_Layouts"));
 	ctk_widget_show (item);
-	ctk_menu_shell_append (GTK_MENU_SHELL (popup_menu), item);
-	ctk_menu_item_set_submenu (GTK_MENU_ITEM (item),
-				   GTK_WIDGET (groups_menu));
+	ctk_menu_shell_append (CTK_MENU_SHELL (popup_menu), item);
+	ctk_menu_item_set_submenu (CTK_MENU_ITEM (item),
+				   CTK_WIDGET (groups_menu));
 
 	item =
 	    ctk_menu_item_new_with_mnemonic (_("Keyboard _Preferences"));
 	ctk_widget_show (item);
 	g_signal_connect (item, "activate", popup_menu_launch_capplet,
 			  NULL);
-	ctk_menu_shell_append (GTK_MENU_SHELL (popup_menu), item);
+	ctk_menu_shell_append (CTK_MENU_SHELL (popup_menu), item);
 
 	item = ctk_menu_item_new_with_mnemonic (_("Show _Current Layout"));
 	ctk_widget_show (item);
 	g_signal_connect (item, "activate", popup_menu_show_layout, NULL);
-	ctk_menu_shell_append (GTK_MENU_SHELL (popup_menu), item);
+	ctk_menu_shell_append (CTK_MENU_SHELL (popup_menu), item);
 
 	for (i = 0; *current_name; i++, current_name++) {
 		gchar *image_file = cafekbd_status_get_image_filename (i);
@@ -311,14 +311,14 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 			    ctk_image_menu_item_new_with_label
 			    (*current_name);
 			ctk_widget_show (img);
-			ctk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM
+			ctk_image_menu_item_set_image (CTK_IMAGE_MENU_ITEM
 						       (item), img);
 			ctk_image_menu_item_set_always_show_image
-			    (GTK_IMAGE_MENU_ITEM (item), TRUE);
+			    (CTK_IMAGE_MENU_ITEM (item), TRUE);
 			g_free (image_file);
 		}
 		ctk_widget_show (item);
-		ctk_menu_shell_append (GTK_MENU_SHELL (groups_menu), item);
+		ctk_menu_shell_append (CTK_MENU_SHELL (groups_menu), item);
 		g_signal_connect (item, "activate",
 				  G_CALLBACK (popup_menu_set_group),
 				  GINT_TO_POINTER (i));

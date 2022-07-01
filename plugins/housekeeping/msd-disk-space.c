@@ -205,13 +205,13 @@ ldsm_notify_for_mount (LdsmMountInfo *mount,
         g_free (name);
 
         g_object_ref (G_OBJECT (dialog));
-        response = ctk_dialog_run (GTK_DIALOG (dialog));
+        response = ctk_dialog_run (CTK_DIALOG (dialog));
 
-	ctk_widget_destroy (GTK_WIDGET (dialog));
+	ctk_widget_destroy (CTK_WIDGET (dialog));
         dialog = NULL;
 
         switch (response) {
-        case GTK_RESPONSE_CANCEL:
+        case CTK_RESPONSE_CANCEL:
                 retval = FALSE;
                 break;
         case MSD_LDSM_DIALOG_RESPONSE_ANALYZE:
@@ -222,8 +222,8 @@ ldsm_notify_for_mount (LdsmMountInfo *mount,
                 retval = TRUE;
                 msd_ldsm_trash_empty ();
                 break;
-        case GTK_RESPONSE_NONE:
-        case GTK_RESPONSE_DELETE_EVENT:
+        case CTK_RESPONSE_NONE:
+        case CTK_RESPONSE_DELETE_EVENT:
                 retval = TRUE;
                 break;
         default:
@@ -691,7 +691,7 @@ msd_ldsm_clean (void)
         }
 
         if (dialog) {
-                ctk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (CTK_WIDGET (dialog));
                 dialog = NULL;
         }
 

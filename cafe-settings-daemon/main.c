@@ -431,7 +431,7 @@ parse_args (int *argc, char ***argv)
                         g_warning ("%s", error->message);
                         g_error_free (error);
                 } else {
-                        g_warning ("Unable to initialize GTK+");
+                        g_warning ("Unable to initialize CTK+");
                 }
                 exit (EXIT_FAILURE);
         }
@@ -490,7 +490,7 @@ main (int argc, char *argv[])
 
         cafe_settings_profile_start ("opening ctk display");
         if (! ctk_init_check (NULL, NULL)) {
-                g_warning ("Unable to initialize GTK+");
+                g_warning ("Unable to initialize CTK+");
                 exit (EXIT_FAILURE);
         }
         cafe_settings_profile_end ("opening ctk display");

@@ -37,7 +37,7 @@ libmedia_keys_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon			\
 	-I$(top_srcdir)/plugins/common				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
-	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
+	-DCTKBUILDERDIR=\""$(pkgdatadir)"\"			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
@@ -80,7 +80,7 @@ test_media_window_CPPFLAGS = \
 	-I$(top_srcdir)/plugins/common				\
 	-DDATADIR=\""$(datadir)"\"				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
-	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
+	-DCTKBUILDERDIR=\""$(pkgdatadir)"\"			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 
@@ -110,7 +110,7 @@ test_media_keys_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon			\
 	-I$(top_srcdir)/plugins/common				\
 	-DPIXMAPDIR=\""$(pkgdatadir)"\"				\
-	-DGTKBUILDERDIR=\""$(pkgdatadir)"\"			\
+	-DCTKBUILDERDIR=\""$(pkgdatadir)"\"			\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\"	\
 	$(AM_CPPFLAGS)
 

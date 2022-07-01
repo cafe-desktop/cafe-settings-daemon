@@ -35,7 +35,7 @@ test_window (void)
         CtkWidget *window;
 
         window = msd_a11y_preferences_dialog_new ();
-        ctk_dialog_run (GTK_DIALOG (window));
+        ctk_dialog_run (CTK_DIALOG (window));
 }
 
 int

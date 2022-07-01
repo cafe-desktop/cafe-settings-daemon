@@ -103,41 +103,41 @@ append_theme_colors (CtkStyle *style,
 
         append_color_define (string,
                              "BACKGROUND",
-                             &style->bg[GTK_STATE_NORMAL]);
+                             &style->bg[CTK_STATE_NORMAL]);
         append_color_define (string,
                              "FOREGROUND",
-                             &style->fg[GTK_STATE_NORMAL]);
+                             &style->fg[CTK_STATE_NORMAL]);
         append_color_define (string,
                              "SELECT_BACKGROUND",
-                             &style->bg[GTK_STATE_SELECTED]);
+                             &style->bg[CTK_STATE_SELECTED]);
         append_color_define (string,
                              "SELECT_FOREGROUND",
-                             &style->text[GTK_STATE_SELECTED]);
+                             &style->text[CTK_STATE_SELECTED]);
         append_color_define (string,
                              "WINDOW_BACKGROUND",
-                             &style->base[GTK_STATE_NORMAL]);
+                             &style->base[CTK_STATE_NORMAL]);
         append_color_define (string,
                              "WINDOW_FOREGROUND",
-                             &style->text[GTK_STATE_NORMAL]);
+                             &style->text[CTK_STATE_NORMAL]);
         append_color_define (string,
                              "INACTIVE_BACKGROUND",
-                             &style->bg[GTK_STATE_INSENSITIVE]);
+                             &style->bg[CTK_STATE_INSENSITIVE]);
         append_color_define (string,
                              "INACTIVE_FOREGROUND",
-                             &style->text[GTK_STATE_INSENSITIVE]);
+                             &style->text[CTK_STATE_INSENSITIVE]);
         append_color_define (string,
                              "ACTIVE_BACKGROUND",
-                             &style->bg[GTK_STATE_SELECTED]);
+                             &style->bg[CTK_STATE_SELECTED]);
         append_color_define (string,
                              "ACTIVE_FOREGROUND",
-                             &style->text[GTK_STATE_SELECTED]);
+                             &style->text[CTK_STATE_SELECTED]);
 
         append_color_define (string,
                              "HIGHLIGHT",
-                             color_shade (&style->bg[GTK_STATE_NORMAL], 1.2, &tmp));
+                             color_shade (&style->bg[CTK_STATE_NORMAL], 1.2, &tmp));
         append_color_define (string,
                              "LOWLIGHT",
-                             color_shade (&style->bg[GTK_STATE_NORMAL], 2.0/3.0, &tmp));
+                             color_shade (&style->bg[CTK_STATE_NORMAL], 2.0/3.0, &tmp));
         return;
 }
 
@@ -495,7 +495,7 @@ msd_xrdb_manager_start (MsdXrdbManager *manager,
                           G_CALLBACK (theme_changed),
                           manager);
 
-        manager->priv->widget = ctk_window_new (GTK_WINDOW_TOPLEVEL);
+        manager->priv->widget = ctk_window_new (CTK_WINDOW_TOPLEVEL);
         ctk_widget_realize (manager->priv->widget);
 
         cafe_settings_profile_end (NULL);
