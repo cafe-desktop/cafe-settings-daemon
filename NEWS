@@ -20,7 +20,7 @@
   * xrandr: add bigger icon sizes for tray-applet
   * Hide CAFE Settings Daemon from Startup Applications capplet
   * setup GETTEXTDATADIRS environment variable for xgettext
-  * add its files for marco keybindings xml file
+  * add its files for croma keybindings xml file
   * switch to use gettext
   * Fix placeholder in Spanish translation
 

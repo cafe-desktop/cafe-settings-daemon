@@ -541,16 +541,16 @@ scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
                         }
                 }
         } else {
-                /* Restart marco */
-                /* FIXME: The ideal scenario would be for marco to respect window scaling and thus
+                /* Restart croma */
+                /* FIXME: The ideal scenario would be for croma to respect window scaling and thus
                  * resize itself. Currently this is not happening, so msd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
                 wm_common_update_window();
                 gchar *wm = wm_common_get_current_window_manager ();
                 if (g_strcmp0 (wm, WM_COMMON_MARCO) == 0) {
-                        gchar *marco[3] = {"marco", "--replace", NULL};
-                        if (!g_spawn_async (NULL, marco, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
-                                g_warning ("There was a problem restarting marco: %s", error->message);
+                        gchar *croma[3] = {"croma", "--replace", NULL};
+                        if (!g_spawn_async (NULL, croma, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
+                                g_warning ("There was a problem restarting croma: %s", error->message);
                                 g_clear_error (&error);
                         }
                 }
