@@ -474,7 +474,7 @@ timeout_response_cb (CtkDialog *dialog, int response_id, gpointer data)
 }
 
 static gboolean
-user_says_things_are_ok (MsdXrandrManager *manager, GdkWindow *parent_window)
+user_says_things_are_ok (MsdXrandrManager *manager, CdkWindow *parent_window)
 {
         TimeoutDialog timeout;
         guint timeout_id;
@@ -523,7 +523,7 @@ user_says_things_are_ok (MsdXrandrManager *manager, GdkWindow *parent_window)
 
 struct confirmation {
         MsdXrandrManager *manager;
-        GdkWindow *parent_window;
+        CdkWindow *parent_window;
         guint32 timestamp;
 };
 
@@ -548,7 +548,7 @@ confirm_with_user_idle_cb (gpointer data)
 }
 
 static void
-queue_confirmation_by_user (MsdXrandrManager *manager, GdkWindow *parent_window, guint32 timestamp)
+queue_confirmation_by_user (MsdXrandrManager *manager, CdkWindow *parent_window, guint32 timestamp)
 {
         struct confirmation *confirmation;
 
@@ -561,7 +561,7 @@ queue_confirmation_by_user (MsdXrandrManager *manager, GdkWindow *parent_window,
 }
 
 static gboolean
-try_to_apply_intended_configuration (MsdXrandrManager *manager, GdkWindow *parent_window, guint32 timestamp, GError **error)
+try_to_apply_intended_configuration (MsdXrandrManager *manager, CdkWindow *parent_window, guint32 timestamp, GError **error)
 {
         char *backup_filename;
         char *intended_filename;
@@ -609,7 +609,7 @@ msd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
                                           gint64            timestamp,
                                           GError          **error)
 {
-        GdkWindow *parent_window;
+        CdkWindow *parent_window;
         gboolean result;
 
         if (parent_window_id != 0)
@@ -1354,9 +1354,9 @@ out:
         g_object_unref (current);
 }
 
-static GdkFilterReturn
-event_filter (GdkXEvent           *xevent,
-              GdkEvent            *event,
+static CdkFilterReturn
+event_filter (CdkXEvent           *xevent,
+              CdkEvent            *event,
               gpointer             data)
 {
         MsdXrandrManager *manager = data;
@@ -1645,7 +1645,7 @@ on_randr_event (CafeRRScreen *screen, gpointer data)
 static void
 run_display_capplet (CtkWidget *widget)
 {
-        GdkScreen *screen;
+        CdkScreen *screen;
         GError *error;
 
         if (widget)
@@ -1745,7 +1745,7 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
         CtkWidget *box;
         char *str;
         GString *string;
-        GdkRGBA color;
+        CdkRGBA color;
         gchar *css, *color_string, *theme_name;
         CtkSettings *settings;
         GSettings *icon_settings;
@@ -2310,8 +2310,8 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
         /*Set up custom theming and forced transparency support*/
         CtkWidget *toplevel = ctk_widget_get_toplevel (priv->popup_menu);
         /*Fix any failures of compiz/other wm's to communicate with ctk for transparency */
-        GdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
-        GdkVisual *visual = cdk_screen_get_rgba_visual(screen);
+        CdkScreen *screen = ctk_widget_get_screen(CTK_WIDGET(toplevel));
+        CdkVisual *visual = cdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(CTK_WIDGET(toplevel), visual);
         /*Set up the ctk theme class from cafe-panel*/
         CtkStyleContext *context;
@@ -2525,7 +2525,7 @@ gboolean
 msd_xrandr_manager_start (MsdXrandrManager *manager,
                           GError          **error)
 {
-        GdkDisplay      *display;
+        CdkDisplay      *display;
 
         g_debug ("Starting xrandr manager");
         cafe_settings_profile_start (NULL);
@@ -2592,7 +2592,7 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
         log_screen (manager->priv->rw_screen);
 
         cdk_window_add_filter (cdk_get_default_root_window(),
-                               (GdkFilterFunc)event_filter,
+                               (CdkFilterFunc)event_filter,
                                manager);
 
         start_or_stop_icon (manager);
@@ -2607,7 +2607,7 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
 void
 msd_xrandr_manager_stop (MsdXrandrManager *manager)
 {
-        GdkDisplay      *display;
+        CdkDisplay      *display;
 
         g_debug ("Stopping xrandr manager");
 
@@ -2636,7 +2636,7 @@ msd_xrandr_manager_stop (MsdXrandrManager *manager)
         }
 
         cdk_window_remove_filter (cdk_get_default_root_window (),
-                                  (GdkFilterFunc) event_filter,
+                                  (CdkFilterFunc) event_filter,
                                   manager);
 
         if (manager->priv->settings != NULL) {

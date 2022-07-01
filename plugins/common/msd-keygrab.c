@@ -35,17 +35,17 @@
 #include "msd-keygrab.h"
 
 /* these are the mods whose combinations are ignored by the keygrabbing code */
-static GdkModifierType msd_ignored_mods = 0;
+static CdkModifierType msd_ignored_mods = 0;
 
 /* these are the ones we actually use for global keys, we always only check
  * for these set */
-static GdkModifierType msd_used_mods = 0;
+static CdkModifierType msd_used_mods = 0;
 
 static void
 setup_modifiers (void)
 {
         if (msd_used_mods == 0 || msd_ignored_mods == 0) {
-                GdkModifierType dynmods;
+                CdkModifierType dynmods;
 
                 /* default modifiers */
                 msd_ignored_mods = \
@@ -69,7 +69,7 @@ setup_modifiers (void)
 
 static void
 grab_key_real (guint      keycode,
-               GdkWindow *root,
+               CdkWindow *root,
                gboolean   grab,
                int        mask)
 {
@@ -151,7 +151,7 @@ grab_key_unsafe (Key                 *key,
                 }
 
                 for (l = screens; l; l = l->next) {
-                        GdkScreen *screen = l->data;
+                        CdkScreen *screen = l->data;
                         guint *code;
 
                         for (code = key->keycodes; *code; ++code) {
@@ -206,7 +206,7 @@ gboolean
 match_key (Key *key, XEvent *event)
 {
 	guint keyval;
-	GdkModifierType consumed;
+	CdkModifierType consumed;
 	gint group;
 
 	if (key == NULL)

@@ -229,9 +229,9 @@ translate_bool_int },
 static int
 get_window_scale_auto ()
 {
-        GdkDisplay   *display;
-        GdkMonitor   *monitor;
-        GdkRectangle  rect;
+        CdkDisplay   *display;
+        CdkMonitor   *monitor;
+        CdkRectangle  rect;
         int width_mm, height_mm;
         int monitor_scale, window_scale;
 
@@ -304,7 +304,7 @@ dpi_from_pixels_and_mm (int pixels,
 static double
 get_dpi_from_x_server (void)
 {
-        GdkScreen *screen;
+        CdkScreen *screen;
         double     dpi;
 
         screen = cdk_screen_get_default ();
@@ -596,8 +596,8 @@ xft_settings_set_xsettings (CafeXSettingsManager *manager,
                 xsettings_manager_set_int (manager->priv->managers [i], "Xft/Antialias", settings->antialias);
                 xsettings_manager_set_int (manager->priv->managers [i], "Xft/Hinting", settings->hinting);
                 xsettings_manager_set_string (manager->priv->managers [i], "Xft/HintStyle", settings->hintstyle);
-                xsettings_manager_set_int (manager->priv->managers [i], "Gdk/WindowScalingFactor", settings->window_scale);
-                xsettings_manager_set_int (manager->priv->managers [i], "Gdk/UnscaledDPI", settings->dpi);
+                xsettings_manager_set_int (manager->priv->managers [i], "Cdk/WindowScalingFactor", settings->window_scale);
+                xsettings_manager_set_int (manager->priv->managers [i], "Cdk/UnscaledDPI", settings->dpi);
                 xsettings_manager_set_int (manager->priv->managers [i], "Xft/DPI", settings->scaled_dpi);
                 xsettings_manager_set_string (manager->priv->managers [i], "Xft/RGBA", settings->rgba);
                 xsettings_manager_set_string (manager->priv->managers [i], "Xft/lcdfilter",
@@ -704,7 +704,7 @@ update_xft_settings (CafeXSettingsManager *manager)
 }
 
 static void
-recalculate_scale_callback (GdkScreen            *screen,
+recalculate_scale_callback (CdkScreen            *screen,
                             CafeXSettingsManager *manager)
 {
         int i;
@@ -867,7 +867,7 @@ terminate_cb (void *data)
 static gboolean
 setup_xsettings_managers (CafeXSettingsManager *manager)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
         gboolean    res;
         gboolean    terminated;
 
@@ -884,7 +884,7 @@ setup_xsettings_managers (CafeXSettingsManager *manager)
 
         terminated = FALSE;
 
-        GdkScreen *screen;
+        CdkScreen *screen;
 
         screen = cdk_display_get_default_screen (display);
 
@@ -906,7 +906,7 @@ cafe_xsettings_manager_start (CafeXSettingsManager *manager,
 {
         guint        i;
         GList       *list, *l;
-        GdkScreen   *screen;
+        CdkScreen   *screen;
 
         g_debug ("Starting xsettings manager");
         cafe_settings_profile_start (NULL);

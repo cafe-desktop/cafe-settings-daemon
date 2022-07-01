@@ -26,8 +26,8 @@
 #include "delayed-dialog.h"
 
 static gboolean        delayed_show_timeout (gpointer   data);
-static GdkFilterReturn message_filter       (GdkXEvent *xevent,
-                                             GdkEvent  *event,
+static CdkFilterReturn message_filter       (CdkXEvent *xevent,
+                                             CdkEvent  *event,
                                              gpointer   data);
 
 static GSList *dialogs = NULL;
@@ -43,9 +43,9 @@ static GSList *dialogs = NULL;
 void
 msd_delayed_show_dialog (CtkWidget *dialog)
 {
-        GdkDisplay *display = ctk_widget_get_display (dialog);
+        CdkDisplay *display = ctk_widget_get_display (dialog);
         Display *xdisplay = GDK_DISPLAY_XDISPLAY (display);
-        GdkScreen *screen = ctk_widget_get_screen (dialog);
+        CdkScreen *screen = ctk_widget_get_screen (dialog);
         char selection_name[10];
         Atom selection_atom;
 
@@ -83,8 +83,8 @@ delayed_show_timeout (gpointer data)
         return FALSE;
 }
 
-static GdkFilterReturn
-message_filter (GdkXEvent *xevent, GdkEvent *event, gpointer data)
+static CdkFilterReturn
+message_filter (CdkXEvent *xevent, CdkEvent *event, gpointer data)
 {
         XClientMessageEvent *evt;
         char *selection_name;

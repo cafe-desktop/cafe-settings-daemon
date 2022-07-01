@@ -43,7 +43,7 @@ struct MsdLocatePointerData
 {
   MsdTimeline *timeline;
   CtkWindow *widget;
-  GdkWindow *window;
+  CdkWindow *window;
 
   gdouble progress;
 };
@@ -55,7 +55,7 @@ locate_pointer_paint (MsdLocatePointerData *data,
 		      cairo_t              *cr,
 		      gboolean              composited)
 {
-  GdkRGBA color;
+  CdkRGBA color;
   gdouble progress, circle_progress;
   gint width, height, i;
   CtkStyleContext *style;
@@ -171,10 +171,10 @@ timeline_frame_cb (MsdTimeline *timeline,
 		   gpointer     user_data)
 {
   MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
-  GdkDisplay *display = cdk_window_get_display (data->window);
-  GdkScreen *screen = cdk_display_get_default_screen (display);
-  GdkSeat *seat;
-  GdkDevice *pointer;
+  CdkDisplay *display = cdk_window_get_display (data->window);
+  CdkScreen *screen = cdk_display_get_default_screen (display);
+  CdkSeat *seat;
+  CdkDevice *pointer;
   gint cursor_x, cursor_y;
 
   if (cdk_screen_is_composited (screen))
@@ -203,7 +203,7 @@ timeline_frame_cb (MsdTimeline *timeline,
 }
 
 static void
-set_transparent_shape (GdkWindow *window)
+set_transparent_shape (CdkWindow *window)
 {
   cairo_t *cr;
   cairo_surface_t *mask;
@@ -230,13 +230,13 @@ set_transparent_shape (GdkWindow *window)
 }
 
 static void
-unset_transparent_shape (GdkWindow *window)
+unset_transparent_shape (CdkWindow *window)
 {
   cdk_window_shape_combine_region (window, NULL, 0, 0);
 }
 
 static void
-composited_changed (GdkScreen            *screen,
+composited_changed (CdkScreen            *screen,
                     MsdLocatePointerData *data)
 {
   if (cdk_screen_is_composited (screen))
@@ -254,7 +254,7 @@ timeline_finished_cb (MsdTimeline *timeline,
 		      gpointer     user_data)
 {
   MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
-  GdkScreen *screen = cdk_window_get_screen (data->window);
+  CdkScreen *screen = cdk_window_get_screen (data->window);
 
   /* set transparent shape and hide window */
   if (!cdk_screen_is_composited (screen))
@@ -282,10 +282,10 @@ static void
 locate_pointer_realize_cb (CtkWidget            *widget,
                            MsdLocatePointerData *data)
 {
-  GdkDisplay *display;
-  GdkScreen *screen;
-  GdkVisual *visual;
-  GdkWindowAttr attributes;
+  CdkDisplay *display;
+  CdkScreen *screen;
+  CdkVisual *visual;
+  CdkWindowAttr attributes;
   gint attributes_mask;
 
   display = ctk_widget_get_display (CTK_WIDGET (data->widget));
@@ -326,7 +326,7 @@ locate_pointer_draw_cb (CtkWidget      *widget,
                         gpointer        user_data)
 {
   MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
-  GdkScreen *screen = cdk_window_get_screen (data->window);
+  CdkScreen *screen = cdk_window_get_screen (data->window);
 
   if (ctk_cairo_should_draw_window (cr, data->window))
     {
@@ -369,10 +369,10 @@ msd_locate_pointer_data_new (void)
 
 static void
 move_locate_pointer_window (MsdLocatePointerData *data,
-			    GdkDisplay           *display)
+			    CdkDisplay           *display)
 {
-  GdkSeat *seat;
-  GdkDevice *pointer;
+  CdkSeat *seat;
+  CdkDevice *pointer;
   gint cursor_x, cursor_y;
   cairo_t *cr;
   cairo_surface_t *mask;
@@ -411,9 +411,9 @@ move_locate_pointer_window (MsdLocatePointerData *data,
 }
 
 void
-msd_locate_pointer (GdkDisplay *display)
+msd_locate_pointer (CdkDisplay *display)
 {
-  GdkScreen *screen = cdk_display_get_default_screen (display);
+  CdkScreen *screen = cdk_display_get_default_screen (display);
 
   if (data == NULL)
     {
@@ -440,13 +440,13 @@ msd_locate_pointer (GdkDisplay *display)
 #define KEYBOARD_GROUP_MASK ((1 << 13) | (1 << 14))
 
 /* Owen magic */
-static GdkFilterReturn
-event_filter (GdkXEvent *cdkxevent,
-              GdkEvent  *event,
+static CdkFilterReturn
+event_filter (CdkXEvent *cdkxevent,
+              CdkEvent  *event,
               gpointer   user_data)
 {
   XEvent *xevent = (XEvent *) cdkxevent;
-  GdkDisplay *display = (GdkDisplay *) user_data;
+  CdkDisplay *display = (CdkDisplay *) user_data;
 
   if (xevent->xany.type == KeyPress || xevent->xany.type == KeyRelease)
     {
@@ -510,9 +510,9 @@ event_filter (GdkXEvent *cdkxevent,
 static void
 set_locate_pointer (void)
 {
-  GdkKeymapKey *keys;
-  GdkDisplay *display;
-  GdkScreen *screen;
+  CdkKeymapKey *keys;
+  CdkDisplay *display;
+  CdkScreen *screen;
   int n_keys;
   gboolean has_entries = FALSE;
   static const guint keyvals[] = { GDK_KEY_Control_L, GDK_KEY_Control_R };
@@ -571,7 +571,7 @@ set_locate_pointer (void)
   if (has_entries)
     {
       cdk_window_add_filter (cdk_screen_get_root_window (screen),
-                             (GdkFilterFunc) event_filter,
+                             (CdkFilterFunc) event_filter,
                              display);
     }
 }

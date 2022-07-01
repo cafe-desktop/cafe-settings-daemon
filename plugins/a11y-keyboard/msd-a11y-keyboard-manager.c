@@ -87,9 +87,9 @@ static gpointer manager_object = NULL;
 #define d(str)          do { } while (0)
 #endif
 
-static GdkFilterReturn
-devicepresence_filter (GdkXEvent *xevent,
-                       GdkEvent  *event,
+static CdkFilterReturn
+devicepresence_filter (CdkXEvent *xevent,
+                       CdkEvent  *event,
                        gpointer   data)
 {
         XEvent *xev = (XEvent *) xevent;
@@ -124,7 +124,7 @@ static void
 set_devicepresence_handler (MsdA11yKeyboardManager *manager)
 {
         Display *display;
-        GdkDisplay *cdk_display;
+        CdkDisplay *cdk_display;
         XEventClass class_presence;
         G_GNUC_UNUSED int xi_presence;
 
@@ -170,7 +170,7 @@ xkb_enabled (MsdA11yKeyboardManager *manager)
 static XkbDescRec *
 get_xkb_desc_rec (MsdA11yKeyboardManager *manager)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
         XkbDescRec *desc;
         Status      status = Success;
 
@@ -262,7 +262,7 @@ set_server_from_settings (MsdA11yKeyboardManager *manager)
 {
         XkbDescRec      *desc;
         gboolean         enable_accessX;
-        GdkDisplay      *display;
+        CdkDisplay      *display;
 
         cafe_settings_profile_start (NULL);
 
@@ -955,9 +955,9 @@ set_settings_from_server (MsdA11yKeyboardManager *manager)
         g_object_unref (settings);
 }
 
-static GdkFilterReturn
-cb_xkb_event_filter (GdkXEvent              *xevent,
-                     GdkEvent               *ignored1,
+static CdkFilterReturn
+cb_xkb_event_filter (CdkXEvent              *xevent,
+                     CdkEvent               *ignored1,
                      MsdA11yKeyboardManager *manager)
 {
         XEvent   *xev   = (XEvent *) xevent;
@@ -1025,7 +1025,7 @@ start_a11y_keyboard_idle_cb (MsdA11yKeyboardManager *manager)
                          event_mask);
 
         cdk_window_add_filter (NULL,
-                               (GdkFilterFunc) cb_xkb_event_filter,
+                               (CdkFilterFunc) cb_xkb_event_filter,
                                manager);
 
         maybe_show_status_icon (manager);
@@ -1053,7 +1053,7 @@ msd_a11y_keyboard_manager_start (MsdA11yKeyboardManager *manager,
 static void
 restore_server_xkb_config (MsdA11yKeyboardManager *manager)
 {
-        GdkDisplay      *display;
+        CdkDisplay      *display;
 
         display = cdk_display_get_default ();
         cdk_x11_display_error_trap_push (display);
@@ -1096,7 +1096,7 @@ msd_a11y_keyboard_manager_stop (MsdA11yKeyboardManager *manager)
         }
 
         cdk_window_remove_filter (NULL,
-                                  (GdkFilterFunc) cb_xkb_event_filter,
+                                  (CdkFilterFunc) cb_xkb_event_filter,
                                   manager);
 
         /* Disable all the AccessX bits

@@ -102,7 +102,7 @@ caja_is_drawing_bg (MsdBackgroundManager *manager)
 	int            format;
 	unsigned long  nitems, after;
 	unsigned char *data;
-	GdkDisplay    *cdk_display;
+	CdkDisplay    *cdk_display;
 	gboolean       running = FALSE;
 
 	if (!manager->priv->caja_can_draw)
@@ -181,10 +181,10 @@ free_scr_sizes (MsdBackgroundManager *manager)
 
 static void
 real_draw_bg (MsdBackgroundManager *manager,
-	      GdkScreen		   *screen)
+	      CdkScreen		   *screen)
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
-	GdkWindow *window = cdk_screen_get_root_window (screen);
+	CdkWindow *window = cdk_screen_get_root_window (screen);
 	gint scale   = cdk_window_get_scale_factor (window);
 	gint width   = WidthOfScreen (cdk_x11_screen_get_xscreen (screen)) / scale;
 	gint height  = HeightOfScreen (cdk_x11_screen_get_xscreen (screen)) / scale;
@@ -216,7 +216,7 @@ draw_background (MsdBackgroundManager *manager,
 
 	cafe_settings_profile_start (NULL);
 
-	GdkDisplay *display   = cdk_display_get_default ();
+	CdkDisplay *display   = cdk_display_get_default ();
 
 	p->draw_in_progress = TRUE;
 	p->do_fade = may_fade && can_fade_bg (manager);
@@ -248,7 +248,7 @@ on_bg_transitioned (CafeBG               *bg,
 }
 
 static void
-on_screen_size_changed (GdkScreen            *screen,
+on_screen_size_changed (CdkScreen            *screen,
 			MsdBackgroundManager *manager)
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
@@ -256,7 +256,7 @@ on_screen_size_changed (GdkScreen            *screen,
 	if (!p->msd_can_draw || p->draw_in_progress || caja_is_drawing_bg (manager))
 		return;
 
-	GdkWindow *window = cdk_screen_get_root_window (screen);
+	CdkWindow *window = cdk_screen_get_root_window (screen);
 	gint scale = cdk_window_get_scale_factor (window);
 	gint scr_num = cdk_x11_screen_get_screen_number (screen);
 	gchar *old_size = g_list_nth_data (manager->priv->scr_sizes, scr_num);
@@ -275,7 +275,7 @@ on_screen_size_changed (GdkScreen            *screen,
 static void
 disconnect_screen_signals (MsdBackgroundManager *manager)
 {
-	GdkDisplay *display   = cdk_display_get_default();
+	CdkDisplay *display   = cdk_display_get_default();
 
 	g_signal_handlers_disconnect_by_func
 		(cdk_display_get_default_screen (display),
@@ -285,9 +285,9 @@ disconnect_screen_signals (MsdBackgroundManager *manager)
 static void
 connect_screen_signals (MsdBackgroundManager *manager)
 {
-	GdkDisplay *display   = cdk_display_get_default();
+	CdkDisplay *display   = cdk_display_get_default();
 
-	GdkScreen *screen = cdk_display_get_default_screen (display);
+	CdkScreen *screen = cdk_display_get_default_screen (display);
 
 	g_signal_connect (screen, "monitors-changed",
 			  G_CALLBACK (on_screen_size_changed), manager);

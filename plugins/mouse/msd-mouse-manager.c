@@ -222,7 +222,7 @@ get_property (XDevice     *device,
               int          format,
               gulong       nitems)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
         gulong nitems_ret, bytes_after_ret;
         int rc, format_ret;
         Atom property_atom, type_ret;
@@ -259,7 +259,7 @@ change_property (XDevice     *device,
                  void        *data,
                  gulong       nitems)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
         Atom property_atom;
         guchar *data_ret;
 
@@ -288,7 +288,7 @@ static gboolean
 touchpad_has_single_button (XDevice *device)
 {
         Atom type, prop;
-        GdkDisplay  *display;
+        CdkDisplay  *display;
         int format;
         unsigned long nitems, bytes_after;
         unsigned char *data;
@@ -322,7 +322,7 @@ property_exists_on_device (XDeviceInfo *device_info,
         XDevice *device;
         int rc;
         Atom type, prop;
-        GdkDisplay  *display;
+        CdkDisplay  *display;
         int format;
         unsigned long nitems, bytes_after;
         unsigned char *data;
@@ -364,7 +364,7 @@ property_set_bool (XDeviceInfo *device_info,
         unsigned char *data;
         int act_format;
         Atom act_type, property;
-        GdkDisplay  *display;
+        CdkDisplay  *display;
 
         property = property_from_name (property_name);
         if (!property)
@@ -400,7 +400,7 @@ touchpad_set_bool (XDeviceInfo *device_info,
                    gboolean     enabled)
 {
         XDevice    *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         device = device_is_touchpad (device_info);
         if (device == NULL) {
@@ -423,7 +423,7 @@ set_left_handed_legacy_driver (MsdMouseManager *manager,
                                gboolean         touchpad_left_handed)
 {
         XDevice *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
         guchar *buttons;
         gsize buttons_capacity = 16;
         gint n_buttons;
@@ -498,7 +498,7 @@ set_left_handed_libinput (XDeviceInfo *device_info,
                           gboolean     touchpad_left_handed)
 {
         XDevice    *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
         gboolean   want_lefthanded;
 
         device = device_is_touchpad (device_info);
@@ -557,9 +557,9 @@ set_left_handed_all (MsdMouseManager *manager,
                 XFreeDeviceList (device_info);
 }
 
-static GdkFilterReturn
-devicepresence_filter (GdkXEvent *xevent,
-                       GdkEvent  *event,
+static CdkFilterReturn
+devicepresence_filter (CdkXEvent *xevent,
+                       CdkEvent  *event,
                        gpointer   data)
 {
         XEvent *xev = (XEvent *) xevent;
@@ -581,7 +581,7 @@ devicepresence_filter (GdkXEvent *xevent,
 static void
 set_devicepresence_handler (MsdMouseManager *manager)
 {
-        GdkDisplay    *cdk_display;
+        CdkDisplay    *cdk_display;
         Display       *display;
         XEventClass    class_presence;
         G_GNUC_UNUSED  int xi_presence;
@@ -605,7 +605,7 @@ set_motion_legacy_driver (MsdMouseManager *manager,
                           XDeviceInfo     *device_info)
 {
         XDevice *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
         XPtrFeedbackControl feedback;
         XFeedbackState *states, *state;
         gint num_feedbacks, i;
@@ -698,7 +698,7 @@ set_motion_libinput (MsdMouseManager *manager,
                      XDeviceInfo     *device_info)
 {
         XDevice *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
         Atom prop;
         Atom type;
         Atom float_type;
@@ -803,7 +803,7 @@ static void
 set_middle_button_evdev (XDeviceInfo *device_info,
                          gboolean     middle_button)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
         XDevice *device;
         Atom prop;
         Atom type;
@@ -850,7 +850,7 @@ set_middle_button_libinput (XDeviceInfo *device_info,
                             gboolean     middle_button)
 {
         XDevice *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         /* touchpad devices are excluded as the old code
          * only applies to evdev devices
@@ -994,7 +994,7 @@ set_accel_profile_libinput (MsdMouseManager *manager,
                             XDeviceInfo     *device_info)
 {
         XDevice *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
         GSettings *settings;
         guchar *available, *defaults, *values;
 
@@ -1104,7 +1104,7 @@ set_tap_to_click_synaptics (XDeviceInfo *device_info,
                             gint         three_finger_tap)
 {
         XDevice *device;
-        GdkDisplay *display;
+        CdkDisplay *display;
         int format, rc;
         unsigned long nitems, bytes_after;
         unsigned char* data;
@@ -1208,7 +1208,7 @@ set_click_actions_synaptics (XDeviceInfo *device_info,
         unsigned long nitems, bytes_after;
         unsigned char* data;
         Atom prop, type;
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         prop = property_from_name ("Synaptics Click Action");
         if (!prop)
@@ -1257,7 +1257,7 @@ set_click_actions_libinput (XDeviceInfo *device_info,
         Atom prop, type;
         gboolean want_clickfinger;
         gboolean want_softwarebuttons;
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         prop = property_from_name ("libinput Click Method Enabled");
         if (!prop)
@@ -1337,7 +1337,7 @@ set_natural_scroll_synaptics (XDeviceInfo *device_info,
         unsigned char* data;
         glong *ptr;
         Atom prop, type;
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         prop = property_from_name ("Synaptics Scrolling Distance");
         if (!prop)
@@ -1438,7 +1438,7 @@ set_scrolling_libinput (XDeviceInfo *device_info,
         unsigned char *data;
         Atom prop, type;
         gboolean want_edge, want_2fg;
-        GdkDisplay *display;
+        CdkDisplay *display;
         gboolean want_horiz;
 
         prop = property_from_name ("libinput Scroll Method Enabled");
@@ -1530,7 +1530,7 @@ set_touchpad_enabled (XDeviceInfo *device_info,
 {
         XDevice *device;
         Atom prop_enabled;
-        GdkDisplay *display;
+        CdkDisplay *display;
         unsigned char data = state;
 
         prop_enabled = property_from_name ("Device Enabled");

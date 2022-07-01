@@ -47,7 +47,7 @@ typedef struct
 
 } EggModmap;
 
-const EggModmap* egg_keymap_get_modmap (GdkKeymap *keymap);
+const EggModmap* egg_keymap_get_modmap (CdkKeymap *keymap);
 
 static inline gboolean
 is_alt (const gchar *string)
@@ -231,7 +231,7 @@ egg_accelerator_parse_virtual (const gchar            *accelerator,
                                EggVirtualModifierType *accelerator_mods)
 {
   guint keyval;
-  GdkModifierType mods;
+  CdkModifierType mods;
   gint len;
   gboolean bad_keyval;
 
@@ -384,7 +384,7 @@ egg_accelerator_parse_virtual (const gchar            *accelerator,
 	    }
 	  else if (accelerator_codes != NULL)
 	    {
-	      GdkKeymapKey *keys;
+	      CdkKeymapKey *keys;
 	      gint n_keys, i, j;
 
 	      if (!cdk_keymap_get_entries_for_keyval (cdk_keymap_get_for_display (cdk_display_get_default ()), keyval, &keys, &n_keys)) {
@@ -438,7 +438,7 @@ egg_virtual_accelerator_name (guint                  accelerator_key,
                               EggVirtualModifierType accelerator_mods)
 {
   gchar *ctk_name;
-  GdkModifierType cdkmods = 0;
+  CdkModifierType cdkmods = 0;
 
   egg_keymap_resolve_virtual_modifiers (NULL, accelerator_mods, &cdkmods);
   ctk_name = ctk_accelerator_name (accelerator_key, cdkmods);
@@ -474,7 +474,7 @@ egg_virtual_accelerator_label (guint                  accelerator_key,
 			       EggVirtualModifierType accelerator_mods)
 {
   gchar *ctk_label;
-  GdkModifierType cdkmods = 0;
+  CdkModifierType cdkmods = 0;
 
   egg_keymap_resolve_virtual_modifiers (NULL, accelerator_mods, &cdkmods);
   ctk_label = ctk_accelerator_get_label (accelerator_key, cdkmods);
@@ -491,11 +491,11 @@ egg_virtual_accelerator_label (guint                  accelerator_key,
 }
 
 void
-egg_keymap_resolve_virtual_modifiers (GdkKeymap              *keymap,
+egg_keymap_resolve_virtual_modifiers (CdkKeymap              *keymap,
                                       EggVirtualModifierType  virtual_mods,
-                                      GdkModifierType        *concrete_mods)
+                                      CdkModifierType        *concrete_mods)
 {
-  GdkModifierType concrete;
+  CdkModifierType concrete;
   int i;
   const EggModmap *modmap;
 
@@ -517,11 +517,11 @@ egg_keymap_resolve_virtual_modifiers (GdkKeymap              *keymap,
 }
 
 void
-egg_keymap_virtualize_modifiers (GdkKeymap              *keymap,
-                                 GdkModifierType         concrete_mods,
+egg_keymap_virtualize_modifiers (CdkKeymap              *keymap,
+                                 CdkModifierType         concrete_mods,
                                  EggVirtualModifierType *virtual_mods)
 {
-  GdkModifierType virtual;
+  CdkModifierType virtual;
   int i;
   const EggModmap *modmap;
 
@@ -562,7 +562,7 @@ egg_keymap_virtualize_modifiers (GdkKeymap              *keymap,
 }
 
 static void
-reload_modmap (GdkKeymap *keymap,
+reload_modmap (CdkKeymap *keymap,
                EggModmap *modmap)
 {
   XModifierKeymap *xmodmap;
@@ -584,7 +584,7 @@ reload_modmap (GdkKeymap *keymap,
        * see if its keysym is one we're interested in
        */
       int keycode = xmodmap->modifiermap[i];
-      GdkKeymapKey *keys;
+      CdkKeymapKey *keys;
       guint *keyvals;
       int n_entries;
       int j;
@@ -642,7 +642,7 @@ reload_modmap (GdkKeymap *keymap,
 }
 
 const EggModmap*
-egg_keymap_get_modmap (GdkKeymap *keymap)
+egg_keymap_get_modmap (CdkKeymap *keymap)
 {
   EggModmap *modmap;
 

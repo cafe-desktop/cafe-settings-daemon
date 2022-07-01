@@ -166,7 +166,7 @@ static void
 popup_menu_launch_capplet ()
 {
 	GAppInfo *info;
-	GdkAppLaunchContext *context;
+	CdkAppLaunchContext *context;
 	GError *error = NULL;
 
 	info = g_app_info_create_from_commandline ("cafe-keyboard-properties", NULL, 0, &error);
@@ -258,8 +258,8 @@ static void
 status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 {
 	CtkWidget *toplevel;
-	GdkScreen *screen;
-	GdkVisual *visual;
+	CdkScreen *screen;
+	CdkVisual *visual;
 	CtkStyleContext *context;
 	CtkMenu *popup_menu = CTK_MENU (ctk_menu_new ());
 	CtkMenu *groups_menu = CTK_MENU (ctk_menu_new ());
@@ -301,7 +301,7 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 			item =
 			    ctk_menu_item_new_with_label (*current_name);
 		} else {
-			GdkPixbuf *pixbuf =
+			CdkPixbuf *pixbuf =
 			    cdk_pixbuf_new_from_file_at_size (image_file,
 							      24, 24,
 							      NULL);
@@ -340,7 +340,7 @@ show_hide_icon ()
 
 			xkl_debug (150, "Creating new icon\n");
 			icon = cafekbd_status_new ();
-                        /* commenting out fixes a Gdk-critical warning */
+                        /* commenting out fixes a Cdk-critical warning */
 /*			ctk_status_icon_set_name (icon, "keyboard");*/
 			g_signal_connect (icon, "popup-menu",
 					  G_CALLBACK
@@ -495,8 +495,8 @@ msd_keyboard_xkb_set_post_activation_callback (PostActivationCallback fun,
 	pa_callback_user_data = user_data;
 }
 
-static GdkFilterReturn
-msd_keyboard_xkb_evt_filter (GdkXEvent * xev, GdkEvent * event)
+static CdkFilterReturn
+msd_keyboard_xkb_evt_filter (CdkXEvent * xev, CdkEvent * event)
 {
 	XEvent *xevent = (XEvent *) xev;
 	xkl_engine_filter_events (xkl_engine, xevent);
@@ -609,7 +609,7 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 		g_signal_connect (settings_kbd, "changed",
 		                  G_CALLBACK (apply_xkb_settings_cb), NULL);
 
-		cdk_window_add_filter (NULL, (GdkFilterFunc)
+		cdk_window_add_filter (NULL, (CdkFilterFunc)
 				       msd_keyboard_xkb_evt_filter, NULL);
 
 		if (xkl_engine_get_features (xkl_engine) &
@@ -663,7 +663,7 @@ msd_keyboard_xkb_shutdown (void)
 				XKLL_MANAGE_LAYOUTS |
 				XKLL_MANAGE_WINDOW_STATES);
 
-	cdk_window_remove_filter (NULL, (GdkFilterFunc)
+	cdk_window_remove_filter (NULL, (CdkFilterFunc)
 				  msd_keyboard_xkb_evt_filter, NULL);
 
 	if (settings_desktop != NULL) {

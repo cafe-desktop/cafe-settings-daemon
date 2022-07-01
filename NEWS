@@ -143,7 +143,7 @@
   * xsettings: replace deprecated cdk_error_trap_push/pop
   * xrandr-manager: replace deprecated cdk_error_trap_push/pop
   * mouse-manager: replace deprecated cdk_error_trap_push/pop
-  * media-keys-manager: replace deprecated GdkDeviceManager
+  * media-keys-manager: replace deprecated CdkDeviceManager
   * keyboard-manager: replace deprecated cdk_error_trap_push/pop
   * clipboard-manager: replace deprecated cdk_error_trap_push/pop
   * background-manager: replace deprecated GDK functions
@@ -198,7 +198,7 @@
   * Translations update
   * touchpad: disable clickfinger by default
   * WidthOfScreen and HeightOfScreen implementation
-  * msd-keyboard-xkb: Fix Gdk-CRITICAL warning on creating status bar icon
+  * msd-keyboard-xkb: Fix Cdk-CRITICAL warning on creating status bar icon
   * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
 
 ### cafe-settings-daemon 1.19.0

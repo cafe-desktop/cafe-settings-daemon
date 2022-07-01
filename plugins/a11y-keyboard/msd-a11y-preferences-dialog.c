@@ -165,7 +165,7 @@ dpi_from_pixels_and_mm (int pixels,
 static double
 get_dpi_from_x_server (void)
 {
-        GdkScreen *screen;
+        CdkScreen *screen;
         double     dpi;
         int        scale;
 
