@@ -81,8 +81,8 @@
 #define KEY_COLOR_SCHEME       "ctk-color-scheme"
 #define KEY_ICON_THEME         "icon-theme"
 
-#define KEY_MARCO_SCHEMA    "org.cafe.Croma"
-#define KEY_MARCO_THEME     "theme"
+#define KEY_CROMA_SCHEMA    "org.cafe.Croma"
+#define KEY_CROMA_THEME     "theme"
 
 #define HIGH_CONTRAST_THEME    "HighContrast"
 
@@ -282,7 +282,7 @@ config_set_high_contrast (MsdA11yPreferencesDialog *dialog, gboolean enabled)
         } else {
                 g_settings_reset (dialog->priv->settings_interface, KEY_CTK_THEME);
                 g_settings_reset (dialog->priv->settings_interface, KEY_ICON_THEME);
-                g_settings_reset (dialog->priv->settings_croma, KEY_MARCO_THEME);
+                g_settings_reset (dialog->priv->settings_croma, KEY_CROMA_THEME);
         }
 }
 
@@ -739,7 +739,7 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
         dialog->priv->settings_a11y = g_settings_new (KEY_A11Y_SCHEMA);
         dialog->priv->settings_at = g_settings_new (KEY_AT_SCHEMA);
         dialog->priv->settings_interface = g_settings_new (KEY_INTERFACE_SCHEMA);
-        dialog->priv->settings_croma = g_settings_new (KEY_MARCO_SCHEMA);
+        dialog->priv->settings_croma = g_settings_new (KEY_CROMA_SCHEMA);
 
         builder = ctk_builder_new ();
         ctk_builder_set_translation_domain (builder, PACKAGE);
