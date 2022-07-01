@@ -38,9 +38,9 @@ enum
 
 struct MsdLdsmDialogPrivate
 {
-        GtkWidget *primary_label;
-        GtkWidget *secondary_label;
-        GtkWidget *ignore_check_button;
+        CtkWidget *primary_label;
+        CtkWidget *secondary_label;
+        CtkWidget *ignore_check_button;
         gboolean other_usable_partitions;
         gboolean other_partitions;
         gboolean has_trash;
@@ -141,7 +141,7 @@ update_ignore_paths (GSList **ignore_paths,
 }
 
 static void
-ignore_check_button_toggled_cb (GtkToggleButton *button,
+ignore_check_button_toggled_cb (CtkToggleButton *button,
                                 gpointer user_data)
 {
         MsdLdsmDialog *dialog = (MsdLdsmDialog *)user_data;
@@ -190,8 +190,8 @@ ignore_check_button_toggled_cb (GtkToggleButton *button,
 static void
 msd_ldsm_dialog_init (MsdLdsmDialog *dialog)
 {
-        GtkWidget *main_vbox, *text_vbox, *hbox;
-        GtkWidget *image;
+        CtkWidget *main_vbox, *text_vbox, *hbox;
+        CtkWidget *image;
 
         dialog->priv = msd_ldsm_dialog_get_instance_private (dialog);
 
@@ -237,7 +237,7 @@ msd_ldsm_dialog_init (MsdLdsmDialog *dialog)
         g_signal_connect (dialog->priv->ignore_check_button, "toggled",
                           G_CALLBACK (ignore_check_button_toggled_cb), dialog);
 
-        /* Now set up the dialog's GtkBox's' */
+        /* Now set up the dialog's CtkBox's' */
         ctk_box_set_spacing (GTK_BOX (main_vbox), 14);
 
         hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
@@ -416,8 +416,8 @@ msd_ldsm_dialog_new (gboolean     other_usable_partitions,
                      const gchar *mount_path)
 {
         MsdLdsmDialog *dialog;
-        GtkWidget *button_empty_trash, *button_ignore, *button_analyze;
-        GtkWidget *empty_trash_image, *analyze_image, *ignore_image;
+        CtkWidget *button_empty_trash, *button_ignore, *button_analyze;
+        CtkWidget *empty_trash_image, *analyze_image, *ignore_image;
         gchar *primary_text, *primary_text_markup;
         const gchar *secondary_text, *checkbutton_text;
 

@@ -92,8 +92,8 @@ struct MsdXrandrManagerPrivate
         CafeRRScreen *rw_screen;
         gboolean running;
 
-        GtkStatusIcon *status_icon;
-        GtkWidget *popup_menu;
+        CtkStatusIcon *status_icon;
+        CtkWidget *popup_menu;
         CafeRRConfig *configuration;
         CafeRRLabeler *labeler;
         GSettings *settings;
@@ -119,7 +119,7 @@ static void msd_xrandr_manager_finalize (GObject *object);
 static void error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to_display, const char *secondary_text);
 
 static void status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timestamp);
-static void run_display_capplet (GtkWidget *widget);
+static void run_display_capplet (CtkWidget *widget);
 static void get_allowed_rotations_for_output (CafeRRConfig *config,
                                               CafeRRScreen *rr_screen,
                                               CafeRROutputInfo *output,
@@ -286,7 +286,7 @@ show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
         return;
 #else
         struct MsdXrandrManagerPrivate *priv = manager->priv;
-        GtkWidget *dialog;
+        CtkWidget *dialog;
         guint32 change_timestamp, config_timestamp;
         static int serial;
 
@@ -426,7 +426,7 @@ restore_backup_configuration (MsdXrandrManager *manager, const char *backup_file
 
 typedef struct {
         MsdXrandrManager *manager;
-        GtkWidget *dialog;
+        CtkWidget *dialog;
 
         int countdown;
         int response_id;
@@ -460,7 +460,7 @@ timeout_cb (gpointer data)
 }
 
 static void
-timeout_response_cb (GtkDialog *dialog, int response_id, gpointer data)
+timeout_response_cb (CtkDialog *dialog, int response_id, gpointer data)
 {
         TimeoutDialog *timeout = data;
 
@@ -1132,7 +1132,7 @@ error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to
 
         notify_notification_show (notification, NULL); /* NULL-GError */
 #else
-        GtkWidget *dialog;
+        CtkWidget *dialog;
 
         dialog = ctk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_ERROR, GTK_BUTTONS_CLOSE,
                                          "%s", primary_text);
@@ -1643,7 +1643,7 @@ on_randr_event (CafeRRScreen *screen, gpointer data)
 }
 
 static void
-run_display_capplet (GtkWidget *widget)
+run_display_capplet (CtkWidget *widget)
 {
         GdkScreen *screen;
         GError *error;
@@ -1655,7 +1655,7 @@ run_display_capplet (GtkWidget *widget)
 
         error = NULL;
         if (!cafe_gdk_spawn_command_line_on_screen (screen, MSD_XRANDR_DISPLAY_CAPPLET, &error)) {
-                GtkWidget *dialog;
+                CtkWidget *dialog;
 
                 dialog = ctk_message_dialog_new_with_markup (NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
                                                              "<span weight=\"bold\" size=\"larger\">"
@@ -1670,13 +1670,13 @@ run_display_capplet (GtkWidget *widget)
 }
 
 static void
-popup_menu_configure_display_cb (GtkMenuItem *item, gpointer data)
+popup_menu_configure_display_cb (CtkMenuItem *item, gpointer data)
 {
         run_display_capplet (GTK_WIDGET (item));
 }
 
 static void
-status_icon_popup_menu_selection_done_cb (GtkMenuShell *menu_shell, gpointer data)
+status_icon_popup_menu_selection_done_cb (CtkMenuShell *menu_shell, gpointer data)
 {
         MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
         struct MsdXrandrManagerPrivate *priv = manager->priv;
@@ -1696,11 +1696,11 @@ status_icon_popup_menu_selection_done_cb (GtkMenuShell *menu_shell, gpointer dat
 #define OUTPUT_TITLE_ITEM_PADDING 4
 
 static void
-title_item_size_allocate_cb (GtkWidget *widget, GtkAllocation *allocation, gpointer data)
+title_item_size_allocate_cb (CtkWidget *widget, CtkAllocation *allocation, gpointer data)
 {
-        /* When GtkMenu does size_request on its items, it asks them for their "toggle size",
-         * which will be non-zero when there are check/radio items.  GtkMenu remembers
-         * the largest of those sizes.  During the size_allocate pass, GtkMenu calls
+        /* When CtkMenu does size_request on its items, it asks them for their "toggle size",
+         * which will be non-zero when there are check/radio items.  CtkMenu remembers
+         * the largest of those sizes.  During the size_allocate pass, CtkMenu calls
          * ctk_menu_item_toggle_size_allocate() with that value, to tell the menu item
          * that it should later paint its child a bit to the right of its edge.
          *
@@ -1734,20 +1734,20 @@ title_item_size_allocate_cb (GtkWidget *widget, GtkAllocation *allocation, gpoin
         g_signal_handlers_unblock_by_func (widget, title_item_size_allocate_cb, NULL);
 }
 
-static GtkWidget *
+static CtkWidget *
 make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *output)
 {
-        GtkWidget       *item;
-        GtkStyleContext *context;
-        GtkCssProvider  *provider, *provider2;
-        GtkWidget       *label;
-        GtkWidget       *image;
-        GtkWidget *box;
+        CtkWidget       *item;
+        CtkStyleContext *context;
+        CtkCssProvider  *provider, *provider2;
+        CtkWidget       *label;
+        CtkWidget       *image;
+        CtkWidget *box;
         char *str;
         GString *string;
         GdkRGBA color;
         gchar *css, *color_string, *theme_name;
-        GtkSettings *settings;
+        CtkSettings *settings;
         GSettings *icon_settings;
 
         struct MsdXrandrManagerPrivate *priv = manager->priv;
@@ -1926,8 +1926,8 @@ static void
 add_unsupported_rotation_item (MsdXrandrManager *manager)
 {
         struct MsdXrandrManagerPrivate *priv = manager->priv;
-        GtkWidget *item;
-        GtkWidget *label;
+        CtkWidget *item;
+        CtkWidget *label;
         gchar *markup;
 
         item = ctk_menu_item_new ();
@@ -1968,7 +1968,7 @@ ensure_current_configuration_is_saved (void)
 }
 
 static void
-monitor_activate_cb (GtkCheckMenuItem *item, gpointer data)
+monitor_activate_cb (CtkCheckMenuItem *item, gpointer data)
 {
         MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
         struct MsdXrandrManagerPrivate *priv = manager->priv;
@@ -2009,7 +2009,7 @@ monitor_activate_cb (GtkCheckMenuItem *item, gpointer data)
 }
 
 static void
-output_rotation_item_activate_cb (GtkCheckMenuItem *item, gpointer data)
+output_rotation_item_activate_cb (CtkCheckMenuItem *item, gpointer data)
 {
         MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
         struct MsdXrandrManagerPrivate *priv = manager->priv;
@@ -2041,7 +2041,7 @@ output_rotation_item_activate_cb (GtkCheckMenuItem *item, gpointer data)
 }
 
 static void
-mirror_outputs_cb(GtkCheckMenuItem *item, gpointer data)
+mirror_outputs_cb(CtkCheckMenuItem *item, gpointer data)
 {
         MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
         struct MsdXrandrManagerPrivate *priv = manager->priv;
@@ -2093,7 +2093,7 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
         struct MsdXrandrManagerPrivate *priv = manager->priv;
         int i;
         GSList *group;
-        GtkWidget *active_item;
+        CtkWidget *active_item;
         gulong active_item_activate_id;
 
         group = NULL;
@@ -2102,7 +2102,7 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
 
         for (i = 0; i < G_N_ELEMENTS (rotations); i++) {
                 CafeRRRotation rot;
-                GtkWidget *item;
+                CtkWidget *item;
                 gulong activate_id;
 
                 rot = rotations[i].rotation;
@@ -2169,7 +2169,7 @@ static void
 add_enable_option_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
 {
         struct MsdXrandrManagerPrivate *priv = manager->priv;
-        GtkWidget *item;
+        CtkWidget *item;
         gulong activate_id;
 
         item = ctk_check_menu_item_new();
@@ -2210,7 +2210,7 @@ static void
 add_menu_items_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
 {
         struct MsdXrandrManagerPrivate *priv = manager->priv;
-        GtkWidget *item;
+        CtkWidget *item;
 
         item = make_menu_item_for_output_title (manager, output);
         ctk_menu_shell_append (GTK_MENU_SHELL (priv->popup_menu), item);
@@ -2237,7 +2237,7 @@ static void
 add_menu_items_for_clone (MsdXrandrManager *manager)
 {
         struct MsdXrandrManagerPrivate *priv = manager->priv;
-        GtkWidget *item;
+        CtkWidget *item;
         gulong activate_id;
 
         item = ctk_check_menu_item_new_with_label(_("Same output all monitors"));
@@ -2262,10 +2262,10 @@ static void
 status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timestamp)
 {
         struct MsdXrandrManagerPrivate *priv = manager->priv;
-        GtkWidget *item;
-        GtkWidget *image;
-        GtkWidget *label;
-        GtkWidget *box;
+        CtkWidget *item;
+        CtkWidget *image;
+        CtkWidget *label;
+        CtkWidget *box;
         GSettings *icon_settings;
 
         g_assert (priv->configuration == NULL);
@@ -2308,13 +2308,13 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
                           G_CALLBACK (status_icon_popup_menu_selection_done_cb), manager);
 
         /*Set up custom theming and forced transparency support*/
-        GtkWidget *toplevel = ctk_widget_get_toplevel (priv->popup_menu);
+        CtkWidget *toplevel = ctk_widget_get_toplevel (priv->popup_menu);
         /*Fix any failures of compiz/other wm's to communicate with ctk for transparency */
         GdkScreen *screen = ctk_widget_get_screen(GTK_WIDGET(toplevel));
         GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
         ctk_widget_set_visual(GTK_WIDGET(toplevel), visual);
         /*Set up the ctk theme class from cafe-panel*/
-        GtkStyleContext *context;
+        CtkStyleContext *context;
         context = ctk_widget_get_style_context (GTK_WIDGET(toplevel));
         ctk_style_context_add_class(context,"gnome-panel-menu-bar");
         ctk_style_context_add_class(context,"cafe-panel-menu-bar");
@@ -2325,7 +2325,7 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
 }
 
 static void
-status_icon_activate_cb (GtkStatusIcon *status_icon, gpointer data)
+status_icon_activate_cb (CtkStatusIcon *status_icon, gpointer data)
 {
         MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
 
@@ -2334,7 +2334,7 @@ status_icon_activate_cb (GtkStatusIcon *status_icon, gpointer data)
 }
 
 static void
-status_icon_popup_menu_cb (GtkStatusIcon *status_icon, guint button, guint32 timestamp, gpointer data)
+status_icon_popup_menu_cb (CtkStatusIcon *status_icon, guint button, guint32 timestamp, gpointer data)
 {
         MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
 

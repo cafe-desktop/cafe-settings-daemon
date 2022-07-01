@@ -48,7 +48,7 @@
 
 
 struct MsdXrdbManagerPrivate {
-	GtkWidget* widget;
+	CtkWidget* widget;
 };
 
 static void msd_xrdb_manager_finalize (GObject *object);
@@ -93,7 +93,7 @@ color_shade (GdkColor *a,
 }
 
 static void
-append_theme_colors (GtkStyle *style,
+append_theme_colors (CtkStyle *style,
                      GString  *string)
 {
         GdkColor tmp;
@@ -416,7 +416,7 @@ spawn_with_input (const char *command,
 
 static void
 apply_settings (MsdXrdbManager *manager,
-                GtkStyle       *style)
+                CtkStyle       *style)
 {
         const char *command;
         GString    *string;
@@ -473,7 +473,7 @@ apply_settings (MsdXrdbManager *manager,
 }
 
 static void
-theme_changed (GtkSettings    *settings,
+theme_changed (CtkSettings    *settings,
                GParamSpec     *pspec,
                MsdXrdbManager *manager)
 {

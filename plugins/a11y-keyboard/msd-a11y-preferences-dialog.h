@@ -39,18 +39,18 @@ typedef struct MsdA11yPreferencesDialogPrivate MsdA11yPreferencesDialogPrivate;
 
 typedef struct
 {
-        GtkDialog                        parent;
+        CtkDialog                        parent;
         MsdA11yPreferencesDialogPrivate *priv;
 } MsdA11yPreferencesDialog;
 
 typedef struct
 {
-        GtkDialogClass   parent_class;
+        CtkDialogClass   parent_class;
 } MsdA11yPreferencesDialogClass;
 
 GType                  msd_a11y_preferences_dialog_get_type                   (void);
 
-GtkWidget            * msd_a11y_preferences_dialog_new                        (void);
+CtkWidget            * msd_a11y_preferences_dialog_new                        (void);
 
 #ifdef __cplusplus
 }

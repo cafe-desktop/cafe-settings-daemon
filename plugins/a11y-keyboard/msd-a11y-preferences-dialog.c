@@ -88,16 +88,16 @@
 
 struct MsdA11yPreferencesDialogPrivate
 {
-        GtkWidget *sticky_keys_checkbutton;
-        GtkWidget *slow_keys_checkbutton;
-        GtkWidget *bounce_keys_checkbutton;
+        CtkWidget *sticky_keys_checkbutton;
+        CtkWidget *slow_keys_checkbutton;
+        CtkWidget *bounce_keys_checkbutton;
 
-        GtkWidget *large_print_checkbutton;
-        GtkWidget *high_contrast_checkbutton;
+        CtkWidget *large_print_checkbutton;
+        CtkWidget *high_contrast_checkbutton;
 
-        GtkWidget *screen_reader_checkbutton;
-        GtkWidget *screen_keyboard_checkbutton;
-        GtkWidget *screen_magnifier_checkbutton;
+        CtkWidget *screen_reader_checkbutton;
+        CtkWidget *screen_keyboard_checkbutton;
+        CtkWidget *screen_magnifier_checkbutton;
 
         GSettings *settings_a11y;
         GSettings *settings_at;
@@ -401,56 +401,56 @@ config_set_at_screen_magnifier (MsdA11yPreferencesDialog *dialog, gboolean enabl
 }
 
 static void
-on_sticky_keys_checkbutton_toggled (GtkToggleButton          *button,
+on_sticky_keys_checkbutton_toggled (CtkToggleButton          *button,
                                     MsdA11yPreferencesDialog *dialog)
 {
         config_set_sticky_keys (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_bounce_keys_checkbutton_toggled (GtkToggleButton          *button,
+on_bounce_keys_checkbutton_toggled (CtkToggleButton          *button,
                                     MsdA11yPreferencesDialog *dialog)
 {
         config_set_bounce_keys (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_slow_keys_checkbutton_toggled (GtkToggleButton          *button,
+on_slow_keys_checkbutton_toggled (CtkToggleButton          *button,
                                   MsdA11yPreferencesDialog *dialog)
 {
         config_set_slow_keys (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_high_contrast_checkbutton_toggled (GtkToggleButton          *button,
+on_high_contrast_checkbutton_toggled (CtkToggleButton          *button,
                                       MsdA11yPreferencesDialog *dialog)
 {
         config_set_high_contrast (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_at_screen_reader_checkbutton_toggled (GtkToggleButton          *button,
+on_at_screen_reader_checkbutton_toggled (CtkToggleButton          *button,
                                          MsdA11yPreferencesDialog *dialog)
 {
         config_set_at_screen_reader (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_at_screen_keyboard_checkbutton_toggled (GtkToggleButton          *button,
+on_at_screen_keyboard_checkbutton_toggled (CtkToggleButton          *button,
                                            MsdA11yPreferencesDialog *dialog)
 {
         config_set_at_screen_keyboard (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_at_screen_magnifier_checkbutton_toggled (GtkToggleButton          *button,
+on_at_screen_magnifier_checkbutton_toggled (CtkToggleButton          *button,
                                             MsdA11yPreferencesDialog *dialog)
 {
         config_set_at_screen_magnifier (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
-on_large_print_checkbutton_toggled (GtkToggleButton          *button,
+on_large_print_checkbutton_toggled (CtkToggleButton          *button,
                                     MsdA11yPreferencesDialog *dialog)
 {
         config_set_large_print (ctk_toggle_button_get_active (button));
@@ -588,9 +588,9 @@ key_changed_cb (GSettings                *settings,
 
 static void
 setup_dialog (MsdA11yPreferencesDialog *dialog,
-              GtkBuilder               *builder)
+              CtkBuilder               *builder)
 {
-        GtkWidget   *widget;
+        CtkWidget   *widget;
         gboolean     enabled;
         gboolean     is_writable;
 
@@ -732,7 +732,7 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
         static const gchar *ui_file_path = GTKBUILDERDIR "/" GTKBUILDER_UI_FILE;
         gchar *objects[] = {"main_box", NULL};
         GError *error = NULL;
-        GtkBuilder  *builder;
+        CtkBuilder  *builder;
 
         dialog->priv = msd_a11y_preferences_dialog_get_instance_private (dialog);
 
@@ -748,7 +748,7 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
                 g_warning ("Could not load A11Y-UI: %s", error->message);
                 g_error_free (error);
         } else {
-                GtkWidget *widget;
+                CtkWidget *widget;
 
                 widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                              "main_box"));
@@ -799,7 +799,7 @@ msd_a11y_preferences_dialog_finalize (GObject *object)
         G_OBJECT_CLASS (msd_a11y_preferences_dialog_parent_class)->finalize (object);
 }
 
-GtkWidget *
+CtkWidget *
 msd_a11y_preferences_dialog_new (void)
 {
         GObject *object;

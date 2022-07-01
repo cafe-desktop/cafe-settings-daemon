@@ -28,11 +28,11 @@
 
 /* Some of this code has been borrowed from the trash-applet, courtesy of Ryan Lortie */
 
-static GtkWidget *trash_empty_confirm_dialog = NULL;
-static GtkWidget *trash_empty_dialog = NULL;
-static GtkWidget *location_label;
-static GtkWidget *file_label;
-static GtkWidget *progressbar;
+static CtkWidget *trash_empty_confirm_dialog = NULL;
+static CtkWidget *trash_empty_dialog = NULL;
+static CtkWidget *location_label;
+static CtkWidget *file_label;
+static CtkWidget *progressbar;
 
 static gsize trash_empty_total_files;
 static gboolean trash_empty_update_pending = FALSE;
@@ -235,8 +235,8 @@ trash_empty_job (GIOSchedulerJob *job,
 static void
 trash_empty_start ()
 {
-        GtkWidget *vbox1, *vbox2, *hbox;
-        GtkWidget *label1, *label3;
+        CtkWidget *vbox1, *vbox2, *hbox;
+        CtkWidget *label1, *label3;
         gchar *markup;
         GCancellable *cancellable;
 
@@ -315,7 +315,7 @@ trash_empty_start ()
 }
 
 static void
-trash_empty_confirmation_response (GtkDialog *dialog,
+trash_empty_confirmation_response (CtkDialog *dialog,
                                    gint       response_id,
                                    gpointer   user_data)
 {
@@ -342,7 +342,7 @@ trash_empty_require_confirmation (void)
 static void
 trash_empty_show_confirmation_dialog ()
 {
-        GtkWidget *button;
+        CtkWidget *button;
 
         if (!trash_empty_require_confirmation ()) {
                 trash_empty_start ();

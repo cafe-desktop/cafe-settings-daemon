@@ -41,7 +41,7 @@ static GSList *dialogs = NULL;
  * for that to happen before showing the dialog.
  **/
 void
-msd_delayed_show_dialog (GtkWidget *dialog)
+msd_delayed_show_dialog (CtkWidget *dialog)
 {
         GdkDisplay *display = ctk_widget_get_display (dialog);
         Display *xdisplay = GDK_DISPLAY_XDISPLAY (display);
@@ -109,7 +109,7 @@ message_filter (GdkXEvent *xevent, GdkEvent *event, gpointer data)
         screen = atoi (selection_name + 4);
 
         for (l = dialogs; l; l = next) {
-                GtkWidget *dialog = l->data;
+                CtkWidget *dialog = l->data;
                 next = l->next;
 
                 if (gdk_x11_screen_get_screen_number (ctk_widget_get_screen (dialog)) == screen) {

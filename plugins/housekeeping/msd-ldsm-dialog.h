@@ -46,12 +46,12 @@ typedef struct _MsdLdsmDialog MsdLdsmDialog;
 
 struct _MsdLdsmDialogClass
 {
-        GtkDialogClass parent_class;
+        CtkDialogClass parent_class;
 };
 
 struct _MsdLdsmDialog
 {
-        GtkDialog parent_instance;
+        CtkDialog parent_instance;
         MsdLdsmDialogPrivate *priv;
 };
 
