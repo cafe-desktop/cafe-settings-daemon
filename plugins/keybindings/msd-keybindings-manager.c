@@ -368,7 +368,7 @@ screen_exec_display_string (CdkScreen *screen)
         const char *old_display;
         char       *p;
 
-        g_return_val_if_fail (GDK_IS_SCREEN (screen), NULL);
+        g_return_val_if_fail (CDK_IS_SCREEN (screen), NULL);
 
         old_display = cdk_display_get_name (cdk_screen_get_display (screen));
 
@@ -411,7 +411,7 @@ get_exec_environment (XEvent *xevent)
                 screen = cdk_window_get_screen (window);
         }
 
-        g_return_val_if_fail (GDK_IS_SCREEN (screen), NULL);
+        g_return_val_if_fail (CDK_IS_SCREEN (screen), NULL);
 
         for (i = 0; environ [i]; i++) {
                 if (!strncmp (environ [i], "DISPLAY", 7)) {
@@ -447,7 +447,7 @@ keybindings_filter (CdkXEvent             *cdk_xevent,
         GSList *li;
 
         if (xevent->type != KeyPress) {
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
         }
 
         for (li = manager->priv->binding_list; li != NULL; li = li->next) {
@@ -459,12 +459,12 @@ keybindings_filter (CdkXEvent             *cdk_xevent,
                         gchar  **argv = NULL;
                         gchar  **envp = NULL;
 
-                        g_return_val_if_fail (binding->action != NULL, GDK_FILTER_CONTINUE);
+                        g_return_val_if_fail (binding->action != NULL, CDK_FILTER_CONTINUE);
 
                         if (!g_shell_parse_argv (binding->action,
                                                  NULL, &argv,
                                                  &error)) {
-                                return GDK_FILTER_CONTINUE;
+                                return CDK_FILTER_CONTINUE;
                         }
 
                         envp = get_exec_environment (xevent);
@@ -493,10 +493,10 @@ keybindings_filter (CdkXEvent             *cdk_xevent,
                                                   NULL);
                                 ctk_widget_show (dialog);
                         }
-                        return GDK_FILTER_REMOVE;
+                        return CDK_FILTER_REMOVE;
                 }
         }
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -530,11 +530,11 @@ msd_keybindings_manager_start (MsdKeybindingsManager *manager,
         cafe_settings_profile_start (NULL);
 
         dpy = cdk_display_get_default ();
-        xdpy = GDK_DISPLAY_XDISPLAY (dpy);
+        xdpy = CDK_DISPLAY_XDISPLAY (dpy);
 
         screen = cdk_display_get_default_screen (dpy);
         window = cdk_screen_get_root_window (screen);
-        xwindow = GDK_WINDOW_XID (window);
+        xwindow = CDK_WINDOW_XID (window);
 
         cdk_window_add_filter (window,
                                (CdkFilterFunc) keybindings_filter,

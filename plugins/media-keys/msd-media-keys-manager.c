@@ -1054,7 +1054,7 @@ find_by_time (gconstpointer a,
 
 /*
  * Register a new media player. Most applications will want to call
- * this with time = GDK_CURRENT_TIME. This way, the last registered
+ * this with time = CDK_CURRENT_TIME. This way, the last registered
  * player will receive media events. In some cases, applications
  * may want to register with a lower priority (usually 1), to grab
  * events only nobody is interested.
@@ -1068,7 +1068,7 @@ msd_media_keys_manager_grab_media_player_keys (MsdMediaKeysManager *manager,
         GList       *iter;
         MediaPlayer *media_player;
 
-        if (time == GDK_CURRENT_TIME) {
+        if (time == CDK_CURRENT_TIME) {
                 GTimeVal tv;
 
                 g_get_current_time (&tv);
@@ -1333,7 +1333,7 @@ acme_get_screen_from_event (MsdMediaKeysManager *manager,
                 screen = (CdkScreen *) l->data;
                 window = cdk_screen_get_root_window (screen);
 
-                if (GDK_WINDOW_XID (window) == xanyev->window) {
+                if (CDK_WINDOW_XID (window) == xanyev->window) {
                         return screen;
                 }
         }
@@ -1352,7 +1352,7 @@ acme_filter_events (CdkXEvent           *xevent,
 
         /* verify we have a key event */
         if (xev->type != KeyPress) {
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
         }
 
         for (i = 0; i < HANDLED_KEYS; i++) {
@@ -1364,7 +1364,7 @@ acme_filter_events (CdkXEvent           *xevent,
                         case VOLUME_UP_QUIET_KEY:
                                 /* auto-repeatable keys */
                                 if (xev->type != KeyPress) {
-                                        return GDK_FILTER_CONTINUE;
+                                        return CDK_FILTER_CONTINUE;
                                 }
                                 break;
                         }
@@ -1372,14 +1372,14 @@ acme_filter_events (CdkXEvent           *xevent,
                         manager->priv->current_screen = acme_get_screen_from_event (manager, xany);
 
                         if (do_action (manager, keys[i].key_type) == FALSE) {
-                                return GDK_FILTER_REMOVE;
+                                return CDK_FILTER_REMOVE;
                         } else {
-                                return GDK_FILTER_CONTINUE;
+                                return CDK_FILTER_CONTINUE;
                         }
                 }
         }
 
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -1421,7 +1421,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
         cafe_settings_profile_start (NULL);
 
         dpy = cdk_display_get_default ();
-        xdpy = GDK_DISPLAY_XDISPLAY (dpy);
+        xdpy = CDK_DISPLAY_XDISPLAY (dpy);
 
         manager->priv->volume_monitor = g_volume_monitor_get ();
         manager->priv->settings = g_settings_new (BINDING_SCHEMA);
@@ -1440,7 +1440,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
                 cafe_settings_profile_start ("cdk_window_add_filter");
 
                 window = cdk_screen_get_root_window (l->data);
-                xwindow = GDK_WINDOW_XID (window);
+                xwindow = CDK_WINDOW_XID (window);
 
                 g_debug ("adding key filter for screen: %d",
                          cdk_x11_screen_get_screen_number (l->data));

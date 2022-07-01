@@ -813,9 +813,9 @@ clipboard_manager_event_filter (CdkXEvent           *xevent,
                                 MsdClipboardManager *manager)
 {
         if (clipboard_manager_process_event (manager, (XEvent *)xevent)) {
-                return GDK_FILTER_REMOVE;
+                return CDK_FILTER_REMOVE;
         } else {
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
         }
 }
 
@@ -973,7 +973,7 @@ msd_clipboard_manager_init (MsdClipboardManager *manager)
 {
         manager->priv = msd_clipboard_manager_get_instance_private (manager);
 
-        manager->priv->display = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
+        manager->priv->display = CDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
 
 }
 

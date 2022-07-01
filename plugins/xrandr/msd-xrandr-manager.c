@@ -599,7 +599,7 @@ static gboolean
 msd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
                                         GError          **error)
 {
-        return try_to_apply_intended_configuration (manager, NULL, GDK_CURRENT_TIME, error);
+        return try_to_apply_intended_configuration (manager, NULL, CDK_CURRENT_TIME, error);
 }
 
 /* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
@@ -1363,11 +1363,11 @@ event_filter (CdkXEvent           *xevent,
         XEvent *xev = (XEvent *) xevent;
 
         if (!manager->priv->running)
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
 
         /* verify we have a key event */
         if (xev->xany.type != KeyPress && xev->xany.type != KeyRelease)
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
 
         if (xev->xany.type == KeyPress) {
                 if (xev->xkey.keycode == manager->priv->switch_video_mode_keycode)
@@ -1375,10 +1375,10 @@ event_filter (CdkXEvent           *xevent,
                 else if (xev->xkey.keycode == manager->priv->rotate_windows_keycode)
                         handle_rotate_windows (manager, xev->xkey.time);
 
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
         }
 
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -2583,10 +2583,10 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
         }
 
         show_timestamps_dialog (manager, "Startup");
-        if (!apply_stored_configuration_at_startup (manager, GDK_CURRENT_TIME)) /* we don't have a real timestamp at startup anyway */
-                if (!apply_default_configuration_from_file (manager, GDK_CURRENT_TIME))
+        if (!apply_stored_configuration_at_startup (manager, CDK_CURRENT_TIME)) /* we don't have a real timestamp at startup anyway */
+                if (!apply_default_configuration_from_file (manager, CDK_CURRENT_TIME))
                         if (!g_settings_get_boolean (manager->priv->settings, CONF_KEY_USE_XORG_MONITOR_SETTINGS))
-                                apply_default_boot_configuration (manager, GDK_CURRENT_TIME);
+                                apply_default_boot_configuration (manager, CDK_CURRENT_TIME);
 
         log_msg ("State of screen after initial configuration:\n");
         log_screen (manager->priv->rw_screen);

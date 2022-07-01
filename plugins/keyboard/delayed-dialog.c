@@ -44,7 +44,7 @@ void
 msd_delayed_show_dialog (CtkWidget *dialog)
 {
         CdkDisplay *display = ctk_widget_get_display (dialog);
-        Display *xdisplay = GDK_DISPLAY_XDISPLAY (display);
+        Display *xdisplay = CDK_DISPLAY_XDISPLAY (display);
         CdkScreen *screen = ctk_widget_get_screen (dialog);
         char selection_name[10];
         Atom selection_atom;
@@ -92,18 +92,18 @@ message_filter (CdkXEvent *xevent, CdkEvent *event, gpointer data)
         GSList *l, *next;
 
         if (((XEvent *)xevent)->type != ClientMessage)
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
 
         evt = (XClientMessageEvent *)xevent;
 
         if (evt->message_type != XInternAtom (evt->display, "MANAGER", FALSE))
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
 
         selection_name = XGetAtomName (evt->display, evt->data.l[1]);
 
         if (strncmp (selection_name, "WM_S", 4) != 0) {
                 XFree (selection_name);
-                return GDK_FILTER_CONTINUE;
+                return CDK_FILTER_CONTINUE;
         }
 
         screen = atoi (selection_name + 4);
@@ -124,5 +124,5 @@ message_filter (CdkXEvent *xevent, CdkEvent *event, gpointer data)
 
         XFree (selection_name);
 
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }

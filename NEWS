@@ -146,7 +146,7 @@
   * media-keys-manager: replace deprecated CdkDeviceManager
   * keyboard-manager: replace deprecated cdk_error_trap_push/pop
   * clipboard-manager: replace deprecated cdk_error_trap_push/pop
-  * background-manager: replace deprecated GDK functions
+  * background-manager: replace deprecated CDK functions
   * a11y-keyboard-manager: replace deprecated cdk_error_trap_push/pop
   * msd-input-helper: replace deprecated cdk_error_trap_push/pop
   * plugins: avoid deprecated 'cdk_keymap_get_default'

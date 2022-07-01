@@ -171,7 +171,7 @@ msd_timeline_class_init (MsdTimelineClass *class)
 				   g_param_spec_object ("screen",
 							"Screen",
 							"Screen to get the settings from",
-							GDK_TYPE_SCREEN,
+							CDK_TYPE_SCREEN,
 							G_PARAM_READWRITE));
 
   signals[STARTED] =
@@ -251,7 +251,7 @@ msd_timeline_set_property (GObject      *object,
       break;
     case PROP_SCREEN:
       msd_timeline_set_screen (timeline,
-			       GDK_SCREEN (g_value_get_object (value)));
+			       CDK_SCREEN (g_value_get_object (value)));
       break;
     case PROP_PROGRESS_TYPE:
       msd_timeline_set_progress_type (timeline, g_value_get_enum (value));
@@ -736,7 +736,7 @@ msd_timeline_set_screen (MsdTimeline *timeline,
   MsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
-  g_return_if_fail (GDK_IS_SCREEN (screen));
+  g_return_if_fail (CDK_IS_SCREEN (screen));
 
   priv = msd_timeline_get_instance_private (timeline);
 

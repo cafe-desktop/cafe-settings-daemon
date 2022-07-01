@@ -31,7 +31,7 @@ wm_common_get_window_manager_property (Atom atom)
   cdk_x11_display_error_trap_push (display);
 
   val = NULL;
-  result = XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display),
+  result = XGetWindowProperty (CDK_DISPLAY_XDISPLAY (display),
 		  	       wm_window,
 			       atom,
 			       0, G_MAXLONG,
@@ -81,7 +81,7 @@ update_wm_window (void)
 
   display = cdk_display_get_default ();
 
-  XGetWindowProperty (GDK_DISPLAY_XDISPLAY (display), GDK_ROOT_WINDOW (),
+  XGetWindowProperty (CDK_DISPLAY_XDISPLAY (display), CDK_ROOT_WINDOW (),
 		      cdk_x11_get_xatom_by_name ("_NET_SUPPORTING_WM_CHECK"),
 		      0, G_MAXLONG, False, XA_WINDOW, &type, &format,
 		      &nitems, &bytes_after, (guchar **) &xwindow);
@@ -93,8 +93,8 @@ update_wm_window (void)
     }
 
   cdk_x11_display_error_trap_push (display);
-  XSelectInput (GDK_DISPLAY_XDISPLAY (display), *xwindow, StructureNotifyMask | PropertyChangeMask);
-  XSync (GDK_DISPLAY_XDISPLAY (display), False);
+  XSelectInput (CDK_DISPLAY_XDISPLAY (display), *xwindow, StructureNotifyMask | PropertyChangeMask);
+  XSync (CDK_DISPLAY_XDISPLAY (display), False);
 
   if (cdk_x11_display_error_trap_pop (display))
     {
