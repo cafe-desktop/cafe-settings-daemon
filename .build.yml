@@ -16,7 +16,7 @@ requires:
     - g++
     - git
     - gobject-introspection
-    - ctk-doc-tools
+    - gtk-doc-tools
     - iso-codes
     - libcanberra-ctk3-dev
     - libdbus-glib-1-dev
