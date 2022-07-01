@@ -547,7 +547,7 @@ scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
                  * scaling factor changes so that it's visually correct. */
                 wm_common_update_window();
                 gchar *wm = wm_common_get_current_window_manager ();
-                if (g_strcmp0 (wm, WM_COMMON_MARCO) == 0) {
+                if (g_strcmp0 (wm, WM_COMMON_CROMA) == 0) {
                         gchar *croma[3] = {"croma", "--replace", NULL};
                         if (!g_spawn_async (NULL, croma, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
                                 g_warning ("There was a problem restarting croma: %s", error->message);
