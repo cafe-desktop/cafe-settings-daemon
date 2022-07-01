@@ -49,11 +49,11 @@ setup_modifiers (void)
 
                 /* default modifiers */
                 msd_ignored_mods = \
-                        0x2000 /*Xkb modifier*/ | GDK_LOCK_MASK | GDK_HYPER_MASK;
+                        0x2000 /*Xkb modifier*/ | CDK_LOCK_MASK | CDK_HYPER_MASK;
 		msd_used_mods = \
-                        GDK_SHIFT_MASK | GDK_CONTROL_MASK |\
-                        GDK_MOD1_MASK | GDK_MOD2_MASK | GDK_MOD3_MASK | GDK_MOD4_MASK |\
-                        GDK_MOD5_MASK | GDK_SUPER_MASK | GDK_META_MASK;
+                        CDK_SHIFT_MASK | CDK_CONTROL_MASK |\
+                        CDK_MOD1_MASK | CDK_MOD2_MASK | CDK_MOD3_MASK | CDK_MOD4_MASK |\
+                        CDK_MOD5_MASK | CDK_SUPER_MASK | CDK_META_MASK;
 
                 /* NumLock can be assigned to varying keys so we need to
                  * resolve and ignore it specially */
@@ -74,18 +74,18 @@ grab_key_real (guint      keycode,
                int        mask)
 {
         if (grab) {
-                XGrabKey (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
+                XGrabKey (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                           keycode,
                           mask,
-                          GDK_WINDOW_XID (root),
+                          CDK_WINDOW_XID (root),
                           True,
                           GrabModeAsync,
                           GrabModeAsync);
         } else {
-                XUngrabKey (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
+                XUngrabKey (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                             keycode,
                             mask,
-                            GDK_WINDOW_XID (root));
+                            CDK_WINDOW_XID (root));
         }
 }
 
@@ -124,7 +124,7 @@ grab_key_unsafe (Key                 *key,
 
         setup_modifiers ();
 
-        mask = msd_ignored_mods & ~key->state & GDK_MODIFIER_MASK;
+        mask = msd_ignored_mods & ~key->state & CDK_MODIFIER_MASK;
 
         bit = 0;
         /* store the indexes of all set bits in mask in the array */
@@ -219,7 +219,7 @@ match_key (Key *key, XEvent *event)
 		group = XkbGroupForCoreState (event->xkey.state);
 	else
 #endif
-		group = (event->xkey.state & GDK_KEY_Mode_switch) ? 1 : 0;
+		group = (event->xkey.state & CDK_KEY_Mode_switch) ? 1 : 0;
 
 	/* Check if we find a keysym that matches our current state */
 	if (cdk_keymap_translate_keyboard_state (cdk_keymap_get_for_display (cdk_display_get_default ()), event->xkey.keycode,
@@ -233,7 +233,7 @@ match_key (Key *key, XEvent *event)
 		 * keysym, we might need the Shift state for matching,
 		 * so remove it from the consumed modifiers */
 		if (lower == key->keysym)
-			consumed &= ~GDK_SHIFT_MASK;
+			consumed &= ~CDK_SHIFT_MASK;
 
 		return ((lower == key->keysym || upper == key->keysym)
 			&& (event->xkey.state & ~consumed & msd_used_mods) == key->state);

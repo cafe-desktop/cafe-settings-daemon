@@ -84,7 +84,7 @@ static gboolean xkb_set_keyboard_autorepeat_rate(int delay, int rate)
 		delay = 1;
 	}
 
-	return XkbSetAutoRepeatRate(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()), XkbUseCoreKbd, delay, interval);
+	return XkbSetAutoRepeatRate(CDK_DISPLAY_XDISPLAY(cdk_display_get_default()), XkbUseCoreKbd, delay, interval);
 }
 #endif
 
@@ -99,7 +99,7 @@ typedef enum {
 static void
 numlock_xkb_init (MsdKeyboardManager *manager)
 {
-        Display *dpy = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
+        Display *dpy = CDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         gboolean have_xkb;
         int opcode, error_base, major, minor;
 
@@ -127,7 +127,7 @@ numlock_xkb_init (MsdKeyboardManager *manager)
 static unsigned
 numlock_NumLock_modifier_mask (void)
 {
-        Display *dpy = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
+        Display *dpy = CDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         return XkbKeysymToModifiers (dpy, XK_Num_Lock);
 }
 
@@ -135,7 +135,7 @@ static void
 numlock_set_xkb_state (NumLockState new_state)
 {
         unsigned int num_mask;
-        Display *dpy = GDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
+        Display *dpy = CDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         if (new_state != NUMLOCK_STATE_ON && new_state != NUMLOCK_STATE_OFF)
                 return;
         num_mask = numlock_NumLock_modifier_mask ();
@@ -177,7 +177,7 @@ numlock_xkb_callback (CdkXEvent *xev_,
                         g_object_unref (settings);
                 }
         }
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -230,7 +230,7 @@ apply_settings (GSettings          *settings,
         if (repeat) {
                 gboolean rate_set = FALSE;
 
-                XAutoRepeatOn (GDK_DISPLAY_XDISPLAY (display));
+                XAutoRepeatOn (CDK_DISPLAY_XDISPLAY (display));
                 /* Use XKB in preference */
 #ifdef HAVE_X11_EXTENSIONS_XKB_H
                 rate_set = xkb_set_keyboard_autorepeat_rate (delay, rate);
@@ -239,7 +239,7 @@ apply_settings (GSettings          *settings,
                         g_warning ("Neither XKeyboard not Xfree86's keyboard extensions are available,\n"
                                    "no way to support keyboard autorepeat rate settings");
         } else {
-                XAutoRepeatOff (GDK_DISPLAY_XDISPLAY (display));
+                XAutoRepeatOff (CDK_DISPLAY_XDISPLAY (display));
         }
 
         /* as percentage from 0..100 inclusive */
@@ -252,7 +252,7 @@ apply_settings (GSettings          *settings,
         kbdcontrol.bell_percent = bell_volume;
         kbdcontrol.bell_pitch = bell_pitch;
         kbdcontrol.bell_duration = bell_duration;
-        XChangeKeyboardControl (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
+        XChangeKeyboardControl (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                                 KBKeyClickPercent | KBBellPercent | KBBellPitch | KBBellDuration,
                                 &kbdcontrol);
 
@@ -266,7 +266,7 @@ apply_settings (GSettings          *settings,
         }
 #endif /* HAVE_X11_EXTENSIONS_XKB_H */
 
-        XSync (GDK_DISPLAY_XDISPLAY (display), FALSE);
+        XSync (CDK_DISPLAY_XDISPLAY (display), FALSE);
         cdk_x11_display_error_trap_pop_ignored (display);
 }
 

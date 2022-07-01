@@ -297,16 +297,16 @@ locate_pointer_realize_cb (CtkWidget            *widget,
 
   locate_pointer_unrealize_cb (CTK_WIDGET (data->widget), data);
 
-  attributes_mask = GDK_WA_X | GDK_WA_Y;
+  attributes_mask = CDK_WA_X | CDK_WA_Y;
   if (visual != NULL)
     {
-      attributes_mask |= GDK_WA_VISUAL;
+      attributes_mask |= CDK_WA_VISUAL;
     }
 
-  attributes.window_type = GDK_WINDOW_TEMP;
-  attributes.wclass = GDK_INPUT_OUTPUT;
+  attributes.window_type = CDK_WINDOW_TEMP;
+  attributes.wclass = CDK_INPUT_OUTPUT;
   attributes.visual = visual;
-  attributes.event_mask = GDK_VISIBILITY_NOTIFY_MASK | GDK_EXPOSURE_MASK;
+  attributes.event_mask = CDK_VISIBILITY_NOTIFY_MASK | CDK_EXPOSURE_MASK;
   attributes.width = 1;
   attributes.height = 1;
 
@@ -462,7 +462,7 @@ event_filter (CdkXEvent *cdkxevent,
                                            &keyval,
                                            NULL, NULL, NULL);
 
-      if (keyval == GDK_KEY_Control_L || keyval == GDK_KEY_Control_R)
+      if (keyval == CDK_KEY_Control_L || keyval == CDK_KEY_Control_R)
         {
           if (xevent->xany.type == KeyRelease)
             {
@@ -504,7 +504,7 @@ event_filter (CdkXEvent *cdkxevent,
                        xevent->xbutton.time);
     }
 
-  return GDK_FILTER_CONTINUE;
+  return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -515,7 +515,7 @@ set_locate_pointer (void)
   CdkScreen *screen;
   int n_keys;
   gboolean has_entries = FALSE;
-  static const guint keyvals[] = { GDK_KEY_Control_L, GDK_KEY_Control_R };
+  static const guint keyvals[] = { CDK_KEY_Control_L, CDK_KEY_Control_R };
   unsigned int i, j;
 
   display = cdk_display_get_default ();
@@ -533,30 +533,30 @@ set_locate_pointer (void)
             {
               Window xroot;
 
-              xroot = GDK_WINDOW_XID (cdk_screen_get_root_window (screen));
+              xroot = CDK_WINDOW_XID (cdk_screen_get_root_window (screen));
 
-              XGrabKey (GDK_DISPLAY_XDISPLAY (display),
+              XGrabKey (CDK_DISPLAY_XDISPLAY (display),
                         keys[j].keycode,
                         0,
                         xroot,
                         False,
                         GrabModeAsync,
                         GrabModeSync);
-              XGrabKey (GDK_DISPLAY_XDISPLAY (display),
+              XGrabKey (CDK_DISPLAY_XDISPLAY (display),
                         keys[j].keycode,
                         LockMask,
                         xroot,
                         False,
                         GrabModeAsync,
                         GrabModeSync);
-              XGrabKey (GDK_DISPLAY_XDISPLAY (display),
+              XGrabKey (CDK_DISPLAY_XDISPLAY (display),
                         keys[j].keycode,
                         Mod2Mask,
                         xroot,
                         False,
                         GrabModeAsync,
                         GrabModeSync);
-              XGrabKey (GDK_DISPLAY_XDISPLAY (display),
+              XGrabKey (CDK_DISPLAY_XDISPLAY (display),
                         keys[j].keycode,
                         Mod4Mask,
                         xroot,

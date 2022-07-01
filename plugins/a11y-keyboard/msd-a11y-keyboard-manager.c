@@ -105,7 +105,7 @@ devicepresence_filter (CdkXEvent *xevent,
                 set_server_from_settings (data);
 	    }
         }
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static gboolean
@@ -113,7 +113,7 @@ supports_xinput_devices (void)
 {
         gint op_code, event, error;
 
-        return XQueryExtension (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
+        return XQueryExtension (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                                 "XInputExtension",
                                 &op_code,
                                 &event,
@@ -156,13 +156,13 @@ xkb_enabled (MsdA11yKeyboardManager *manager)
         gboolean have_xkb;
         int opcode, errorBase, major, minor;
 
-        have_xkb = XkbQueryExtension (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
+        have_xkb = XkbQueryExtension (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                                       &opcode,
                                       &manager->priv->xkbEventBase,
                                       &errorBase,
                                       &major,
                                       &minor)
-                && XkbUseExtension (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()), &major, &minor);
+                && XkbUseExtension (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()), &major, &minor);
 
         return have_xkb;
 }
@@ -177,10 +177,10 @@ get_xkb_desc_rec (MsdA11yKeyboardManager *manager)
         display = cdk_display_get_default ();
 
         cdk_x11_display_error_trap_push (display);
-        desc = XkbGetMap (GDK_DISPLAY_XDISPLAY(display), XkbAllMapComponentsMask, XkbUseCoreKbd);
+        desc = XkbGetMap (CDK_DISPLAY_XDISPLAY(display), XkbAllMapComponentsMask, XkbUseCoreKbd);
         if (desc != NULL) {
                 desc->ctrls = NULL;
-                status = XkbGetControls (GDK_DISPLAY_XDISPLAY(display), XkbAllControlsMask, desc);
+                status = XkbGetControls (CDK_DISPLAY_XDISPLAY(display), XkbAllControlsMask, desc);
         }
         cdk_x11_display_error_trap_pop_ignored (display);
 
@@ -379,7 +379,7 @@ set_server_from_settings (MsdA11yKeyboardManager *manager)
         display = cdk_display_get_default ();
 
         cdk_x11_display_error_trap_push (display);
-        XkbSetControls (GDK_DISPLAY_XDISPLAY(display),
+        XkbSetControls (CDK_DISPLAY_XDISPLAY(display),
                         XkbSlowKeysMask         |
                         XkbBounceKeysMask       |
                         XkbStickyKeysMask       |
@@ -393,7 +393,7 @@ set_server_from_settings (MsdA11yKeyboardManager *manager)
 
         XkbFreeKeyboard (desc, XkbAllComponentsMask, True);
 
-        XSync (GDK_DISPLAY_XDISPLAY(display), FALSE);
+        XSync (CDK_DISPLAY_XDISPLAY(display), FALSE);
         cdk_x11_display_error_trap_pop_ignored (display);
 
         cafe_settings_profile_end (NULL);
@@ -979,7 +979,7 @@ cb_xkb_event_filter (CdkXEvent              *xevent,
                 }
         }
 
-        return GDK_FILTER_CONTINUE;
+        return CDK_FILTER_CONTINUE;
 }
 
 static void
@@ -1019,7 +1019,7 @@ start_a11y_keyboard_idle_cb (MsdA11yKeyboardManager *manager)
         /* be sure to init before starting to monitor the server */
         set_server_from_settings (manager);
 
-        XkbSelectEvents (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
+        XkbSelectEvents (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()),
                          XkbUseCoreKbd,
                          event_mask,
                          event_mask);
@@ -1057,7 +1057,7 @@ restore_server_xkb_config (MsdA11yKeyboardManager *manager)
 
         display = cdk_display_get_default ();
         cdk_x11_display_error_trap_push (display);
-        XkbSetControls (GDK_DISPLAY_XDISPLAY(display),
+        XkbSetControls (CDK_DISPLAY_XDISPLAY(display),
                         XkbSlowKeysMask         |
                         XkbBounceKeysMask       |
                         XkbStickyKeysMask       |
@@ -1072,7 +1072,7 @@ restore_server_xkb_config (MsdA11yKeyboardManager *manager)
         XkbFreeKeyboard (manager->priv->original_xkb_desc,
                          XkbAllComponentsMask, True);
 
-        XSync (GDK_DISPLAY_XDISPLAY(display), FALSE);
+        XSync (CDK_DISPLAY_XDISPLAY(display), FALSE);
         cdk_x11_display_error_trap_pop_ignored (display);
 
         manager->priv->original_xkb_desc = NULL;

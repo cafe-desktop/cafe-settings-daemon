@@ -103,8 +103,8 @@ g_strv_behead (gchar **arr)
 static void
 activation_error (void)
 {
-	char const *vendor = ServerVendor (GDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
-	int release = VendorRelease (GDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
+	char const *vendor = ServerVendor (CDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
+	int release = VendorRelease (CDK_DISPLAY_XDISPLAY (cdk_display_get_default ()));
 	CtkWidget *dialog;
 
 	/* VNC viewers will not work, do not barrage them with warnings */
@@ -198,7 +198,7 @@ static void
 popup_menu_show_layout ()
 {
 	CtkWidget *dialog;
-	XklEngine *engine = xkl_engine_get_instance (GDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
+	XklEngine *engine = xkl_engine_get_instance (CDK_DISPLAY_XDISPLAY(cdk_display_get_default()));
 	XklState *xkl_state = xkl_engine_get_current_state (engine);
 	gpointer p = g_hash_table_lookup (preview_dialogs,
 					  GINT_TO_POINTER
@@ -244,7 +244,7 @@ popup_menu_set_group (CtkMenuItem * item, gpointer param)
 		xkl_engine_save_state (engine,
 				       xkl_engine_get_current_window
 				       (engine), &st);
-/*    XSetInputFocus(GDK_DISPLAY_XDISPLAY(cdk_display_get_default()), cur, RevertToNone, CurrentTime );*/
+/*    XSetInputFocus(CDK_DISPLAY_XDISPLAY(cdk_display_get_default()), cur, RevertToNone, CurrentTime );*/
 	} else {
 		xkl_debug (150,
 			   "??? Enforcing the state %d for unknown window\n",
@@ -500,7 +500,7 @@ msd_keyboard_xkb_evt_filter (CdkXEvent * xev, CdkEvent * event)
 {
 	XEvent *xevent = (XEvent *) xev;
 	xkl_engine_filter_events (xkl_engine, xevent);
-	return GDK_FILTER_CONTINUE;
+	return CDK_FILTER_CONTINUE;
 }
 
 /* When new Keyboard is plugged in - reload the settings */
@@ -516,7 +516,7 @@ msd_keyboard_update_indicator_icons ()
 {
 	Bool state;
 	int new_state, i;
-	Display *display = GDK_DISPLAY_XDISPLAY(cdk_display_get_default());
+	Display *display = CDK_DISPLAY_XDISPLAY(cdk_display_get_default());
 	XkbGetNamedIndicator (display, caps_lock, NULL, &state,
 			      NULL, NULL);
 	new_state = state ? 1 : 0;
@@ -558,7 +558,7 @@ void
 msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 {
 	int i;
-	Display *display = GDK_DISPLAY_XDISPLAY(cdk_display_get_default());
+	Display *display = CDK_DISPLAY_XDISPLAY(cdk_display_get_default());
 	cafe_settings_profile_start (NULL);
 
 	ctk_icon_theme_append_search_path (ctk_icon_theme_get_default (),
