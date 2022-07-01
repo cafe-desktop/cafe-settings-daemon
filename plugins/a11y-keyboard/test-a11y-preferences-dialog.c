@@ -32,7 +32,7 @@
 static void
 test_window (void)
 {
-        GtkWidget *window;
+        CtkWidget *window;
 
         window = msd_a11y_preferences_dialog_new ();
         ctk_dialog_run (GTK_DIALOG (window));

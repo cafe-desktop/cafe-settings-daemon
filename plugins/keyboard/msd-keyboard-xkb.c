@@ -69,7 +69,7 @@ static gboolean inited_ok = FALSE;
 static PostActivationCallback pa_callback = NULL;
 static void *pa_callback_user_data = NULL;
 
-static GtkStatusIcon* icon = NULL;
+static CtkStatusIcon* icon = NULL;
 
 static GHashTable* preview_dialogs = NULL;
 
@@ -77,7 +77,7 @@ static Atom caps_lock;
 static Atom num_lock;
 static Atom scroll_lock;
 
-static GtkStatusIcon* indicator_icons[3];
+static CtkStatusIcon* indicator_icons[3];
 static const gchar* indicator_on_icon_names[] = {
 	"kbd-scrolllock-on",
 	"kbd-numlock-on",
@@ -105,7 +105,7 @@ activation_error (void)
 {
 	char const *vendor = ServerVendor (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()));
 	int release = VendorRelease (GDK_DISPLAY_XDISPLAY (gdk_display_get_default ()));
-	GtkWidget *dialog;
+	CtkWidget *dialog;
 
 	/* VNC viewers will not work, do not barrage them with warnings */
 	if (NULL != vendor && NULL != strstr (vendor, "VNC"))
@@ -189,7 +189,7 @@ popup_menu_launch_capplet ()
 }
 
 static void
-show_layout_destroy (GtkWidget * dialog, gint group)
+show_layout_destroy (CtkWidget * dialog, gint group)
 {
 	g_hash_table_remove (preview_dialogs, GINT_TO_POINTER (group));
 }
@@ -197,7 +197,7 @@ show_layout_destroy (GtkWidget * dialog, gint group)
 static void
 popup_menu_show_layout ()
 {
-	GtkWidget *dialog;
+	CtkWidget *dialog;
 	XklEngine *engine = xkl_engine_get_instance (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()));
 	XklState *xkl_state = xkl_engine_get_current_state (engine);
 	gpointer p = g_hash_table_lookup (preview_dialogs,
@@ -228,7 +228,7 @@ popup_menu_show_layout ()
 }
 
 static void
-popup_menu_set_group (GtkMenuItem * item, gpointer param)
+popup_menu_set_group (CtkMenuItem * item, gpointer param)
 {
 	gint group_number = GPOINTER_TO_INT (param);
 	XklEngine *engine = cafekbd_status_get_xkl_engine ();
@@ -255,14 +255,14 @@ popup_menu_set_group (GtkMenuItem * item, gpointer param)
 }
 
 static void
-status_icon_popup_menu_cb (GtkStatusIcon * icon, guint button, guint time)
+status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 {
-	GtkWidget *toplevel;
+	CtkWidget *toplevel;
 	GdkScreen *screen;
 	GdkVisual *visual;
-	GtkStyleContext *context;
-	GtkMenu *popup_menu = GTK_MENU (ctk_menu_new ());
-	GtkMenu *groups_menu = GTK_MENU (ctk_menu_new ());
+	CtkStyleContext *context;
+	CtkMenu *popup_menu = GTK_MENU (ctk_menu_new ());
+	CtkMenu *groups_menu = GTK_MENU (ctk_menu_new ());
 	/*Set up theme and transparency support*/
 	toplevel = ctk_widget_get_toplevel (GTK_WIDGET(popup_menu));
 	/* Fix any failures of compiz/other wm's to communicate with ctk for transparency */
@@ -276,7 +276,7 @@ status_icon_popup_menu_cb (GtkStatusIcon * icon, guint button, guint time)
 	int i = 0;
 	gchar **current_name = cafekbd_status_get_group_names ();
 
-	GtkWidget *item = ctk_menu_item_new_with_mnemonic (_("_Layouts"));
+	CtkWidget *item = ctk_menu_item_new_with_mnemonic (_("_Layouts"));
 	ctk_widget_show (item);
 	ctk_menu_shell_append (GTK_MENU_SHELL (popup_menu), item);
 	ctk_menu_item_set_submenu (GTK_MENU_ITEM (item),
@@ -305,7 +305,7 @@ status_icon_popup_menu_cb (GtkStatusIcon * icon, guint button, guint time)
 			    gdk_pixbuf_new_from_file_at_size (image_file,
 							      24, 24,
 							      NULL);
-			GtkWidget *img =
+			CtkWidget *img =
 			    ctk_image_new_from_pixbuf (pixbuf);
 			item =
 			    ctk_image_menu_item_new_with_label

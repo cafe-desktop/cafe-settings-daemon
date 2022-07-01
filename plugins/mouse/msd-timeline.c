@@ -442,7 +442,7 @@ void
 msd_timeline_start (MsdTimeline *timeline)
 {
   MsdTimelinePrivate *priv;
-  GtkSettings *settings;
+  CtkSettings *settings;
   gboolean enable_animations = FALSE;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));

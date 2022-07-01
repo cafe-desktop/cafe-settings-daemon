@@ -1630,7 +1630,7 @@ set_mousetweaks_daemon (MsdMouseManager *manager,
         if (! g_spawn_command_line_async (comm, &error)) {
                 if (error->code == G_SPAWN_ERROR_NOENT &&
                     (dwell_enable || delay_enable)) {
-                        GtkWidget *dialog;
+                        CtkWidget *dialog;
 
                         GSettings *settings;
                         settings = g_settings_new (CAFE_MOUSE_A11Y_SCHEMA);

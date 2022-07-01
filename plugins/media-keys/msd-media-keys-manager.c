@@ -73,7 +73,7 @@ struct _MsdMediaKeysManagerPrivate
         CafeMixerStreamControl *control;
         CafeMixerStreamControl *source_control;
 #endif
-        GtkWidget        *dialog;
+        CtkWidget        *dialog;
         GSettings        *settings;
         GVolumeMonitor   *volume_monitor;
 
@@ -124,7 +124,7 @@ init_screens (MsdMediaKeysManager *manager)
 static void
 acme_error (char * msg)
 {
-        GtkWidget *error_dialog;
+        CtkWidget *error_dialog;
 
         error_dialog = ctk_message_dialog_new (NULL,
                                                GTK_DIALOG_MODAL,
@@ -414,7 +414,7 @@ dialog_show (MsdMediaKeysManager *manager)
         GdkDevice     *pointer;
         int            pointer_x;
         int            pointer_y;
-        GtkRequisition win_req;
+        CtkRequisition win_req;
         GdkScreen     *pointer_screen;
         GdkRectangle   geometry;
         GdkMonitor    *monitor;

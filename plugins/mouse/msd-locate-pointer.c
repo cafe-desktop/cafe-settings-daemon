@@ -42,7 +42,7 @@ typedef struct MsdLocatePointerData MsdLocatePointerData;
 struct MsdLocatePointerData
 {
   MsdTimeline *timeline;
-  GtkWindow *widget;
+  CtkWindow *widget;
   GdkWindow *window;
 
   gdouble progress;
@@ -58,7 +58,7 @@ locate_pointer_paint (MsdLocatePointerData *data,
   GdkRGBA color;
   gdouble progress, circle_progress;
   gint width, height, i;
-  GtkStyleContext *style;
+  CtkStyleContext *style;
 
   color.red = color.green = color.blue = 0.7;
   color.alpha = 0.;
@@ -266,7 +266,7 @@ timeline_finished_cb (MsdTimeline *timeline,
 }
 
 static void
-locate_pointer_unrealize_cb (GtkWidget            *widget,
+locate_pointer_unrealize_cb (CtkWidget            *widget,
                              MsdLocatePointerData *data)
 {
   if (data->window != NULL)
@@ -279,7 +279,7 @@ locate_pointer_unrealize_cb (GtkWidget            *widget,
 }
 
 static void
-locate_pointer_realize_cb (GtkWidget            *widget,
+locate_pointer_realize_cb (CtkWidget            *widget,
                            MsdLocatePointerData *data)
 {
   GdkDisplay *display;
@@ -321,7 +321,7 @@ locate_pointer_realize_cb (GtkWidget            *widget,
 }
 
 static gboolean
-locate_pointer_draw_cb (GtkWidget      *widget,
+locate_pointer_draw_cb (CtkWidget      *widget,
                         cairo_t        *cr,
                         gpointer        user_data)
 {

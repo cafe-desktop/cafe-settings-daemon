@@ -30,7 +30,7 @@
 #include "msd-media-keys-window.h"
 
 static gboolean
-update_state (GtkWidget *window)
+update_state (CtkWidget *window)
 {
         static int count = 0;
 
@@ -135,7 +135,7 @@ update_state (GtkWidget *window)
 static void
 test_window (void)
 {
-        GtkWidget *window;
+        CtkWidget *window;
 
         window = msd_media_keys_window_new ();
         ctk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER_ALWAYS);

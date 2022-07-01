@@ -59,10 +59,10 @@ struct MsdA11yKeyboardManagerPrivate
         int        xkbEventBase;
         gboolean   stickykeys_shortcut_val;
         gboolean   slowkeys_shortcut_val;
-        GtkWidget *stickykeys_alert;
-        GtkWidget *slowkeys_alert;
-        GtkWidget *preferences_dialog;
-        GtkStatusIcon *status_icon;
+        CtkWidget *stickykeys_alert;
+        CtkWidget *slowkeys_alert;
+        CtkWidget *preferences_dialog;
+        CtkStatusIcon *status_icon;
         XkbDescRec *original_xkb_desc;
 
         GSettings  *settings;
@@ -401,7 +401,7 @@ set_server_from_settings (MsdA11yKeyboardManager *manager)
 
 static gboolean
 ax_response_callback (MsdA11yKeyboardManager *manager,
-                      GtkWindow              *parent,
+                      CtkWindow              *parent,
                       gint                    response_id,
                       guint                   revert_controls_mask,
                       gboolean                enabled)
@@ -435,7 +435,7 @@ ax_response_callback (MsdA11yKeyboardManager *manager,
                                    "help:cafe-user-guide/goscustaccess-6",
                                    ctk_get_current_event_time(),
                                    &err)) {
-                        GtkWidget *error_dialog = ctk_message_dialog_new (parent,
+                        CtkWidget *error_dialog = ctk_message_dialog_new (parent,
                                                                           0,
                                                                           GTK_MESSAGE_ERROR,
                                                                           GTK_BUTTONS_CLOSE,
@@ -455,7 +455,7 @@ ax_response_callback (MsdA11yKeyboardManager *manager,
 }
 
 static void
-ax_stickykeys_response (GtkDialog              *dialog,
+ax_stickykeys_response (CtkDialog              *dialog,
                         gint                    response_id,
                         MsdA11yKeyboardManager *manager)
 {
@@ -467,7 +467,7 @@ ax_stickykeys_response (GtkDialog              *dialog,
 }
 
 static void
-ax_slowkeys_response (GtkDialog              *dialog,
+ax_slowkeys_response (CtkDialog              *dialog,
                       gint                    response_id,
                       MsdA11yKeyboardManager *manager)
 {
@@ -1122,7 +1122,7 @@ msd_a11y_keyboard_manager_class_init (MsdA11yKeyboardManagerClass *klass)
 }
 
 static void
-on_preferences_dialog_response (GtkDialog              *dialog,
+on_preferences_dialog_response (CtkDialog              *dialog,
                                 int                     response,
                                 MsdA11yKeyboardManager *manager)
 {
@@ -1135,7 +1135,7 @@ on_preferences_dialog_response (GtkDialog              *dialog,
 }
 
 static void
-on_status_icon_activate (GtkStatusIcon          *status_icon,
+on_status_icon_activate (CtkStatusIcon          *status_icon,
                          MsdA11yKeyboardManager *manager)
 {
         if (manager->priv->preferences_dialog == NULL) {
