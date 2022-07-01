@@ -301,7 +301,7 @@ status_icon_popup_menu_cb (CtkStatusIcon * icon, guint button, guint time)
 			item =
 			    ctk_menu_item_new_with_label (*current_name);
 		} else {
-			CdkPixbuf *pixbuf =
+			GdkPixbuf *pixbuf =
 			    cdk_pixbuf_new_from_file_at_size (image_file,
 							      24, 24,
 							      NULL);
