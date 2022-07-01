@@ -81,7 +81,7 @@ GType                   msd_timeline_progress_type_get_type (void) G_GNUC_CONST;
 
 MsdTimeline            *msd_timeline_new                (guint                    duration);
 MsdTimeline            *msd_timeline_new_for_screen     (guint                    duration,
-							 GdkScreen               *screen);
+							 CdkScreen               *screen);
 
 void                    msd_timeline_start              (MsdTimeline             *timeline);
 void                    msd_timeline_pause              (MsdTimeline             *timeline);
@@ -101,9 +101,9 @@ guint                   msd_timeline_get_duration       (MsdTimeline            
 void                    msd_timeline_set_duration       (MsdTimeline             *timeline,
 							 guint                    duration);
 
-GdkScreen              *msd_timeline_get_screen         (MsdTimeline             *timeline);
+CdkScreen              *msd_timeline_get_screen         (MsdTimeline             *timeline);
 void                    msd_timeline_set_screen         (MsdTimeline             *timeline,
-							 GdkScreen               *screen);
+							 CdkScreen               *screen);
 
 MsdTimelineDirection    msd_timeline_get_direction      (MsdTimeline             *timeline);
 void                    msd_timeline_set_direction      (MsdTimeline             *timeline,

@@ -126,7 +126,7 @@ send_selection_notify (MsdClipboardManager *manager,
                        Bool                 success)
 {
         XSelectionEvent notify;
-        GdkDisplay     *display;
+        CdkDisplay     *display;
 
         notify.type = SelectionNotify;
         notify.serial = 0;
@@ -157,7 +157,7 @@ finish_selection_request (MsdClipboardManager *manager,
                           Bool                 success)
 {
         XSelectionEvent notify;
-        GdkDisplay     *display;
+        CdkDisplay     *display;
 
         notify.type = SelectionNotify;
         notify.serial = 0;
@@ -399,7 +399,7 @@ static void
 convert_clipboard_manager (MsdClipboardManager *manager,
                            XEvent              *xev)
 {
-        GdkDisplay    *display;
+        CdkDisplay    *display;
         Atom          type = None;
         int           format;
         unsigned long nitems;
@@ -490,7 +490,7 @@ static void
 convert_clipboard_target (IncrConversion      *rdata,
                           MsdClipboardManager *manager)
 {
-        GdkDisplay       *display;
+        CdkDisplay       *display;
         TargetData       *tdata;
         Atom             *targets;
         int               n_targets;
@@ -807,9 +807,9 @@ clipboard_manager_process_event (MsdClipboardManager *manager,
         return False;
 }
 
-static GdkFilterReturn
-clipboard_manager_event_filter (GdkXEvent           *xevent,
-                                GdkEvent            *event,
+static CdkFilterReturn
+clipboard_manager_event_filter (CdkXEvent           *xevent,
+                                CdkEvent            *event,
                                 MsdClipboardManager *manager)
 {
         if (clipboard_manager_process_event (manager, (XEvent *)xevent)) {
@@ -826,8 +826,8 @@ clipboard_manager_watch_cb (MsdClipboardManager *manager,
                             long                 mask,
                             void                *cb_data)
 {
-        GdkWindow  *cdkwin;
-        GdkDisplay *display;
+        CdkWindow  *cdkwin;
+        CdkDisplay *display;
 
         display = cdk_display_get_default ();
         cdkwin = cdk_x11_window_lookup_for_display (display, window);
@@ -840,14 +840,14 @@ clipboard_manager_watch_cb (MsdClipboardManager *manager,
                 }
 
                 cdk_window_add_filter (cdkwin,
-                                       (GdkFilterFunc)clipboard_manager_event_filter,
+                                       (CdkFilterFunc)clipboard_manager_event_filter,
                                        manager);
         } else {
                 if (cdkwin == NULL) {
                         return;
                 }
                 cdk_window_remove_filter (cdkwin,
-                                          (GdkFilterFunc)clipboard_manager_event_filter,
+                                          (CdkFilterFunc)clipboard_manager_event_filter,
                                           manager);
                 g_object_unref (cdkwin);
         }

@@ -293,7 +293,7 @@ key_already_used (MsdKeybindingsManager *manager,
 static void
 binding_unregister_keys (MsdKeybindingsManager *manager)
 {
-        GdkDisplay *dpy;
+        CdkDisplay *dpy;
         GSList *li;
         gboolean need_flush = FALSE;
 
@@ -319,7 +319,7 @@ static void
 binding_register_keys (MsdKeybindingsManager *manager)
 {
         GSList *li;
-        GdkDisplay *dpy;
+        CdkDisplay *dpy;
         gboolean need_flush = FALSE;
 
         dpy = cdk_display_get_default ();
@@ -362,7 +362,7 @@ binding_register_keys (MsdKeybindingsManager *manager)
 extern char **environ;
 
 static char *
-screen_exec_display_string (GdkScreen *screen)
+screen_exec_display_string (CdkScreen *screen)
 {
         GString    *str;
         const char *old_display;
@@ -404,8 +404,8 @@ get_exec_environment (XEvent *xevent)
         char     **retval = NULL;
         int        i;
         int        display_index = -1;
-        GdkScreen *screen = NULL;
-        GdkWindow *window = cdk_x11_window_lookup_for_display (cdk_display_get_default (), xevent->xkey.root);
+        CdkScreen *screen = NULL;
+        CdkWindow *window = cdk_x11_window_lookup_for_display (cdk_display_get_default (), xevent->xkey.root);
 
         if (window) {
                 screen = cdk_window_get_screen (window);
@@ -438,9 +438,9 @@ get_exec_environment (XEvent *xevent)
         return retval;
 }
 
-static GdkFilterReturn
-keybindings_filter (GdkXEvent             *cdk_xevent,
-                    GdkEvent              *event,
+static CdkFilterReturn
+keybindings_filter (CdkXEvent             *cdk_xevent,
+                    CdkEvent              *event,
                     MsdKeybindingsManager *manager)
 {
         XEvent *xevent = (XEvent *) cdk_xevent;
@@ -519,9 +519,9 @@ gboolean
 msd_keybindings_manager_start (MsdKeybindingsManager *manager,
                                GError               **error)
 {
-        GdkDisplay  *dpy;
-        GdkScreen   *screen;
-        GdkWindow   *window;
+        CdkDisplay  *dpy;
+        CdkScreen   *screen;
+        CdkWindow   *window;
         Display     *xdpy;
         Window       xwindow;
         XWindowAttributes atts;
@@ -537,7 +537,7 @@ msd_keybindings_manager_start (MsdKeybindingsManager *manager,
         xwindow = GDK_WINDOW_XID (window);
 
         cdk_window_add_filter (window,
-                               (GdkFilterFunc) keybindings_filter,
+                               (CdkFilterFunc) keybindings_filter,
                                manager);
 
         cdk_x11_display_error_trap_push (dpy);
@@ -575,9 +575,9 @@ msd_keybindings_manager_stop (MsdKeybindingsManager *manager)
         }
 
         for (l = p->screens; l; l = l->next) {
-                GdkScreen *screen = l->data;
+                CdkScreen *screen = l->data;
                 cdk_window_remove_filter (cdk_screen_get_root_window (screen),
-                                          (GdkFilterFunc) keybindings_filter,
+                                          (CdkFilterFunc) keybindings_filter,
                                           manager);
         }
 

@@ -60,7 +60,7 @@ static void
 
 append_color_define (GString        *string,
                      const char     *name,
-                     const GdkColor *color)
+                     const CdkColor *color)
 {
         g_return_if_fail (string != NULL);
         g_return_if_fail (name != NULL);
@@ -74,10 +74,10 @@ append_color_define (GString        *string,
                                 color->blue>>8);
 }
 
-static GdkColor*
-color_shade (GdkColor *a,
+static CdkColor*
+color_shade (CdkColor *a,
              gdouble   shade,
-             GdkColor *b)
+             CdkColor *b)
 {
         guint16 red, green, blue;
 
@@ -96,7 +96,7 @@ static void
 append_theme_colors (CtkStyle *style,
                      GString  *string)
 {
-        GdkColor tmp;
+        CdkColor tmp;
 
         g_return_if_fail (style != NULL);
         g_return_if_fail (string != NULL);

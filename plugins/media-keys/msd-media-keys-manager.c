@@ -78,7 +78,7 @@ struct _MsdMediaKeysManagerPrivate
         GVolumeMonitor   *volume_monitor;
 
         /* Multihead stuff */
-        GdkScreen        *current_screen;
+        CdkScreen        *current_screen;
         GSList           *screens;
 
         /* RFKill stuff */
@@ -106,11 +106,11 @@ static gpointer manager_object = NULL;
 static void
 init_screens (MsdMediaKeysManager *manager)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
 
         display = cdk_display_get_default ();
 
-        GdkScreen *screen;
+        CdkScreen *screen;
 
         screen = cdk_display_get_default_screen (display);
 
@@ -264,7 +264,7 @@ update_kbd_cb (GSettings           *settings,
                MsdMediaKeysManager *manager)
 {
         int      i;
-        GdkDisplay *dpy;
+        CdkDisplay *dpy;
         gboolean need_flush = TRUE;
 
         g_return_if_fail (settings_key != NULL);
@@ -323,7 +323,7 @@ update_kbd_cb (GSettings           *settings,
 static void init_kbd(MsdMediaKeysManager* manager)
 {
 	int i;
-	GdkDisplay *dpy;
+	CdkDisplay *dpy;
 	gboolean need_flush = FALSE;
 
 	cafe_settings_profile_start(NULL);
@@ -409,15 +409,15 @@ dialog_show (MsdMediaKeysManager *manager)
         int            screen_h;
         int            x;
         int            y;
-        GdkDisplay    *display;
-        GdkSeat       *seat;
-        GdkDevice     *pointer;
+        CdkDisplay    *display;
+        CdkSeat       *seat;
+        CdkDevice     *pointer;
         int            pointer_x;
         int            pointer_y;
         CtkRequisition win_req;
-        GdkScreen     *pointer_screen;
-        GdkRectangle   geometry;
-        GdkMonitor    *monitor;
+        CdkScreen     *pointer_screen;
+        CdkRectangle   geometry;
+        CdkMonitor    *monitor;
 
         ctk_window_set_screen (CTK_WINDOW (manager->priv->dialog),
                                manager->priv->current_screen);
@@ -1020,7 +1020,7 @@ do_rfkill_action (MsdMediaKeysManager *manager,
 static void
 do_display_osd_action (MsdMediaKeysManager *manager)
 {
-        GdkDisplay *display;
+        CdkDisplay *display;
         int         n_monitors;
 
         display = cdk_display_get_default ();
@@ -1320,17 +1320,17 @@ do_action (MsdMediaKeysManager *manager,
         return FALSE;
 }
 
-static GdkScreen *
+static CdkScreen *
 acme_get_screen_from_event (MsdMediaKeysManager *manager,
                             XAnyEvent           *xanyev)
 {
-        GdkWindow *window;
-        GdkScreen *screen;
+        CdkWindow *window;
+        CdkScreen *screen;
         GSList    *l;
 
         /* Look for which screen we're receiving events */
         for (l = manager->priv->screens; l != NULL; l = l->next) {
-                screen = (GdkScreen *) l->data;
+                screen = (CdkScreen *) l->data;
                 window = cdk_screen_get_root_window (screen);
 
                 if (GDK_WINDOW_XID (window) == xanyev->window) {
@@ -1341,9 +1341,9 @@ acme_get_screen_from_event (MsdMediaKeysManager *manager,
         return NULL;
 }
 
-static GdkFilterReturn
-acme_filter_events (GdkXEvent           *xevent,
-                    GdkEvent            *event,
+static CdkFilterReturn
+acme_filter_events (CdkXEvent           *xevent,
+                    CdkEvent            *event,
                     MsdMediaKeysManager *manager)
 {
         XEvent    *xev = (XEvent *) xevent;
@@ -1414,7 +1414,7 @@ static gboolean
 start_media_keys_idle_cb (MsdMediaKeysManager *manager)
 {
         GSList *l;
-        GdkDisplay *dpy;
+        CdkDisplay *dpy;
         Display *xdpy;
 
         g_debug ("Starting media_keys manager");
@@ -1433,7 +1433,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
 
         /* Start filtering the events */
         for (l = manager->priv->screens; l != NULL; l = l->next) {
-                GdkWindow *window;
+                CdkWindow *window;
                 Window xwindow;
                 XWindowAttributes atts;
 
@@ -1446,7 +1446,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
                          cdk_x11_screen_get_screen_number (l->data));
 
                 cdk_window_add_filter (window,
-                                       (GdkFilterFunc)acme_filter_events,
+                                       (CdkFilterFunc)acme_filter_events,
                                        manager);
 
                 cdk_x11_display_error_trap_push (dpy);
@@ -1514,7 +1514,7 @@ void
 msd_media_keys_manager_stop (MsdMediaKeysManager *manager)
 {
         MsdMediaKeysManagerPrivate *priv = manager->priv;
-        GdkDisplay *dpy;
+        CdkDisplay *dpy;
         GSList *ls;
         GList *l;
         int i;
@@ -1524,7 +1524,7 @@ msd_media_keys_manager_stop (MsdMediaKeysManager *manager)
 
         for (ls = priv->screens; ls != NULL; ls = ls->next) {
                 cdk_window_remove_filter (cdk_screen_get_root_window (ls->data),
-                                          (GdkFilterFunc) acme_filter_events,
+                                          (CdkFilterFunc) acme_filter_events,
                                           manager);
         }
 

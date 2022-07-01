@@ -36,7 +36,7 @@ struct _MsdTimelinePrivate
 
   GTimer *timer;
 
-  GdkScreen *screen;
+  CdkScreen *screen;
   MsdTimelineProgressType progress_type;
   MsdTimelineProgressFunc progress_func;
 
@@ -424,7 +424,7 @@ msd_timeline_new (guint duration)
 
 MsdTimeline *
 msd_timeline_new_for_screen (guint      duration,
-			     GdkScreen *screen)
+			     CdkScreen *screen)
 {
   return g_object_new (MSD_TYPE_TIMELINE,
 		       "duration", duration,
@@ -718,7 +718,7 @@ msd_timeline_set_direction (MsdTimeline          *timeline,
   g_object_notify (G_OBJECT (timeline), "direction");
 }
 
-GdkScreen *
+CdkScreen *
 msd_timeline_get_screen (MsdTimeline *timeline)
 {
   MsdTimelinePrivate *priv;
@@ -731,7 +731,7 @@ msd_timeline_get_screen (MsdTimeline *timeline)
 
 void
 msd_timeline_set_screen (MsdTimeline *timeline,
-			 GdkScreen   *screen)
+			 CdkScreen   *screen)
 {
   MsdTimelinePrivate *priv;
 

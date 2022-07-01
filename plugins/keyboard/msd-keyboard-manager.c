@@ -158,9 +158,9 @@ static void numlock_set_settings_state(GSettings *settings, NumLockState new_sta
         g_settings_set_enum (settings, KEY_NUMLOCK_STATE, new_state);
 }
 
-static GdkFilterReturn
-numlock_xkb_callback (GdkXEvent *xev_,
-                      GdkEvent *cdkev_,
+static CdkFilterReturn
+numlock_xkb_callback (CdkXEvent *xev_,
+                      CdkEvent *cdkev_,
                       gpointer xkb_event_code)
 {
         XEvent *xev = (XEvent *) xev_;
@@ -208,7 +208,7 @@ apply_settings (GSettings          *settings,
         int              bell_pitch;
         int              bell_duration;
         char            *volume_string;
-        GdkDisplay      *display;
+        CdkDisplay      *display;
 #ifdef HAVE_X11_EXTENSIONS_XKB_H
         gboolean         rnumlock;
 #endif /* HAVE_X11_EXTENSIONS_XKB_H */

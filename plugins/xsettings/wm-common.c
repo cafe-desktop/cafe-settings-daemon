@@ -13,7 +13,7 @@ static char *
 wm_common_get_window_manager_property (Atom atom)
 {
   Atom utf8_string, type;
-  GdkDisplay *display;
+  CdkDisplay *display;
   int result;
   char *retval;
   int format;
@@ -72,7 +72,7 @@ wm_common_get_current_window_manager (void)
 static void
 update_wm_window (void)
 {
-  GdkDisplay *display;
+  CdkDisplay *display;
   Window *xwindow;
   Atom type;
   gint format;

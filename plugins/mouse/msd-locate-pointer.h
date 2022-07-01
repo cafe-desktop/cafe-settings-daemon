@@ -19,6 +19,6 @@
 
 #include <cdk/cdk.h>
 
-void msd_locate_pointer (GdkDisplay *display);
+void msd_locate_pointer (CdkDisplay *display);
 
 #endif
