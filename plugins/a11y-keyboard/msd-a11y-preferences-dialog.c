@@ -81,7 +81,7 @@
 #define KEY_COLOR_SCHEME       "ctk-color-scheme"
 #define KEY_ICON_THEME         "icon-theme"
 
-#define KEY_MARCO_SCHEMA    "org.cafe.Marco"
+#define KEY_MARCO_SCHEMA    "org.cafe.Croma"
 #define KEY_MARCO_THEME     "theme"
 
 #define HIGH_CONTRAST_THEME    "HighContrast"
