@@ -26,7 +26,7 @@
 #include <unistd.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "msd-background-manager.h"
 
@@ -48,12 +48,12 @@ main (int argc, char* argv[])
 
 	setlocale(LC_ALL, "");
 
-	gtk_init(&argc, &argv);
+	ctk_init(&argc, &argv);
 
 	manager = msd_background_manager_new();
 	g_idle_add((GSourceFunc) idle, manager);
 
-	gtk_main();
+	ctk_main();
 
 	return 0;
 }

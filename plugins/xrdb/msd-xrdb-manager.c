@@ -35,7 +35,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
 #include "msd-xrdb-manager.h"
@@ -477,7 +477,7 @@ theme_changed (GtkSettings    *settings,
                GParamSpec     *pspec,
                MsdXrdbManager *manager)
 {
-        apply_settings (manager, gtk_widget_get_style (manager->priv->widget));
+        apply_settings (manager, ctk_widget_get_style (manager->priv->widget));
 }
 
 gboolean
@@ -488,15 +488,15 @@ msd_xrdb_manager_start (MsdXrdbManager *manager,
 
         /* the initialization is done here otherwise
            cafe_settings_xsettings_load would generate
-           false hit as gtk-theme-name is set to Default in
+           false hit as ctk-theme-name is set to Default in
            cafe_settings_xsettings_init */
-        g_signal_connect (gtk_settings_get_default (),
-                          "notify::gtk-theme-name",
+        g_signal_connect (ctk_settings_get_default (),
+                          "notify::ctk-theme-name",
                           G_CALLBACK (theme_changed),
                           manager);
 
-        manager->priv->widget = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-        gtk_widget_realize (manager->priv->widget);
+        manager->priv->widget = ctk_window_new (GTK_WINDOW_TOPLEVEL);
+        ctk_widget_realize (manager->priv->widget);
 
         cafe_settings_profile_end (NULL);
 
@@ -510,12 +510,12 @@ msd_xrdb_manager_stop (MsdXrdbManager *manager)
 
         g_debug ("Stopping xrdb manager");
 
-        g_signal_handlers_disconnect_by_func (gtk_settings_get_default (),
+        g_signal_handlers_disconnect_by_func (ctk_settings_get_default (),
                                               theme_changed,
                                               manager);
 
         if (p->widget != NULL) {
-                gtk_widget_destroy (p->widget);
+                ctk_widget_destroy (p->widget);
                 p->widget = NULL;
         }
 }

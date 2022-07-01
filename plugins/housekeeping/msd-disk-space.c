@@ -21,7 +21,7 @@
  *
  */
 
-/* gcc -DHAVE_LIBNOTIFY -DTEST -Wall `pkg-config --cflags --libs gobject-2.0 gio-unix-2.0 glib-2.0 gtk+-2.0 libnotify` -o msd-disk-space-test msd-disk-space.c */
+/* gcc -DHAVE_LIBNOTIFY -DTEST -Wall `pkg-config --cflags --libs gobject-2.0 gio-unix-2.0 glib-2.0 ctk+-2.0 libnotify` -o msd-disk-space-test msd-disk-space.c */
 
 #include "config.h"
 
@@ -34,7 +34,7 @@
 #include <glib-object.h>
 #include <gio/gunixmounts.h>
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "msd-disk-space.h"
 #include "msd-ldsm-dialog.h"
@@ -205,9 +205,9 @@ ldsm_notify_for_mount (LdsmMountInfo *mount,
         g_free (name);
 
         g_object_ref (G_OBJECT (dialog));
-        response = gtk_dialog_run (GTK_DIALOG (dialog));
+        response = ctk_dialog_run (GTK_DIALOG (dialog));
 
-	gtk_widget_destroy (GTK_WIDGET (dialog));
+	ctk_widget_destroy (GTK_WIDGET (dialog));
         dialog = NULL;
 
         switch (response) {
@@ -691,7 +691,7 @@ msd_ldsm_clean (void)
         }
 
         if (dialog) {
-                gtk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (GTK_WIDGET (dialog));
                 dialog = NULL;
         }
 
@@ -708,7 +708,7 @@ main (int    argc,
 {
         GMainLoop *loop;
 
-        gtk_init (&argc, &argv);
+        ctk_init (&argc, &argv);
 
         loop = g_main_loop_new (NULL, FALSE);
 

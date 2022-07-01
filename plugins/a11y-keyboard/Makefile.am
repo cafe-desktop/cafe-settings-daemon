@@ -1,7 +1,7 @@
 NULL =
 
-gtkbuilderdir = $(pkgdatadir)
-gtkbuilder_DATA = 			\
+ctkbuilderdir = $(pkgdatadir)
+ctkbuilder_DATA = 			\
 	msd-a11y-preferences-dialog.ui	\
 	$(NULL)
 
@@ -49,7 +49,7 @@ liba11y_keyboard_la_SOURCES = 		\
 liba11y_keyboard_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon		\
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
-	-DGTKBUILDERDIR=\""$(gtkbuilderdir)"\" \
+	-DGTKBUILDERDIR=\""$(ctkbuilderdir)"\" \
 	$(AM_CPPFLAGS)
 
 liba11y_keyboard_la_CFLAGS =		\
@@ -76,7 +76,7 @@ plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-
 
 EXTRA_DIST = 			\
 	$(plugin_in_files)	\
-	$(gtkbuilder_DATA)		\
+	$(ctkbuilder_DATA)		\
 	$(NULL)
 
 CLEANFILES = 			\

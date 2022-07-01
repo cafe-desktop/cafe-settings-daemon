@@ -28,7 +28,7 @@
 #include <math.h>
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "msd-media-keys-window.h"
 
@@ -60,9 +60,9 @@ volume_controls_set_visible (MsdMediaKeysWindow *window,
                 return;
 
         if (visible) {
-                gtk_widget_show (window->priv->progress);
+                ctk_widget_show (window->priv->progress);
         } else {
-                gtk_widget_hide (window->priv->progress);
+                ctk_widget_hide (window->priv->progress);
         }
 }
 
@@ -71,10 +71,10 @@ description_label_set_visible (MsdMediaKeysWindow *window,
                                gboolean            visible)
 {
         if (visible) {
-                gtk_label_set_text (GTK_LABEL (window->priv->label), window->priv->description);
-                gtk_widget_show (window->priv->label);
+                ctk_label_set_text (GTK_LABEL (window->priv->label), window->priv->description);
+                ctk_widget_show (window->priv->label);
         } else {
-                gtk_widget_hide (window->priv->label);
+                ctk_widget_hide (window->priv->label);
         }
 }
 
@@ -85,7 +85,7 @@ window_set_icon_name (MsdMediaKeysWindow *window,
         if (window->priv->image == NULL)
                 return;
 
-        gtk_image_set_from_icon_name (window->priv->image,
+        ctk_image_set_from_icon_name (window->priv->image,
                                       name, GTK_ICON_SIZE_DIALOG);
 }
 
@@ -135,7 +135,7 @@ volume_level_changed (MsdMediaKeysWindow *window)
 
                 fraction = (double) window->priv->volume_level / 100.0;
 
-                gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (window->priv->progress),
+                ctk_progress_bar_set_fraction (GTK_PROGRESS_BAR (window->priv->progress),
                                                fraction);
         }
 }
@@ -262,13 +262,13 @@ load_pixbuf (MsdMediaKeysWindow *window,
         GtkIconTheme *theme;
         GdkPixbuf    *pixbuf;
 
-        if (window != NULL && gtk_widget_has_screen (GTK_WIDGET (window))) {
-                theme = gtk_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (window)));
+        if (window != NULL && ctk_widget_has_screen (GTK_WIDGET (window))) {
+                theme = ctk_icon_theme_get_for_screen (ctk_widget_get_screen (GTK_WIDGET (window)));
         } else {
-                theme = gtk_icon_theme_get_default ();
+                theme = ctk_icon_theme_get_default ();
         }
 
-        pixbuf = gtk_icon_theme_load_icon (theme,
+        pixbuf = ctk_icon_theme_load_icon (theme,
                                            name,
                                            icon_size,
                                            GTK_ICON_LOOKUP_FORCE_SIZE,
@@ -504,28 +504,28 @@ draw_volume_boxes (MsdMediaKeysWindow *window,
         height = round (height) - 1;
         width = round (width) - 1;
         x1 = round ((width - 1) * percentage);
-        context = gtk_widget_get_style_context (GTK_WIDGET (window));
+        context = ctk_widget_get_style_context (GTK_WIDGET (window));
 
         /* bar background */
-        gtk_style_context_save (context);
-        gtk_style_context_add_class (context, GTK_STYLE_CLASS_TROUGH);
+        ctk_style_context_save (context);
+        ctk_style_context_add_class (context, GTK_STYLE_CLASS_TROUGH);
 
-        gtk_render_background (context, cr, _x0, _y0, width, height);
-        gtk_render_frame (context, cr, _x0, _y0, width, height);
+        ctk_render_background (context, cr, _x0, _y0, width, height);
+        ctk_render_frame (context, cr, _x0, _y0, width, height);
 
-        gtk_style_context_restore (context);
+        ctk_style_context_restore (context);
 
         /* bar progress */
         if (percentage < 0.01)
                 return;
 
-        gtk_style_context_save (context);
-        gtk_style_context_add_class (context, GTK_STYLE_CLASS_PROGRESSBAR);
+        ctk_style_context_save (context);
+        ctk_style_context_add_class (context, GTK_STYLE_CLASS_PROGRESSBAR);
 
-        gtk_render_background (context, cr, _x0 + 0.5, _y0 + 0.5, x1, height -1 );
-        gtk_render_frame (context, cr, _x0 + 0.5, _y0 + 0.5, x1, height -1 );
+        ctk_render_background (context, cr, _x0 + 0.5, _y0 + 0.5, x1, height -1 );
+        ctk_render_frame (context, cr, _x0 + 0.5, _y0 + 0.5, x1, height -1 );
 
-        gtk_style_context_restore (context);
+        ctk_style_context_restore (context);
 }
 
 static void
@@ -544,7 +544,7 @@ draw_action_volume (MsdMediaKeysWindow *window,
         double volume_box_height;
         gboolean res;
 
-        gtk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
+        ctk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
 
         icon_box_width = round (window_width * ICON_SCALE);
         icon_box_height = round (window_height * ICON_SCALE);
@@ -647,7 +647,7 @@ render_custom (MsdMediaKeysWindow *window,
 
         if (pixbuf == NULL) {
                 char *name;
-                if (gtk_widget_get_direction (GTK_WIDGET (window)) == GTK_TEXT_DIR_RTL)
+                if (ctk_widget_get_direction (GTK_WIDGET (window)) == GTK_TEXT_DIR_RTL)
                         name = g_strdup_printf ("%s-rtl", window->priv->icon_name);
                 else
                         name = g_strdup_printf ("%s-ltr", window->priv->icon_name);
@@ -680,7 +680,7 @@ draw_action_custom (MsdMediaKeysWindow *window,
         double label_box_height;
         gboolean res;
 
-        gtk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
+        ctk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
 
         icon_box_width = round (window_width * ICON_SCALE);
         icon_box_height = round (window_height * ICON_SCALE);
@@ -759,20 +759,20 @@ msd_media_keys_window_init (MsdMediaKeysWindow *window)
                 const gchar *objects[] = {"acme_box", NULL};
                 GtkWidget *box;
 
-                builder = gtk_builder_new ();
-                gtk_builder_add_objects_from_file (builder,
+                builder = ctk_builder_new ();
+                ctk_builder_add_objects_from_file (builder,
                                                    GTKBUILDERDIR "/acme.ui",
                                                    (char **) objects,
                                                    NULL);
 
-                window->priv->image = GTK_IMAGE (gtk_builder_get_object (builder, "acme_image"));
-                window->priv->progress = GTK_WIDGET (gtk_builder_get_object (builder, "acme_volume_progressbar"));
-                window->priv->label = GTK_WIDGET (gtk_builder_get_object (builder, "acme_label"));
-                box = GTK_WIDGET (gtk_builder_get_object (builder, "acme_box"));
+                window->priv->image = GTK_IMAGE (ctk_builder_get_object (builder, "acme_image"));
+                window->priv->progress = GTK_WIDGET (ctk_builder_get_object (builder, "acme_volume_progressbar"));
+                window->priv->label = GTK_WIDGET (ctk_builder_get_object (builder, "acme_label"));
+                box = GTK_WIDGET (ctk_builder_get_object (builder, "acme_box"));
 
                 if (box != NULL) {
-                        gtk_container_add (GTK_CONTAINER (window), box);
-                        gtk_widget_show_all (box);
+                        ctk_container_add (GTK_CONTAINER (window), box);
+                        ctk_widget_show_all (box);
                 }
 
                 /* The builder needs to stay alive until the window

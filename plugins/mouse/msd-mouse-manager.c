@@ -33,7 +33,7 @@
 
 #include <glib.h>
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <gdk/gdkkeysyms.h>
@@ -1644,19 +1644,19 @@ set_mousetweaks_daemon (MsdMouseManager *manager,
                                                         FALSE);
                         g_object_unref (settings);
 
-                        dialog = gtk_message_dialog_new (NULL, 0,
+                        dialog = ctk_message_dialog_new (NULL, 0,
                                                          GTK_MESSAGE_WARNING,
                                                          GTK_BUTTONS_OK,
                                                          _("Could not enable mouse accessibility features"));
-                        gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+                        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
                                                                   _("Mouse accessibility requires Mousetweaks "
                                                                     "to be installed on your system."));
-                        gtk_window_set_title (GTK_WINDOW (dialog),
+                        ctk_window_set_title (GTK_WINDOW (dialog),
                                               _("Mouse Preferences"));
-                        gtk_window_set_icon_name (GTK_WINDOW (dialog),
+                        ctk_window_set_icon_name (GTK_WINDOW (dialog),
                                                   "input-mouse");
-                        gtk_dialog_run (GTK_DIALOG (dialog));
-                        gtk_widget_destroy (dialog);
+                        ctk_dialog_run (GTK_DIALOG (dialog));
+                        ctk_widget_destroy (dialog);
                 }
                 g_error_free (error);
         }

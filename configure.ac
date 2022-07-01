@@ -59,7 +59,7 @@ LIBCAFEMIXER_REQUIRED_VERSION=1.10.0
 
 PKG_CHECK_MODULES(SETTINGS_DAEMON,
 	glib-2.0 >= $GLIB_REQUIRED_VERSION
-	gtk+-3.0 >= $GTK_REQUIRED_VERSION
+	ctk+-3.0 >= $GTK_REQUIRED_VERSION
 	gio-2.0 >= $GIO_REQUIRED_VERSION
 	gmodule-2.0
 	gthread-2.0
@@ -67,7 +67,7 @@ PKG_CHECK_MODULES(SETTINGS_DAEMON,
 )
 
 PKG_CHECK_MODULES(SETTINGS_PLUGIN,
-	gtk+-3.0 >= $GTK_REQUIRED_VERSION
+	ctk+-3.0 >= $GTK_REQUIRED_VERSION
 	gio-2.0 >= $GIO_REQUIRED_VERSION
 	dbus-glib-1 >= $DBUS_GLIB_REQUIRED_VERSION
 )
@@ -231,8 +231,8 @@ AC_ARG_WITH(libcanberra,
     with_libcanberra=$withval, with_libcanberra=auto)
 
 if test "x$with_libcanberra" != "xno"; then
-    PKG_CHECK_MODULES(LIBCANBERRA, libcanberra-gtk3,
-              [AC_DEFINE(HAVE_LIBCANBERRA, 1, [Define if libcanberra-gtk3 is available])
+    PKG_CHECK_MODULES(LIBCANBERRA, libcanberra-ctk3,
+              [AC_DEFINE(HAVE_LIBCANBERRA, 1, [Define if libcanberra-ctk3 is available])
               have_libcanberra=yes], have_libcanberra=no)
     if test "x$have_libcanberra" = xno -a "x$with_libcanberra" = xyes; then
         AC_MSG_ERROR([libcanberra support requested but library not found])

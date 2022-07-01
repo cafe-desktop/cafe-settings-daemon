@@ -28,7 +28,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 
 #include <dbus/dbus-glib.h>
@@ -77,8 +77,8 @@
 #define DPI_DEFAULT        96
 
 #define KEY_INTERFACE_SCHEMA   "org.cafe.interface"
-#define KEY_GTK_THEME          "gtk-theme"
-#define KEY_COLOR_SCHEME       "gtk-color-scheme"
+#define KEY_GTK_THEME          "ctk-theme"
+#define KEY_COLOR_SCHEME       "ctk-color-scheme"
 #define KEY_ICON_THEME         "icon-theme"
 
 #define KEY_MARCO_SCHEMA    "org.cafe.Marco"
@@ -257,17 +257,17 @@ static gboolean
 config_get_high_contrast (MsdA11yPreferencesDialog *dialog, gboolean *is_writable)
 {
         gboolean ret;
-        char    *gtk_theme;
+        char    *ctk_theme;
 
         ret = FALSE;
 
         *is_writable = g_settings_is_writable (dialog->priv->settings_interface, KEY_GTK_THEME);
-        gtk_theme = g_settings_get_string (dialog->priv->settings_interface, KEY_GTK_THEME);
+        ctk_theme = g_settings_get_string (dialog->priv->settings_interface, KEY_GTK_THEME);
 
-        if (gtk_theme != NULL && strcmp (gtk_theme, HIGH_CONTRAST_THEME) == 0) {
+        if (ctk_theme != NULL && strcmp (ctk_theme, HIGH_CONTRAST_THEME) == 0) {
                 ret = TRUE;
         }
-        g_free (gtk_theme);
+        g_free (ctk_theme);
 
         return ret;
 }
@@ -404,56 +404,56 @@ static void
 on_sticky_keys_checkbutton_toggled (GtkToggleButton          *button,
                                     MsdA11yPreferencesDialog *dialog)
 {
-        config_set_sticky_keys (dialog, gtk_toggle_button_get_active (button));
+        config_set_sticky_keys (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_bounce_keys_checkbutton_toggled (GtkToggleButton          *button,
                                     MsdA11yPreferencesDialog *dialog)
 {
-        config_set_bounce_keys (dialog, gtk_toggle_button_get_active (button));
+        config_set_bounce_keys (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_slow_keys_checkbutton_toggled (GtkToggleButton          *button,
                                   MsdA11yPreferencesDialog *dialog)
 {
-        config_set_slow_keys (dialog, gtk_toggle_button_get_active (button));
+        config_set_slow_keys (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_high_contrast_checkbutton_toggled (GtkToggleButton          *button,
                                       MsdA11yPreferencesDialog *dialog)
 {
-        config_set_high_contrast (dialog, gtk_toggle_button_get_active (button));
+        config_set_high_contrast (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_at_screen_reader_checkbutton_toggled (GtkToggleButton          *button,
                                          MsdA11yPreferencesDialog *dialog)
 {
-        config_set_at_screen_reader (dialog, gtk_toggle_button_get_active (button));
+        config_set_at_screen_reader (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_at_screen_keyboard_checkbutton_toggled (GtkToggleButton          *button,
                                            MsdA11yPreferencesDialog *dialog)
 {
-        config_set_at_screen_keyboard (dialog, gtk_toggle_button_get_active (button));
+        config_set_at_screen_keyboard (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_at_screen_magnifier_checkbutton_toggled (GtkToggleButton          *button,
                                             MsdA11yPreferencesDialog *dialog)
 {
-        config_set_at_screen_magnifier (dialog, gtk_toggle_button_get_active (button));
+        config_set_at_screen_magnifier (dialog, ctk_toggle_button_get_active (button));
 }
 
 static void
 on_large_print_checkbutton_toggled (GtkToggleButton          *button,
                                     MsdA11yPreferencesDialog *dialog)
 {
-        config_set_large_print (gtk_toggle_button_get_active (button));
+        config_set_large_print (ctk_toggle_button_get_active (button));
 }
 
 static void
@@ -462,9 +462,9 @@ ui_set_sticky_keys (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->sticky_keys_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->sticky_keys_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->sticky_keys_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->sticky_keys_checkbutton), enabled);
         }
 }
 
@@ -474,9 +474,9 @@ ui_set_bounce_keys (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->bounce_keys_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->bounce_keys_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->bounce_keys_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->bounce_keys_checkbutton), enabled);
         }
 }
 
@@ -486,9 +486,9 @@ ui_set_slow_keys (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->slow_keys_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->slow_keys_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->slow_keys_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->slow_keys_checkbutton), enabled);
         }
 }
 
@@ -498,9 +498,9 @@ ui_set_high_contrast (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->high_contrast_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->high_contrast_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->high_contrast_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->high_contrast_checkbutton), enabled);
         }
 }
 
@@ -510,9 +510,9 @@ ui_set_at_screen_reader (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_reader_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_reader_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_reader_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_reader_checkbutton), enabled);
         }
 }
 
@@ -522,9 +522,9 @@ ui_set_at_screen_keyboard (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_keyboard_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_keyboard_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_keyboard_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_keyboard_checkbutton), enabled);
         }
 }
 
@@ -534,9 +534,9 @@ ui_set_at_screen_magnifier (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_magnifier_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_magnifier_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_magnifier_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->screen_magnifier_checkbutton), enabled);
         }
 }
 
@@ -546,9 +546,9 @@ ui_set_large_print (MsdA11yPreferencesDialog *dialog,
 {
         gboolean active;
 
-        active = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->large_print_checkbutton));
+        active = ctk_toggle_button_get_active (GTK_TOGGLE_BUTTON (dialog->priv->large_print_checkbutton));
         if (active != enabled) {
-                gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->large_print_checkbutton), enabled);
+                ctk_toggle_button_set_active (GTK_TOGGLE_BUTTON (dialog->priv->large_print_checkbutton), enabled);
         }
 }
 
@@ -594,7 +594,7 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         gboolean     enabled;
         gboolean     is_writable;
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "sticky_keys_checkbutton"));
         dialog->priv->sticky_keys_checkbutton = widget;
         g_signal_connect (widget,
@@ -604,10 +604,10 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_sticky_keys (dialog, &is_writable);
         ui_set_sticky_keys (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "bounce_keys_checkbutton"));
         dialog->priv->bounce_keys_checkbutton = widget;
         g_signal_connect (widget,
@@ -617,10 +617,10 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_bounce_keys (dialog, &is_writable);
         ui_set_bounce_keys (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "slow_keys_checkbutton"));
         dialog->priv->slow_keys_checkbutton = widget;
         g_signal_connect (widget,
@@ -630,10 +630,10 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_slow_keys (dialog, &is_writable);
         ui_set_slow_keys (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "high_contrast_checkbutton"));
         dialog->priv->high_contrast_checkbutton = widget;
         g_signal_connect (widget,
@@ -643,10 +643,10 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_high_contrast (dialog, &is_writable);
         ui_set_high_contrast (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "at_screen_keyboard_checkbutton"));
         dialog->priv->screen_keyboard_checkbutton = widget;
         g_signal_connect (widget,
@@ -656,16 +656,16 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_at_screen_keyboard (dialog, &is_writable);
         ui_set_at_screen_keyboard (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
-        gtk_widget_set_no_show_all (widget, TRUE);
+        ctk_widget_set_no_show_all (widget, TRUE);
         if (config_have_at_gsettings_condition ("CAFE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_KEYBOARD_ENABLED)) {
-                gtk_widget_show_all (widget);
+                ctk_widget_show_all (widget);
         } else {
-                gtk_widget_hide (widget);
+                ctk_widget_hide (widget);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "at_screen_reader_checkbutton"));
         dialog->priv->screen_reader_checkbutton = widget;
         g_signal_connect (widget,
@@ -675,16 +675,16 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_at_screen_reader (dialog, &is_writable);
         ui_set_at_screen_reader (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
-        gtk_widget_set_no_show_all (widget, TRUE);
+        ctk_widget_set_no_show_all (widget, TRUE);
         if (config_have_at_gsettings_condition ("CAFE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_READER_ENABLED)) {
-                gtk_widget_show_all (widget);
+                ctk_widget_show_all (widget);
         } else {
-                gtk_widget_hide (widget);
+                ctk_widget_hide (widget);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "at_screen_magnifier_checkbutton"));
         dialog->priv->screen_magnifier_checkbutton = widget;
         g_signal_connect (widget,
@@ -694,16 +694,16 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_at_screen_magnifier (dialog, &is_writable);
         ui_set_at_screen_magnifier (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
-        gtk_widget_set_no_show_all (widget, TRUE);
+        ctk_widget_set_no_show_all (widget, TRUE);
         if (config_have_at_gsettings_condition ("CAFE " KEY_AT_SCHEMA " " KEY_AT_SCREEN_MAGNIFIER_ENABLED)) {
-                gtk_widget_show_all (widget);
+                ctk_widget_show_all (widget);
         } else {
-                gtk_widget_hide (widget);
+                ctk_widget_hide (widget);
         }
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder,
+        widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                      "large_print_checkbutton"));
         dialog->priv->large_print_checkbutton = widget;
         g_signal_connect (widget,
@@ -713,7 +713,7 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
         enabled = config_get_large_print (&is_writable);
         ui_set_large_print (dialog, enabled);
         if (! is_writable) {
-                gtk_widget_set_sensitive (widget, FALSE);
+                ctk_widget_set_sensitive (widget, FALSE);
         }
 
         g_signal_connect (dialog->priv->settings_a11y,
@@ -741,33 +741,33 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
         dialog->priv->settings_interface = g_settings_new (KEY_INTERFACE_SCHEMA);
         dialog->priv->settings_marco = g_settings_new (KEY_MARCO_SCHEMA);
 
-        builder = gtk_builder_new ();
-        gtk_builder_set_translation_domain (builder, PACKAGE);
-        if (gtk_builder_add_objects_from_file (builder, ui_file_path, objects,
+        builder = ctk_builder_new ();
+        ctk_builder_set_translation_domain (builder, PACKAGE);
+        if (ctk_builder_add_objects_from_file (builder, ui_file_path, objects,
                                                &error) == 0) {
                 g_warning ("Could not load A11Y-UI: %s", error->message);
                 g_error_free (error);
         } else {
                 GtkWidget *widget;
 
-                widget = GTK_WIDGET (gtk_builder_get_object (builder,
+                widget = GTK_WIDGET (ctk_builder_get_object (builder,
                                                              "main_box"));
-                gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))),
+                ctk_container_add (GTK_CONTAINER (ctk_dialog_get_content_area (GTK_DIALOG (dialog))),
                                    widget);
-                gtk_container_set_border_width (GTK_CONTAINER (widget), 12);
+                ctk_container_set_border_width (GTK_CONTAINER (widget), 12);
                 setup_dialog (dialog, builder);
        }
 
         g_object_unref (builder);
 
-        gtk_container_set_border_width (GTK_CONTAINER (dialog), 12);
-        gtk_window_set_title (GTK_WINDOW (dialog), _("Universal Access Preferences"));
-        gtk_window_set_icon_name (GTK_WINDOW (dialog), "preferences-desktop-accessibility");
+        ctk_container_set_border_width (GTK_CONTAINER (dialog), 12);
+        ctk_window_set_title (GTK_WINDOW (dialog), _("Universal Access Preferences"));
+        ctk_window_set_icon_name (GTK_WINDOW (dialog), "preferences-desktop-accessibility");
         g_object_set (dialog,
                       "resizable", FALSE,
                       NULL);
 
-        gtk_dialog_add_buttons (GTK_DIALOG (dialog),
+        ctk_dialog_add_buttons (GTK_DIALOG (dialog),
                                 GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE,
                                 NULL);
         g_signal_connect (dialog,
@@ -776,7 +776,7 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
                           dialog);
 
 
-        gtk_widget_show_all (GTK_WIDGET (dialog));
+        ctk_widget_show_all (GTK_WIDGET (dialog));
 }
 
 static void

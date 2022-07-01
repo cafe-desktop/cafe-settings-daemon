@@ -20,7 +20,7 @@
 #ifndef _msd_ldsm_trash_empty_h_
 #define _msd_ldsm_trash_empty_h_
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 void msd_ldsm_trash_empty (void);
 

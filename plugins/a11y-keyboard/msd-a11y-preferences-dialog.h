@@ -22,7 +22,7 @@
 #define __MSD_A11Y_PREFERENCES_DIALOG_H
 
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #ifdef __cplusplus
 extern "C" {

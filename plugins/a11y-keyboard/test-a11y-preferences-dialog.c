@@ -25,7 +25,7 @@
 #include <stdlib.h>
 
 #include <glib/gi18n.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include "msd-a11y-preferences-dialog.h"
 
@@ -35,7 +35,7 @@ test_window (void)
         GtkWidget *window;
 
         window = msd_a11y_preferences_dialog_new ();
-        gtk_dialog_run (GTK_DIALOG (window));
+        ctk_dialog_run (GTK_DIALOG (window));
 }
 
 int
@@ -52,7 +52,7 @@ main (int    argc,
         textdomain (GETTEXT_PACKAGE);
 #endif
 
-        if (! gtk_init_with_args (&argc, &argv, NULL, NULL, NULL, &error)) {
+        if (! ctk_init_with_args (&argc, &argv, NULL, NULL, NULL, &error)) {
                 fprintf (stderr, "%s", error->message);
                 g_error_free (error);
                 exit (1);

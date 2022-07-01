@@ -34,7 +34,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #ifdef HAVE_PULSE
 #include <pulse/pulseaudio.h>

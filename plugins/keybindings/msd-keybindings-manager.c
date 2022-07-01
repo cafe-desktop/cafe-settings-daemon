@@ -34,7 +34,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <X11/keysym.h>
 #include <gio/gio.h>
 #include <dconf.h>
@@ -481,7 +481,7 @@ keybindings_filter (GdkXEvent             *gdk_xevent,
                         g_strfreev (envp);
 
                         if (!retval) {
-                                GtkWidget *dialog = gtk_message_dialog_new (NULL, 0, GTK_MESSAGE_WARNING,
+                                GtkWidget *dialog = ctk_message_dialog_new (NULL, 0, GTK_MESSAGE_WARNING,
                                                                             GTK_BUTTONS_CLOSE,
                                                                             _("Error while trying to run (%s)\n"\
                                                                               "which is linked to the key (%s)"),
@@ -489,9 +489,9 @@ keybindings_filter (GdkXEvent             *gdk_xevent,
                                                                             binding->binding_str);
                                 g_signal_connect (dialog,
                                                   "response",
-                                                  G_CALLBACK (gtk_widget_destroy),
+                                                  G_CALLBACK (ctk_widget_destroy),
                                                   NULL);
-                                gtk_widget_show (dialog);
+                                ctk_widget_show (dialog);
                         }
                         return GDK_FILTER_REMOVE;
                 }

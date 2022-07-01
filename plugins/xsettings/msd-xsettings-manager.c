@@ -36,7 +36,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
@@ -171,7 +171,7 @@ translate_string_string_toolbar (CafeXSettingsManager  *manager,
         const char *tmp;
 
         /* This is kind of a workaround since GNOME expects the key value to be
-         * "both_horiz" and gtk+ wants the XSetting to be "both-horiz".
+         * "both_horiz" and ctk+ wants the XSetting to be "both-horiz".
          */
         tmp = g_variant_get_string (value, NULL);
         if (tmp && strcmp (tmp, "both_horiz") == 0) {
@@ -192,31 +192,31 @@ static TranslationEntry translations [] = {
         { MOUSE_SCHEMA,     "cursor-size",            "Gtk/CursorThemeSize",           translate_int_int },
 
         { INTERFACE_SCHEMA, "font-name",              "Gtk/FontName",                  translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-key-theme",          "Gtk/KeyThemeName",              translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-key-theme",          "Gtk/KeyThemeName",              translate_string_string },
         { INTERFACE_SCHEMA, "toolbar-style",          "Gtk/ToolbarStyle",              translate_string_string_toolbar },
         { INTERFACE_SCHEMA, "toolbar-icons-size",     "Gtk/ToolbarIconSize",           translate_string_string },
         { INTERFACE_SCHEMA, "cursor-blink",           "Net/CursorBlink",               translate_bool_int },
         { INTERFACE_SCHEMA, "cursor-blink-time",      "Net/CursorBlinkTime",           translate_int_int },
-        { INTERFACE_SCHEMA, "gtk-theme",              "Net/ThemeName",                 translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-color-scheme",       "Gtk/ColorScheme",               translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-im-preedit-style",   "Gtk/IMPreeditStyle",            translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-im-status-style",    "Gtk/IMStatusStyle",             translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-im-module",          "Gtk/IMModule",                  translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-theme",              "Net/ThemeName",                 translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-color-scheme",       "Gtk/ColorScheme",               translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-im-preedit-style",   "Gtk/IMPreeditStyle",            translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-im-status-style",    "Gtk/IMStatusStyle",             translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-im-module",          "Gtk/IMModule",                  translate_string_string },
         { INTERFACE_SCHEMA, "icon-theme",             "Net/IconThemeName",             translate_string_string },
         { INTERFACE_SCHEMA, "file-chooser-backend",   "Gtk/FileChooserBackend",        translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-decoration-layout",  "Gtk/DecorationLayout",          translate_string_string },
-        { INTERFACE_SCHEMA, "gtk-shell-shows-app-menu","Gtk/ShellShowsAppMenu",        translate_bool_int },
-        { INTERFACE_SCHEMA, "gtk-shell-shows-menubar","Gtk/ShellShowsMenubar",         translate_bool_int },
+        { INTERFACE_SCHEMA, "ctk-decoration-layout",  "Gtk/DecorationLayout",          translate_string_string },
+        { INTERFACE_SCHEMA, "ctk-shell-shows-app-menu","Gtk/ShellShowsAppMenu",        translate_bool_int },
+        { INTERFACE_SCHEMA, "ctk-shell-shows-menubar","Gtk/ShellShowsMenubar",         translate_bool_int },
         { INTERFACE_SCHEMA, "menus-have-icons",       "Gtk/MenuImages",                translate_bool_int },
         { INTERFACE_SCHEMA, "buttons-have-icons",     "Gtk/ButtonImages",              translate_bool_int },
         { INTERFACE_SCHEMA, "menubar-accel",          "Gtk/MenuBarAccel",              translate_string_string },
         { INTERFACE_SCHEMA, "show-input-method-menu", "Gtk/ShowInputMethodMenu",       translate_bool_int },
         { INTERFACE_SCHEMA, "show-unicode-menu",      "Gtk/ShowUnicodeMenu",           translate_bool_int },
         { INTERFACE_SCHEMA, "automatic-mnemonics",    "Gtk/AutoMnemonics",             translate_bool_int },
-        {INTERFACE_SCHEMA, "gtk-enable-primary-paste", "Gtk/EnablePrimaryPaste",
+        {INTERFACE_SCHEMA, "ctk-enable-primary-paste", "Gtk/EnablePrimaryPaste",
 translate_bool_int },
-        { INTERFACE_SCHEMA, "gtk-enable-animations",  "Gtk/EnableAnimations",          translate_bool_int },
-        { INTERFACE_SCHEMA, "gtk-dialogs-use-header", "Gtk/DialogsUseHeader",          translate_bool_int },
+        { INTERFACE_SCHEMA, "ctk-enable-animations",  "Gtk/EnableAnimations",          translate_bool_int },
+        { INTERFACE_SCHEMA, "ctk-dialogs-use-header", "Gtk/DialogsUseHeader",          translate_bool_int },
 
         { SOUND_SCHEMA, "theme-name",                 "Net/SoundThemeName",            translate_string_string },
         { SOUND_SCHEMA, "event-sounds",               "Net/EnableEventSounds" ,        translate_bool_int },
@@ -861,7 +861,7 @@ terminate_cb (void *data)
 
         *terminated = TRUE;
 
-        gtk_main_quit ();
+        ctk_main_quit ();
 }
 
 static gboolean
