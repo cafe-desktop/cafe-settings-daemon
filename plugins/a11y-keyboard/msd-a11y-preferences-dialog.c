@@ -102,7 +102,7 @@ struct MsdA11yPreferencesDialogPrivate
         GSettings *settings_a11y;
         GSettings *settings_at;
         GSettings *settings_interface;
-        GSettings *settings_marco;
+        GSettings *settings_croma;
 };
 
 enum {
@@ -278,11 +278,11 @@ config_set_high_contrast (MsdA11yPreferencesDialog *dialog, gboolean enabled)
         if (enabled) {
                 g_settings_set_string (dialog->priv->settings_interface, KEY_CTK_THEME, HIGH_CONTRAST_THEME);
                 g_settings_set_string (dialog->priv->settings_interface, KEY_ICON_THEME, HIGH_CONTRAST_THEME);
-                /* there isn't a high contrast marco theme afaik */
+                /* there isn't a high contrast croma theme afaik */
         } else {
                 g_settings_reset (dialog->priv->settings_interface, KEY_CTK_THEME);
                 g_settings_reset (dialog->priv->settings_interface, KEY_ICON_THEME);
-                g_settings_reset (dialog->priv->settings_marco, KEY_MARCO_THEME);
+                g_settings_reset (dialog->priv->settings_croma, KEY_MARCO_THEME);
         }
 }
 
@@ -739,7 +739,7 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
         dialog->priv->settings_a11y = g_settings_new (KEY_A11Y_SCHEMA);
         dialog->priv->settings_at = g_settings_new (KEY_AT_SCHEMA);
         dialog->priv->settings_interface = g_settings_new (KEY_INTERFACE_SCHEMA);
-        dialog->priv->settings_marco = g_settings_new (KEY_MARCO_SCHEMA);
+        dialog->priv->settings_croma = g_settings_new (KEY_MARCO_SCHEMA);
 
         builder = ctk_builder_new ();
         ctk_builder_set_translation_domain (builder, PACKAGE);
@@ -794,7 +794,7 @@ msd_a11y_preferences_dialog_finalize (GObject *object)
         g_object_unref (dialog->priv->settings_a11y);
         g_object_unref (dialog->priv->settings_at);
         g_object_unref (dialog->priv->settings_interface);
-        g_object_unref (dialog->priv->settings_marco);
+        g_object_unref (dialog->priv->settings_croma);
 
         G_OBJECT_CLASS (msd_a11y_preferences_dialog_parent_class)->finalize (object);
 }
