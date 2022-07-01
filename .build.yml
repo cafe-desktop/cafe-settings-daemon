@@ -18,7 +18,7 @@ requires:
     - gobject-introspection
     - gtk-doc-tools
     - iso-codes
-    - libcanberra-ctk3-dev
+    - libcanberra-gtk3-dev
     - libdbus-glib-1-dev
     - libdconf-dev
     - libfontconfig1-dev
