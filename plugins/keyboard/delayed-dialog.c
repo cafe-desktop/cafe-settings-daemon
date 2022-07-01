@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkx.h>
 
 #include "delayed-dialog.h"
@@ -36,16 +36,16 @@ static GSList *dialogs = NULL;
  * msd_delayed_show_dialog:
  * @dialog: the dialog
  *
- * Shows the dialog as with gtk_widget_show(), unless a window manager
+ * Shows the dialog as with ctk_widget_show(), unless a window manager
  * hasn't been started yet, in which case it will wait up to 5 seconds
  * for that to happen before showing the dialog.
  **/
 void
 msd_delayed_show_dialog (GtkWidget *dialog)
 {
-        GdkDisplay *display = gtk_widget_get_display (dialog);
+        GdkDisplay *display = ctk_widget_get_display (dialog);
         Display *xdisplay = GDK_DISPLAY_XDISPLAY (display);
-        GdkScreen *screen = gtk_widget_get_screen (dialog);
+        GdkScreen *screen = ctk_widget_get_screen (dialog);
         char selection_name[10];
         Atom selection_atom;
 
@@ -57,7 +57,7 @@ msd_delayed_show_dialog (GtkWidget *dialog)
         selection_atom = XInternAtom (xdisplay, selection_name, True);
         if (selection_atom &&
             XGetSelectionOwner (xdisplay, selection_atom) != None) {
-                gtk_widget_show (dialog);
+                ctk_widget_show (dialog);
                 return;
         }
 
@@ -74,7 +74,7 @@ delayed_show_timeout (gpointer data)
         GSList *l;
 
         for (l = dialogs; l; l = l->next)
-                gtk_widget_show (l->data);
+                ctk_widget_show (l->data);
         g_slist_free (dialogs);
         dialogs = NULL;
 
@@ -112,8 +112,8 @@ message_filter (GdkXEvent *xevent, GdkEvent *event, gpointer data)
                 GtkWidget *dialog = l->data;
                 next = l->next;
 
-                if (gdk_x11_screen_get_screen_number (gtk_widget_get_screen (dialog)) == screen) {
-                        gtk_widget_show (dialog);
+                if (gdk_x11_screen_get_screen_number (ctk_widget_get_screen (dialog)) == screen) {
+                        ctk_widget_show (dialog);
                         dialogs = g_slist_remove (dialogs, dialog);
                 }
         }

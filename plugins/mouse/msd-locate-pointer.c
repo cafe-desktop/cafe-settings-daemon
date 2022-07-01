@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include "msd-timeline.h"
 #include "msd-locate-pointer.h"
 
@@ -68,21 +68,21 @@ locate_pointer_paint (MsdLocatePointerData *data,
   width = gdk_window_get_width (data->window);
   height = gdk_window_get_height (data->window);
 
-  style = gtk_widget_get_style_context (GTK_WIDGET (data->widget));
-  gtk_style_context_save (style);
-  gtk_style_context_set_state (style, GTK_STATE_FLAG_SELECTED);
-  gtk_style_context_add_class (style, GTK_STYLE_CLASS_VIEW);
-  gtk_style_context_get_background_color (style,
-                                          gtk_style_context_get_state (style),
+  style = ctk_widget_get_style_context (GTK_WIDGET (data->widget));
+  ctk_style_context_save (style);
+  ctk_style_context_set_state (style, GTK_STATE_FLAG_SELECTED);
+  ctk_style_context_add_class (style, GTK_STYLE_CLASS_VIEW);
+  ctk_style_context_get_background_color (style,
+                                          ctk_style_context_get_state (style),
                                           &color);
   if (color.alpha == 0.)
     {
-      gtk_style_context_remove_class (style, GTK_STYLE_CLASS_VIEW);
-      gtk_style_context_get_background_color (style,
-                                              gtk_style_context_get_state (style),
+      ctk_style_context_remove_class (style, GTK_STYLE_CLASS_VIEW);
+      ctk_style_context_get_background_color (style,
+                                              ctk_style_context_get_state (style),
                                               &color);
     }
-  gtk_style_context_restore (style);
+  ctk_style_context_restore (style);
 
   cairo_save (cr);
   cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
@@ -179,14 +179,14 @@ timeline_frame_cb (MsdTimeline *timeline,
 
   if (gdk_screen_is_composited (screen))
     {
-      gtk_widget_queue_draw (GTK_WIDGET (data->widget));
+      ctk_widget_queue_draw (GTK_WIDGET (data->widget));
       data->progress = progress;
     }
   else if (progress >= data->progress + CIRCLES_PROGRESS_INTERVAL)
     {
       /* only invalidate window each circle interval */
       update_shape (data);
-      gtk_widget_queue_draw (GTK_WIDGET (data->widget));
+      ctk_widget_queue_draw (GTK_WIDGET (data->widget));
       data->progress += CIRCLES_PROGRESS_INTERVAL;
     }
 
@@ -197,7 +197,7 @@ timeline_frame_cb (MsdTimeline *timeline,
                            &cursor_x,
                            &cursor_y);
 
-  gtk_window_move (data->widget,
+  ctk_window_move (data->widget,
                    cursor_x - WINDOW_SIZE / 2,
                    cursor_y - WINDOW_SIZE / 2);
 }
@@ -262,7 +262,7 @@ timeline_finished_cb (MsdTimeline *timeline,
       set_transparent_shape (data->window);
     }
 
-  gtk_widget_hide (GTK_WIDGET (data->widget));
+  ctk_widget_hide (GTK_WIDGET (data->widget));
 }
 
 static void
@@ -271,7 +271,7 @@ locate_pointer_unrealize_cb (GtkWidget            *widget,
 {
   if (data->window != NULL)
     {
-      gtk_widget_unregister_window (GTK_WIDGET (data->widget),
+      ctk_widget_unregister_window (GTK_WIDGET (data->widget),
                                     data->window);
       gdk_window_destroy (data->window);
     }
@@ -288,7 +288,7 @@ locate_pointer_realize_cb (GtkWidget            *widget,
   GdkWindowAttr attributes;
   gint attributes_mask;
 
-  display = gtk_widget_get_display (GTK_WIDGET (data->widget));
+  display = ctk_widget_get_display (GTK_WIDGET (data->widget));
   screen = gdk_display_get_default_screen (display);
   visual = gdk_screen_get_rgba_visual (screen);
 
@@ -314,9 +314,9 @@ locate_pointer_realize_cb (GtkWidget            *widget,
 				 &attributes,
 				 attributes_mask);
 
-  gtk_widget_set_window (GTK_WIDGET (data->widget),
+  ctk_widget_set_window (GTK_WIDGET (data->widget),
                          data->window);
-  gtk_widget_register_window (GTK_WIDGET (data->widget),
+  ctk_widget_register_window (GTK_WIDGET (data->widget),
                               data->window);
 }
 
@@ -328,7 +328,7 @@ locate_pointer_draw_cb (GtkWidget      *widget,
   MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
   GdkScreen *screen = gdk_window_get_screen (data->window);
 
-  if (gtk_cairo_should_draw_window (cr, data->window))
+  if (ctk_cairo_should_draw_window (cr, data->window))
     {
       locate_pointer_paint (data, cr, gdk_screen_is_composited (screen));
     }
@@ -343,7 +343,7 @@ msd_locate_pointer_data_new (void)
 
   data = g_new0 (MsdLocatePointerData, 1);
 
-  data->widget = GTK_WINDOW (gtk_window_new (GTK_WINDOW_POPUP));
+  data->widget = GTK_WINDOW (ctk_window_new (GTK_WINDOW_POPUP));
 
   g_signal_connect (GTK_WIDGET (data->widget), "unrealize",
                     G_CALLBACK (locate_pointer_unrealize_cb),
@@ -355,8 +355,8 @@ msd_locate_pointer_data_new (void)
                     G_CALLBACK (locate_pointer_draw_cb),
                     data);
 
-  gtk_widget_set_app_paintable (GTK_WIDGET (data->widget), TRUE);
-  gtk_widget_realize (GTK_WIDGET (data->widget));
+  ctk_widget_set_app_paintable (GTK_WIDGET (data->widget), TRUE);
+  ctk_widget_realize (GTK_WIDGET (data->widget));
 
   data->timeline = msd_timeline_new (ANIMATION_LENGTH);
   g_signal_connect (data->timeline, "frame",
@@ -385,10 +385,10 @@ move_locate_pointer_window (MsdLocatePointerData *data,
                            &cursor_x,
                            &cursor_y);
 
-  gtk_window_move (data->widget,
+  ctk_window_move (data->widget,
                    cursor_x - WINDOW_SIZE / 2,
                    cursor_y - WINDOW_SIZE / 2);
-  gtk_window_resize (data->widget,
+  ctk_window_resize (data->widget,
                      WINDOW_SIZE, WINDOW_SIZE);
 
   mask = gdk_window_create_similar_image_surface (data->window,
@@ -430,7 +430,7 @@ msd_locate_pointer (GdkDisplay *display)
 
   move_locate_pointer_window (data, display);
   composited_changed (screen, data);
-  gtk_widget_show (GTK_WIDGET (data->widget));
+  ctk_widget_show (GTK_WIDGET (data->widget));
 
   msd_timeline_start (data->timeline);
 }
@@ -580,11 +580,11 @@ set_locate_pointer (void)
 int
 main (int argc, char *argv[])
 {
-  gtk_init (&argc, &argv);
+  ctk_init (&argc, &argv);
 
   set_locate_pointer ();
 
-  gtk_main ();
+  ctk_main ();
 
   return 0;
 }

@@ -44,7 +44,7 @@ static gboolean trash_empty_actually_deleting;
 static gboolean
 trash_empty_done (gpointer data)
 {
-        gtk_widget_destroy (trash_empty_dialog);
+        ctk_widget_destroy (trash_empty_dialog);
         trash_empty_dialog = NULL;
         if (timer) {
                 g_timer_destroy (timer);
@@ -80,13 +80,13 @@ trash_empty_update_dialog (gpointer user_data)
                  */
                 if (timer) {
                         if (g_timer_elapsed (timer, NULL) > 0.1) {
-                                gtk_progress_bar_pulse (GTK_PROGRESS_BAR (progressbar));
+                                ctk_progress_bar_pulse (GTK_PROGRESS_BAR (progressbar));
                                 g_timer_start (timer);
                         }
                 } else {
                         timer = g_timer_new ();
                         g_timer_start (timer);
-                        gtk_progress_bar_pulse (GTK_PROGRESS_BAR (progressbar));
+                        ctk_progress_bar_pulse (GTK_PROGRESS_BAR (progressbar));
                 }
         } else {
                 gchar *text;
@@ -96,33 +96,33 @@ trash_empty_update_dialog (gpointer user_data)
 
                 text = g_strdup_printf (_("Removing item %lu of %lu"),
                                         deleted, total);
-                gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progressbar), text);
+                ctk_progress_bar_set_text (GTK_PROGRESS_BAR (progressbar), text);
 
                 g_free (text);
 
                 if (deleted > total)
-                        gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (progressbar), 1.0);
+                        ctk_progress_bar_set_fraction (GTK_PROGRESS_BAR (progressbar), 1.0);
                 else
-                        gtk_progress_bar_set_fraction (GTK_PROGRESS_BAR (progressbar),
+                        ctk_progress_bar_set_fraction (GTK_PROGRESS_BAR (progressbar),
                                                        (gdouble) deleted / (gdouble) total);
 
                 parent = g_file_get_parent (file);
                 text = g_file_get_uri (parent);
                 g_object_unref (parent);
 
-                gtk_label_set_text (GTK_LABEL (location_label), text);
+                ctk_label_set_text (GTK_LABEL (location_label), text);
                 g_free (text);
 
                 tmp = g_file_get_basename (file);
                 text = g_markup_printf_escaped (_("Removing: %s"), tmp);
                 markup = g_strdup_printf ("<i>%s</i>", text);
-                gtk_label_set_markup (GTK_LABEL (file_label), markup);
+                ctk_label_set_markup (GTK_LABEL (file_label), markup);
                 g_free (markup);
                 g_free (text);
                 g_free (tmp);
 
                 /* unhide the labels */
-                gtk_widget_show_all (GTK_WIDGET (trash_empty_dialog));
+                ctk_widget_show_all (GTK_WIDGET (trash_empty_dialog));
         }
 
 out:
@@ -240,67 +240,67 @@ trash_empty_start ()
         gchar *markup;
         GCancellable *cancellable;
 
-        trash_empty_dialog = gtk_dialog_new ();
-        gtk_window_set_default_size (GTK_WINDOW (trash_empty_dialog), 400, -1);
-        gtk_window_set_icon_name (GTK_WINDOW (trash_empty_dialog), "user-trash");
-        gtk_window_set_title (GTK_WINDOW (trash_empty_dialog),
+        trash_empty_dialog = ctk_dialog_new ();
+        ctk_window_set_default_size (GTK_WINDOW (trash_empty_dialog), 400, -1);
+        ctk_window_set_icon_name (GTK_WINDOW (trash_empty_dialog), "user-trash");
+        ctk_window_set_title (GTK_WINDOW (trash_empty_dialog),
                               _("Emptying the trash"));
 
-        vbox1 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
-        vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-        hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+        vbox1 = ctk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+        vbox2 = ctk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+        hbox = ctk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
 
-        label1 = gtk_label_new (NULL);
-        gtk_label_set_line_wrap (GTK_LABEL (label1), TRUE);
-        gtk_label_set_xalign (GTK_LABEL (label1), 0.0);
-        gtk_label_set_yalign (GTK_LABEL (label1), 0.5);
+        label1 = ctk_label_new (NULL);
+        ctk_label_set_line_wrap (GTK_LABEL (label1), TRUE);
+        ctk_label_set_xalign (GTK_LABEL (label1), 0.0);
+        ctk_label_set_yalign (GTK_LABEL (label1), 0.5);
 
-        label3 = gtk_label_new (NULL);
-        gtk_label_set_line_wrap (GTK_LABEL (label3), TRUE);
-        gtk_label_set_xalign (GTK_LABEL (label3), 0.0);
-        gtk_label_set_yalign (GTK_LABEL (label3), 0.5);
-        gtk_widget_hide (label3);
+        label3 = ctk_label_new (NULL);
+        ctk_label_set_line_wrap (GTK_LABEL (label3), TRUE);
+        ctk_label_set_xalign (GTK_LABEL (label3), 0.0);
+        ctk_label_set_yalign (GTK_LABEL (label3), 0.5);
+        ctk_widget_hide (label3);
 
-        location_label = gtk_label_new (NULL);
-        gtk_label_set_line_wrap (GTK_LABEL (location_label), TRUE);
-        gtk_label_set_xalign (GTK_LABEL (location_label), 0.0);
-        gtk_label_set_yalign (GTK_LABEL (location_label), 0.5);
+        location_label = ctk_label_new (NULL);
+        ctk_label_set_line_wrap (GTK_LABEL (location_label), TRUE);
+        ctk_label_set_xalign (GTK_LABEL (location_label), 0.0);
+        ctk_label_set_yalign (GTK_LABEL (location_label), 0.5);
 
-        file_label = gtk_label_new (NULL);
-        gtk_label_set_line_wrap (GTK_LABEL (file_label), TRUE);
-        gtk_label_set_xalign (GTK_LABEL (file_label), 0.0);
-        gtk_label_set_yalign (GTK_LABEL (file_label), 0.5);
+        file_label = ctk_label_new (NULL);
+        ctk_label_set_line_wrap (GTK_LABEL (file_label), TRUE);
+        ctk_label_set_xalign (GTK_LABEL (file_label), 0.0);
+        ctk_label_set_yalign (GTK_LABEL (file_label), 0.5);
 
-        progressbar = gtk_progress_bar_new ();
-        gtk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar), 0.1);
-        gtk_progress_bar_set_text (GTK_PROGRESS_BAR (progressbar), _("Preparing to empty trash…"));
+        progressbar = ctk_progress_bar_new ();
+        ctk_progress_bar_set_pulse_step (GTK_PROGRESS_BAR (progressbar), 0.1);
+        ctk_progress_bar_set_text (GTK_PROGRESS_BAR (progressbar), _("Preparing to empty trash…"));
 
-        gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (trash_empty_dialog))), vbox1, TRUE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (vbox1), label1, TRUE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (hbox), label3, FALSE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (hbox), location_label, TRUE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (vbox1), hbox, TRUE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (vbox2), progressbar, TRUE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (vbox2), file_label, TRUE, TRUE, 0);
-        gtk_box_pack_start (GTK_BOX (vbox1), vbox2, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (ctk_dialog_get_content_area (GTK_DIALOG (trash_empty_dialog))), vbox1, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (vbox1), label1, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (hbox), label3, FALSE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (hbox), location_label, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (vbox1), hbox, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (vbox2), progressbar, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (vbox2), file_label, TRUE, TRUE, 0);
+        ctk_box_pack_start (GTK_BOX (vbox1), vbox2, TRUE, TRUE, 0);
 
-        gtk_widget_show (label1);
-        gtk_widget_show (vbox1);
-        gtk_widget_show_all (vbox2);
-        gtk_widget_show (hbox);
-        gtk_widget_show (location_label);
+        ctk_widget_show (label1);
+        ctk_widget_show (vbox1);
+        ctk_widget_show_all (vbox2);
+        ctk_widget_show (hbox);
+        ctk_widget_show (location_label);
 
-        gtk_container_set_border_width (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (trash_empty_dialog))), 6);
-        gtk_container_set_border_width (GTK_CONTAINER (vbox1), 6);
+        ctk_container_set_border_width (GTK_CONTAINER (ctk_dialog_get_content_area (GTK_DIALOG (trash_empty_dialog))), 6);
+        ctk_container_set_border_width (GTK_CONTAINER (vbox1), 6);
 
-        gtk_dialog_add_button (GTK_DIALOG (trash_empty_dialog),
+        ctk_dialog_add_button (GTK_DIALOG (trash_empty_dialog),
                                GTK_STOCK_CANCEL,
                                GTK_RESPONSE_CANCEL);
 
         markup = g_markup_printf_escaped ("<big><b>%s</b></big>", _("Emptying the trash"));
-        gtk_label_set_markup (GTK_LABEL (label1), markup);
+        ctk_label_set_markup (GTK_LABEL (label1), markup);
         /* Translators: "Emptying trash from <device>" */
-        gtk_label_set_text (GTK_LABEL (label3), _("From: "));
+        ctk_label_set_text (GTK_LABEL (label3), _("From: "));
 
         cancellable = g_cancellable_new ();
         g_signal_connect_object (trash_empty_dialog, "response",
@@ -308,7 +308,7 @@ trash_empty_start ()
                                  cancellable, G_CONNECT_SWAPPED);
         g_io_scheduler_push_job (trash_empty_job, NULL, NULL, 0, cancellable);
 
-        gtk_widget_show (trash_empty_dialog);
+        ctk_widget_show (trash_empty_dialog);
 
         g_free (markup);
         g_object_unref (cancellable);
@@ -322,7 +322,7 @@ trash_empty_confirmation_response (GtkDialog *dialog,
         if (response_id == GTK_RESPONSE_YES)
                 trash_empty_start ();
 
-        gtk_widget_destroy (GTK_WIDGET (dialog));
+        ctk_widget_destroy (GTK_WIDGET (dialog));
         trash_empty_confirm_dialog = NULL;
 }
 
@@ -349,33 +349,33 @@ trash_empty_show_confirmation_dialog ()
                 return;
         }
 
-        trash_empty_confirm_dialog = gtk_message_dialog_new (NULL, 0,
+        trash_empty_confirm_dialog = ctk_message_dialog_new (NULL, 0,
                                                              GTK_MESSAGE_WARNING,
                                                              GTK_BUTTONS_NONE,
                                                              _("Empty all of the items from the trash?"));
 
-        gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (trash_empty_confirm_dialog),
+        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (trash_empty_confirm_dialog),
                                                   _("If you choose to empty the trash, all items in "
                                                   "it will be permanently lost. Please note that "
                                                   "you can also delete them separately."));
 
-        gtk_dialog_add_button (GTK_DIALOG (trash_empty_confirm_dialog), GTK_STOCK_CANCEL,
+        ctk_dialog_add_button (GTK_DIALOG (trash_empty_confirm_dialog), GTK_STOCK_CANCEL,
                                GTK_RESPONSE_CANCEL);
 
-        button = gtk_button_new_with_mnemonic (_("_Empty Trash"));
-        gtk_widget_show (button);
-        gtk_widget_set_can_default (button, TRUE);
+        button = ctk_button_new_with_mnemonic (_("_Empty Trash"));
+        ctk_widget_show (button);
+        ctk_widget_set_can_default (button, TRUE);
 
-        gtk_dialog_add_action_widget (GTK_DIALOG (trash_empty_confirm_dialog),
+        ctk_dialog_add_action_widget (GTK_DIALOG (trash_empty_confirm_dialog),
                                       button, GTK_RESPONSE_YES);
 
-        gtk_dialog_set_default_response (GTK_DIALOG (trash_empty_confirm_dialog),
+        ctk_dialog_set_default_response (GTK_DIALOG (trash_empty_confirm_dialog),
                                          GTK_RESPONSE_YES);
 
-        gtk_window_set_icon_name (GTK_WINDOW (trash_empty_confirm_dialog),
+        ctk_window_set_icon_name (GTK_WINDOW (trash_empty_confirm_dialog),
                                   "user-trash");
 
-        gtk_widget_show (trash_empty_confirm_dialog);
+        ctk_widget_show (trash_empty_confirm_dialog);
 
         g_signal_connect (trash_empty_confirm_dialog, "response",
                           G_CALLBACK (trash_empty_confirmation_response), NULL);
@@ -385,9 +385,9 @@ void
 msd_ldsm_trash_empty (void)
 {
         if (trash_empty_confirm_dialog)
-                gtk_window_present (GTK_WINDOW (trash_empty_confirm_dialog));
+                ctk_window_present (GTK_WINDOW (trash_empty_confirm_dialog));
         else if (trash_empty_dialog)
-                gtk_window_present (GTK_WINDOW (trash_empty_dialog));
+                ctk_window_present (GTK_WINDOW (trash_empty_dialog));
         else
                 trash_empty_show_confirmation_dialog ();
 }

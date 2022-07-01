@@ -35,7 +35,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gio/gio.h>
 
 #include <X11/XKBlib.h>
@@ -431,20 +431,20 @@ ax_response_callback (MsdA11yKeyboardManager *manager,
 
         case GTK_RESPONSE_HELP:
                 err = NULL;
-                if (!gtk_show_uri_on_window (parent,
+                if (!ctk_show_uri_on_window (parent,
                                    "help:cafe-user-guide/goscustaccess-6",
-                                   gtk_get_current_event_time(),
+                                   ctk_get_current_event_time(),
                                    &err)) {
-                        GtkWidget *error_dialog = gtk_message_dialog_new (parent,
+                        GtkWidget *error_dialog = ctk_message_dialog_new (parent,
                                                                           0,
                                                                           GTK_MESSAGE_ERROR,
                                                                           GTK_BUTTONS_CLOSE,
                                                                           _("There was an error displaying help: %s"),
                                                                           err->message);
                         g_signal_connect (error_dialog, "response",
-                                          G_CALLBACK (gtk_widget_destroy), NULL);
-                        gtk_window_set_resizable (GTK_WINDOW (error_dialog), FALSE);
-                        gtk_widget_show (error_dialog);
+                                          G_CALLBACK (ctk_widget_destroy), NULL);
+                        ctk_window_set_resizable (GTK_WINDOW (error_dialog), FALSE);
+                        ctk_widget_show (error_dialog);
                         g_error_free (err);
                 }
                 return FALSE;
@@ -462,7 +462,7 @@ ax_stickykeys_response (GtkDialog              *dialog,
         if (ax_response_callback (manager, GTK_WINDOW (dialog),
                                   response_id, XkbStickyKeysMask,
                                   manager->priv->stickykeys_shortcut_val)) {
-                gtk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (GTK_WIDGET (dialog));
         }
 }
 
@@ -474,7 +474,7 @@ ax_slowkeys_response (GtkDialog              *dialog,
         if (ax_response_callback (manager, GTK_WINDOW (dialog),
                                   response_id, XkbSlowKeysMask,
                                   manager->priv->slowkeys_shortcut_val)) {
-                gtk_widget_destroy (GTK_WIDGET (dialog));
+                ctk_widget_destroy (GTK_WIDGET (dialog));
         }
 }
 
@@ -490,7 +490,7 @@ maybe_show_status_icon (MsdA11yKeyboardManager *manager)
                 return;
 
         msd_a11y_keyboard_manager_ensure_status_icon (manager);
-        gtk_status_icon_set_visible (manager->priv->status_icon, show);
+        ctk_status_icon_set_visible (manager->priv->status_icon, show);
 }
 
 #ifdef HAVE_LIBNOTIFY
@@ -572,12 +572,12 @@ ax_slowkeys_warning_post_bubble (MsdA11yKeyboardManager *manager,
         message = _("You just held down the Shift key for 8 seconds.  This is the shortcut "
                     "for the Slow Keys feature, which affects the way your keyboard works.");
 
-        if (manager->priv->status_icon == NULL || ! gtk_status_icon_is_embedded (manager->priv->status_icon)) {
+        if (manager->priv->status_icon == NULL || ! ctk_status_icon_is_embedded (manager->priv->status_icon)) {
                 return FALSE;
         }
 
         if (manager->priv->slowkeys_alert != NULL) {
-                gtk_widget_destroy (manager->priv->slowkeys_alert);
+                ctk_widget_destroy (manager->priv->slowkeys_alert);
         }
 
         if (manager->priv->notification != NULL) {
@@ -637,41 +637,41 @@ ax_slowkeys_warning_post_dialog (MsdA11yKeyboardManager *manager,
                     "for the Slow Keys feature, which affects the way your keyboard works.");
 
         if (manager->priv->slowkeys_alert != NULL) {
-                gtk_widget_show (manager->priv->slowkeys_alert);
+                ctk_widget_show (manager->priv->slowkeys_alert);
                 return;
         }
 
-        manager->priv->slowkeys_alert = gtk_message_dialog_new (NULL,
+        manager->priv->slowkeys_alert = ctk_message_dialog_new (NULL,
                                                                 0,
                                                                 GTK_MESSAGE_WARNING,
                                                                 GTK_BUTTONS_NONE,
                                                                 "%s", title);
 
-        gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (manager->priv->slowkeys_alert),
+        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (manager->priv->slowkeys_alert),
                                                   "%s", message);
 
-        gtk_dialog_add_button (GTK_DIALOG (manager->priv->slowkeys_alert),
+        ctk_dialog_add_button (GTK_DIALOG (manager->priv->slowkeys_alert),
                                GTK_STOCK_HELP,
                                GTK_RESPONSE_HELP);
-        gtk_dialog_add_button (GTK_DIALOG (manager->priv->slowkeys_alert),
+        ctk_dialog_add_button (GTK_DIALOG (manager->priv->slowkeys_alert),
                                enabled ? _("Do_n't activate") : _("Do_n't deactivate"),
                                GTK_RESPONSE_REJECT);
-        gtk_dialog_add_button (GTK_DIALOG (manager->priv->slowkeys_alert),
+        ctk_dialog_add_button (GTK_DIALOG (manager->priv->slowkeys_alert),
                                enabled ? _("_Activate") : _("_Deactivate"),
                                GTK_RESPONSE_ACCEPT);
 
-        gtk_window_set_title (GTK_WINDOW (manager->priv->slowkeys_alert),
+        ctk_window_set_title (GTK_WINDOW (manager->priv->slowkeys_alert),
                               _("Slow Keys Alert"));
-        gtk_window_set_icon_name (GTK_WINDOW (manager->priv->slowkeys_alert),
+        ctk_window_set_icon_name (GTK_WINDOW (manager->priv->slowkeys_alert),
                                   "input-keyboard");
-        gtk_dialog_set_default_response (GTK_DIALOG (manager->priv->slowkeys_alert),
+        ctk_dialog_set_default_response (GTK_DIALOG (manager->priv->slowkeys_alert),
                                          GTK_RESPONSE_ACCEPT);
 
         g_signal_connect (manager->priv->slowkeys_alert,
                           "response",
                           G_CALLBACK (ax_slowkeys_response),
                           manager);
-        gtk_widget_show (manager->priv->slowkeys_alert);
+        ctk_widget_show (manager->priv->slowkeys_alert);
 
         g_object_add_weak_pointer (G_OBJECT (manager->priv->slowkeys_alert),
                                    (gpointer*) &manager->priv->slowkeys_alert);
@@ -709,12 +709,12 @@ ax_stickykeys_warning_post_bubble (MsdA11yKeyboardManager *manager,
                 _("You just pressed two keys at once, or pressed the Shift key 5 times in a row.  "
                   "This turns off the Sticky Keys feature, which affects the way your keyboard works.");
 
-        if (manager->priv->status_icon == NULL || ! gtk_status_icon_is_embedded (manager->priv->status_icon)) {
+        if (manager->priv->status_icon == NULL || ! ctk_status_icon_is_embedded (manager->priv->status_icon)) {
                 return FALSE;
         }
 
         if (manager->priv->slowkeys_alert != NULL) {
-                gtk_widget_destroy (manager->priv->slowkeys_alert);
+                ctk_widget_destroy (manager->priv->slowkeys_alert);
         }
 
         if (manager->priv->notification != NULL) {
@@ -776,41 +776,41 @@ ax_stickykeys_warning_post_dialog (MsdA11yKeyboardManager *manager,
                   "This turns off the Sticky Keys feature, which affects the way your keyboard works.");
 
         if (manager->priv->stickykeys_alert != NULL) {
-                gtk_widget_show (manager->priv->stickykeys_alert);
+                ctk_widget_show (manager->priv->stickykeys_alert);
                 return;
         }
 
-        manager->priv->stickykeys_alert = gtk_message_dialog_new (NULL,
+        manager->priv->stickykeys_alert = ctk_message_dialog_new (NULL,
                                                                   0,
                                                                   GTK_MESSAGE_WARNING,
                                                                   GTK_BUTTONS_NONE,
                                                                   "%s", title);
 
-        gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (manager->priv->stickykeys_alert),
+        ctk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (manager->priv->stickykeys_alert),
                                                   "%s", message);
 
-        gtk_dialog_add_button (GTK_DIALOG (manager->priv->stickykeys_alert),
+        ctk_dialog_add_button (GTK_DIALOG (manager->priv->stickykeys_alert),
                                GTK_STOCK_HELP,
                                GTK_RESPONSE_HELP);
-        gtk_dialog_add_button (GTK_DIALOG (manager->priv->stickykeys_alert),
+        ctk_dialog_add_button (GTK_DIALOG (manager->priv->stickykeys_alert),
                                enabled ? _("Do_n't activate") : _("Do_n't deactivate"),
                                GTK_RESPONSE_REJECT);
-        gtk_dialog_add_button (GTK_DIALOG (manager->priv->stickykeys_alert),
+        ctk_dialog_add_button (GTK_DIALOG (manager->priv->stickykeys_alert),
                                enabled ? _("_Activate") : _("_Deactivate"),
                                GTK_RESPONSE_ACCEPT);
 
-        gtk_window_set_title (GTK_WINDOW (manager->priv->stickykeys_alert),
+        ctk_window_set_title (GTK_WINDOW (manager->priv->stickykeys_alert),
                               _("Sticky Keys Alert"));
-        gtk_window_set_icon_name (GTK_WINDOW (manager->priv->stickykeys_alert),
+        ctk_window_set_icon_name (GTK_WINDOW (manager->priv->stickykeys_alert),
                                   "input-keyboard");
-        gtk_dialog_set_default_response (GTK_DIALOG (manager->priv->stickykeys_alert),
+        ctk_dialog_set_default_response (GTK_DIALOG (manager->priv->stickykeys_alert),
                                          GTK_RESPONSE_ACCEPT);
 
         g_signal_connect (manager->priv->stickykeys_alert,
                           "response",
                           G_CALLBACK (ax_stickykeys_response),
                           manager);
-        gtk_widget_show (manager->priv->stickykeys_alert);
+        ctk_widget_show (manager->priv->stickykeys_alert);
 
         g_object_add_weak_pointer (G_OBJECT (manager->priv->stickykeys_alert),
                                    (gpointer*) &manager->priv->stickykeys_alert);
@@ -1088,7 +1088,7 @@ msd_a11y_keyboard_manager_stop (MsdA11yKeyboardManager *manager)
         gdk_window_remove_filter (NULL, devicepresence_filter, manager);
 
         if (p->status_icon)
-                gtk_status_icon_set_visible (p->status_icon, FALSE);
+                ctk_status_icon_set_visible (p->status_icon, FALSE);
 
         if (p->settings != NULL) {
                 g_object_unref (p->settings);
@@ -1104,10 +1104,10 @@ msd_a11y_keyboard_manager_stop (MsdA11yKeyboardManager *manager)
         restore_server_xkb_config (manager);
 
         if (p->slowkeys_alert != NULL)
-                gtk_widget_destroy (p->slowkeys_alert);
+                ctk_widget_destroy (p->slowkeys_alert);
 
         if (p->stickykeys_alert != NULL)
-                gtk_widget_destroy (p->stickykeys_alert);
+                ctk_widget_destroy (p->stickykeys_alert);
 
         p->slowkeys_shortcut_val = FALSE;
         p->stickykeys_shortcut_val = FALSE;
@@ -1130,7 +1130,7 @@ on_preferences_dialog_response (GtkDialog              *dialog,
                                               on_preferences_dialog_response,
                                               manager);
 
-        gtk_widget_destroy (GTK_WIDGET (dialog));
+        ctk_widget_destroy (GTK_WIDGET (dialog));
         manager->priv->preferences_dialog = NULL;
 }
 
@@ -1145,12 +1145,12 @@ on_status_icon_activate (GtkStatusIcon          *status_icon,
                                   G_CALLBACK (on_preferences_dialog_response),
                                   manager);
 
-                gtk_window_present (GTK_WINDOW (manager->priv->preferences_dialog));
+                ctk_window_present (GTK_WINDOW (manager->priv->preferences_dialog));
         } else {
                 g_signal_handlers_disconnect_by_func (manager->priv->preferences_dialog,
                                                       on_preferences_dialog_response,
                                                       manager);
-                gtk_widget_destroy (GTK_WIDGET (manager->priv->preferences_dialog));
+                ctk_widget_destroy (GTK_WIDGET (manager->priv->preferences_dialog));
                 manager->priv->preferences_dialog = NULL;
         }
 }
@@ -1162,7 +1162,7 @@ msd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager)
 
         if (!manager->priv->status_icon) {
 
-                manager->priv->status_icon = gtk_status_icon_new_from_icon_name ("preferences-desktop-accessibility");
+                manager->priv->status_icon = ctk_status_icon_new_from_icon_name ("preferences-desktop-accessibility");
                 g_signal_connect (manager->priv->status_icon,
                                   "activate",
                                   G_CALLBACK (on_status_icon_activate),

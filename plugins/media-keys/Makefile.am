@@ -131,8 +131,8 @@ test_media_keys_LDADD = \
 	$(LIBCANBERRA_LIBS) \
 	-lm
 
-gtkbuilderdir = $(pkgdatadir)
-gtkbuilder_DATA =	\
+ctkbuilderdir = $(pkgdatadir)
+ctkbuilder_DATA =	\
 	acme.ui		\
 	$(NULL)
 
@@ -140,7 +140,7 @@ EXTRA_DIST = 				\
 	msd-media-keys-manager.xml	\
 	msd-marshal.list		\
 	$(plugin_in_files)		\
-	$(gtkbuilder_DATA)
+	$(ctkbuilder_DATA)
 
 CLEANFILES = 			\
 	$(BUILT_SOURCES)	\

@@ -16,14 +16,14 @@ requires:
     - g++
     - git
     - gobject-introspection
-    - gtk-doc-tools
+    - ctk-doc-tools
     - iso-codes
-    - libcanberra-gtk3-dev
+    - libcanberra-ctk3-dev
     - libdbus-glib-1-dev
     - libdconf-dev
     - libfontconfig1-dev
     - libglib2.0-dev
-    - libgtk-3-dev
+    - libctk-3-dev
     - libnotify-dev
     - libnss3-dev
     - libpolkit-agent-1-dev

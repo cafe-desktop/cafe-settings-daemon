@@ -21,7 +21,7 @@
 #ifndef __DELAYED_DIALOG_H
 #define __DELAYED_DIALOG_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #ifdef __cplusplus
 extern "C" {

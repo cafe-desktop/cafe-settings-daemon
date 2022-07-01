@@ -30,7 +30,7 @@
 
 #include <glib/gi18n.h>
 #include <glib/gstdio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #include <dbus/dbus-glib.h>
 #include <dbus/dbus-glib-lowlevel.h>
@@ -72,7 +72,7 @@ static GOptionEntry entries[] = {
 static gboolean
 timed_exit_cb (void)
 {
-        gtk_main_quit ();
+        ctk_main_quit ();
         return FALSE;
 }
 
@@ -147,14 +147,14 @@ bus_message_handler (DBusConnection *connection,
         if (dbus_message_is_signal (message,
                                     DBUS_INTERFACE_LOCAL,
                                     "Disconnected")) {
-                gtk_main_quit ();
+                ctk_main_quit ();
                 return DBUS_HANDLER_RESULT_HANDLED;
         }
         else if (dbus_message_is_signal (message,
                                          DBUS_INTERFACE_DBUS,
                                          "NameLost")) {
                 g_warning ("D-Bus name lost, quitting");
-                gtk_main_quit ();
+                ctk_main_quit ();
                 return DBUS_HANDLER_RESULT_HANDLED;
         }
 
@@ -264,7 +264,7 @@ on_session_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manager)
         }
 
         cafe_settings_manager_stop (manager);
-        gtk_main_quit ();
+        ctk_main_quit ();
 }
 
 static void
@@ -284,7 +284,7 @@ on_term_signal_pipe_closed (GIOChannel *source,
 
         /* Got SIGTERM, time to clean up and get out
          */
-        gtk_main_quit ();
+        ctk_main_quit ();
 
         return FALSE;
 }
@@ -423,7 +423,7 @@ parse_args (int *argc, char ***argv)
         context = g_option_context_new (NULL);
 
         g_option_context_add_main_entries (context, entries, NULL);
-        g_option_context_add_group (context, gtk_get_option_group (FALSE));
+        g_option_context_add_group (context, ctk_get_option_group (FALSE));
 
         error = NULL;
         if (!g_option_context_parse (context, argc, argv, &error)) {
@@ -488,12 +488,12 @@ main (int argc, char *argv[])
 		}
         }
 
-        cafe_settings_profile_start ("opening gtk display");
-        if (! gtk_init_check (NULL, NULL)) {
+        cafe_settings_profile_start ("opening ctk display");
+        if (! ctk_init_check (NULL, NULL)) {
                 g_warning ("Unable to initialize GTK+");
                 exit (EXIT_FAILURE);
         }
-        cafe_settings_profile_end ("opening gtk display");
+        cafe_settings_profile_end ("opening ctk display");
 
         g_log_set_default_handler (msd_log_default_handler, NULL);
 
@@ -548,7 +548,7 @@ main (int argc, char *argv[])
                 g_timeout_add_seconds (30, (GSourceFunc) timed_exit_cb, NULL);
         }
 
-        gtk_main ();
+        ctk_main ();
 
  out:
 

@@ -18,7 +18,7 @@
  */
 
 #include <glib.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <math.h>
 #include "msd-timeline.h"
 
@@ -451,8 +451,8 @@ msd_timeline_start (MsdTimeline *timeline)
 
   if (priv->screen)
     {
-      settings = gtk_settings_get_for_screen (priv->screen);
-      g_object_get (settings, "gtk-enable-animations", &enable_animations, NULL);
+      settings = ctk_settings_get_for_screen (priv->screen);
+      g_object_get (settings, "ctk-enable-animations", &enable_animations, NULL);
     }
 
   if (enable_animations)

@@ -109,7 +109,7 @@
   * media-keys: Add microphone mute key support
   * msd-xrdb-manager: realize the widget
   * media-keys: Make sound changes quiet with Alt
-  * msd-xrdb-manager.c: avoid deprecated 'gtk_widget_ensure_style'
+  * msd-xrdb-manager.c: avoid deprecated 'ctk_widget_ensure_style'
   * media-keys: always round the render coordinates for media icons
   * media-keys: Tweak the OSD's volume bar position
   * osd-window: make the window smaller
@@ -199,23 +199,23 @@
   * touchpad: disable clickfinger by default
   * WidthOfScreen and HeightOfScreen implementation
   * msd-keyboard-xkb: Fix Gdk-CRITICAL warning on creating status bar icon
-  * gtk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
+  * ctk 3.22: avoid deprecated gdk_screen_get_monitor... functions:
 
 ### cafe-settings-daemon 1.19.0
 
   * Translations update
   * configure: bump CAFE_DESKTOP_REQUIRED_VERSION
-  * gtk 3.22: avoid deprecated gdk_screen_get_width/height_mm
+  * ctk 3.22: avoid deprecated gdk_screen_get_width/height_mm
   * avoid deprecated gdk_screen_get_width/height
   * avoid deprecated gdk_display_get_screen and gdk_display_get_n_screens
   * msd-a11y-preferences-dialog.ui: clean up deprecations
   * ally-keyboard: fix help link
-  * don't use deprecated gtk_show_uri
+  * don't use deprecated ctk_show_uri
   * avoid deprecated gdk_screen_get_number
   * Fix Xrandr applet dying on restart
   * Request keyboard event reports from global keybindings of other windows (#179)
   * Restore Polish translation credits from GNOME
-  * msd-xrandr-manager: avoid deprecated gtk_misc_set_padding
+  * msd-xrandr-manager: avoid deprecated ctk_misc_set_padding
   * keyboard plugin: apply panel menu theme to popup menu
   * ldsm-dialog: don't use deprecated GTK_STOCK
   * ldsm-dialog: set max width chars for labels
@@ -229,7 +229,7 @@
   * Build: require XInput unconditionally
   * Build: require libcafemixer >= 1.10, libxklavier >= 5.2, dconf >= 0.13
   * Build: require libcafekbd and libcafe-desktop >= 1.17
-  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-gtk
+  * Move to GTK+3 (require GTK+ >= 3.14), drop GTK+2 code and --with-ctk
     build option
   * Add libinput support for mouse and touchpad
   * Touchpad: add separate settings for handedness (left/right-handed)

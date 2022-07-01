@@ -26,7 +26,7 @@
 #include <glib/gi18n.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gio/gio.h>
 
 #include <dbus/dbus-glib.h>
@@ -37,7 +37,7 @@
 #endif
 
 #ifdef HAVE_LIBCANBERRA
-#include <canberra-gtk.h>
+#include <canberra-ctk.h>
 #endif
 
 #include "cafe-settings-profile.h"
@@ -126,17 +126,17 @@ acme_error (char * msg)
 {
         GtkWidget *error_dialog;
 
-        error_dialog = gtk_message_dialog_new (NULL,
+        error_dialog = ctk_message_dialog_new (NULL,
                                                GTK_DIALOG_MODAL,
                                                GTK_MESSAGE_ERROR,
                                                GTK_BUTTONS_OK,
                                                msg, NULL);
-        gtk_dialog_set_default_response (GTK_DIALOG (error_dialog),
+        ctk_dialog_set_default_response (GTK_DIALOG (error_dialog),
                                          GTK_RESPONSE_OK);
-        gtk_widget_show (error_dialog);
+        ctk_widget_show (error_dialog);
         g_signal_connect (error_dialog,
                           "response",
-                          G_CALLBACK (gtk_widget_destroy),
+                          G_CALLBACK (ctk_widget_destroy),
                           NULL);
 }
 
@@ -236,7 +236,7 @@ dialog_init (MsdMediaKeysManager *manager)
 {
         if (manager->priv->dialog != NULL
             && !msd_osd_window_is_valid (MSD_OSD_WINDOW (manager->priv->dialog))) {
-                gtk_widget_destroy (manager->priv->dialog);
+                ctk_widget_destroy (manager->priv->dialog);
                 manager->priv->dialog = NULL;
         }
 
@@ -419,7 +419,7 @@ dialog_show (MsdMediaKeysManager *manager)
         GdkRectangle   geometry;
         GdkMonitor    *monitor;
 
-        gtk_window_set_screen (GTK_WINDOW (manager->priv->dialog),
+        ctk_window_set_screen (GTK_WINDOW (manager->priv->dialog),
                                manager->priv->current_screen);
 
         /* Return if OSD notifications are disabled */
@@ -431,8 +431,8 @@ dialog_show (MsdMediaKeysManager *manager)
          * if the window hasn't been mapped, it doesn't necessarily
          * know its true size, yet, so we need to jump through hoops
          */
-        gtk_window_get_default_size (GTK_WINDOW (manager->priv->dialog), &orig_w, &orig_h);
-        gtk_widget_get_preferred_size (manager->priv->dialog, NULL, &win_req);
+        ctk_window_get_default_size (GTK_WINDOW (manager->priv->dialog), &orig_w, &orig_h);
+        ctk_widget_get_preferred_size (manager->priv->dialog, NULL, &win_req);
 
         if (win_req.width > orig_w) {
                 orig_w = win_req.width;
@@ -468,9 +468,9 @@ dialog_show (MsdMediaKeysManager *manager)
         x = ((screen_w - orig_w) / 2) + geometry.x;
         y = geometry.y + (screen_h / 2) + (screen_h / 2 - orig_h) / 2;
 
-        gtk_window_move (GTK_WINDOW (manager->priv->dialog), x, y);
+        ctk_window_move (GTK_WINDOW (manager->priv->dialog), x, y);
 
-        gtk_widget_show (manager->priv->dialog);
+        ctk_widget_show (manager->priv->dialog);
 
         gdk_display_sync (gdk_screen_get_display (manager->priv->current_screen));
 }
@@ -686,7 +686,7 @@ update_dialog (MsdMediaKeysManager *manager,
 
 #ifdef HAVE_LIBCANBERRA
         if (quiet == FALSE && sound_changed != FALSE && muted == FALSE && is_mic == FALSE)
-                ca_gtk_play_for_widget (manager->priv->dialog, 0,
+                ca_ctk_play_for_widget (manager->priv->dialog, 0,
                                         CA_PROP_EVENT_ID, "audio-volume-change",
                                         CA_PROP_EVENT_DESCRIPTION, "Volume changed through key press",
                                         CA_PROP_APPLICATION_NAME, PACKAGE_NAME,
@@ -1585,7 +1585,7 @@ msd_media_keys_manager_stop (MsdMediaKeysManager *manager)
 #endif
 
         if (priv->dialog != NULL) {
-                gtk_widget_destroy (priv->dialog);
+                ctk_widget_destroy (priv->dialog);
                 priv->dialog = NULL;
         }
 

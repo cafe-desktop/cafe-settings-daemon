@@ -21,7 +21,7 @@
 #define _MSD_LDSM_DIALOG_H_
 
 #include <glib-object.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 #ifdef __cplusplus
 extern "C" {
