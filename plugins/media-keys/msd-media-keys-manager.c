@@ -1228,7 +1228,7 @@ do_action (MsdMediaKeysManager *manager,
                 break;
         case HOME_KEY:
                 path = g_shell_quote (g_get_home_dir ());
-                cmd = g_strconcat ("caja --no-desktop ", path, NULL);
+                cmd = g_strconcat ("baul --no-desktop ", path, NULL);
                 g_free (path);
                 execute (manager, cmd, FALSE, FALSE);
                 g_free (cmd);

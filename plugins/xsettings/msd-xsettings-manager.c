@@ -567,7 +567,7 @@ scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
                 }
 
                 /* Toggle icons on desktop to fix size */
-                /* FIXME: The ideal scenario would be for caja to respect window scaling and thus
+                /* FIXME: The ideal scenario would be for baul to respect window scaling and thus
                  * resize itself. Currently this is not happening, so msd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
                 GSettings *desktop_settings;

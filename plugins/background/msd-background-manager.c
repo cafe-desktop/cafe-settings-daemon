@@ -57,7 +57,7 @@ struct MsdBackgroundManagerPrivate {
 	GList           *scr_sizes;
 
 	gboolean         msd_can_draw;
-	gboolean         caja_can_draw;
+	gboolean         baul_can_draw;
 	gboolean         do_fade;
 	gboolean         draw_in_progress;
 
@@ -87,38 +87,38 @@ can_fade_bg (MsdBackgroundManager *manager)
 
 /* Whether Caja is configured to draw desktop (show-desktop-icons) */
 static gboolean
-caja_can_draw_bg (MsdBackgroundManager *manager)
+baul_can_draw_bg (MsdBackgroundManager *manager)
 {
 	return g_settings_get_boolean (manager->priv->settings, CAFE_BG_KEY_SHOW_DESKTOP);
 }
 
 static gboolean
-caja_is_drawing_bg (MsdBackgroundManager *manager)
+baul_is_drawing_bg (MsdBackgroundManager *manager)
 {
 	Display       *display = cdk_x11_get_default_xdisplay ();
 	Window         window = cdk_x11_get_default_root_xwindow ();
-	Atom           caja_prop, wmclass_prop, type;
-	Window         caja_window;
+	Atom           baul_prop, wmclass_prop, type;
+	Window         baul_window;
 	int            format;
 	unsigned long  nitems, after;
 	unsigned char *data;
 	CdkDisplay    *cdk_display;
 	gboolean       running = FALSE;
 
-	if (!manager->priv->caja_can_draw)
+	if (!manager->priv->baul_can_draw)
 		return FALSE;
 
-	caja_prop = XInternAtom (display, "CAJA_DESKTOP_WINDOW_ID", True);
-	if (caja_prop == None)
+	baul_prop = XInternAtom (display, "CAJA_DESKTOP_WINDOW_ID", True);
+	if (baul_prop == None)
 		return FALSE;
 
-	XGetWindowProperty (display, window, caja_prop, 0, 1, False,
+	XGetWindowProperty (display, window, baul_prop, 0, 1, False,
 			    XA_WINDOW, &type, &format, &nitems, &after, &data);
 
 	if (data == NULL)
 		return FALSE;
 
-	caja_window = *(Window *) data;
+	baul_window = *(Window *) data;
 	XFree (data);
 
 	if (type != XA_WINDOW || format != 32)
@@ -131,7 +131,7 @@ caja_is_drawing_bg (MsdBackgroundManager *manager)
 	cdk_display = cdk_display_get_default ();
 	cdk_x11_display_error_trap_push (cdk_display);
 
-	XGetWindowProperty (display, caja_window, wmclass_prop, 0, 20, False,
+	XGetWindowProperty (display, baul_window, wmclass_prop, 0, 20, False,
 			    XA_STRING, &type, &format, &nitems, &after, &data);
 
 	XSync (display, False);
@@ -139,7 +139,7 @@ caja_is_drawing_bg (MsdBackgroundManager *manager)
 	if (cdk_x11_display_error_trap_pop (cdk_display) == BadWindow || data == NULL)
 		return FALSE;
 
-	/* See: caja_desktop_window_new(), in src/caja-desktop-window.c */
+	/* See: baul_desktop_window_new(), in src/baul-desktop-window.c */
 	if (nitems == 20 && after == 0 && format == 8 &&
 	    !strcmp((char*) data, "desktop_window") &&
 	    !strcmp((char*) data + strlen((char*) data) + 1, "Caja"))
@@ -211,7 +211,7 @@ draw_background (MsdBackgroundManager *manager,
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
-	if (!p->msd_can_draw || p->draw_in_progress || caja_is_drawing_bg (manager))
+	if (!p->msd_can_draw || p->draw_in_progress || baul_is_drawing_bg (manager))
 		return;
 
 	cafe_settings_profile_start (NULL);
@@ -253,7 +253,7 @@ on_screen_size_changed (CdkScreen            *screen,
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
-	if (!p->msd_can_draw || p->draw_in_progress || caja_is_drawing_bg (manager))
+	if (!p->msd_can_draw || p->draw_in_progress || baul_is_drawing_bg (manager))
 		return;
 
 	CdkWindow *window = cdk_screen_get_root_window (screen);
@@ -317,9 +317,9 @@ settings_change_event_cb (GSettings            *settings,
 
 	/* Complements on_bg_handling_changed() */
 	p->msd_can_draw = msd_can_draw_bg (manager);
-	p->caja_can_draw = caja_can_draw_bg (manager);
+	p->baul_can_draw = baul_can_draw_bg (manager);
 
-	if (p->msd_can_draw && p->bg != NULL && !caja_is_drawing_bg (manager))
+	if (p->msd_can_draw && p->bg != NULL && !baul_is_drawing_bg (manager))
 	{
 		/* Defer signal processing to avoid making the dconf backend deadlock */
 		g_idle_add ((GSourceFunc) settings_change_event_idle_cb, manager);
@@ -383,7 +383,7 @@ on_bg_handling_changed (GSettings            *settings,
 
 	cafe_settings_profile_start (NULL);
 
-	if (caja_is_drawing_bg (manager))
+	if (baul_is_drawing_bg (manager))
 	{
 		if (p->bg != NULL)
 			remove_background (manager);
@@ -488,7 +488,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 	p->settings = g_settings_new (CAFE_BG_SCHEMA);
 
 	p->msd_can_draw = msd_can_draw_bg (manager);
-	p->caja_can_draw = caja_can_draw_bg (manager);
+	p->baul_can_draw = baul_can_draw_bg (manager);
 
 	g_signal_connect (p->settings, "changed::" CAFE_BG_KEY_DRAW_BACKGROUND,
 			  G_CALLBACK (on_bg_handling_changed), manager);
@@ -496,12 +496,12 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 			  G_CALLBACK (on_bg_handling_changed), manager);
 
 	/* If Caja is set to draw the background, it is very likely in our session.
-	 * But it might not be started yet, so caja_is_drawing_bg() would fail.
+	 * But it might not be started yet, so baul_is_drawing_bg() would fail.
 	 * In this case, we wait till the session is loaded, to avoid double-draws.
 	 */
 	if (p->msd_can_draw)
 	{
-		if (p->caja_can_draw)
+		if (p->baul_can_draw)
 		{
 			draw_bg_after_session_loads (manager);
 		}
