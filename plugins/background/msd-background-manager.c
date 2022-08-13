@@ -108,7 +108,7 @@ baul_is_drawing_bg (MsdBackgroundManager *manager)
 	if (!manager->priv->baul_can_draw)
 		return FALSE;
 
-	baul_prop = XInternAtom (display, "CAJA_DESKTOP_WINDOW_ID", True);
+	baul_prop = XInternAtom (display, "BAUL_DESKTOP_WINDOW_ID", True);
 	if (baul_prop == None)
 		return FALSE;
 
