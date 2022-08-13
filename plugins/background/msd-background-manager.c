@@ -85,7 +85,7 @@ can_fade_bg (MsdBackgroundManager *manager)
 	return g_settings_get_boolean (manager->priv->settings, CAFE_BG_KEY_BACKGROUND_FADE);
 }
 
-/* Whether Caja is configured to draw desktop (show-desktop-icons) */
+/* Whether Baul is configured to draw desktop (show-desktop-icons) */
 static gboolean
 baul_can_draw_bg (MsdBackgroundManager *manager)
 {
@@ -142,7 +142,7 @@ baul_is_drawing_bg (MsdBackgroundManager *manager)
 	/* See: baul_desktop_window_new(), in src/baul-desktop-window.c */
 	if (nitems == 20 && after == 0 && format == 8 &&
 	    !strcmp((char*) data, "desktop_window") &&
-	    !strcmp((char*) data + strlen((char*) data) + 1, "Caja"))
+	    !strcmp((char*) data + strlen((char*) data) + 1, "Baul"))
 	{
 		running = TRUE;
 	}
@@ -412,9 +412,9 @@ queue_timeout (MsdBackgroundManager *manager)
 	if (manager->priv->timeout_id > 0)
 		return;
 
-	/* SessionRunning: now check if Caja is drawing background, and if not, set it.
+	/* SessionRunning: now check if Baul is drawing background, and if not, set it.
 	 *
-	 * FIXME: We wait a few seconds after the session is up because Caja tells the
+	 * FIXME: We wait a few seconds after the session is up because Baul tells the
 	 * session manager that its ready before it sets the background.
 	 * https://bugzilla.gnome.org/show_bug.cgi?id=568588
 	 */
@@ -495,7 +495,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 	g_signal_connect (p->settings, "changed::" CAFE_BG_KEY_SHOW_DESKTOP,
 			  G_CALLBACK (on_bg_handling_changed), manager);
 
-	/* If Caja is set to draw the background, it is very likely in our session.
+	/* If Baul is set to draw the background, it is very likely in our session.
 	 * But it might not be started yet, so baul_is_drawing_bg() would fail.
 	 * In this case, we wait till the session is loaded, to avoid double-draws.
 	 */

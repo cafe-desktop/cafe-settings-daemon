@@ -234,7 +234,7 @@
   * Add libinput support for mouse and touchpad
   * Touchpad: add separate settings for handedness (left/right-handed)
     and motion acceleration/threshold
-  * Background: restore option to let Caja draw background with CTK+ 3.22
+  * Background: restore option to let Baul draw background with CTK+ 3.22
   * Some fixes and cleanups
   * Translations update
 
