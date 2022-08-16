@@ -37,7 +37,7 @@
 #include <libcafekbd/cafekbd-keyboard-config.h>
 #include <libcafekbd/cafekbd-util.h>
 
-#include "msd-keyboard-xkb.h"
+#include "csd-keyboard-xkb.h"
 #include "delayed-dialog.h"
 #include "cafe-settings-profile.h"
 
@@ -131,7 +131,7 @@ activation_error (void)
 						     "gsettings list-keys org.cafe.peripherals-keyboard-xkb.kbd");
 	g_signal_connect (dialog, "response",
 			  G_CALLBACK (ctk_widget_destroy), NULL);
-	msd_delayed_show_dialog (dialog);
+	csd_delayed_show_dialog (dialog);
 }
 
 static void
@@ -142,7 +142,7 @@ apply_desktop_settings (void)
 	if (!inited_ok)
 		return;
 
-	msd_keyboard_manager_apply_settings (manager);
+	csd_keyboard_manager_apply_settings (manager);
 	cafekbd_desktop_config_load_from_gsettings (&current_desktop_config);
 	/* again, probably it would be nice to compare things
 	   before activating them */
@@ -477,7 +477,7 @@ apply_xkb_settings_cb (GSettings *settings, gchar *key, gpointer   user_data)
 }
 
 static void
-msd_keyboard_xkb_analyze_sysconfig (void)
+csd_keyboard_xkb_analyze_sysconfig (void)
 {
 	if (!inited_ok)
 		return;
@@ -488,7 +488,7 @@ msd_keyboard_xkb_analyze_sysconfig (void)
 }
 
 void
-msd_keyboard_xkb_set_post_activation_callback (PostActivationCallback fun,
+csd_keyboard_xkb_set_post_activation_callback (PostActivationCallback fun,
 					       void *user_data)
 {
 	pa_callback = fun;
@@ -496,7 +496,7 @@ msd_keyboard_xkb_set_post_activation_callback (PostActivationCallback fun,
 }
 
 static CdkFilterReturn
-msd_keyboard_xkb_evt_filter (CdkXEvent * xev, CdkEvent * event)
+csd_keyboard_xkb_evt_filter (CdkXEvent * xev, CdkEvent * event)
 {
 	XEvent *xevent = (XEvent *) xev;
 	xkl_engine_filter_events (xkl_engine, xevent);
@@ -505,14 +505,14 @@ msd_keyboard_xkb_evt_filter (CdkXEvent * xev, CdkEvent * event)
 
 /* When new Keyboard is plugged in - reload the settings */
 static void
-msd_keyboard_new_device (XklEngine * engine)
+csd_keyboard_new_device (XklEngine * engine)
 {
 	apply_desktop_settings ();
 	apply_xkb_settings ();
 }
 
 static void
-msd_keyboard_update_indicator_icons ()
+csd_keyboard_update_indicator_icons ()
 {
 	Bool state;
 	int new_state, i;
@@ -543,19 +543,19 @@ msd_keyboard_update_indicator_icons ()
 }
 
 static void
-msd_keyboard_state_changed (XklEngine * engine, XklEngineStateChange type,
+csd_keyboard_state_changed (XklEngine * engine, XklEngineStateChange type,
 			    gint new_group, gboolean restore)
 {
 	xkl_debug (160,
 		   "State changed: type %d, new group: %d, restore: %d.\n",
 		   type, new_group, restore);
 	if (type == INDICATORS_CHANGED) {
-		msd_keyboard_update_indicator_icons ();
+		csd_keyboard_update_indicator_icons ();
 	}
 }
 
 void
-msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
+csd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 {
 	int i;
 	Display *display = CDK_DISPLAY_XDISPLAY(cdk_display_get_default());
@@ -576,7 +576,7 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 		    (indicator_off_icon_names[i]);
 	}
 
-	msd_keyboard_update_indicator_icons ();
+	csd_keyboard_update_indicator_icons ();
 
 	manager = kbd_manager;
 	cafe_settings_profile_start ("xkl_engine_get_instance");
@@ -594,7 +594,7 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 		                              xkl_engine);
 
 		xkl_engine_backup_names_prop (xkl_engine);
-		msd_keyboard_xkb_analyze_sysconfig ();
+		csd_keyboard_xkb_analyze_sysconfig ();
 
 		cafekbd_desktop_config_start_listen (&current_desktop_config,
 		                                     G_CALLBACK (apply_desktop_settings_cb),
@@ -610,16 +610,16 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 		                  G_CALLBACK (apply_xkb_settings_cb), NULL);
 
 		cdk_window_add_filter (NULL, (CdkFilterFunc)
-				       msd_keyboard_xkb_evt_filter, NULL);
+				       csd_keyboard_xkb_evt_filter, NULL);
 
 		if (xkl_engine_get_features (xkl_engine) &
 		    XKLF_DEVICE_DISCOVERY)
 			g_signal_connect (xkl_engine, "X-new-device",
 					  G_CALLBACK
-					  (msd_keyboard_new_device), NULL);
+					  (csd_keyboard_new_device), NULL);
 		g_signal_connect (xkl_engine, "X-state-changed",
 				  G_CALLBACK
-				  (msd_keyboard_state_changed), NULL);
+				  (csd_keyboard_state_changed), NULL);
 
 		cafe_settings_profile_start ("xkl_engine_start_listen");
 		xkl_engine_start_listen (xkl_engine,
@@ -640,7 +640,7 @@ msd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
 }
 
 void
-msd_keyboard_xkb_shutdown (void)
+csd_keyboard_xkb_shutdown (void)
 {
 	int i;
 
@@ -664,7 +664,7 @@ msd_keyboard_xkb_shutdown (void)
 				XKLL_MANAGE_WINDOW_STATES);
 
 	cdk_window_remove_filter (NULL, (CdkFilterFunc)
-				  msd_keyboard_xkb_evt_filter, NULL);
+				  csd_keyboard_xkb_evt_filter, NULL);
 
 	if (settings_desktop != NULL) {
 		g_object_unref (settings_desktop);

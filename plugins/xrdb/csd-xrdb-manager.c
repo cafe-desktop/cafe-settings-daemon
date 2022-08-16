@@ -38,7 +38,7 @@
 #include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-xrdb-manager.h"
+#include "csd-xrdb-manager.h"
 
 #define SYSTEM_AD_DIR    SYSCONFDIR "/xrdb"
 #define GENERAL_AD       SYSTEM_AD_DIR "/General.ad"
@@ -51,9 +51,9 @@ struct MsdXrdbManagerPrivate {
 	CtkWidget* widget;
 };
 
-static void msd_xrdb_manager_finalize (GObject *object);
+static void csd_xrdb_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdXrdbManager, msd_xrdb_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdXrdbManager, csd_xrdb_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 static void
@@ -481,7 +481,7 @@ theme_changed (CtkSettings    *settings,
 }
 
 gboolean
-msd_xrdb_manager_start (MsdXrdbManager *manager,
+csd_xrdb_manager_start (MsdXrdbManager *manager,
                         GError        **error)
 {
         cafe_settings_profile_start (NULL);
@@ -504,7 +504,7 @@ msd_xrdb_manager_start (MsdXrdbManager *manager,
 }
 
 void
-msd_xrdb_manager_stop (MsdXrdbManager *manager)
+csd_xrdb_manager_stop (MsdXrdbManager *manager)
 {
         MsdXrdbManagerPrivate *p = manager->priv;
 
@@ -521,22 +521,22 @@ msd_xrdb_manager_stop (MsdXrdbManager *manager)
 }
 
 static void
-msd_xrdb_manager_class_init (MsdXrdbManagerClass *klass)
+csd_xrdb_manager_class_init (MsdXrdbManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_xrdb_manager_finalize;
+        object_class->finalize = csd_xrdb_manager_finalize;
 }
 
 static void
-msd_xrdb_manager_init (MsdXrdbManager *manager)
+csd_xrdb_manager_init (MsdXrdbManager *manager)
 {
-        manager->priv = msd_xrdb_manager_get_instance_private (manager);
+        manager->priv = csd_xrdb_manager_get_instance_private (manager);
 
 }
 
 static void
-msd_xrdb_manager_finalize (GObject *object)
+csd_xrdb_manager_finalize (GObject *object)
 {
         MsdXrdbManager *xrdb_manager;
 
@@ -547,11 +547,11 @@ msd_xrdb_manager_finalize (GObject *object)
 
         g_return_if_fail (xrdb_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_xrdb_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_xrdb_manager_parent_class)->finalize (object);
 }
 
 MsdXrdbManager *
-msd_xrdb_manager_new (void)
+csd_xrdb_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

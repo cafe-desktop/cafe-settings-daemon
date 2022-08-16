@@ -48,8 +48,8 @@
 #endif /* HAVE_LIBNOTIFY */
 
 #include "cafe-settings-profile.h"
-#include "msd-a11y-keyboard-manager.h"
-#include "msd-a11y-preferences-dialog.h"
+#include "csd-a11y-keyboard-manager.h"
+#include "csd-a11y-preferences-dialog.h"
 
 #define CONFIG_SCHEMA "org.cafe.accessibility-keyboard"
 #define NOTIFICATION_TIMEOUT 30
@@ -72,11 +72,11 @@ struct MsdA11yKeyboardManagerPrivate
 #endif /* HAVE_LIBNOTIFY */
 };
 
-static void     msd_a11y_keyboard_manager_finalize (GObject *object);
-static void     msd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager);
+static void     csd_a11y_keyboard_manager_finalize (GObject *object);
+static void     csd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager);
 static void     set_server_from_settings (MsdA11yKeyboardManager *manager);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdA11yKeyboardManager, msd_a11y_keyboard_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdA11yKeyboardManager, csd_a11y_keyboard_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -489,7 +489,7 @@ maybe_show_status_icon (MsdA11yKeyboardManager *manager)
         if (!show && manager->priv->status_icon == NULL)
                 return;
 
-        msd_a11y_keyboard_manager_ensure_status_icon (manager);
+        csd_a11y_keyboard_manager_ensure_status_icon (manager);
         ctk_status_icon_set_visible (manager->priv->status_icon, show);
 }
 
@@ -584,7 +584,7 @@ ax_slowkeys_warning_post_bubble (MsdA11yKeyboardManager *manager,
                 notify_notification_close (manager->priv->notification, NULL);
         }
 
-        msd_a11y_keyboard_manager_ensure_status_icon (manager);
+        csd_a11y_keyboard_manager_ensure_status_icon (manager);
         manager->priv->notification = notify_notification_new (title,
                                                                message,
                                                                "preferences-desktop-accessibility");
@@ -721,7 +721,7 @@ ax_stickykeys_warning_post_bubble (MsdA11yKeyboardManager *manager,
                 notify_notification_close (manager->priv->notification, NULL);
         }
 
-        msd_a11y_keyboard_manager_ensure_status_icon (manager);
+        csd_a11y_keyboard_manager_ensure_status_icon (manager);
         manager->priv->notification = notify_notification_new (title,
                                                                message,
                                                                "preferences-desktop-accessibility");
@@ -1038,7 +1038,7 @@ start_a11y_keyboard_idle_cb (MsdA11yKeyboardManager *manager)
 
 
 gboolean
-msd_a11y_keyboard_manager_start (MsdA11yKeyboardManager *manager,
+csd_a11y_keyboard_manager_start (MsdA11yKeyboardManager *manager,
                                  GError                **error)
 {
         cafe_settings_profile_start (NULL);
@@ -1079,7 +1079,7 @@ restore_server_xkb_config (MsdA11yKeyboardManager *manager)
 }
 
 void
-msd_a11y_keyboard_manager_stop (MsdA11yKeyboardManager *manager)
+csd_a11y_keyboard_manager_stop (MsdA11yKeyboardManager *manager)
 {
         MsdA11yKeyboardManagerPrivate *p = manager->priv;
 
@@ -1114,11 +1114,11 @@ msd_a11y_keyboard_manager_stop (MsdA11yKeyboardManager *manager)
 }
 
 static void
-msd_a11y_keyboard_manager_class_init (MsdA11yKeyboardManagerClass *klass)
+csd_a11y_keyboard_manager_class_init (MsdA11yKeyboardManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_a11y_keyboard_manager_finalize;
+        object_class->finalize = csd_a11y_keyboard_manager_finalize;
 }
 
 static void
@@ -1139,7 +1139,7 @@ on_status_icon_activate (CtkStatusIcon          *status_icon,
                          MsdA11yKeyboardManager *manager)
 {
         if (manager->priv->preferences_dialog == NULL) {
-                manager->priv->preferences_dialog = msd_a11y_preferences_dialog_new ();
+                manager->priv->preferences_dialog = csd_a11y_preferences_dialog_new ();
                 g_signal_connect (manager->priv->preferences_dialog,
                                   "response",
                                   G_CALLBACK (on_preferences_dialog_response),
@@ -1156,7 +1156,7 @@ on_status_icon_activate (CtkStatusIcon          *status_icon,
 }
 
 static void
-msd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager)
+csd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager)
 {
         cafe_settings_profile_start (NULL);
 
@@ -1173,13 +1173,13 @@ msd_a11y_keyboard_manager_ensure_status_icon (MsdA11yKeyboardManager *manager)
 }
 
 static void
-msd_a11y_keyboard_manager_init (MsdA11yKeyboardManager *manager)
+csd_a11y_keyboard_manager_init (MsdA11yKeyboardManager *manager)
 {
-        manager->priv = msd_a11y_keyboard_manager_get_instance_private (manager);
+        manager->priv = csd_a11y_keyboard_manager_get_instance_private (manager);
 }
 
 static void
-msd_a11y_keyboard_manager_finalize (GObject *object)
+csd_a11y_keyboard_manager_finalize (GObject *object)
 {
         MsdA11yKeyboardManager *a11y_keyboard_manager;
 
@@ -1190,11 +1190,11 @@ msd_a11y_keyboard_manager_finalize (GObject *object)
 
         g_return_if_fail (a11y_keyboard_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_a11y_keyboard_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_a11y_keyboard_manager_parent_class)->finalize (object);
 }
 
 MsdA11yKeyboardManager *
-msd_a11y_keyboard_manager_new (void)
+csd_a11y_keyboard_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

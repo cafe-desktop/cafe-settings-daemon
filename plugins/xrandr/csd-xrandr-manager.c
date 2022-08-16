@@ -51,7 +51,7 @@
 #endif
 
 #include "cafe-settings-profile.h"
-#include "msd-xrandr-manager.h"
+#include "csd-xrandr-manager.h"
 
 #define CONF_SCHEMA                                    "org.cafe.SettingsDaemon.plugins.xrandr"
 #define CONF_KEY_SHOW_NOTIFICATION_ICON                "show-notification-icon"
@@ -68,8 +68,8 @@
  */
 #define CONFIRMATION_DIALOG_SECONDS 30
 
-/* name of the icon files (msd-xrandr.svg, etc.) */
-#define MSD_XRANDR_ICON_NAME "msd-xrandr"
+/* name of the icon files (csd-xrandr.svg, etc.) */
+#define MSD_XRANDR_ICON_NAME "csd-xrandr"
 
 /* executable of the control center's display configuration capplet */
 #define MSD_XRANDR_DISPLAY_CAPPLET "cafe-display-properties"
@@ -114,7 +114,7 @@ static const CafeRRRotation possible_rotations[] = {
         /* We don't allow REFLECT_X or REFLECT_Y for now, as cafe-display-properties doesn't allow them, either */
 };
 
-static void msd_xrandr_manager_finalize (GObject *object);
+static void csd_xrandr_manager_finalize (GObject *object);
 
 static void error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to_display, const char *secondary_text);
 
@@ -126,7 +126,7 @@ static void get_allowed_rotations_for_output (CafeRRConfig *config,
                                               int *out_num_rotations,
                                               CafeRRRotation *out_rotations);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdXrandrManager, msd_xrandr_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdXrandrManager, csd_xrandr_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -142,8 +142,8 @@ log_open (void)
         if (log_file)
                 return;
 
-        toggle_filename = g_build_filename (g_get_home_dir (), "msd-debug-randr", NULL);
-        log_filename = g_build_filename (g_get_home_dir (), "msd-debug-randr.log", NULL);
+        toggle_filename = g_build_filename (g_get_home_dir (), "csd-debug-randr", NULL);
+        log_filename = g_build_filename (g_get_home_dir (), "csd-debug-randr.log", NULL);
 
         if (stat (toggle_filename, &st) != 0)
                 goto out;
@@ -151,7 +151,7 @@ log_open (void)
         log_file = fopen (log_filename, "a");
 
         if (log_file && ftell (log_file) == 0)
-                fprintf (log_file, "To keep this log from being created, please rm ~/msd-debug-randr\n");
+                fprintf (log_file, "To keep this log from being created, please rm ~/csd-debug-randr\n");
 
 out:
         g_free (toggle_filename);
@@ -594,17 +594,17 @@ out:
         return result;
 }
 
-/* DBus method for org.cafe.SettingsDaemon.XRANDR ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
+/* DBus method for org.cafe.SettingsDaemon.XRANDR ApplyConfiguration; see csd-xrandr-manager.xml for the interface definition */
 static gboolean
-msd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
+csd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
                                         GError          **error)
 {
         return try_to_apply_intended_configuration (manager, NULL, CDK_CURRENT_TIME, error);
 }
 
-/* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see msd-xrandr-manager.xml for the interface definition */
+/* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see csd-xrandr-manager.xml for the interface definition */
 static gboolean
-msd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
+csd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
                                           gint64            parent_window_id,
                                           gint64            timestamp,
                                           GError          **error)
@@ -625,8 +625,8 @@ msd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
         return result;
 }
 
-/* We include this after the definition of msd_xrandr_manager_apply_configuration() so the prototype will already exist */
-#include "msd-xrandr-manager-glue.h"
+/* We include this after the definition of csd_xrandr_manager_apply_configuration() so the prototype will already exist */
+#include "csd-xrandr-manager-glue.h"
 
 static gboolean
 is_laptop (CafeRRScreen *screen, CafeRROutputInfo *output)
@@ -2522,7 +2522,7 @@ apply_default_configuration_from_file (MsdXrandrManager *manager, guint32 timest
 }
 
 gboolean
-msd_xrandr_manager_start (MsdXrandrManager *manager,
+csd_xrandr_manager_start (MsdXrandrManager *manager,
                           GError          **error)
 {
         CdkDisplay      *display;
@@ -2605,7 +2605,7 @@ msd_xrandr_manager_start (MsdXrandrManager *manager,
 }
 
 void
-msd_xrandr_manager_stop (MsdXrandrManager *manager)
+csd_xrandr_manager_stop (MsdXrandrManager *manager)
 {
         CdkDisplay      *display;
 
@@ -2662,13 +2662,13 @@ msd_xrandr_manager_stop (MsdXrandrManager *manager)
 }
 
 static void
-msd_xrandr_manager_class_init (MsdXrandrManagerClass *klass)
+csd_xrandr_manager_class_init (MsdXrandrManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_xrandr_manager_finalize;
+        object_class->finalize = csd_xrandr_manager_finalize;
 
-        dbus_g_object_type_install_info (MSD_TYPE_XRANDR_MANAGER, &dbus_glib_msd_xrandr_manager_object_info);
+        dbus_g_object_type_install_info (MSD_TYPE_XRANDR_MANAGER, &dbus_glib_csd_xrandr_manager_object_info);
 }
 
 static guint
@@ -2684,9 +2684,9 @@ get_keycode_for_keysym_name (const char *name)
 }
 
 static void
-msd_xrandr_manager_init (MsdXrandrManager *manager)
+csd_xrandr_manager_init (MsdXrandrManager *manager)
 {
-        manager->priv = msd_xrandr_manager_get_instance_private (manager);
+        manager->priv = csd_xrandr_manager_get_instance_private (manager);
 
         manager->priv->switch_video_mode_keycode = get_keycode_for_keysym_name (VIDEO_KEYSYM);
         manager->priv->rotate_windows_keycode = get_keycode_for_keysym_name (ROTATE_KEYSYM);
@@ -2696,7 +2696,7 @@ msd_xrandr_manager_init (MsdXrandrManager *manager)
 }
 
 static void
-msd_xrandr_manager_finalize (GObject *object)
+csd_xrandr_manager_finalize (GObject *object)
 {
         MsdXrandrManager *xrandr_manager;
 
@@ -2707,7 +2707,7 @@ msd_xrandr_manager_finalize (GObject *object)
 
         g_return_if_fail (xrandr_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_xrandr_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_xrandr_manager_parent_class)->finalize (object);
 }
 
 static gboolean
@@ -2724,14 +2724,14 @@ register_manager_dbus (MsdXrandrManager *manager)
                 return FALSE;
         }
 
-        /* Hmm, should we do this in msd_xrandr_manager_start()? */
+        /* Hmm, should we do this in csd_xrandr_manager_start()? */
         dbus_g_connection_register_g_object (manager->priv->dbus_connection, MSD_XRANDR_DBUS_PATH, G_OBJECT (manager));
 
         return TRUE;
 }
 
 MsdXrandrManager *
-msd_xrandr_manager_new (void)
+csd_xrandr_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

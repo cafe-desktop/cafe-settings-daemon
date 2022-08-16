@@ -28,12 +28,12 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "msd-background-manager.h"
+#include "csd-background-manager.h"
 
 static gboolean
 idle (MsdBackgroundManager* manager)
 {
-	msd_background_manager_start(manager, NULL);
+	csd_background_manager_start(manager, NULL);
 	return FALSE;
 }
 
@@ -50,7 +50,7 @@ main (int argc, char* argv[])
 
 	ctk_init(&argc, &argv);
 
-	manager = msd_background_manager_new();
+	manager = csd_background_manager_new();
 	g_idle_add((GSourceFunc) idle, manager);
 
 	ctk_main();

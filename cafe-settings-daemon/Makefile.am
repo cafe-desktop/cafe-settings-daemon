@@ -12,33 +12,33 @@ AM_CPPFLAGS = \
 	$(NULL)
 
 noinst_LTLIBRARIES = 			\
-	libmsd-profile.la		\
+	libcsd-profile.la		\
 	$(NULL)
 
-libmsd_profile_la_SOURCES =		\
+libcsd_profile_la_SOURCES =		\
 	cafe-settings-profile.c	\
 	cafe-settings-profile.h	\
 	$(NULL)
 
-libmsd_profile_la_CPPFLAGS = 		\
+libcsd_profile_la_CPPFLAGS = 		\
 	$(AM_CPPFLAGS)
 	$(DISABLE_DEPRECATED_CFLAGS)	\
 	$(NULL)
 
-libmsd_profile_la_CFLAGS =		\
+libcsd_profile_la_CFLAGS =		\
 	$(SIMPLE_GREETER_CFLAGS)	\
 	$(NULL)
 
-libmsd_profile_la_LIBADD =		\
+libcsd_profile_la_LIBADD =		\
 	$(NULL)
 
-libmsd_profile_la_LDFLAGS = 	\
+libcsd_profile_la_LDFLAGS = 	\
 	-export-dynamic 	\
 	$(NULL)
 
-msddir = $(libexecdir)
+csddir = $(libexecdir)
 
-msd_PROGRAMS = \
+csd_PROGRAMS = \
 	cafe-settings-daemon
 
 cafe-settings-manager-glue.h: cafe-settings-manager.xml Makefile.am
@@ -82,7 +82,7 @@ cafe_settings_daemon_LDFLAGS = 	\
 	$(AM_LDFLAGS)
 
 cafe_settings_daemon_LDADD = 		\
-	libmsd-profile.la		\
+	libcsd-profile.la		\
 	$(SETTINGS_DAEMON_LIBS)	\
 	$(CAFE_DESKTOP_LIBS)    \
 	$(LIBNOTIFY_LIBS)

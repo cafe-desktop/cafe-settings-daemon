@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-a11y-keyboard-plugin.h"
-#include "msd-a11y-keyboard-manager.h"
+#include "csd-a11y-keyboard-plugin.h"
+#include "csd-a11y-keyboard-manager.h"
 
 struct MsdA11yKeyboardPluginPrivate {
         MsdA11yKeyboardManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11yKeyboardPlugin, msd_a11y_keyboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11yKeyboardPlugin, csd_a11y_keyboard_plugin)
 
 static void
-msd_a11y_keyboard_plugin_init (MsdA11yKeyboardPlugin *plugin)
+csd_a11y_keyboard_plugin_init (MsdA11yKeyboardPlugin *plugin)
 {
-        plugin->priv = msd_a11y_keyboard_plugin_get_instance_private (plugin);
+        plugin->priv = csd_a11y_keyboard_plugin_get_instance_private (plugin);
 
         g_debug ("MsdA11yKeyboardPlugin initializing");
 
-        plugin->priv->manager = msd_a11y_keyboard_manager_new ();
+        plugin->priv->manager = csd_a11y_keyboard_manager_new ();
 }
 
 static void
-msd_a11y_keyboard_plugin_finalize (GObject *object)
+csd_a11y_keyboard_plugin_finalize (GObject *object)
 {
         MsdA11yKeyboardPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_a11y_keyboard_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_a11y_keyboard_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_a11y_keyboard_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating a11y_keyboard plugin");
 
         error = NULL;
-        res = msd_a11y_keyboard_manager_start (MSD_A11Y_KEYBOARD_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_a11y_keyboard_manager_start (MSD_A11Y_KEYBOARD_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start a11y_keyboard manager: %s", error->message);
                 g_error_free (error);
@@ -84,22 +84,22 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating a11y_keyboard plugin");
-        msd_a11y_keyboard_manager_stop (MSD_A11Y_KEYBOARD_PLUGIN (plugin)->priv->manager);
+        csd_a11y_keyboard_manager_stop (MSD_A11Y_KEYBOARD_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_a11y_keyboard_plugin_class_init (MsdA11yKeyboardPluginClass *klass)
+csd_a11y_keyboard_plugin_class_init (MsdA11yKeyboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_a11y_keyboard_plugin_finalize;
+        object_class->finalize = csd_a11y_keyboard_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_a11y_keyboard_plugin_class_finalize (MsdA11yKeyboardPluginClass *klass)
+csd_a11y_keyboard_plugin_class_finalize (MsdA11yKeyboardPluginClass *klass)
 {
 }

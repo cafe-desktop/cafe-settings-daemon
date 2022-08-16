@@ -43,7 +43,7 @@
 #include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-mpris-manager.h"
+#include "csd-mpris-manager.h"
 #include "bus-watch-namespace.h"
 
 #define MPRIS_OBJECT_PATH  "/org/mpris/MediaPlayer2"
@@ -62,9 +62,9 @@ enum {
         PROP_0,
 };
 
-static void     msd_mpris_manager_finalize    (GObject *object);
+static void     csd_mpris_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdMprisManager, msd_mpris_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdMprisManager, csd_mpris_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -264,7 +264,7 @@ got_proxy_cb (GObject           *source_object,
 }
 
 static void
-msd_name_appeared (GDBusConnection     *connection,
+csd_name_appeared (GDBusConnection     *connection,
                    const gchar         *name,
                    const gchar         *name_owner,
                    MsdMprisManager     *manager)
@@ -282,7 +282,7 @@ msd_name_appeared (GDBusConnection     *connection,
 }
 
 static void
-msd_name_vanished (GDBusConnection   *connection,
+csd_name_vanished (GDBusConnection   *connection,
                    const gchar       *name,
                    MsdMprisManager   *manager)
 {
@@ -294,7 +294,7 @@ msd_name_vanished (GDBusConnection   *connection,
 
 
 gboolean
-msd_mpris_manager_start (MsdMprisManager   *manager,
+csd_mpris_manager_start (MsdMprisManager   *manager,
                          GError           **error)
 {
     g_debug ("Starting mpris manager");
@@ -313,8 +313,8 @@ msd_mpris_manager_start (MsdMprisManager   *manager,
     manager->priv->watch_id = g_bus_watch_name (G_BUS_TYPE_SESSION,
                                                 "org.cafe.SettingsDaemon",
                                                 G_BUS_NAME_WATCHER_FLAGS_NONE,
-                                                (GBusNameAppearedCallback) msd_name_appeared,
-                                                (GBusNameVanishedCallback) msd_name_vanished,
+                                                (GBusNameAppearedCallback) csd_name_appeared,
+                                                (GBusNameVanishedCallback) csd_name_vanished,
                                                 manager, NULL);
 
     cafe_settings_profile_end (NULL);
@@ -322,7 +322,7 @@ msd_mpris_manager_start (MsdMprisManager   *manager,
 }
 
 void
-msd_mpris_manager_stop (MsdMprisManager *manager)
+csd_mpris_manager_stop (MsdMprisManager *manager)
 {
     g_debug ("Stopping mpris manager");
 
@@ -344,22 +344,22 @@ msd_mpris_manager_stop (MsdMprisManager *manager)
 }
 
 static void
-msd_mpris_manager_class_init (MsdMprisManagerClass *klass)
+csd_mpris_manager_class_init (MsdMprisManagerClass *klass)
 {
     GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-    object_class->finalize = msd_mpris_manager_finalize;
+    object_class->finalize = csd_mpris_manager_finalize;
 }
 
 static void
-msd_mpris_manager_init (MsdMprisManager *manager)
+csd_mpris_manager_init (MsdMprisManager *manager)
 {
-        manager->priv = msd_mpris_manager_get_instance_private (manager);
+        manager->priv = csd_mpris_manager_get_instance_private (manager);
 
 }
 
 static void
-msd_mpris_manager_finalize (GObject *object)
+csd_mpris_manager_finalize (GObject *object)
 {
     MsdMprisManager *mpris_manager;
 
@@ -370,11 +370,11 @@ msd_mpris_manager_finalize (GObject *object)
 
     g_return_if_fail (mpris_manager->priv != NULL);
 
-    G_OBJECT_CLASS (msd_mpris_manager_parent_class)->finalize (object);
+    G_OBJECT_CLASS (csd_mpris_manager_parent_class)->finalize (object);
 }
 
 MsdMprisManager *
-msd_mpris_manager_new (void)
+csd_mpris_manager_new (void)
 {
     if (manager_object != NULL) {
         g_object_ref (manager_object);

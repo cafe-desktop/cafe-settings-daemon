@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-clipboard-plugin.h"
-#include "msd-clipboard-manager.h"
+#include "csd-clipboard-plugin.h"
+#include "csd-clipboard-manager.h"
 
 struct MsdClipboardPluginPrivate {
         MsdClipboardManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdClipboardPlugin, msd_clipboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdClipboardPlugin, csd_clipboard_plugin)
 
 static void
-msd_clipboard_plugin_init (MsdClipboardPlugin *plugin)
+csd_clipboard_plugin_init (MsdClipboardPlugin *plugin)
 {
-        plugin->priv = msd_clipboard_plugin_get_instance_private (plugin);
+        plugin->priv = csd_clipboard_plugin_get_instance_private (plugin);
 
         g_debug ("MsdClipboardPlugin initializing");
 
-        plugin->priv->manager = msd_clipboard_manager_new ();
+        plugin->priv->manager = csd_clipboard_manager_new ();
 }
 
 static void
-msd_clipboard_plugin_finalize (GObject *object)
+csd_clipboard_plugin_finalize (GObject *object)
 {
         MsdClipboardPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_clipboard_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_clipboard_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_clipboard_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating clipboard plugin");
 
         error = NULL;
-        res = msd_clipboard_manager_start (MSD_CLIPBOARD_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_clipboard_manager_start (MSD_CLIPBOARD_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start clipboard manager: %s", error->message);
                 g_error_free (error);
@@ -84,23 +84,23 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating clipboard plugin");
-        msd_clipboard_manager_stop (MSD_CLIPBOARD_PLUGIN (plugin)->priv->manager);
+        csd_clipboard_manager_stop (MSD_CLIPBOARD_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_clipboard_plugin_class_init (MsdClipboardPluginClass *klass)
+csd_clipboard_plugin_class_init (MsdClipboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_clipboard_plugin_finalize;
+        object_class->finalize = csd_clipboard_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_clipboard_plugin_class_finalize (MsdClipboardPluginClass *klass)
+csd_clipboard_plugin_class_finalize (MsdClipboardPluginClass *klass)
 {
 }
 

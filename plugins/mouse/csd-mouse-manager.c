@@ -45,8 +45,8 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-mouse-manager.h"
-#include "msd-input-helper.h"
+#include "csd-mouse-manager.h"
+#include "csd-input-helper.h"
 
 /* Keys with same names for both touchpad and mouse */
 #define KEY_LEFT_HANDED                  "left-handed"          /*  a boolean for mouse, an enum for touchpad */
@@ -108,7 +108,7 @@ typedef enum {
         ACCEL_PROFILE_FLAT
 } AccelProfile;
 
-static void     msd_mouse_manager_finalize    (GObject              *object);
+static void     csd_mouse_manager_finalize    (GObject              *object);
 static void     set_mouse_settings            (MsdMouseManager      *manager);
 static void     set_tap_to_click_synaptics    (XDeviceInfo          *device_info,
                                                gboolean              state,
@@ -118,16 +118,16 @@ static void     set_tap_to_click_synaptics    (XDeviceInfo          *device_info
                                                gint                  three_finger_tap);
 
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdMouseManager, msd_mouse_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdMouseManager, csd_mouse_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 static void
-msd_mouse_manager_class_init (MsdMouseManagerClass *klass)
+csd_mouse_manager_class_init (MsdMouseManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_mouse_manager_finalize;
+        object_class->finalize = csd_mouse_manager_finalize;
 }
 
 static void
@@ -1585,7 +1585,7 @@ set_locate_pointer (MsdMouseManager *manager,
                 if (manager->priv->locate_pointer_spawned)
                         return;
 
-                args[0] = LIBEXECDIR "/msd-locate-pointer";
+                args[0] = LIBEXECDIR "/csd-locate-pointer";
                 args[1] = NULL;
 
                 g_spawn_async (NULL, args, NULL,
@@ -1753,13 +1753,13 @@ touchpad_callback (GSettings          *settings,
 }
 
 static void
-msd_mouse_manager_init (MsdMouseManager *manager)
+csd_mouse_manager_init (MsdMouseManager *manager)
 {
-        manager->priv = msd_mouse_manager_get_instance_private (manager);
+        manager->priv = csd_mouse_manager_get_instance_private (manager);
 }
 
 static gboolean
-msd_mouse_manager_idle_cb (MsdMouseManager *manager)
+csd_mouse_manager_idle_cb (MsdMouseManager *manager)
 {
         cafe_settings_profile_start (NULL);
 
@@ -1792,7 +1792,7 @@ msd_mouse_manager_idle_cb (MsdMouseManager *manager)
 }
 
 gboolean
-msd_mouse_manager_start (MsdMouseManager *manager,
+csd_mouse_manager_start (MsdMouseManager *manager,
                          GError         **error)
 {
         cafe_settings_profile_start (NULL);
@@ -1802,7 +1802,7 @@ msd_mouse_manager_start (MsdMouseManager *manager,
                 return TRUE;
         }
 
-        g_idle_add ((GSourceFunc) msd_mouse_manager_idle_cb, manager);
+        g_idle_add ((GSourceFunc) csd_mouse_manager_idle_cb, manager);
 
         cafe_settings_profile_end (NULL);
 
@@ -1810,7 +1810,7 @@ msd_mouse_manager_start (MsdMouseManager *manager,
 }
 
 void
-msd_mouse_manager_stop (MsdMouseManager *manager)
+csd_mouse_manager_stop (MsdMouseManager *manager)
 {
         MsdMouseManagerPrivate *p = manager->priv;
 
@@ -1832,7 +1832,7 @@ msd_mouse_manager_stop (MsdMouseManager *manager)
 }
 
 static void
-msd_mouse_manager_finalize (GObject *object)
+csd_mouse_manager_finalize (GObject *object)
 {
         MsdMouseManager *mouse_manager;
 
@@ -1843,11 +1843,11 @@ msd_mouse_manager_finalize (GObject *object)
 
         g_return_if_fail (mouse_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_mouse_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_mouse_manager_parent_class)->finalize (object);
 }
 
 MsdMouseManager *
-msd_mouse_manager_new (void)
+csd_mouse_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

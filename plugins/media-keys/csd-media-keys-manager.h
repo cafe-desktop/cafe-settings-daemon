@@ -27,7 +27,7 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_MEDIA_KEYS_MANAGER         (msd_media_keys_manager_get_type ())
+#define MSD_TYPE_MEDIA_KEYS_MANAGER         (csd_media_keys_manager_get_type ())
 #define MSD_MEDIA_KEYS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, MsdMediaKeysManager))
 #define MSD_MEDIA_KEYS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_MANAGER, MsdMediaKeysManagerClass))
 #define MSD_IS_MEDIA_KEYS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MEDIA_KEYS_MANAGER))
@@ -52,18 +52,18 @@ struct _MsdMediaKeysManagerClass
                                                     const char          *key);
 };
 
-GType                 msd_media_keys_manager_get_type                  (void);
+GType                 csd_media_keys_manager_get_type                  (void);
 
-MsdMediaKeysManager * msd_media_keys_manager_new                       (void);
-gboolean              msd_media_keys_manager_start                     (MsdMediaKeysManager *manager,
+MsdMediaKeysManager * csd_media_keys_manager_new                       (void);
+gboolean              csd_media_keys_manager_start                     (MsdMediaKeysManager *manager,
                                                                         GError             **error);
-void                  msd_media_keys_manager_stop                      (MsdMediaKeysManager *manager);
+void                  csd_media_keys_manager_stop                      (MsdMediaKeysManager *manager);
 
-gboolean              msd_media_keys_manager_grab_media_player_keys    (MsdMediaKeysManager *manager,
+gboolean              csd_media_keys_manager_grab_media_player_keys    (MsdMediaKeysManager *manager,
                                                                         const char          *application,
                                                                         guint32              time,
                                                                         GError             **error);
-gboolean              msd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
+gboolean              csd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
                                                                         const char          *application,
                                                                         GError             **error);
 

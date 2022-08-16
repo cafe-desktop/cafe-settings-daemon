@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_SMARTCARD_PLUGIN                (msd_smartcard_plugin_get_type ())
+#define MSD_TYPE_SMARTCARD_PLUGIN                (csd_smartcard_plugin_get_type ())
 #define MSD_SMARTCARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SMARTCARD_PLUGIN, MsdSmartcardPlugin))
 #define MSD_SMARTCARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SMARTCARD_PLUGIN, MsdSmartcardPluginClass))
 #define MSD_IS_SMARTCARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SMARTCARD_PLUGIN))
@@ -51,7 +51,7 @@ typedef struct
         CafeSettingsPluginClass parent_class;
 } MsdSmartcardPluginClass;
 
-GType msd_smartcard_plugin_get_type (void) G_GNUC_CONST;
+GType csd_smartcard_plugin_get_type (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

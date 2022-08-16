@@ -31,8 +31,8 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-smartcard-plugin.h"
-#include "msd-smartcard-manager.h"
+#include "csd-smartcard-plugin.h"
+#include "csd-smartcard-manager.h"
 
 struct MsdSmartcardPluginPrivate {
         MsdSmartcardManager *manager;
@@ -60,7 +60,7 @@ typedef enum
 #define MSD_SMARTCARD_SCHEMA "org.cafe.peripherals-smartcard"
 #define KEY_REMOVE_ACTION "removal-action"
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSmartcardPlugin, msd_smartcard_plugin);
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSmartcardPlugin, csd_smartcard_plugin);
 
 static void
 simulate_user_activity (MsdSmartcardPlugin *plugin)
@@ -127,17 +127,17 @@ force_logout (MsdSmartcardPlugin *plugin)
 }
 
 static void
-msd_smartcard_plugin_init (MsdSmartcardPlugin *plugin)
+csd_smartcard_plugin_init (MsdSmartcardPlugin *plugin)
 {
-        plugin->priv = msd_smartcard_plugin_get_instance_private (plugin);
+        plugin->priv = csd_smartcard_plugin_get_instance_private (plugin);
 
         g_debug ("MsdSmartcardPlugin initializing");
 
-        plugin->priv->manager = msd_smartcard_manager_new (NULL);
+        plugin->priv->manager = csd_smartcard_manager_new (NULL);
 }
 
 static void
-msd_smartcard_plugin_finalize (GObject *object)
+csd_smartcard_plugin_finalize (GObject *object)
 {
         MsdSmartcardPlugin *plugin;
 
@@ -154,7 +154,7 @@ msd_smartcard_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_smartcard_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_smartcard_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -164,7 +164,7 @@ smartcard_inserted_cb (MsdSmartcardManager *card_monitor,
 {
         char *name;
 
-        name = msd_smartcard_get_name (card);
+        name = csd_smartcard_get_name (card);
         g_debug ("MsdSmartcardPlugin smart card '%s' inserted", name);
         g_free (name);
 
@@ -236,11 +236,11 @@ smartcard_removed_cb (MsdSmartcardManager *card_monitor,
 
         char *name;
 
-        name = msd_smartcard_get_name (card);
+        name = csd_smartcard_get_name (card);
         g_debug ("MsdSmartcardPlugin smart card '%s' removed", name);
         g_free (name);
 
-        if (!msd_smartcard_is_login_card (card)) {
+        if (!csd_smartcard_is_login_card (card)) {
                 g_debug ("MsdSmartcardPlugin removed smart card was not used to login");
                 return;
         }
@@ -277,7 +277,7 @@ impl_activate (CafeSettingsPlugin *plugin)
                 return;
         }
 
-        if (!msd_smartcard_manager_start (smartcard_plugin->priv->manager, &error)) {
+        if (!csd_smartcard_manager_start (smartcard_plugin->priv->manager, &error)) {
                 g_warning ("MsdSmartcardPlugin Unable to start smartcard manager: %s", error->message);
                 g_error_free (error);
         }
@@ -290,7 +290,7 @@ impl_activate (CafeSettingsPlugin *plugin)
                           "smartcard-inserted",
                           G_CALLBACK (smartcard_inserted_cb), smartcard_plugin);
 
-        if (!msd_smartcard_manager_login_card_is_inserted (smartcard_plugin->priv->manager)) {
+        if (!csd_smartcard_manager_login_card_is_inserted (smartcard_plugin->priv->manager)) {
                 g_debug ("MsdSmartcardPlugin processing smartcard removal immediately user logged in with smartcard "
                          "and it's not inserted");
                 process_smartcard_removal (smartcard_plugin);
@@ -312,7 +312,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 
         g_debug ("MsdSmartcardPlugin Deactivating smartcard plugin");
 
-        msd_smartcard_manager_stop (smartcard_plugin->priv->manager);
+        csd_smartcard_manager_stop (smartcard_plugin->priv->manager);
 
         g_signal_handlers_disconnect_by_func (smartcard_plugin->priv->manager,
                                               smartcard_removed_cb, smartcard_plugin);
@@ -324,19 +324,19 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-msd_smartcard_plugin_class_init (MsdSmartcardPluginClass *klass)
+csd_smartcard_plugin_class_init (MsdSmartcardPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_smartcard_plugin_finalize;
+        object_class->finalize = csd_smartcard_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_smartcard_plugin_class_finalize (MsdSmartcardPluginClass *klass)
+csd_smartcard_plugin_class_finalize (MsdSmartcardPluginClass *klass)
 {
 }
 

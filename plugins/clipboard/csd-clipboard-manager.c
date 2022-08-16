@@ -44,7 +44,7 @@
 #include "list.h"
 
 #include "cafe-settings-profile.h"
-#include "msd-clipboard-manager.h"
+#include "csd-clipboard-manager.h"
 
 struct MsdClipboardManagerPrivate
 {
@@ -79,7 +79,7 @@ typedef struct
         int         offset;
 } IncrConversion;
 
-static void     msd_clipboard_manager_finalize    (GObject *object);
+static void     csd_clipboard_manager_finalize    (GObject *object);
 
 static void     clipboard_manager_watch_cb        (MsdClipboardManager *manager,
                                                    Window               window,
@@ -87,7 +87,7 @@ static void     clipboard_manager_watch_cb        (MsdClipboardManager *manager,
                                                    long                 mask,
                                                    void                *cb_data);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdClipboardManager, msd_clipboard_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdClipboardManager, csd_clipboard_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -929,7 +929,7 @@ start_clipboard_idle_cb (MsdClipboardManager *manager)
 }
 
 gboolean
-msd_clipboard_manager_start (MsdClipboardManager *manager,
+csd_clipboard_manager_start (MsdClipboardManager *manager,
                              GError             **error)
 {
         cafe_settings_profile_start (NULL);
@@ -942,7 +942,7 @@ msd_clipboard_manager_start (MsdClipboardManager *manager,
 }
 
 void
-msd_clipboard_manager_stop (MsdClipboardManager *manager)
+csd_clipboard_manager_stop (MsdClipboardManager *manager)
 {
         g_debug ("Stopping clipboard manager");
 
@@ -961,24 +961,24 @@ msd_clipboard_manager_stop (MsdClipboardManager *manager)
 }
 
 static void
-msd_clipboard_manager_class_init (MsdClipboardManagerClass *klass)
+csd_clipboard_manager_class_init (MsdClipboardManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_clipboard_manager_finalize;
+        object_class->finalize = csd_clipboard_manager_finalize;
 }
 
 static void
-msd_clipboard_manager_init (MsdClipboardManager *manager)
+csd_clipboard_manager_init (MsdClipboardManager *manager)
 {
-        manager->priv = msd_clipboard_manager_get_instance_private (manager);
+        manager->priv = csd_clipboard_manager_get_instance_private (manager);
 
         manager->priv->display = CDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
 
 }
 
 static void
-msd_clipboard_manager_finalize (GObject *object)
+csd_clipboard_manager_finalize (GObject *object)
 {
         MsdClipboardManager *clipboard_manager;
 
@@ -989,11 +989,11 @@ msd_clipboard_manager_finalize (GObject *object)
 
         g_return_if_fail (clipboard_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_clipboard_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_clipboard_manager_parent_class)->finalize (object);
 }
 
 MsdClipboardManager *
-msd_clipboard_manager_new (void)
+csd_clipboard_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

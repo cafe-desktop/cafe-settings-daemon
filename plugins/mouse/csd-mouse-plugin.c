@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-mouse-plugin.h"
-#include "msd-mouse-manager.h"
+#include "csd-mouse-plugin.h"
+#include "csd-mouse-manager.h"
 
 struct MsdMousePluginPrivate {
         MsdMouseManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMousePlugin, msd_mouse_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMousePlugin, csd_mouse_plugin)
 
 static void
-msd_mouse_plugin_init (MsdMousePlugin *plugin)
+csd_mouse_plugin_init (MsdMousePlugin *plugin)
 {
-        plugin->priv = msd_mouse_plugin_get_instance_private (plugin);
+        plugin->priv = csd_mouse_plugin_get_instance_private (plugin);
 
         g_debug ("MsdMousePlugin initializing");
 
-        plugin->priv->manager = msd_mouse_manager_new ();
+        plugin->priv->manager = csd_mouse_manager_new ();
 }
 
 static void
-msd_mouse_plugin_finalize (GObject *object)
+csd_mouse_plugin_finalize (GObject *object)
 {
         MsdMousePlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_mouse_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_mouse_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_mouse_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating mouse plugin");
 
         error = NULL;
-        res = msd_mouse_manager_start (MSD_MOUSE_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_mouse_manager_start (MSD_MOUSE_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start mouse manager: %s", error->message);
                 g_error_free (error);
@@ -84,23 +84,23 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating mouse plugin");
-        msd_mouse_manager_stop (MSD_MOUSE_PLUGIN (plugin)->priv->manager);
+        csd_mouse_manager_stop (MSD_MOUSE_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_mouse_plugin_class_init (MsdMousePluginClass *klass)
+csd_mouse_plugin_class_init (MsdMousePluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_mouse_plugin_finalize;
+        object_class->finalize = csd_mouse_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_mouse_plugin_class_finalize (MsdMousePluginClass *klass)
+csd_mouse_plugin_class_finalize (MsdMousePluginClass *klass)
 {
 }
 

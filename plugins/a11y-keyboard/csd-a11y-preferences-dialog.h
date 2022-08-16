@@ -28,7 +28,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_A11Y_PREFERENCES_DIALOG         (msd_a11y_preferences_dialog_get_type ())
+#define MSD_TYPE_A11Y_PREFERENCES_DIALOG         (csd_a11y_preferences_dialog_get_type ())
 #define MSD_A11Y_PREFERENCES_DIALOG(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_PREFERENCES_DIALOG, MsdA11yPreferencesDialog))
 #define MSD_A11Y_PREFERENCES_DIALOG_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_PREFERENCES_DIALOG, MsdA11yPreferencesDialogClass))
 #define MSD_IS_A11Y_PREFERENCES_DIALOG(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_PREFERENCES_DIALOG))
@@ -48,9 +48,9 @@ typedef struct
         CtkDialogClass   parent_class;
 } MsdA11yPreferencesDialogClass;
 
-GType                  msd_a11y_preferences_dialog_get_type                   (void);
+GType                  csd_a11y_preferences_dialog_get_type                   (void);
 
-CtkWidget            * msd_a11y_preferences_dialog_new                        (void);
+CtkWidget            * csd_a11y_preferences_dialog_new                        (void);
 
 #ifdef __cplusplus
 }

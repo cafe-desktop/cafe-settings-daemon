@@ -42,9 +42,9 @@
 #endif
 
 #include "cafe-settings-profile.h"
-#include "msd-keyboard-manager.h"
+#include "csd-keyboard-manager.h"
 
-#include "msd-keyboard-xkb.h"
+#include "csd-keyboard-xkb.h"
 
 #define MSD_KEYBOARD_SCHEMA "org.cafe.peripherals-keyboard"
 
@@ -67,9 +67,9 @@ struct MsdKeyboardManagerPrivate {
 	GSettings  *settings;
 };
 
-static void     msd_keyboard_manager_finalize    (GObject *object);
+static void     csd_keyboard_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdKeyboardManager, msd_keyboard_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdKeyboardManager, csd_keyboard_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -271,7 +271,7 @@ apply_settings (GSettings          *settings,
 }
 
 void
-msd_keyboard_manager_apply_settings (MsdKeyboardManager *manager)
+csd_keyboard_manager_apply_settings (MsdKeyboardManager *manager)
 {
         apply_settings (manager->priv->settings, NULL, manager);
 }
@@ -287,14 +287,14 @@ start_keyboard_idle_cb (MsdKeyboardManager *manager)
         manager->priv->settings = g_settings_new (MSD_KEYBOARD_SCHEMA);
 
         /* Essential - xkb initialization should happen before */
-        msd_keyboard_xkb_init (manager);
+        csd_keyboard_xkb_init (manager);
 
 #ifdef HAVE_X11_EXTENSIONS_XKB_H
         numlock_xkb_init (manager);
 #endif /* HAVE_X11_EXTENSIONS_XKB_H */
 
         /* apply current settings before we install the callback */
-        msd_keyboard_manager_apply_settings (manager);
+        csd_keyboard_manager_apply_settings (manager);
 
         g_signal_connect (manager->priv->settings, "changed", G_CALLBACK (apply_settings), manager);
 
@@ -308,7 +308,7 @@ start_keyboard_idle_cb (MsdKeyboardManager *manager)
 }
 
 gboolean
-msd_keyboard_manager_start (MsdKeyboardManager *manager,
+csd_keyboard_manager_start (MsdKeyboardManager *manager,
                             GError            **error)
 {
         cafe_settings_profile_start (NULL);
@@ -321,7 +321,7 @@ msd_keyboard_manager_start (MsdKeyboardManager *manager,
 }
 
 void
-msd_keyboard_manager_stop (MsdKeyboardManager *manager)
+csd_keyboard_manager_stop (MsdKeyboardManager *manager)
 {
         MsdKeyboardManagerPrivate *p = manager->priv;
 
@@ -340,25 +340,25 @@ msd_keyboard_manager_stop (MsdKeyboardManager *manager)
         }
 #endif /* HAVE_X11_EXTENSIONS_XKB_H */
 
-        msd_keyboard_xkb_shutdown ();
+        csd_keyboard_xkb_shutdown ();
 }
 
 static void
-msd_keyboard_manager_class_init (MsdKeyboardManagerClass *klass)
+csd_keyboard_manager_class_init (MsdKeyboardManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_keyboard_manager_finalize;
+        object_class->finalize = csd_keyboard_manager_finalize;
 }
 
 static void
-msd_keyboard_manager_init (MsdKeyboardManager *manager)
+csd_keyboard_manager_init (MsdKeyboardManager *manager)
 {
-        manager->priv = msd_keyboard_manager_get_instance_private (manager);
+        manager->priv = csd_keyboard_manager_get_instance_private (manager);
 }
 
 static void
-msd_keyboard_manager_finalize (GObject *object)
+csd_keyboard_manager_finalize (GObject *object)
 {
         MsdKeyboardManager *keyboard_manager;
 
@@ -369,11 +369,11 @@ msd_keyboard_manager_finalize (GObject *object)
 
         g_return_if_fail (keyboard_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_keyboard_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_keyboard_manager_parent_class)->finalize (object);
 }
 
 MsdKeyboardManager *
-msd_keyboard_manager_new (void)
+csd_keyboard_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

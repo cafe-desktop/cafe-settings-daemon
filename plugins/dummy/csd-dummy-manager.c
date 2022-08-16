@@ -37,7 +37,7 @@
 #include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-dummy-manager.h"
+#include "csd-dummy-manager.h"
 
 struct MsdDummyManagerPrivate
 {
@@ -48,14 +48,14 @@ enum {
         PROP_0,
 };
 
-static void     msd_dummy_manager_finalize    (GObject *object);
+static void     csd_dummy_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdDummyManager, msd_dummy_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdDummyManager, csd_dummy_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 gboolean
-msd_dummy_manager_start (MsdDummyManager *manager,
+csd_dummy_manager_start (MsdDummyManager *manager,
                                GError               **error)
 {
         g_debug ("Starting dummy manager");
@@ -65,13 +65,13 @@ msd_dummy_manager_start (MsdDummyManager *manager,
 }
 
 void
-msd_dummy_manager_stop (MsdDummyManager *manager)
+csd_dummy_manager_stop (MsdDummyManager *manager)
 {
         g_debug ("Stopping dummy manager");
 }
 
 static void
-msd_dummy_manager_set_property (GObject        *object,
+csd_dummy_manager_set_property (GObject        *object,
                                guint           prop_id,
                                const GValue   *value,
                                GParamSpec     *pspec)
@@ -84,7 +84,7 @@ msd_dummy_manager_set_property (GObject        *object,
 }
 
 static void
-msd_dummy_manager_get_property (GObject        *object,
+csd_dummy_manager_get_property (GObject        *object,
                                guint           prop_id,
                                GValue         *value,
                                GParamSpec     *pspec)
@@ -97,13 +97,13 @@ msd_dummy_manager_get_property (GObject        *object,
 }
 
 static GObject *
-msd_dummy_manager_constructor (GType                  type,
+csd_dummy_manager_constructor (GType                  type,
                               guint                  n_construct_properties,
                               GObjectConstructParam *construct_properties)
 {
         MsdDummyManager      *dummy_manager;
 
-        dummy_manager = MSD_DUMMY_MANAGER (G_OBJECT_CLASS (msd_dummy_manager_parent_class)->constructor (type,
+        dummy_manager = MSD_DUMMY_MANAGER (G_OBJECT_CLASS (csd_dummy_manager_parent_class)->constructor (type,
                                                                                                       n_construct_properties,
                                                                                                       construct_properties));
 
@@ -111,32 +111,32 @@ msd_dummy_manager_constructor (GType                  type,
 }
 
 static void
-msd_dummy_manager_dispose (GObject *object)
+csd_dummy_manager_dispose (GObject *object)
 {
-        G_OBJECT_CLASS (msd_dummy_manager_parent_class)->dispose (object);
+        G_OBJECT_CLASS (csd_dummy_manager_parent_class)->dispose (object);
 }
 
 static void
-msd_dummy_manager_class_init (MsdDummyManagerClass *klass)
+csd_dummy_manager_class_init (MsdDummyManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->get_property = msd_dummy_manager_get_property;
-        object_class->set_property = msd_dummy_manager_set_property;
-        object_class->constructor = msd_dummy_manager_constructor;
-        object_class->dispose = msd_dummy_manager_dispose;
-        object_class->finalize = msd_dummy_manager_finalize;
+        object_class->get_property = csd_dummy_manager_get_property;
+        object_class->set_property = csd_dummy_manager_set_property;
+        object_class->constructor = csd_dummy_manager_constructor;
+        object_class->dispose = csd_dummy_manager_dispose;
+        object_class->finalize = csd_dummy_manager_finalize;
 }
 
 static void
-msd_dummy_manager_init (MsdDummyManager *manager)
+csd_dummy_manager_init (MsdDummyManager *manager)
 {
-        manager->priv = msd_dummy_manager_get_instance_private (manager);
+        manager->priv = csd_dummy_manager_get_instance_private (manager);
 
 }
 
 static void
-msd_dummy_manager_finalize (GObject *object)
+csd_dummy_manager_finalize (GObject *object)
 {
         MsdDummyManager *dummy_manager;
 
@@ -147,11 +147,11 @@ msd_dummy_manager_finalize (GObject *object)
 
         g_return_if_fail (dummy_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_dummy_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_dummy_manager_parent_class)->finalize (object);
 }
 
 MsdDummyManager *
-msd_dummy_manager_new (void)
+csd_dummy_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

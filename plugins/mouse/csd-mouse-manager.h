@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MOUSE_MANAGER         (msd_mouse_manager_get_type ())
+#define MSD_TYPE_MOUSE_MANAGER         (csd_mouse_manager_get_type ())
 #define MSD_MOUSE_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_MANAGER, MsdMouseManager))
 #define MSD_MOUSE_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_MANAGER, MsdMouseManagerClass))
 #define MSD_IS_MOUSE_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MOUSE_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdMouseManagerClass;
 
-GType                   msd_mouse_manager_get_type            (void);
+GType                   csd_mouse_manager_get_type            (void);
 
-MsdMouseManager *       msd_mouse_manager_new                 (void);
-gboolean                msd_mouse_manager_start               (MsdMouseManager *manager,
+MsdMouseManager *       csd_mouse_manager_new                 (void);
+gboolean                csd_mouse_manager_start               (MsdMouseManager *manager,
                                                                GError         **error);
-void                    msd_mouse_manager_stop                (MsdMouseManager *manager);
+void                    csd_mouse_manager_stop                (MsdMouseManager *manager);
 
 #ifdef __cplusplus
 }

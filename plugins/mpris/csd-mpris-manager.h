@@ -30,7 +30,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MPRIS_MANAGER         (msd_mpris_manager_get_type ())
+#define MSD_TYPE_MPRIS_MANAGER         (csd_mpris_manager_get_type ())
 #define MSD_MPRIS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_MANAGER, MsdMprisManager))
 #define MSD_MPRIS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_MANAGER, MsdMprisManagerClass))
 #define MSD_IS_MPRIS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MPRIS_MANAGER))
@@ -50,12 +50,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdMprisManagerClass;
 
-GType                   msd_mpris_manager_get_type            (void);
+GType                   csd_mpris_manager_get_type            (void);
 
-MsdMprisManager *       msd_mpris_manager_new                 (void);
-gboolean                msd_mpris_manager_start               (MsdMprisManager *manager,
+MsdMprisManager *       csd_mpris_manager_new                 (void);
+gboolean                csd_mpris_manager_start               (MsdMprisManager *manager,
                                                                GError         **error);
-void                    msd_mpris_manager_stop                (MsdMprisManager *manager);
+void                    csd_mpris_manager_stop                (MsdMprisManager *manager);
 
 #ifdef __cplusplus
 }

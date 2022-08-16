@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-xsettings-plugin.h"
-#include "msd-xsettings-manager.h"
+#include "csd-xsettings-plugin.h"
+#include "csd-xsettings-manager.h"
 
 struct CafeXSettingsPluginPrivate {
         CafeXSettingsManager *manager;

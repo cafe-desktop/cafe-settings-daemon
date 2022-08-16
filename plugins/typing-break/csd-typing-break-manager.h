@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_TYPING_BREAK_MANAGER         (msd_typing_break_manager_get_type ())
+#define MSD_TYPE_TYPING_BREAK_MANAGER         (csd_typing_break_manager_get_type ())
 #define MSD_TYPING_BREAK_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_TYPING_BREAK_MANAGER, MsdTypingBreakManager))
 #define MSD_TYPING_BREAK_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_TYPING_BREAK_MANAGER, MsdTypingBreakManagerClass))
 #define MSD_IS_TYPING_BREAK_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_TYPING_BREAK_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdTypingBreakManagerClass;
 
-GType                   msd_typing_break_manager_get_type            (void);
+GType                   csd_typing_break_manager_get_type            (void);
 
-MsdTypingBreakManager * msd_typing_break_manager_new                 (void);
-gboolean                msd_typing_break_manager_start               (MsdTypingBreakManager *manager,
+MsdTypingBreakManager * csd_typing_break_manager_new                 (void);
+gboolean                csd_typing_break_manager_start               (MsdTypingBreakManager *manager,
                                                                       GError               **error);
-void                    msd_typing_break_manager_stop                (MsdTypingBreakManager *manager);
+void                    csd_typing_break_manager_stop                (MsdTypingBreakManager *manager);
 
 #ifdef __cplusplus
 }

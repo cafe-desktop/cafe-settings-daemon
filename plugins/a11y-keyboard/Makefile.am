@@ -2,7 +2,7 @@ NULL =
 
 ctkbuilderdir = $(pkgdatadir)
 ctkbuilder_DATA = 			\
-	msd-a11y-preferences-dialog.ui	\
+	csd-a11y-preferences-dialog.ui	\
 	$(NULL)
 
 noinst_PROGRAMS =				\
@@ -10,8 +10,8 @@ noinst_PROGRAMS =				\
 	$(NULL)
 
 test_a11y_preferences_dialog_SOURCES =		\
-	msd-a11y-preferences-dialog.c		\
-	msd-a11y-preferences-dialog.h		\
+	csd-a11y-preferences-dialog.c		\
+	csd-a11y-preferences-dialog.h		\
 	test-a11y-preferences-dialog.c		\
 	$(NULL)
 
@@ -38,12 +38,12 @@ plugin_LTLIBRARIES = \
 	$(NULL)
 
 liba11y_keyboard_la_SOURCES = 		\
-	msd-a11y-keyboard-plugin.h	\
-	msd-a11y-keyboard-plugin.c	\
-	msd-a11y-keyboard-manager.h	\
-	msd-a11y-keyboard-manager.c	\
-	msd-a11y-preferences-dialog.h	\
-	msd-a11y-preferences-dialog.c	\
+	csd-a11y-keyboard-plugin.h	\
+	csd-a11y-keyboard-plugin.c	\
+	csd-a11y-keyboard-manager.h	\
+	csd-a11y-keyboard-manager.c	\
+	csd-a11y-preferences-dialog.h	\
+	csd-a11y-preferences-dialog.c	\
 	$(NULL)
 
 liba11y_keyboard_la_CPPFLAGS = \

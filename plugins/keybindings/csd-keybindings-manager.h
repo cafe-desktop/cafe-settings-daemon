@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_KEYBINDINGS_MANAGER         (msd_keybindings_manager_get_type ())
+#define MSD_TYPE_KEYBINDINGS_MANAGER         (csd_keybindings_manager_get_type ())
 #define MSD_KEYBINDINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBINDINGS_MANAGER, MsdKeybindingsManager))
 #define MSD_KEYBINDINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBINDINGS_MANAGER, MsdKeybindingsManagerClass))
 #define MSD_IS_KEYBINDINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBINDINGS_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdKeybindingsManagerClass;
 
-GType                   msd_keybindings_manager_get_type            (void);
+GType                   csd_keybindings_manager_get_type            (void);
 
-MsdKeybindingsManager *       msd_keybindings_manager_new                 (void);
-gboolean                msd_keybindings_manager_start               (MsdKeybindingsManager *manager,
+MsdKeybindingsManager *       csd_keybindings_manager_new                 (void);
+gboolean                csd_keybindings_manager_start               (MsdKeybindingsManager *manager,
                                                                GError         **error);
-void                    msd_keybindings_manager_stop                (MsdKeybindingsManager *manager);
+void                    csd_keybindings_manager_stop                (MsdKeybindingsManager *manager);
 
 #ifdef __cplusplus
 }

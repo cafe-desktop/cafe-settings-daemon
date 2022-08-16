@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-typing-break-plugin.h"
-#include "msd-typing-break-manager.h"
+#include "csd-typing-break-plugin.h"
+#include "csd-typing-break-manager.h"
 
 struct MsdTypingBreakPluginPrivate {
         MsdTypingBreakManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdTypingBreakPlugin, msd_typing_break_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdTypingBreakPlugin, csd_typing_break_plugin)
 
 static void
-msd_typing_break_plugin_init (MsdTypingBreakPlugin *plugin)
+csd_typing_break_plugin_init (MsdTypingBreakPlugin *plugin)
 {
-        plugin->priv = msd_typing_break_plugin_get_instance_private (plugin);
+        plugin->priv = csd_typing_break_plugin_get_instance_private (plugin);
 
         g_debug ("MsdTypingBreakPlugin initializing");
 
-        plugin->priv->manager = msd_typing_break_manager_new ();
+        plugin->priv->manager = csd_typing_break_manager_new ();
 }
 
 static void
-msd_typing_break_plugin_finalize (GObject *object)
+csd_typing_break_plugin_finalize (GObject *object)
 {
         MsdTypingBreakPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_typing_break_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_typing_break_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_typing_break_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating typing_break plugin");
 
         error = NULL;
-        res = msd_typing_break_manager_start (MSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_typing_break_manager_start (MSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start typing_break manager: %s", error->message);
                 g_error_free (error);
@@ -84,22 +84,22 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating typing_break plugin");
-        msd_typing_break_manager_stop (MSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager);
+        csd_typing_break_manager_stop (MSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_typing_break_plugin_class_init (MsdTypingBreakPluginClass *klass)
+csd_typing_break_plugin_class_init (MsdTypingBreakPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_typing_break_plugin_finalize;
+        object_class->finalize = csd_typing_break_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_typing_break_plugin_class_finalize (MsdTypingBreakPluginClass *klass)
+csd_typing_break_plugin_class_finalize (MsdTypingBreakPluginClass *klass)
 {
 }

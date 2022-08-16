@@ -27,7 +27,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "msd-media-keys-manager.h"
+#include "csd-media-keys-manager.h"
 
 static MsdMediaKeysManager *manager = NULL;
 
@@ -51,10 +51,10 @@ main (int    argc,
                 exit (1);
         }
 
-        manager = msd_media_keys_manager_new ();
+        manager = csd_media_keys_manager_new ();
 
         error = NULL;
-        msd_media_keys_manager_start (manager, &error);
+        csd_media_keys_manager_start (manager, &error);
 
         ctk_main ();
 

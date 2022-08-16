@@ -27,7 +27,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "msd-media-keys-window.h"
+#include "csd-media-keys-window.h"
 
 static gboolean
 update_state (CtkWidget *window)
@@ -38,87 +38,87 @@ update_state (CtkWidget *window)
 
         switch (count) {
         case 1:
-                msd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
                                                         50);
-                msd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
                                                   MSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
 
                 ctk_widget_show (window);
                 break;
         case 2:
-                msd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
                                                         100);
-                msd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
                                                   MSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
 
                 ctk_widget_show (window);
                 break;
         case 3:
-                msd_media_keys_window_set_volume_muted (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_volume_muted (MSD_MEDIA_KEYS_WINDOW (window),
                                                         TRUE);
-                msd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
                                                   MSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
 
                 ctk_widget_show (window);
                 break;
         case 4:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "media-eject",
                                                          NULL);
 
                 ctk_widget_show (window);
                 break;
 	case 5:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "touchpad-disabled",
                                                          _("Touchpad disabled"));
 
                 ctk_widget_show (window);
                 break;
         case 6:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "input-touchpad",
                                                          _("Touchpad enabled"));
 
                 ctk_widget_show (window);
                 break;
 	case 7:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "bluetooth-disabled-symbolic",
                                                          _("Bluetooth disabled"));
 
                 ctk_widget_show (window);
                 break;
         case 8:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "bluetooth-active-symbolic",
                                                          _("Bluetooth enabled"));
 
                 ctk_widget_show (window);
                 break;
         case 9:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "airplane-mode-symbolic",
                                                          _("Airplane mode enabled"));
 
                 ctk_widget_show (window);
                 break;
         case 10:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "network-wireless-signal-excellent-symbolic",
                                                          _("Airplane mode disabled"));
 
                 ctk_widget_show (window);
                 break;
         case 11:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "video-single-display-symbolic",
                                                          _("No External Display"));
 
                 ctk_widget_show (window);
                 break;
         case 12:
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (window),
                                                          "video-joined-displays-symbolic",
                                                          _("Changing Screen Layout"));
 
@@ -137,12 +137,12 @@ test_window (void)
 {
         CtkWidget *window;
 
-        window = msd_media_keys_window_new ();
+        window = csd_media_keys_window_new ();
         ctk_window_set_position (CTK_WINDOW (window), CTK_WIN_POS_CENTER_ALWAYS);
 
-        msd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
+        csd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (window),
                                                 0);
-        msd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
+        csd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (window),
                                           MSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
 
         ctk_widget_show (window);

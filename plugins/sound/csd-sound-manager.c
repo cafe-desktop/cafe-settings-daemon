@@ -40,7 +40,7 @@
 #include <pulse/pulseaudio.h>
 #endif
 
-#include "msd-sound-manager.h"
+#include "csd-sound-manager.h"
 #include "cafe-settings-profile.h"
 
 struct MsdSoundManagerPrivate
@@ -52,9 +52,9 @@ struct MsdSoundManagerPrivate
 
 #define CAFE_SOUND_SCHEMA "org.cafe.sound"
 
-static void msd_sound_manager_finalize (GObject *object);
+static void csd_sound_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdSoundManager, msd_sound_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdSoundManager, csd_sound_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -250,7 +250,7 @@ register_directory_callback (MsdSoundManager *manager,
 #endif
 
 gboolean
-msd_sound_manager_start (MsdSoundManager *manager,
+csd_sound_manager_start (MsdSoundManager *manager,
                          GError **error)
 {
 
@@ -302,7 +302,7 @@ msd_sound_manager_start (MsdSoundManager *manager,
 }
 
 void
-msd_sound_manager_stop (MsdSoundManager *manager)
+csd_sound_manager_stop (MsdSoundManager *manager)
 {
         g_debug ("Stopping sound manager");
 
@@ -326,34 +326,34 @@ msd_sound_manager_stop (MsdSoundManager *manager)
 }
 
 static void
-msd_sound_manager_dispose (GObject *object)
+csd_sound_manager_dispose (GObject *object)
 {
         MsdSoundManager *manager;
 
         manager = MSD_SOUND_MANAGER (object);
 
-        msd_sound_manager_stop (manager);
+        csd_sound_manager_stop (manager);
 
-        G_OBJECT_CLASS (msd_sound_manager_parent_class)->dispose (object);
+        G_OBJECT_CLASS (csd_sound_manager_parent_class)->dispose (object);
 }
 
 static void
-msd_sound_manager_class_init (MsdSoundManagerClass *klass)
+csd_sound_manager_class_init (MsdSoundManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->dispose = msd_sound_manager_dispose;
-        object_class->finalize = msd_sound_manager_finalize;
+        object_class->dispose = csd_sound_manager_dispose;
+        object_class->finalize = csd_sound_manager_finalize;
 }
 
 static void
-msd_sound_manager_init (MsdSoundManager *manager)
+csd_sound_manager_init (MsdSoundManager *manager)
 {
-        manager->priv = msd_sound_manager_get_instance_private (manager);
+        manager->priv = csd_sound_manager_get_instance_private (manager);
 }
 
 static void
-msd_sound_manager_finalize (GObject *object)
+csd_sound_manager_finalize (GObject *object)
 {
         MsdSoundManager *sound_manager;
 
@@ -364,11 +364,11 @@ msd_sound_manager_finalize (GObject *object)
 
         g_return_if_fail (sound_manager->priv);
 
-        G_OBJECT_CLASS (msd_sound_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_sound_manager_parent_class)->finalize (object);
 }
 
 MsdSoundManager *
-msd_sound_manager_new (void)
+csd_sound_manager_new (void)
 {
         if (manager_object) {
                 g_object_ref (manager_object);

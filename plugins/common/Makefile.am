@@ -4,12 +4,12 @@ noinst_LTLIBRARIES = libcommon.la
 libcommon_la_SOURCES = \
 	eggaccelerators.c	\
 	eggaccelerators.h	\
-	msd-keygrab.c		\
-	msd-keygrab.h		\
-	msd-input-helper.c	\
-	msd-input-helper.h	\
-	msd-osd-window.c	\
-	msd-osd-window.h
+	csd-keygrab.c		\
+	csd-keygrab.h		\
+	csd-input-helper.c	\
+	csd-input-helper.h	\
+	csd-osd-window.c	\
+	csd-osd-window.h
 
 libcommon_la_CPPFLAGS = \
 	$(AM_CPPFLAGS)

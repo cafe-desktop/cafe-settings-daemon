@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_A11Y_KEYBOARD_PLUGIN                (msd_a11y_keyboard_plugin_get_type ())
+#define MSD_TYPE_A11Y_KEYBOARD_PLUGIN                (csd_a11y_keyboard_plugin_get_type ())
 #define MSD_A11Y_KEYBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, MsdA11yKeyboardPlugin))
 #define MSD_A11Y_KEYBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, MsdA11yKeyboardPluginClass))
 #define MSD_IS_A11Y_KEYBOARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN))
@@ -51,7 +51,7 @@ typedef struct
         CafeSettingsPluginClass parent_class;
 } MsdA11yKeyboardPluginClass;
 
-GType   msd_a11y_keyboard_plugin_get_type            (void) G_GNUC_CONST;
+GType   csd_a11y_keyboard_plugin_get_type            (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

@@ -1,4 +1,4 @@
-/* msd-smartcard-manager.h - object for monitoring smartcard insertion and
+/* csd-smartcard-manager.h - object for monitoring smartcard insertion and
  *                           removal events
  *
  * Copyright (C) 2006, 2009 Red Hat, Inc.
@@ -24,7 +24,7 @@
 #define MSD_SMARTCARD_MANAGER_H
 
 #define MSD_SMARTCARD_ENABLE_INTERNAL_API
-#include "msd-smartcard.h"
+#include "csd-smartcard.h"
 
 #include <glib.h>
 #include <glib-object.h>
@@ -32,13 +32,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define MSD_TYPE_SMARTCARD_MANAGER            (msd_smartcard_manager_get_type ())
+#define MSD_TYPE_SMARTCARD_MANAGER            (csd_smartcard_manager_get_type ())
 #define MSD_SMARTCARD_MANAGER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_SMARTCARD_MANAGER, MsdSmartcardManager))
 #define MSD_SMARTCARD_MANAGER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_SMARTCARD_MANAGER, MsdSmartcardManagerClass))
 #define MSD_IS_SMARTCARD_MANAGER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SC_TYPE_SMARTCARD_MANAGER))
 #define MSD_IS_SMARTCARD_MANAGER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), SC_TYPE_SMARTCARD_MANAGER))
 #define MSD_SMARTCARD_MANAGER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), MSD_TYPE_SMARTCARD_MANAGER, MsdSmartcardManagerClass))
-#define MSD_SMARTCARD_MANAGER_ERROR           (msd_smartcard_manager_error_quark ())
+#define MSD_SMARTCARD_MANAGER_ERROR           (csd_smartcard_manager_error_quark ())
 typedef struct _MsdSmartcardManager MsdSmartcardManager;
 typedef struct _MsdSmartcardManagerClass MsdSmartcardManagerClass;
 typedef struct _MsdSmartcardManagerPrivate MsdSmartcardManagerPrivate;
@@ -71,18 +71,18 @@ enum _MsdSmartcardManagerError {
     MSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS
 };
 
-GType msd_smartcard_manager_get_type (void) G_GNUC_CONST;
-GQuark msd_smartcard_manager_error_quark (void) G_GNUC_CONST;
+GType csd_smartcard_manager_get_type (void) G_GNUC_CONST;
+GQuark csd_smartcard_manager_error_quark (void) G_GNUC_CONST;
 
-MsdSmartcardManager *msd_smartcard_manager_new (const char *module);
+MsdSmartcardManager *csd_smartcard_manager_new (const char *module);
 
-gboolean msd_smartcard_manager_start (MsdSmartcardManager  *manager,
+gboolean csd_smartcard_manager_start (MsdSmartcardManager  *manager,
                                       GError              **error);
 
-void msd_smartcard_manager_stop (MsdSmartcardManager *manager);
+void csd_smartcard_manager_stop (MsdSmartcardManager *manager);
 
-char *msd_smartcard_manager_get_module_path (MsdSmartcardManager *manager);
-gboolean msd_smartcard_manager_login_card_is_inserted (MsdSmartcardManager *manager);
+char *csd_smartcard_manager_get_module_path (MsdSmartcardManager *manager);
+gboolean csd_smartcard_manager_login_card_is_inserted (MsdSmartcardManager *manager);
 
 #ifdef __cplusplus
 }

@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-dummy-plugin.h"
-#include "msd-dummy-manager.h"
+#include "csd-dummy-plugin.h"
+#include "csd-dummy-manager.h"
 
 struct MsdDummyPluginPrivate {
         MsdDummyManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdDummyPlugin, msd_dummy_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdDummyPlugin, csd_dummy_plugin)
 
 static void
-msd_dummy_plugin_init (MsdDummyPlugin *plugin)
+csd_dummy_plugin_init (MsdDummyPlugin *plugin)
 {
-        plugin->priv = msd_dummy_plugin_get_instance_private (plugin);
+        plugin->priv = csd_dummy_plugin_get_instance_private (plugin);
 
         g_debug ("MsdDummyPlugin initializing");
 
-        plugin->priv->manager = msd_dummy_manager_new ();
+        plugin->priv->manager = csd_dummy_manager_new ();
 }
 
 static void
-msd_dummy_plugin_finalize (GObject *object)
+csd_dummy_plugin_finalize (GObject *object)
 {
         MsdDummyPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_dummy_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_dummy_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_dummy_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating dummy plugin");
 
         error = NULL;
-        res = msd_dummy_manager_start (MSD_DUMMY_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_dummy_manager_start (MSD_DUMMY_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start dummy manager: %s", error->message);
                 g_error_free (error);
@@ -84,22 +84,22 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating dummy plugin");
-        msd_dummy_manager_stop (MSD_DUMMY_PLUGIN (plugin)->priv->manager);
+        csd_dummy_manager_stop (MSD_DUMMY_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_dummy_plugin_class_init (MsdDummyPluginClass *klass)
+csd_dummy_plugin_class_init (MsdDummyPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_dummy_plugin_finalize;
+        object_class->finalize = csd_dummy_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_dummy_plugin_class_finalize (MsdDummyPluginClass *klass)
+csd_dummy_plugin_class_finalize (MsdDummyPluginClass *klass)
 {
 }

@@ -33,7 +33,7 @@ static CdkFilterReturn message_filter       (CdkXEvent *xevent,
 static GSList *dialogs = NULL;
 
 /**
- * msd_delayed_show_dialog:
+ * csd_delayed_show_dialog:
  * @dialog: the dialog
  *
  * Shows the dialog as with ctk_widget_show(), unless a window manager
@@ -41,7 +41,7 @@ static GSList *dialogs = NULL;
  * for that to happen before showing the dialog.
  **/
 void
-msd_delayed_show_dialog (CtkWidget *dialog)
+csd_delayed_show_dialog (CtkWidget *dialog)
 {
         CdkDisplay *display = ctk_widget_get_display (dialog);
         Display *xdisplay = CDK_DISPLAY_XDISPLAY (display);

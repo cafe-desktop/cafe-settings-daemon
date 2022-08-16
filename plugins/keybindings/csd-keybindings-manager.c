@@ -40,10 +40,10 @@
 #include <dconf.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-keybindings-manager.h"
+#include "csd-keybindings-manager.h"
 #include "dconf-util.h"
 
-#include "msd-keygrab.h"
+#include "csd-keygrab.h"
 #include "eggaccelerators.h"
 
 #define GSETTINGS_KEYBINDINGS_DIR "/org/cafe/desktop/keybindings/"
@@ -64,9 +64,9 @@ struct MsdKeybindingsManagerPrivate
         GSList      *screens;
 };
 
-static void     msd_keybindings_manager_finalize    (GObject *object);
+static void     csd_keybindings_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdKeybindingsManager, msd_keybindings_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdKeybindingsManager, csd_keybindings_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -516,7 +516,7 @@ bindings_callback (DConfClient           *client,
 }
 
 gboolean
-msd_keybindings_manager_start (MsdKeybindingsManager *manager,
+csd_keybindings_manager_start (MsdKeybindingsManager *manager,
                                GError               **error)
 {
         CdkDisplay  *dpy;
@@ -562,7 +562,7 @@ msd_keybindings_manager_start (MsdKeybindingsManager *manager,
 }
 
 void
-msd_keybindings_manager_stop (MsdKeybindingsManager *manager)
+csd_keybindings_manager_stop (MsdKeybindingsManager *manager)
 {
         MsdKeybindingsManagerPrivate *p = manager->priv;
         GSList *l;
@@ -589,22 +589,22 @@ msd_keybindings_manager_stop (MsdKeybindingsManager *manager)
 }
 
 static void
-msd_keybindings_manager_class_init (MsdKeybindingsManagerClass *klass)
+csd_keybindings_manager_class_init (MsdKeybindingsManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_keybindings_manager_finalize;
+        object_class->finalize = csd_keybindings_manager_finalize;
 }
 
 static void
-msd_keybindings_manager_init (MsdKeybindingsManager *manager)
+csd_keybindings_manager_init (MsdKeybindingsManager *manager)
 {
-        manager->priv = msd_keybindings_manager_get_instance_private (manager);
+        manager->priv = csd_keybindings_manager_get_instance_private (manager);
 
 }
 
 static void
-msd_keybindings_manager_finalize (GObject *object)
+csd_keybindings_manager_finalize (GObject *object)
 {
         MsdKeybindingsManager *keybindings_manager;
 
@@ -615,11 +615,11 @@ msd_keybindings_manager_finalize (GObject *object)
 
         g_return_if_fail (keybindings_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_keybindings_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_keybindings_manager_parent_class)->finalize (object);
 }
 
 MsdKeybindingsManager *
-msd_keybindings_manager_new (void)
+csd_keybindings_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

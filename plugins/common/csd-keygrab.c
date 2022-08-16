@@ -32,25 +32,25 @@
 
 #include "eggaccelerators.h"
 
-#include "msd-keygrab.h"
+#include "csd-keygrab.h"
 
 /* these are the mods whose combinations are ignored by the keygrabbing code */
-static CdkModifierType msd_ignored_mods = 0;
+static CdkModifierType csd_ignored_mods = 0;
 
 /* these are the ones we actually use for global keys, we always only check
  * for these set */
-static CdkModifierType msd_used_mods = 0;
+static CdkModifierType csd_used_mods = 0;
 
 static void
 setup_modifiers (void)
 {
-        if (msd_used_mods == 0 || msd_ignored_mods == 0) {
+        if (csd_used_mods == 0 || csd_ignored_mods == 0) {
                 CdkModifierType dynmods;
 
                 /* default modifiers */
-                msd_ignored_mods = \
+                csd_ignored_mods = \
                         0x2000 /*Xkb modifier*/ | CDK_LOCK_MASK | CDK_HYPER_MASK;
-		msd_used_mods = \
+		csd_used_mods = \
                         CDK_SHIFT_MASK | CDK_CONTROL_MASK |\
                         CDK_MOD1_MASK | CDK_MOD2_MASK | CDK_MOD3_MASK | CDK_MOD4_MASK |\
                         CDK_MOD5_MASK | CDK_SUPER_MASK | CDK_META_MASK;
@@ -62,8 +62,8 @@ setup_modifiers (void)
                                                       EGG_VIRTUAL_NUM_LOCK_MASK,
                                                       &dynmods);
 
-                msd_ignored_mods |= dynmods;
-                msd_used_mods &= ~dynmods;
+                csd_ignored_mods |= dynmods;
+                csd_used_mods &= ~dynmods;
 	}
 }
 
@@ -124,7 +124,7 @@ grab_key_unsafe (Key                 *key,
 
         setup_modifiers ();
 
-        mask = msd_ignored_mods & ~key->state & CDK_MODIFIER_MASK;
+        mask = csd_ignored_mods & ~key->state & CDK_MODIFIER_MASK;
 
         bit = 0;
         /* store the indexes of all set bits in mask in the array */
@@ -236,11 +236,11 @@ match_key (Key *key, XEvent *event)
 			consumed &= ~CDK_SHIFT_MASK;
 
 		return ((lower == key->keysym || upper == key->keysym)
-			&& (event->xkey.state & ~consumed & msd_used_mods) == key->state);
+			&& (event->xkey.state & ~consumed & csd_used_mods) == key->state);
 	}
 
 	/* The key we passed doesn't have a keysym, so try with just the keycode */
         return (key != NULL
-                && key->state == (event->xkey.state & msd_used_mods)
+                && key->state == (event->xkey.state & csd_used_mods)
                 && key_uses_keycode (key, event->xkey.keycode));
 }

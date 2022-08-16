@@ -7,10 +7,10 @@ plugin_LTLIBRARIES = \
 libkeybindings_la_SOURCES = 		\
 	dconf-util.h				\
 	dconf-util.c				\
-	msd-keybindings-plugin.h	\
-	msd-keybindings-plugin.c	\
-	msd-keybindings-manager.h	\
-	msd-keybindings-manager.c	\
+	csd-keybindings-plugin.h	\
+	csd-keybindings-plugin.c	\
+	csd-keybindings-manager.h	\
+	csd-keybindings-manager.c	\
 	$(NULL)
 
 libkeybindings_la_CPPFLAGS = \

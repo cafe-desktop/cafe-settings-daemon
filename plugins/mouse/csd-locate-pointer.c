@@ -1,4 +1,4 @@
-/* msd-locate-pointer.c
+/* csd-locate-pointer.c
  *
  * Copyright (C) 2008 Carlos Garnacho  <carlos@imendio.com>
  *
@@ -18,8 +18,8 @@
  */
 
 #include <ctk/ctk.h>
-#include "msd-timeline.h"
-#include "msd-locate-pointer.h"
+#include "csd-timeline.h"
+#include "csd-locate-pointer.h"
 
 #include <cdk/cdkkeysyms.h>
 #include <cdk/cdkx.h>
@@ -337,7 +337,7 @@ locate_pointer_draw_cb (CtkWidget      *widget,
 }
 
 static MsdLocatePointerData *
-msd_locate_pointer_data_new (void)
+csd_locate_pointer_data_new (void)
 {
   MsdLocatePointerData *data;
 
@@ -358,7 +358,7 @@ msd_locate_pointer_data_new (void)
   ctk_widget_set_app_paintable (CTK_WIDGET (data->widget), TRUE);
   ctk_widget_realize (CTK_WIDGET (data->widget));
 
-  data->timeline = msd_timeline_new (ANIMATION_LENGTH);
+  data->timeline = csd_timeline_new (ANIMATION_LENGTH);
   g_signal_connect (data->timeline, "frame",
 		    G_CALLBACK (timeline_frame_cb), data);
   g_signal_connect (data->timeline, "finished",
@@ -411,17 +411,17 @@ move_locate_pointer_window (MsdLocatePointerData *data,
 }
 
 void
-msd_locate_pointer (CdkDisplay *display)
+csd_locate_pointer (CdkDisplay *display)
 {
   CdkScreen *screen = cdk_display_get_default_screen (display);
 
   if (data == NULL)
     {
-      data = msd_locate_pointer_data_new ();
+      data = csd_locate_pointer_data_new ();
     }
 
-  msd_timeline_pause (data->timeline);
-  msd_timeline_rewind (data->timeline);
+  csd_timeline_pause (data->timeline);
+  csd_timeline_rewind (data->timeline);
 
   data->progress = 0.;
 
@@ -432,7 +432,7 @@ msd_locate_pointer (CdkDisplay *display)
   composited_changed (screen, data);
   ctk_widget_show (CTK_WIDGET (data->widget));
 
-  msd_timeline_start (data->timeline);
+  csd_timeline_start (data->timeline);
 }
 
 
@@ -469,7 +469,7 @@ event_filter (CdkXEvent *cdkxevent,
               XAllowEvents (xevent->xany.display,
                             AsyncKeyboard,
                             xevent->xkey.time);
-              msd_locate_pointer (display);
+              csd_locate_pointer (display);
             }
           else
             {

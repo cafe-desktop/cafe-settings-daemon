@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_DUMMY_MANAGER         (msd_dummy_manager_get_type ())
+#define MSD_TYPE_DUMMY_MANAGER         (csd_dummy_manager_get_type ())
 #define MSD_DUMMY_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_DUMMY_MANAGER, MsdDummyManager))
 #define MSD_DUMMY_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_DUMMY_MANAGER, MsdDummyManagerClass))
 #define MSD_IS_DUMMY_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_DUMMY_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdDummyManagerClass;
 
-GType                   msd_dummy_manager_get_type            (void);
+GType                   csd_dummy_manager_get_type            (void);
 
-MsdDummyManager *       msd_dummy_manager_new                 (void);
-gboolean                msd_dummy_manager_start               (MsdDummyManager *manager,
+MsdDummyManager *       csd_dummy_manager_new                 (void);
+gboolean                csd_dummy_manager_start               (MsdDummyManager *manager,
                                                                GError         **error);
-void                    msd_dummy_manager_stop                (MsdDummyManager *manager);
+void                    csd_dummy_manager_stop                (MsdDummyManager *manager);
 
 #ifdef __cplusplus
 }

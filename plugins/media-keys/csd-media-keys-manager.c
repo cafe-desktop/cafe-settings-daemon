@@ -41,14 +41,14 @@
 #endif
 
 #include "cafe-settings-profile.h"
-#include "msd-marshal.h"
-#include "msd-media-keys-manager.h"
-#include "msd-media-keys-manager-glue.h"
+#include "csd-marshal.h"
+#include "csd-media-keys-manager.h"
+#include "csd-media-keys-manager-glue.h"
 
 #include "eggaccelerators.h"
 #include "acme.h"
-#include "msd-media-keys-window.h"
-#include "msd-input-helper.h"
+#include "csd-media-keys-window.h"
+#include "csd-input-helper.h"
 
 #define MSD_DBUS_PATH "/org/cafe/SettingsDaemon"
 #define MSD_DBUS_NAME "org.cafe.SettingsDaemon"
@@ -99,7 +99,7 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdMediaKeysManager, msd_media_keys_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdMediaKeysManager, csd_media_keys_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -235,13 +235,13 @@ static void
 dialog_init (MsdMediaKeysManager *manager)
 {
         if (manager->priv->dialog != NULL
-            && !msd_osd_window_is_valid (MSD_OSD_WINDOW (manager->priv->dialog))) {
+            && !csd_osd_window_is_valid (MSD_OSD_WINDOW (manager->priv->dialog))) {
                 ctk_widget_destroy (manager->priv->dialog);
                 manager->priv->dialog = NULL;
         }
 
         if (manager->priv->dialog == NULL) {
-                manager->priv->dialog = msd_media_keys_window_new ();
+                manager->priv->dialog = csd_media_keys_window_new ();
         }
 }
 
@@ -607,7 +607,7 @@ do_eject_action (MsdMediaKeysManager *manager)
 
         /* Show the dialogue */
         dialog_init (manager);
-        msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                  "media-eject",
                                                  NULL);
         dialog_show (manager);
@@ -633,7 +633,7 @@ static void
 do_touchpad_osd_action (MsdMediaKeysManager *manager, gboolean state)
 {
         dialog_init (manager);
-        msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                  state ? "input-touchpad" : "touchpad-disabled",
                                                  state ? _("Touchpad enabled") : _("Touchpad disabled"));
         dialog_show (manager);
@@ -671,16 +671,16 @@ update_dialog (MsdMediaKeysManager *manager,
         dialog_init (manager);
 
         if (is_mic)
-                msd_media_keys_window_set_mic_muted (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_mic_muted (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                      muted);
         else
-                msd_media_keys_window_set_volume_muted (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_volume_muted (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                         muted);
 
-        msd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                 volume);
 
-        msd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                           MSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
         dialog_show (manager);
 
@@ -950,17 +950,17 @@ set_rfkill_complete (GObject      *object,
 
         if (data->bluetooth){
                 if (data->target_state)
-                        msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "bluetooth-disabled-symbolic", _("Bluetooth disabled"));
                 else
-                        msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "bluetooth-active-symbolic", _("Bluetooth enabled"));
         } else {
                 if (data->target_state)
-                        msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "airplane-mode-symbolic", _("Airplane mode enabled"));
                 else
-                        msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "network-wireless-signal-excellent-symbolic", _("Airplane mode disabled"));
         }
         dialog_show (data->manager);
@@ -990,7 +990,7 @@ do_rfkill_action (MsdMediaKeysManager *manager,
                 return;
 
         if (get_rfkill_property (manager, hw_mode)) {
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                         "airplane-mode-symbolic",
                                                         _("Hardware Airplane Mode"));
                 dialog_show (manager);
@@ -1028,11 +1028,11 @@ do_display_osd_action (MsdMediaKeysManager *manager)
 
         dialog_init (manager);
         if (n_monitors > 1)
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                          "video-joined-displays-symbolic",
                                                          _("Changing Screen Layout"));
         else
-                msd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                          "video-single-display-symbolic",
                                                          _("No External Display"));
         dialog_show (manager);
@@ -1060,7 +1060,7 @@ find_by_time (gconstpointer a,
  * events only nobody is interested.
  */
 gboolean
-msd_media_keys_manager_grab_media_player_keys (MsdMediaKeysManager *manager,
+csd_media_keys_manager_grab_media_player_keys (MsdMediaKeysManager *manager,
                                                const char          *application,
                                                guint32              time,
                                                GError             **error)
@@ -1102,7 +1102,7 @@ msd_media_keys_manager_grab_media_player_keys (MsdMediaKeysManager *manager,
 }
 
 gboolean
-msd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
+csd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
                                                   const char          *application,
                                                   GError             **error)
 {
@@ -1123,7 +1123,7 @@ msd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
 }
 
 static gboolean
-msd_media_player_key_pressed (MsdMediaKeysManager *manager,
+csd_media_player_key_pressed (MsdMediaKeysManager *manager,
                               const char          *key)
 {
         const char *application = NULL;
@@ -1144,7 +1144,7 @@ static gboolean
 do_multimedia_player_action (MsdMediaKeysManager *manager,
                              const char          *key)
 {
-        return msd_media_player_key_pressed (manager, key);
+        return csd_media_player_key_pressed (manager, key);
 }
 
 static void
@@ -1471,7 +1471,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
 }
 
 gboolean
-msd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
+csd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
 {
         cafe_settings_profile_start (NULL);
 
@@ -1511,7 +1511,7 @@ msd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
 }
 
 void
-msd_media_keys_manager_stop (MsdMediaKeysManager *manager)
+csd_media_keys_manager_stop (MsdMediaKeysManager *manager)
 {
         MsdMediaKeysManagerPrivate *priv = manager->priv;
         CdkDisplay *dpy;
@@ -1599,7 +1599,7 @@ msd_media_keys_manager_stop (MsdMediaKeysManager *manager)
 }
 
 static void
-msd_media_keys_manager_class_init (MsdMediaKeysManagerClass *klass)
+csd_media_keys_manager_class_init (MsdMediaKeysManagerClass *klass)
 {
         signals[MEDIA_PLAYER_KEY_PRESSED] =
                 g_signal_new ("media-player-key-pressed",
@@ -1608,19 +1608,19 @@ msd_media_keys_manager_class_init (MsdMediaKeysManagerClass *klass)
                               G_STRUCT_OFFSET (MsdMediaKeysManagerClass, media_player_key_pressed),
                               NULL,
                               NULL,
-                              msd_marshal_VOID__STRING_STRING,
+                              csd_marshal_VOID__STRING_STRING,
                               G_TYPE_NONE,
                               2,
                               G_TYPE_STRING,
                               G_TYPE_STRING);
 
-        dbus_g_object_type_install_info (MSD_TYPE_MEDIA_KEYS_MANAGER, &dbus_glib_msd_media_keys_manager_object_info);
+        dbus_g_object_type_install_info (MSD_TYPE_MEDIA_KEYS_MANAGER, &dbus_glib_csd_media_keys_manager_object_info);
 }
 
 static void
-msd_media_keys_manager_init (MsdMediaKeysManager *manager)
+csd_media_keys_manager_init (MsdMediaKeysManager *manager)
 {
-        manager->priv = msd_media_keys_manager_get_instance_private (manager);
+        manager->priv = csd_media_keys_manager_get_instance_private (manager);
 }
 
 static gboolean
@@ -1643,7 +1643,7 @@ register_manager (MsdMediaKeysManager *manager)
 }
 
 MsdMediaKeysManager *
-msd_media_keys_manager_new (void)
+csd_media_keys_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

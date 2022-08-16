@@ -28,7 +28,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_SOUND_MANAGER         (msd_sound_manager_get_type ())
+#define MSD_TYPE_SOUND_MANAGER         (csd_sound_manager_get_type ())
 #define MSD_SOUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_MANAGER, MsdSoundManager))
 #define MSD_SOUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_MANAGER, MsdSoundManagerClass))
 #define MSD_IS_SOUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SOUND_MANAGER))
@@ -48,11 +48,11 @@ typedef struct
         GObjectClass parent_class;
 } MsdSoundManagerClass;
 
-GType msd_sound_manager_get_type (void) G_GNUC_CONST;
+GType csd_sound_manager_get_type (void) G_GNUC_CONST;
 
-MsdSoundManager *msd_sound_manager_new (void);
-gboolean msd_sound_manager_start (MsdSoundManager *manager, GError **error);
-void msd_sound_manager_stop (MsdSoundManager *manager);
+MsdSoundManager *csd_sound_manager_new (void);
+gboolean csd_sound_manager_start (MsdSoundManager *manager, GError **error);
+void csd_sound_manager_stop (MsdSoundManager *manager);
 
 #ifdef __cplusplus
 }

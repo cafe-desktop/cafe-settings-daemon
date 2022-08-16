@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-void            msd_delayed_show_dialog (CtkWidget *dialog);
+void            csd_delayed_show_dialog (CtkWidget *dialog);
 
 #ifdef __cplusplus
 }

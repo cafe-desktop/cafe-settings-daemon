@@ -6,29 +6,29 @@ NULL =
 plugin_LTLIBRARIES = libmedia-keys.la
 
 BUILT_SOURCES = 			\
-	msd-media-keys-manager-glue.h	\
-	msd-marshal.h			\
-	msd-marshal.c			\
+	csd-media-keys-manager-glue.h	\
+	csd-marshal.h			\
+	csd-marshal.c			\
 	$(NULL)
 
-msd-media-keys-manager-glue.h: msd-media-keys-manager.xml Makefile
-	$(AM_V_GEN) dbus-binding-tool --prefix=msd_media_keys_manager --mode=glib-server $< > xgen-$(@F) \
+csd-media-keys-manager-glue.h: csd-media-keys-manager.xml Makefile
+	$(AM_V_GEN) dbus-binding-tool --prefix=csd_media_keys_manager --mode=glib-server $< > xgen-$(@F) \
 	&& ( cmp -s xgen-$(@F) $@ || cp xgen-$(@F) $@ ) \
 	&& rm -f xgen-$(@F)
 
-msd-marshal.c: msd-marshal.list
-	$(AM_V_GEN) $(GLIB_GENMARSHAL) --prefix=msd_marshal $< --body --prototypes --internal > $@
+csd-marshal.c: csd-marshal.list
+	$(AM_V_GEN) $(GLIB_GENMARSHAL) --prefix=csd_marshal $< --body --prototypes --internal > $@
 
-msd-marshal.h: msd-marshal.list
-	$(AM_V_GEN) $(GLIB_GENMARSHAL) --prefix=msd_marshal $< --header --internal > $@
+csd-marshal.h: csd-marshal.list
+	$(AM_V_GEN) $(GLIB_GENMARSHAL) --prefix=csd_marshal $< --header --internal > $@
 
 libmedia_keys_la_SOURCES = 		\
-	msd-media-keys-plugin.h		\
-	msd-media-keys-plugin.c		\
-	msd-media-keys-manager.h	\
-	msd-media-keys-manager.c	\
-	msd-media-keys-window.h		\
-	msd-media-keys-window.c		\
+	csd-media-keys-plugin.h		\
+	csd-media-keys-plugin.c		\
+	csd-media-keys-manager.h	\
+	csd-media-keys-manager.c	\
+	csd-media-keys-window.h		\
+	csd-media-keys-window.c		\
 	acme.h				\
 	$(BUILT_SOURCES)		\
 	$(NULL)
@@ -70,8 +70,8 @@ noinst_PROGRAMS =				\
 	$(NULL)
 
 test_media_window_SOURCES =			\
-	msd-media-keys-window.c			\
-	msd-media-keys-window.h			\
+	csd-media-keys-window.c			\
+	csd-media-keys-window.h			\
 	test-media-window.c			\
 	$(NULL)
 
@@ -98,10 +98,10 @@ test_media_window_LDADD = \
 	-lm
 
 test_media_keys_SOURCES =			\
-	msd-media-keys-manager.c		\
-	msd-media-keys-manager.h		\
-	msd-media-keys-window.h			\
-	msd-media-keys-window.c			\
+	csd-media-keys-manager.c		\
+	csd-media-keys-manager.h		\
+	csd-media-keys-window.h			\
+	csd-media-keys-window.c			\
 	test-media-keys.c			\
 	$(BUILT_SOURCES)			\
 	$(NULL)
@@ -123,7 +123,7 @@ test_media_keys_CFLAGS =		\
 	$(NULL)
 
 test_media_keys_LDADD = \
-	$(top_builddir)/cafe-settings-daemon/libmsd-profile.la \
+	$(top_builddir)/cafe-settings-daemon/libcsd-profile.la \
 	$(top_builddir)/plugins/common/libcommon.la \
 	$(SETTINGS_DAEMON_LIBS) \
 	$(SETTINGS_PLUGIN_LIBS) \
@@ -137,8 +137,8 @@ ctkbuilder_DATA =	\
 	$(NULL)
 
 EXTRA_DIST = 				\
-	msd-media-keys-manager.xml	\
-	msd-marshal.list		\
+	csd-media-keys-manager.xml	\
+	csd-marshal.list		\
 	$(plugin_in_files)		\
 	$(ctkbuilder_DATA)
 

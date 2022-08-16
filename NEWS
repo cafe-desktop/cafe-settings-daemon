@@ -29,39 +29,39 @@
 
   * update translations
   * cafe-settings-plugin: remove useless macro CAFE_SETTINGS_PLUGIN_REGISTER
-  * msd-clipboard-plugin: avoid 'g_type_class_add_private'
-  * msd-clipboard-manager: avoid 'g_type_class_add_private'
-  * msd-smartcard-plugin: avoid 'g_type_class_add_private'
-  * msd-smartcard-manager: avoid 'g_type_class_add_private'
-  * msd-smartcard: remove unused struct members
-  * msd-smartcard: avoid 'g_type_class_add_private'
-  * msd-rfkill-manager: avoid 'g_type_class_add_private'
+  * csd-clipboard-plugin: avoid 'g_type_class_add_private'
+  * csd-clipboard-manager: avoid 'g_type_class_add_private'
+  * csd-smartcard-plugin: avoid 'g_type_class_add_private'
+  * csd-smartcard-manager: avoid 'g_type_class_add_private'
+  * csd-smartcard: remove unused struct members
+  * csd-smartcard: avoid 'g_type_class_add_private'
+  * csd-rfkill-manager: avoid 'g_type_class_add_private'
   * rfkill-glib: avoid 'g_type_class_add_private'
-  * msd-rfkill-plugin: avoid 'g_type_class_add_private'
-  * msd-xsettings-manager: avoid 'g_type_class_add_private'
-  * msd-xsettings-plugin: avoid 'g_type_class_add_private'
-  * msd-xrdb-manager: avoid 'g_type_class_add_private'
-  * msd-xrdb-plugin: avoid 'g_type_class_add_private'
-  * msd-media-keys-window: avoid 'g_type_class_add_private'
-  * msd-media-keys-manager: avoid 'g_type_class_add_private'
-  * msd-media-keys-plugin: avoid 'g_type_class_add_private'
-  * msd-xrandr-plugin: avoid 'g_type_class_add_private'
-  * msd-xrandr-manager: avoid 'g_type_class_add_private'
-  * msd-sound-plugin: avoid 'g_type_class_add_private'
-  * msd-sound-manager: avoid 'g_type_class_add_private'
-  * msd-typing-break-plugin: avoid 'g_type_class_add_private'
-  * msd-typing-break-manager: avoid 'g_type_class_add_private'
-  * msd-dummy-plugin: avoid 'g_type_class_add_private'
-  * msd-dummy-manager: avoid 'g_type_class_add_private'
-  * msd-mpris-manager: avoid 'g_type_class_add_private'
-  * msd-mpris-plugin: avoid 'g_type_class_add_private'
-  * msd-ldsm-dialog: avoid 'g_type_class_add_private'
-  * msd-housekeeping-plugin: avoid 'g_type_class_add_private'
-  * msd-housekeeping-manager: avoid 'g_type_class_add_private'
-  * msd-keybindings-plugin: avoid 'g_type_class_add_private'
-  * msd-keybindings-manager: avoid 'g_type_class_add_private'
+  * csd-rfkill-plugin: avoid 'g_type_class_add_private'
+  * csd-xsettings-manager: avoid 'g_type_class_add_private'
+  * csd-xsettings-plugin: avoid 'g_type_class_add_private'
+  * csd-xrdb-manager: avoid 'g_type_class_add_private'
+  * csd-xrdb-plugin: avoid 'g_type_class_add_private'
+  * csd-media-keys-window: avoid 'g_type_class_add_private'
+  * csd-media-keys-manager: avoid 'g_type_class_add_private'
+  * csd-media-keys-plugin: avoid 'g_type_class_add_private'
+  * csd-xrandr-plugin: avoid 'g_type_class_add_private'
+  * csd-xrandr-manager: avoid 'g_type_class_add_private'
+  * csd-sound-plugin: avoid 'g_type_class_add_private'
+  * csd-sound-manager: avoid 'g_type_class_add_private'
+  * csd-typing-break-plugin: avoid 'g_type_class_add_private'
+  * csd-typing-break-manager: avoid 'g_type_class_add_private'
+  * csd-dummy-plugin: avoid 'g_type_class_add_private'
+  * csd-dummy-manager: avoid 'g_type_class_add_private'
+  * csd-mpris-manager: avoid 'g_type_class_add_private'
+  * csd-mpris-plugin: avoid 'g_type_class_add_private'
+  * csd-ldsm-dialog: avoid 'g_type_class_add_private'
+  * csd-housekeeping-plugin: avoid 'g_type_class_add_private'
+  * csd-housekeeping-manager: avoid 'g_type_class_add_private'
+  * csd-keybindings-plugin: avoid 'g_type_class_add_private'
+  * csd-keybindings-manager: avoid 'g_type_class_add_private'
   * system-timezone: avoid 'g_type_class_add_private'
-  * msd-datetime-mechanism: avoid 'g_type_class_add_private'
+  * csd-datetime-mechanism: avoid 'g_type_class_add_private'
   * CI: fix cafe-desktop version for using cppcheck
 
 ### cafe-settings-daemon 1.23.1
@@ -107,9 +107,9 @@
 
   * update translations
   * media-keys: Add microphone mute key support
-  * msd-xrdb-manager: realize the widget
+  * csd-xrdb-manager: realize the widget
   * media-keys: Make sound changes quiet with Alt
-  * msd-xrdb-manager.c: avoid deprecated 'ctk_widget_ensure_style'
+  * csd-xrdb-manager.c: avoid deprecated 'ctk_widget_ensure_style'
   * media-keys: always round the render coordinates for media icons
   * media-keys: Tweak the OSD's volume bar position
   * osd-window: make the window smaller
@@ -125,7 +125,7 @@
   * media-keys: Add test for rfkill OSD icons
   * media-keys: Add label for the touchpad OSD
   * media-keys: Add labels for the rfkill OSD
-  * media-keys: Remove unuseful show_level argument in msd_media_keys_window_set_action_custom
+  * media-keys: Remove unuseful show_level argument in csd_media_keys_window_set_action_custom
   * media-keys: Remove test for screen brightness OSD icons
   * media-keys: Add support for Killswitch media keys
   * rfkill: Add RFKill support plugin on Linux systems
@@ -148,7 +148,7 @@
   * clipboard-manager: replace deprecated cdk_error_trap_push/pop
   * background-manager: replace deprecated CDK functions
   * a11y-keyboard-manager: replace deprecated cdk_error_trap_push/pop
-  * msd-input-helper: replace deprecated cdk_error_trap_push/pop
+  * csd-input-helper: replace deprecated cdk_error_trap_push/pop
   * plugins: avoid deprecated 'cdk_keymap_get_default'
 
 ### cafe-settings-daemon 1.21.0
@@ -189,8 +189,8 @@
   * Translations update
   * plugins: G_GNUC_UNUSED in unused but needed variables
   * xsettings: drop CanChangeAccels which won't work with CTK+3
-  * msd-datetime-mechanism.c: Fix build warnings:
-  * msd-mpris-manager.c: Fix build warning:
+  * csd-datetime-mechanism.c: Fix build warnings:
+  * csd-mpris-manager.c: Fix build warning:
   * configure.ac: drop GLIB_VERSION_MAX_ALLOWED
 
 ### cafe-settings-daemon 1.19.1
@@ -198,7 +198,7 @@
   * Translations update
   * touchpad: disable clickfinger by default
   * WidthOfScreen and HeightOfScreen implementation
-  * msd-keyboard-xkb: Fix Cdk-CRITICAL warning on creating status bar icon
+  * csd-keyboard-xkb: Fix Cdk-CRITICAL warning on creating status bar icon
   * ctk 3.22: avoid deprecated cdk_screen_get_monitor... functions:
 
 ### cafe-settings-daemon 1.19.0
@@ -208,14 +208,14 @@
   * ctk 3.22: avoid deprecated cdk_screen_get_width/height_mm
   * avoid deprecated cdk_screen_get_width/height
   * avoid deprecated cdk_display_get_screen and cdk_display_get_n_screens
-  * msd-a11y-preferences-dialog.ui: clean up deprecations
+  * csd-a11y-preferences-dialog.ui: clean up deprecations
   * ally-keyboard: fix help link
   * don't use deprecated ctk_show_uri
   * avoid deprecated cdk_screen_get_number
   * Fix Xrandr applet dying on restart
   * Request keyboard event reports from global keybindings of other windows (#179)
   * Restore Polish translation credits from GNOME
-  * msd-xrandr-manager: avoid deprecated ctk_misc_set_padding
+  * csd-xrandr-manager: avoid deprecated ctk_misc_set_padding
   * keyboard plugin: apply panel menu theme to popup menu
   * ldsm-dialog: don't use deprecated CTK_STOCK
   * ldsm-dialog: set max width chars for labels
