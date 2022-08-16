@@ -27,7 +27,7 @@
 #include <string.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-rfkill-manager.h"
+#include "csd-rfkill-manager.h"
 #include "rfkill-glib.h"
 #include "cafe-settings-bus.h"
 
@@ -67,7 +67,7 @@ struct MsdRfkillManagerPrivate
 static const gchar introspection_xml[] =
 "<node>"
 "  <interface name='org.cafe.SettingsDaemon.Rfkill'>"
-"    <annotation name='org.freedesktop.DBus.GLib.CSymbol' value='msd_rfkill_manager'/>"
+"    <annotation name='org.freedesktop.DBus.GLib.CSymbol' value='csd_rfkill_manager'/>"
 "    <property name='AirplaneMode' type='b' access='readwrite'/>"
 "    <property name='HardwareAirplaneMode' type='b' access='read'/>"
 "    <property name='HasAirplaneMode' type='b' access='read'/>"
@@ -78,24 +78,24 @@ static const gchar introspection_xml[] =
 "  </interface>"
 "</node>";
 
-static void msd_rfkill_manager_finalize (GObject *object);
+static void csd_rfkill_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdRfkillManager, msd_rfkill_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdRfkillManager, csd_rfkill_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 static void
-msd_rfkill_manager_class_init (MsdRfkillManagerClass *klass)
+csd_rfkill_manager_class_init (MsdRfkillManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_rfkill_manager_finalize;
+        object_class->finalize = csd_rfkill_manager_finalize;
 }
 
 static void
-msd_rfkill_manager_init (MsdRfkillManager *manager)
+csd_rfkill_manager_init (MsdRfkillManager *manager)
 {
-        manager->priv = msd_rfkill_manager_get_instance_private (manager);
+        manager->priv = csd_rfkill_manager_get_instance_private (manager);
 }
 
 static gboolean
@@ -623,7 +623,7 @@ on_mm_proxy_gotten (GObject      *source,
 }
 
 gboolean
-msd_rfkill_manager_start (MsdRfkillManager *manager,
+csd_rfkill_manager_start (MsdRfkillManager *manager,
                          GError         **error)
 {
         cafe_settings_profile_start (NULL);
@@ -671,7 +671,7 @@ msd_rfkill_manager_start (MsdRfkillManager *manager,
 }
 
 void
-msd_rfkill_manager_stop (MsdRfkillManager *manager)
+csd_rfkill_manager_stop (MsdRfkillManager *manager)
 {
         MsdRfkillManagerPrivate *p = manager->priv;
 
@@ -702,7 +702,7 @@ msd_rfkill_manager_stop (MsdRfkillManager *manager)
 }
 
 static void
-msd_rfkill_manager_finalize (GObject *object)
+csd_rfkill_manager_finalize (GObject *object)
 {
         MsdRfkillManager *manager;
 
@@ -713,13 +713,13 @@ msd_rfkill_manager_finalize (GObject *object)
 
         g_return_if_fail (manager->priv != NULL);
 
-        msd_rfkill_manager_stop (manager);
+        csd_rfkill_manager_stop (manager);
 
-        G_OBJECT_CLASS (msd_rfkill_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_rfkill_manager_parent_class)->finalize (object);
 }
 
 MsdRfkillManager *
-msd_rfkill_manager_new (void)
+csd_rfkill_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

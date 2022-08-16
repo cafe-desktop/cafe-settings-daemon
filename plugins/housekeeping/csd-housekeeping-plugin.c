@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-housekeeping-plugin.h"
-#include "msd-housekeeping-manager.h"
+#include "csd-housekeeping-plugin.h"
+#include "csd-housekeeping-manager.h"
 
 struct MsdHousekeepingPluginPrivate {
         MsdHousekeepingManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdHousekeepingPlugin, msd_housekeeping_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdHousekeepingPlugin, csd_housekeeping_plugin)
 
 static void
-msd_housekeeping_plugin_init (MsdHousekeepingPlugin *plugin)
+csd_housekeeping_plugin_init (MsdHousekeepingPlugin *plugin)
 {
-        plugin->priv = msd_housekeeping_plugin_get_instance_private (plugin);
+        plugin->priv = csd_housekeeping_plugin_get_instance_private (plugin);
 
         g_debug ("MsdHousekeepingPlugin initializing");
 
-        plugin->priv->manager = msd_housekeeping_manager_new ();
+        plugin->priv->manager = csd_housekeeping_manager_new ();
 }
 
 static void
-msd_housekeeping_plugin_finalize (GObject *object)
+csd_housekeeping_plugin_finalize (GObject *object)
 {
         MsdHousekeepingPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_housekeeping_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_housekeeping_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_housekeeping_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating housekeeping plugin");
 
         error = NULL;
-        res = msd_housekeeping_manager_start (MSD_HOUSEKEEPING_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_housekeeping_manager_start (MSD_HOUSEKEEPING_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start housekeeping manager: %s", error->message);
                 g_error_free (error);
@@ -84,23 +84,23 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating housekeeping plugin");
-        msd_housekeeping_manager_stop (MSD_HOUSEKEEPING_PLUGIN (plugin)->priv->manager);
+        csd_housekeeping_manager_stop (MSD_HOUSEKEEPING_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_housekeeping_plugin_class_init (MsdHousekeepingPluginClass *klass)
+csd_housekeeping_plugin_class_init (MsdHousekeepingPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_housekeeping_plugin_finalize;
+        object_class->finalize = csd_housekeeping_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_housekeeping_plugin_class_finalize (MsdHousekeepingPluginClass *klass)
+csd_housekeeping_plugin_class_finalize (MsdHousekeepingPluginClass *klass)
 {
 }
 

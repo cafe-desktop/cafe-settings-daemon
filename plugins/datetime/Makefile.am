@@ -5,30 +5,30 @@ polkitdir = $(datadir)/polkit-1/actions
 dbus_services_in_files = org.cafe.SettingsDaemon.DateTimeMechanism.service.in
 polkit_in_files = org.cafe.settingsdaemon.datetimemechanism.policy.in
 
-msd-datetime-mechanism-glue.h: $(srcdir)/msd-datetime-mechanism.xml
+csd-datetime-mechanism-glue.h: $(srcdir)/csd-datetime-mechanism.xml
 	$(AM_V_GEN) dbus-binding-tool \
-			--prefix=msd_datetime_mechanism --mode=glib-server	\
-			--output=msd-datetime-mechanism-glue.h			\
-			$(srcdir)/msd-datetime-mechanism.xml
+			--prefix=csd_datetime_mechanism --mode=glib-server	\
+			--output=csd-datetime-mechanism-glue.h			\
+			$(srcdir)/csd-datetime-mechanism.xml
 
 if HAVE_POLKIT
-libexec_PROGRAMS = msd-datetime-mechanism
+libexec_PROGRAMS = csd-datetime-mechanism
 endif
 
-msd_datetime_mechanism_SOURCES =		\
-	msd-datetime-mechanism.c		\
-	msd-datetime-mechanism.h		\
-	msd-datetime-mechanism-main.c	\
+csd_datetime_mechanism_SOURCES =		\
+	csd-datetime-mechanism.c		\
+	csd-datetime-mechanism.h		\
+	csd-datetime-mechanism-main.c	\
 	system-timezone.c			\
 	system-timezone.h
 
 
 if HAVE_POLKIT
-BUILT_SOURCES = msd-datetime-mechanism-glue.h
+BUILT_SOURCES = csd-datetime-mechanism-glue.h
 endif
 
 AM_CFLAGS = $(WARN_CFLAGS) $(SETTINGS_PLUGIN_CFLAGS) $(POLKIT_CFLAGS)
-msd_datetime_mechanism_LDADD = $(POLKIT_LIBS) $(SETTINGS_PLUGIN_LIBS)
+csd_datetime_mechanism_LDADD = $(POLKIT_LIBS) $(SETTINGS_PLUGIN_LIBS)
 
 
 if HAVE_POLKIT
@@ -52,7 +52,7 @@ EXTRA_DIST =						\
 	$(dbus_services_in_files)			\
 	org.cafe.SettingsDaemon.DateTimeMechanism.conf	\
 	$(polkit_in_files)				\
-	msd-datetime-mechanism.xml
+	csd-datetime-mechanism.xml
 
 CLEANFILES = 		\
 	org.cafe.SettingsDaemon.DateTimeMechanism.service	\

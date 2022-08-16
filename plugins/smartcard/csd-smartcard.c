@@ -1,4 +1,4 @@
-/* msd-smartcard.c - smartcard object
+/* csd-smartcard.c - smartcard object
  *
  * Copyright (C) 2006 Ray Strode <rstrode@redhat.com>
  *
@@ -18,7 +18,7 @@
  * 02110-1301, USA.
  */
 #define MSD_SMARTCARD_ENABLE_INTERNAL_API
-#include "msd-smartcard.h"
+#include "csd-smartcard.h"
 
 #include <errno.h>
 #include <string.h>
@@ -45,29 +45,29 @@ struct _MsdSmartcardPrivate {
         char *name;
 };
 
-static void msd_smartcard_finalize (GObject *object);
-static void msd_smartcard_class_install_signals (MsdSmartcardClass *card_class);
-static void msd_smartcard_class_install_properties (MsdSmartcardClass *card_class);
-static void msd_smartcard_set_property (GObject       *object,
+static void csd_smartcard_finalize (GObject *object);
+static void csd_smartcard_class_install_signals (MsdSmartcardClass *card_class);
+static void csd_smartcard_class_install_properties (MsdSmartcardClass *card_class);
+static void csd_smartcard_set_property (GObject       *object,
                                         guint          prop_id,
                                         const GValue  *value,
                                         GParamSpec    *pspec);
-static void msd_smartcard_get_property (GObject     *object,
+static void csd_smartcard_get_property (GObject     *object,
                                         guint        prop_id,
                                         GValue      *value,
                                         GParamSpec  *pspec);
-static void msd_smartcard_set_name (MsdSmartcard *card, const char *name);
-static void msd_smartcard_set_slot_id (MsdSmartcard *card,
+static void csd_smartcard_set_name (MsdSmartcard *card, const char *name);
+static void csd_smartcard_set_slot_id (MsdSmartcard *card,
                                        int                 slot_id);
-static void msd_smartcard_set_slot_series (MsdSmartcard *card,
+static void csd_smartcard_set_slot_series (MsdSmartcard *card,
                                            int          slot_series);
-static void msd_smartcard_set_module (MsdSmartcard *card,
+static void csd_smartcard_set_module (MsdSmartcard *card,
                                       SECMODModule *module);
 
-static PK11SlotInfo *msd_smartcard_find_slot_from_id (MsdSmartcard *card,
+static PK11SlotInfo *csd_smartcard_find_slot_from_id (MsdSmartcard *card,
                                                       int slot_id);
 
-static PK11SlotInfo *msd_smartcard_find_slot_from_card_name (MsdSmartcard *card,
+static PK11SlotInfo *csd_smartcard_find_slot_from_card_name (MsdSmartcard *card,
                                                              const char  *card_name);
 #ifndef MSD_SMARTCARD_DEFAULT_SLOT_ID
 #define MSD_SMARTCARD_DEFAULT_SLOT_ID ((gulong) -1)
@@ -92,31 +92,31 @@ enum {
         NUMBER_OF_SIGNALS
 };
 
-static guint msd_smartcard_signals[NUMBER_OF_SIGNALS] = { 0 };
+static guint csd_smartcard_signals[NUMBER_OF_SIGNALS] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdSmartcard, msd_smartcard, G_TYPE_OBJECT);
+G_DEFINE_TYPE_WITH_PRIVATE (MsdSmartcard, csd_smartcard, G_TYPE_OBJECT);
 
 static void
-msd_smartcard_class_init (MsdSmartcardClass *card_class)
+csd_smartcard_class_init (MsdSmartcardClass *card_class)
 {
         GObjectClass *gobject_class;
 
         gobject_class = G_OBJECT_CLASS (card_class);
 
-        gobject_class->finalize = msd_smartcard_finalize;
+        gobject_class->finalize = csd_smartcard_finalize;
 
-        msd_smartcard_class_install_signals (card_class);
-        msd_smartcard_class_install_properties (card_class);
+        csd_smartcard_class_install_signals (card_class);
+        csd_smartcard_class_install_properties (card_class);
 }
 
 static void
-msd_smartcard_class_install_signals (MsdSmartcardClass *card_class)
+csd_smartcard_class_install_signals (MsdSmartcardClass *card_class)
 {
         GObjectClass *object_class;
 
         object_class = G_OBJECT_CLASS (card_class);
 
-        msd_smartcard_signals[INSERTED] =
+        csd_smartcard_signals[INSERTED] =
                 g_signal_new ("inserted",
                           G_OBJECT_CLASS_TYPE (object_class),
                           G_SIGNAL_RUN_LAST,
@@ -125,7 +125,7 @@ msd_smartcard_class_install_signals (MsdSmartcardClass *card_class)
                           NULL, NULL, g_cclosure_marshal_VOID__VOID,
                           G_TYPE_NONE, 0);
 
-        msd_smartcard_signals[REMOVED] =
+        csd_smartcard_signals[REMOVED] =
                 g_signal_new ("removed",
                           G_OBJECT_CLASS_TYPE (object_class),
                           G_SIGNAL_RUN_LAST,
@@ -136,14 +136,14 @@ msd_smartcard_class_install_signals (MsdSmartcardClass *card_class)
 }
 
 static void
-msd_smartcard_class_install_properties (MsdSmartcardClass *card_class)
+csd_smartcard_class_install_properties (MsdSmartcardClass *card_class)
 {
         GObjectClass *object_class;
         GParamSpec *param_spec;
 
         object_class = G_OBJECT_CLASS (card_class);
-        object_class->set_property = msd_smartcard_set_property;
-        object_class->get_property = msd_smartcard_get_property;
+        object_class->set_property = csd_smartcard_set_property;
+        object_class->get_property = csd_smartcard_get_property;
 
         param_spec = g_param_spec_ulong ("slot-id", _("Slot ID"),
                                    _("The slot the card is in"),
@@ -171,7 +171,7 @@ msd_smartcard_class_install_properties (MsdSmartcardClass *card_class)
 }
 
 static void
-msd_smartcard_set_property (GObject       *object,
+csd_smartcard_set_property (GObject       *object,
                             guint          prop_id,
                             const GValue  *value,
                             GParamSpec    *pspec)
@@ -180,21 +180,21 @@ msd_smartcard_set_property (GObject       *object,
 
         switch (prop_id) {
                 case PROP_NAME:
-                        msd_smartcard_set_name (card, g_value_get_string (value));
+                        csd_smartcard_set_name (card, g_value_get_string (value));
                         break;
 
                 case PROP_SLOT_ID:
-                        msd_smartcard_set_slot_id (card,
+                        csd_smartcard_set_slot_id (card,
                                                    g_value_get_ulong (value));
                         break;
 
                 case PROP_SLOT_SERIES:
-                        msd_smartcard_set_slot_series (card,
+                        csd_smartcard_set_slot_series (card,
                                                        g_value_get_int (value));
                         break;
 
                 case PROP_MODULE:
-                        msd_smartcard_set_module (card,
+                        csd_smartcard_set_module (card,
                                                   (SECMODModule *)
                                                   g_value_get_pointer (value));
                         break;
@@ -205,25 +205,25 @@ msd_smartcard_set_property (GObject       *object,
 }
 
 CK_SLOT_ID
-msd_smartcard_get_slot_id (MsdSmartcard *card)
+csd_smartcard_get_slot_id (MsdSmartcard *card)
 {
         return card->priv->slot_id;
 }
 
 MsdSmartcardState
-msd_smartcard_get_state (MsdSmartcard *card)
+csd_smartcard_get_state (MsdSmartcard *card)
 {
         return card->priv->state;
 }
 
 char *
-msd_smartcard_get_name (MsdSmartcard *card)
+csd_smartcard_get_name (MsdSmartcard *card)
 {
         return g_strdup (card->priv->name);
 }
 
 gboolean
-msd_smartcard_is_login_card (MsdSmartcard *card)
+csd_smartcard_is_login_card (MsdSmartcard *card)
 {
         const char *login_card_name;
         login_card_name = g_getenv ("PKCS11_LOGIN_TOKEN_NAME");
@@ -240,7 +240,7 @@ msd_smartcard_is_login_card (MsdSmartcard *card)
 }
 
 static void
-msd_smartcard_get_property (GObject    *object,
+csd_smartcard_get_property (GObject    *object,
                             guint        prop_id,
                             GValue      *value,
                             GParamSpec  *pspec)
@@ -250,17 +250,17 @@ msd_smartcard_get_property (GObject    *object,
         switch (prop_id) {
                 case PROP_NAME:
                         g_value_take_string (value,
-                                             msd_smartcard_get_name (card));
+                                             csd_smartcard_get_name (card));
                         break;
 
                 case PROP_SLOT_ID:
                         g_value_set_ulong (value,
-                                           (gulong) msd_smartcard_get_slot_id (card));
+                                           (gulong) csd_smartcard_get_slot_id (card));
                         break;
 
                 case PROP_SLOT_SERIES:
                         g_value_set_int (value,
-                                         msd_smartcard_get_slot_series (card));
+                                         csd_smartcard_get_slot_series (card));
                         break;
 
                 default:
@@ -269,7 +269,7 @@ msd_smartcard_get_property (GObject    *object,
 }
 
 static void
-msd_smartcard_set_name (MsdSmartcard *card,
+csd_smartcard_set_name (MsdSmartcard *card,
                         const char   *name)
 {
         if (name == NULL) {
@@ -282,7 +282,7 @@ msd_smartcard_set_name (MsdSmartcard *card,
                 card->priv->name = g_strdup (name);
 
                 if (card->priv->slot == NULL) {
-                        card->priv->slot = msd_smartcard_find_slot_from_card_name (card,
+                        card->priv->slot = csd_smartcard_find_slot_from_card_name (card,
                                                                                      card->priv->name);
 
                         if (card->priv->slot != NULL) {
@@ -290,17 +290,17 @@ msd_smartcard_set_name (MsdSmartcard *card,
 
                                 slot_id = PK11_GetSlotID (card->priv->slot);
                                 if (slot_id != card->priv->slot_id) {
-                                        msd_smartcard_set_slot_id (card, slot_id);
+                                        csd_smartcard_set_slot_id (card, slot_id);
                                 }
 
                                 slot_series = PK11_GetSlotSeries (card->priv->slot);
                                 if (slot_series != card->priv->slot_series) {
-                                        msd_smartcard_set_slot_series (card, slot_series);
+                                        csd_smartcard_set_slot_series (card, slot_series);
                                 }
 
-                                _msd_smartcard_set_state (card, MSD_SMARTCARD_STATE_INSERTED);
+                                _csd_smartcard_set_state (card, MSD_SMARTCARD_STATE_INSERTED);
                         } else {
-                                _msd_smartcard_set_state (card, MSD_SMARTCARD_STATE_REMOVED);
+                                _csd_smartcard_set_state (card, MSD_SMARTCARD_STATE_REMOVED);
                         }
                 }
 
@@ -309,14 +309,14 @@ msd_smartcard_set_name (MsdSmartcard *card,
 }
 
 static void
-msd_smartcard_set_slot_id (MsdSmartcard *card,
+csd_smartcard_set_slot_id (MsdSmartcard *card,
                            int           slot_id)
 {
         if (card->priv->slot_id != slot_id) {
                 card->priv->slot_id = slot_id;
 
                 if (card->priv->slot == NULL) {
-                        card->priv->slot = msd_smartcard_find_slot_from_id (card,
+                        card->priv->slot = csd_smartcard_find_slot_from_id (card,
                                                                              card->priv->slot_id);
 
                         if (card->priv->slot != NULL) {
@@ -326,12 +326,12 @@ msd_smartcard_set_slot_id (MsdSmartcard *card,
                                 if ((card->priv->name == NULL) ||
                                     ((card_name != NULL) &&
                                     (strcmp (card_name, card->priv->name) != 0))) {
-                                        msd_smartcard_set_name (card, card_name);
+                                        csd_smartcard_set_name (card, card_name);
                                 }
 
-                                _msd_smartcard_set_state (card, MSD_SMARTCARD_STATE_INSERTED);
+                                _csd_smartcard_set_state (card, MSD_SMARTCARD_STATE_INSERTED);
                         } else {
-                                _msd_smartcard_set_state (card, MSD_SMARTCARD_STATE_REMOVED);
+                                _csd_smartcard_set_state (card, MSD_SMARTCARD_STATE_REMOVED);
                         }
                 }
 
@@ -340,7 +340,7 @@ msd_smartcard_set_slot_id (MsdSmartcard *card,
 }
 
 static void
-msd_smartcard_set_slot_series (MsdSmartcard *card,
+csd_smartcard_set_slot_series (MsdSmartcard *card,
                                int           slot_series)
 {
         if (card->priv->slot_series != slot_series) {
@@ -350,7 +350,7 @@ msd_smartcard_set_slot_series (MsdSmartcard *card,
 }
 
 static void
-msd_smartcard_set_module (MsdSmartcard *card,
+csd_smartcard_set_module (MsdSmartcard *card,
                           SECMODModule *module)
 {
         gboolean should_notify;
@@ -376,25 +376,25 @@ msd_smartcard_set_module (MsdSmartcard *card,
 }
 
 int
-msd_smartcard_get_slot_series (MsdSmartcard *card)
+csd_smartcard_get_slot_series (MsdSmartcard *card)
 {
         return card->priv->slot_series;
 }
 
 static void
-msd_smartcard_init (MsdSmartcard *card)
+csd_smartcard_init (MsdSmartcard *card)
 {
 
         g_debug ("initializing smartcard ");
 
-        card->priv = msd_smartcard_get_instance_private (card);
+        card->priv = csd_smartcard_get_instance_private (card);
 
         if (card->priv->slot != NULL) {
                 card->priv->name = g_strdup (PK11_GetTokenName (card->priv->slot));
         }
 }
 
-static void msd_smartcard_finalize (GObject *object)
+static void csd_smartcard_finalize (GObject *object)
 {
         MsdSmartcard *card;
         GObjectClass *gobject_class;
@@ -403,26 +403,26 @@ static void msd_smartcard_finalize (GObject *object)
 
         g_free (card->priv->name);
 
-        msd_smartcard_set_module (card, NULL);
+        csd_smartcard_set_module (card, NULL);
 
-        gobject_class = G_OBJECT_CLASS (msd_smartcard_parent_class);
+        gobject_class = G_OBJECT_CLASS (csd_smartcard_parent_class);
 
         gobject_class->finalize (object);
 }
 
-GQuark msd_smartcard_error_quark (void)
+GQuark csd_smartcard_error_quark (void)
 {
         static GQuark error_quark = 0;
 
         if (error_quark == 0) {
-                error_quark = g_quark_from_static_string ("msd-smartcard-error-quark");
+                error_quark = g_quark_from_static_string ("csd-smartcard-error-quark");
         }
 
         return error_quark;
 }
 
 MsdSmartcard *
-_msd_smartcard_new (SECMODModule *module,
+_csd_smartcard_new (SECMODModule *module,
                     CK_SLOT_ID    slot_id,
                     int           slot_series)
 {
@@ -442,7 +442,7 @@ _msd_smartcard_new (SECMODModule *module,
 }
 
 MsdSmartcard *
-_msd_smartcard_new_from_name (SECMODModule *module,
+_csd_smartcard_new_from_name (SECMODModule *module,
                               const char   *name)
 {
         MsdSmartcard *card;
@@ -458,16 +458,16 @@ _msd_smartcard_new_from_name (SECMODModule *module,
 }
 
 void
-_msd_smartcard_set_state (MsdSmartcard      *card,
+_csd_smartcard_set_state (MsdSmartcard      *card,
                           MsdSmartcardState  state)
 {
         if (card->priv->state != state) {
                 card->priv->state = state;
 
                 if (state == MSD_SMARTCARD_STATE_INSERTED) {
-                        g_signal_emit (card, msd_smartcard_signals[INSERTED], 0);
+                        g_signal_emit (card, csd_smartcard_signals[INSERTED], 0);
                 } else if (state == MSD_SMARTCARD_STATE_REMOVED) {
-                        g_signal_emit (card, msd_smartcard_signals[REMOVED], 0);
+                        g_signal_emit (card, csd_smartcard_signals[REMOVED], 0);
                 } else {
                         g_assert_not_reached ();
                 }
@@ -481,7 +481,7 @@ _msd_smartcard_set_state (MsdSmartcard      *card,
  * and strdup it using NSPR's memory allocation routines.
  */
 static char *
-msd_smartcard_password_handler (PK11SlotInfo *slot,
+csd_smartcard_password_handler (PK11SlotInfo *slot,
                                 PRBool        is_retrying,
                                 const char   *password)
 {
@@ -493,12 +493,12 @@ msd_smartcard_password_handler (PK11SlotInfo *slot,
 }
 
 gboolean
-msd_smartcard_unlock (MsdSmartcard *card,
+csd_smartcard_unlock (MsdSmartcard *card,
                       const char   *password)
 {
         SECStatus status;
 
-        PK11_SetPasswordFunc ((PK11PasswordFunc) msd_smartcard_password_handler);
+        PK11_SetPasswordFunc ((PK11PasswordFunc) csd_smartcard_password_handler);
 
         /* we pass PR_TRUE to load certificates
         */
@@ -512,7 +512,7 @@ msd_smartcard_unlock (MsdSmartcard *card,
 }
 
 static PK11SlotInfo *
-msd_smartcard_find_slot_from_card_name (MsdSmartcard *card,
+csd_smartcard_find_slot_from_card_name (MsdSmartcard *card,
                                         const char   *card_name)
 {
         int i;
@@ -532,7 +532,7 @@ msd_smartcard_find_slot_from_card_name (MsdSmartcard *card,
 }
 
 static PK11SlotInfo *
-msd_smartcard_find_slot_from_id (MsdSmartcard *card,
+csd_smartcard_find_slot_from_id (MsdSmartcard *card,
                                  int           slot_id)
 {
         int i;

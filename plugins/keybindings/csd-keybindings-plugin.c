@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-keybindings-plugin.h"
-#include "msd-keybindings-manager.h"
+#include "csd-keybindings-plugin.h"
+#include "csd-keybindings-manager.h"
 
 struct MsdKeybindingsPluginPrivate {
         MsdKeybindingsManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeybindingsPlugin, msd_keybindings_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeybindingsPlugin, csd_keybindings_plugin)
 
 static void
-msd_keybindings_plugin_init (MsdKeybindingsPlugin *plugin)
+csd_keybindings_plugin_init (MsdKeybindingsPlugin *plugin)
 {
-        plugin->priv = msd_keybindings_plugin_get_instance_private (plugin);
+        plugin->priv = csd_keybindings_plugin_get_instance_private (plugin);
 
         g_debug ("MsdKeybindingsPlugin initializing");
 
-        plugin->priv->manager = msd_keybindings_manager_new ();
+        plugin->priv->manager = csd_keybindings_manager_new ();
 }
 
 static void
-msd_keybindings_plugin_finalize (GObject *object)
+csd_keybindings_plugin_finalize (GObject *object)
 {
         MsdKeybindingsPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_keybindings_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_keybindings_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_keybindings_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating keybindings plugin");
 
         error = NULL;
-        res = msd_keybindings_manager_start (MSD_KEYBINDINGS_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_keybindings_manager_start (MSD_KEYBINDINGS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start keybindings manager: %s", error->message);
                 g_error_free (error);
@@ -84,22 +84,22 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating keybindings plugin");
-        msd_keybindings_manager_stop (MSD_KEYBINDINGS_PLUGIN (plugin)->priv->manager);
+        csd_keybindings_manager_stop (MSD_KEYBINDINGS_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_keybindings_plugin_class_init (MsdKeybindingsPluginClass *klass)
+csd_keybindings_plugin_class_init (MsdKeybindingsPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_keybindings_plugin_finalize;
+        object_class->finalize = csd_keybindings_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_keybindings_plugin_class_finalize (MsdKeybindingsPluginClass *klass)
+csd_keybindings_plugin_class_finalize (MsdKeybindingsPluginClass *klass)
 {
 }

@@ -869,23 +869,23 @@ msgstr "સુલભતા કિબોર્ડ"
 msgid "Accessibility keyboard plugin"
 msgstr "સુલભતા કિબોર્ડ પ્લગઇન"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "મદદ દર્શાવવામાં ભૂલ છે: %s"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid "Do you want to activate Slow Keys?"
 msgstr "શું તમે આ ધીમી કીઓને સક્રિય કરવા માંગો છો?"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "શું તમે આ ધીમી કીઓને નિષ્ક્રિય કરવા માંગો છો?"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -893,62 +893,62 @@ msgstr ""
 "તમારે ફક્ત ૮ સેકન્ડો સુધી Shift કી દબાવી રાખવી પડશે. આ ધીમી કીના લક્ષણો "
 "માટેનુ ટુંકાણ છે, કે જે તમારા કીબોર્ડને કામ કરવામાં અસર કરશે."
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
 msgid "Don't activate"
 msgstr "સક્રિય કરશો નહિં"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
 msgid "Don't deactivate"
 msgstr "નિષ્ક્રિય કરશો નહિં"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
 msgid "Activate"
 msgstr "સક્રિય કરો"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
 msgid "Deactivate"
 msgstr "નિષ્ક્રિય કરો"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
 msgid "Do_n't activate"
 msgstr "સક્રિય કરશો નહિં (_n)"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
 msgid "Do_n't deactivate"
 msgstr "નિષ્ક્રિય કરશો નહિં (_n)"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
 msgid "_Activate"
 msgstr "સક્રિય કરો (_A)"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
 msgid "_Deactivate"
 msgstr "નિષ્ક્રિય કરો (_D)"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
 msgid "Slow Keys Alert"
 msgstr "કીની ચેતવણી બતાવો"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
 msgid "Do you want to activate Sticky Keys?"
 msgstr "શું તમે આ સ્ટીકી કીઓને સક્રિય કરવા માંગો છો?"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "શું તમે આ સ્ટીકી કીઓને નિષ્ક્રિય કરવા માંગો છો?"
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -956,8 +956,8 @@ msgstr ""
 "તમારે ફક્ત ૫ સેકન્ડો સુધી Shift કી દબાવી રાખવી પડશે. આ ધીમી કીના લક્ષણો "
 "માટેનુ ટુંકાણ છે, કે જે તમારા કીબોર્ડને કામ કરવામાં અસર કરશે."
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -967,44 +967,44 @@ msgstr ""
 " રાખવી પડશે. આ ધીમી કીના લક્ષણો માટેનુ ટુંકાણ છે, કે જે તમારા કીબોર્ડને કામ "
 "કરવામાં અસર કરશે."
 
-#: plugins/a11y-keyboard/msd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
 msgid "Sticky Keys Alert"
 msgstr "સ્ટીકી કીઓની ચેતવણી"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.c:766
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:14
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "સાર્વત્રિક વપરાશ પસંદગીઓ"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:86
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:86
 msgid "Use on-screen _keyboard"
 msgstr "ઓનસ્ક્રીન કીબોર્ડ ને વાપરો (_k)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:102
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:102
 msgid "Use screen _reader"
 msgstr "સ્ક્રીન વાંચક ને વાપરો (_r)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:118
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:118
 msgid "Use screen _magnifier"
 msgstr "સ્ક્રીન વિસ્તારક વાપરો (_m)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:134
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:134
 msgid "Enhance _contrast in colors"
 msgstr "રંગોમાં વિરોધાભાસ વધારો (_c)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:150
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:150
 msgid "Make _text larger and easier to read"
 msgstr "લખાણ મોટું બનાવો અને વાંચવામાં સરળ બનાવો (_t)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:166
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
 msgstr "એક સમયે એક કી એવું કીબોર્ડ ટૂંકાણ દબાવો (_P) (સ્ટીકી કીઓ)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:182
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr "આમાં નકલી કી દબાણ (બાઉન્સ કીઓ) અવગણો (_I)"
 
-#: plugins/a11y-keyboard/msd-a11y-preferences-dialog.ui:198
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "કીઓને સ્વીકારવા માટે તેમને દબાવો અને પકડી રાખો (_h) (ધીમી કીઓ)"
 
@@ -1074,25 +1074,25 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:63
 msgid "Don't show any warnings again for this file system"
 msgstr ""
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:65
 msgid "Don't show any warnings again"
 msgstr "કોઇપણ ચેતવણીઓ ફરીથી બતાવશો નહિં"
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "વોલ્યુમ \"%s\" પાસે ફક્ત %s ડિસ્ક જગ્યા રહેલી છે."
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:81
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "આ કમ્પ્યૂટર પાસે ફક્ત %s ડિસ્ક જગ્યા રહેલી છે."
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1100,7 +1100,7 @@ msgstr ""
 "કચરાપેટીને ખાલી કરતી વખતે, બિનઉપયોગી પ્રક્રિયાઓ અથવા ફાઇલો, અથવા બીજા ડિસ્ક "
 "અથવા પાર્ટીશનમાં ફાઇલોને ખસેડતી વખતે તમે ડિસ્ક જગ્યાને ખાલી કરી શકો છો."
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:100
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1108,7 +1108,7 @@ msgstr ""
 "બિનઉપયોગી પ્રક્રિયાઓ અને ફાઇલોને દૂર કરતી વખતે તમે ડિસ્ક જગ્યાને ખાલી કરી "
 "શકો છો, અથવા બીજી ડિસ્ક અથવા પાર્ટીશનમાં ફાઇલોને ખસેડી રહ્યા છે."
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1117,7 +1117,7 @@ msgstr ""
 "પ્રક્રિયાઓ અને ફાઇલોને દૂર કરી રહ્યા છે, અથવા બહારની ડિસ્ક માં ફાઇલોને ખસેડી"
 " રહ્યા છે."
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:108
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1126,51 +1126,51 @@ msgstr ""
 "છો."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/msd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:204
 msgid "Low Disk Space"
 msgstr "નીચી ડિસ્ક જગ્યા"
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:439
 msgid "Empty Trash"
 msgstr "કચરાપેટી ને ખાલી કરો"
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:447
 msgid "Examine…"
 msgstr ""
 
-#: plugins/housekeeping/msd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:454
 msgid "Ignore"
 msgstr "અવગણો"
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:97
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "%lu નું વસ્તુ %lu ને દૂર કરી રહ્યા છે"
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:117
 #, c-format
 msgid "Removing: %s"
 msgstr "દૂર કરી રહ્યા છીએ: %s"
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:247
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:247
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:300
 msgid "Emptying the trash"
 msgstr "કચરાપેટીને ખાલી કરી રહ્યા છે"
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:276
 msgid "Preparing to empty trash…"
 msgstr ""
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:303
 msgid "From: "
 msgstr "માંથી: "
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:355
 msgid "Empty all of the items from the trash?"
 msgstr "કચરાપેટીમાંથી બધી વસ્તુઓ ખાલી કરવી છે?"
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:358
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1178,7 +1178,7 @@ msgstr ""
 "જો તમે કચરાપેટી ખાલી કરવાનું પસંદ કરો, તો તેમાંની બધી વસ્તુઓ કાયમ માટે નાશ "
 "થઈ જશે. મહેરબાની કરીને નોંધ કરો કે તમે તેમને અલગ અલગ રીતે પણ કાઢી શકો છો."
 
-#: plugins/housekeeping/msd-ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd-ldsm-trash-empty.c:365
 msgid "_Empty Trash"
 msgstr "કચરાપેટી ખાલી કરો (_E)"
 
@@ -1190,17 +1190,17 @@ msgstr "Keybindings"
 msgid "Keybindings plugin"
 msgstr "Keybindings પ્લગઇન"
 
-#: plugins/keybindings/msd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:110
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "કી જોડાણ (%s) અયોગ્ય છે"
 
-#: plugins/keybindings/msd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:146
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "કી જોડાણ (%s) અધૂરુ છે"
 
-#: plugins/keybindings/msd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:488
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1217,7 +1217,7 @@ msgstr "કીબોર્ડ"
 msgid "Keyboard plugin"
 msgstr "કીબોર્ડ પ્લગઇન"
 
-#: plugins/keyboard/msd-keyboard-xkb.c:119
+#: plugins/keyboard/csd-keyboard-xkb.c:119
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1234,15 +1234,15 @@ msgid ""
 " • The result of <b>%s</b>"
 msgstr ""
 
-#: plugins/keyboard/msd-keyboard-xkb.c:279
+#: plugins/keyboard/csd-keyboard-xkb.c:279
 msgid "_Layouts"
 msgstr ""
 
-#: plugins/keyboard/msd-keyboard-xkb.c:286
+#: plugins/keyboard/csd-keyboard-xkb.c:286
 msgid "Keyboard _Preferences"
 msgstr ""
 
-#: plugins/keyboard/msd-keyboard-xkb.c:292
+#: plugins/keyboard/csd-keyboard-xkb.c:292
 msgid "Show _Current Layout"
 msgstr ""
 
@@ -1254,7 +1254,7 @@ msgstr "મીડિયા કીઓ"
 msgid "Media keys plugin"
 msgstr "મીડિયા કી પલ્ગઇન"
 
-#: plugins/media-keys/msd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:187
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is"
 " set and points to a valid application."
@@ -1262,7 +1262,7 @@ msgstr ""
 "મૂળભૂત ટર્મિનલ મેળવી શક્યા નહિં. ખાતરી કરો કે તમારો મૂળભૂત ટર્મિનલ આદેશ "
 "સુયોજિત છે અને માન્ય કાર્યક્રમનો નિર્દેશ કરે છે."
 
-#: plugins/media-keys/msd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:227
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1271,46 +1271,46 @@ msgstr ""
 "આદેશ ચલાવી શક્યા નહિં: %s\n"
 "ખાતરી કરો કે આ માન્ય આદેશ છે."
 
-#: plugins/media-keys/msd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:641
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:641
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:960
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:967
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:998
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1036
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/msd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1040
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1323,16 +1323,16 @@ msgstr "માઉસ"
 msgid "Mouse plugin"
 msgstr "માઉસ પ્લગઇન"
 
-#: plugins/mouse/msd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid "Could not enable mouse accessibility features"
 msgstr "માઉસ પ્રાપ્ય લાક્ષણિકતાઓને સક્રિય કરી શકાયુ નહિં"
 
-#: plugins/mouse/msd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1654
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 
-#: plugins/mouse/msd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1657
 msgid "Mouse Preferences"
 msgstr "માઉસની પસંદગીઓ"
 
@@ -1354,65 +1354,65 @@ msgstr ""
 msgid "Rfkill plugin"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:164
+#: plugins/smartcard/csd-smartcard-manager.c:164
 msgid "Module Path"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:165
+#: plugins/smartcard/csd-smartcard-manager.c:165
 msgid "path to smartcard PKCS #11 driver"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:491
+#: plugins/smartcard/csd-smartcard-manager.c:491
 msgid "received error or hang up from event source"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:580
+#: plugins/smartcard/csd-smartcard-manager.c:580
 msgid "NSS security system could not be initialized"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:649
+#: plugins/smartcard/csd-smartcard-manager.c:649
 msgid "no suitable smartcard driver could be found"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:669
+#: plugins/smartcard/csd-smartcard-manager.c:669
 #, c-format
 msgid "smartcard driver '%s' could not be loaded"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:753
+#: plugins/smartcard/csd-smartcard-manager.c:753
 #, c-format
 msgid "could not watch for incoming card events - %s"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard-manager.c:1100
+#: plugins/smartcard/csd-smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:148
+#: plugins/smartcard/csd-smartcard.c:148
 msgid "Slot ID"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:149
+#: plugins/smartcard/csd-smartcard.c:149
 msgid "The slot the card is in"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:155
+#: plugins/smartcard/csd-smartcard.c:155
 msgid "Slot Series"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:156
+#: plugins/smartcard/csd-smartcard.c:156
 msgid "per-slot card identifier"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:162 plugins/smartcard/msd-smartcard.c:163
+#: plugins/smartcard/csd-smartcard.c:162 plugins/smartcard/csd-smartcard.c:163
 msgid "name"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:167
+#: plugins/smartcard/csd-smartcard.c:167
 msgid "Module"
 msgstr ""
 
-#: plugins/smartcard/msd-smartcard.c:168
+#: plugins/smartcard/csd-smartcard.c:168
 msgid "smartcard driver"
 msgstr ""
 
@@ -1440,19 +1440,19 @@ msgstr "લખવાનો બ્રેક"
 msgid "Typing break plugin"
 msgstr "લખવાનો બ્રેક પ્લગઇન"
 
-#: plugins/xrandr/msd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:371
 msgid "Could not switch the monitor configuration"
 msgstr "મોનીટર રૂપરેખાંકન બદલી શક્યા નહિં"
 
-#: plugins/xrandr/msd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:395
 msgid "Could not restore the display's configuration"
 msgstr "દર્શાવનાં રૂપરેખાંકનને ફરીથી સંગ્રહ કરી શકાયુ નહિં"
 
-#: plugins/xrandr/msd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:420
 msgid "Could not restore the display's configuration from a backup"
 msgstr "બેકઅપ માંથી દર્શાવોનાં રૂપરેખાંકનને ફરીથી સંગ્રહ કરી શકાયુ નહિં"
 
-#: plugins/xrandr/msd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:441
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1460,97 +1460,97 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:490
 msgid "Does the display look OK?"
 msgstr "શું આ દર્શાવ બરાબર લાગે છે?"
 
-#: plugins/xrandr/msd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:497
 msgid "_Restore Previous Configuration"
 msgstr "પહેલાનાં રૂપરેખાંકનને ફરી સંગ્રહો (_R)"
 
-#: plugins/xrandr/msd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:498
 msgid "_Keep This Configuration"
 msgstr "આ રૂપરેખાંકનને રાખો (_K)"
 
-#: plugins/xrandr/msd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:579
 msgid "The selected configuration for displays could not be applied"
 msgstr "દર્શાવો માટે પસંદ થયેલ રૂપરેખાંકન ને લાગુ કરી શકાયુ નહિં"
 
-#: plugins/xrandr/msd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1178
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "સ્ક્રીનની જાણકારી ને ફરીથી તાજી કરી શકાઇ નહિં: %s"
 
-#: plugins/xrandr/msd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1182
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "મોનીટર રૂપરેખાંકનને ગમે તે રીતે બદલવાનો પ્રયાસ કરી રહ્યા છીએ."
 
-#: plugins/xrandr/msd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1938
 msgid "Rotation not supported"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2003
-#: plugins/xrandr/msd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2003
+#: plugins/xrandr/csd-xrandr-manager.c:2035
 msgid "Could not save monitor configuration"
 msgstr "મોનિટર રૂપરેખાંકનનો સંગ્રહ કરી શકાયો નહિં"
 
-#: plugins/xrandr/msd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2057
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2088
 msgid "Normal"
 msgstr "સામાન્ય"
 
-#: plugins/xrandr/msd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2089
 msgid "Left"
 msgstr "ડાબું"
 
-#: plugins/xrandr/msd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Right"
 msgstr "જમણું"
 
-#: plugins/xrandr/msd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Upside Down"
 msgstr "અસ્તવ્યસ્ત"
 
-#: plugins/xrandr/msd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2180
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2181
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2184
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2185
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2245
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2246
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2293
 msgid "_Configure Display Settings…"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2303
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/msd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2356
 msgid "Configure display settings"
 msgstr "દર્શાવ સુયોજનો ને રૂપરેખાંકિત કરો"
 
-#: plugins/xrandr/msd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2416
 msgid "Could not apply the stored configuration for monitors"
 msgstr "મોનિટરો માટે સંગ્રહ થયેલ રૂપરેખાંકન ને લાગુ કરી શકાયુ નહિં"
 
@@ -1562,7 +1562,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "સ્ક્રીન માપ અને ફેરવણી સુયોજનો સુયોજીત કરો"
 
-#: plugins/xrdb/msd-xrdb-manager.c:251 plugins/xrdb/msd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
 msgid "Cannot determine user's home directory"
 msgstr "વપરાશકર્તાની મુખ્ય ડિરેક્ટરી નક્કી કરી શકાઈ નહિં"
 

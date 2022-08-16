@@ -30,7 +30,7 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_MEDIA_KEYS_PLUGIN                (msd_media_keys_plugin_get_type ())
+#define MSD_TYPE_MEDIA_KEYS_PLUGIN                (csd_media_keys_plugin_get_type ())
 #define MSD_MEDIA_KEYS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, MsdMediaKeysPlugin))
 #define MSD_MEDIA_KEYS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_PLUGIN, MsdMediaKeysPluginClass))
 #define MSD_IS_MEDIA_KEYS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN))
@@ -52,7 +52,7 @@ struct _MsdMediaKeysPluginClass
         CafeSettingsPluginClass     parent_class;
 };
 
-GType msd_media_keys_plugin_get_type (void) G_GNUC_CONST;
+GType csd_media_keys_plugin_get_type (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

@@ -28,13 +28,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define MSD_TYPE_SMARTCARD            (msd_smartcard_get_type ())
+#define MSD_TYPE_SMARTCARD            (csd_smartcard_get_type ())
 #define MSD_SMARTCARD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_SMARTCARD, MsdSmartcard))
 #define MSD_SMARTCARD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_SMARTCARD, MsdSmartcardClass))
 #define MSD_IS_SMARTCARD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_SMARTCARD))
 #define MSD_IS_SMARTCARD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), MSD_TYPE_SMARTCARD))
 #define MSD_SMARTCARD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), MSD_TYPE_SMARTCARD, MsdSmartcardClass))
-#define MSD_SMARTCARD_ERROR           (msd_smartcard_error_quark ())
+#define MSD_SMARTCARD_ERROR           (csd_smartcard_error_quark ())
 typedef struct _MsdSmartcardClass MsdSmartcardClass;
 typedef struct _MsdSmartcard MsdSmartcard;
 typedef struct _MsdSmartcardPrivate MsdSmartcardPrivate;
@@ -66,29 +66,29 @@ enum _MsdSmartcardState {
     MSD_SMARTCARD_STATE_REMOVED,
 };
 
-GType msd_smartcard_get_type (void) G_GNUC_CONST;
-GQuark msd_smartcard_error_quark (void) G_GNUC_CONST;
+GType csd_smartcard_get_type (void) G_GNUC_CONST;
+GQuark csd_smartcard_error_quark (void) G_GNUC_CONST;
 
-CK_SLOT_ID msd_smartcard_get_slot_id (MsdSmartcard *card);
-gint msd_smartcard_get_slot_series (MsdSmartcard *card);
-MsdSmartcardState msd_smartcard_get_state (MsdSmartcard *card);
+CK_SLOT_ID csd_smartcard_get_slot_id (MsdSmartcard *card);
+gint csd_smartcard_get_slot_series (MsdSmartcard *card);
+MsdSmartcardState csd_smartcard_get_state (MsdSmartcard *card);
 
-char *msd_smartcard_get_name (MsdSmartcard *card);
-gboolean msd_smartcard_is_login_card (MsdSmartcard *card);
+char *csd_smartcard_get_name (MsdSmartcard *card);
+gboolean csd_smartcard_is_login_card (MsdSmartcard *card);
 
-gboolean msd_smartcard_unlock (MsdSmartcard *card,
+gboolean csd_smartcard_unlock (MsdSmartcard *card,
                                const char   *password);
 
 /* don't under any circumstances call these functions */
 #ifdef MSD_SMARTCARD_ENABLE_INTERNAL_API
 
-MsdSmartcard *_msd_smartcard_new (SECMODModule *module,
+MsdSmartcard *_csd_smartcard_new (SECMODModule *module,
                                   CK_SLOT_ID    slot_id,
                                   gint          slot_series);
-MsdSmartcard *_msd_smartcard_new_from_name (SECMODModule *module,
+MsdSmartcard *_csd_smartcard_new_from_name (SECMODModule *module,
                                             const char   *name);
 
-void _msd_smartcard_set_state (MsdSmartcard      *card,
+void _csd_smartcard_set_state (MsdSmartcard      *card,
                                MsdSmartcardState  state);
 #endif
 

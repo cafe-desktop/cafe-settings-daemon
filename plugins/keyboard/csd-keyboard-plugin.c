@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-keyboard-plugin.h"
-#include "msd-keyboard-manager.h"
+#include "csd-keyboard-plugin.h"
+#include "csd-keyboard-manager.h"
 
 struct MsdKeyboardPluginPrivate {
         MsdKeyboardManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeyboardPlugin, msd_keyboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeyboardPlugin, csd_keyboard_plugin)
 
 static void
-msd_keyboard_plugin_init (MsdKeyboardPlugin *plugin)
+csd_keyboard_plugin_init (MsdKeyboardPlugin *plugin)
 {
-        plugin->priv = msd_keyboard_plugin_get_instance_private (plugin);
+        plugin->priv = csd_keyboard_plugin_get_instance_private (plugin);
 
         g_debug ("MsdKeyboardPlugin initializing");
 
-        plugin->priv->manager = msd_keyboard_manager_new ();
+        plugin->priv->manager = csd_keyboard_manager_new ();
 }
 
 static void
-msd_keyboard_plugin_finalize (GObject *object)
+csd_keyboard_plugin_finalize (GObject *object)
 {
         MsdKeyboardPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_keyboard_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_keyboard_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_keyboard_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating keyboard plugin");
 
         error = NULL;
-        res = msd_keyboard_manager_start (MSD_KEYBOARD_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_keyboard_manager_start (MSD_KEYBOARD_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start keyboard manager: %s", error->message);
                 g_error_free (error);
@@ -84,23 +84,23 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating keyboard plugin");
-        msd_keyboard_manager_stop (MSD_KEYBOARD_PLUGIN (plugin)->priv->manager);
+        csd_keyboard_manager_stop (MSD_KEYBOARD_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_keyboard_plugin_class_init (MsdKeyboardPluginClass *klass)
+csd_keyboard_plugin_class_init (MsdKeyboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_keyboard_plugin_finalize;
+        object_class->finalize = csd_keyboard_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_keyboard_plugin_class_finalize (MsdKeyboardPluginClass *klass)
+csd_keyboard_plugin_class_finalize (MsdKeyboardPluginClass *klass)
 {
 }
 

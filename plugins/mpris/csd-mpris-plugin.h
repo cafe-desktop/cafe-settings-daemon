@@ -33,7 +33,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MPRIS_PLUGIN                (msd_mpris_plugin_get_type ())
+#define MSD_TYPE_MPRIS_PLUGIN                (csd_mpris_plugin_get_type ())
 #define MSD_MPRIS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_PLUGIN, MsdMprisPlugin))
 #define MSD_MPRIS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_PLUGIN, MsdMprisPluginClass))
 #define MSD_IS_MPRIS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MPRIS_PLUGIN))
@@ -53,7 +53,7 @@ typedef struct
         CafeSettingsPluginClass parent_class;
 } MsdMprisPluginClass;
 
-GType   msd_mpris_plugin_get_type            (void) G_GNUC_CONST;
+GType   csd_mpris_plugin_get_type            (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

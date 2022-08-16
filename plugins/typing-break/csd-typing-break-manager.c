@@ -39,7 +39,7 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-typing-break-manager.h"
+#include "csd-typing-break-manager.h"
 
 #define CAFE_BREAK_SCHEMA "org.cafe.typing-break"
 
@@ -52,9 +52,9 @@ struct MsdTypingBreakManagerPrivate
         GSettings *settings;
 };
 
-static void msd_typing_break_manager_finalize (GObject *object);
+static void csd_typing_break_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdTypingBreakManager, msd_typing_break_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdTypingBreakManager, csd_typing_break_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -149,7 +149,7 @@ really_setup_typing_break (MsdTypingBreakManager *manager)
 }
 
 gboolean
-msd_typing_break_manager_start (MsdTypingBreakManager *manager,
+csd_typing_break_manager_start (MsdTypingBreakManager *manager,
                                 GError               **error)
 {
         gboolean     enabled;
@@ -179,7 +179,7 @@ msd_typing_break_manager_start (MsdTypingBreakManager *manager,
 }
 
 void
-msd_typing_break_manager_stop (MsdTypingBreakManager *manager)
+csd_typing_break_manager_stop (MsdTypingBreakManager *manager)
 {
         MsdTypingBreakManagerPrivate *p = manager->priv;
 
@@ -212,22 +212,22 @@ msd_typing_break_manager_stop (MsdTypingBreakManager *manager)
 }
 
 static void
-msd_typing_break_manager_class_init (MsdTypingBreakManagerClass *klass)
+csd_typing_break_manager_class_init (MsdTypingBreakManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_typing_break_manager_finalize;
+        object_class->finalize = csd_typing_break_manager_finalize;
 }
 
 static void
-msd_typing_break_manager_init (MsdTypingBreakManager *manager)
+csd_typing_break_manager_init (MsdTypingBreakManager *manager)
 {
-        manager->priv = msd_typing_break_manager_get_instance_private (manager);
+        manager->priv = csd_typing_break_manager_get_instance_private (manager);
 
 }
 
 static void
-msd_typing_break_manager_finalize (GObject *object)
+csd_typing_break_manager_finalize (GObject *object)
 {
         MsdTypingBreakManager *typing_break_manager;
 
@@ -238,11 +238,11 @@ msd_typing_break_manager_finalize (GObject *object)
 
         g_return_if_fail (typing_break_manager->priv != NULL);
 
-        G_OBJECT_CLASS (msd_typing_break_manager_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_typing_break_manager_parent_class)->finalize (object);
 }
 
 MsdTypingBreakManager *
-msd_typing_break_manager_new (void)
+csd_typing_break_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

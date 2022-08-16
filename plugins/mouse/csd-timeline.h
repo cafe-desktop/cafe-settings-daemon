@@ -1,4 +1,4 @@
-/* msdtimeline.c
+/* csdtimeline.c
  *
  * Copyright (C) 2008 Carlos Garnacho  <carlos@imendio.com>
  *
@@ -27,9 +27,9 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_TIMELINE_DIRECTION       (msd_timeline_direction_get_type ())
-#define MSD_TYPE_TIMELINE_PROGRESS_TYPE   (msd_timeline_progress_type_get_type ())
-#define MSD_TYPE_TIMELINE                 (msd_timeline_get_type ())
+#define MSD_TYPE_TIMELINE_DIRECTION       (csd_timeline_direction_get_type ())
+#define MSD_TYPE_TIMELINE_PROGRESS_TYPE   (csd_timeline_progress_type_get_type ())
+#define MSD_TYPE_TIMELINE                 (csd_timeline_get_type ())
 #define MSD_TIMELINE(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_TIMELINE, MsdTimeline))
 #define MSD_TIMELINE_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass),  MSD_TYPE_TIMELINE, MsdTimelineClass))
 #define MSD_IS_TIMELINE(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_TIMELINE))
@@ -66,58 +66,58 @@ struct MsdTimelineClass
   void (* frame)             (MsdTimeline *timeline,
 			      gdouble      progress);
 
-  void (* __msd_reserved1) (void);
-  void (* __msd_reserved2) (void);
-  void (* __msd_reserved3) (void);
-  void (* __msd_reserved4) (void);
+  void (* __csd_reserved1) (void);
+  void (* __csd_reserved2) (void);
+  void (* __csd_reserved3) (void);
+  void (* __csd_reserved4) (void);
 };
 
 typedef gdouble (*MsdTimelineProgressFunc) (gdouble progress);
 
 
-GType                   msd_timeline_get_type           (void) G_GNUC_CONST;
-GType                   msd_timeline_direction_get_type (void) G_GNUC_CONST;
-GType                   msd_timeline_progress_type_get_type (void) G_GNUC_CONST;
+GType                   csd_timeline_get_type           (void) G_GNUC_CONST;
+GType                   csd_timeline_direction_get_type (void) G_GNUC_CONST;
+GType                   csd_timeline_progress_type_get_type (void) G_GNUC_CONST;
 
-MsdTimeline            *msd_timeline_new                (guint                    duration);
-MsdTimeline            *msd_timeline_new_for_screen     (guint                    duration,
+MsdTimeline            *csd_timeline_new                (guint                    duration);
+MsdTimeline            *csd_timeline_new_for_screen     (guint                    duration,
 							 CdkScreen               *screen);
 
-void                    msd_timeline_start              (MsdTimeline             *timeline);
-void                    msd_timeline_pause              (MsdTimeline             *timeline);
-void                    msd_timeline_rewind             (MsdTimeline             *timeline);
+void                    csd_timeline_start              (MsdTimeline             *timeline);
+void                    csd_timeline_pause              (MsdTimeline             *timeline);
+void                    csd_timeline_rewind             (MsdTimeline             *timeline);
 
-gboolean                msd_timeline_is_running         (MsdTimeline             *timeline);
+gboolean                csd_timeline_is_running         (MsdTimeline             *timeline);
 
-guint                   msd_timeline_get_fps            (MsdTimeline             *timeline);
-void                    msd_timeline_set_fps            (MsdTimeline             *timeline,
+guint                   csd_timeline_get_fps            (MsdTimeline             *timeline);
+void                    csd_timeline_set_fps            (MsdTimeline             *timeline,
 							 guint                    fps);
 
-gboolean                msd_timeline_get_loop           (MsdTimeline             *timeline);
-void                    msd_timeline_set_loop           (MsdTimeline             *timeline,
+gboolean                csd_timeline_get_loop           (MsdTimeline             *timeline);
+void                    csd_timeline_set_loop           (MsdTimeline             *timeline,
 							 gboolean                 loop);
 
-guint                   msd_timeline_get_duration       (MsdTimeline             *timeline);
-void                    msd_timeline_set_duration       (MsdTimeline             *timeline,
+guint                   csd_timeline_get_duration       (MsdTimeline             *timeline);
+void                    csd_timeline_set_duration       (MsdTimeline             *timeline,
 							 guint                    duration);
 
-CdkScreen              *msd_timeline_get_screen         (MsdTimeline             *timeline);
-void                    msd_timeline_set_screen         (MsdTimeline             *timeline,
+CdkScreen              *csd_timeline_get_screen         (MsdTimeline             *timeline);
+void                    csd_timeline_set_screen         (MsdTimeline             *timeline,
 							 CdkScreen               *screen);
 
-MsdTimelineDirection    msd_timeline_get_direction      (MsdTimeline             *timeline);
-void                    msd_timeline_set_direction      (MsdTimeline             *timeline,
+MsdTimelineDirection    csd_timeline_get_direction      (MsdTimeline             *timeline);
+void                    csd_timeline_set_direction      (MsdTimeline             *timeline,
 							 MsdTimelineDirection     direction);
 
-MsdTimelineProgressType msd_timeline_get_progress_type  (MsdTimeline             *timeline);
-void                    msd_timeline_set_progress_type  (MsdTimeline             *timeline,
+MsdTimelineProgressType csd_timeline_get_progress_type  (MsdTimeline             *timeline);
+void                    csd_timeline_set_progress_type  (MsdTimeline             *timeline,
 							 MsdTimelineProgressType  type);
-void                    msd_timeline_get_progress_func  (MsdTimeline             *timeline);
+void                    csd_timeline_get_progress_func  (MsdTimeline             *timeline);
 
-void                    msd_timeline_set_progress_func  (MsdTimeline             *timeline,
+void                    csd_timeline_set_progress_func  (MsdTimeline             *timeline,
 							 MsdTimelineProgressFunc  progress_func);
 
-gdouble                 msd_timeline_get_progress       (MsdTimeline             *timeline);
+gdouble                 csd_timeline_get_progress       (MsdTimeline             *timeline);
 
 
 #ifdef __cplusplus

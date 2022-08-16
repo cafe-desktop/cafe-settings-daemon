@@ -30,7 +30,7 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_RFKILL_PLUGIN                (msd_rfkill_plugin_get_type ())
+#define MSD_TYPE_RFKILL_PLUGIN                (csd_rfkill_plugin_get_type ())
 #define MSD_RFKILL_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_RFKILL_PLUGIN, MsdRfkillPlugin))
 #define MSD_RFKILL_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_RFKILL_PLUGIN, MsdRfkillPluginClass))
 #define MSD_IS_RFKILL_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_RFKILL_PLUGIN))
@@ -52,7 +52,7 @@ struct _MsdRfkillPluginClass
         CafeSettingsPluginClass     parent_class;
 };
 
-GType msd_rfkill_plugin_get_type (void) G_GNUC_CONST;
+GType csd_rfkill_plugin_get_type (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

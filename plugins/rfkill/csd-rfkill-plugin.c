@@ -25,28 +25,28 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-rfkill-manager.h"
-#include "msd-rfkill-plugin.h"
+#include "csd-rfkill-manager.h"
+#include "csd-rfkill-plugin.h"
 
 struct _MsdRfkillPluginPrivate
 {
         MsdRfkillManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdRfkillPlugin, msd_rfkill_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdRfkillPlugin, csd_rfkill_plugin)
 
 static void
-msd_rfkill_plugin_init (MsdRfkillPlugin *plugin)
+csd_rfkill_plugin_init (MsdRfkillPlugin *plugin)
 {
-        plugin->priv = msd_rfkill_plugin_get_instance_private (plugin);
+        plugin->priv = csd_rfkill_plugin_get_instance_private (plugin);
 
         g_debug ("MsdRfkillPlugin initializing");
 
-        plugin->priv->manager = msd_rfkill_manager_new ();
+        plugin->priv->manager = csd_rfkill_manager_new ();
 }
 
 static void
-msd_rfkill_plugin_finalize (GObject *object)
+csd_rfkill_plugin_finalize (GObject *object)
 {
         MsdRfkillPlugin *plugin;
 
@@ -63,7 +63,7 @@ msd_rfkill_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_rfkill_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_rfkill_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -75,7 +75,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating rfkill plugin");
 
         error = NULL;
-        res = msd_rfkill_manager_start (MSD_RFKILL_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_rfkill_manager_start (MSD_RFKILL_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start rfkill manager: %s", error->message);
                 g_error_free (error);
@@ -86,23 +86,23 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating rfkill plugin");
-        msd_rfkill_manager_stop (MSD_RFKILL_PLUGIN (plugin)->priv->manager);
+        csd_rfkill_manager_stop (MSD_RFKILL_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_rfkill_plugin_class_init (MsdRfkillPluginClass *klass)
+csd_rfkill_plugin_class_init (MsdRfkillPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_rfkill_plugin_finalize;
+        object_class->finalize = csd_rfkill_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_rfkill_plugin_class_finalize (MsdRfkillPluginClass *klass)
+csd_rfkill_plugin_class_finalize (MsdRfkillPluginClass *klass)
 {
 }
 

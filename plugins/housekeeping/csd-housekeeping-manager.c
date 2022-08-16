@@ -25,8 +25,8 @@
 #include <string.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-housekeeping-manager.h"
-#include "msd-disk-space.h"
+#include "csd-housekeeping-manager.h"
+#include "csd-disk-space.h"
 
 
 /* General */
@@ -44,7 +44,7 @@ struct MsdHousekeepingManagerPrivate {
         GSettings *settings;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdHousekeepingManager, msd_housekeeping_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdHousekeepingManager, csd_housekeeping_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -238,13 +238,13 @@ settings_changed_callback (GSettings              *settings,
 }
 
 gboolean
-msd_housekeeping_manager_start (MsdHousekeepingManager *manager,
+csd_housekeeping_manager_start (MsdHousekeepingManager *manager,
                                 GError                **error)
 {
         g_debug ("Starting housekeeping manager");
         cafe_settings_profile_start (NULL);
 
-        msd_ldsm_setup (FALSE);
+        csd_ldsm_setup (FALSE);
 
         manager->priv->settings = g_settings_new (THUMB_CACHE_SCHEMA);
 
@@ -264,7 +264,7 @@ msd_housekeeping_manager_start (MsdHousekeepingManager *manager,
 }
 
 void
-msd_housekeeping_manager_stop (MsdHousekeepingManager *manager)
+csd_housekeeping_manager_stop (MsdHousekeepingManager *manager)
 {
         MsdHousekeepingManagerPrivate *p = manager->priv;
 
@@ -291,22 +291,22 @@ msd_housekeeping_manager_stop (MsdHousekeepingManager *manager)
        	g_object_unref (p->settings);
        	p->settings = NULL;
 
-        msd_ldsm_clean ();
+        csd_ldsm_clean ();
 }
 
 static void
-msd_housekeeping_manager_class_init (MsdHousekeepingManagerClass *klass)
+csd_housekeeping_manager_class_init (MsdHousekeepingManagerClass *klass)
 {
 }
 
 static void
-msd_housekeeping_manager_init (MsdHousekeepingManager *manager)
+csd_housekeeping_manager_init (MsdHousekeepingManager *manager)
 {
-        manager->priv = msd_housekeeping_manager_get_instance_private (manager);
+        manager->priv = csd_housekeeping_manager_get_instance_private (manager);
 }
 
 MsdHousekeepingManager *
-msd_housekeeping_manager_new (void)
+csd_housekeeping_manager_new (void)
 {
         if (manager_object != NULL) {
                 g_object_ref (manager_object);

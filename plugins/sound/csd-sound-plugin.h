@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_SOUND_PLUGIN                (msd_sound_plugin_get_type ())
+#define MSD_TYPE_SOUND_PLUGIN                (csd_sound_plugin_get_type ())
 #define MSD_SOUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_PLUGIN, MsdSoundPlugin))
 #define MSD_SOUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_PLUGIN, MsdSoundPluginClass))
 #define MSD_IS_SOUND_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SOUND_PLUGIN))
@@ -51,7 +51,7 @@ typedef struct
         CafeSettingsPluginClass parent_class;
 } MsdSoundPluginClass;
 
-GType msd_sound_plugin_get_type (void) G_GNUC_CONST;
+GType csd_sound_plugin_get_type (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

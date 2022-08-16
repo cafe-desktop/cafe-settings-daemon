@@ -3,7 +3,7 @@
 <interface>
   <requires lib="ctk+" version="3.14"/>
   <!-- interface-license-type gplv2 -->
-  <!-- interface-name msd-ally-preferences-dialog -->
+  <!-- interface-name csd-ally-preferences-dialog -->
   <!-- interface-description Universal Access Preferences -->
   <!-- interface-copyright CAFE Developer -->
   <!-- interface-authors Wolfgang Ulbrich -->

@@ -40,7 +40,7 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-xsettings-manager.h"
+#include "csd-xsettings-manager.h"
 #include "xsettings-manager.h"
 #include "fontconfig-monitor.h"
 #include "wm-common.h"
@@ -104,7 +104,7 @@ struct CafeXSettingsManagerPrivate
         gint window_scale;
 };
 
-#define MSD_XSETTINGS_ERROR msd_xsettings_error_quark ()
+#define MSD_XSETTINGS_ERROR csd_xsettings_error_quark ()
 
 enum {
         MSD_XSETTINGS_ERROR_INIT
@@ -117,9 +117,9 @@ G_DEFINE_TYPE_WITH_PRIVATE (CafeXSettingsManager, cafe_xsettings_manager, G_TYPE
 static gpointer manager_object = NULL;
 
 static GQuark
-msd_xsettings_error_quark (void)
+csd_xsettings_error_quark (void)
 {
-        return g_quark_from_static_string ("msd-xsettings-error-quark");
+        return g_quark_from_static_string ("csd-xsettings-error-quark");
 }
 
 static void
@@ -543,7 +543,7 @@ scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
         } else {
                 /* Restart croma */
                 /* FIXME: The ideal scenario would be for croma to respect window scaling and thus
-                 * resize itself. Currently this is not happening, so msd restarts it when the window
+                 * resize itself. Currently this is not happening, so csd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
                 wm_common_update_window();
                 gchar *wm = wm_common_get_current_window_manager ();
@@ -558,7 +558,7 @@ scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
 
                 /* Restart cafe-panel */
                 /* FIXME: The ideal scenario would be for cafe-panel to respect window scaling and thus
-                 * resize itself. Currently this is not happening, so msd restarts it when the window
+                 * resize itself. Currently this is not happening, so csd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
                 gchar *cafe_panel[3] = {"killall", "cafe-panel", NULL};
                 if (!g_spawn_async (NULL, cafe_panel, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &error)) {
@@ -568,7 +568,7 @@ scale_change_workarounds (CafeXSettingsManager *manager, int new_scale)
 
                 /* Toggle icons on desktop to fix size */
                 /* FIXME: The ideal scenario would be for baul to respect window scaling and thus
-                 * resize itself. Currently this is not happening, so msd restarts it when the window
+                 * resize itself. Currently this is not happening, so csd restarts it when the window
                  * scaling factor changes so that it's visually correct. */
                 GSettings *desktop_settings;
                 desktop_settings = g_settings_new ("org.cafe.background");

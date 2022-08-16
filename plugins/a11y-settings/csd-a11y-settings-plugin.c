@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-a11y-settings-plugin.h"
-#include "msd-a11y-settings-manager.h"
+#include "csd-a11y-settings-plugin.h"
+#include "csd-a11y-settings-manager.h"
 
 struct MsdA11ySettingsPluginPrivate {
         MsdA11ySettingsManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11ySettingsPlugin, msd_a11y_settings_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11ySettingsPlugin, csd_a11y_settings_plugin)
 
 static void
-msd_a11y_settings_plugin_init (MsdA11ySettingsPlugin *plugin)
+csd_a11y_settings_plugin_init (MsdA11ySettingsPlugin *plugin)
 {
-        plugin->priv = msd_a11y_settings_plugin_get_instance_private (plugin);
+        plugin->priv = csd_a11y_settings_plugin_get_instance_private (plugin);
 
         g_debug ("MsdA11ySettingsPlugin initializing");
 
-        plugin->priv->manager = msd_a11y_settings_manager_new ();
+        plugin->priv->manager = csd_a11y_settings_manager_new ();
 }
 
 static void
-msd_a11y_settings_plugin_finalize (GObject *object)
+csd_a11y_settings_plugin_finalize (GObject *object)
 {
         MsdA11ySettingsPlugin *plugin;
 
@@ -61,7 +61,7 @@ msd_a11y_settings_plugin_finalize (GObject *object)
                 g_object_unref (plugin->priv->manager);
         }
 
-        G_OBJECT_CLASS (msd_a11y_settings_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_a11y_settings_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating a11y-settings plugin");
 
         error = NULL;
-        res = msd_a11y_settings_manager_start (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_a11y_settings_manager_start (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start a11y-settings manager: %s", error->message);
                 g_error_free (error);
@@ -84,22 +84,22 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating a11y-settings plugin");
-        msd_a11y_settings_manager_stop (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager);
+        csd_a11y_settings_manager_stop (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_a11y_settings_plugin_class_init (MsdA11ySettingsPluginClass *klass)
+csd_a11y_settings_plugin_class_init (MsdA11ySettingsPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_a11y_settings_plugin_finalize;
+        object_class->finalize = csd_a11y_settings_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_a11y_settings_plugin_class_finalize (MsdA11ySettingsPluginClass *klass)
+csd_a11y_settings_plugin_class_finalize (MsdA11ySettingsPluginClass *klass)
 {
 }

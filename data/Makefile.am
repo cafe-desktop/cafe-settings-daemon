@@ -1,6 +1,6 @@
 NULL =
 
-msd_gschemas_in = \
+csd_gschemas_in = \
 	org.cafe.applications-at.gschema.xml.in \
 	org.cafe.font-rendering.gschema.xml.in \
 	org.cafe.peripherals-keyboard.gschema.xml.in \
@@ -28,7 +28,7 @@ msd_gschemas_in = \
 	org.cafe.SettingsDaemon.plugins.gschema.xml.in \
 	$(NULL)
 
-gsettings_SCHEMAS = $(msd_gschemas_in:.xml.in=.xml)
+gsettings_SCHEMAS = $(csd_gschemas_in:.xml.in=.xml)
 
 @GSETTINGS_RULES@
 
@@ -51,8 +51,8 @@ pkgconfig_DATA = cafe-settings-daemon.pc
 
 man_MANS = \
 	cafe-settings-daemon.1 \
-	msd-datetime-mechanism.1 \
-	msd-locate-pointer.1
+	csd-datetime-mechanism.1 \
+	csd-locate-pointer.1
 
 #disabled until we support it
 xmldir = @CAFE_KEYBINDINGS_KEYSDIR@
@@ -63,7 +63,7 @@ $(xml_DATA): $(xml_in_files)
 	$(AM_V_GEN) GETTEXTDATADIR=$(top_srcdir) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = 				\
-	$(msd_gschemas_in)		\
+	$(csd_gschemas_in)		\
 	$(service_in_files)		\
 	$(desktop_in_files)		\
 	$(xml_in_files)			\

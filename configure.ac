@@ -1,13 +1,13 @@
 AC_PREREQ([2.60])
 
-m4_define([msd_api_version_major],[1])
-m4_define([msd_api_version_minor],[24])
-m4_define([msd_api_version_micro],[1])
-m4_define([msd_api_version],
-	[msd_api_version_major.msd_api_version_minor.msd_api_version_micro])
+m4_define([csd_api_version_major],[1])
+m4_define([csd_api_version_minor],[24])
+m4_define([csd_api_version_micro],[1])
+m4_define([csd_api_version],
+	[csd_api_version_major.csd_api_version_minor.csd_api_version_micro])
 
 AC_INIT([cafe-settings-daemon],
-	[msd_api_version_major.msd_api_version_minor.msd_api_version_micro],
+	[csd_api_version_major.csd_api_version_minor.csd_api_version_micro],
 	[https://cafe-desktop.org/])
 
 AC_CONFIG_SRCDIR([cafe-settings-daemon/cafe-settings-manager.c])

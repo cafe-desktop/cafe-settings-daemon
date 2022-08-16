@@ -1,16 +1,16 @@
 plugin_LTLIBRARIES = libhousekeeping.la
 
 libhousekeeping_la_SOURCES = 		\
-	msd-ldsm-dialog.c	\
-	msd-ldsm-dialog.h	\
-	msd-ldsm-trash-empty.c	\
-	msd-ldsm-trash-empty.h	\
-	msd-disk-space.c		\
-	msd-disk-space.h		\
-	msd-housekeeping-manager.c	\
-	msd-housekeeping-manager.h	\
-	msd-housekeeping-plugin.c	\
-	msd-housekeeping-plugin.h
+	csd-ldsm-dialog.c	\
+	csd-ldsm-dialog.h	\
+	csd-ldsm-trash-empty.c	\
+	csd-ldsm-trash-empty.h	\
+	csd-disk-space.c		\
+	csd-disk-space.h		\
+	csd-housekeeping-manager.c	\
+	csd-housekeeping-manager.h	\
+	csd-housekeeping-plugin.c	\
+	csd-housekeeping-plugin.h
 
 libhousekeeping_la_CPPFLAGS = 					\
 	-I$(top_srcdir)/cafe-settings-daemon			\

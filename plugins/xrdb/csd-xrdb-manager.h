@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_XRDB_MANAGER         (msd_xrdb_manager_get_type ())
+#define MSD_TYPE_XRDB_MANAGER         (csd_xrdb_manager_get_type ())
 #define MSD_XRDB_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRDB_MANAGER, MsdXrdbManager))
 #define MSD_XRDB_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRDB_MANAGER, MsdXrdbManagerClass))
 #define MSD_IS_XRDB_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRDB_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdXrdbManagerClass;
 
-GType                   msd_xrdb_manager_get_type            (void);
+GType                   csd_xrdb_manager_get_type            (void);
 
-MsdXrdbManager *        msd_xrdb_manager_new                 (void);
-gboolean                msd_xrdb_manager_start               (MsdXrdbManager *manager,
+MsdXrdbManager *        csd_xrdb_manager_new                 (void);
+gboolean                csd_xrdb_manager_start               (MsdXrdbManager *manager,
                                                               GError        **error);
-void                    msd_xrdb_manager_stop                (MsdXrdbManager *manager);
+void                    csd_xrdb_manager_stop                (MsdXrdbManager *manager);
 
 #ifdef __cplusplus
 }

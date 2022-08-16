@@ -4,10 +4,10 @@ plugin_LTLIBRARIES = \
 	liba11y-settings.la
 
 liba11y_settings_la_SOURCES = 		\
-	msd-a11y-settings-manager.c	\
-	msd-a11y-settings-manager.h	\
-	msd-a11y-settings-plugin.c	\
-	msd-a11y-settings-plugin.h
+	csd-a11y-settings-manager.c	\
+	csd-a11y-settings-manager.h	\
+	csd-a11y-settings-plugin.c	\
+	csd-a11y-settings-plugin.h
 
 liba11y_settings_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon		\

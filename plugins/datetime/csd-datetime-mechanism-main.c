@@ -39,7 +39,7 @@
 #include <dbus/dbus-glib-lowlevel.h>
 
 
-#include "msd-datetime-mechanism.h"
+#include "csd-datetime-mechanism.h"
 
 static DBusGProxy *
 get_bus_proxy (DBusGConnection *connection)
@@ -148,7 +148,7 @@ main (int argc, char **argv)
                 goto out;
         }
 
-        mechanism = msd_datetime_mechanism_new ();
+        mechanism = csd_datetime_mechanism_new ();
 
         if (mechanism == NULL) {
                 goto out;

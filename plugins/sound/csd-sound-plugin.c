@@ -24,27 +24,27 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "msd-sound-plugin.h"
-#include "msd-sound-manager.h"
+#include "csd-sound-plugin.h"
+#include "csd-sound-manager.h"
 
 struct MsdSoundPluginPrivate {
         MsdSoundManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSoundPlugin, msd_sound_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSoundPlugin, csd_sound_plugin)
 
 static void
-msd_sound_plugin_init (MsdSoundPlugin *plugin)
+csd_sound_plugin_init (MsdSoundPlugin *plugin)
 {
-        plugin->priv = msd_sound_plugin_get_instance_private (plugin);
+        plugin->priv = csd_sound_plugin_get_instance_private (plugin);
 
         g_debug ("MsdSoundPlugin initializing");
 
-        plugin->priv->manager = msd_sound_manager_new ();
+        plugin->priv->manager = csd_sound_manager_new ();
 }
 
 static void
-msd_sound_plugin_finalize (GObject *object)
+csd_sound_plugin_finalize (GObject *object)
 {
         MsdSoundPlugin *plugin;
 
@@ -60,7 +60,7 @@ msd_sound_plugin_finalize (GObject *object)
         if (plugin->priv->manager != NULL)
                 g_object_unref (plugin->priv->manager);
 
-        G_OBJECT_CLASS (msd_sound_plugin_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_sound_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -70,7 +70,7 @@ impl_activate (CafeSettingsPlugin *plugin)
 
         g_debug ("Activating sound plugin");
 
-        if (!msd_sound_manager_start (MSD_SOUND_PLUGIN (plugin)->priv->manager, &error)) {
+        if (!csd_sound_manager_start (MSD_SOUND_PLUGIN (plugin)->priv->manager, &error)) {
                 g_warning ("Unable to start sound manager: %s", error->message);
                 g_error_free (error);
         }
@@ -80,23 +80,23 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating sound plugin");
-        msd_sound_manager_stop (MSD_SOUND_PLUGIN (plugin)->priv->manager);
+        csd_sound_manager_stop (MSD_SOUND_PLUGIN (plugin)->priv->manager);
 }
 
 static void
-msd_sound_plugin_class_init (MsdSoundPluginClass *klass)
+csd_sound_plugin_class_init (MsdSoundPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
 
-        object_class->finalize = msd_sound_plugin_finalize;
+        object_class->finalize = csd_sound_plugin_finalize;
 
         plugin_class->activate = impl_activate;
         plugin_class->deactivate = impl_deactivate;
 }
 
 static void
-msd_sound_plugin_class_finalize (MsdSoundPluginClass *klass)
+csd_sound_plugin_class_finalize (MsdSoundPluginClass *klass)
 {
 }
 

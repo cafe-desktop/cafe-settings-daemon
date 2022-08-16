@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_XRANDR_PLUGIN                (msd_xrandr_plugin_get_type ())
+#define MSD_TYPE_XRANDR_PLUGIN                (csd_xrandr_plugin_get_type ())
 #define MSD_XRANDR_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRANDR_PLUGIN, MsdXrandrPlugin))
 #define MSD_XRANDR_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRANDR_PLUGIN, MsdXrandrPluginClass))
 #define MSD_IS_XRANDR_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRANDR_PLUGIN))
@@ -51,7 +51,7 @@ typedef struct
         CafeSettingsPluginClass parent_class;
 } MsdXrandrPluginClass;
 
-GType   msd_xrandr_plugin_get_type            (void) G_GNUC_CONST;
+GType   csd_xrandr_plugin_get_type            (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

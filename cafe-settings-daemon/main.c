@@ -394,7 +394,7 @@ set_session_over_handler (DBusGConnection *bus, CafeSettingsManager *manager)
 }
 
 static void
-msd_log_default_handler (const gchar   *log_domain,
+csd_log_default_handler (const gchar   *log_domain,
                          GLogLevelFlags log_level,
                          const gchar   *message,
                          gpointer       unused_data)
@@ -495,7 +495,7 @@ main (int argc, char *argv[])
         }
         cafe_settings_profile_end ("opening ctk display");
 
-        g_log_set_default_handler (msd_log_default_handler, NULL);
+        g_log_set_default_handler (csd_log_default_handler, NULL);
 
         bus = get_session_bus ();
         if (bus == NULL) {

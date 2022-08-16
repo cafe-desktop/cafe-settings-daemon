@@ -4,10 +4,10 @@ plugin_LTLIBRARIES = \
 libmpris_la_SOURCES = 		\
 	bus-watch-namespace.c	\
 	bus-watch-namespace.h	\
-	msd-mpris-manager.c	\
-	msd-mpris-manager.h	\
-	msd-mpris-plugin.c	\
-	msd-mpris-plugin.h
+	csd-mpris-manager.c	\
+	csd-mpris-manager.h	\
+	csd-mpris-plugin.c	\
+	csd-mpris-plugin.h
 
 libmpris_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon		\

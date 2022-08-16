@@ -35,14 +35,14 @@
 
 #include <gio/gio.h>
 
-#include "msd-a11y-preferences-dialog.h"
+#include "csd-a11y-preferences-dialog.h"
 
 #define SM_DBUS_NAME      "org.gnome.SessionManager"
 #define SM_DBUS_PATH      "/org/gnome/SessionManager"
 #define SM_DBUS_INTERFACE "org.gnome.SessionManager"
 
 
-#define CTKBUILDER_UI_FILE "msd-a11y-preferences-dialog.ui"
+#define CTKBUILDER_UI_FILE "csd-a11y-preferences-dialog.ui"
 
 #define KEY_A11Y_SCHEMA              "org.cafe.accessibility-keyboard"
 #define KEY_STICKY_KEYS_ENABLED      "stickykeys-enable"
@@ -109,16 +109,16 @@ enum {
         PROP_0,
 };
 
-static void     msd_a11y_preferences_dialog_finalize    (GObject *object);
+static void     csd_a11y_preferences_dialog_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdA11yPreferencesDialog, msd_a11y_preferences_dialog, CTK_TYPE_DIALOG)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdA11yPreferencesDialog, csd_a11y_preferences_dialog, CTK_TYPE_DIALOG)
 
 static void
-msd_a11y_preferences_dialog_class_init (MsdA11yPreferencesDialogClass *klass)
+csd_a11y_preferences_dialog_class_init (MsdA11yPreferencesDialogClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_a11y_preferences_dialog_finalize;
+        object_class->finalize = csd_a11y_preferences_dialog_finalize;
 }
 
 static void
@@ -727,14 +727,14 @@ setup_dialog (MsdA11yPreferencesDialog *dialog,
 }
 
 static void
-msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
+csd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
 {
         static const gchar *ui_file_path = CTKBUILDERDIR "/" CTKBUILDER_UI_FILE;
         gchar *objects[] = {"main_box", NULL};
         GError *error = NULL;
         CtkBuilder  *builder;
 
-        dialog->priv = msd_a11y_preferences_dialog_get_instance_private (dialog);
+        dialog->priv = csd_a11y_preferences_dialog_get_instance_private (dialog);
 
         dialog->priv->settings_a11y = g_settings_new (KEY_A11Y_SCHEMA);
         dialog->priv->settings_at = g_settings_new (KEY_AT_SCHEMA);
@@ -780,7 +780,7 @@ msd_a11y_preferences_dialog_init (MsdA11yPreferencesDialog *dialog)
 }
 
 static void
-msd_a11y_preferences_dialog_finalize (GObject *object)
+csd_a11y_preferences_dialog_finalize (GObject *object)
 {
         MsdA11yPreferencesDialog *dialog;
 
@@ -796,11 +796,11 @@ msd_a11y_preferences_dialog_finalize (GObject *object)
         g_object_unref (dialog->priv->settings_interface);
         g_object_unref (dialog->priv->settings_croma);
 
-        G_OBJECT_CLASS (msd_a11y_preferences_dialog_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_a11y_preferences_dialog_parent_class)->finalize (object);
 }
 
 CtkWidget *
-msd_a11y_preferences_dialog_new (void)
+csd_a11y_preferences_dialog_new (void)
 {
         GObject *object;
 

@@ -44,7 +44,7 @@
 #include <X11/Xatom.h>
 
 #include "cafe-settings-profile.h"
-#include "msd-background-manager.h"
+#include "csd-background-manager.h"
 
 #define CAFE_SESSION_MANAGER_DBUS_NAME "org.gnome.SessionManager"
 #define CAFE_SESSION_MANAGER_DBUS_PATH "/org/gnome/SessionManager"
@@ -56,7 +56,7 @@ struct MsdBackgroundManagerPrivate {
 	CafeBGCrossfade *fade;
 	GList           *scr_sizes;
 
-	gboolean         msd_can_draw;
+	gboolean         csd_can_draw;
 	gboolean         baul_can_draw;
 	gboolean         do_fade;
 	gboolean         draw_in_progress;
@@ -67,13 +67,13 @@ struct MsdBackgroundManagerPrivate {
 	guint            proxy_signal_id;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdBackgroundManager, msd_background_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (MsdBackgroundManager, csd_background_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 /* Whether MSD is allowed to draw background */
 static gboolean
-msd_can_draw_bg (MsdBackgroundManager *manager)
+csd_can_draw_bg (MsdBackgroundManager *manager)
 {
 	return g_settings_get_boolean (manager->priv->settings, CAFE_BG_KEY_DRAW_BACKGROUND);
 }
@@ -211,7 +211,7 @@ draw_background (MsdBackgroundManager *manager,
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
-	if (!p->msd_can_draw || p->draw_in_progress || baul_is_drawing_bg (manager))
+	if (!p->csd_can_draw || p->draw_in_progress || baul_is_drawing_bg (manager))
 		return;
 
 	cafe_settings_profile_start (NULL);
@@ -253,7 +253,7 @@ on_screen_size_changed (CdkScreen            *screen,
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
-	if (!p->msd_can_draw || p->draw_in_progress || baul_is_drawing_bg (manager))
+	if (!p->csd_can_draw || p->draw_in_progress || baul_is_drawing_bg (manager))
 		return;
 
 	CdkWindow *window = cdk_screen_get_root_window (screen);
@@ -316,10 +316,10 @@ settings_change_event_cb (GSettings            *settings,
 	MsdBackgroundManagerPrivate *p = manager->priv;
 
 	/* Complements on_bg_handling_changed() */
-	p->msd_can_draw = msd_can_draw_bg (manager);
+	p->csd_can_draw = csd_can_draw_bg (manager);
 	p->baul_can_draw = baul_can_draw_bg (manager);
 
-	if (p->msd_can_draw && p->bg != NULL && !baul_is_drawing_bg (manager))
+	if (p->csd_can_draw && p->bg != NULL && !baul_is_drawing_bg (manager))
 	{
 		/* Defer signal processing to avoid making the dconf backend deadlock */
 		g_idle_add ((GSourceFunc) settings_change_event_idle_cb, manager);
@@ -388,7 +388,7 @@ on_bg_handling_changed (GSettings            *settings,
 		if (p->bg != NULL)
 			remove_background (manager);
 	}
-	else if (p->msd_can_draw && p->bg == NULL)
+	else if (p->csd_can_draw && p->bg == NULL)
 	{
 		setup_background (manager);
 	}
@@ -477,7 +477,7 @@ draw_bg_after_session_loads (MsdBackgroundManager *manager)
 }
 
 gboolean
-msd_background_manager_start (MsdBackgroundManager  *manager,
+csd_background_manager_start (MsdBackgroundManager  *manager,
 			      GError               **error)
 {
 	MsdBackgroundManagerPrivate *p = manager->priv;
@@ -487,7 +487,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 
 	p->settings = g_settings_new (CAFE_BG_SCHEMA);
 
-	p->msd_can_draw = msd_can_draw_bg (manager);
+	p->csd_can_draw = csd_can_draw_bg (manager);
 	p->baul_can_draw = baul_can_draw_bg (manager);
 
 	g_signal_connect (p->settings, "changed::" CAFE_BG_KEY_DRAW_BACKGROUND,
@@ -499,7 +499,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 	 * But it might not be started yet, so baul_is_drawing_bg() would fail.
 	 * In this case, we wait till the session is loaded, to avoid double-draws.
 	 */
-	if (p->msd_can_draw)
+	if (p->csd_can_draw)
 	{
 		if (p->baul_can_draw)
 		{
@@ -517,7 +517,7 @@ msd_background_manager_start (MsdBackgroundManager  *manager,
 }
 
 void
-msd_background_manager_stop (MsdBackgroundManager *manager)
+csd_background_manager_stop (MsdBackgroundManager *manager)
 {
 	g_debug ("Stopping background manager");
 
@@ -536,20 +536,20 @@ msd_background_manager_stop (MsdBackgroundManager *manager)
 }
 
 static GObject*
-msd_background_manager_constructor (GType                  type,
+csd_background_manager_constructor (GType                  type,
 				    guint                  n_construct_properties,
 				    GObjectConstructParam* construct_properties)
 {
 	MsdBackgroundManager *manager =
 	   MSD_BACKGROUND_MANAGER (
-	      G_OBJECT_CLASS (msd_background_manager_parent_class)->constructor (
+	      G_OBJECT_CLASS (csd_background_manager_parent_class)->constructor (
 				type, n_construct_properties, construct_properties));
 
 	return G_OBJECT(manager);
 }
 
 static void
-msd_background_manager_finalize (GObject *object)
+csd_background_manager_finalize (GObject *object)
 {
 	g_return_if_fail (object != NULL);
 	g_return_if_fail (MSD_IS_BACKGROUND_MANAGER (object));
@@ -558,26 +558,26 @@ msd_background_manager_finalize (GObject *object)
 
 	g_return_if_fail (manager->priv != NULL);
 
-	G_OBJECT_CLASS(msd_background_manager_parent_class)->finalize(object);
+	G_OBJECT_CLASS(csd_background_manager_parent_class)->finalize(object);
 }
 
 static void
-msd_background_manager_init (MsdBackgroundManager* manager)
+csd_background_manager_init (MsdBackgroundManager* manager)
 {
-	manager->priv = msd_background_manager_get_instance_private(manager);
+	manager->priv = csd_background_manager_get_instance_private(manager);
 }
 
 static void
-msd_background_manager_class_init (MsdBackgroundManagerClass *klass)
+csd_background_manager_class_init (MsdBackgroundManagerClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS(klass);
 
-	object_class->constructor = msd_background_manager_constructor;
-	object_class->finalize = msd_background_manager_finalize;
+	object_class->constructor = csd_background_manager_constructor;
+	object_class->finalize = csd_background_manager_finalize;
 }
 
 MsdBackgroundManager*
-msd_background_manager_new (void)
+csd_background_manager_new (void)
 {
 	if (manager_object != NULL)
 	{

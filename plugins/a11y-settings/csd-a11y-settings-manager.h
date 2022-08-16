@@ -25,7 +25,7 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_A11Y_SETTINGS_MANAGER         (msd_a11y_settings_manager_get_type ())
+#define MSD_TYPE_A11Y_SETTINGS_MANAGER         (csd_a11y_settings_manager_get_type ())
 #define MSD_A11Y_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER, MsdA11ySettingsManager))
 #define MSD_A11Y_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_SETTINGS_MANAGER, MsdA11ySettingsManagerClass))
 #define MSD_IS_A11Y_SETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER))
@@ -45,12 +45,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdA11ySettingsManagerClass;
 
-GType                   msd_a11y_settings_manager_get_type            (void);
+GType                   csd_a11y_settings_manager_get_type            (void);
 
-MsdA11ySettingsManager *msd_a11y_settings_manager_new                 (void);
-gboolean                msd_a11y_settings_manager_start               (MsdA11ySettingsManager *manager,
+MsdA11ySettingsManager *csd_a11y_settings_manager_new                 (void);
+gboolean                csd_a11y_settings_manager_start               (MsdA11ySettingsManager *manager,
                                                                        GError         **error);
-void                    msd_a11y_settings_manager_stop                (MsdA11ySettingsManager *manager);
+void                    csd_a11y_settings_manager_stop                (MsdA11ySettingsManager *manager);
 
 G_END_DECLS
 

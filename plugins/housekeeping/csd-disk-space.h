@@ -30,8 +30,8 @@
 extern "C" {
 #endif
 
-void msd_ldsm_setup (gboolean check_now);
-void msd_ldsm_clean (void);
+void csd_ldsm_setup (gboolean check_now);
+void csd_ldsm_clean (void);
 
 #ifdef __cplusplus
 }

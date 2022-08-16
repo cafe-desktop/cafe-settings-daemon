@@ -21,7 +21,7 @@
  *
  */
 
-/* gcc -DHAVE_LIBNOTIFY -DTEST -Wall `pkg-config --cflags --libs gobject-2.0 gio-unix-2.0 glib-2.0 ctk+-2.0 libnotify` -o msd-disk-space-test msd-disk-space.c */
+/* gcc -DHAVE_LIBNOTIFY -DTEST -Wall `pkg-config --cflags --libs gobject-2.0 gio-unix-2.0 glib-2.0 ctk+-2.0 libnotify` -o csd-disk-space-test csd-disk-space.c */
 
 #include "config.h"
 
@@ -36,9 +36,9 @@
 #include <gio/gio.h>
 #include <ctk/ctk.h>
 
-#include "msd-disk-space.h"
-#include "msd-ldsm-dialog.h"
-#include "msd-ldsm-trash-empty.h"
+#include "csd-disk-space.h"
+#include "csd-ldsm-dialog.h"
+#include "csd-ldsm-trash-empty.h"
 
 
 #define GIGABYTE                   1024 * 1024 * 1024
@@ -194,7 +194,7 @@ ldsm_notify_for_mount (LdsmMountInfo *mount,
         has_disk_analyzer = (program != NULL);
         g_free (program);
 
-        dialog = msd_ldsm_dialog_new (other_usable_volumes,
+        dialog = csd_ldsm_dialog_new (other_usable_volumes,
                                       multiple_volumes,
                                       has_disk_analyzer,
                                       has_trash,
@@ -220,7 +220,7 @@ ldsm_notify_for_mount (LdsmMountInfo *mount,
                 break;
         case MSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH:
                 retval = TRUE;
-                msd_ldsm_trash_empty ();
+                csd_ldsm_trash_empty ();
                 break;
         case CTK_RESPONSE_NONE:
         case CTK_RESPONSE_DELETE_EVENT:
@@ -584,7 +584,7 @@ ldsm_is_hash_item_in_ignore_paths (gpointer key,
 }
 
 static void
-msd_ldsm_get_config ()
+csd_ldsm_get_config ()
 {
         gchar **settings_list;
 
@@ -636,15 +636,15 @@ msd_ldsm_get_config ()
 }
 
 static void
-msd_ldsm_update_config (GSettings *settings,
+csd_ldsm_update_config (GSettings *settings,
                         gchar *key,
                         gpointer user_data)
 {
-        msd_ldsm_get_config ();
+        csd_ldsm_get_config ();
 }
 
 void
-msd_ldsm_setup (gboolean check_now)
+csd_ldsm_setup (gboolean check_now)
 {
         if (ldsm_notified_hash || ldsm_timeout_id || ldsm_monitor) {
                 g_warning ("Low disk space monitor already initialized.");
@@ -656,8 +656,8 @@ msd_ldsm_setup (gboolean check_now)
                                                     ldsm_free_mount_info);
 
         settings = g_settings_new (SETTINGS_HOUSEKEEPING_SCHEMA);
-        msd_ldsm_get_config ();
-        g_signal_connect (settings, "changed", G_CALLBACK (msd_ldsm_update_config), NULL);
+        csd_ldsm_get_config ();
+        g_signal_connect (settings, "changed", G_CALLBACK (csd_ldsm_update_config), NULL);
 
         ldsm_monitor = g_unix_mount_monitor_get ();
         g_signal_connect (ldsm_monitor, "mounts-changed",
@@ -672,7 +672,7 @@ msd_ldsm_setup (gboolean check_now)
 }
 
 void
-msd_ldsm_clean (void)
+csd_ldsm_clean (void)
 {
         if (ldsm_timeout_id)
                 g_source_remove (ldsm_timeout_id);
@@ -712,11 +712,11 @@ main (int    argc,
 
         loop = g_main_loop_new (NULL, FALSE);
 
-        msd_ldsm_setup (TRUE);
+        csd_ldsm_setup (TRUE);
 
         g_main_loop_run (loop);
 
-        msd_ldsm_clean ();
+        csd_ldsm_clean ();
         g_main_loop_unref (loop);
 
         return 0;

@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_CLIPBOARD_MANAGER         (msd_clipboard_manager_get_type ())
+#define MSD_TYPE_CLIPBOARD_MANAGER         (csd_clipboard_manager_get_type ())
 #define MSD_CLIPBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_MANAGER, MsdClipboardManager))
 #define MSD_CLIPBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_MANAGER, MsdClipboardManagerClass))
 #define MSD_IS_CLIPBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_CLIPBOARD_MANAGER))
@@ -47,12 +47,12 @@ typedef struct
         GObjectClass   parent_class;
 } MsdClipboardManagerClass;
 
-GType                   msd_clipboard_manager_get_type            (void);
+GType                   csd_clipboard_manager_get_type            (void);
 
-MsdClipboardManager *       msd_clipboard_manager_new                 (void);
-gboolean                msd_clipboard_manager_start               (MsdClipboardManager *manager,
+MsdClipboardManager *       csd_clipboard_manager_new                 (void);
+gboolean                csd_clipboard_manager_start               (MsdClipboardManager *manager,
                                                                GError         **error);
-void                    msd_clipboard_manager_stop                (MsdClipboardManager *manager);
+void                    csd_clipboard_manager_stop                (MsdClipboardManager *manager);
 
 #ifdef __cplusplus
 }

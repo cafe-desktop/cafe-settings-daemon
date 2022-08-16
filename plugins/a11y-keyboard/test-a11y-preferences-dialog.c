@@ -27,14 +27,14 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "msd-a11y-preferences-dialog.h"
+#include "csd-a11y-preferences-dialog.h"
 
 static void
 test_window (void)
 {
         CtkWidget *window;
 
-        window = msd_a11y_preferences_dialog_new ();
+        window = csd_a11y_preferences_dialog_new ();
         ctk_dialog_run (CTK_DIALOG (window));
 }
 

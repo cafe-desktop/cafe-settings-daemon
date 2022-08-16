@@ -31,7 +31,7 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_DUMMY_PLUGIN                (msd_dummy_plugin_get_type ())
+#define MSD_TYPE_DUMMY_PLUGIN                (csd_dummy_plugin_get_type ())
 #define MSD_DUMMY_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_DUMMY_PLUGIN, MsdDummyPlugin))
 #define MSD_DUMMY_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_DUMMY_PLUGIN, MsdDummyPluginClass))
 #define MSD_IS_DUMMY_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_DUMMY_PLUGIN))
@@ -51,7 +51,7 @@ typedef struct
         CafeSettingsPluginClass parent_class;
 } MsdDummyPluginClass;
 
-GType   msd_dummy_plugin_get_type            (void) G_GNUC_CONST;
+GType   csd_dummy_plugin_get_type            (void) G_GNUC_CONST;
 
 /* All the plugins must implement this function */
 G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);

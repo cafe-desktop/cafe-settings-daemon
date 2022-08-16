@@ -1,14 +1,14 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
- * msd-ldsm-dialog.c
+ * csd-ldsm-dialog.c
  * Copyright (C) Chris Coulson 2009 <chrisccoulson@googlemail.com>
  *
- * msd-ldsm-dialog.c is free software: you can redistribute it and/or modify it
+ * csd-ldsm-dialog.c is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * msd-ldsm-dialog.c is distributed in the hope that it will be useful, but
+ * csd-ldsm-dialog.c is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
@@ -20,7 +20,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-#include "msd-ldsm-dialog.h"
+#include "csd-ldsm-dialog.h"
 
 #define SETTINGS_SCHEMA "org.cafe.SettingsDaemon.plugins.housekeeping"
 #define SETTINGS_IGNORE_PATHS "ignore-paths"
@@ -49,10 +49,10 @@ struct MsdLdsmDialogPrivate
         gchar *mount_path;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdLdsmDialog, msd_ldsm_dialog, CTK_TYPE_DIALOG);
+G_DEFINE_TYPE_WITH_PRIVATE (MsdLdsmDialog, csd_ldsm_dialog, CTK_TYPE_DIALOG);
 
 static const gchar*
-msd_ldsm_dialog_get_checkbutton_text (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_get_checkbutton_text (MsdLdsmDialog *dialog)
 {
         g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
 
@@ -63,7 +63,7 @@ msd_ldsm_dialog_get_checkbutton_text (MsdLdsmDialog *dialog)
 }
 
 static gchar*
-msd_ldsm_dialog_get_primary_text (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_get_primary_text (MsdLdsmDialog *dialog)
 {
         gchar *primary_text, *free_space;
 
@@ -85,7 +85,7 @@ msd_ldsm_dialog_get_primary_text (MsdLdsmDialog *dialog)
 }
 
 static const gchar*
-msd_ldsm_dialog_get_secondary_text (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_get_secondary_text (MsdLdsmDialog *dialog)
 {
         g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
 
@@ -188,12 +188,12 @@ ignore_check_button_toggled_cb (CtkToggleButton *button,
 }
 
 static void
-msd_ldsm_dialog_init (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_init (MsdLdsmDialog *dialog)
 {
         CtkWidget *main_vbox, *text_vbox, *hbox;
         CtkWidget *image;
 
-        dialog->priv = msd_ldsm_dialog_get_instance_private (dialog);
+        dialog->priv = csd_ldsm_dialog_get_instance_private (dialog);
 
         main_vbox = ctk_dialog_get_content_area (CTK_DIALOG (dialog));
 
@@ -260,7 +260,7 @@ msd_ldsm_dialog_init (MsdLdsmDialog *dialog)
 }
 
 static void
-msd_ldsm_dialog_finalize (GObject *object)
+csd_ldsm_dialog_finalize (GObject *object)
 {
         MsdLdsmDialog *self;
 
@@ -275,11 +275,11 @@ msd_ldsm_dialog_finalize (GObject *object)
         if (self->priv->mount_path)
                 g_free (self->priv->mount_path);
 
-        G_OBJECT_CLASS (msd_ldsm_dialog_parent_class)->finalize (object);
+        G_OBJECT_CLASS (csd_ldsm_dialog_parent_class)->finalize (object);
 }
 
 static void
-msd_ldsm_dialog_set_property (GObject *object, guint prop_id, const GValue *value, GParamSpec *pspec)
+csd_ldsm_dialog_set_property (GObject *object, guint prop_id, const GValue *value, GParamSpec *pspec)
 {
         MsdLdsmDialog *self;
 
@@ -314,7 +314,7 @@ msd_ldsm_dialog_set_property (GObject *object, guint prop_id, const GValue *valu
 }
 
 static void
-msd_ldsm_dialog_get_property (GObject *object, guint prop_id, GValue *value, GParamSpec *pspec)
+csd_ldsm_dialog_get_property (GObject *object, guint prop_id, GValue *value, GParamSpec *pspec)
 {
         MsdLdsmDialog *self;
 
@@ -349,13 +349,13 @@ msd_ldsm_dialog_get_property (GObject *object, guint prop_id, GValue *value, GPa
 }
 
 static void
-msd_ldsm_dialog_class_init (MsdLdsmDialogClass *klass)
+csd_ldsm_dialog_class_init (MsdLdsmDialogClass *klass)
 {
         GObjectClass* object_class = G_OBJECT_CLASS (klass);
 
-        object_class->finalize = msd_ldsm_dialog_finalize;
-        object_class->set_property = msd_ldsm_dialog_set_property;
-        object_class->get_property = msd_ldsm_dialog_get_property;
+        object_class->finalize = csd_ldsm_dialog_finalize;
+        object_class->set_property = csd_ldsm_dialog_set_property;
+        object_class->get_property = csd_ldsm_dialog_get_property;
 
         g_object_class_install_property (object_class,
                                          PROP_OTHER_USABLE_PARTITIONS,
@@ -407,7 +407,7 @@ msd_ldsm_dialog_class_init (MsdLdsmDialogClass *klass)
 }
 
 MsdLdsmDialog*
-msd_ldsm_dialog_new (gboolean     other_usable_partitions,
+csd_ldsm_dialog_new (gboolean     other_usable_partitions,
                      gboolean     other_partitions,
                      gboolean     display_baobab,
                      gboolean     display_empty_trash,
@@ -456,14 +456,14 @@ msd_ldsm_dialog_new (gboolean     other_usable_partitions,
         ctk_widget_grab_default (button_ignore);
 
         /* Set the label text */
-        primary_text = msd_ldsm_dialog_get_primary_text (dialog);
+        primary_text = csd_ldsm_dialog_get_primary_text (dialog);
         primary_text_markup = g_markup_printf_escaped ("<big><b>%s</b></big>", primary_text);
         ctk_label_set_markup (CTK_LABEL (dialog->priv->primary_label), primary_text_markup);
 
-        secondary_text = msd_ldsm_dialog_get_secondary_text (dialog);
+        secondary_text = csd_ldsm_dialog_get_secondary_text (dialog);
         ctk_label_set_text (CTK_LABEL (dialog->priv->secondary_label), secondary_text);
 
-        checkbutton_text = msd_ldsm_dialog_get_checkbutton_text (dialog);
+        checkbutton_text = csd_ldsm_dialog_get_checkbutton_text (dialog);
         ctk_button_set_label (CTK_BUTTON (dialog->priv->ignore_check_button), checkbutton_text);
 
         g_free (primary_text);

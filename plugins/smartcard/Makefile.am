@@ -2,12 +2,12 @@ plugin_LTLIBRARIES = \
 	libsmartcard.la
 
 libsmartcard_la_SOURCES = \
-	msd-smartcard-plugin.h  \
-	msd-smartcard-plugin.c  \
-	msd-smartcard.h         \
-	msd-smartcard.c         \
-	msd-smartcard-manager.h \
-	msd-smartcard-manager.c
+	csd-smartcard-plugin.h  \
+	csd-smartcard-plugin.c  \
+	csd-smartcard.h         \
+	csd-smartcard.c         \
+	csd-smartcard-manager.h \
+	csd-smartcard-manager.c
 
 libsmartcard_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon \
