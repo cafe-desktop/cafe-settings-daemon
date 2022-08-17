@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_XRANDR_MANAGER         (csd_xrandr_manager_get_type ())
-#define MSD_XRANDR_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRANDR_MANAGER, MsdXrandrManager))
-#define MSD_XRANDR_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRANDR_MANAGER, MsdXrandrManagerClass))
+#define MSD_XRANDR_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRANDR_MANAGER, CsdXrandrManager))
+#define MSD_XRANDR_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRANDR_MANAGER, CsdXrandrManagerClass))
 #define MSD_IS_XRANDR_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRANDR_MANAGER))
 #define MSD_IS_XRANDR_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_XRANDR_MANAGER))
-#define MSD_XRANDR_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRANDR_MANAGER, MsdXrandrManagerClass))
+#define MSD_XRANDR_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRANDR_MANAGER, CsdXrandrManagerClass))
 
-typedef struct MsdXrandrManagerPrivate MsdXrandrManagerPrivate;
+typedef struct CsdXrandrManagerPrivate CsdXrandrManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdXrandrManagerPrivate *priv;
-} MsdXrandrManager;
+        CsdXrandrManagerPrivate *priv;
+} CsdXrandrManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdXrandrManagerClass;
+} CsdXrandrManagerClass;
 
 GType                   csd_xrandr_manager_get_type            (void);
 
-MsdXrandrManager *       csd_xrandr_manager_new                 (void);
-gboolean                csd_xrandr_manager_start               (MsdXrandrManager *manager,
+CsdXrandrManager *       csd_xrandr_manager_new                 (void);
+gboolean                csd_xrandr_manager_start               (CsdXrandrManager *manager,
                                                                GError         **error);
-void                    csd_xrandr_manager_stop                (MsdXrandrManager *manager);
+void                    csd_xrandr_manager_stop                (CsdXrandrManager *manager);
 
 #ifdef __cplusplus
 }

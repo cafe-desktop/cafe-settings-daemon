@@ -27,31 +27,31 @@
 G_BEGIN_DECLS
 
 #define MSD_TYPE_RFKILL_MANAGER         (csd_rfkill_manager_get_type ())
-#define MSD_RFKILL_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_RFKILL_MANAGER, MsdRfkillManager))
-#define MSD_RFKILL_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_RFKILL_MANAGER, MsdRfkillManagerClass))
+#define MSD_RFKILL_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_RFKILL_MANAGER, CsdRfkillManager))
+#define MSD_RFKILL_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_RFKILL_MANAGER, CsdRfkillManagerClass))
 #define MSD_IS_RFKILL_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_RFKILL_MANAGER))
 #define MSD_IS_RFKILL_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_RFKILL_MANAGER))
-#define MSD_RFKILL_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_RFKILL_MANAGER, MsdRfkillManagerClass))
+#define MSD_RFKILL_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_RFKILL_MANAGER, CsdRfkillManagerClass))
 
-typedef struct MsdRfkillManagerPrivate MsdRfkillManagerPrivate;
+typedef struct CsdRfkillManagerPrivate CsdRfkillManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdRfkillManagerPrivate *priv;
-} MsdRfkillManager;
+        CsdRfkillManagerPrivate *priv;
+} CsdRfkillManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdRfkillManagerClass;
+} CsdRfkillManagerClass;
 
 GType                   csd_rfkill_manager_get_type            (void);
 
-MsdRfkillManager *       csd_rfkill_manager_new                 (void);
-gboolean                csd_rfkill_manager_start               (MsdRfkillManager *manager,
+CsdRfkillManager *       csd_rfkill_manager_new                 (void);
+gboolean                csd_rfkill_manager_start               (CsdRfkillManager *manager,
                                                                GError         **error);
-void                    csd_rfkill_manager_stop                (MsdRfkillManager *manager);
+void                    csd_rfkill_manager_stop                (CsdRfkillManager *manager);
 
 G_END_DECLS
 

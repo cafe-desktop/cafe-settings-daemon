@@ -50,7 +50,7 @@
 #define DISABLE_INDICATOR_KEY "disable-indicator"
 #define DUPLICATE_LEDS_KEY "duplicate-leds"
 
-static MsdKeyboardManager* manager = NULL;
+static CsdKeyboardManager* manager = NULL;
 
 static GSettings* settings_desktop;
 static GSettings* settings_kbd;
@@ -555,7 +555,7 @@ csd_keyboard_state_changed (XklEngine * engine, XklEngineStateChange type,
 }
 
 void
-csd_keyboard_xkb_init (MsdKeyboardManager * kbd_manager)
+csd_keyboard_xkb_init (CsdKeyboardManager * kbd_manager)
 {
 	int i;
 	Display *display = CDK_DISPLAY_XDISPLAY(cdk_display_get_default());

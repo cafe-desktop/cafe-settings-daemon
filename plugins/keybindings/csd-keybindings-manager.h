@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_KEYBINDINGS_MANAGER         (csd_keybindings_manager_get_type ())
-#define MSD_KEYBINDINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBINDINGS_MANAGER, MsdKeybindingsManager))
-#define MSD_KEYBINDINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBINDINGS_MANAGER, MsdKeybindingsManagerClass))
+#define MSD_KEYBINDINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManager))
+#define MSD_KEYBINDINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManagerClass))
 #define MSD_IS_KEYBINDINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBINDINGS_MANAGER))
 #define MSD_IS_KEYBINDINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_KEYBINDINGS_MANAGER))
-#define MSD_KEYBINDINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBINDINGS_MANAGER, MsdKeybindingsManagerClass))
+#define MSD_KEYBINDINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManagerClass))
 
-typedef struct MsdKeybindingsManagerPrivate MsdKeybindingsManagerPrivate;
+typedef struct CsdKeybindingsManagerPrivate CsdKeybindingsManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdKeybindingsManagerPrivate *priv;
-} MsdKeybindingsManager;
+        CsdKeybindingsManagerPrivate *priv;
+} CsdKeybindingsManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdKeybindingsManagerClass;
+} CsdKeybindingsManagerClass;
 
 GType                   csd_keybindings_manager_get_type            (void);
 
-MsdKeybindingsManager *       csd_keybindings_manager_new                 (void);
-gboolean                csd_keybindings_manager_start               (MsdKeybindingsManager *manager,
+CsdKeybindingsManager *       csd_keybindings_manager_new                 (void);
+gboolean                csd_keybindings_manager_start               (CsdKeybindingsManager *manager,
                                                                GError         **error);
-void                    csd_keybindings_manager_stop                (MsdKeybindingsManager *manager);
+void                    csd_keybindings_manager_stop                (CsdKeybindingsManager *manager);
 
 #ifdef __cplusplus
 }

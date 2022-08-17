@@ -26,9 +26,9 @@
 #define FRAME_INTERVAL(nframes) (MSECS_PER_SEC / nframes)
 #define DEFAULT_FPS 30
 
-typedef struct _MsdTimelinePrivate MsdTimelinePrivate;
+typedef struct _CsdTimelinePrivate CsdTimelinePrivate;
 
-struct _MsdTimelinePrivate
+struct _CsdTimelinePrivate
 {
   guint duration;
   guint fps;
@@ -37,8 +37,8 @@ struct _MsdTimelinePrivate
   GTimer *timer;
 
   CdkScreen *screen;
-  MsdTimelineProgressType progress_type;
-  MsdTimelineProgressFunc progress_func;
+  CsdTimelineProgressType progress_type;
+  CsdTimelineProgressFunc progress_func;
 
   guint loop      : 1;
   guint direction : 1;
@@ -75,7 +75,7 @@ static void  csd_timeline_get_property  (GObject         *object,
 					 GParamSpec      *pspec);
 static void  csd_timeline_finalize      (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdTimeline, csd_timeline, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdTimeline, csd_timeline, G_TYPE_OBJECT)
 
 GType
 csd_timeline_direction_get_type (void)
@@ -90,7 +90,7 @@ csd_timeline_direction_get_type (void)
 	{ 0, NULL, NULL }
       };
 
-      type = g_enum_register_static (g_intern_static_string ("MsdTimelineDirection"), values);
+      type = g_enum_register_static (g_intern_static_string ("CsdTimelineDirection"), values);
     }
 
   return type;
@@ -110,14 +110,14 @@ csd_timeline_progress_type_get_type (void)
 	{ 0, NULL, NULL }
       };
 
-      type = g_enum_register_static (g_intern_static_string ("MsdTimelineProgressType"), values);
+      type = g_enum_register_static (g_intern_static_string ("CsdTimelineProgressType"), values);
     }
 
   return type;
 }
 
 static void
-csd_timeline_class_init (MsdTimelineClass *class)
+csd_timeline_class_init (CsdTimelineClass *class)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (class);
 
@@ -178,7 +178,7 @@ csd_timeline_class_init (MsdTimelineClass *class)
     g_signal_new ("started",
 		  G_TYPE_FROM_CLASS (object_class),
 		  G_SIGNAL_RUN_LAST,
-		  G_STRUCT_OFFSET (MsdTimelineClass, started),
+		  G_STRUCT_OFFSET (CsdTimelineClass, started),
 		  NULL, NULL,
 		  g_cclosure_marshal_VOID__VOID,
 		  G_TYPE_NONE, 0);
@@ -187,7 +187,7 @@ csd_timeline_class_init (MsdTimelineClass *class)
     g_signal_new ("paused",
 		  G_TYPE_FROM_CLASS (object_class),
 		  G_SIGNAL_RUN_LAST,
-		  G_STRUCT_OFFSET (MsdTimelineClass, paused),
+		  G_STRUCT_OFFSET (CsdTimelineClass, paused),
 		  NULL, NULL,
 		  g_cclosure_marshal_VOID__VOID,
 		  G_TYPE_NONE, 0);
@@ -196,7 +196,7 @@ csd_timeline_class_init (MsdTimelineClass *class)
     g_signal_new ("finished",
 		  G_TYPE_FROM_CLASS (object_class),
 		  G_SIGNAL_RUN_LAST,
-		  G_STRUCT_OFFSET (MsdTimelineClass, finished),
+		  G_STRUCT_OFFSET (CsdTimelineClass, finished),
 		  NULL, NULL,
 		  g_cclosure_marshal_VOID__VOID,
 		  G_TYPE_NONE, 0);
@@ -205,7 +205,7 @@ csd_timeline_class_init (MsdTimelineClass *class)
     g_signal_new ("frame",
 		  G_TYPE_FROM_CLASS (object_class),
 		  G_SIGNAL_RUN_LAST,
-		  G_STRUCT_OFFSET (MsdTimelineClass, frame),
+		  G_STRUCT_OFFSET (CsdTimelineClass, frame),
 		  NULL, NULL,
 		  g_cclosure_marshal_VOID__DOUBLE,
 		  G_TYPE_NONE, 1,
@@ -213,9 +213,9 @@ csd_timeline_class_init (MsdTimelineClass *class)
 }
 
 static void
-csd_timeline_init (MsdTimeline *timeline)
+csd_timeline_init (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -231,7 +231,7 @@ csd_timeline_set_property (GObject      *object,
 			   const GValue *value,
 			   GParamSpec   *pspec)
 {
-  MsdTimeline *timeline;
+  CsdTimeline *timeline;
 
   timeline = MSD_TIMELINE (object);
 
@@ -267,8 +267,8 @@ csd_timeline_get_property (GObject    *object,
 			   GValue     *value,
 			   GParamSpec *pspec)
 {
-  MsdTimeline *timeline;
-  MsdTimelinePrivate *priv;
+  CsdTimeline *timeline;
+  CsdTimelinePrivate *priv;
 
   timeline = MSD_TIMELINE (object);
   priv = csd_timeline_get_instance_private (timeline);
@@ -301,7 +301,7 @@ csd_timeline_get_property (GObject    *object,
 static void
 csd_timeline_finalize (GObject *object)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   priv = csd_timeline_get_instance_private (MSD_TIMELINE (object));
 
@@ -330,8 +330,8 @@ exponential_progress (gdouble progress)
   return progress * progress;
 }
 
-static MsdTimelineProgressFunc
-progress_type_to_func (MsdTimelineProgressType type)
+static CsdTimelineProgressFunc
+progress_type_to_func (CsdTimelineProgressType type)
 {
   if (type == MSD_TIMELINE_PROGRESS_SINUSOIDAL)
     return sinusoidal_progress;
@@ -342,13 +342,13 @@ progress_type_to_func (MsdTimelineProgressType type)
 }
 
 static gboolean
-csd_timeline_run_frame (MsdTimeline *timeline,
+csd_timeline_run_frame (CsdTimeline *timeline,
 			gboolean     enable_animations)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
   gdouble linear_progress, progress;
   guint elapsed_time;
-  MsdTimelineProgressFunc progress_func = NULL;
+  CsdTimelineProgressFunc progress_func = NULL;
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -401,7 +401,7 @@ csd_timeline_run_frame (MsdTimeline *timeline,
 }
 
 static gboolean
-csd_timeline_frame_idle_func (MsdTimeline *timeline)
+csd_timeline_frame_idle_func (CsdTimeline *timeline)
 {
   return csd_timeline_run_frame (timeline, TRUE);
 }
@@ -410,11 +410,11 @@ csd_timeline_frame_idle_func (MsdTimeline *timeline)
  * csd_timeline_new:
  * @duration: duration in milliseconds for the timeline
  *
- * Creates a new #MsdTimeline with the specified number of frames.
+ * Creates a new #CsdTimeline with the specified number of frames.
  *
- * Return Value: the newly created #MsdTimeline
+ * Return Value: the newly created #CsdTimeline
  **/
-MsdTimeline *
+CsdTimeline *
 csd_timeline_new (guint duration)
 {
   return g_object_new (MSD_TYPE_TIMELINE,
@@ -422,7 +422,7 @@ csd_timeline_new (guint duration)
 		       NULL);
 }
 
-MsdTimeline *
+CsdTimeline *
 csd_timeline_new_for_screen (guint      duration,
 			     CdkScreen *screen)
 {
@@ -434,14 +434,14 @@ csd_timeline_new_for_screen (guint      duration,
 
 /**
  * csd_timeline_start:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Runs the timeline from the current frame.
  **/
 void
-csd_timeline_start (MsdTimeline *timeline)
+csd_timeline_start (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
   CtkSettings *settings;
   gboolean enable_animations = FALSE;
 
@@ -489,14 +489,14 @@ csd_timeline_start (MsdTimeline *timeline)
 
 /**
  * csd_timeline_pause:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Pauses the timeline.
  **/
 void
-csd_timeline_pause (MsdTimeline *timeline)
+csd_timeline_pause (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -513,14 +513,14 @@ csd_timeline_pause (MsdTimeline *timeline)
 
 /**
  * csd_timeline_rewind:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Rewinds the timeline.
  **/
 void
-csd_timeline_rewind (MsdTimeline *timeline)
+csd_timeline_rewind (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -540,16 +540,16 @@ csd_timeline_rewind (MsdTimeline *timeline)
 
 /**
  * csd_timeline_is_running:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Returns whether the timeline is running or not.
  *
  * Return Value: %TRUE if the timeline is running
  **/
 gboolean
-csd_timeline_is_running (MsdTimeline *timeline)
+csd_timeline_is_running (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), FALSE);
 
@@ -560,16 +560,16 @@ csd_timeline_is_running (MsdTimeline *timeline)
 
 /**
  * csd_timeline_get_fps:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Returns the number of frames per second.
  *
  * Return Value: frames per second
  **/
 guint
-csd_timeline_get_fps (MsdTimeline *timeline)
+csd_timeline_get_fps (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), 1);
 
@@ -579,17 +579,17 @@ csd_timeline_get_fps (MsdTimeline *timeline)
 
 /**
  * csd_timeline_set_fps:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  * @fps: frames per second
  *
  * Sets the number of frames per second that
  * the timeline will play.
  **/
 void
-csd_timeline_set_fps (MsdTimeline *timeline,
+csd_timeline_set_fps (CsdTimeline *timeline,
 		      guint        fps)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
   g_return_if_fail (fps > 0);
@@ -611,7 +611,7 @@ csd_timeline_set_fps (MsdTimeline *timeline,
 
 /**
  * csd_timeline_get_loop:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Returns whether the timeline loops to the
  * beginning when it has reached the end.
@@ -619,9 +619,9 @@ csd_timeline_set_fps (MsdTimeline *timeline,
  * Return Value: %TRUE if the timeline loops
  **/
 gboolean
-csd_timeline_get_loop (MsdTimeline *timeline)
+csd_timeline_get_loop (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), FALSE);
 
@@ -631,17 +631,17 @@ csd_timeline_get_loop (MsdTimeline *timeline)
 
 /**
  * csd_timeline_set_loop:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  * @loop: %TRUE to make the timeline loop
  *
  * Sets whether the timeline loops to the beginning
  * when it has reached the end.
  **/
 void
-csd_timeline_set_loop (MsdTimeline *timeline,
+csd_timeline_set_loop (CsdTimeline *timeline,
 		       gboolean     loop)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -652,10 +652,10 @@ csd_timeline_set_loop (MsdTimeline *timeline,
 }
 
 void
-csd_timeline_set_duration (MsdTimeline *timeline,
+csd_timeline_set_duration (CsdTimeline *timeline,
 			   guint        duration)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -667,9 +667,9 @@ csd_timeline_set_duration (MsdTimeline *timeline,
 }
 
 guint
-csd_timeline_get_duration (MsdTimeline *timeline)
+csd_timeline_get_duration (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), 0);
 
@@ -680,16 +680,16 @@ csd_timeline_get_duration (MsdTimeline *timeline)
 
 /**
  * csd_timeline_get_direction:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  *
  * Returns the direction of the timeline.
  *
  * Return Value: direction
  **/
-MsdTimelineDirection
-csd_timeline_get_direction (MsdTimeline *timeline)
+CsdTimelineDirection
+csd_timeline_get_direction (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), MSD_TIMELINE_DIRECTION_FORWARD);
 
@@ -699,16 +699,16 @@ csd_timeline_get_direction (MsdTimeline *timeline)
 
 /**
  * csd_timeline_set_direction:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  * @direction: direction
  *
  * Sets the direction of the timeline.
  **/
 void
-csd_timeline_set_direction (MsdTimeline          *timeline,
-			    MsdTimelineDirection  direction)
+csd_timeline_set_direction (CsdTimeline          *timeline,
+			    CsdTimelineDirection  direction)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -719,9 +719,9 @@ csd_timeline_set_direction (MsdTimeline          *timeline,
 }
 
 CdkScreen *
-csd_timeline_get_screen (MsdTimeline *timeline)
+csd_timeline_get_screen (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), NULL);
 
@@ -730,10 +730,10 @@ csd_timeline_get_screen (MsdTimeline *timeline)
 }
 
 void
-csd_timeline_set_screen (MsdTimeline *timeline,
+csd_timeline_set_screen (CsdTimeline *timeline,
 			 CdkScreen   *screen)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
   g_return_if_fail (CDK_IS_SCREEN (screen));
@@ -749,10 +749,10 @@ csd_timeline_set_screen (MsdTimeline *timeline,
 }
 
 void
-csd_timeline_set_progress_type (MsdTimeline             *timeline,
-				MsdTimelineProgressType  type)
+csd_timeline_set_progress_type (CsdTimeline             *timeline,
+				CsdTimelineProgressType  type)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -763,10 +763,10 @@ csd_timeline_set_progress_type (MsdTimeline             *timeline,
   g_object_notify (G_OBJECT (timeline), "progress-type");
 }
 
-MsdTimelineProgressType
-csd_timeline_get_progress_type (MsdTimeline *timeline)
+CsdTimelineProgressType
+csd_timeline_get_progress_type (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_val_if_fail (MSD_IS_TIMELINE (timeline), MSD_TIMELINE_PROGRESS_LINEAR);
 
@@ -780,7 +780,7 @@ csd_timeline_get_progress_type (MsdTimeline *timeline)
 
 /**
  * csd_timeline_set_progress_func:
- * @timeline: A #MsdTimeline
+ * @timeline: A #CsdTimeline
  * @progress_func: progress function
  *
  * Sets the progress function. This function will be used to calculate
@@ -792,10 +792,10 @@ csd_timeline_get_progress_type (MsdTimeline *timeline)
  * All progresses are in the [0.0, 1.0] range.
  **/
 void
-csd_timeline_set_progress_func (MsdTimeline             *timeline,
-				MsdTimelineProgressFunc  progress_func)
+csd_timeline_set_progress_func (CsdTimeline             *timeline,
+				CsdTimelineProgressFunc  progress_func)
 {
-  MsdTimelinePrivate *priv;
+  CsdTimelinePrivate *priv;
 
   g_return_if_fail (MSD_IS_TIMELINE (timeline));
 
@@ -804,10 +804,10 @@ csd_timeline_set_progress_func (MsdTimeline             *timeline,
 }
 
 gdouble
-csd_timeline_get_progress (MsdTimeline *timeline)
+csd_timeline_get_progress (CsdTimeline *timeline)
 {
-  MsdTimelinePrivate *priv;
-  MsdTimelineProgressFunc progress_func = NULL;
+  CsdTimelinePrivate *priv;
+  CsdTimelineProgressFunc progress_func = NULL;
   gdouble linear_progress, progress;
   guint elapsed_time;
 

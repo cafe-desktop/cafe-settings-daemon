@@ -33,37 +33,37 @@
 extern "C" {
 #endif
 #define MSD_TYPE_SMARTCARD_MANAGER            (csd_smartcard_manager_get_type ())
-#define MSD_SMARTCARD_MANAGER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_SMARTCARD_MANAGER, MsdSmartcardManager))
-#define MSD_SMARTCARD_MANAGER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_SMARTCARD_MANAGER, MsdSmartcardManagerClass))
+#define MSD_SMARTCARD_MANAGER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManager))
+#define MSD_SMARTCARD_MANAGER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManagerClass))
 #define MSD_IS_SMARTCARD_MANAGER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SC_TYPE_SMARTCARD_MANAGER))
 #define MSD_IS_SMARTCARD_MANAGER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), SC_TYPE_SMARTCARD_MANAGER))
-#define MSD_SMARTCARD_MANAGER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), MSD_TYPE_SMARTCARD_MANAGER, MsdSmartcardManagerClass))
+#define MSD_SMARTCARD_MANAGER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), MSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManagerClass))
 #define MSD_SMARTCARD_MANAGER_ERROR           (csd_smartcard_manager_error_quark ())
-typedef struct _MsdSmartcardManager MsdSmartcardManager;
-typedef struct _MsdSmartcardManagerClass MsdSmartcardManagerClass;
-typedef struct _MsdSmartcardManagerPrivate MsdSmartcardManagerPrivate;
-typedef enum _MsdSmartcardManagerError MsdSmartcardManagerError;
+typedef struct _CsdSmartcardManager CsdSmartcardManager;
+typedef struct _CsdSmartcardManagerClass CsdSmartcardManagerClass;
+typedef struct _CsdSmartcardManagerPrivate CsdSmartcardManagerPrivate;
+typedef enum _CsdSmartcardManagerError CsdSmartcardManagerError;
 
-struct _MsdSmartcardManager {
+struct _CsdSmartcardManager {
     GObject parent;
 
     /*< private > */
-    MsdSmartcardManagerPrivate *priv;
+    CsdSmartcardManagerPrivate *priv;
 };
 
-struct _MsdSmartcardManagerClass {
+struct _CsdSmartcardManagerClass {
         GObjectClass parent_class;
 
         /* Signals */
-        void (*smartcard_inserted) (MsdSmartcardManager *manager,
-                                    MsdSmartcard        *token);
-        void (*smartcard_removed) (MsdSmartcardManager *manager,
-                                   MsdSmartcard        *token);
-        void (*error) (MsdSmartcardManager *manager,
+        void (*smartcard_inserted) (CsdSmartcardManager *manager,
+                                    CsdSmartcard        *token);
+        void (*smartcard_removed) (CsdSmartcardManager *manager,
+                                   CsdSmartcard        *token);
+        void (*error) (CsdSmartcardManager *manager,
                        GError              *error);
 };
 
-enum _MsdSmartcardManagerError {
+enum _CsdSmartcardManagerError {
     MSD_SMARTCARD_MANAGER_ERROR_GENERIC = 0,
     MSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
     MSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
@@ -74,15 +74,15 @@ enum _MsdSmartcardManagerError {
 GType csd_smartcard_manager_get_type (void) G_GNUC_CONST;
 GQuark csd_smartcard_manager_error_quark (void) G_GNUC_CONST;
 
-MsdSmartcardManager *csd_smartcard_manager_new (const char *module);
+CsdSmartcardManager *csd_smartcard_manager_new (const char *module);
 
-gboolean csd_smartcard_manager_start (MsdSmartcardManager  *manager,
+gboolean csd_smartcard_manager_start (CsdSmartcardManager  *manager,
                                       GError              **error);
 
-void csd_smartcard_manager_stop (MsdSmartcardManager *manager);
+void csd_smartcard_manager_stop (CsdSmartcardManager *manager);
 
-char *csd_smartcard_manager_get_module_path (MsdSmartcardManager *manager);
-gboolean csd_smartcard_manager_login_card_is_inserted (MsdSmartcardManager *manager);
+char *csd_smartcard_manager_get_module_path (CsdSmartcardManager *manager);
+gboolean csd_smartcard_manager_login_card_is_inserted (CsdSmartcardManager *manager);
 
 #ifdef __cplusplus
 }

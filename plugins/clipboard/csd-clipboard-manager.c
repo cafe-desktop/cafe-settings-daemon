@@ -46,7 +46,7 @@
 #include "cafe-settings-profile.h"
 #include "csd-clipboard-manager.h"
 
-struct MsdClipboardManagerPrivate
+struct CsdClipboardManagerPrivate
 {
         Display *display;
         Window   window;
@@ -81,13 +81,13 @@ typedef struct
 
 static void     csd_clipboard_manager_finalize    (GObject *object);
 
-static void     clipboard_manager_watch_cb        (MsdClipboardManager *manager,
+static void     clipboard_manager_watch_cb        (CsdClipboardManager *manager,
                                                    Window               window,
                                                    Bool                 is_start,
                                                    long                 mask,
                                                    void                *cb_data);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdClipboardManager, csd_clipboard_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdClipboardManager, csd_clipboard_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -122,7 +122,7 @@ conversion_free (IncrConversion *rdata)
 }
 
 static void
-send_selection_notify (MsdClipboardManager *manager,
+send_selection_notify (CsdClipboardManager *manager,
                        Bool                 success)
 {
         XSelectionEvent notify;
@@ -152,7 +152,7 @@ send_selection_notify (MsdClipboardManager *manager,
 }
 
 static void
-finish_selection_request (MsdClipboardManager *manager,
+finish_selection_request (CsdClipboardManager *manager,
                           XEvent              *xev,
                           Bool                 success)
 {
@@ -194,7 +194,7 @@ clipboard_bytes_per_item (int format)
 }
 
 static void
-save_targets (MsdClipboardManager *manager,
+save_targets (CsdClipboardManager *manager,
               Atom                *save_targets,
               int                  nitems)
 {
@@ -262,7 +262,7 @@ find_conversion_requestor (IncrConversion *rdata,
 
 static void
 get_property (TargetData          *tdata,
-              MsdClipboardManager *manager)
+              CsdClipboardManager *manager)
 {
         Atom           type;
         int            format;
@@ -299,7 +299,7 @@ get_property (TargetData          *tdata,
 }
 
 static Bool
-receive_incrementally (MsdClipboardManager *manager,
+receive_incrementally (CsdClipboardManager *manager,
                        XEvent              *xev)
 {
         List          *list;
@@ -358,7 +358,7 @@ receive_incrementally (MsdClipboardManager *manager,
 }
 
 static Bool
-send_incrementally (MsdClipboardManager *manager,
+send_incrementally (CsdClipboardManager *manager,
                     XEvent              *xev)
 {
         List           *list;
@@ -396,7 +396,7 @@ send_incrementally (MsdClipboardManager *manager,
 }
 
 static void
-convert_clipboard_manager (MsdClipboardManager *manager,
+convert_clipboard_manager (CsdClipboardManager *manager,
                            XEvent              *xev)
 {
         CdkDisplay    *display;
@@ -488,7 +488,7 @@ convert_clipboard_manager (MsdClipboardManager *manager,
 
 static void
 convert_clipboard_target (IncrConversion      *rdata,
-                          MsdClipboardManager *manager)
+                          CsdClipboardManager *manager)
 {
         CdkDisplay       *display;
         TargetData       *tdata;
@@ -566,7 +566,7 @@ convert_clipboard_target (IncrConversion      *rdata,
 
 static void
 collect_incremental (IncrConversion      *rdata,
-                     MsdClipboardManager *manager)
+                     CsdClipboardManager *manager)
 {
         if (rdata->offset >= 0)
                 manager->priv->conversions = list_prepend (manager->priv->conversions, rdata);
@@ -580,7 +580,7 @@ collect_incremental (IncrConversion      *rdata,
 }
 
 static void
-convert_clipboard (MsdClipboardManager *manager,
+convert_clipboard (CsdClipboardManager *manager,
                    XEvent              *xev)
 {
         List           *list;
@@ -661,7 +661,7 @@ convert_clipboard (MsdClipboardManager *manager,
 }
 
 static Bool
-clipboard_manager_process_event (MsdClipboardManager *manager,
+clipboard_manager_process_event (CsdClipboardManager *manager,
                                  XEvent              *xev)
 {
         Atom          type;
@@ -810,7 +810,7 @@ clipboard_manager_process_event (MsdClipboardManager *manager,
 static CdkFilterReturn
 clipboard_manager_event_filter (CdkXEvent           *xevent,
                                 CdkEvent            *event,
-                                MsdClipboardManager *manager)
+                                CsdClipboardManager *manager)
 {
         if (clipboard_manager_process_event (manager, (XEvent *)xevent)) {
                 return CDK_FILTER_REMOVE;
@@ -820,7 +820,7 @@ clipboard_manager_event_filter (CdkXEvent           *xevent,
 }
 
 static void
-clipboard_manager_watch_cb (MsdClipboardManager *manager,
+clipboard_manager_watch_cb (CsdClipboardManager *manager,
                             Window               window,
                             Bool                 is_start,
                             long                 mask,
@@ -854,7 +854,7 @@ clipboard_manager_watch_cb (MsdClipboardManager *manager,
 }
 
 static gboolean
-start_clipboard_idle_cb (MsdClipboardManager *manager)
+start_clipboard_idle_cb (CsdClipboardManager *manager)
 {
         XClientMessageEvent xev;
 
@@ -929,7 +929,7 @@ start_clipboard_idle_cb (MsdClipboardManager *manager)
 }
 
 gboolean
-csd_clipboard_manager_start (MsdClipboardManager *manager,
+csd_clipboard_manager_start (CsdClipboardManager *manager,
                              GError             **error)
 {
         cafe_settings_profile_start (NULL);
@@ -942,7 +942,7 @@ csd_clipboard_manager_start (MsdClipboardManager *manager,
 }
 
 void
-csd_clipboard_manager_stop (MsdClipboardManager *manager)
+csd_clipboard_manager_stop (CsdClipboardManager *manager)
 {
         g_debug ("Stopping clipboard manager");
 
@@ -961,7 +961,7 @@ csd_clipboard_manager_stop (MsdClipboardManager *manager)
 }
 
 static void
-csd_clipboard_manager_class_init (MsdClipboardManagerClass *klass)
+csd_clipboard_manager_class_init (CsdClipboardManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -969,7 +969,7 @@ csd_clipboard_manager_class_init (MsdClipboardManagerClass *klass)
 }
 
 static void
-csd_clipboard_manager_init (MsdClipboardManager *manager)
+csd_clipboard_manager_init (CsdClipboardManager *manager)
 {
         manager->priv = csd_clipboard_manager_get_instance_private (manager);
 
@@ -980,7 +980,7 @@ csd_clipboard_manager_init (MsdClipboardManager *manager)
 static void
 csd_clipboard_manager_finalize (GObject *object)
 {
-        MsdClipboardManager *clipboard_manager;
+        CsdClipboardManager *clipboard_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_CLIPBOARD_MANAGER (object));
@@ -992,7 +992,7 @@ csd_clipboard_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_clipboard_manager_parent_class)->finalize (object);
 }
 
-MsdClipboardManager *
+CsdClipboardManager *
 csd_clipboard_manager_new (void)
 {
         if (manager_object != NULL) {

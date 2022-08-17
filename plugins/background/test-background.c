@@ -31,7 +31,7 @@
 #include "csd-background-manager.h"
 
 static gboolean
-idle (MsdBackgroundManager* manager)
+idle (CsdBackgroundManager* manager)
 {
 	csd_background_manager_start(manager, NULL);
 	return FALSE;
@@ -40,7 +40,7 @@ idle (MsdBackgroundManager* manager)
 int
 main (int argc, char* argv[])
 {
-	MsdBackgroundManager* manager;
+	CsdBackgroundManager* manager;
 
 	bindtextdomain(GETTEXT_PACKAGE, CAFE_SETTINGS_LOCALEDIR);
 	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");

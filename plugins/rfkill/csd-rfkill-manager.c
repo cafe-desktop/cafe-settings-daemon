@@ -31,7 +31,7 @@
 #include "rfkill-glib.h"
 #include "cafe-settings-bus.h"
 
-struct MsdRfkillManagerPrivate
+struct CsdRfkillManagerPrivate
 {
         GDBusNodeInfo           *introspection_data;
         guint                    name_id;
@@ -80,12 +80,12 @@ static const gchar introspection_xml[] =
 
 static void csd_rfkill_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdRfkillManager, csd_rfkill_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdRfkillManager, csd_rfkill_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 static void
-csd_rfkill_manager_class_init (MsdRfkillManagerClass *klass)
+csd_rfkill_manager_class_init (CsdRfkillManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -93,7 +93,7 @@ csd_rfkill_manager_class_init (MsdRfkillManagerClass *klass)
 }
 
 static void
-csd_rfkill_manager_init (MsdRfkillManager *manager)
+csd_rfkill_manager_init (CsdRfkillManager *manager)
 {
         manager->priv = csd_rfkill_manager_get_instance_private (manager);
 }
@@ -122,13 +122,13 @@ engine_get_airplane_mode_helper (GHashTable *killswitches)
 }
 
 static gboolean
-engine_get_bluetooth_airplane_mode (MsdRfkillManager *manager)
+engine_get_bluetooth_airplane_mode (CsdRfkillManager *manager)
 {
 	return engine_get_airplane_mode_helper (manager->priv->bt_killswitches);
 }
 
 static gboolean
-engine_get_bluetooth_hardware_airplane_mode (MsdRfkillManager *manager)
+engine_get_bluetooth_hardware_airplane_mode (CsdRfkillManager *manager)
 {
 	GHashTableIter iter;
 	gpointer key, value;
@@ -153,13 +153,13 @@ engine_get_bluetooth_hardware_airplane_mode (MsdRfkillManager *manager)
 }
 
 static gboolean
-engine_get_has_bluetooth_airplane_mode (MsdRfkillManager *manager)
+engine_get_has_bluetooth_airplane_mode (CsdRfkillManager *manager)
 {
 	return (g_hash_table_size (manager->priv->bt_killswitches) > 0);
 }
 
 static gboolean
-engine_get_airplane_mode (MsdRfkillManager *manager)
+engine_get_airplane_mode (CsdRfkillManager *manager)
 {
 	if (!manager->priv->wwan_interesting)
 		return engine_get_airplane_mode_helper (manager->priv->killswitches);
@@ -169,7 +169,7 @@ engine_get_airplane_mode (MsdRfkillManager *manager)
 }
 
 static gboolean
-engine_get_hardware_airplane_mode (MsdRfkillManager *manager)
+engine_get_hardware_airplane_mode (CsdRfkillManager *manager)
 {
 	GHashTableIter iter;
 	gpointer key, value;
@@ -194,14 +194,14 @@ engine_get_hardware_airplane_mode (MsdRfkillManager *manager)
 }
 
 static gboolean
-engine_get_has_airplane_mode (MsdRfkillManager *manager)
+engine_get_has_airplane_mode (CsdRfkillManager *manager)
 {
         return (g_hash_table_size (manager->priv->killswitches) > 0) ||
                 manager->priv->wwan_interesting;
 }
 
 static gboolean
-engine_get_should_show_airplane_mode (MsdRfkillManager *manager)
+engine_get_should_show_airplane_mode (CsdRfkillManager *manager)
 {
         return (g_strcmp0 (manager->priv->chassis_type, "desktop") != 0) &&
                 (g_strcmp0 (manager->priv->chassis_type, "server") != 0) &&
@@ -210,7 +210,7 @@ engine_get_should_show_airplane_mode (MsdRfkillManager *manager)
 }
 
 static void
-engine_properties_changed (MsdRfkillManager *manager)
+engine_properties_changed (CsdRfkillManager *manager)
 {
         GVariantBuilder props_builder;
         GVariant *props_changed = NULL;
@@ -251,7 +251,7 @@ engine_properties_changed (MsdRfkillManager *manager)
 static void
 rfkill_changed (CcRfkillGlib     *rfkill,
 		GList            *events,
-		MsdRfkillManager  *manager)
+		CsdRfkillManager  *manager)
 {
 	GList *l;
         int value;
@@ -336,7 +336,7 @@ set_wwan_complete (GObject      *object,
 }
 
 static gboolean
-engine_set_bluetooth_airplane_mode (MsdRfkillManager *manager,
+engine_set_bluetooth_airplane_mode (CsdRfkillManager *manager,
                                     gboolean          enable)
 {
         cc_rfkill_glib_send_change_all_event (manager->priv->rfkill, RFKILL_TYPE_BLUETOOTH,
@@ -346,7 +346,7 @@ engine_set_bluetooth_airplane_mode (MsdRfkillManager *manager,
 }
 
 static gboolean
-engine_set_airplane_mode (MsdRfkillManager *manager,
+engine_set_airplane_mode (CsdRfkillManager *manager,
                           gboolean          enable)
 {
         cc_rfkill_glib_send_change_all_event (manager->priv->rfkill, RFKILL_TYPE_ALL,
@@ -380,7 +380,7 @@ handle_set_property (GDBusConnection *connection,
                      GError         **error,
                      gpointer         user_data)
 {
-        MsdRfkillManager *manager = MSD_RFKILL_MANAGER (user_data);
+        CsdRfkillManager *manager = MSD_RFKILL_MANAGER (user_data);
 
         if (g_strcmp0 (property_name, "AirplaneMode") == 0) {
                 gboolean airplane_mode;
@@ -404,7 +404,7 @@ handle_get_property (GDBusConnection *connection,
                      GError         **error,
                      gpointer         user_data)
 {
-        MsdRfkillManager *manager = MSD_RFKILL_MANAGER (user_data);
+        CsdRfkillManager *manager = MSD_RFKILL_MANAGER (user_data);
 
         /* Check session pointer as a proxy for whether the manager is in the
            start or stop state */
@@ -467,7 +467,7 @@ static const GDBusInterfaceVTable interface_vtable =
 static void
 on_bus_gotten (GObject               *source_object,
                GAsyncResult          *res,
-               MsdRfkillManager *manager)
+               CsdRfkillManager *manager)
 {
         GDBusConnection *connection;
         GError *error = NULL;
@@ -499,7 +499,7 @@ on_bus_gotten (GObject               *source_object,
 }
 
 static void
-sync_wwan_enabled (MsdRfkillManager *manager)
+sync_wwan_enabled (CsdRfkillManager *manager)
 {
         GVariant *property;
 
@@ -524,7 +524,7 @@ nm_signal (GDBusProxy *proxy,
            GVariant   *parameters,
            gpointer    user_data)
 {
-        MsdRfkillManager *manager = user_data;
+        CsdRfkillManager *manager = user_data;
         GVariant *changed;
         GVariant *property;
 
@@ -547,7 +547,7 @@ on_nm_proxy_gotten (GObject      *source,
                     GAsyncResult *result,
                     gpointer      user_data)
 {
-        MsdRfkillManager *manager = user_data;
+        CsdRfkillManager *manager = user_data;
         GDBusProxy *proxy;
         GError *error;
 
@@ -579,7 +579,7 @@ sync_wwan_interesting (GDBusObjectManager *object_manager,
                        GDBusInterface     *interface,
                        gpointer            user_data)
 {
-        MsdRfkillManager *manager = user_data;
+        CsdRfkillManager *manager = user_data;
         GList *objects;
 
         objects = g_dbus_object_manager_get_objects (object_manager);
@@ -594,7 +594,7 @@ on_mm_proxy_gotten (GObject      *source,
                     GAsyncResult *result,
                     gpointer      user_data)
 {
-        MsdRfkillManager *manager = user_data;
+        CsdRfkillManager *manager = user_data;
         GDBusObjectManager *proxy;
         GError *error;
 
@@ -623,7 +623,7 @@ on_mm_proxy_gotten (GObject      *source,
 }
 
 gboolean
-csd_rfkill_manager_start (MsdRfkillManager *manager,
+csd_rfkill_manager_start (CsdRfkillManager *manager,
                          GError         **error)
 {
         cafe_settings_profile_start (NULL);
@@ -671,9 +671,9 @@ csd_rfkill_manager_start (MsdRfkillManager *manager,
 }
 
 void
-csd_rfkill_manager_stop (MsdRfkillManager *manager)
+csd_rfkill_manager_stop (CsdRfkillManager *manager)
 {
-        MsdRfkillManagerPrivate *p = manager->priv;
+        CsdRfkillManagerPrivate *p = manager->priv;
 
         g_debug ("Stopping rfkill manager");
 
@@ -704,7 +704,7 @@ csd_rfkill_manager_stop (MsdRfkillManager *manager)
 static void
 csd_rfkill_manager_finalize (GObject *object)
 {
-        MsdRfkillManager *manager;
+        CsdRfkillManager *manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_RFKILL_MANAGER (object));
@@ -718,7 +718,7 @@ csd_rfkill_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_rfkill_manager_parent_class)->finalize (object);
 }
 
-MsdRfkillManager *
+CsdRfkillManager *
 csd_rfkill_manager_new (void)
 {
         if (manager_object != NULL) {

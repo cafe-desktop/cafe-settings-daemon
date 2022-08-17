@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_A11Y_KEYBOARD_PLUGIN                (csd_a11y_keyboard_plugin_get_type ())
-#define MSD_A11Y_KEYBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, MsdA11yKeyboardPlugin))
-#define MSD_A11Y_KEYBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, MsdA11yKeyboardPluginClass))
+#define MSD_A11Y_KEYBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, CsdA11yKeyboardPlugin))
+#define MSD_A11Y_KEYBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, CsdA11yKeyboardPluginClass))
 #define MSD_IS_A11Y_KEYBOARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN))
 #define MSD_IS_A11Y_KEYBOARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_A11Y_KEYBOARD_PLUGIN))
-#define MSD_A11Y_KEYBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, MsdA11yKeyboardPluginClass))
+#define MSD_A11Y_KEYBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_KEYBOARD_PLUGIN, CsdA11yKeyboardPluginClass))
 
-typedef struct MsdA11yKeyboardPluginPrivate MsdA11yKeyboardPluginPrivate;
+typedef struct CsdA11yKeyboardPluginPrivate CsdA11yKeyboardPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdA11yKeyboardPluginPrivate *priv;
-} MsdA11yKeyboardPlugin;
+        CsdA11yKeyboardPluginPrivate *priv;
+} CsdA11yKeyboardPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdA11yKeyboardPluginClass;
+} CsdA11yKeyboardPluginClass;
 
 GType   csd_a11y_keyboard_plugin_get_type            (void) G_GNUC_CONST;
 

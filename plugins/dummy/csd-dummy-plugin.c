@@ -27,18 +27,18 @@
 #include "csd-dummy-plugin.h"
 #include "csd-dummy-manager.h"
 
-struct MsdDummyPluginPrivate {
-        MsdDummyManager *manager;
+struct CsdDummyPluginPrivate {
+        CsdDummyManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdDummyPlugin, csd_dummy_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdDummyPlugin, csd_dummy_plugin)
 
 static void
-csd_dummy_plugin_init (MsdDummyPlugin *plugin)
+csd_dummy_plugin_init (CsdDummyPlugin *plugin)
 {
         plugin->priv = csd_dummy_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdDummyPlugin initializing");
+        g_debug ("CsdDummyPlugin initializing");
 
         plugin->priv->manager = csd_dummy_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_dummy_plugin_init (MsdDummyPlugin *plugin)
 static void
 csd_dummy_plugin_finalize (GObject *object)
 {
-        MsdDummyPlugin *plugin;
+        CsdDummyPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_DUMMY_PLUGIN (object));
 
-        g_debug ("MsdDummyPlugin finalizing");
+        g_debug ("CsdDummyPlugin finalizing");
 
         plugin = MSD_DUMMY_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_dummy_plugin_class_init (MsdDummyPluginClass *klass)
+csd_dummy_plugin_class_init (CsdDummyPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,6 +100,6 @@ csd_dummy_plugin_class_init (MsdDummyPluginClass *klass)
 }
 
 static void
-csd_dummy_plugin_class_finalize (MsdDummyPluginClass *klass)
+csd_dummy_plugin_class_finalize (CsdDummyPluginClass *klass)
 {
 }

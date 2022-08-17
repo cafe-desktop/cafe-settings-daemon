@@ -38,13 +38,13 @@
 #define THUMB_CACHE_KEY_AGE	"maximum-age"
 #define THUMB_CACHE_KEY_SIZE	"maximum-size"
 
-struct MsdHousekeepingManagerPrivate {
+struct CsdHousekeepingManagerPrivate {
         guint long_term_cb;
         guint short_term_cb;
         GSettings *settings;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdHousekeepingManager, csd_housekeeping_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdHousekeepingManager, csd_housekeeping_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -142,7 +142,7 @@ sort_file_mtime (ThumbData *file1, ThumbData *file2)
 }
 
 static void
-purge_thumbnail_cache (MsdHousekeepingManager *manager)
+purge_thumbnail_cache (CsdHousekeepingManager *manager)
 {
 
         char      *path;
@@ -204,14 +204,14 @@ purge_thumbnail_cache (MsdHousekeepingManager *manager)
 }
 
 static gboolean
-do_cleanup (MsdHousekeepingManager *manager)
+do_cleanup (CsdHousekeepingManager *manager)
 {
         purge_thumbnail_cache (manager);
         return TRUE;
 }
 
 static gboolean
-do_cleanup_once (MsdHousekeepingManager *manager)
+do_cleanup_once (CsdHousekeepingManager *manager)
 {
         do_cleanup (manager);
         manager->priv->short_term_cb = 0;
@@ -219,7 +219,7 @@ do_cleanup_once (MsdHousekeepingManager *manager)
 }
 
 static void
-do_cleanup_soon (MsdHousekeepingManager *manager)
+do_cleanup_soon (CsdHousekeepingManager *manager)
 {
         if (manager->priv->short_term_cb == 0) {
                 g_debug ("housekeeping: will tidy up in 2 minutes");
@@ -232,13 +232,13 @@ do_cleanup_soon (MsdHousekeepingManager *manager)
 static void
 settings_changed_callback (GSettings              *settings,
 			   const char             *key,
-			   MsdHousekeepingManager *manager)
+			   CsdHousekeepingManager *manager)
 {
         do_cleanup_soon (manager);
 }
 
 gboolean
-csd_housekeeping_manager_start (MsdHousekeepingManager *manager,
+csd_housekeeping_manager_start (CsdHousekeepingManager *manager,
                                 GError                **error)
 {
         g_debug ("Starting housekeeping manager");
@@ -264,9 +264,9 @@ csd_housekeeping_manager_start (MsdHousekeepingManager *manager,
 }
 
 void
-csd_housekeeping_manager_stop (MsdHousekeepingManager *manager)
+csd_housekeeping_manager_stop (CsdHousekeepingManager *manager)
 {
-        MsdHousekeepingManagerPrivate *p = manager->priv;
+        CsdHousekeepingManagerPrivate *p = manager->priv;
 
         g_debug ("Stopping housekeeping manager");
 
@@ -295,17 +295,17 @@ csd_housekeeping_manager_stop (MsdHousekeepingManager *manager)
 }
 
 static void
-csd_housekeeping_manager_class_init (MsdHousekeepingManagerClass *klass)
+csd_housekeeping_manager_class_init (CsdHousekeepingManagerClass *klass)
 {
 }
 
 static void
-csd_housekeeping_manager_init (MsdHousekeepingManager *manager)
+csd_housekeeping_manager_init (CsdHousekeepingManager *manager)
 {
         manager->priv = csd_housekeeping_manager_get_instance_private (manager);
 }
 
-MsdHousekeepingManager *
+CsdHousekeepingManager *
 csd_housekeeping_manager_new (void)
 {
         if (manager_object != NULL) {

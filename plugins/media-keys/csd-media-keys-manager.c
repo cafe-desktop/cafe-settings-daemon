@@ -63,7 +63,7 @@ typedef struct {
         guint32 time;
 } MediaPlayer;
 
-struct _MsdMediaKeysManagerPrivate
+struct _CsdMediaKeysManagerPrivate
 {
 #ifdef HAVE_LIBCAFEMIXER
         /* Volume bits */
@@ -99,12 +99,12 @@ enum {
 
 static guint signals[LAST_SIGNAL] = { 0 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdMediaKeysManager, csd_media_keys_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdMediaKeysManager, csd_media_keys_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 static void
-init_screens (MsdMediaKeysManager *manager)
+init_screens (CsdMediaKeysManager *manager)
 {
         CdkDisplay *display;
 
@@ -141,7 +141,7 @@ acme_error (char * msg)
 }
 
 static char *
-get_term_command (MsdMediaKeysManager *manager)
+get_term_command (CsdMediaKeysManager *manager)
 {
 	char *cmd_term, *cmd_args;
 	char *cmd = NULL;
@@ -165,7 +165,7 @@ get_term_command (MsdMediaKeysManager *manager)
 }
 
 static void
-execute (MsdMediaKeysManager *manager,
+execute (CsdMediaKeysManager *manager,
          char                *cmd,
          gboolean             sync,
          gboolean             need_term)
@@ -232,7 +232,7 @@ execute (MsdMediaKeysManager *manager,
 }
 
 static void
-dialog_init (MsdMediaKeysManager *manager)
+dialog_init (CsdMediaKeysManager *manager)
 {
         if (manager->priv->dialog != NULL
             && !csd_osd_window_is_valid (MSD_OSD_WINDOW (manager->priv->dialog))) {
@@ -261,7 +261,7 @@ is_valid_shortcut (const char *string)
 static void
 update_kbd_cb (GSettings           *settings,
                gchar               *settings_key,
-               MsdMediaKeysManager *manager)
+               CsdMediaKeysManager *manager)
 {
         int      i;
         CdkDisplay *dpy;
@@ -320,7 +320,7 @@ update_kbd_cb (GSettings           *settings,
                 g_warning ("Grab failed for some keys, another application may already have access the them.");
 }
 
-static void init_kbd(MsdMediaKeysManager* manager)
+static void init_kbd(CsdMediaKeysManager* manager)
 {
 	int i;
 	CdkDisplay *dpy;
@@ -401,7 +401,7 @@ ensure_cancellable (GCancellable **cancellable)
 }
 
 static void
-dialog_show (MsdMediaKeysManager *manager)
+dialog_show (CsdMediaKeysManager *manager)
 {
         int            orig_w;
         int            orig_h;
@@ -476,7 +476,7 @@ dialog_show (MsdMediaKeysManager *manager)
 }
 
 static void
-do_url_action (MsdMediaKeysManager *manager,
+do_url_action (CsdMediaKeysManager *manager,
                const gchar         *scheme)
 {
         GError *error = NULL;
@@ -499,7 +499,7 @@ do_url_action (MsdMediaKeysManager *manager,
 }
 
 static void
-do_media_action (MsdMediaKeysManager *manager)
+do_media_action (CsdMediaKeysManager *manager)
 {
         GError *error = NULL;
         GAppInfo *app_info;
@@ -520,7 +520,7 @@ do_media_action (MsdMediaKeysManager *manager)
 }
 
 static void
-do_calculator_action (MsdMediaKeysManager *manager)
+do_calculator_action (CsdMediaKeysManager *manager)
 {
         GSettings *settings;
         char *calc;
@@ -536,7 +536,7 @@ do_calculator_action (MsdMediaKeysManager *manager)
 }
 
 static void
-do_messenger_action (MsdMediaKeysManager *manager)
+do_messenger_action (CsdMediaKeysManager *manager)
 {
         GSettings *settings;
         char *messenger;
@@ -552,13 +552,13 @@ do_messenger_action (MsdMediaKeysManager *manager)
 }
 
 static void
-do_shutdown_action (MsdMediaKeysManager *manager)
+do_shutdown_action (CsdMediaKeysManager *manager)
 {
         execute (manager, "cafe-session-save --shutdown-dialog", FALSE, FALSE);
 }
 
 static void
-do_logout_action (MsdMediaKeysManager *manager)
+do_logout_action (CsdMediaKeysManager *manager)
 {
         execute (manager, "cafe-session-save --logout-dialog", FALSE, FALSE);
 }
@@ -566,7 +566,7 @@ do_logout_action (MsdMediaKeysManager *manager)
 static void
 do_eject_action_cb (GDrive              *drive,
                     GAsyncResult        *res,
-                    MsdMediaKeysManager *manager)
+                    CsdMediaKeysManager *manager)
 {
         g_drive_eject_with_operation_finish (drive, res, NULL);
 }
@@ -575,7 +575,7 @@ do_eject_action_cb (GDrive              *drive,
 #define SCORE_CAN_EJECT 50
 #define SCORE_HAS_MEDIA 100
 static void
-do_eject_action (MsdMediaKeysManager *manager)
+do_eject_action (CsdMediaKeysManager *manager)
 {
         GList *drives, *l;
         GDrive *fav_drive;
@@ -630,7 +630,7 @@ do_eject_action (MsdMediaKeysManager *manager)
 }
 
 static void
-do_touchpad_osd_action (MsdMediaKeysManager *manager, gboolean state)
+do_touchpad_osd_action (CsdMediaKeysManager *manager, gboolean state)
 {
         dialog_init (manager);
         csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
@@ -640,7 +640,7 @@ do_touchpad_osd_action (MsdMediaKeysManager *manager, gboolean state)
 }
 
 static void
-do_touchpad_action (MsdMediaKeysManager *manager)
+do_touchpad_action (CsdMediaKeysManager *manager)
 {
         GSettings *settings = g_settings_new (TOUCHPAD_SCHEMA);
         gboolean state = g_settings_get_boolean (settings, TOUCHPAD_ENABLED_KEY);
@@ -658,7 +658,7 @@ do_touchpad_action (MsdMediaKeysManager *manager)
 
 #ifdef HAVE_LIBCAFEMIXER
 static void
-update_dialog (MsdMediaKeysManager *manager,
+update_dialog (CsdMediaKeysManager *manager,
                guint                volume,
                gboolean             muted,
                gboolean             sound_changed,
@@ -697,7 +697,7 @@ update_dialog (MsdMediaKeysManager *manager,
 }
 
 static void
-do_sound_action (MsdMediaKeysManager *manager,
+do_sound_action (CsdMediaKeysManager *manager,
                  int type,
                  gboolean quiet)
 {
@@ -788,7 +788,7 @@ do_sound_action (MsdMediaKeysManager *manager,
 }
 
 static void
-update_default_output (MsdMediaKeysManager *manager)
+update_default_output (CsdMediaKeysManager *manager)
 {
         CafeMixerStream        *stream;
         CafeMixerStreamControl *control = NULL;
@@ -821,7 +821,7 @@ update_default_output (MsdMediaKeysManager *manager)
 }
 
 static void
-update_default_input (MsdMediaKeysManager *manager)
+update_default_input (CsdMediaKeysManager *manager)
 {
         CafeMixerStream        *stream;
         CafeMixerStreamControl *control = NULL;
@@ -855,7 +855,7 @@ update_default_input (MsdMediaKeysManager *manager)
 static void
 on_context_state_notify (CafeMixerContext    *context,
                          GParamSpec          *pspec,
-                         MsdMediaKeysManager *manager)
+                         CsdMediaKeysManager *manager)
 {
         update_default_output (manager);
         update_default_input (manager);
@@ -864,7 +864,7 @@ on_context_state_notify (CafeMixerContext    *context,
 static void
 on_context_default_output_notify (CafeMixerContext    *context,
                                   GParamSpec          *pspec,
-                                  MsdMediaKeysManager *manager)
+                                  CsdMediaKeysManager *manager)
 {
         update_default_output (manager);
 }
@@ -872,7 +872,7 @@ on_context_default_output_notify (CafeMixerContext    *context,
 static void
 on_context_default_input_notify (CafeMixerContext    *context,
                                  GParamSpec          *pspec,
-                                 MsdMediaKeysManager *manager)
+                                 CsdMediaKeysManager *manager)
 {
         update_default_input (manager);
 }
@@ -880,7 +880,7 @@ on_context_default_input_notify (CafeMixerContext    *context,
 static void
 on_context_stream_removed (CafeMixerContext    *context,
                            const gchar         *name,
-                           MsdMediaKeysManager *manager)
+                           CsdMediaKeysManager *manager)
 {
         if (manager->priv->stream != NULL) {
                 CafeMixerStream *stream =
@@ -904,7 +904,7 @@ on_context_stream_removed (CafeMixerContext    *context,
 #endif /* HAVE_LIBCAFEMIXER */
 
 static gboolean
-get_rfkill_property (MsdMediaKeysManager *manager,
+get_rfkill_property (CsdMediaKeysManager *manager,
                      const char          *property)
 {
         GVariant *v;
@@ -920,7 +920,7 @@ get_rfkill_property (MsdMediaKeysManager *manager,
 }
 
 typedef struct {
-        MsdMediaKeysManager *manager;
+        CsdMediaKeysManager *manager;
         char *property;
         gboolean bluetooth;
         gboolean target_state;
@@ -970,7 +970,7 @@ out:
 }
 
 static void
-do_rfkill_action (MsdMediaKeysManager *manager,
+do_rfkill_action (CsdMediaKeysManager *manager,
                   gboolean             bluetooth)
 {
         const char *has_mode, *hw_mode, *mode;
@@ -1018,7 +1018,7 @@ do_rfkill_action (MsdMediaKeysManager *manager,
 }
 
 static void
-do_display_osd_action (MsdMediaKeysManager *manager)
+do_display_osd_action (CsdMediaKeysManager *manager)
 {
         CdkDisplay *display;
         int         n_monitors;
@@ -1060,7 +1060,7 @@ find_by_time (gconstpointer a,
  * events only nobody is interested.
  */
 gboolean
-csd_media_keys_manager_grab_media_player_keys (MsdMediaKeysManager *manager,
+csd_media_keys_manager_grab_media_player_keys (CsdMediaKeysManager *manager,
                                                const char          *application,
                                                guint32              time,
                                                GError             **error)
@@ -1102,7 +1102,7 @@ csd_media_keys_manager_grab_media_player_keys (MsdMediaKeysManager *manager,
 }
 
 gboolean
-csd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
+csd_media_keys_manager_release_media_player_keys (CsdMediaKeysManager *manager,
                                                   const char          *application,
                                                   GError             **error)
 {
@@ -1123,7 +1123,7 @@ csd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
 }
 
 static gboolean
-csd_media_player_key_pressed (MsdMediaKeysManager *manager,
+csd_media_player_key_pressed (CsdMediaKeysManager *manager,
                               const char          *key)
 {
         const char *application = NULL;
@@ -1141,7 +1141,7 @@ csd_media_player_key_pressed (MsdMediaKeysManager *manager,
 }
 
 static gboolean
-do_multimedia_player_action (MsdMediaKeysManager *manager,
+do_multimedia_player_action (CsdMediaKeysManager *manager,
                              const char          *key)
 {
         return csd_media_player_key_pressed (manager, key);
@@ -1160,25 +1160,25 @@ do_toggle_accessibility_key (const char *key)
 }
 
 static void
-do_magnifier_action (MsdMediaKeysManager *manager)
+do_magnifier_action (CsdMediaKeysManager *manager)
 {
         do_toggle_accessibility_key ("screen-magnifier-enabled");
 }
 
 static void
-do_screenreader_action (MsdMediaKeysManager *manager)
+do_screenreader_action (CsdMediaKeysManager *manager)
 {
         do_toggle_accessibility_key ("screen-reader-enabled");
 }
 
 static void
-do_on_screen_keyboard_action (MsdMediaKeysManager *manager)
+do_on_screen_keyboard_action (CsdMediaKeysManager *manager)
 {
         do_toggle_accessibility_key ("screen-keyboard-enabled");
 }
 
 static gboolean
-do_action (MsdMediaKeysManager *manager,
+do_action (CsdMediaKeysManager *manager,
            int                  type)
 {
         char *cmd;
@@ -1321,7 +1321,7 @@ do_action (MsdMediaKeysManager *manager,
 }
 
 static CdkScreen *
-acme_get_screen_from_event (MsdMediaKeysManager *manager,
+acme_get_screen_from_event (CsdMediaKeysManager *manager,
                             XAnyEvent           *xanyev)
 {
         CdkWindow *window;
@@ -1344,7 +1344,7 @@ acme_get_screen_from_event (MsdMediaKeysManager *manager,
 static CdkFilterReturn
 acme_filter_events (CdkXEvent           *xevent,
                     CdkEvent            *event,
-                    MsdMediaKeysManager *manager)
+                    CsdMediaKeysManager *manager)
 {
         XEvent    *xev = (XEvent *) xevent;
         XAnyEvent *xany = (XAnyEvent *) xevent;
@@ -1387,7 +1387,7 @@ on_rfkill_proxy_ready (GObject      *source,
                        GAsyncResult *result,
                        gpointer      data)
 {
-        MsdMediaKeysManager *manager = data;
+        CsdMediaKeysManager *manager = data;
 
         manager->priv->rfkill_proxy =
                 g_dbus_proxy_new_for_bus_finish (result, NULL);
@@ -1399,7 +1399,7 @@ rfkill_appeared_cb (GDBusConnection *connection,
                     const gchar     *name_owner,
                     gpointer         user_data)
 {
-        MsdMediaKeysManager *manager = user_data;
+        CsdMediaKeysManager *manager = user_data;
 
         g_dbus_proxy_new_for_bus (G_BUS_TYPE_SESSION,
                                   0, NULL,
@@ -1411,7 +1411,7 @@ rfkill_appeared_cb (GDBusConnection *connection,
 }
 
 static gboolean
-start_media_keys_idle_cb (MsdMediaKeysManager *manager)
+start_media_keys_idle_cb (CsdMediaKeysManager *manager)
 {
         GSList *l;
         CdkDisplay *dpy;
@@ -1471,7 +1471,7 @@ start_media_keys_idle_cb (MsdMediaKeysManager *manager)
 }
 
 gboolean
-csd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
+csd_media_keys_manager_start (CsdMediaKeysManager *manager, GError **error)
 {
         cafe_settings_profile_start (NULL);
 
@@ -1511,9 +1511,9 @@ csd_media_keys_manager_start (MsdMediaKeysManager *manager, GError **error)
 }
 
 void
-csd_media_keys_manager_stop (MsdMediaKeysManager *manager)
+csd_media_keys_manager_stop (CsdMediaKeysManager *manager)
 {
-        MsdMediaKeysManagerPrivate *priv = manager->priv;
+        CsdMediaKeysManagerPrivate *priv = manager->priv;
         CdkDisplay *dpy;
         GSList *ls;
         GList *l;
@@ -1599,13 +1599,13 @@ csd_media_keys_manager_stop (MsdMediaKeysManager *manager)
 }
 
 static void
-csd_media_keys_manager_class_init (MsdMediaKeysManagerClass *klass)
+csd_media_keys_manager_class_init (CsdMediaKeysManagerClass *klass)
 {
         signals[MEDIA_PLAYER_KEY_PRESSED] =
                 g_signal_new ("media-player-key-pressed",
                               G_OBJECT_CLASS_TYPE (klass),
                               G_SIGNAL_RUN_LAST,
-                              G_STRUCT_OFFSET (MsdMediaKeysManagerClass, media_player_key_pressed),
+                              G_STRUCT_OFFSET (CsdMediaKeysManagerClass, media_player_key_pressed),
                               NULL,
                               NULL,
                               csd_marshal_VOID__STRING_STRING,
@@ -1618,13 +1618,13 @@ csd_media_keys_manager_class_init (MsdMediaKeysManagerClass *klass)
 }
 
 static void
-csd_media_keys_manager_init (MsdMediaKeysManager *manager)
+csd_media_keys_manager_init (CsdMediaKeysManager *manager)
 {
         manager->priv = csd_media_keys_manager_get_instance_private (manager);
 }
 
 static gboolean
-register_manager (MsdMediaKeysManager *manager)
+register_manager (CsdMediaKeysManager *manager)
 {
         GError *error = NULL;
 
@@ -1642,7 +1642,7 @@ register_manager (MsdMediaKeysManager *manager)
         return TRUE;
 }
 
-MsdMediaKeysManager *
+CsdMediaKeysManager *
 csd_media_keys_manager_new (void)
 {
         if (manager_object != NULL) {

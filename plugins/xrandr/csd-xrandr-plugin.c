@@ -27,18 +27,18 @@
 #include "csd-xrandr-plugin.h"
 #include "csd-xrandr-manager.h"
 
-struct MsdXrandrPluginPrivate {
-        MsdXrandrManager *manager;
+struct CsdXrandrPluginPrivate {
+        CsdXrandrManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdXrandrPlugin, csd_xrandr_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdXrandrPlugin, csd_xrandr_plugin)
 
 static void
-csd_xrandr_plugin_init (MsdXrandrPlugin *plugin)
+csd_xrandr_plugin_init (CsdXrandrPlugin *plugin)
 {
         plugin->priv = csd_xrandr_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdXrandrPlugin initializing");
+        g_debug ("CsdXrandrPlugin initializing");
 
         plugin->priv->manager = csd_xrandr_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_xrandr_plugin_init (MsdXrandrPlugin *plugin)
 static void
 csd_xrandr_plugin_finalize (GObject *object)
 {
-        MsdXrandrPlugin *plugin;
+        CsdXrandrPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_XRANDR_PLUGIN (object));
 
-        g_debug ("MsdXrandrPlugin finalizing");
+        g_debug ("CsdXrandrPlugin finalizing");
 
         plugin = MSD_XRANDR_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_xrandr_plugin_class_init (MsdXrandrPluginClass *klass)
+csd_xrandr_plugin_class_init (CsdXrandrPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,7 +100,7 @@ csd_xrandr_plugin_class_init (MsdXrandrPluginClass *klass)
 }
 
 static void
-csd_xrandr_plugin_class_finalize (MsdXrandrPluginClass *klass)
+csd_xrandr_plugin_class_finalize (CsdXrandrPluginClass *klass)
 {
 }
 

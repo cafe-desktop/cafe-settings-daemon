@@ -30,24 +30,24 @@
 G_BEGIN_DECLS
 
 #define MSD_TYPE_A11Y_SETTINGS_PLUGIN                (csd_a11y_settings_plugin_get_type ())
-#define MSD_A11Y_SETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN, MsdA11ySettingsPlugin))
-#define MSD_A11Y_SETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_SETTINGS_PLUGIN, MsdA11ySettingsPluginClass))
+#define MSD_A11Y_SETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPlugin))
+#define MSD_A11Y_SETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPluginClass))
 #define MSD_IS_A11Y_SETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN))
 #define MSD_IS_A11Y_SETTINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_A11Y_SETTINGS_PLUGIN))
-#define MSD_A11Y_SETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN, MsdA11ySettingsPluginClass))
+#define MSD_A11Y_SETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPluginClass))
 
-typedef struct MsdA11ySettingsPluginPrivate MsdA11ySettingsPluginPrivate;
+typedef struct CsdA11ySettingsPluginPrivate CsdA11ySettingsPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin           parent;
-        MsdA11ySettingsPluginPrivate *priv;
-} MsdA11ySettingsPlugin;
+        CsdA11ySettingsPluginPrivate *priv;
+} CsdA11ySettingsPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdA11ySettingsPluginClass;
+} CsdA11ySettingsPluginClass;
 
 GType   csd_a11y_settings_plugin_get_type            (void) G_GNUC_CONST;
 

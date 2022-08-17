@@ -28,29 +28,29 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_HOUSEKEEPING_MANAGER         (csd_housekeeping_manager_get_type ())
-#define MSD_HOUSEKEEPING_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_HOUSEKEEPING_MANAGER, MsdHousekeepingManager))
-#define MSD_HOUSEKEEPING_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_HOUSEKEEPING_MANAGER, MsdHousekeepingManagerClass))
+#define MSD_HOUSEKEEPING_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManager))
+#define MSD_HOUSEKEEPING_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManagerClass))
 #define MSD_IS_HOUSEKEEPING_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_HOUSEKEEPING_MANAGER))
 #define MSD_IS_HOUSEKEEPING_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_HOUSEKEEPING_MANAGER))
-#define MSD_HOUSEKEEPING_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_HOUSEKEEPING_MANAGER, MsdHousekeepingManagerClass))
+#define MSD_HOUSEKEEPING_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManagerClass))
 
-typedef struct MsdHousekeepingManagerPrivate MsdHousekeepingManagerPrivate;
+typedef struct CsdHousekeepingManagerPrivate CsdHousekeepingManagerPrivate;
 
 typedef struct {
         GObject                        parent;
-        MsdHousekeepingManagerPrivate *priv;
-} MsdHousekeepingManager;
+        CsdHousekeepingManagerPrivate *priv;
+} CsdHousekeepingManager;
 
 typedef struct {
         GObjectClass   parent_class;
-} MsdHousekeepingManagerClass;
+} CsdHousekeepingManagerClass;
 
 GType                    csd_housekeeping_manager_get_type      (void);
 
-MsdHousekeepingManager * csd_housekeeping_manager_new           (void);
-gboolean                 csd_housekeeping_manager_start         (MsdHousekeepingManager  *manager,
+CsdHousekeepingManager * csd_housekeeping_manager_new           (void);
+gboolean                 csd_housekeeping_manager_start         (CsdHousekeepingManager  *manager,
                                                                  GError                 **error);
-void                     csd_housekeeping_manager_stop          (MsdHousekeepingManager  *manager);
+void                     csd_housekeeping_manager_stop          (CsdHousekeepingManager  *manager);
 
 #ifdef __cplusplus
 }

@@ -32,22 +32,22 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_HOUSEKEEPING_PLUGIN                (csd_housekeeping_plugin_get_type ())
-#define MSD_HOUSEKEEPING_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_HOUSEKEEPING_PLUGIN, MsdHousekeepingPlugin))
-#define MSD_HOUSEKEEPING_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_HOUSEKEEPING_PLUGIN, MsdHousekeepingPluginClass))
+#define MSD_HOUSEKEEPING_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_HOUSEKEEPING_PLUGIN, CsdHousekeepingPlugin))
+#define MSD_HOUSEKEEPING_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_HOUSEKEEPING_PLUGIN, CsdHousekeepingPluginClass))
 #define MSD_IS_HOUSEKEEPING_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_HOUSEKEEPING_PLUGIN))
 #define MSD_IS_HOUSEKEEPING_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_HOUSEKEEPING_PLUGIN))
-#define MSD_HOUSEKEEPING_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_HOUSEKEEPING_PLUGIN, MsdHousekeepingPluginClass))
+#define MSD_HOUSEKEEPING_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_HOUSEKEEPING_PLUGIN, CsdHousekeepingPluginClass))
 
-typedef struct MsdHousekeepingPluginPrivate MsdHousekeepingPluginPrivate;
+typedef struct CsdHousekeepingPluginPrivate CsdHousekeepingPluginPrivate;
 
 typedef struct {
         CafeSettingsPlugin		 parent;
-        MsdHousekeepingPluginPrivate	*priv;
-} MsdHousekeepingPlugin;
+        CsdHousekeepingPluginPrivate	*priv;
+} CsdHousekeepingPlugin;
 
 typedef struct {
         CafeSettingsPluginClass parent_class;
-} MsdHousekeepingPluginClass;
+} CsdHousekeepingPluginClass;
 
 GType   csd_housekeeping_plugin_get_type		(void) G_GNUC_CONST;
 

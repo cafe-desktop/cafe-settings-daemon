@@ -34,8 +34,8 @@
 #include "csd-smartcard-plugin.h"
 #include "csd-smartcard-manager.h"
 
-struct MsdSmartcardPluginPrivate {
-        MsdSmartcardManager *manager;
+struct CsdSmartcardPluginPrivate {
+        CsdSmartcardManager *manager;
         DBusGConnection     *bus_connection;
 
         guint32              is_active : 1;
@@ -46,7 +46,7 @@ typedef enum
     MSD_SMARTCARD_REMOVE_ACTION_NONE,
     MSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN,
     MSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT,
-} MsdSmartcardRemoveAction;
+} CsdSmartcardRemoveAction;
 
 #define SCREENSAVER_DBUS_NAME      "org.cafe.ScreenSaver"
 #define SCREENSAVER_DBUS_PATH      "/"
@@ -60,14 +60,14 @@ typedef enum
 #define MSD_SMARTCARD_SCHEMA "org.cafe.peripherals-smartcard"
 #define KEY_REMOVE_ACTION "removal-action"
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdSmartcardPlugin, csd_smartcard_plugin);
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdSmartcardPlugin, csd_smartcard_plugin);
 
 static void
-simulate_user_activity (MsdSmartcardPlugin *plugin)
+simulate_user_activity (CsdSmartcardPlugin *plugin)
 {
         DBusGProxy *screensaver_proxy;
 
-        g_debug ("MsdSmartcardPlugin telling screensaver about smart card insertion");
+        g_debug ("CsdSmartcardPlugin telling screensaver about smart card insertion");
         screensaver_proxy = dbus_g_proxy_new_for_name (plugin->priv->bus_connection,
                                                        SCREENSAVER_DBUS_NAME,
                                                        SCREENSAVER_DBUS_PATH,
@@ -81,11 +81,11 @@ simulate_user_activity (MsdSmartcardPlugin *plugin)
 }
 
 static void
-lock_screen (MsdSmartcardPlugin *plugin)
+lock_screen (CsdSmartcardPlugin *plugin)
 {
         DBusGProxy *screensaver_proxy;
 
-        g_debug ("MsdSmartcardPlugin telling screensaver to lock screen");
+        g_debug ("CsdSmartcardPlugin telling screensaver to lock screen");
         screensaver_proxy = dbus_g_proxy_new_for_name (plugin->priv->bus_connection,
                                                        SCREENSAVER_DBUS_NAME,
                                                        SCREENSAVER_DBUS_PATH,
@@ -99,13 +99,13 @@ lock_screen (MsdSmartcardPlugin *plugin)
 }
 
 static void
-force_logout (MsdSmartcardPlugin *plugin)
+force_logout (CsdSmartcardPlugin *plugin)
 {
         DBusGProxy *sm_proxy;
         GError     *error;
         gboolean    res;
 
-        g_debug ("MsdSmartcardPlugin telling session manager to force logout");
+        g_debug ("CsdSmartcardPlugin telling session manager to force logout");
         sm_proxy = dbus_g_proxy_new_for_name (plugin->priv->bus_connection,
                                               SM_DBUS_NAME,
                                               SM_DBUS_PATH,
@@ -119,7 +119,7 @@ force_logout (MsdSmartcardPlugin *plugin)
                                  G_TYPE_INVALID, G_TYPE_INVALID);
 
         if (! res) {
-                g_warning ("MsdSmartcardPlugin Unable to force logout: %s", error->message);
+                g_warning ("CsdSmartcardPlugin Unable to force logout: %s", error->message);
                 g_error_free (error);
         }
 
@@ -127,11 +127,11 @@ force_logout (MsdSmartcardPlugin *plugin)
 }
 
 static void
-csd_smartcard_plugin_init (MsdSmartcardPlugin *plugin)
+csd_smartcard_plugin_init (CsdSmartcardPlugin *plugin)
 {
         plugin->priv = csd_smartcard_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdSmartcardPlugin initializing");
+        g_debug ("CsdSmartcardPlugin initializing");
 
         plugin->priv->manager = csd_smartcard_manager_new (NULL);
 }
@@ -139,12 +139,12 @@ csd_smartcard_plugin_init (MsdSmartcardPlugin *plugin)
 static void
 csd_smartcard_plugin_finalize (GObject *object)
 {
-        MsdSmartcardPlugin *plugin;
+        CsdSmartcardPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_SMARTCARD_PLUGIN (object));
 
-        g_debug ("MsdSmartcardPlugin finalizing");
+        g_debug ("CsdSmartcardPlugin finalizing");
 
         plugin = MSD_SMARTCARD_PLUGIN (object);
 
@@ -158,14 +158,14 @@ csd_smartcard_plugin_finalize (GObject *object)
 }
 
 static void
-smartcard_inserted_cb (MsdSmartcardManager *card_monitor,
-                       MsdSmartcard        *card,
-                       MsdSmartcardPlugin  *plugin)
+smartcard_inserted_cb (CsdSmartcardManager *card_monitor,
+                       CsdSmartcard        *card,
+                       CsdSmartcardPlugin  *plugin)
 {
         char *name;
 
         name = csd_smartcard_get_name (card);
-        g_debug ("MsdSmartcardPlugin smart card '%s' inserted", name);
+        g_debug ("CsdSmartcardPlugin smart card '%s' inserted", name);
         g_free (name);
 
         simulate_user_activity (plugin);
@@ -177,19 +177,19 @@ user_logged_in_with_smartcard (void)
     return g_getenv ("PKCS11_LOGIN_TOKEN_NAME") != NULL;
 }
 
-static MsdSmartcardRemoveAction
-get_configured_remove_action (MsdSmartcardPlugin *plugin)
+static CsdSmartcardRemoveAction
+get_configured_remove_action (CsdSmartcardPlugin *plugin)
 {
         GSettings *settings;
         char *remove_action_string;
-        MsdSmartcardRemoveAction remove_action;
+        CsdSmartcardRemoveAction remove_action;
 
         settings = g_settings_new (MSD_SMARTCARD_SCHEMA);
         remove_action_string = g_settings_get_string (settings,
                                                       KEY_REMOVE_ACTION);
 
         if (remove_action_string == NULL) {
-                g_warning ("MsdSmartcardPlugin unable to get smartcard remove action");
+                g_warning ("CsdSmartcardPlugin unable to get smartcard remove action");
                 remove_action = MSD_SMARTCARD_REMOVE_ACTION_NONE;
         } else if (strcmp (remove_action_string, "none") == 0) {
                 remove_action = MSD_SMARTCARD_REMOVE_ACTION_NONE;
@@ -198,7 +198,7 @@ get_configured_remove_action (MsdSmartcardPlugin *plugin)
         } else if (strcmp (remove_action_string, "force_logout") == 0) {
                 remove_action = MSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT;
         } else {
-                g_warning ("MsdSmartcardPlugin unknown smartcard remove action");
+                g_warning ("CsdSmartcardPlugin unknown smartcard remove action");
                 remove_action = MSD_SMARTCARD_REMOVE_ACTION_NONE;
         }
 
@@ -208,11 +208,11 @@ get_configured_remove_action (MsdSmartcardPlugin *plugin)
 }
 
 static void
-process_smartcard_removal (MsdSmartcardPlugin *plugin)
+process_smartcard_removal (CsdSmartcardPlugin *plugin)
 {
-        MsdSmartcardRemoveAction remove_action;
+        CsdSmartcardRemoveAction remove_action;
 
-        g_debug ("MsdSmartcardPlugin processing smartcard removal");
+        g_debug ("CsdSmartcardPlugin processing smartcard removal");
         remove_action = get_configured_remove_action (plugin);
 
         switch (remove_action)
@@ -229,19 +229,19 @@ process_smartcard_removal (MsdSmartcardPlugin *plugin)
 }
 
 static void
-smartcard_removed_cb (MsdSmartcardManager *card_monitor,
-                      MsdSmartcard        *card,
-                      MsdSmartcardPlugin  *plugin)
+smartcard_removed_cb (CsdSmartcardManager *card_monitor,
+                      CsdSmartcard        *card,
+                      CsdSmartcardPlugin  *plugin)
 {
 
         char *name;
 
         name = csd_smartcard_get_name (card);
-        g_debug ("MsdSmartcardPlugin smart card '%s' removed", name);
+        g_debug ("CsdSmartcardPlugin smart card '%s' removed", name);
         g_free (name);
 
         if (!csd_smartcard_is_login_card (card)) {
-                g_debug ("MsdSmartcardPlugin removed smart card was not used to login");
+                g_debug ("CsdSmartcardPlugin removed smart card was not used to login");
                 return;
         }
 
@@ -252,33 +252,33 @@ static void
 impl_activate (CafeSettingsPlugin *plugin)
 {
         GError *error;
-        MsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
+        CsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
 
         if (smartcard_plugin->priv->is_active) {
-                g_debug ("MsdSmartcardPlugin Not activating smartcard plugin, because it's "
+                g_debug ("CsdSmartcardPlugin Not activating smartcard plugin, because it's "
                          "already active");
                 return;
         }
 
         if (!user_logged_in_with_smartcard ()) {
-                g_debug ("MsdSmartcardPlugin Not activating smartcard plugin, because user didn't use "
+                g_debug ("CsdSmartcardPlugin Not activating smartcard plugin, because user didn't use "
                          " smartcard to log in");
                 smartcard_plugin->priv->is_active = FALSE;
                 return;
         }
 
-        g_debug ("MsdSmartcardPlugin Activating smartcard plugin");
+        g_debug ("CsdSmartcardPlugin Activating smartcard plugin");
 
         error = NULL;
         smartcard_plugin->priv->bus_connection = dbus_g_bus_get (DBUS_BUS_SESSION, &error);
 
         if (smartcard_plugin->priv->bus_connection == NULL) {
-                g_warning ("MsdSmartcardPlugin Unable to connect to session bus: %s", error->message);
+                g_warning ("CsdSmartcardPlugin Unable to connect to session bus: %s", error->message);
                 return;
         }
 
         if (!csd_smartcard_manager_start (smartcard_plugin->priv->manager, &error)) {
-                g_warning ("MsdSmartcardPlugin Unable to start smartcard manager: %s", error->message);
+                g_warning ("CsdSmartcardPlugin Unable to start smartcard manager: %s", error->message);
                 g_error_free (error);
         }
 
@@ -291,7 +291,7 @@ impl_activate (CafeSettingsPlugin *plugin)
                           G_CALLBACK (smartcard_inserted_cb), smartcard_plugin);
 
         if (!csd_smartcard_manager_login_card_is_inserted (smartcard_plugin->priv->manager)) {
-                g_debug ("MsdSmartcardPlugin processing smartcard removal immediately user logged in with smartcard "
+                g_debug ("CsdSmartcardPlugin processing smartcard removal immediately user logged in with smartcard "
                          "and it's not inserted");
                 process_smartcard_removal (smartcard_plugin);
         }
@@ -302,15 +302,15 @@ impl_activate (CafeSettingsPlugin *plugin)
 static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
-        MsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
+        CsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
 
         if (!smartcard_plugin->priv->is_active) {
-                g_debug ("MsdSmartcardPlugin Not deactivating smartcard plugin, "
+                g_debug ("CsdSmartcardPlugin Not deactivating smartcard plugin, "
                          "because it's already inactive");
                 return;
         }
 
-        g_debug ("MsdSmartcardPlugin Deactivating smartcard plugin");
+        g_debug ("CsdSmartcardPlugin Deactivating smartcard plugin");
 
         csd_smartcard_manager_stop (smartcard_plugin->priv->manager);
 
@@ -324,7 +324,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_smartcard_plugin_class_init (MsdSmartcardPluginClass *klass)
+csd_smartcard_plugin_class_init (CsdSmartcardPluginClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -336,7 +336,7 @@ csd_smartcard_plugin_class_init (MsdSmartcardPluginClass *klass)
 }
 
 static void
-csd_smartcard_plugin_class_finalize (MsdSmartcardPluginClass *klass)
+csd_smartcard_plugin_class_finalize (CsdSmartcardPluginClass *klass)
 {
 }
 

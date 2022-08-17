@@ -70,7 +70,7 @@ static unsigned int       free_size_gb_no_notify = 2;
 static unsigned int       min_notify_period = 10;
 static GSList            *ignore_paths = NULL;
 static GSettings         *settings = NULL;
-static MsdLdsmDialog     *dialog = NULL;
+static CsdLdsmDialog     *dialog = NULL;
 static guint64           *time_read;
 
 static gchar*

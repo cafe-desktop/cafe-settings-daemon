@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_MOUSE_PLUGIN                (csd_mouse_plugin_get_type ())
-#define MSD_MOUSE_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_PLUGIN, MsdMousePlugin))
-#define MSD_MOUSE_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_PLUGIN, MsdMousePluginClass))
+#define MSD_MOUSE_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_PLUGIN, CsdMousePlugin))
+#define MSD_MOUSE_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_PLUGIN, CsdMousePluginClass))
 #define MSD_IS_MOUSE_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MOUSE_PLUGIN))
 #define MSD_IS_MOUSE_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MOUSE_PLUGIN))
-#define MSD_MOUSE_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MOUSE_PLUGIN, MsdMousePluginClass))
+#define MSD_MOUSE_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MOUSE_PLUGIN, CsdMousePluginClass))
 
-typedef struct MsdMousePluginPrivate MsdMousePluginPrivate;
+typedef struct CsdMousePluginPrivate CsdMousePluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdMousePluginPrivate *priv;
-} MsdMousePlugin;
+        CsdMousePluginPrivate *priv;
+} CsdMousePlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdMousePluginClass;
+} CsdMousePluginClass;
 
 GType   csd_mouse_plugin_get_type            (void) G_GNUC_CONST;
 

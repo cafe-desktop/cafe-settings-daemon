@@ -27,18 +27,18 @@
 #include "csd-typing-break-plugin.h"
 #include "csd-typing-break-manager.h"
 
-struct MsdTypingBreakPluginPrivate {
-        MsdTypingBreakManager *manager;
+struct CsdTypingBreakPluginPrivate {
+        CsdTypingBreakManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdTypingBreakPlugin, csd_typing_break_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdTypingBreakPlugin, csd_typing_break_plugin)
 
 static void
-csd_typing_break_plugin_init (MsdTypingBreakPlugin *plugin)
+csd_typing_break_plugin_init (CsdTypingBreakPlugin *plugin)
 {
         plugin->priv = csd_typing_break_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdTypingBreakPlugin initializing");
+        g_debug ("CsdTypingBreakPlugin initializing");
 
         plugin->priv->manager = csd_typing_break_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_typing_break_plugin_init (MsdTypingBreakPlugin *plugin)
 static void
 csd_typing_break_plugin_finalize (GObject *object)
 {
-        MsdTypingBreakPlugin *plugin;
+        CsdTypingBreakPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_TYPING_BREAK_PLUGIN (object));
 
-        g_debug ("MsdTypingBreakPlugin finalizing");
+        g_debug ("CsdTypingBreakPlugin finalizing");
 
         plugin = MSD_TYPING_BREAK_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_typing_break_plugin_class_init (MsdTypingBreakPluginClass *klass)
+csd_typing_break_plugin_class_init (CsdTypingBreakPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,6 +100,6 @@ csd_typing_break_plugin_class_init (MsdTypingBreakPluginClass *klass)
 }
 
 static void
-csd_typing_break_plugin_class_finalize (MsdTypingBreakPluginClass *klass)
+csd_typing_break_plugin_class_finalize (CsdTypingBreakPluginClass *klass)
 {
 }

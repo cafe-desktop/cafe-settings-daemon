@@ -50,7 +50,7 @@
 #define MPRIS_INTERFACE    "org.mpris.MediaPlayer2.Player"
 #define MPRIS_PREFIX       "org.mpris.MediaPlayer2."
 
-struct MsdMprisManagerPrivate
+struct CsdMprisManagerPrivate
 {
         GQueue       *media_player_queue;
         GDBusProxy   *media_keys_proxy;
@@ -64,7 +64,7 @@ enum {
 
 static void     csd_mpris_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdMprisManager, csd_mpris_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdMprisManager, csd_mpris_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -93,7 +93,7 @@ mp_name_appeared (GDBusConnection  *connection,
                   const gchar      *name_owner,
                   gpointer          user_data)
 {
-    MsdMprisManager *manager = user_data;
+    CsdMprisManager *manager = user_data;
     gchar *player_name;
 
     g_debug ("MPRIS Name acquired: %s\n", name);
@@ -110,7 +110,7 @@ mp_name_vanished (GDBusConnection *connection,
                   const gchar     *name,
                   gpointer         user_data)
 {
-    MsdMprisManager *manager = user_data;
+    CsdMprisManager *manager = user_data;
     gchar *player_name;
     GList *player_list;
 
@@ -133,7 +133,7 @@ mp_name_vanished (GDBusConnection *connection,
 /* Code copied from Totem media player
  * src/plugins/media-player-keys/totem-media-player-keys.c */
 static void
-on_media_player_key_pressed (MsdMprisManager  *manager,
+on_media_player_key_pressed (CsdMprisManager  *manager,
                              const gchar      *key)
 {
     GDBusProxyFlags flags = G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START;
@@ -191,7 +191,7 @@ on_media_player_key_pressed (MsdMprisManager  *manager,
 static void
 grab_media_player_keys_cb (GDBusProxy       *proxy,
                            GAsyncResult     *res,
-                           MsdMprisManager  *manager)
+                           CsdMprisManager  *manager)
 {
     GVariant *variant;
     GError *error = NULL;
@@ -208,14 +208,14 @@ grab_media_player_keys_cb (GDBusProxy       *proxy,
 }
 
 static void
-grab_media_player_keys (MsdMprisManager *manager)
+grab_media_player_keys (CsdMprisManager *manager)
 {
     if (manager->priv->media_keys_proxy == NULL)
         return;
 
     g_dbus_proxy_call (manager->priv->media_keys_proxy,
                       "GrabMediaPlayerKeys",
-                      g_variant_new ("(su)", "MsdMpris", 0),
+                      g_variant_new ("(su)", "CsdMpris", 0),
                       G_DBUS_CALL_FLAGS_NONE,
                       -1, NULL,
                       (GAsyncReadyCallback) grab_media_player_keys_cb,
@@ -227,14 +227,14 @@ key_pressed (GDBusProxy          *proxy,
              gchar               *sender_name,
              gchar               *signal_name,
              GVariant            *parameters,
-             MsdMprisManager     *manager)
+             CsdMprisManager     *manager)
 {
     char *app, *cmd;
 
     if (g_strcmp0 (signal_name, "MediaPlayerKeyPressed") != 0)
         return;
     g_variant_get (parameters, "(ss)", &app, &cmd);
-    if (g_strcmp0 (app, "MsdMpris") == 0) {
+    if (g_strcmp0 (app, "CsdMpris") == 0) {
         on_media_player_key_pressed (manager, cmd);
     }
     g_free (app);
@@ -244,7 +244,7 @@ key_pressed (GDBusProxy          *proxy,
 static void
 got_proxy_cb (GObject           *source_object,
               GAsyncResult      *res,
-              MsdMprisManager   *manager)
+              CsdMprisManager   *manager)
 {
     GError *error = NULL;
 
@@ -267,7 +267,7 @@ static void
 csd_name_appeared (GDBusConnection     *connection,
                    const gchar         *name,
                    const gchar         *name_owner,
-                   MsdMprisManager     *manager)
+                   CsdMprisManager     *manager)
 {
     g_dbus_proxy_new_for_bus (G_BUS_TYPE_SESSION,
                               G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES |
@@ -284,7 +284,7 @@ csd_name_appeared (GDBusConnection     *connection,
 static void
 csd_name_vanished (GDBusConnection   *connection,
                    const gchar       *name,
-                   MsdMprisManager   *manager)
+                   CsdMprisManager   *manager)
 {
     if (manager->priv->media_keys_proxy != NULL) {
         g_object_unref (manager->priv->media_keys_proxy);
@@ -294,7 +294,7 @@ csd_name_vanished (GDBusConnection   *connection,
 
 
 gboolean
-csd_mpris_manager_start (MsdMprisManager   *manager,
+csd_mpris_manager_start (CsdMprisManager   *manager,
                          GError           **error)
 {
     g_debug ("Starting mpris manager");
@@ -322,7 +322,7 @@ csd_mpris_manager_start (MsdMprisManager   *manager,
 }
 
 void
-csd_mpris_manager_stop (MsdMprisManager *manager)
+csd_mpris_manager_stop (CsdMprisManager *manager)
 {
     g_debug ("Stopping mpris manager");
 
@@ -344,7 +344,7 @@ csd_mpris_manager_stop (MsdMprisManager *manager)
 }
 
 static void
-csd_mpris_manager_class_init (MsdMprisManagerClass *klass)
+csd_mpris_manager_class_init (CsdMprisManagerClass *klass)
 {
     GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -352,7 +352,7 @@ csd_mpris_manager_class_init (MsdMprisManagerClass *klass)
 }
 
 static void
-csd_mpris_manager_init (MsdMprisManager *manager)
+csd_mpris_manager_init (CsdMprisManager *manager)
 {
         manager->priv = csd_mpris_manager_get_instance_private (manager);
 
@@ -361,7 +361,7 @@ csd_mpris_manager_init (MsdMprisManager *manager)
 static void
 csd_mpris_manager_finalize (GObject *object)
 {
-    MsdMprisManager *mpris_manager;
+    CsdMprisManager *mpris_manager;
 
     g_return_if_fail (object != NULL);
     g_return_if_fail (MSD_IS_MPRIS_MANAGER (object));
@@ -373,7 +373,7 @@ csd_mpris_manager_finalize (GObject *object)
     G_OBJECT_CLASS (csd_mpris_manager_parent_class)->finalize (object);
 }
 
-MsdMprisManager *
+CsdMprisManager *
 csd_mpris_manager_new (void)
 {
     if (manager_object != NULL) {

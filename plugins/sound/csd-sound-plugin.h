@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_SOUND_PLUGIN                (csd_sound_plugin_get_type ())
-#define MSD_SOUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_PLUGIN, MsdSoundPlugin))
-#define MSD_SOUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_PLUGIN, MsdSoundPluginClass))
+#define MSD_SOUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_PLUGIN, CsdSoundPlugin))
+#define MSD_SOUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_PLUGIN, CsdSoundPluginClass))
 #define MSD_IS_SOUND_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SOUND_PLUGIN))
 #define MSD_IS_SOUND_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_SOUND_PLUGIN))
-#define MSD_SOUND_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SOUND_PLUGIN, MsdSoundPluginClass))
+#define MSD_SOUND_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SOUND_PLUGIN, CsdSoundPluginClass))
 
-typedef struct MsdSoundPluginPrivate MsdSoundPluginPrivate;
+typedef struct CsdSoundPluginPrivate CsdSoundPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin parent;
-        MsdSoundPluginPrivate *priv;
-} MsdSoundPlugin;
+        CsdSoundPluginPrivate *priv;
+} CsdSoundPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdSoundPluginClass;
+} CsdSoundPluginClass;
 
 GType csd_sound_plugin_get_type (void) G_GNUC_CONST;
 

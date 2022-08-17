@@ -47,13 +47,13 @@
 #define USER_X_DEFAULTS  ".Xdefaults"
 
 
-struct MsdXrdbManagerPrivate {
+struct CsdXrdbManagerPrivate {
 	CtkWidget* widget;
 };
 
 static void csd_xrdb_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdXrdbManager, csd_xrdb_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdXrdbManager, csd_xrdb_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 static void
@@ -202,7 +202,7 @@ compare_basenames (gconstpointer a,
  * right order for processing.
  */
 static GSList*
-scan_for_files (MsdXrdbManager *manager,
+scan_for_files (CsdXrdbManager *manager,
                 GError        **error)
 {
         const char *home_dir;
@@ -415,7 +415,7 @@ spawn_with_input (const char *command,
 }
 
 static void
-apply_settings (MsdXrdbManager *manager,
+apply_settings (CsdXrdbManager *manager,
                 CtkStyle       *style)
 {
         const char *command;
@@ -475,13 +475,13 @@ apply_settings (MsdXrdbManager *manager,
 static void
 theme_changed (CtkSettings    *settings,
                GParamSpec     *pspec,
-               MsdXrdbManager *manager)
+               CsdXrdbManager *manager)
 {
         apply_settings (manager, ctk_widget_get_style (manager->priv->widget));
 }
 
 gboolean
-csd_xrdb_manager_start (MsdXrdbManager *manager,
+csd_xrdb_manager_start (CsdXrdbManager *manager,
                         GError        **error)
 {
         cafe_settings_profile_start (NULL);
@@ -504,9 +504,9 @@ csd_xrdb_manager_start (MsdXrdbManager *manager,
 }
 
 void
-csd_xrdb_manager_stop (MsdXrdbManager *manager)
+csd_xrdb_manager_stop (CsdXrdbManager *manager)
 {
-        MsdXrdbManagerPrivate *p = manager->priv;
+        CsdXrdbManagerPrivate *p = manager->priv;
 
         g_debug ("Stopping xrdb manager");
 
@@ -521,7 +521,7 @@ csd_xrdb_manager_stop (MsdXrdbManager *manager)
 }
 
 static void
-csd_xrdb_manager_class_init (MsdXrdbManagerClass *klass)
+csd_xrdb_manager_class_init (CsdXrdbManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -529,7 +529,7 @@ csd_xrdb_manager_class_init (MsdXrdbManagerClass *klass)
 }
 
 static void
-csd_xrdb_manager_init (MsdXrdbManager *manager)
+csd_xrdb_manager_init (CsdXrdbManager *manager)
 {
         manager->priv = csd_xrdb_manager_get_instance_private (manager);
 
@@ -538,7 +538,7 @@ csd_xrdb_manager_init (MsdXrdbManager *manager)
 static void
 csd_xrdb_manager_finalize (GObject *object)
 {
-        MsdXrdbManager *xrdb_manager;
+        CsdXrdbManager *xrdb_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_XRDB_MANAGER (object));
@@ -550,7 +550,7 @@ csd_xrdb_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_xrdb_manager_parent_class)->finalize (object);
 }
 
-MsdXrdbManager *
+CsdXrdbManager *
 csd_xrdb_manager_new (void)
 {
         if (manager_object != NULL) {

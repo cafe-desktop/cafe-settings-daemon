@@ -30,40 +30,40 @@ extern "C" {
 #define MSD_TYPE_TIMELINE_DIRECTION       (csd_timeline_direction_get_type ())
 #define MSD_TYPE_TIMELINE_PROGRESS_TYPE   (csd_timeline_progress_type_get_type ())
 #define MSD_TYPE_TIMELINE                 (csd_timeline_get_type ())
-#define MSD_TIMELINE(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_TIMELINE, MsdTimeline))
-#define MSD_TIMELINE_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass),  MSD_TYPE_TIMELINE, MsdTimelineClass))
+#define MSD_TIMELINE(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_TIMELINE, CsdTimeline))
+#define MSD_TIMELINE_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass),  MSD_TYPE_TIMELINE, CsdTimelineClass))
 #define MSD_IS_TIMELINE(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_TIMELINE))
 #define MSD_IS_TIMELINE_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass),  MSD_TYPE_TIMELINE))
-#define MSD_TIMELINE_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj),  MSD_TYPE_TIMELINE, MsdTimelineClass))
+#define MSD_TIMELINE_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj),  MSD_TYPE_TIMELINE, CsdTimelineClass))
 
 typedef enum {
   MSD_TIMELINE_DIRECTION_FORWARD,
   MSD_TIMELINE_DIRECTION_BACKWARD
-} MsdTimelineDirection;
+} CsdTimelineDirection;
 
 typedef enum {
   MSD_TIMELINE_PROGRESS_LINEAR,
   MSD_TIMELINE_PROGRESS_SINUSOIDAL,
   MSD_TIMELINE_PROGRESS_EXPONENTIAL
-} MsdTimelineProgressType;
+} CsdTimelineProgressType;
 
-typedef struct MsdTimeline      MsdTimeline;
-typedef struct MsdTimelineClass MsdTimelineClass;
+typedef struct CsdTimeline      CsdTimeline;
+typedef struct CsdTimelineClass CsdTimelineClass;
 
-struct MsdTimeline
+struct CsdTimeline
 {
   GObject parent_instance;
 };
 
-struct MsdTimelineClass
+struct CsdTimelineClass
 {
   GObjectClass parent_class;
 
-  void (* started)           (MsdTimeline *timeline);
-  void (* finished)          (MsdTimeline *timeline);
-  void (* paused)            (MsdTimeline *timeline);
+  void (* started)           (CsdTimeline *timeline);
+  void (* finished)          (CsdTimeline *timeline);
+  void (* paused)            (CsdTimeline *timeline);
 
-  void (* frame)             (MsdTimeline *timeline,
+  void (* frame)             (CsdTimeline *timeline,
 			      gdouble      progress);
 
   void (* __csd_reserved1) (void);
@@ -72,52 +72,52 @@ struct MsdTimelineClass
   void (* __csd_reserved4) (void);
 };
 
-typedef gdouble (*MsdTimelineProgressFunc) (gdouble progress);
+typedef gdouble (*CsdTimelineProgressFunc) (gdouble progress);
 
 
 GType                   csd_timeline_get_type           (void) G_GNUC_CONST;
 GType                   csd_timeline_direction_get_type (void) G_GNUC_CONST;
 GType                   csd_timeline_progress_type_get_type (void) G_GNUC_CONST;
 
-MsdTimeline            *csd_timeline_new                (guint                    duration);
-MsdTimeline            *csd_timeline_new_for_screen     (guint                    duration,
+CsdTimeline            *csd_timeline_new                (guint                    duration);
+CsdTimeline            *csd_timeline_new_for_screen     (guint                    duration,
 							 CdkScreen               *screen);
 
-void                    csd_timeline_start              (MsdTimeline             *timeline);
-void                    csd_timeline_pause              (MsdTimeline             *timeline);
-void                    csd_timeline_rewind             (MsdTimeline             *timeline);
+void                    csd_timeline_start              (CsdTimeline             *timeline);
+void                    csd_timeline_pause              (CsdTimeline             *timeline);
+void                    csd_timeline_rewind             (CsdTimeline             *timeline);
 
-gboolean                csd_timeline_is_running         (MsdTimeline             *timeline);
+gboolean                csd_timeline_is_running         (CsdTimeline             *timeline);
 
-guint                   csd_timeline_get_fps            (MsdTimeline             *timeline);
-void                    csd_timeline_set_fps            (MsdTimeline             *timeline,
+guint                   csd_timeline_get_fps            (CsdTimeline             *timeline);
+void                    csd_timeline_set_fps            (CsdTimeline             *timeline,
 							 guint                    fps);
 
-gboolean                csd_timeline_get_loop           (MsdTimeline             *timeline);
-void                    csd_timeline_set_loop           (MsdTimeline             *timeline,
+gboolean                csd_timeline_get_loop           (CsdTimeline             *timeline);
+void                    csd_timeline_set_loop           (CsdTimeline             *timeline,
 							 gboolean                 loop);
 
-guint                   csd_timeline_get_duration       (MsdTimeline             *timeline);
-void                    csd_timeline_set_duration       (MsdTimeline             *timeline,
+guint                   csd_timeline_get_duration       (CsdTimeline             *timeline);
+void                    csd_timeline_set_duration       (CsdTimeline             *timeline,
 							 guint                    duration);
 
-CdkScreen              *csd_timeline_get_screen         (MsdTimeline             *timeline);
-void                    csd_timeline_set_screen         (MsdTimeline             *timeline,
+CdkScreen              *csd_timeline_get_screen         (CsdTimeline             *timeline);
+void                    csd_timeline_set_screen         (CsdTimeline             *timeline,
 							 CdkScreen               *screen);
 
-MsdTimelineDirection    csd_timeline_get_direction      (MsdTimeline             *timeline);
-void                    csd_timeline_set_direction      (MsdTimeline             *timeline,
-							 MsdTimelineDirection     direction);
+CsdTimelineDirection    csd_timeline_get_direction      (CsdTimeline             *timeline);
+void                    csd_timeline_set_direction      (CsdTimeline             *timeline,
+							 CsdTimelineDirection     direction);
 
-MsdTimelineProgressType csd_timeline_get_progress_type  (MsdTimeline             *timeline);
-void                    csd_timeline_set_progress_type  (MsdTimeline             *timeline,
-							 MsdTimelineProgressType  type);
-void                    csd_timeline_get_progress_func  (MsdTimeline             *timeline);
+CsdTimelineProgressType csd_timeline_get_progress_type  (CsdTimeline             *timeline);
+void                    csd_timeline_set_progress_type  (CsdTimeline             *timeline,
+							 CsdTimelineProgressType  type);
+void                    csd_timeline_get_progress_func  (CsdTimeline             *timeline);
 
-void                    csd_timeline_set_progress_func  (MsdTimeline             *timeline,
-							 MsdTimelineProgressFunc  progress_func);
+void                    csd_timeline_set_progress_func  (CsdTimeline             *timeline,
+							 CsdTimelineProgressFunc  progress_func);
 
-gdouble                 csd_timeline_get_progress       (MsdTimeline             *timeline);
+gdouble                 csd_timeline_get_progress       (CsdTimeline             *timeline);
 
 
 #ifdef __cplusplus

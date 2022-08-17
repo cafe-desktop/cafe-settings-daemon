@@ -57,7 +57,7 @@ typedef struct {
         Key   previous_key;
 } Binding;
 
-struct MsdKeybindingsManagerPrivate
+struct CsdKeybindingsManagerPrivate
 {
         DConfClient *client;
         GSList      *binding_list;
@@ -66,7 +66,7 @@ struct MsdKeybindingsManagerPrivate
 
 static void     csd_keybindings_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdKeybindingsManager, csd_keybindings_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdKeybindingsManager, csd_keybindings_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -121,7 +121,7 @@ compare_bindings (gconstpointer a,
 }
 
 static gboolean
-bindings_get_entry (MsdKeybindingsManager *manager,
+bindings_get_entry (CsdKeybindingsManager *manager,
                     const char            *settings_path)
 {
         GSettings *settings;
@@ -190,9 +190,9 @@ bindings_get_entry (MsdKeybindingsManager *manager,
 }
 
 static void
-bindings_clear (MsdKeybindingsManager *manager)
+bindings_clear (CsdKeybindingsManager *manager)
 {
-        MsdKeybindingsManagerPrivate *p = manager->priv;
+        CsdKeybindingsManagerPrivate *p = manager->priv;
         GSList *l;
 
         if (p->binding_list != NULL)
@@ -212,7 +212,7 @@ bindings_clear (MsdKeybindingsManager *manager)
 }
 
 static void
-bindings_get_entries (MsdKeybindingsManager *manager)
+bindings_get_entries (CsdKeybindingsManager *manager)
 {
         gchar **custom_list = NULL;
         gint i;
@@ -272,7 +272,7 @@ same_key (const Key *key, const Key *other)
 }
 
 static gboolean
-key_already_used (MsdKeybindingsManager *manager,
+key_already_used (CsdKeybindingsManager *manager,
                   Binding               *binding)
 {
         GSList *li;
@@ -291,7 +291,7 @@ key_already_used (MsdKeybindingsManager *manager,
 }
 
 static void
-binding_unregister_keys (MsdKeybindingsManager *manager)
+binding_unregister_keys (CsdKeybindingsManager *manager)
 {
         CdkDisplay *dpy;
         GSList *li;
@@ -316,7 +316,7 @@ binding_unregister_keys (MsdKeybindingsManager *manager)
 }
 
 static void
-binding_register_keys (MsdKeybindingsManager *manager)
+binding_register_keys (CsdKeybindingsManager *manager)
 {
         GSList *li;
         CdkDisplay *dpy;
@@ -441,7 +441,7 @@ get_exec_environment (XEvent *xevent)
 static CdkFilterReturn
 keybindings_filter (CdkXEvent             *cdk_xevent,
                     CdkEvent              *event,
-                    MsdKeybindingsManager *manager)
+                    CsdKeybindingsManager *manager)
 {
         XEvent *xevent = (XEvent *) cdk_xevent;
         GSList *li;
@@ -504,7 +504,7 @@ bindings_callback (DConfClient           *client,
                    gchar                 *prefix,
                    GStrv                  changes,
                    gchar                 *tag,
-                   MsdKeybindingsManager *manager)
+                   CsdKeybindingsManager *manager)
 {
         g_debug ("keybindings: received 'changed' signal from dconf");
 
@@ -516,7 +516,7 @@ bindings_callback (DConfClient           *client,
 }
 
 gboolean
-csd_keybindings_manager_start (MsdKeybindingsManager *manager,
+csd_keybindings_manager_start (CsdKeybindingsManager *manager,
                                GError               **error)
 {
         CdkDisplay  *dpy;
@@ -562,9 +562,9 @@ csd_keybindings_manager_start (MsdKeybindingsManager *manager,
 }
 
 void
-csd_keybindings_manager_stop (MsdKeybindingsManager *manager)
+csd_keybindings_manager_stop (CsdKeybindingsManager *manager)
 {
-        MsdKeybindingsManagerPrivate *p = manager->priv;
+        CsdKeybindingsManagerPrivate *p = manager->priv;
         GSList *l;
 
         g_debug ("Stopping keybindings manager");
@@ -589,7 +589,7 @@ csd_keybindings_manager_stop (MsdKeybindingsManager *manager)
 }
 
 static void
-csd_keybindings_manager_class_init (MsdKeybindingsManagerClass *klass)
+csd_keybindings_manager_class_init (CsdKeybindingsManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -597,7 +597,7 @@ csd_keybindings_manager_class_init (MsdKeybindingsManagerClass *klass)
 }
 
 static void
-csd_keybindings_manager_init (MsdKeybindingsManager *manager)
+csd_keybindings_manager_init (CsdKeybindingsManager *manager)
 {
         manager->priv = csd_keybindings_manager_get_instance_private (manager);
 
@@ -606,7 +606,7 @@ csd_keybindings_manager_init (MsdKeybindingsManager *manager)
 static void
 csd_keybindings_manager_finalize (GObject *object)
 {
-        MsdKeybindingsManager *keybindings_manager;
+        CsdKeybindingsManager *keybindings_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_KEYBINDINGS_MANAGER (object));
@@ -618,7 +618,7 @@ csd_keybindings_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_keybindings_manager_parent_class)->finalize (object);
 }
 
-MsdKeybindingsManager *
+CsdKeybindingsManager *
 csd_keybindings_manager_new (void)
 {
         if (manager_object != NULL) {

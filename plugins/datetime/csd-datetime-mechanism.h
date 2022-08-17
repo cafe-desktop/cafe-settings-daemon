@@ -29,24 +29,24 @@ extern "C" {
 #endif
 
 #define MSD_DATETIME_TYPE_MECHANISM         (csd_datetime_mechanism_get_type ())
-#define MSD_DATETIME_MECHANISM(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_DATETIME_TYPE_MECHANISM, MsdDatetimeMechanism))
-#define MSD_DATETIME_MECHANISM_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_DATETIME_TYPE_MECHANISM, MsdDatetimeMechanismClass))
+#define MSD_DATETIME_MECHANISM(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanism))
+#define MSD_DATETIME_MECHANISM_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanismClass))
 #define MSD_DATETIME_IS_MECHANISM(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_DATETIME_TYPE_MECHANISM))
 #define MSD_DATETIME_IS_MECHANISM_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_DATETIME_TYPE_MECHANISM))
-#define MSD_DATETIME_MECHANISM_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_DATETIME_TYPE_MECHANISM, MsdDatetimeMechanismClass))
+#define MSD_DATETIME_MECHANISM_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanismClass))
 
-typedef struct MsdDatetimeMechanismPrivate MsdDatetimeMechanismPrivate;
+typedef struct CsdDatetimeMechanismPrivate CsdDatetimeMechanismPrivate;
 
 typedef struct
 {
         GObject        parent;
-        MsdDatetimeMechanismPrivate *priv;
-} MsdDatetimeMechanism;
+        CsdDatetimeMechanismPrivate *priv;
+} CsdDatetimeMechanism;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdDatetimeMechanismClass;
+} CsdDatetimeMechanismClass;
 
 typedef enum
 {
@@ -54,7 +54,7 @@ typedef enum
         MSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED,
         MSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE,
         MSD_DATETIME_MECHANISM_NUM_ERRORS
-} MsdDatetimeMechanismError;
+} CsdDatetimeMechanismError;
 
 #define MSD_DATETIME_MECHANISM_ERROR csd_datetime_mechanism_error_quark ()
 
@@ -64,33 +64,33 @@ GType csd_datetime_mechanism_error_get_type (void);
 
 GQuark                     csd_datetime_mechanism_error_quark         (void);
 GType                      csd_datetime_mechanism_get_type            (void);
-MsdDatetimeMechanism      *csd_datetime_mechanism_new                 (void);
+CsdDatetimeMechanism      *csd_datetime_mechanism_new                 (void);
 
 /* exported methods */
-gboolean            csd_datetime_mechanism_get_timezone (MsdDatetimeMechanism   *mechanism,
+gboolean            csd_datetime_mechanism_get_timezone (CsdDatetimeMechanism   *mechanism,
                                                          DBusGMethodInvocation  *context);
-gboolean            csd_datetime_mechanism_set_timezone (MsdDatetimeMechanism   *mechanism,
+gboolean            csd_datetime_mechanism_set_timezone (CsdDatetimeMechanism   *mechanism,
                                                          const char             *zone_file,
                                                          DBusGMethodInvocation  *context);
 
-gboolean            csd_datetime_mechanism_can_set_timezone (MsdDatetimeMechanism  *mechanism,
+gboolean            csd_datetime_mechanism_can_set_timezone (CsdDatetimeMechanism  *mechanism,
                                                              DBusGMethodInvocation *context);
 
-gboolean            csd_datetime_mechanism_set_time     (MsdDatetimeMechanism  *mechanism,
+gboolean            csd_datetime_mechanism_set_time     (CsdDatetimeMechanism  *mechanism,
                                                          gint64                 seconds_since_epoch,
                                                          DBusGMethodInvocation *context);
 
-gboolean            csd_datetime_mechanism_can_set_time (MsdDatetimeMechanism  *mechanism,
+gboolean            csd_datetime_mechanism_can_set_time (CsdDatetimeMechanism  *mechanism,
                                                          DBusGMethodInvocation *context);
 
-gboolean            csd_datetime_mechanism_adjust_time  (MsdDatetimeMechanism  *mechanism,
+gboolean            csd_datetime_mechanism_adjust_time  (CsdDatetimeMechanism  *mechanism,
                                                          gint64                 seconds_to_add,
                                                          DBusGMethodInvocation *context);
 
-gboolean            csd_datetime_mechanism_get_hardware_clock_using_utc  (MsdDatetimeMechanism  *mechanism,
+gboolean            csd_datetime_mechanism_get_hardware_clock_using_utc  (CsdDatetimeMechanism  *mechanism,
                                                                           DBusGMethodInvocation *context);
 
-gboolean            csd_datetime_mechanism_set_hardware_clock_using_utc  (MsdDatetimeMechanism  *mechanism,
+gboolean            csd_datetime_mechanism_set_hardware_clock_using_utc  (CsdDatetimeMechanism  *mechanism,
                                                                           gboolean               using_utc,
                                                                           DBusGMethodInvocation *context);
 

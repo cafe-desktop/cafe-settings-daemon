@@ -43,7 +43,7 @@
 
 #define CAFE_BREAK_SCHEMA "org.cafe.typing-break"
 
-struct MsdTypingBreakManagerPrivate
+struct CsdTypingBreakManagerPrivate
 {
         GPid  typing_monitor_pid;
         guint typing_monitor_idle_id;
@@ -54,12 +54,12 @@ struct MsdTypingBreakManagerPrivate
 
 static void csd_typing_break_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdTypingBreakManager, csd_typing_break_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdTypingBreakManager, csd_typing_break_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 static gboolean
-typing_break_timeout (MsdTypingBreakManager *manager)
+typing_break_timeout (CsdTypingBreakManager *manager)
 {
         if (manager->priv->typing_monitor_pid > 0) {
                 kill (manager->priv->typing_monitor_pid, SIGKILL);
@@ -73,7 +73,7 @@ typing_break_timeout (MsdTypingBreakManager *manager)
 static void
 child_watch (GPid                   pid,
              int                    status,
-             MsdTypingBreakManager *manager)
+             CsdTypingBreakManager *manager)
 {
         if (pid == manager->priv->typing_monitor_pid) {
                 manager->priv->typing_monitor_pid = 0;
@@ -82,7 +82,7 @@ child_watch (GPid                   pid,
 }
 
 static void
-setup_typing_break (MsdTypingBreakManager *manager,
+setup_typing_break (CsdTypingBreakManager *manager,
                     gboolean               enabled)
 {
         cafe_settings_profile_start (NULL);
@@ -135,13 +135,13 @@ setup_typing_break (MsdTypingBreakManager *manager,
 static void
 typing_break_enabled_callback (GSettings             *settings,
                                gchar                 *key,
-                               MsdTypingBreakManager *manager)
+                               CsdTypingBreakManager *manager)
 {
         setup_typing_break (manager, g_settings_get_boolean (settings, key));
 }
 
 static gboolean
-really_setup_typing_break (MsdTypingBreakManager *manager)
+really_setup_typing_break (CsdTypingBreakManager *manager)
 {
         setup_typing_break (manager, TRUE);
         manager->priv->setup_id = 0;
@@ -149,7 +149,7 @@ really_setup_typing_break (MsdTypingBreakManager *manager)
 }
 
 gboolean
-csd_typing_break_manager_start (MsdTypingBreakManager *manager,
+csd_typing_break_manager_start (CsdTypingBreakManager *manager,
                                 GError               **error)
 {
         gboolean     enabled;
@@ -179,9 +179,9 @@ csd_typing_break_manager_start (MsdTypingBreakManager *manager,
 }
 
 void
-csd_typing_break_manager_stop (MsdTypingBreakManager *manager)
+csd_typing_break_manager_stop (CsdTypingBreakManager *manager)
 {
-        MsdTypingBreakManagerPrivate *p = manager->priv;
+        CsdTypingBreakManagerPrivate *p = manager->priv;
 
         g_debug ("Stopping typing_break manager");
 
@@ -212,7 +212,7 @@ csd_typing_break_manager_stop (MsdTypingBreakManager *manager)
 }
 
 static void
-csd_typing_break_manager_class_init (MsdTypingBreakManagerClass *klass)
+csd_typing_break_manager_class_init (CsdTypingBreakManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -220,7 +220,7 @@ csd_typing_break_manager_class_init (MsdTypingBreakManagerClass *klass)
 }
 
 static void
-csd_typing_break_manager_init (MsdTypingBreakManager *manager)
+csd_typing_break_manager_init (CsdTypingBreakManager *manager)
 {
         manager->priv = csd_typing_break_manager_get_instance_private (manager);
 
@@ -229,7 +229,7 @@ csd_typing_break_manager_init (MsdTypingBreakManager *manager)
 static void
 csd_typing_break_manager_finalize (GObject *object)
 {
-        MsdTypingBreakManager *typing_break_manager;
+        CsdTypingBreakManager *typing_break_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_TYPING_BREAK_MANAGER (object));
@@ -241,7 +241,7 @@ csd_typing_break_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_typing_break_manager_parent_class)->finalize (object);
 }
 
-MsdTypingBreakManager *
+CsdTypingBreakManager *
 csd_typing_break_manager_new (void)
 {
         if (manager_object != NULL) {

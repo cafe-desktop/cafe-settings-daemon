@@ -27,18 +27,18 @@
 #include "csd-clipboard-plugin.h"
 #include "csd-clipboard-manager.h"
 
-struct MsdClipboardPluginPrivate {
-        MsdClipboardManager *manager;
+struct CsdClipboardPluginPrivate {
+        CsdClipboardManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdClipboardPlugin, csd_clipboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdClipboardPlugin, csd_clipboard_plugin)
 
 static void
-csd_clipboard_plugin_init (MsdClipboardPlugin *plugin)
+csd_clipboard_plugin_init (CsdClipboardPlugin *plugin)
 {
         plugin->priv = csd_clipboard_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdClipboardPlugin initializing");
+        g_debug ("CsdClipboardPlugin initializing");
 
         plugin->priv->manager = csd_clipboard_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_clipboard_plugin_init (MsdClipboardPlugin *plugin)
 static void
 csd_clipboard_plugin_finalize (GObject *object)
 {
-        MsdClipboardPlugin *plugin;
+        CsdClipboardPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_CLIPBOARD_PLUGIN (object));
 
-        g_debug ("MsdClipboardPlugin finalizing");
+        g_debug ("CsdClipboardPlugin finalizing");
 
         plugin = MSD_CLIPBOARD_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_clipboard_plugin_class_init (MsdClipboardPluginClass *klass)
+csd_clipboard_plugin_class_init (CsdClipboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,7 +100,7 @@ csd_clipboard_plugin_class_init (MsdClipboardPluginClass *klass)
 }
 
 static void
-csd_clipboard_plugin_class_finalize (MsdClipboardPluginClass *klass)
+csd_clipboard_plugin_class_finalize (CsdClipboardPluginClass *klass)
 {
 }
 

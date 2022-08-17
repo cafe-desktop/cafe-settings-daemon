@@ -28,32 +28,32 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_KEYBOARD_MANAGER         (csd_keyboard_manager_get_type ())
-#define MSD_KEYBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBOARD_MANAGER, MsdKeyboardManager))
-#define MSD_KEYBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBOARD_MANAGER, MsdKeyboardManagerClass))
+#define MSD_KEYBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManager))
+#define MSD_KEYBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManagerClass))
 #define MSD_IS_KEYBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBOARD_MANAGER))
 #define MSD_IS_KEYBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_KEYBOARD_MANAGER))
-#define MSD_KEYBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBOARD_MANAGER, MsdKeyboardManagerClass))
+#define MSD_KEYBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManagerClass))
 
-typedef struct MsdKeyboardManagerPrivate MsdKeyboardManagerPrivate;
+typedef struct CsdKeyboardManagerPrivate CsdKeyboardManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdKeyboardManagerPrivate *priv;
-} MsdKeyboardManager;
+        CsdKeyboardManagerPrivate *priv;
+} CsdKeyboardManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdKeyboardManagerClass;
+} CsdKeyboardManagerClass;
 
 GType                   csd_keyboard_manager_get_type            (void);
 
-MsdKeyboardManager *       csd_keyboard_manager_new                 (void);
-gboolean                csd_keyboard_manager_start               (MsdKeyboardManager *manager,
+CsdKeyboardManager *       csd_keyboard_manager_new                 (void);
+gboolean                csd_keyboard_manager_start               (CsdKeyboardManager *manager,
                                                                GError         **error);
-void                    csd_keyboard_manager_stop                (MsdKeyboardManager *manager);
-void                    csd_keyboard_manager_apply_settings      (MsdKeyboardManager *manager);
+void                    csd_keyboard_manager_stop                (CsdKeyboardManager *manager);
+void                    csd_keyboard_manager_apply_settings      (CsdKeyboardManager *manager);
 
 #ifdef __cplusplus
 }

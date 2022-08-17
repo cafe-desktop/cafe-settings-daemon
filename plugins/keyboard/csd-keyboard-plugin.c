@@ -27,18 +27,18 @@
 #include "csd-keyboard-plugin.h"
 #include "csd-keyboard-manager.h"
 
-struct MsdKeyboardPluginPrivate {
-        MsdKeyboardManager *manager;
+struct CsdKeyboardPluginPrivate {
+        CsdKeyboardManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdKeyboardPlugin, csd_keyboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdKeyboardPlugin, csd_keyboard_plugin)
 
 static void
-csd_keyboard_plugin_init (MsdKeyboardPlugin *plugin)
+csd_keyboard_plugin_init (CsdKeyboardPlugin *plugin)
 {
         plugin->priv = csd_keyboard_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdKeyboardPlugin initializing");
+        g_debug ("CsdKeyboardPlugin initializing");
 
         plugin->priv->manager = csd_keyboard_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_keyboard_plugin_init (MsdKeyboardPlugin *plugin)
 static void
 csd_keyboard_plugin_finalize (GObject *object)
 {
-        MsdKeyboardPlugin *plugin;
+        CsdKeyboardPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_KEYBOARD_PLUGIN (object));
 
-        g_debug ("MsdKeyboardPlugin finalizing");
+        g_debug ("CsdKeyboardPlugin finalizing");
 
         plugin = MSD_KEYBOARD_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_keyboard_plugin_class_init (MsdKeyboardPluginClass *klass)
+csd_keyboard_plugin_class_init (CsdKeyboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,7 +100,7 @@ csd_keyboard_plugin_class_init (MsdKeyboardPluginClass *klass)
 }
 
 static void
-csd_keyboard_plugin_class_finalize (MsdKeyboardPluginClass *klass)
+csd_keyboard_plugin_class_finalize (CsdKeyboardPluginClass *klass)
 {
 }
 

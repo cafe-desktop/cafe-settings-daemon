@@ -43,7 +43,7 @@
 #include "csd-sound-manager.h"
 #include "cafe-settings-profile.h"
 
-struct MsdSoundManagerPrivate
+struct CsdSoundManagerPrivate
 {
         GSettings *settings;
         GList* monitors;
@@ -54,7 +54,7 @@ struct MsdSoundManagerPrivate
 
 static void csd_sound_manager_finalize (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdSoundManager, csd_sound_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdSoundManager, csd_sound_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -181,7 +181,7 @@ fail:
 }
 
 static gboolean
-flush_cb (MsdSoundManager *manager)
+flush_cb (CsdSoundManager *manager)
 {
         flush_cache ();
         manager->priv->timeout = 0;
@@ -189,7 +189,7 @@ flush_cb (MsdSoundManager *manager)
 }
 
 static void
-trigger_flush (MsdSoundManager *manager)
+trigger_flush (CsdSoundManager *manager)
 {
 
         if (manager->priv->timeout)
@@ -203,7 +203,7 @@ trigger_flush (MsdSoundManager *manager)
 static void
 gsettings_notify_cb (GSettings *client,
                      gchar *key,
-                     MsdSoundManager *manager)
+                     CsdSoundManager *manager)
 {
         trigger_flush (manager);
 }
@@ -213,14 +213,14 @@ file_monitor_changed_cb (GFileMonitor *monitor,
                          GFile *file,
                          GFile *other_file,
                          GFileMonitorEvent event,
-                         MsdSoundManager *manager)
+                         CsdSoundManager *manager)
 {
         g_debug ("Theme dir changed");
         trigger_flush (manager);
 }
 
 static gboolean
-register_directory_callback (MsdSoundManager *manager,
+register_directory_callback (CsdSoundManager *manager,
                              const char *path,
                              GError **error)
 {
@@ -250,7 +250,7 @@ register_directory_callback (MsdSoundManager *manager,
 #endif
 
 gboolean
-csd_sound_manager_start (MsdSoundManager *manager,
+csd_sound_manager_start (CsdSoundManager *manager,
                          GError **error)
 {
 
@@ -302,7 +302,7 @@ csd_sound_manager_start (MsdSoundManager *manager,
 }
 
 void
-csd_sound_manager_stop (MsdSoundManager *manager)
+csd_sound_manager_stop (CsdSoundManager *manager)
 {
         g_debug ("Stopping sound manager");
 
@@ -328,7 +328,7 @@ csd_sound_manager_stop (MsdSoundManager *manager)
 static void
 csd_sound_manager_dispose (GObject *object)
 {
-        MsdSoundManager *manager;
+        CsdSoundManager *manager;
 
         manager = MSD_SOUND_MANAGER (object);
 
@@ -338,7 +338,7 @@ csd_sound_manager_dispose (GObject *object)
 }
 
 static void
-csd_sound_manager_class_init (MsdSoundManagerClass *klass)
+csd_sound_manager_class_init (CsdSoundManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -347,7 +347,7 @@ csd_sound_manager_class_init (MsdSoundManagerClass *klass)
 }
 
 static void
-csd_sound_manager_init (MsdSoundManager *manager)
+csd_sound_manager_init (CsdSoundManager *manager)
 {
         manager->priv = csd_sound_manager_get_instance_private (manager);
 }
@@ -355,7 +355,7 @@ csd_sound_manager_init (MsdSoundManager *manager)
 static void
 csd_sound_manager_finalize (GObject *object)
 {
-        MsdSoundManager *sound_manager;
+        CsdSoundManager *sound_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_SOUND_MANAGER (object));
@@ -367,7 +367,7 @@ csd_sound_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_sound_manager_parent_class)->finalize (object);
 }
 
-MsdSoundManager *
+CsdSoundManager *
 csd_sound_manager_new (void)
 {
         if (manager_object) {

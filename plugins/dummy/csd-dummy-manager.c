@@ -39,7 +39,7 @@
 #include "cafe-settings-profile.h"
 #include "csd-dummy-manager.h"
 
-struct MsdDummyManagerPrivate
+struct CsdDummyManagerPrivate
 {
         gboolean padding;
 };
@@ -50,12 +50,12 @@ enum {
 
 static void     csd_dummy_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdDummyManager, csd_dummy_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdDummyManager, csd_dummy_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
 gboolean
-csd_dummy_manager_start (MsdDummyManager *manager,
+csd_dummy_manager_start (CsdDummyManager *manager,
                                GError               **error)
 {
         g_debug ("Starting dummy manager");
@@ -65,7 +65,7 @@ csd_dummy_manager_start (MsdDummyManager *manager,
 }
 
 void
-csd_dummy_manager_stop (MsdDummyManager *manager)
+csd_dummy_manager_stop (CsdDummyManager *manager)
 {
         g_debug ("Stopping dummy manager");
 }
@@ -101,7 +101,7 @@ csd_dummy_manager_constructor (GType                  type,
                               guint                  n_construct_properties,
                               GObjectConstructParam *construct_properties)
 {
-        MsdDummyManager      *dummy_manager;
+        CsdDummyManager      *dummy_manager;
 
         dummy_manager = MSD_DUMMY_MANAGER (G_OBJECT_CLASS (csd_dummy_manager_parent_class)->constructor (type,
                                                                                                       n_construct_properties,
@@ -117,7 +117,7 @@ csd_dummy_manager_dispose (GObject *object)
 }
 
 static void
-csd_dummy_manager_class_init (MsdDummyManagerClass *klass)
+csd_dummy_manager_class_init (CsdDummyManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -129,7 +129,7 @@ csd_dummy_manager_class_init (MsdDummyManagerClass *klass)
 }
 
 static void
-csd_dummy_manager_init (MsdDummyManager *manager)
+csd_dummy_manager_init (CsdDummyManager *manager)
 {
         manager->priv = csd_dummy_manager_get_instance_private (manager);
 
@@ -138,7 +138,7 @@ csd_dummy_manager_init (MsdDummyManager *manager)
 static void
 csd_dummy_manager_finalize (GObject *object)
 {
-        MsdDummyManager *dummy_manager;
+        CsdDummyManager *dummy_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_DUMMY_MANAGER (object));
@@ -150,7 +150,7 @@ csd_dummy_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_dummy_manager_parent_class)->finalize (object);
 }
 
-MsdDummyManager *
+CsdDummyManager *
 csd_dummy_manager_new (void)
 {
         if (manager_object != NULL) {

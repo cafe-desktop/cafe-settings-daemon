@@ -61,7 +61,7 @@
 #define KEY_NUMLOCK_STATE    "numlock-state"
 #define KEY_NUMLOCK_REMEMBER "remember-numlock-state"
 
-struct MsdKeyboardManagerPrivate {
+struct CsdKeyboardManagerPrivate {
 	gboolean    have_xkb;
 	gint        xkb_event_base;
 	GSettings  *settings;
@@ -69,7 +69,7 @@ struct MsdKeyboardManagerPrivate {
 
 static void     csd_keyboard_manager_finalize    (GObject *object);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdKeyboardManager, csd_keyboard_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdKeyboardManager, csd_keyboard_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -97,7 +97,7 @@ typedef enum {
 } NumLockState;
 
 static void
-numlock_xkb_init (MsdKeyboardManager *manager)
+numlock_xkb_init (CsdKeyboardManager *manager)
 {
         Display *dpy = CDK_DISPLAY_XDISPLAY (cdk_display_get_default ());
         gboolean have_xkb;
@@ -181,7 +181,7 @@ numlock_xkb_callback (CdkXEvent *xev_,
 }
 
 static void
-numlock_install_xkb_callback (MsdKeyboardManager *manager)
+numlock_install_xkb_callback (CsdKeyboardManager *manager)
 {
         if (!manager->priv->have_xkb)
                 return;
@@ -196,7 +196,7 @@ numlock_install_xkb_callback (MsdKeyboardManager *manager)
 static void
 apply_settings (GSettings          *settings,
                 gchar              *key,
-                MsdKeyboardManager *manager)
+                CsdKeyboardManager *manager)
 {
         XKeyboardControl kbdcontrol;
         gboolean         repeat;
@@ -271,13 +271,13 @@ apply_settings (GSettings          *settings,
 }
 
 void
-csd_keyboard_manager_apply_settings (MsdKeyboardManager *manager)
+csd_keyboard_manager_apply_settings (CsdKeyboardManager *manager)
 {
         apply_settings (manager->priv->settings, NULL, manager);
 }
 
 static gboolean
-start_keyboard_idle_cb (MsdKeyboardManager *manager)
+start_keyboard_idle_cb (CsdKeyboardManager *manager)
 {
         cafe_settings_profile_start (NULL);
 
@@ -308,7 +308,7 @@ start_keyboard_idle_cb (MsdKeyboardManager *manager)
 }
 
 gboolean
-csd_keyboard_manager_start (MsdKeyboardManager *manager,
+csd_keyboard_manager_start (CsdKeyboardManager *manager,
                             GError            **error)
 {
         cafe_settings_profile_start (NULL);
@@ -321,9 +321,9 @@ csd_keyboard_manager_start (MsdKeyboardManager *manager,
 }
 
 void
-csd_keyboard_manager_stop (MsdKeyboardManager *manager)
+csd_keyboard_manager_stop (CsdKeyboardManager *manager)
 {
-        MsdKeyboardManagerPrivate *p = manager->priv;
+        CsdKeyboardManagerPrivate *p = manager->priv;
 
         g_debug ("Stopping keyboard manager");
 
@@ -344,7 +344,7 @@ csd_keyboard_manager_stop (MsdKeyboardManager *manager)
 }
 
 static void
-csd_keyboard_manager_class_init (MsdKeyboardManagerClass *klass)
+csd_keyboard_manager_class_init (CsdKeyboardManagerClass *klass)
 {
         GObjectClass   *object_class = G_OBJECT_CLASS (klass);
 
@@ -352,7 +352,7 @@ csd_keyboard_manager_class_init (MsdKeyboardManagerClass *klass)
 }
 
 static void
-csd_keyboard_manager_init (MsdKeyboardManager *manager)
+csd_keyboard_manager_init (CsdKeyboardManager *manager)
 {
         manager->priv = csd_keyboard_manager_get_instance_private (manager);
 }
@@ -360,7 +360,7 @@ csd_keyboard_manager_init (MsdKeyboardManager *manager)
 static void
 csd_keyboard_manager_finalize (GObject *object)
 {
-        MsdKeyboardManager *keyboard_manager;
+        CsdKeyboardManager *keyboard_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_KEYBOARD_MANAGER (object));
@@ -372,7 +372,7 @@ csd_keyboard_manager_finalize (GObject *object)
         G_OBJECT_CLASS (csd_keyboard_manager_parent_class)->finalize (object);
 }
 
-MsdKeyboardManager *
+CsdKeyboardManager *
 csd_keyboard_manager_new (void)
 {
         if (manager_object != NULL) {

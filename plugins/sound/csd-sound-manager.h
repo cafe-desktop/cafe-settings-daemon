@@ -29,30 +29,30 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_SOUND_MANAGER         (csd_sound_manager_get_type ())
-#define MSD_SOUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_MANAGER, MsdSoundManager))
-#define MSD_SOUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_MANAGER, MsdSoundManagerClass))
+#define MSD_SOUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_MANAGER, CsdSoundManager))
+#define MSD_SOUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_MANAGER, CsdSoundManagerClass))
 #define MSD_IS_SOUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SOUND_MANAGER))
 #define MSD_IS_SOUND_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_SOUND_MANAGER))
-#define MSD_SOUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SOUND_MANAGER, MsdSoundManagerClass))
+#define MSD_SOUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SOUND_MANAGER, CsdSoundManagerClass))
 
-typedef struct MsdSoundManagerPrivate MsdSoundManagerPrivate;
+typedef struct CsdSoundManagerPrivate CsdSoundManagerPrivate;
 
 typedef struct
 {
         GObject parent;
-        MsdSoundManagerPrivate *priv;
-} MsdSoundManager;
+        CsdSoundManagerPrivate *priv;
+} CsdSoundManager;
 
 typedef struct
 {
         GObjectClass parent_class;
-} MsdSoundManagerClass;
+} CsdSoundManagerClass;
 
 GType csd_sound_manager_get_type (void) G_GNUC_CONST;
 
-MsdSoundManager *csd_sound_manager_new (void);
-gboolean csd_sound_manager_start (MsdSoundManager *manager, GError **error);
-void csd_sound_manager_stop (MsdSoundManager *manager);
+CsdSoundManager *csd_sound_manager_new (void);
+gboolean csd_sound_manager_start (CsdSoundManager *manager, GError **error);
+void csd_sound_manager_stop (CsdSoundManager *manager);
 
 #ifdef __cplusplus
 }

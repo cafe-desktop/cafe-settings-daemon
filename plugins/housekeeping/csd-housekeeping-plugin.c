@@ -27,18 +27,18 @@
 #include "csd-housekeeping-plugin.h"
 #include "csd-housekeeping-manager.h"
 
-struct MsdHousekeepingPluginPrivate {
-        MsdHousekeepingManager *manager;
+struct CsdHousekeepingPluginPrivate {
+        CsdHousekeepingManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdHousekeepingPlugin, csd_housekeeping_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdHousekeepingPlugin, csd_housekeeping_plugin)
 
 static void
-csd_housekeeping_plugin_init (MsdHousekeepingPlugin *plugin)
+csd_housekeeping_plugin_init (CsdHousekeepingPlugin *plugin)
 {
         plugin->priv = csd_housekeeping_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdHousekeepingPlugin initializing");
+        g_debug ("CsdHousekeepingPlugin initializing");
 
         plugin->priv->manager = csd_housekeeping_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_housekeeping_plugin_init (MsdHousekeepingPlugin *plugin)
 static void
 csd_housekeeping_plugin_finalize (GObject *object)
 {
-        MsdHousekeepingPlugin *plugin;
+        CsdHousekeepingPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_HOUSEKEEPING_PLUGIN (object));
 
-        g_debug ("MsdHousekeepingPlugin finalizing");
+        g_debug ("CsdHousekeepingPlugin finalizing");
 
         plugin = MSD_HOUSEKEEPING_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_housekeeping_plugin_class_init (MsdHousekeepingPluginClass *klass)
+csd_housekeeping_plugin_class_init (CsdHousekeepingPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,7 +100,7 @@ csd_housekeeping_plugin_class_init (MsdHousekeepingPluginClass *klass)
 }
 
 static void
-csd_housekeeping_plugin_class_finalize (MsdHousekeepingPluginClass *klass)
+csd_housekeeping_plugin_class_finalize (CsdHousekeepingPluginClass *klass)
 {
 }
 
