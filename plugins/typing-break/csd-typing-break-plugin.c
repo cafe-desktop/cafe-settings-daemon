@@ -49,11 +49,11 @@ csd_typing_break_plugin_finalize (GObject *object)
         CsdTypingBreakPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_TYPING_BREAK_PLUGIN (object));
+        g_return_if_fail (CSD_IS_TYPING_BREAK_PLUGIN (object));
 
         g_debug ("CsdTypingBreakPlugin finalizing");
 
-        plugin = MSD_TYPING_BREAK_PLUGIN (object);
+        plugin = CSD_TYPING_BREAK_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating typing_break plugin");
 
         error = NULL;
-        res = csd_typing_break_manager_start (MSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_typing_break_manager_start (CSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start typing_break manager: %s", error->message);
                 g_error_free (error);
@@ -84,7 +84,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating typing_break plugin");
-        csd_typing_break_manager_stop (MSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager);
+        csd_typing_break_manager_stop (CSD_TYPING_BREAK_PLUGIN (plugin)->priv->manager);
 }
 
 static void

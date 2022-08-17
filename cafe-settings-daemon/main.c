@@ -44,7 +44,7 @@
 
 #include <libcafe-desktop/cafe-gsettings.h>
 
-#define MSD_DBUS_NAME         "org.cafe.SettingsDaemon"
+#define CSD_DBUS_NAME         "org.cafe.SettingsDaemon"
 
 #define DEBUG_KEY             "cafe-settings-daemon"
 #define DEBUG_SCHEMA          "org.cafe.debug"
@@ -108,27 +108,27 @@ acquire_name_on_proxy (DBusGProxy *bus_proxy)
         res = dbus_g_proxy_call (bus_proxy,
                                  "RequestName",
                                  &error,
-                                 G_TYPE_STRING, MSD_DBUS_NAME,
+                                 G_TYPE_STRING, CSD_DBUS_NAME,
                                  G_TYPE_UINT, flags,
                                  G_TYPE_INVALID,
                                  G_TYPE_UINT, &result,
                                  G_TYPE_INVALID);
         if (! res) {
                 if (error != NULL) {
-                        g_warning ("Failed to acquire %s: %s", MSD_DBUS_NAME, error->message);
+                        g_warning ("Failed to acquire %s: %s", CSD_DBUS_NAME, error->message);
                         g_error_free (error);
                 } else {
-                        g_warning ("Failed to acquire %s", MSD_DBUS_NAME);
+                        g_warning ("Failed to acquire %s", CSD_DBUS_NAME);
                 }
                 goto out;
         }
 
         if (result != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER) {
                 if (error != NULL) {
-                        g_warning ("Failed to acquire %s: %s", MSD_DBUS_NAME, error->message);
+                        g_warning ("Failed to acquire %s: %s", CSD_DBUS_NAME, error->message);
                         g_error_free (error);
                 } else {
-                        g_warning ("Failed to acquire %s", MSD_DBUS_NAME);
+                        g_warning ("Failed to acquire %s", CSD_DBUS_NAME);
                 }
                 goto out;
         }

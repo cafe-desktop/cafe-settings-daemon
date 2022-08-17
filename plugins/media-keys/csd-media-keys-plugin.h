@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef __MSD_MEDIA_KEYS_PLUGIN_H__
-#define __MSD_MEDIA_KEYS_PLUGIN_H__
+#ifndef __CSD_MEDIA_KEYS_PLUGIN_H__
+#define __CSD_MEDIA_KEYS_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_MEDIA_KEYS_PLUGIN                (csd_media_keys_plugin_get_type ())
-#define MSD_MEDIA_KEYS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPlugin))
-#define MSD_MEDIA_KEYS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPluginClass))
-#define MSD_IS_MEDIA_KEYS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN))
-#define MSD_IS_MEDIA_KEYS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MEDIA_KEYS_PLUGIN))
-#define MSD_MEDIA_KEYS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPluginClass))
+#define CSD_TYPE_MEDIA_KEYS_PLUGIN                (csd_media_keys_plugin_get_type ())
+#define CSD_MEDIA_KEYS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPlugin))
+#define CSD_MEDIA_KEYS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPluginClass))
+#define CSD_IS_MEDIA_KEYS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_MEDIA_KEYS_PLUGIN))
+#define CSD_IS_MEDIA_KEYS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_MEDIA_KEYS_PLUGIN))
+#define CSD_MEDIA_KEYS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPluginClass))
 
 typedef struct _CsdMediaKeysPlugin         CsdMediaKeysPlugin;
 typedef struct _CsdMediaKeysPluginClass    CsdMediaKeysPluginClass;
@@ -59,4 +59,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 
 G_END_DECLS
 
-#endif /* __MSD_MEDIA_KEYS_PLUGIN_H__ */
+#endif /* __CSD_MEDIA_KEYS_PLUGIN_H__ */

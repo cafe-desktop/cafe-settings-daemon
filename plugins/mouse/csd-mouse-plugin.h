@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_MOUSE_PLUGIN_H__
-#define __MSD_MOUSE_PLUGIN_H__
+#ifndef __CSD_MOUSE_PLUGIN_H__
+#define __CSD_MOUSE_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -31,12 +31,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MOUSE_PLUGIN                (csd_mouse_plugin_get_type ())
-#define MSD_MOUSE_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_PLUGIN, CsdMousePlugin))
-#define MSD_MOUSE_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_PLUGIN, CsdMousePluginClass))
-#define MSD_IS_MOUSE_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MOUSE_PLUGIN))
-#define MSD_IS_MOUSE_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MOUSE_PLUGIN))
-#define MSD_MOUSE_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MOUSE_PLUGIN, CsdMousePluginClass))
+#define CSD_TYPE_MOUSE_PLUGIN                (csd_mouse_plugin_get_type ())
+#define CSD_MOUSE_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_MOUSE_PLUGIN, CsdMousePlugin))
+#define CSD_MOUSE_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_MOUSE_PLUGIN, CsdMousePluginClass))
+#define CSD_IS_MOUSE_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_MOUSE_PLUGIN))
+#define CSD_IS_MOUSE_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_MOUSE_PLUGIN))
+#define CSD_MOUSE_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_MOUSE_PLUGIN, CsdMousePluginClass))
 
 typedef struct CsdMousePluginPrivate CsdMousePluginPrivate;
 
@@ -60,4 +60,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 }
 #endif
 
-#endif /* __MSD_MOUSE_PLUGIN_H__ */
+#endif /* __CSD_MOUSE_PLUGIN_H__ */

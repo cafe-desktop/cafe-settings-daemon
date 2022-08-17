@@ -21,8 +21,8 @@
  *
  */
 
-#ifndef __MSD_DISK_SPACE_H
-#define __MSD_DISK_SPACE_H
+#ifndef __CSD_DISK_SPACE_H
+#define __CSD_DISK_SPACE_H
 
 #include <glib.h>
 
@@ -37,4 +37,4 @@ void csd_ldsm_clean (void);
 }
 #endif
 
-#endif /* __MSD_DISK_SPACE_H */
+#endif /* __CSD_DISK_SPACE_H */

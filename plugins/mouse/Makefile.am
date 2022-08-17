@@ -19,7 +19,7 @@ libmouse_la_CFLAGS =			\
 	$(WARN_CFLAGS)
 
 libmouse_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 libmouse_la_LIBADD  =							\
 	$(top_builddir)/plugins/common/libcommon.la			\

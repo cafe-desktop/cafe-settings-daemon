@@ -49,11 +49,11 @@ csd_background_plugin_finalize (GObject* object)
 	CsdBackgroundPlugin* plugin;
 
 	g_return_if_fail(object != NULL);
-	g_return_if_fail(MSD_IS_BACKGROUND_PLUGIN(object));
+	g_return_if_fail(CSD_IS_BACKGROUND_PLUGIN(object));
 
 	g_debug("CsdBackgroundPlugin finalizing");
 
-	plugin = MSD_BACKGROUND_PLUGIN(object);
+	plugin = CSD_BACKGROUND_PLUGIN(object);
 
 	g_return_if_fail(plugin->priv != NULL);
 
@@ -74,7 +74,7 @@ impl_activate (CafeSettingsPlugin* plugin)
 	g_debug("Activating background plugin");
 
 	error = NULL;
-	res = csd_background_manager_start(MSD_BACKGROUND_PLUGIN(plugin)->priv->manager, &error);
+	res = csd_background_manager_start(CSD_BACKGROUND_PLUGIN(plugin)->priv->manager, &error);
 
 	if (!res)
 	{
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin* plugin)
 {
 	g_debug("Deactivating background plugin");
 
-	csd_background_manager_stop(MSD_BACKGROUND_PLUGIN(plugin)->priv->manager);
+	csd_background_manager_stop(CSD_BACKGROUND_PLUGIN(plugin)->priv->manager);
 }
 
 static void

@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_XRANDR_MANAGER_H
-#define __MSD_XRANDR_MANAGER_H
+#ifndef __CSD_XRANDR_MANAGER_H
+#define __CSD_XRANDR_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_XRANDR_MANAGER         (csd_xrandr_manager_get_type ())
-#define MSD_XRANDR_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRANDR_MANAGER, CsdXrandrManager))
-#define MSD_XRANDR_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRANDR_MANAGER, CsdXrandrManagerClass))
-#define MSD_IS_XRANDR_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRANDR_MANAGER))
-#define MSD_IS_XRANDR_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_XRANDR_MANAGER))
-#define MSD_XRANDR_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRANDR_MANAGER, CsdXrandrManagerClass))
+#define CSD_TYPE_XRANDR_MANAGER         (csd_xrandr_manager_get_type ())
+#define CSD_XRANDR_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_XRANDR_MANAGER, CsdXrandrManager))
+#define CSD_XRANDR_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_XRANDR_MANAGER, CsdXrandrManagerClass))
+#define CSD_IS_XRANDR_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_XRANDR_MANAGER))
+#define CSD_IS_XRANDR_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_XRANDR_MANAGER))
+#define CSD_XRANDR_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_XRANDR_MANAGER, CsdXrandrManagerClass))
 
 typedef struct CsdXrandrManagerPrivate CsdXrandrManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_xrandr_manager_stop                (CsdXrandrManager
 }
 #endif
 
-#endif /* __MSD_XRANDR_MANAGER_H */
+#endif /* __CSD_XRANDR_MANAGER_H */

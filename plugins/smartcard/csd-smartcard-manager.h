@@ -20,10 +20,10 @@
  *
  * Written by: Ray Strode
  */
-#ifndef MSD_SMARTCARD_MANAGER_H
-#define MSD_SMARTCARD_MANAGER_H
+#ifndef CSD_SMARTCARD_MANAGER_H
+#define CSD_SMARTCARD_MANAGER_H
 
-#define MSD_SMARTCARD_ENABLE_INTERNAL_API
+#define CSD_SMARTCARD_ENABLE_INTERNAL_API
 #include "csd-smartcard.h"
 
 #include <glib.h>
@@ -32,13 +32,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define MSD_TYPE_SMARTCARD_MANAGER            (csd_smartcard_manager_get_type ())
-#define MSD_SMARTCARD_MANAGER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManager))
-#define MSD_SMARTCARD_MANAGER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManagerClass))
-#define MSD_IS_SMARTCARD_MANAGER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SC_TYPE_SMARTCARD_MANAGER))
-#define MSD_IS_SMARTCARD_MANAGER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), SC_TYPE_SMARTCARD_MANAGER))
-#define MSD_SMARTCARD_MANAGER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), MSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManagerClass))
-#define MSD_SMARTCARD_MANAGER_ERROR           (csd_smartcard_manager_error_quark ())
+#define CSD_TYPE_SMARTCARD_MANAGER            (csd_smartcard_manager_get_type ())
+#define CSD_SMARTCARD_MANAGER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManager))
+#define CSD_SMARTCARD_MANAGER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), CSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManagerClass))
+#define CSD_IS_SMARTCARD_MANAGER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), SC_TYPE_SMARTCARD_MANAGER))
+#define CSD_IS_SMARTCARD_MANAGER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), SC_TYPE_SMARTCARD_MANAGER))
+#define CSD_SMARTCARD_MANAGER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), CSD_TYPE_SMARTCARD_MANAGER, CsdSmartcardManagerClass))
+#define CSD_SMARTCARD_MANAGER_ERROR           (csd_smartcard_manager_error_quark ())
 typedef struct _CsdSmartcardManager CsdSmartcardManager;
 typedef struct _CsdSmartcardManagerClass CsdSmartcardManagerClass;
 typedef struct _CsdSmartcardManagerPrivate CsdSmartcardManagerPrivate;
@@ -64,11 +64,11 @@ struct _CsdSmartcardManagerClass {
 };
 
 enum _CsdSmartcardManagerError {
-    MSD_SMARTCARD_MANAGER_ERROR_GENERIC = 0,
-    MSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
-    MSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
-    MSD_SMARTCARD_MANAGER_ERROR_WATCHING_FOR_EVENTS,
-    MSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS
+    CSD_SMARTCARD_MANAGER_ERROR_GENERIC = 0,
+    CSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
+    CSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
+    CSD_SMARTCARD_MANAGER_ERROR_WATCHING_FOR_EVENTS,
+    CSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS
 };
 
 GType csd_smartcard_manager_get_type (void) G_GNUC_CONST;
@@ -87,4 +87,4 @@ gboolean csd_smartcard_manager_login_card_is_inserted (CsdSmartcardManager *mana
 #ifdef __cplusplus
 }
 #endif
-#endif                                /* MSD_SMARTCARD_MANAGER_H */
+#endif                                /* CSD_SMARTCARD_MANAGER_H */

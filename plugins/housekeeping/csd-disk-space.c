@@ -214,11 +214,11 @@ ldsm_notify_for_mount (LdsmMountInfo *mount,
         case CTK_RESPONSE_CANCEL:
                 retval = FALSE;
                 break;
-        case MSD_LDSM_DIALOG_RESPONSE_ANALYZE:
+        case CSD_LDSM_DIALOG_RESPONSE_ANALYZE:
                 retval = FALSE;
                 ldsm_analyze_path (path);
                 break;
-        case MSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH:
+        case CSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH:
                 retval = TRUE;
                 csd_ldsm_trash_empty ();
                 break;

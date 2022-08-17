@@ -49,11 +49,11 @@ csd_xrdb_plugin_finalize (GObject *object)
         CsdXrdbPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_XRDB_PLUGIN (object));
+        g_return_if_fail (CSD_IS_XRDB_PLUGIN (object));
 
         g_debug ("CsdXrdbPlugin finalizing");
 
-        plugin = MSD_XRDB_PLUGIN (object);
+        plugin = CSD_XRDB_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating xrdb plugin");
 
         error = NULL;
-        res = csd_xrdb_manager_start (MSD_XRDB_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_xrdb_manager_start (CSD_XRDB_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start xrdb manager: %s", error->message);
                 g_error_free (error);
@@ -84,7 +84,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating xrdb plugin");
-        csd_xrdb_manager_stop (MSD_XRDB_PLUGIN (plugin)->priv->manager);
+        csd_xrdb_manager_stop (CSD_XRDB_PLUGIN (plugin)->priv->manager);
 }
 
 static void

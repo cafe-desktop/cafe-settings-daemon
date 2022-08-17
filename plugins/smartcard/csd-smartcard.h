@@ -17,8 +17,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301, USA.
  */
-#ifndef MSD_SMARTCARD_H
-#define MSD_SMARTCARD_H
+#ifndef CSD_SMARTCARD_H
+#define CSD_SMARTCARD_H
 
 #include <glib.h>
 #include <glib-object.h>
@@ -28,13 +28,13 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#define MSD_TYPE_SMARTCARD            (csd_smartcard_get_type ())
-#define MSD_SMARTCARD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_SMARTCARD, CsdSmartcard))
-#define MSD_SMARTCARD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_SMARTCARD, CsdSmartcardClass))
-#define MSD_IS_SMARTCARD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_SMARTCARD))
-#define MSD_IS_SMARTCARD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), MSD_TYPE_SMARTCARD))
-#define MSD_SMARTCARD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), MSD_TYPE_SMARTCARD, CsdSmartcardClass))
-#define MSD_SMARTCARD_ERROR           (csd_smartcard_error_quark ())
+#define CSD_TYPE_SMARTCARD            (csd_smartcard_get_type ())
+#define CSD_SMARTCARD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CSD_TYPE_SMARTCARD, CsdSmartcard))
+#define CSD_SMARTCARD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), CSD_TYPE_SMARTCARD, CsdSmartcardClass))
+#define CSD_IS_SMARTCARD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CSD_TYPE_SMARTCARD))
+#define CSD_IS_SMARTCARD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CSD_TYPE_SMARTCARD))
+#define CSD_SMARTCARD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS((obj), CSD_TYPE_SMARTCARD, CsdSmartcardClass))
+#define CSD_SMARTCARD_ERROR           (csd_smartcard_error_quark ())
 typedef struct _CsdSmartcardClass CsdSmartcardClass;
 typedef struct _CsdSmartcard CsdSmartcard;
 typedef struct _CsdSmartcardPrivate CsdSmartcardPrivate;
@@ -58,12 +58,12 @@ struct _CsdSmartcardClass {
 };
 
 enum _CsdSmartcardError {
-    MSD_SMARTCARD_ERROR_GENERIC = 0,
+    CSD_SMARTCARD_ERROR_GENERIC = 0,
 };
 
 enum _CsdSmartcardState {
-    MSD_SMARTCARD_STATE_INSERTED = 0,
-    MSD_SMARTCARD_STATE_REMOVED,
+    CSD_SMARTCARD_STATE_INSERTED = 0,
+    CSD_SMARTCARD_STATE_REMOVED,
 };
 
 GType csd_smartcard_get_type (void) G_GNUC_CONST;
@@ -80,7 +80,7 @@ gboolean csd_smartcard_unlock (CsdSmartcard *card,
                                const char   *password);
 
 /* don't under any circumstances call these functions */
-#ifdef MSD_SMARTCARD_ENABLE_INTERNAL_API
+#ifdef CSD_SMARTCARD_ENABLE_INTERNAL_API
 
 CsdSmartcard *_csd_smartcard_new (SECMODModule *module,
                                   CK_SLOT_ID    slot_id,
@@ -95,4 +95,4 @@ void _csd_smartcard_set_state (CsdSmartcard      *card,
 #ifdef __cplusplus
 }
 #endif
-#endif                                /* MSD_SMARTCARD_H */
+#endif                                /* CSD_SMARTCARD_H */

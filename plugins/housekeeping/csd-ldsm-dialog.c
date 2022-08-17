@@ -54,7 +54,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (CsdLdsmDialog, csd_ldsm_dialog, CTK_TYPE_DIALOG);
 static const gchar*
 csd_ldsm_dialog_get_checkbutton_text (CsdLdsmDialog *dialog)
 {
-        g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
+        g_return_val_if_fail (CSD_IS_LDSM_DIALOG (dialog), NULL);
 
         if (dialog->priv->other_partitions)
                 return _("Don't show any warnings again for this file system");
@@ -67,7 +67,7 @@ csd_ldsm_dialog_get_primary_text (CsdLdsmDialog *dialog)
 {
         gchar *primary_text, *free_space;
 
-        g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
+        g_return_val_if_fail (CSD_IS_LDSM_DIALOG (dialog), NULL);
 
         free_space = g_format_size (dialog->priv->space_remaining);
 
@@ -87,7 +87,7 @@ csd_ldsm_dialog_get_primary_text (CsdLdsmDialog *dialog)
 static const gchar*
 csd_ldsm_dialog_get_secondary_text (CsdLdsmDialog *dialog)
 {
-        g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
+        g_return_val_if_fail (CSD_IS_LDSM_DIALOG (dialog), NULL);
 
         if (dialog->priv->other_usable_partitions) {
                 if (dialog->priv->has_trash) {
@@ -265,9 +265,9 @@ csd_ldsm_dialog_finalize (GObject *object)
         CsdLdsmDialog *self;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_LDSM_DIALOG (object));
+        g_return_if_fail (CSD_IS_LDSM_DIALOG (object));
 
-        self = MSD_LDSM_DIALOG (object);
+        self = CSD_LDSM_DIALOG (object);
 
         if (self->priv->partition_name)
                 g_free (self->priv->partition_name);
@@ -283,9 +283,9 @@ csd_ldsm_dialog_set_property (GObject *object, guint prop_id, const GValue *valu
 {
         CsdLdsmDialog *self;
 
-        g_return_if_fail (MSD_IS_LDSM_DIALOG (object));
+        g_return_if_fail (CSD_IS_LDSM_DIALOG (object));
 
-        self = MSD_LDSM_DIALOG (object);
+        self = CSD_LDSM_DIALOG (object);
 
         switch (prop_id)
         {
@@ -318,9 +318,9 @@ csd_ldsm_dialog_get_property (GObject *object, guint prop_id, GValue *value, GPa
 {
         CsdLdsmDialog *self;
 
-        g_return_if_fail (MSD_IS_LDSM_DIALOG (object));
+        g_return_if_fail (CSD_IS_LDSM_DIALOG (object));
 
-        self = MSD_LDSM_DIALOG (object);
+        self = CSD_LDSM_DIALOG (object);
 
         switch (prop_id)
         {
@@ -421,7 +421,7 @@ csd_ldsm_dialog_new (gboolean     other_usable_partitions,
         gchar *primary_text, *primary_text_markup;
         const gchar *secondary_text, *checkbutton_text;
 
-        dialog = MSD_LDSM_DIALOG (g_object_new (MSD_TYPE_LDSM_DIALOG,
+        dialog = CSD_LDSM_DIALOG (g_object_new (CSD_TYPE_LDSM_DIALOG,
                                                 "other-usable-partitions", other_usable_partitions,
                                                 "other-partitions", other_partitions,
                                                 "has-trash", display_empty_trash,
@@ -434,7 +434,7 @@ csd_ldsm_dialog_new (gboolean     other_usable_partitions,
         if (dialog->priv->has_trash) {
                 button_empty_trash = ctk_dialog_add_button (CTK_DIALOG (dialog),
                                                             _("Empty Trash"),
-                                                            MSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH);
+                                                            CSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH);
                 empty_trash_image = ctk_image_new_from_icon_name ("edit-clear", CTK_ICON_SIZE_BUTTON);
                 ctk_button_set_image (CTK_BUTTON (button_empty_trash), empty_trash_image);
         }
@@ -442,7 +442,7 @@ csd_ldsm_dialog_new (gboolean     other_usable_partitions,
         if (display_baobab) {
                 button_analyze = ctk_dialog_add_button (CTK_DIALOG (dialog),
                                                         _("Examine…"),
-                                                        MSD_LDSM_DIALOG_RESPONSE_ANALYZE);
+                                                        CSD_LDSM_DIALOG_RESPONSE_ANALYZE);
                 analyze_image = ctk_image_new_from_icon_name ("cafe-disk-usage-analyzer", CTK_ICON_SIZE_BUTTON);
                 ctk_button_set_image (CTK_BUTTON (button_analyze), analyze_image);
         }

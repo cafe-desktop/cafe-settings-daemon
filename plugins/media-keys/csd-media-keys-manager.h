@@ -19,20 +19,20 @@
  *
  */
 
-#ifndef __MSD_MEDIA_KEYS_MANAGER_H
-#define __MSD_MEDIA_KEYS_MANAGER_H
+#ifndef __CSD_MEDIA_KEYS_MANAGER_H
+#define __CSD_MEDIA_KEYS_MANAGER_H
 
 #include <glib.h>
 #include <glib-object.h>
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_MEDIA_KEYS_MANAGER         (csd_media_keys_manager_get_type ())
-#define MSD_MEDIA_KEYS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManager))
-#define MSD_MEDIA_KEYS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManagerClass))
-#define MSD_IS_MEDIA_KEYS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MEDIA_KEYS_MANAGER))
-#define MSD_IS_MEDIA_KEYS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MEDIA_KEYS_MANAGER))
-#define MSD_MEDIA_KEYS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManagerClass))
+#define CSD_TYPE_MEDIA_KEYS_MANAGER         (csd_media_keys_manager_get_type ())
+#define CSD_MEDIA_KEYS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManager))
+#define CSD_MEDIA_KEYS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManagerClass))
+#define CSD_IS_MEDIA_KEYS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_MEDIA_KEYS_MANAGER))
+#define CSD_IS_MEDIA_KEYS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_MEDIA_KEYS_MANAGER))
+#define CSD_MEDIA_KEYS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManagerClass))
 
 typedef struct _CsdMediaKeysManager         CsdMediaKeysManager;
 typedef struct _CsdMediaKeysManagerClass    CsdMediaKeysManagerClass;
@@ -69,4 +69,4 @@ gboolean              csd_media_keys_manager_release_media_player_keys (CsdMedia
 
 G_END_DECLS
 
-#endif /* __MSD_MEDIA_KEYS_MANAGER_H */
+#endif /* __CSD_MEDIA_KEYS_MANAGER_H */

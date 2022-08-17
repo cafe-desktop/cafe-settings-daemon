@@ -32,7 +32,7 @@ libxsettings_la_CFLAGS =		\
 	$(NULL)
 
 libxsettings_la_LDFLAGS = 	\
-	$(MSD_PLUGIN_LDFLAGS)	\
+	$(CSD_PLUGIN_LDFLAGS)	\
 	$(NULL)
 
 libxsettings_la_LIBADD  = 	\

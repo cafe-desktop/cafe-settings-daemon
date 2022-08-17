@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_SOUND_PLUGIN_H__
-#define __MSD_SOUND_PLUGIN_H__
+#ifndef __CSD_SOUND_PLUGIN_H__
+#define __CSD_SOUND_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -31,12 +31,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_SOUND_PLUGIN                (csd_sound_plugin_get_type ())
-#define MSD_SOUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_PLUGIN, CsdSoundPlugin))
-#define MSD_SOUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_PLUGIN, CsdSoundPluginClass))
-#define MSD_IS_SOUND_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SOUND_PLUGIN))
-#define MSD_IS_SOUND_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_SOUND_PLUGIN))
-#define MSD_SOUND_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SOUND_PLUGIN, CsdSoundPluginClass))
+#define CSD_TYPE_SOUND_PLUGIN                (csd_sound_plugin_get_type ())
+#define CSD_SOUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_SOUND_PLUGIN, CsdSoundPlugin))
+#define CSD_SOUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), CSD_TYPE_SOUND_PLUGIN, CsdSoundPluginClass))
+#define CSD_IS_SOUND_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_SOUND_PLUGIN))
+#define CSD_IS_SOUND_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_SOUND_PLUGIN))
+#define CSD_SOUND_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_SOUND_PLUGIN, CsdSoundPluginClass))
 
 typedef struct CsdSoundPluginPrivate CsdSoundPluginPrivate;
 
@@ -60,4 +60,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 }
 #endif
 
-#endif /* __MSD_SOUND_PLUGIN_H__ */
+#endif /* __CSD_SOUND_PLUGIN_H__ */

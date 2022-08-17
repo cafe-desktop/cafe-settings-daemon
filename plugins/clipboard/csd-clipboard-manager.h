@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_CLIPBOARD_MANAGER_H
-#define __MSD_CLIPBOARD_MANAGER_H
+#ifndef __CSD_CLIPBOARD_MANAGER_H
+#define __CSD_CLIPBOARD_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_CLIPBOARD_MANAGER         (csd_clipboard_manager_get_type ())
-#define MSD_CLIPBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManager))
-#define MSD_CLIPBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManagerClass))
-#define MSD_IS_CLIPBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_CLIPBOARD_MANAGER))
-#define MSD_IS_CLIPBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_CLIPBOARD_MANAGER))
-#define MSD_CLIPBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManagerClass))
+#define CSD_TYPE_CLIPBOARD_MANAGER         (csd_clipboard_manager_get_type ())
+#define CSD_CLIPBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManager))
+#define CSD_CLIPBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManagerClass))
+#define CSD_IS_CLIPBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_CLIPBOARD_MANAGER))
+#define CSD_IS_CLIPBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_CLIPBOARD_MANAGER))
+#define CSD_CLIPBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManagerClass))
 
 typedef struct CsdClipboardManagerPrivate CsdClipboardManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_clipboard_manager_stop                (CsdClipboardM
 }
 #endif
 
-#endif /* __MSD_CLIPBOARD_MANAGER_H */
+#endif /* __CSD_CLIPBOARD_MANAGER_H */

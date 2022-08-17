@@ -49,11 +49,11 @@ csd_clipboard_plugin_finalize (GObject *object)
         CsdClipboardPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_CLIPBOARD_PLUGIN (object));
+        g_return_if_fail (CSD_IS_CLIPBOARD_PLUGIN (object));
 
         g_debug ("CsdClipboardPlugin finalizing");
 
-        plugin = MSD_CLIPBOARD_PLUGIN (object);
+        plugin = CSD_CLIPBOARD_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating clipboard plugin");
 
         error = NULL;
-        res = csd_clipboard_manager_start (MSD_CLIPBOARD_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_clipboard_manager_start (CSD_CLIPBOARD_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start clipboard manager: %s", error->message);
                 g_error_free (error);
@@ -84,7 +84,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating clipboard plugin");
-        csd_clipboard_manager_stop (MSD_CLIPBOARD_PLUGIN (plugin)->priv->manager);
+        csd_clipboard_manager_stop (CSD_CLIPBOARD_PLUGIN (plugin)->priv->manager);
 }
 
 static void

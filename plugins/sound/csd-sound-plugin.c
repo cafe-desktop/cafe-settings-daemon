@@ -49,11 +49,11 @@ csd_sound_plugin_finalize (GObject *object)
         CsdSoundPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_SOUND_PLUGIN (object));
+        g_return_if_fail (CSD_IS_SOUND_PLUGIN (object));
 
         g_debug ("CsdSoundPlugin finalizing");
 
-        plugin = MSD_SOUND_PLUGIN (object);
+        plugin = CSD_SOUND_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -70,7 +70,7 @@ impl_activate (CafeSettingsPlugin *plugin)
 
         g_debug ("Activating sound plugin");
 
-        if (!csd_sound_manager_start (MSD_SOUND_PLUGIN (plugin)->priv->manager, &error)) {
+        if (!csd_sound_manager_start (CSD_SOUND_PLUGIN (plugin)->priv->manager, &error)) {
                 g_warning ("Unable to start sound manager: %s", error->message);
                 g_error_free (error);
         }
@@ -80,7 +80,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating sound plugin");
-        csd_sound_manager_stop (MSD_SOUND_PLUGIN (plugin)->priv->manager);
+        csd_sound_manager_stop (CSD_SOUND_PLUGIN (plugin)->priv->manager);
 }
 
 static void

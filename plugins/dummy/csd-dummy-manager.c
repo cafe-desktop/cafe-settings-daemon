@@ -103,7 +103,7 @@ csd_dummy_manager_constructor (GType                  type,
 {
         CsdDummyManager      *dummy_manager;
 
-        dummy_manager = MSD_DUMMY_MANAGER (G_OBJECT_CLASS (csd_dummy_manager_parent_class)->constructor (type,
+        dummy_manager = CSD_DUMMY_MANAGER (G_OBJECT_CLASS (csd_dummy_manager_parent_class)->constructor (type,
                                                                                                       n_construct_properties,
                                                                                                       construct_properties));
 
@@ -141,9 +141,9 @@ csd_dummy_manager_finalize (GObject *object)
         CsdDummyManager *dummy_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_DUMMY_MANAGER (object));
+        g_return_if_fail (CSD_IS_DUMMY_MANAGER (object));
 
-        dummy_manager = MSD_DUMMY_MANAGER (object);
+        dummy_manager = CSD_DUMMY_MANAGER (object);
 
         g_return_if_fail (dummy_manager->priv != NULL);
 
@@ -156,10 +156,10 @@ csd_dummy_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_DUMMY_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_DUMMY_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_DUMMY_MANAGER (manager_object);
+        return CSD_DUMMY_MANAGER (manager_object);
 }

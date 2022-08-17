@@ -785,9 +785,9 @@ csd_a11y_preferences_dialog_finalize (GObject *object)
         CsdA11yPreferencesDialog *dialog;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_A11Y_PREFERENCES_DIALOG (object));
+        g_return_if_fail (CSD_IS_A11Y_PREFERENCES_DIALOG (object));
 
-        dialog = MSD_A11Y_PREFERENCES_DIALOG (object);
+        dialog = CSD_A11Y_PREFERENCES_DIALOG (object);
 
         g_return_if_fail (dialog->priv != NULL);
 
@@ -804,7 +804,7 @@ csd_a11y_preferences_dialog_new (void)
 {
         GObject *object;
 
-        object = g_object_new (MSD_TYPE_A11Y_PREFERENCES_DIALOG,
+        object = g_object_new (CSD_TYPE_A11Y_PREFERENCES_DIALOG,
                                NULL);
 
         return CTK_WIDGET (object);

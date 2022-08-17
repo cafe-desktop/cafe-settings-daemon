@@ -52,7 +52,7 @@ libbackground_la_CFLAGS =		\
 	$(WARN_CFLAGS)
 
 libbackground_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)		\
+	$(CSD_PLUGIN_LDFLAGS)		\
 	$(NULL)
 
 libbackground_la_LIBADD  = 		\

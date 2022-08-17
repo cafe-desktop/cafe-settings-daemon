@@ -50,10 +50,10 @@
 #include "csd-media-keys-window.h"
 #include "csd-input-helper.h"
 
-#define MSD_DBUS_PATH "/org/cafe/SettingsDaemon"
-#define MSD_DBUS_NAME "org.cafe.SettingsDaemon"
-#define MSD_MEDIA_KEYS_DBUS_PATH MSD_DBUS_PATH "/MediaKeys"
-#define MSD_MEDIA_KEYS_DBUS_NAME MSD_DBUS_NAME ".MediaKeys"
+#define CSD_DBUS_PATH "/org/cafe/SettingsDaemon"
+#define CSD_DBUS_NAME "org.cafe.SettingsDaemon"
+#define CSD_MEDIA_KEYS_DBUS_PATH CSD_DBUS_PATH "/MediaKeys"
+#define CSD_MEDIA_KEYS_DBUS_NAME CSD_DBUS_NAME ".MediaKeys"
 
 #define TOUCHPAD_SCHEMA "org.cafe.peripherals-touchpad"
 #define TOUCHPAD_ENABLED_KEY "touchpad-enabled"
@@ -235,7 +235,7 @@ static void
 dialog_init (CsdMediaKeysManager *manager)
 {
         if (manager->priv->dialog != NULL
-            && !csd_osd_window_is_valid (MSD_OSD_WINDOW (manager->priv->dialog))) {
+            && !csd_osd_window_is_valid (CSD_OSD_WINDOW (manager->priv->dialog))) {
                 ctk_widget_destroy (manager->priv->dialog);
                 manager->priv->dialog = NULL;
         }
@@ -607,7 +607,7 @@ do_eject_action (CsdMediaKeysManager *manager)
 
         /* Show the dialogue */
         dialog_init (manager);
-        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                  "media-eject",
                                                  NULL);
         dialog_show (manager);
@@ -633,7 +633,7 @@ static void
 do_touchpad_osd_action (CsdMediaKeysManager *manager, gboolean state)
 {
         dialog_init (manager);
-        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                  state ? "input-touchpad" : "touchpad-disabled",
                                                  state ? _("Touchpad enabled") : _("Touchpad disabled"));
         dialog_show (manager);
@@ -671,17 +671,17 @@ update_dialog (CsdMediaKeysManager *manager,
         dialog_init (manager);
 
         if (is_mic)
-                csd_media_keys_window_set_mic_muted (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_mic_muted (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                      muted);
         else
-                csd_media_keys_window_set_volume_muted (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_volume_muted (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                         muted);
 
-        csd_media_keys_window_set_volume_level (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+        csd_media_keys_window_set_volume_level (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                 volume);
 
-        csd_media_keys_window_set_action (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
-                                          MSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
+        csd_media_keys_window_set_action (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                                          CSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
         dialog_show (manager);
 
 #ifdef HAVE_LIBCANBERRA
@@ -950,17 +950,17 @@ set_rfkill_complete (GObject      *object,
 
         if (data->bluetooth){
                 if (data->target_state)
-                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "bluetooth-disabled-symbolic", _("Bluetooth disabled"));
                 else
-                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "bluetooth-active-symbolic", _("Bluetooth enabled"));
         } else {
                 if (data->target_state)
-                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "airplane-mode-symbolic", _("Airplane mode enabled"));
                 else
-                        csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
+                        csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (data->manager->priv->dialog),
                                                                  "network-wireless-signal-excellent-symbolic", _("Airplane mode disabled"));
         }
         dialog_show (data->manager);
@@ -990,7 +990,7 @@ do_rfkill_action (CsdMediaKeysManager *manager,
                 return;
 
         if (get_rfkill_property (manager, hw_mode)) {
-                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                         "airplane-mode-symbolic",
                                                         _("Hardware Airplane Mode"));
                 dialog_show (manager);
@@ -1028,11 +1028,11 @@ do_display_osd_action (CsdMediaKeysManager *manager)
 
         dialog_init (manager);
         if (n_monitors > 1)
-                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                          "video-joined-displays-symbolic",
                                                          _("Changing Screen Layout"));
         else
-                csd_media_keys_window_set_action_custom (MSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
+                csd_media_keys_window_set_action_custom (CSD_MEDIA_KEYS_WINDOW (manager->priv->dialog),
                                                          "video-single-display-symbolic",
                                                          _("No External Display"));
         dialog_show (manager);
@@ -1614,7 +1614,7 @@ csd_media_keys_manager_class_init (CsdMediaKeysManagerClass *klass)
                               G_TYPE_STRING,
                               G_TYPE_STRING);
 
-        dbus_g_object_type_install_info (MSD_TYPE_MEDIA_KEYS_MANAGER, &dbus_glib_csd_media_keys_manager_object_info);
+        dbus_g_object_type_install_info (CSD_TYPE_MEDIA_KEYS_MANAGER, &dbus_glib_csd_media_keys_manager_object_info);
 }
 
 static void
@@ -1637,7 +1637,7 @@ register_manager (CsdMediaKeysManager *manager)
                 return FALSE;
         }
 
-        dbus_g_connection_register_g_object (manager->priv->connection, MSD_MEDIA_KEYS_DBUS_PATH, G_OBJECT (manager));
+        dbus_g_connection_register_g_object (manager->priv->connection, CSD_MEDIA_KEYS_DBUS_PATH, G_OBJECT (manager));
 
         return TRUE;
 }
@@ -1650,7 +1650,7 @@ csd_media_keys_manager_new (void)
         } else {
                 gboolean res;
 
-                manager_object = g_object_new (MSD_TYPE_MEDIA_KEYS_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_MEDIA_KEYS_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
                 res = register_manager (manager_object);
@@ -1660,5 +1660,5 @@ csd_media_keys_manager_new (void)
                 }
         }
 
-        return MSD_MEDIA_KEYS_MANAGER (manager_object);
+        return CSD_MEDIA_KEYS_MANAGER (manager_object);
 }

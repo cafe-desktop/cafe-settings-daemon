@@ -17,8 +17,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MSD_TIMELINE_H__
-#define __MSD_TIMELINE_H__
+#ifndef __CSD_TIMELINE_H__
+#define __CSD_TIMELINE_H__
 
 #include <glib-object.h>
 #include <cdk/cdk.h>
@@ -27,24 +27,24 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_TIMELINE_DIRECTION       (csd_timeline_direction_get_type ())
-#define MSD_TYPE_TIMELINE_PROGRESS_TYPE   (csd_timeline_progress_type_get_type ())
-#define MSD_TYPE_TIMELINE                 (csd_timeline_get_type ())
-#define MSD_TIMELINE(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_TIMELINE, CsdTimeline))
-#define MSD_TIMELINE_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass),  MSD_TYPE_TIMELINE, CsdTimelineClass))
-#define MSD_IS_TIMELINE(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_TIMELINE))
-#define MSD_IS_TIMELINE_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass),  MSD_TYPE_TIMELINE))
-#define MSD_TIMELINE_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj),  MSD_TYPE_TIMELINE, CsdTimelineClass))
+#define CSD_TYPE_TIMELINE_DIRECTION       (csd_timeline_direction_get_type ())
+#define CSD_TYPE_TIMELINE_PROGRESS_TYPE   (csd_timeline_progress_type_get_type ())
+#define CSD_TYPE_TIMELINE                 (csd_timeline_get_type ())
+#define CSD_TIMELINE(obj)                 (G_TYPE_CHECK_INSTANCE_CAST ((obj), CSD_TYPE_TIMELINE, CsdTimeline))
+#define CSD_TIMELINE_CLASS(klass)         (G_TYPE_CHECK_CLASS_CAST ((klass),  CSD_TYPE_TIMELINE, CsdTimelineClass))
+#define CSD_IS_TIMELINE(obj)              (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CSD_TYPE_TIMELINE))
+#define CSD_IS_TIMELINE_CLASS(klass)      (G_TYPE_CHECK_CLASS_TYPE ((klass),  CSD_TYPE_TIMELINE))
+#define CSD_TIMELINE_GET_CLASS(obj)       (G_TYPE_INSTANCE_GET_CLASS ((obj),  CSD_TYPE_TIMELINE, CsdTimelineClass))
 
 typedef enum {
-  MSD_TIMELINE_DIRECTION_FORWARD,
-  MSD_TIMELINE_DIRECTION_BACKWARD
+  CSD_TIMELINE_DIRECTION_FORWARD,
+  CSD_TIMELINE_DIRECTION_BACKWARD
 } CsdTimelineDirection;
 
 typedef enum {
-  MSD_TIMELINE_PROGRESS_LINEAR,
-  MSD_TIMELINE_PROGRESS_SINUSOIDAL,
-  MSD_TIMELINE_PROGRESS_EXPONENTIAL
+  CSD_TIMELINE_PROGRESS_LINEAR,
+  CSD_TIMELINE_PROGRESS_SINUSOIDAL,
+  CSD_TIMELINE_PROGRESS_EXPONENTIAL
 } CsdTimelineProgressType;
 
 typedef struct CsdTimeline      CsdTimeline;
@@ -124,4 +124,4 @@ gdouble                 csd_timeline_get_progress       (CsdTimeline            
 }
 #endif
 
-#endif /* __MSD_TIMELINE_H__ */
+#endif /* __CSD_TIMELINE_H__ */

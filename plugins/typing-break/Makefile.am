@@ -23,7 +23,7 @@ libtyping_break_la_CFLAGS =		\
 	$(NULL)
 
 libtyping_break_la_LDFLAGS =	\
-	$(MSD_PLUGIN_LDFLAGS)	\
+	$(CSD_PLUGIN_LDFLAGS)	\
 	$(NULL)
 
 libtyping_break_la_LIBADD =	\

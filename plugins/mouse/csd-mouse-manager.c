@@ -1837,9 +1837,9 @@ csd_mouse_manager_finalize (GObject *object)
         CsdMouseManager *mouse_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_MOUSE_MANAGER (object));
+        g_return_if_fail (CSD_IS_MOUSE_MANAGER (object));
 
-        mouse_manager = MSD_MOUSE_MANAGER (object);
+        mouse_manager = CSD_MOUSE_MANAGER (object);
 
         g_return_if_fail (mouse_manager->priv != NULL);
 
@@ -1852,10 +1852,10 @@ csd_mouse_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_MOUSE_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_MOUSE_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_MOUSE_MANAGER (manager_object);
+        return CSD_MOUSE_MANAGER (manager_object);
 }

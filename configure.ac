@@ -37,8 +37,8 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Name of default gettext
 
 AS_AC_EXPAND(LIBEXECDIR, "$libexecdir")
 
-MSD_INTLTOOL_PLUGIN_RULE='%.cafe-settings-plugin:   %.cafe-settings-plugin.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
-AC_SUBST([MSD_INTLTOOL_PLUGIN_RULE])
+CSD_INTLTOOL_PLUGIN_RULE='%.cafe-settings-plugin:   %.cafe-settings-plugin.in   $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< [$]@'
+AC_SUBST([CSD_INTLTOOL_PLUGIN_RULE])
 
 dnl Unconditionally use this dir to avoid a circular dep with cafecc
 CAFE_KEYBINDINGS_KEYSDIR="${datadir}/cafe-control-center/keybindings"
@@ -72,13 +72,13 @@ PKG_CHECK_MODULES(SETTINGS_PLUGIN,
 	dbus-glib-1 >= $DBUS_GLIB_REQUIRED_VERSION
 )
 
-MSD_PLUGIN_LDFLAGS="-export_dynamic -module -avoid-version -no-undefined"
+CSD_PLUGIN_LDFLAGS="-export_dynamic -module -avoid-version -no-undefined"
 case $host_os in
   darwin*)
-    MSD_PLUGIN_LDFLAGS="${MSD_PLUGIN_LDFLAGS} -Wl,-bundle_loader,\$(top_builddir)/cafe-settings-daemon/cafe-settings-daemon"
+    CSD_PLUGIN_LDFLAGS="${CSD_PLUGIN_LDFLAGS} -Wl,-bundle_loader,\$(top_builddir)/cafe-settings-daemon/cafe-settings-daemon"
     ;;
 esac
-AC_SUBST([MSD_PLUGIN_LDFLAGS])
+AC_SUBST([CSD_PLUGIN_LDFLAGS])
 
 PKG_CHECK_MODULES(DCONF, dconf >= 0.13.4)
 

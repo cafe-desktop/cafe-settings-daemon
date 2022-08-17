@@ -311,10 +311,10 @@ csd_housekeeping_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_HOUSEKEEPING_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_HOUSEKEEPING_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_HOUSEKEEPING_MANAGER (manager_object);
+        return CSD_HOUSEKEEPING_MANAGER (manager_object);
 }

@@ -26,7 +26,7 @@ libclipboard_la_CFLAGS =		\
 	$(WARN_CFLAGS)
 
 libclipboard_la_LDFLAGS = 	\
-	$(MSD_PLUGIN_LDFLAGS)	\
+	$(CSD_PLUGIN_LDFLAGS)	\
 	$(NULL)
 
 libclipboard_la_LIBADD  = 	\

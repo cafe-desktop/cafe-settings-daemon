@@ -51,11 +51,11 @@ csd_mpris_plugin_finalize (GObject *object)
         CsdMprisPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_MPRIS_PLUGIN (object));
+        g_return_if_fail (CSD_IS_MPRIS_PLUGIN (object));
 
         g_debug ("CsdMprisPlugin finalizing");
 
-        plugin = MSD_MPRIS_PLUGIN (object);
+        plugin = CSD_MPRIS_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -75,7 +75,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating mpris plugin");
 
         error = NULL;
-        res = csd_mpris_manager_start (MSD_MPRIS_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_mpris_manager_start (CSD_MPRIS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start mpris manager: %s", error->message);
                 g_error_free (error);
@@ -86,7 +86,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating mpris plugin");
-        csd_mpris_manager_stop (MSD_MPRIS_PLUGIN (plugin)->priv->manager);
+        csd_mpris_manager_stop (CSD_MPRIS_PLUGIN (plugin)->priv->manager);
 }
 
 static void

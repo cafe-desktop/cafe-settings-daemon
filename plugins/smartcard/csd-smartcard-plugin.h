@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_SMARTCARD_PLUGIN_H__
-#define __MSD_SMARTCARD_PLUGIN_H__
+#ifndef __CSD_SMARTCARD_PLUGIN_H__
+#define __CSD_SMARTCARD_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -31,12 +31,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_SMARTCARD_PLUGIN                (csd_smartcard_plugin_get_type ())
-#define MSD_SMARTCARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SMARTCARD_PLUGIN, CsdSmartcardPlugin))
-#define MSD_SMARTCARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SMARTCARD_PLUGIN, CsdSmartcardPluginClass))
-#define MSD_IS_SMARTCARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SMARTCARD_PLUGIN))
-#define MSD_IS_SMARTCARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_SMARTCARD_PLUGIN))
-#define MSD_SMARTCARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SMARTCARD_PLUGIN, CsdSmartcardPluginClass))
+#define CSD_TYPE_SMARTCARD_PLUGIN                (csd_smartcard_plugin_get_type ())
+#define CSD_SMARTCARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_SMARTCARD_PLUGIN, CsdSmartcardPlugin))
+#define CSD_SMARTCARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST ((k), CSD_TYPE_SMARTCARD_PLUGIN, CsdSmartcardPluginClass))
+#define CSD_IS_SMARTCARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_SMARTCARD_PLUGIN))
+#define CSD_IS_SMARTCARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_SMARTCARD_PLUGIN))
+#define CSD_SMARTCARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_SMARTCARD_PLUGIN, CsdSmartcardPluginClass))
 
 typedef struct CsdSmartcardPluginPrivate CsdSmartcardPluginPrivate;
 
@@ -60,4 +60,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 }
 #endif
 
-#endif /* __MSD_SMARTCARD_PLUGIN_H__ */
+#endif /* __CSD_SMARTCARD_PLUGIN_H__ */

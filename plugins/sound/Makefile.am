@@ -20,7 +20,7 @@ libsound_la_CFLAGS = \
 	$(WARN_CFLAGS)
 
 libsound_la_LDFLAGS = \
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 libsound_la_LIBADD = \
 	$(SETTINGS_PLUGIN_LIBS)	\

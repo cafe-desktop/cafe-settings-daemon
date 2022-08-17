@@ -58,11 +58,11 @@ struct CsdRfkillManagerPrivate
         gchar                   *chassis_type;
 };
 
-#define MSD_DBUS_NAME "org.cafe.SettingsDaemon"
-#define MSD_DBUS_PATH "/org/cafe/SettingsDaemon"
+#define CSD_DBUS_NAME "org.cafe.SettingsDaemon"
+#define CSD_DBUS_PATH "/org/cafe/SettingsDaemon"
 
-#define MSD_RFKILL_DBUS_NAME MSD_DBUS_NAME ".Rfkill"
-#define MSD_RFKILL_DBUS_PATH MSD_DBUS_PATH "/Rfkill"
+#define CSD_RFKILL_DBUS_NAME CSD_DBUS_NAME ".Rfkill"
+#define CSD_RFKILL_DBUS_PATH CSD_DBUS_PATH "/Rfkill"
 
 static const gchar introspection_xml[] =
 "<node>"
@@ -236,13 +236,13 @@ engine_properties_changed (CsdRfkillManager *manager)
         g_variant_builder_add (&props_builder, "{sv}", "BluetoothHasAirplaneMode",
                                g_variant_new_boolean (engine_get_has_bluetooth_airplane_mode (manager)));
 
-        props_changed = g_variant_new ("(s@a{sv}@as)", MSD_RFKILL_DBUS_NAME,
+        props_changed = g_variant_new ("(s@a{sv}@as)", CSD_RFKILL_DBUS_NAME,
                                        g_variant_builder_end (&props_builder),
                                        g_variant_new_strv (NULL, 0));
 
         g_dbus_connection_emit_signal (manager->priv->connection,
                                        NULL,
-                                       MSD_RFKILL_DBUS_PATH,
+                                       CSD_RFKILL_DBUS_PATH,
                                        "org.freedesktop.DBus.Properties",
                                        "PropertiesChanged",
                                        props_changed, NULL);
@@ -380,7 +380,7 @@ handle_set_property (GDBusConnection *connection,
                      GError         **error,
                      gpointer         user_data)
 {
-        CsdRfkillManager *manager = MSD_RFKILL_MANAGER (user_data);
+        CsdRfkillManager *manager = CSD_RFKILL_MANAGER (user_data);
 
         if (g_strcmp0 (property_name, "AirplaneMode") == 0) {
                 gboolean airplane_mode;
@@ -404,7 +404,7 @@ handle_get_property (GDBusConnection *connection,
                      GError         **error,
                      gpointer         user_data)
 {
-        CsdRfkillManager *manager = MSD_RFKILL_MANAGER (user_data);
+        CsdRfkillManager *manager = CSD_RFKILL_MANAGER (user_data);
 
         /* Check session pointer as a proxy for whether the manager is in the
            start or stop state */
@@ -482,7 +482,7 @@ on_bus_gotten (GObject               *source_object,
         manager->priv->connection = connection;
 
         g_dbus_connection_register_object (connection,
-                                           MSD_RFKILL_DBUS_PATH,
+                                           CSD_RFKILL_DBUS_PATH,
                                            manager->priv->introspection_data->interfaces[0],
                                            &interface_vtable,
                                            manager,
@@ -490,7 +490,7 @@ on_bus_gotten (GObject               *source_object,
                                            NULL);
 
         manager->priv->name_id = g_bus_own_name_on_connection (connection,
-                                                               MSD_RFKILL_DBUS_NAME,
+                                                               CSD_RFKILL_DBUS_NAME,
                                                                G_BUS_NAME_OWNER_FLAGS_NONE,
                                                                NULL,
                                                                NULL,
@@ -707,9 +707,9 @@ csd_rfkill_manager_finalize (GObject *object)
         CsdRfkillManager *manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_RFKILL_MANAGER (object));
+        g_return_if_fail (CSD_IS_RFKILL_MANAGER (object));
 
-        manager = MSD_RFKILL_MANAGER (object);
+        manager = CSD_RFKILL_MANAGER (object);
 
         g_return_if_fail (manager->priv != NULL);
 
@@ -724,10 +724,10 @@ csd_rfkill_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_RFKILL_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_RFKILL_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_RFKILL_MANAGER (manager_object);
+        return CSD_RFKILL_MANAGER (manager_object);
 }

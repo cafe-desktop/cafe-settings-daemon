@@ -232,9 +232,9 @@ csd_typing_break_manager_finalize (GObject *object)
         CsdTypingBreakManager *typing_break_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_TYPING_BREAK_MANAGER (object));
+        g_return_if_fail (CSD_IS_TYPING_BREAK_MANAGER (object));
 
-        typing_break_manager = MSD_TYPING_BREAK_MANAGER (object);
+        typing_break_manager = CSD_TYPING_BREAK_MANAGER (object);
 
         g_return_if_fail (typing_break_manager->priv != NULL);
 
@@ -247,10 +247,10 @@ csd_typing_break_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_TYPING_BREAK_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_TYPING_BREAK_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_TYPING_BREAK_MANAGER (manager_object);
+        return CSD_TYPING_BREAK_MANAGER (manager_object);
 }

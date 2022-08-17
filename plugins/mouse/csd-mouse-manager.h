@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_MOUSE_MANAGER_H
-#define __MSD_MOUSE_MANAGER_H
+#ifndef __CSD_MOUSE_MANAGER_H
+#define __CSD_MOUSE_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MOUSE_MANAGER         (csd_mouse_manager_get_type ())
-#define MSD_MOUSE_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_MANAGER, CsdMouseManager))
-#define MSD_MOUSE_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_MANAGER, CsdMouseManagerClass))
-#define MSD_IS_MOUSE_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MOUSE_MANAGER))
-#define MSD_IS_MOUSE_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MOUSE_MANAGER))
-#define MSD_MOUSE_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MOUSE_MANAGER, CsdMouseManagerClass))
+#define CSD_TYPE_MOUSE_MANAGER         (csd_mouse_manager_get_type ())
+#define CSD_MOUSE_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_MOUSE_MANAGER, CsdMouseManager))
+#define CSD_MOUSE_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_MOUSE_MANAGER, CsdMouseManagerClass))
+#define CSD_IS_MOUSE_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_MOUSE_MANAGER))
+#define CSD_IS_MOUSE_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_MOUSE_MANAGER))
+#define CSD_MOUSE_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_MOUSE_MANAGER, CsdMouseManagerClass))
 
 typedef struct CsdMouseManagerPrivate CsdMouseManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_mouse_manager_stop                (CsdMouseManager *
 }
 #endif
 
-#endif /* __MSD_MOUSE_MANAGER_H */
+#endif /* __CSD_MOUSE_MANAGER_H */

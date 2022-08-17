@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_XRDB_MANAGER_H
-#define __MSD_XRDB_MANAGER_H
+#ifndef __CSD_XRDB_MANAGER_H
+#define __CSD_XRDB_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_XRDB_MANAGER         (csd_xrdb_manager_get_type ())
-#define MSD_XRDB_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRDB_MANAGER, CsdXrdbManager))
-#define MSD_XRDB_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRDB_MANAGER, CsdXrdbManagerClass))
-#define MSD_IS_XRDB_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRDB_MANAGER))
-#define MSD_IS_XRDB_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_XRDB_MANAGER))
-#define MSD_XRDB_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRDB_MANAGER, CsdXrdbManagerClass))
+#define CSD_TYPE_XRDB_MANAGER         (csd_xrdb_manager_get_type ())
+#define CSD_XRDB_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_XRDB_MANAGER, CsdXrdbManager))
+#define CSD_XRDB_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_XRDB_MANAGER, CsdXrdbManagerClass))
+#define CSD_IS_XRDB_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_XRDB_MANAGER))
+#define CSD_IS_XRDB_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_XRDB_MANAGER))
+#define CSD_XRDB_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_XRDB_MANAGER, CsdXrdbManagerClass))
 
 typedef struct CsdXrdbManagerPrivate CsdXrdbManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_xrdb_manager_stop                (CsdXrdbManager *ma
 }
 #endif
 
-#endif /* __MSD_XRDB_MANAGER_H */
+#endif /* __CSD_XRDB_MANAGER_H */

@@ -49,11 +49,11 @@ csd_a11y_settings_plugin_finalize (GObject *object)
         CsdA11ySettingsPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_A11Y_SETTINGS_PLUGIN (object));
+        g_return_if_fail (CSD_IS_A11Y_SETTINGS_PLUGIN (object));
 
         g_debug ("CsdA11ySettingsPlugin finalizing");
 
-        plugin = MSD_A11Y_SETTINGS_PLUGIN (object);
+        plugin = CSD_A11Y_SETTINGS_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating a11y-settings plugin");
 
         error = NULL;
-        res = csd_a11y_settings_manager_start (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_a11y_settings_manager_start (CSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start a11y-settings manager: %s", error->message);
                 g_error_free (error);
@@ -84,7 +84,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating a11y-settings plugin");
-        csd_a11y_settings_manager_stop (MSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager);
+        csd_a11y_settings_manager_stop (CSD_A11Y_SETTINGS_PLUGIN (plugin)->priv->manager);
 }
 
 static void

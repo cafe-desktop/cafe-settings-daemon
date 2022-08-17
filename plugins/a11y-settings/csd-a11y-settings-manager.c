@@ -124,7 +124,7 @@ csd_a11y_settings_manager_constructor (GType                  type,
 {
         CsdA11ySettingsManager      *a11y_settings_manager;
 
-        a11y_settings_manager = MSD_A11Y_SETTINGS_MANAGER (G_OBJECT_CLASS (csd_a11y_settings_manager_parent_class)->constructor (type,
+        a11y_settings_manager = CSD_A11Y_SETTINGS_MANAGER (G_OBJECT_CLASS (csd_a11y_settings_manager_parent_class)->constructor (type,
                                                                                                                                  n_construct_properties,
                                                                                                                                  construct_properties));
 
@@ -160,9 +160,9 @@ csd_a11y_settings_manager_finalize (GObject *object)
         CsdA11ySettingsManager *a11y_settings_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_A11Y_SETTINGS_MANAGER (object));
+        g_return_if_fail (CSD_IS_A11Y_SETTINGS_MANAGER (object));
 
-        a11y_settings_manager = MSD_A11Y_SETTINGS_MANAGER (object);
+        a11y_settings_manager = CSD_A11Y_SETTINGS_MANAGER (object);
 
         g_return_if_fail (a11y_settings_manager->priv != NULL);
 
@@ -175,10 +175,10 @@ csd_a11y_settings_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_A11Y_SETTINGS_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_A11Y_SETTINGS_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_A11Y_SETTINGS_MANAGER (manager_object);
+        return CSD_A11Y_SETTINGS_MANAGER (manager_object);
 }

@@ -21,7 +21,7 @@ libcommon_la_CFLAGS = \
 	$(WARN_CFLAGS)
 
 libcommon_la_LDFLAGS = \
-	$(MSD_PLUGIN_LDFLAGS) $(XINPUT_LIBS) $(X11_LIBS)
+	$(CSD_PLUGIN_LDFLAGS) $(XINPUT_LIBS) $(X11_LIBS)
 
 libcommon_la_LIBADD  = \
 	$(SETTINGS_PLUGIN_LIBS)		\

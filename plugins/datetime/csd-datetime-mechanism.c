@@ -99,13 +99,13 @@ csd_datetime_mechanism_error_get_type (void)
         {
                 static const GEnumValue values[] =
                         {
-                                ENUM_ENTRY (MSD_DATETIME_MECHANISM_ERROR_GENERAL, "GeneralError"),
-                                ENUM_ENTRY (MSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED, "NotPrivileged"),
-                                ENUM_ENTRY (MSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE, "InvalidTimezoneFile"),
+                                ENUM_ENTRY (CSD_DATETIME_MECHANISM_ERROR_GENERAL, "GeneralError"),
+                                ENUM_ENTRY (CSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED, "NotPrivileged"),
+                                ENUM_ENTRY (CSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE, "InvalidTimezoneFile"),
                                 { 0, 0, 0 }
                         };
 
-                g_assert (MSD_DATETIME_MECHANISM_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
+                g_assert (CSD_DATETIME_MECHANISM_NUM_ERRORS == G_N_ELEMENTS (values) - 1);
 
                 etype = g_enum_register_static ("CsdDatetimeMechanismError", values);
         }
@@ -121,7 +121,7 @@ csd_datetime_mechanism_constructor (GType                  type,
 {
         CsdDatetimeMechanism      *mechanism;
 
-        mechanism = MSD_DATETIME_MECHANISM (G_OBJECT_CLASS (csd_datetime_mechanism_parent_class)->constructor (
+        mechanism = CSD_DATETIME_MECHANISM (G_OBJECT_CLASS (csd_datetime_mechanism_parent_class)->constructor (
                                                 type,
                                                 n_construct_properties,
                                                 construct_properties));
@@ -137,9 +137,9 @@ csd_datetime_mechanism_class_init (CsdDatetimeMechanismClass *klass)
         object_class->constructor = csd_datetime_mechanism_constructor;
         object_class->finalize = csd_datetime_mechanism_finalize;
 
-        dbus_g_object_type_install_info (MSD_DATETIME_TYPE_MECHANISM, &dbus_glib_csd_datetime_mechanism_object_info);
+        dbus_g_object_type_install_info (CSD_DATETIME_TYPE_MECHANISM, &dbus_glib_csd_datetime_mechanism_object_info);
 
-        dbus_g_error_domain_register (MSD_DATETIME_MECHANISM_ERROR, NULL, MSD_DATETIME_MECHANISM_TYPE_ERROR);
+        dbus_g_error_domain_register (CSD_DATETIME_MECHANISM_ERROR, NULL, CSD_DATETIME_MECHANISM_TYPE_ERROR);
 
 }
 
@@ -156,9 +156,9 @@ csd_datetime_mechanism_finalize (GObject *object)
         CsdDatetimeMechanism *mechanism;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_DATETIME_IS_MECHANISM (object));
+        g_return_if_fail (CSD_DATETIME_IS_MECHANISM (object));
 
-        mechanism = MSD_DATETIME_MECHANISM (object);
+        mechanism = CSD_DATETIME_MECHANISM (object);
 
         g_return_if_fail (mechanism->priv != NULL);
 
@@ -213,15 +213,15 @@ csd_datetime_mechanism_new (void)
         GObject *object;
         gboolean res;
 
-        object = g_object_new (MSD_DATETIME_TYPE_MECHANISM, NULL);
+        object = g_object_new (CSD_DATETIME_TYPE_MECHANISM, NULL);
 
-        res = register_mechanism (MSD_DATETIME_MECHANISM (object));
+        res = register_mechanism (CSD_DATETIME_MECHANISM (object));
         if (! res) {
                 g_object_unref (object);
                 return NULL;
         }
 
-        return MSD_DATETIME_MECHANISM (object);
+        return CSD_DATETIME_MECHANISM (object);
 }
 
 static gboolean
@@ -254,8 +254,8 @@ _check_polkit_for_action (CsdDatetimeMechanism *mechanism, DBusGMethodInvocation
         }
 
         if (!polkit_authorization_result_get_is_authorized (result)) {
-                error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                     MSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED,
+                error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                     CSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED,
                                      "Not Authorized for action %s", action);
                 dbus_g_method_return_error (context, error);
                 g_error_free (error);
@@ -281,8 +281,8 @@ _set_time (CsdDatetimeMechanism  *mechanism,
                 return FALSE;
 
         if (settimeofday (tv, NULL) != 0) {
-                error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                     MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                     CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                      "Error calling settimeofday({%ld,%ld}): %s",
                                      (gint64) tv->tv_sec, (gint64) tv->tv_usec,
                                      strerror (errno));
@@ -296,8 +296,8 @@ _set_time (CsdDatetimeMechanism  *mechanism,
                 int exit_status;
                 if (!g_spawn_command_line_sync ("/sbin/hwclock --systohc", NULL, NULL, &exit_status, &error)) {
                         GError *error2;
-                        error2 = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                              MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                        error2 = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                              CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                               "Error spawning /sbin/hwclock: %s", error->message);
                         g_error_free (error);
                         dbus_g_method_return_error (context, error2);
@@ -305,8 +305,8 @@ _set_time (CsdDatetimeMechanism  *mechanism,
                         return FALSE;
                 }
                 if (WEXITSTATUS (exit_status) != 0) {
-                        error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                             MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                        error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                             CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                              "/sbin/hwclock returned %d", exit_status);
                         dbus_g_method_return_error (context, error);
                         g_error_free (error);
@@ -334,8 +334,8 @@ _rh_update_etc_sysconfig_clock (DBusGMethodInvocation *context, const char *key,
 
                 if (!g_file_get_contents ("/etc/sysconfig/clock", &data, &len, &error)) {
                         GError *error2;
-                        error2 = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                              MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                        error2 = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                              CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                               "Error reading /etc/sysconfig/clock file: %s", error->message);
                         g_error_free (error);
                         dbus_g_method_return_error (context, error2);
@@ -366,8 +366,8 @@ _rh_update_etc_sysconfig_clock (DBusGMethodInvocation *context, const char *key,
                         len = strlen (data);
                         if (!g_file_set_contents ("/etc/sysconfig/clock", data, len, &error)) {
                                 GError *error2;
-                                error2 = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                                      MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                                error2 = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                                      CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                                       "Error updating /etc/sysconfig/clock: %s", error->message);
                                 g_error_free (error);
                                 dbus_g_method_return_error (context, error2);
@@ -412,8 +412,8 @@ csd_datetime_mechanism_adjust_time (CsdDatetimeMechanism  *mechanism,
 
         if (gettimeofday (&tv, NULL) != 0) {
                 GError *error;
-                error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                     MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                     CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                      "Error calling gettimeofday(): %s", strerror (errno));
                 dbus_g_method_return_error (context, error);
                 g_error_free (error);
@@ -445,11 +445,11 @@ csd_datetime_mechanism_set_timezone (CsdDatetimeMechanism  *mechanism,
                 int     code;
 
                 if (error->code == SYSTEM_TIMEZONE_ERROR_INVALID_TIMEZONE_FILE)
-                        code = MSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE;
+                        code = CSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE;
                 else
-                        code = MSD_DATETIME_MECHANISM_ERROR_GENERAL;
+                        code = CSD_DATETIME_MECHANISM_ERROR_GENERAL;
 
-                error2 = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
+                error2 = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
                                       code, "%s", error->message);
 
                 g_error_free (error);
@@ -494,8 +494,8 @@ csd_datetime_mechanism_get_hardware_clock_using_utc (CsdDatetimeMechanism  *mech
 
         if (!g_file_get_contents ("/etc/adjtime", &data, &len, &error)) {
                 GError *error2;
-                error2 = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                      MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                error2 = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                      CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                       "Error reading /etc/adjtime file: %s", error->message);
                 g_error_free (error);
                 dbus_g_method_return_error (context, error2);
@@ -507,8 +507,8 @@ csd_datetime_mechanism_get_hardware_clock_using_utc (CsdDatetimeMechanism  *mech
         g_free (data);
 
         if (g_strv_length (lines) < 3) {
-                error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                     MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                     CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                      "Cannot parse /etc/adjtime");
                 dbus_g_method_return_error (context, error);
                 g_error_free (error);
@@ -521,8 +521,8 @@ csd_datetime_mechanism_get_hardware_clock_using_utc (CsdDatetimeMechanism  *mech
         } else if (strcmp (lines[2], "LOCAL") == 0) {
                 is_utc = FALSE;
         } else {
-                error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                     MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                     CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                      "Expected UTC or LOCAL at line 3 of /etc/adjtime; found '%s'", lines[2]);
                 dbus_g_method_return_error (context, error);
                 g_error_free (error);
@@ -554,8 +554,8 @@ csd_datetime_mechanism_set_hardware_clock_using_utc (CsdDatetimeMechanism  *mech
                 cmd = g_strdup_printf ("/sbin/hwclock %s --systohc", using_utc ? "--utc" : "--localtime");
                 if (!g_spawn_command_line_sync (cmd, NULL, NULL, &exit_status, &error)) {
                         GError *error2;
-                        error2 = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                              MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                        error2 = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                              CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                               "Error spawning /sbin/hwclock: %s", error->message);
                         g_error_free (error);
                         dbus_g_method_return_error (context, error2);
@@ -565,8 +565,8 @@ csd_datetime_mechanism_set_hardware_clock_using_utc (CsdDatetimeMechanism  *mech
                 }
                 g_free (cmd);
                 if (WEXITSTATUS (exit_status) != 0) {
-                        error = g_error_new (MSD_DATETIME_MECHANISM_ERROR,
-                                             MSD_DATETIME_MECHANISM_ERROR_GENERAL,
+                        error = g_error_new (CSD_DATETIME_MECHANISM_ERROR,
+                                             CSD_DATETIME_MECHANISM_ERROR_GENERAL,
                                              "/sbin/hwclock returned %d", exit_status);
                         dbus_g_method_return_error (context, error);
                         g_error_free (error);

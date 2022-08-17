@@ -21,8 +21,8 @@
  *      Stefano Karapetsas <stefano@karapetsas.com>
  */
 
-#ifndef __MSD_MPRIS_MANAGER_H
-#define __MSD_MPRIS_MANAGER_H
+#ifndef __CSD_MPRIS_MANAGER_H
+#define __CSD_MPRIS_MANAGER_H
 
 #include <glib-object.h>
 
@@ -30,12 +30,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MPRIS_MANAGER         (csd_mpris_manager_get_type ())
-#define MSD_MPRIS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_MANAGER, CsdMprisManager))
-#define MSD_MPRIS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_MANAGER, CsdMprisManagerClass))
-#define MSD_IS_MPRIS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MPRIS_MANAGER))
-#define MSD_IS_MPRIS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MPRIS_MANAGER))
-#define MSD_MPRIS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MPRIS_MANAGER, CsdMprisManagerClass))
+#define CSD_TYPE_MPRIS_MANAGER         (csd_mpris_manager_get_type ())
+#define CSD_MPRIS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_MPRIS_MANAGER, CsdMprisManager))
+#define CSD_MPRIS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_MPRIS_MANAGER, CsdMprisManagerClass))
+#define CSD_IS_MPRIS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_MPRIS_MANAGER))
+#define CSD_IS_MPRIS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_MPRIS_MANAGER))
+#define CSD_MPRIS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_MPRIS_MANAGER, CsdMprisManagerClass))
 
 typedef struct CsdMprisManagerPrivate CsdMprisManagerPrivate;
 
@@ -61,4 +61,4 @@ void                    csd_mpris_manager_stop                (CsdMprisManager *
 }
 #endif
 
-#endif /* __MSD_MPRIS_MANAGER_H */
+#endif /* __CSD_MPRIS_MANAGER_H */

@@ -60,7 +60,7 @@ liba11y_keyboard_la_CFLAGS =		\
 	$(NULL)
 
 liba11y_keyboard_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)		\
+	$(CSD_PLUGIN_LDFLAGS)		\
 	$(NULL)
 
 liba11y_keyboard_la_LIBADD  = 		\

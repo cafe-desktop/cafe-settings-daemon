@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_SOUND_MANAGER_H
-#define __MSD_SOUND_MANAGER_H
+#ifndef __CSD_SOUND_MANAGER_H
+#define __CSD_SOUND_MANAGER_H
 
 #include <glib.h>
 #include <glib-object.h>
@@ -28,12 +28,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_SOUND_MANAGER         (csd_sound_manager_get_type ())
-#define MSD_SOUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_SOUND_MANAGER, CsdSoundManager))
-#define MSD_SOUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST ((k), MSD_TYPE_SOUND_MANAGER, CsdSoundManagerClass))
-#define MSD_IS_SOUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_SOUND_MANAGER))
-#define MSD_IS_SOUND_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_SOUND_MANAGER))
-#define MSD_SOUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_SOUND_MANAGER, CsdSoundManagerClass))
+#define CSD_TYPE_SOUND_MANAGER         (csd_sound_manager_get_type ())
+#define CSD_SOUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_SOUND_MANAGER, CsdSoundManager))
+#define CSD_SOUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST ((k), CSD_TYPE_SOUND_MANAGER, CsdSoundManagerClass))
+#define CSD_IS_SOUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_SOUND_MANAGER))
+#define CSD_IS_SOUND_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_SOUND_MANAGER))
+#define CSD_SOUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_SOUND_MANAGER, CsdSoundManagerClass))
 
 typedef struct CsdSoundManagerPrivate CsdSoundManagerPrivate;
 
@@ -58,4 +58,4 @@ void csd_sound_manager_stop (CsdSoundManager *manager);
 }
 #endif
 
-#endif /* __MSD_SOUND_MANAGER_H */
+#endif /* __CSD_SOUND_MANAGER_H */

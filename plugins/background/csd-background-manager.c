@@ -71,7 +71,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (CsdBackgroundManager, csd_background_manager, G_TYPE
 
 static gpointer manager_object = NULL;
 
-/* Whether MSD is allowed to draw background */
+/* Whether CSD is allowed to draw background */
 static gboolean
 csd_can_draw_bg (CsdBackgroundManager *manager)
 {
@@ -439,7 +439,7 @@ on_session_manager_signal (GDBusProxy   *proxy,
 			   GVariant     *parameters,
 			   gpointer      user_data)
 {
-	CsdBackgroundManager *manager = MSD_BACKGROUND_MANAGER (user_data);
+	CsdBackgroundManager *manager = CSD_BACKGROUND_MANAGER (user_data);
 
 	if (g_strcmp0 (signal_name, "SessionRunning") == 0) {
 		queue_timeout (manager);
@@ -541,7 +541,7 @@ csd_background_manager_constructor (GType                  type,
 				    GObjectConstructParam* construct_properties)
 {
 	CsdBackgroundManager *manager =
-	   MSD_BACKGROUND_MANAGER (
+	   CSD_BACKGROUND_MANAGER (
 	      G_OBJECT_CLASS (csd_background_manager_parent_class)->constructor (
 				type, n_construct_properties, construct_properties));
 
@@ -552,9 +552,9 @@ static void
 csd_background_manager_finalize (GObject *object)
 {
 	g_return_if_fail (object != NULL);
-	g_return_if_fail (MSD_IS_BACKGROUND_MANAGER (object));
+	g_return_if_fail (CSD_IS_BACKGROUND_MANAGER (object));
 
-	CsdBackgroundManager *manager = MSD_BACKGROUND_MANAGER (object);
+	CsdBackgroundManager *manager = CSD_BACKGROUND_MANAGER (object);
 
 	g_return_if_fail (manager->priv != NULL);
 
@@ -585,10 +585,10 @@ csd_background_manager_new (void)
 	}
 	else
 	{
-		manager_object = g_object_new(MSD_TYPE_BACKGROUND_MANAGER, NULL);
+		manager_object = g_object_new(CSD_TYPE_BACKGROUND_MANAGER, NULL);
 
 		g_object_add_weak_pointer(manager_object, (gpointer*) &manager_object);
 	}
 
-	return MSD_BACKGROUND_MANAGER(manager_object);
+	return CSD_BACKGROUND_MANAGER(manager_object);
 }
