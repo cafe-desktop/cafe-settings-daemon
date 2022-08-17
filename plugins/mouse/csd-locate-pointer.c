@@ -37,21 +37,21 @@
 #define CIRCLES_PROGRESS_INTERVAL (0.5 / N_CIRCLES)
 #define CIRCLE_PROGRESS(p) (MIN (1., ((gdouble) (p) * 2.)))
 
-typedef struct MsdLocatePointerData MsdLocatePointerData;
+typedef struct CsdLocatePointerData CsdLocatePointerData;
 
-struct MsdLocatePointerData
+struct CsdLocatePointerData
 {
-  MsdTimeline *timeline;
+  CsdTimeline *timeline;
   CtkWindow *widget;
   CdkWindow *window;
 
   gdouble progress;
 };
 
-static MsdLocatePointerData *data = NULL;
+static CsdLocatePointerData *data = NULL;
 
 static void
-locate_pointer_paint (MsdLocatePointerData *data,
+locate_pointer_paint (CsdLocatePointerData *data,
 		      cairo_t              *cr,
 		      gboolean              composited)
 {
@@ -142,7 +142,7 @@ locate_pointer_paint (MsdLocatePointerData *data,
 }
 
 static void
-update_shape (MsdLocatePointerData *data)
+update_shape (CsdLocatePointerData *data)
 {
   cairo_t *cr;
   cairo_surface_t *mask;
@@ -166,11 +166,11 @@ update_shape (MsdLocatePointerData *data)
 }
 
 static void
-timeline_frame_cb (MsdTimeline *timeline,
+timeline_frame_cb (CsdTimeline *timeline,
 		   gdouble      progress,
 		   gpointer     user_data)
 {
-  MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
+  CsdLocatePointerData *data = (CsdLocatePointerData *) user_data;
   CdkDisplay *display = cdk_window_get_display (data->window);
   CdkScreen *screen = cdk_display_get_default_screen (display);
   CdkSeat *seat;
@@ -237,7 +237,7 @@ unset_transparent_shape (CdkWindow *window)
 
 static void
 composited_changed (CdkScreen            *screen,
-                    MsdLocatePointerData *data)
+                    CsdLocatePointerData *data)
 {
   if (cdk_screen_is_composited (screen))
     {
@@ -250,10 +250,10 @@ composited_changed (CdkScreen            *screen,
 }
 
 static void
-timeline_finished_cb (MsdTimeline *timeline,
+timeline_finished_cb (CsdTimeline *timeline,
 		      gpointer     user_data)
 {
-  MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
+  CsdLocatePointerData *data = (CsdLocatePointerData *) user_data;
   CdkScreen *screen = cdk_window_get_screen (data->window);
 
   /* set transparent shape and hide window */
@@ -267,7 +267,7 @@ timeline_finished_cb (MsdTimeline *timeline,
 
 static void
 locate_pointer_unrealize_cb (CtkWidget            *widget,
-                             MsdLocatePointerData *data)
+                             CsdLocatePointerData *data)
 {
   if (data->window != NULL)
     {
@@ -280,7 +280,7 @@ locate_pointer_unrealize_cb (CtkWidget            *widget,
 
 static void
 locate_pointer_realize_cb (CtkWidget            *widget,
-                           MsdLocatePointerData *data)
+                           CsdLocatePointerData *data)
 {
   CdkDisplay *display;
   CdkScreen *screen;
@@ -325,7 +325,7 @@ locate_pointer_draw_cb (CtkWidget      *widget,
                         cairo_t        *cr,
                         gpointer        user_data)
 {
-  MsdLocatePointerData *data = (MsdLocatePointerData *) user_data;
+  CsdLocatePointerData *data = (CsdLocatePointerData *) user_data;
   CdkScreen *screen = cdk_window_get_screen (data->window);
 
   if (ctk_cairo_should_draw_window (cr, data->window))
@@ -336,12 +336,12 @@ locate_pointer_draw_cb (CtkWidget      *widget,
   return TRUE;
 }
 
-static MsdLocatePointerData *
+static CsdLocatePointerData *
 csd_locate_pointer_data_new (void)
 {
-  MsdLocatePointerData *data;
+  CsdLocatePointerData *data;
 
-  data = g_new0 (MsdLocatePointerData, 1);
+  data = g_new0 (CsdLocatePointerData, 1);
 
   data->widget = CTK_WINDOW (ctk_window_new (CTK_WINDOW_POPUP));
 
@@ -368,7 +368,7 @@ csd_locate_pointer_data_new (void)
 }
 
 static void
-move_locate_pointer_window (MsdLocatePointerData *data,
+move_locate_pointer_window (CsdLocatePointerData *data,
 			    CdkDisplay           *display)
 {
   CdkSeat *seat;

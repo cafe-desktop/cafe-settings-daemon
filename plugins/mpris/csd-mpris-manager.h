@@ -31,31 +31,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_MPRIS_MANAGER         (csd_mpris_manager_get_type ())
-#define MSD_MPRIS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_MANAGER, MsdMprisManager))
-#define MSD_MPRIS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_MANAGER, MsdMprisManagerClass))
+#define MSD_MPRIS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_MANAGER, CsdMprisManager))
+#define MSD_MPRIS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_MANAGER, CsdMprisManagerClass))
 #define MSD_IS_MPRIS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MPRIS_MANAGER))
 #define MSD_IS_MPRIS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MPRIS_MANAGER))
-#define MSD_MPRIS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MPRIS_MANAGER, MsdMprisManagerClass))
+#define MSD_MPRIS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MPRIS_MANAGER, CsdMprisManagerClass))
 
-typedef struct MsdMprisManagerPrivate MsdMprisManagerPrivate;
+typedef struct CsdMprisManagerPrivate CsdMprisManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdMprisManagerPrivate *priv;
-} MsdMprisManager;
+        CsdMprisManagerPrivate *priv;
+} CsdMprisManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdMprisManagerClass;
+} CsdMprisManagerClass;
 
 GType                   csd_mpris_manager_get_type            (void);
 
-MsdMprisManager *       csd_mpris_manager_new                 (void);
-gboolean                csd_mpris_manager_start               (MsdMprisManager *manager,
+CsdMprisManager *       csd_mpris_manager_new                 (void);
+gboolean                csd_mpris_manager_start               (CsdMprisManager *manager,
                                                                GError         **error);
-void                    csd_mpris_manager_stop                (MsdMprisManager *manager);
+void                    csd_mpris_manager_stop                (CsdMprisManager *manager);
 
 #ifdef __cplusplus
 }

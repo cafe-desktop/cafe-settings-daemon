@@ -33,19 +33,19 @@
 #include "csd-media-keys-plugin.h"
 #include "csd-media-keys-manager.h"
 
-struct _MsdMediaKeysPluginPrivate
+struct _CsdMediaKeysPluginPrivate
 {
-        MsdMediaKeysManager *manager;
+        CsdMediaKeysManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMediaKeysPlugin, csd_media_keys_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdMediaKeysPlugin, csd_media_keys_plugin)
 
 static void
-csd_media_keys_plugin_init (MsdMediaKeysPlugin *plugin)
+csd_media_keys_plugin_init (CsdMediaKeysPlugin *plugin)
 {
         plugin->priv = csd_media_keys_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdMediaKeysPlugin initializing");
+        g_debug ("CsdMediaKeysPlugin initializing");
 
         plugin->priv->manager = csd_media_keys_manager_new ();
 }
@@ -53,9 +53,9 @@ csd_media_keys_plugin_init (MsdMediaKeysPlugin *plugin)
 static void
 csd_media_keys_plugin_dispose (GObject *object)
 {
-        MsdMediaKeysPlugin *plugin;
+        CsdMediaKeysPlugin *plugin;
 
-        g_debug ("MsdMediaKeysPlugin disposing");
+        g_debug ("CsdMediaKeysPlugin disposing");
 
         plugin = MSD_MEDIA_KEYS_PLUGIN (object);
 
@@ -90,7 +90,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_media_keys_plugin_class_init (MsdMediaKeysPluginClass *klass)
+csd_media_keys_plugin_class_init (CsdMediaKeysPluginClass *klass)
 {
         GObjectClass            *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -102,6 +102,6 @@ csd_media_keys_plugin_class_init (MsdMediaKeysPluginClass *klass)
 }
 
 static void
-csd_media_keys_plugin_class_finalize (MsdMediaKeysPluginClass *klass)
+csd_media_keys_plugin_class_finalize (CsdMediaKeysPluginClass *klass)
 {
 }

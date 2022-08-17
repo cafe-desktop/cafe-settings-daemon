@@ -36,7 +36,7 @@ enum
         PROP_MOUNT_PATH
 };
 
-struct MsdLdsmDialogPrivate
+struct CsdLdsmDialogPrivate
 {
         CtkWidget *primary_label;
         CtkWidget *secondary_label;
@@ -49,10 +49,10 @@ struct MsdLdsmDialogPrivate
         gchar *mount_path;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdLdsmDialog, csd_ldsm_dialog, CTK_TYPE_DIALOG);
+G_DEFINE_TYPE_WITH_PRIVATE (CsdLdsmDialog, csd_ldsm_dialog, CTK_TYPE_DIALOG);
 
 static const gchar*
-csd_ldsm_dialog_get_checkbutton_text (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_get_checkbutton_text (CsdLdsmDialog *dialog)
 {
         g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
 
@@ -63,7 +63,7 @@ csd_ldsm_dialog_get_checkbutton_text (MsdLdsmDialog *dialog)
 }
 
 static gchar*
-csd_ldsm_dialog_get_primary_text (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_get_primary_text (CsdLdsmDialog *dialog)
 {
         gchar *primary_text, *free_space;
 
@@ -85,7 +85,7 @@ csd_ldsm_dialog_get_primary_text (MsdLdsmDialog *dialog)
 }
 
 static const gchar*
-csd_ldsm_dialog_get_secondary_text (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_get_secondary_text (CsdLdsmDialog *dialog)
 {
         g_return_val_if_fail (MSD_IS_LDSM_DIALOG (dialog), NULL);
 
@@ -144,7 +144,7 @@ static void
 ignore_check_button_toggled_cb (CtkToggleButton *button,
                                 gpointer user_data)
 {
-        MsdLdsmDialog *dialog = (MsdLdsmDialog *)user_data;
+        CsdLdsmDialog *dialog = (CsdLdsmDialog *)user_data;
         GSettings *settings;
         gchar **settings_list;
         GSList *ignore_paths = NULL;
@@ -188,7 +188,7 @@ ignore_check_button_toggled_cb (CtkToggleButton *button,
 }
 
 static void
-csd_ldsm_dialog_init (MsdLdsmDialog *dialog)
+csd_ldsm_dialog_init (CsdLdsmDialog *dialog)
 {
         CtkWidget *main_vbox, *text_vbox, *hbox;
         CtkWidget *image;
@@ -262,7 +262,7 @@ csd_ldsm_dialog_init (MsdLdsmDialog *dialog)
 static void
 csd_ldsm_dialog_finalize (GObject *object)
 {
-        MsdLdsmDialog *self;
+        CsdLdsmDialog *self;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_LDSM_DIALOG (object));
@@ -281,7 +281,7 @@ csd_ldsm_dialog_finalize (GObject *object)
 static void
 csd_ldsm_dialog_set_property (GObject *object, guint prop_id, const GValue *value, GParamSpec *pspec)
 {
-        MsdLdsmDialog *self;
+        CsdLdsmDialog *self;
 
         g_return_if_fail (MSD_IS_LDSM_DIALOG (object));
 
@@ -316,7 +316,7 @@ csd_ldsm_dialog_set_property (GObject *object, guint prop_id, const GValue *valu
 static void
 csd_ldsm_dialog_get_property (GObject *object, guint prop_id, GValue *value, GParamSpec *pspec)
 {
-        MsdLdsmDialog *self;
+        CsdLdsmDialog *self;
 
         g_return_if_fail (MSD_IS_LDSM_DIALOG (object));
 
@@ -349,7 +349,7 @@ csd_ldsm_dialog_get_property (GObject *object, guint prop_id, GValue *value, GPa
 }
 
 static void
-csd_ldsm_dialog_class_init (MsdLdsmDialogClass *klass)
+csd_ldsm_dialog_class_init (CsdLdsmDialogClass *klass)
 {
         GObjectClass* object_class = G_OBJECT_CLASS (klass);
 
@@ -406,7 +406,7 @@ csd_ldsm_dialog_class_init (MsdLdsmDialogClass *klass)
                                                               G_PARAM_WRITABLE | G_PARAM_CONSTRUCT_ONLY));
 }
 
-MsdLdsmDialog*
+CsdLdsmDialog*
 csd_ldsm_dialog_new (gboolean     other_usable_partitions,
                      gboolean     other_partitions,
                      gboolean     display_baobab,
@@ -415,7 +415,7 @@ csd_ldsm_dialog_new (gboolean     other_usable_partitions,
                      const gchar *partition_name,
                      const gchar *mount_path)
 {
-        MsdLdsmDialog *dialog;
+        CsdLdsmDialog *dialog;
         CtkWidget *button_empty_trash, *button_ignore, *button_analyze;
         CtkWidget *empty_trash_image, *analyze_image, *ignore_image;
         gchar *primary_text, *primary_text_markup;

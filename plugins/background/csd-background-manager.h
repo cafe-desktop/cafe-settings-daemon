@@ -27,38 +27,38 @@
 extern "C" {
 #endif
 
-//class MsdBackgroundManager
+//class CsdBackgroundManager
 //{
 	#define MSD_TYPE_BACKGROUND_MANAGER         (csd_background_manager_get_type())
-	#define MSD_BACKGROUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST((o), MSD_TYPE_BACKGROUND_MANAGER, MsdBackgroundManager))
-	#define MSD_BACKGROUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_BACKGROUND_MANAGER, MsdBackgroundManagerClass))
+	#define MSD_BACKGROUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST((o), MSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManager))
+	#define MSD_BACKGROUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManagerClass))
 	#define MSD_IS_BACKGROUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE((o), MSD_TYPE_BACKGROUND_MANAGER))
 	#define MSD_IS_BACKGROUND_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE((k), MSD_TYPE_BACKGROUND_MANAGER))
-	#define MSD_BACKGROUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS((o), MSD_TYPE_BACKGROUND_MANAGER, MsdBackgroundManagerClass))
+	#define MSD_BACKGROUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS((o), MSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManagerClass))
 
-	typedef struct MsdBackgroundManagerPrivate MsdBackgroundManagerPrivate;
+	typedef struct CsdBackgroundManagerPrivate CsdBackgroundManagerPrivate;
 
 	typedef struct {
 		GObject                      parent;
-		MsdBackgroundManagerPrivate* priv;
-	} MsdBackgroundManager;
+		CsdBackgroundManagerPrivate* priv;
+	} CsdBackgroundManager;
 
 	typedef struct {
 		GObjectClass   parent_class;
-	} MsdBackgroundManagerClass;
+	} CsdBackgroundManagerClass;
 
 	GType
 	csd_background_manager_get_type (void);
 
-	MsdBackgroundManager*
+	CsdBackgroundManager*
 	csd_background_manager_new (void);
 
 	gboolean
-	csd_background_manager_start (MsdBackgroundManager* manager,
+	csd_background_manager_start (CsdBackgroundManager* manager,
 	                              GError**              error);
 
 	void
-	csd_background_manager_stop (MsdBackgroundManager* manager);
+	csd_background_manager_stop (CsdBackgroundManager* manager);
 //}
 
 #ifdef __cplusplus

@@ -27,18 +27,18 @@
 #include "csd-mouse-plugin.h"
 #include "csd-mouse-manager.h"
 
-struct MsdMousePluginPrivate {
-        MsdMouseManager *manager;
+struct CsdMousePluginPrivate {
+        CsdMouseManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMousePlugin, csd_mouse_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdMousePlugin, csd_mouse_plugin)
 
 static void
-csd_mouse_plugin_init (MsdMousePlugin *plugin)
+csd_mouse_plugin_init (CsdMousePlugin *plugin)
 {
         plugin->priv = csd_mouse_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdMousePlugin initializing");
+        g_debug ("CsdMousePlugin initializing");
 
         plugin->priv->manager = csd_mouse_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_mouse_plugin_init (MsdMousePlugin *plugin)
 static void
 csd_mouse_plugin_finalize (GObject *object)
 {
-        MsdMousePlugin *plugin;
+        CsdMousePlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_MOUSE_PLUGIN (object));
 
-        g_debug ("MsdMousePlugin finalizing");
+        g_debug ("CsdMousePlugin finalizing");
 
         plugin = MSD_MOUSE_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_mouse_plugin_class_init (MsdMousePluginClass *klass)
+csd_mouse_plugin_class_init (CsdMousePluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,7 +100,7 @@ csd_mouse_plugin_class_init (MsdMousePluginClass *klass)
 }
 
 static void
-csd_mouse_plugin_class_finalize (MsdMousePluginClass *klass)
+csd_mouse_plugin_class_finalize (CsdMousePluginClass *klass)
 {
 }
 

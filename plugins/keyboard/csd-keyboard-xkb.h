@@ -27,7 +27,7 @@
 #include <libxklavier/xklavier.h>
 #include "csd-keyboard-manager.h"
 
-void csd_keyboard_xkb_init(MsdKeyboardManager* manager);
+void csd_keyboard_xkb_init(CsdKeyboardManager* manager);
 void csd_keyboard_xkb_shutdown(void);
 
 typedef void (*PostActivationCallback) (void* userData);

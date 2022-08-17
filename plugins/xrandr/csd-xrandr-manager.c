@@ -79,7 +79,7 @@
 #define MSD_XRANDR_DBUS_PATH MSD_DBUS_PATH "/XRANDR"
 #define MSD_XRANDR_DBUS_NAME MSD_DBUS_NAME ".XRANDR"
 
-struct MsdXrandrManagerPrivate
+struct CsdXrandrManagerPrivate
 {
         DBusGConnection *dbus_connection;
 
@@ -116,9 +116,9 @@ static const CafeRRRotation possible_rotations[] = {
 
 static void csd_xrandr_manager_finalize (GObject *object);
 
-static void error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to_display, const char *secondary_text);
+static void error_message (CsdXrandrManager *mgr, const char *primary_text, GError *error_to_display, const char *secondary_text);
 
-static void status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timestamp);
+static void status_icon_popup_menu (CsdXrandrManager *manager, guint button, guint32 timestamp);
 static void run_display_capplet (CtkWidget *widget);
 static void get_allowed_rotations_for_output (CafeRRConfig *config,
                                               CafeRRScreen *rr_screen,
@@ -126,7 +126,7 @@ static void get_allowed_rotations_for_output (CafeRRConfig *config,
                                               int *out_num_rotations,
                                               CafeRRRotation *out_rotations);
 
-G_DEFINE_TYPE_WITH_PRIVATE (MsdXrandrManager, csd_xrandr_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CsdXrandrManager, csd_xrandr_manager, G_TYPE_OBJECT)
 
 static gpointer manager_object = NULL;
 
@@ -280,12 +280,12 @@ log_configurations (CafeRRConfig **configs)
 }
 
 static void
-show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
+show_timestamps_dialog (CsdXrandrManager *manager, const char *msg)
 {
 #if 1
         return;
 #else
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CtkWidget *dialog;
         guint32 change_timestamp, config_timestamp;
         static int serial;
@@ -313,13 +313,13 @@ show_timestamps_dialog (MsdXrandrManager *manager, const char *msg)
  * cafe_rr_config_apply_from_filename_with_time(), since that is not usually an error.
  */
 static gboolean
-apply_configuration_from_filename (MsdXrandrManager *manager,
+apply_configuration_from_filename (CsdXrandrManager *manager,
                                    const char       *filename,
                                    gboolean          no_matching_config_is_an_error,
                                    guint32           timestamp,
                                    GError          **error)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         GError *my_error;
         gboolean success;
         char *str;
@@ -355,9 +355,9 @@ fail:
  * We just return whether setting the configuration succeeded.
  */
 static gboolean
-apply_configuration_and_display_error (MsdXrandrManager *manager, CafeRRConfig *config, guint32 timestamp)
+apply_configuration_and_display_error (CsdXrandrManager *manager, CafeRRConfig *config, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManagerPrivate *priv = manager->priv;
         GError *error;
         gboolean success;
 
@@ -381,7 +381,7 @@ restore_backup_configuration_without_messages (const char *backup_filename, cons
 }
 
 static void
-restore_backup_configuration (MsdXrandrManager *manager, const char *backup_filename, const char *intended_filename, guint32 timestamp)
+restore_backup_configuration (CsdXrandrManager *manager, const char *backup_filename, const char *intended_filename, guint32 timestamp)
 {
         int saved_errno;
 
@@ -425,7 +425,7 @@ restore_backup_configuration (MsdXrandrManager *manager, const char *backup_file
 }
 
 typedef struct {
-        MsdXrandrManager *manager;
+        CsdXrandrManager *manager;
         CtkWidget *dialog;
 
         int countdown;
@@ -474,7 +474,7 @@ timeout_response_cb (CtkDialog *dialog, int response_id, gpointer data)
 }
 
 static gboolean
-user_says_things_are_ok (MsdXrandrManager *manager, CdkWindow *parent_window)
+user_says_things_are_ok (CsdXrandrManager *manager, CdkWindow *parent_window)
 {
         TimeoutDialog timeout;
         guint timeout_id;
@@ -522,7 +522,7 @@ user_says_things_are_ok (MsdXrandrManager *manager, CdkWindow *parent_window)
 }
 
 struct confirmation {
-        MsdXrandrManager *manager;
+        CsdXrandrManager *manager;
         CdkWindow *parent_window;
         guint32 timestamp;
 };
@@ -548,7 +548,7 @@ confirm_with_user_idle_cb (gpointer data)
 }
 
 static void
-queue_confirmation_by_user (MsdXrandrManager *manager, CdkWindow *parent_window, guint32 timestamp)
+queue_confirmation_by_user (CsdXrandrManager *manager, CdkWindow *parent_window, guint32 timestamp)
 {
         struct confirmation *confirmation;
 
@@ -561,7 +561,7 @@ queue_confirmation_by_user (MsdXrandrManager *manager, CdkWindow *parent_window,
 }
 
 static gboolean
-try_to_apply_intended_configuration (MsdXrandrManager *manager, CdkWindow *parent_window, guint32 timestamp, GError **error)
+try_to_apply_intended_configuration (CsdXrandrManager *manager, CdkWindow *parent_window, guint32 timestamp, GError **error)
 {
         char *backup_filename;
         char *intended_filename;
@@ -596,7 +596,7 @@ out:
 
 /* DBus method for org.cafe.SettingsDaemon.XRANDR ApplyConfiguration; see csd-xrandr-manager.xml for the interface definition */
 static gboolean
-csd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
+csd_xrandr_manager_apply_configuration (CsdXrandrManager *manager,
                                         GError          **error)
 {
         return try_to_apply_intended_configuration (manager, NULL, CDK_CURRENT_TIME, error);
@@ -604,7 +604,7 @@ csd_xrandr_manager_apply_configuration (MsdXrandrManager *manager,
 
 /* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see csd-xrandr-manager.xml for the interface definition */
 static gboolean
-csd_xrandr_manager_2_apply_configuration (MsdXrandrManager *manager,
+csd_xrandr_manager_2_apply_configuration (CsdXrandrManager *manager,
                                           gint64            parent_window_id,
                                           gint64            timestamp,
                                           GError          **error)
@@ -992,7 +992,7 @@ make_other_setup (CafeRRScreen *screen)
 }
 
 static GPtrArray *
-sanitize (MsdXrandrManager *manager, GPtrArray *array)
+sanitize (CsdXrandrManager *manager, GPtrArray *array)
 {
         int i;
         GPtrArray *new;
@@ -1079,7 +1079,7 @@ sanitize (MsdXrandrManager *manager, GPtrArray *array)
 }
 
 static void
-generate_fn_f7_configs (MsdXrandrManager *mgr)
+generate_fn_f7_configs (CsdXrandrManager *mgr)
 {
         GPtrArray *array = g_ptr_array_new ();
         CafeRRScreen *screen = mgr->priv->rw_screen;
@@ -1113,10 +1113,10 @@ generate_fn_f7_configs (MsdXrandrManager *mgr)
 }
 
 static void
-error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to_display, const char *secondary_text)
+error_message (CsdXrandrManager *mgr, const char *primary_text, GError *error_to_display, const char *secondary_text)
 {
 #ifdef HAVE_LIBNOTIFY
-        MsdXrandrManagerPrivate *priv = mgr->priv;
+        CsdXrandrManagerPrivate *priv = mgr->priv;
         NotifyNotification *notification;
 
         g_assert (error_to_display == NULL || secondary_text == NULL);
@@ -1145,9 +1145,9 @@ error_message (MsdXrandrManager *mgr, const char *primary_text, GError *error_to
 }
 
 static void
-handle_fn_f7 (MsdXrandrManager *mgr, guint32 timestamp)
+handle_fn_f7 (CsdXrandrManager *mgr, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = mgr->priv;
+        CsdXrandrManagerPrivate *priv = mgr->priv;
         CafeRRScreen *screen = priv->rw_screen;
         CafeRRConfig *current;
         GError *error;
@@ -1312,9 +1312,9 @@ get_next_rotation (CafeRRRotation allowed_rotations, CafeRRRotation current_rota
  * easily.
  */
 static void
-handle_rotate_windows (MsdXrandrManager *mgr, guint32 timestamp)
+handle_rotate_windows (CsdXrandrManager *mgr, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = mgr->priv;
+        CsdXrandrManagerPrivate *priv = mgr->priv;
         CafeRRScreen *screen = priv->rw_screen;
         CafeRRConfig *current;
         CafeRROutputInfo *rotatable_output_info;
@@ -1359,7 +1359,7 @@ event_filter (CdkXEvent           *xevent,
               CdkEvent            *event,
               gpointer             data)
 {
-        MsdXrandrManager *manager = data;
+        CsdXrandrManager *manager = data;
         XEvent *xev = (XEvent *) xevent;
 
         if (!manager->priv->running)
@@ -1382,9 +1382,9 @@ event_filter (CdkXEvent           *xevent,
 }
 
 static void
-refresh_tray_icon_menu_if_active (MsdXrandrManager *manager, guint32 timestamp)
+refresh_tray_icon_menu_if_active (CsdXrandrManager *manager, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManagerPrivate *priv = manager->priv;
 
         if (priv->popup_menu) {
                 ctk_menu_shell_cancel (CTK_MENU_SHELL (priv->popup_menu)); /* status_icon_popup_menu_selection_done_cb() will free everything */
@@ -1393,9 +1393,9 @@ refresh_tray_icon_menu_if_active (MsdXrandrManager *manager, guint32 timestamp)
 }
 
 static void
-auto_configure_outputs (MsdXrandrManager *manager, guint32 timestamp)
+auto_configure_outputs (CsdXrandrManager *manager, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManagerPrivate *priv = manager->priv;
         CafeRRConfig *config;
         CafeRROutputInfo **outputs;
         int i;
@@ -1561,8 +1561,8 @@ apply_color_profiles (void)
 static void
 on_randr_event (CafeRRScreen *screen, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
-        MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        CsdXrandrManagerPrivate *priv = manager->priv;
         guint32 change_timestamp, config_timestamp;
 
         if (!priv->running)
@@ -1678,8 +1678,8 @@ popup_menu_configure_display_cb (CtkMenuItem *item, gpointer data)
 static void
 status_icon_popup_menu_selection_done_cb (CtkMenuShell *menu_shell, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
 
         ctk_widget_destroy (priv->popup_menu);
         priv->popup_menu = NULL;
@@ -1735,7 +1735,7 @@ title_item_size_allocate_cb (CtkWidget *widget, CtkAllocation *allocation, gpoin
 }
 
 static CtkWidget *
-make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *output)
+make_menu_item_for_output_title (CsdXrandrManager *manager, CafeRROutputInfo *output)
 {
         CtkWidget       *item;
         CtkStyleContext *context;
@@ -1750,7 +1750,7 @@ make_menu_item_for_output_title (MsdXrandrManager *manager, CafeRROutputInfo *ou
         CtkSettings *settings;
         GSettings *icon_settings;
 
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
 
         item = ctk_menu_item_new ();
         box = ctk_box_new (CTK_ORIENTATION_HORIZONTAL, 6);
@@ -1923,9 +1923,9 @@ get_allowed_rotations_for_output (CafeRRConfig *config,
 }
 
 static void
-add_unsupported_rotation_item (MsdXrandrManager *manager)
+add_unsupported_rotation_item (CsdXrandrManager *manager)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CtkWidget *item;
         CtkWidget *label;
         gchar *markup;
@@ -1970,8 +1970,8 @@ ensure_current_configuration_is_saved (void)
 static void
 monitor_activate_cb (CtkCheckMenuItem *item, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CafeRROutputInfo *output;
         GError *error;
 
@@ -2011,8 +2011,8 @@ monitor_activate_cb (CtkCheckMenuItem *item, gpointer data)
 static void
 output_rotation_item_activate_cb (CtkCheckMenuItem *item, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CafeRROutputInfo *output;
         CafeRRRotation rotation;
         GError *error;
@@ -2043,8 +2043,8 @@ output_rotation_item_activate_cb (CtkCheckMenuItem *item, gpointer data)
 static void
 mirror_outputs_cb(CtkCheckMenuItem *item, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CafeRRScreen *screen = priv->rw_screen;
 
         if (ctk_check_menu_item_get_active(item)){
@@ -2076,7 +2076,7 @@ mirror_outputs_cb(CtkCheckMenuItem *item, gpointer data)
         }
 }
 static void
-add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, CafeRRRotation allowed_rotations)
+add_items_for_rotations (CsdXrandrManager *manager, CafeRROutputInfo *output, CafeRRRotation allowed_rotations)
 {
         typedef struct {
                 CafeRRRotation	rotation;
@@ -2090,7 +2090,7 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
                 /* We don't allow REFLECT_X or REFLECT_Y for now, as cafe-display-properties doesn't allow them, either */
         };
 
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         int i;
         GSList *group;
         CtkWidget *active_item;
@@ -2151,9 +2151,9 @@ add_items_for_rotations (MsdXrandrManager *manager, CafeRROutputInfo *output, Ca
 }
 
 static void
-add_rotation_items_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
+add_rotation_items_for_output (CsdXrandrManager *manager, CafeRROutputInfo *output)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         int num_rotations;
         CafeRRRotation rotations;
 
@@ -2166,9 +2166,9 @@ add_rotation_items_for_output (MsdXrandrManager *manager, CafeRROutputInfo *outp
 }
 
 static void
-add_enable_option_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
+add_enable_option_for_output (CsdXrandrManager *manager, CafeRROutputInfo *output)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CtkWidget *item;
         gulong activate_id;
 
@@ -2207,9 +2207,9 @@ add_enable_option_for_output (MsdXrandrManager *manager, CafeRROutputInfo *outpu
 }
 
 static void
-add_menu_items_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
+add_menu_items_for_output (CsdXrandrManager *manager, CafeRROutputInfo *output)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CtkWidget *item;
 
         item = make_menu_item_for_output_title (manager, output);
@@ -2220,9 +2220,9 @@ add_menu_items_for_output (MsdXrandrManager *manager, CafeRROutputInfo *output)
 }
 
 static void
-add_menu_items_for_outputs (MsdXrandrManager *manager)
+add_menu_items_for_outputs (CsdXrandrManager *manager)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         int i;
         CafeRROutputInfo **outputs;
 
@@ -2234,9 +2234,9 @@ add_menu_items_for_outputs (MsdXrandrManager *manager)
 }
 
 static void
-add_menu_items_for_clone (MsdXrandrManager *manager)
+add_menu_items_for_clone (CsdXrandrManager *manager)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CtkWidget *item;
         gulong activate_id;
 
@@ -2259,9 +2259,9 @@ add_menu_items_for_clone (MsdXrandrManager *manager)
 }
 
 static void
-status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timestamp)
+status_icon_popup_menu (CsdXrandrManager *manager, guint button, guint32 timestamp)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
         CtkWidget *item;
         CtkWidget *image;
         CtkWidget *label;
@@ -2327,7 +2327,7 @@ status_icon_popup_menu (MsdXrandrManager *manager, guint button, guint32 timesta
 static void
 status_icon_activate_cb (CtkStatusIcon *status_icon, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
 
         /* Suck; we don't get a proper button/timestamp */
         status_icon_popup_menu (manager, 0, ctk_get_current_event_time ());
@@ -2336,15 +2336,15 @@ status_icon_activate_cb (CtkStatusIcon *status_icon, gpointer data)
 static void
 status_icon_popup_menu_cb (CtkStatusIcon *status_icon, guint button, guint32 timestamp, gpointer data)
 {
-        MsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
+        CsdXrandrManager *manager = MSD_XRANDR_MANAGER (data);
 
         status_icon_popup_menu (manager, button, timestamp);
 }
 
 static void
-status_icon_start (MsdXrandrManager *manager)
+status_icon_start (CsdXrandrManager *manager)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
 
         /* Ideally, we should detect if we are on a tablet and only display
          * the icon in that case.
@@ -2361,9 +2361,9 @@ status_icon_start (MsdXrandrManager *manager)
 }
 
 static void
-status_icon_stop (MsdXrandrManager *manager)
+status_icon_stop (CsdXrandrManager *manager)
 {
-        struct MsdXrandrManagerPrivate *priv = manager->priv;
+        struct CsdXrandrManagerPrivate *priv = manager->priv;
 
         if (priv->status_icon) {
                 g_signal_handlers_disconnect_by_func (
@@ -2380,7 +2380,7 @@ status_icon_stop (MsdXrandrManager *manager)
 }
 
 static void
-start_or_stop_icon (MsdXrandrManager *manager)
+start_or_stop_icon (CsdXrandrManager *manager)
 {
         if (g_settings_get_boolean (manager->priv->settings, CONF_KEY_SHOW_NOTIFICATION_ICON)) {
                 status_icon_start (manager);
@@ -2393,14 +2393,14 @@ start_or_stop_icon (MsdXrandrManager *manager)
 static void
 on_config_changed (GSettings        *settings,
                    gchar            *key,
-                   MsdXrandrManager *manager)
+                   CsdXrandrManager *manager)
 {
         if (g_strcmp0 (key, CONF_KEY_SHOW_NOTIFICATION_ICON) == 0)
                 start_or_stop_icon (manager);
 }
 
 static gboolean
-apply_intended_configuration (MsdXrandrManager *manager, const char *intended_filename, guint32 timestamp)
+apply_intended_configuration (CsdXrandrManager *manager, const char *intended_filename, guint32 timestamp)
 {
         GError *my_error;
         gboolean result;
@@ -2421,9 +2421,9 @@ apply_intended_configuration (MsdXrandrManager *manager, const char *intended_fi
 }
 
 static void
-apply_default_boot_configuration (MsdXrandrManager *mgr, guint32 timestamp)
+apply_default_boot_configuration (CsdXrandrManager *mgr, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = mgr->priv;
+        CsdXrandrManagerPrivate *priv = mgr->priv;
         CafeRRScreen *screen = priv->rw_screen;
         CafeRRConfig *config;
         gboolean turn_on_external, turn_on_laptop;
@@ -2449,7 +2449,7 @@ apply_default_boot_configuration (MsdXrandrManager *mgr, guint32 timestamp)
 }
 
 static gboolean
-apply_stored_configuration_at_startup (MsdXrandrManager *manager, guint32 timestamp)
+apply_stored_configuration_at_startup (CsdXrandrManager *manager, guint32 timestamp)
 {
         GError *my_error;
         gboolean success;
@@ -2505,9 +2505,9 @@ out:
 }
 
 static gboolean
-apply_default_configuration_from_file (MsdXrandrManager *manager, guint32 timestamp)
+apply_default_configuration_from_file (CsdXrandrManager *manager, guint32 timestamp)
 {
-        MsdXrandrManagerPrivate *priv = manager->priv;
+        CsdXrandrManagerPrivate *priv = manager->priv;
         char *default_config_filename;
         gboolean result;
 
@@ -2522,7 +2522,7 @@ apply_default_configuration_from_file (MsdXrandrManager *manager, guint32 timest
 }
 
 gboolean
-csd_xrandr_manager_start (MsdXrandrManager *manager,
+csd_xrandr_manager_start (CsdXrandrManager *manager,
                           GError          **error)
 {
         CdkDisplay      *display;
@@ -2605,7 +2605,7 @@ csd_xrandr_manager_start (MsdXrandrManager *manager,
 }
 
 void
-csd_xrandr_manager_stop (MsdXrandrManager *manager)
+csd_xrandr_manager_stop (CsdXrandrManager *manager)
 {
         CdkDisplay      *display;
 
@@ -2662,7 +2662,7 @@ csd_xrandr_manager_stop (MsdXrandrManager *manager)
 }
 
 static void
-csd_xrandr_manager_class_init (MsdXrandrManagerClass *klass)
+csd_xrandr_manager_class_init (CsdXrandrManagerClass *klass)
 {
         GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -2684,7 +2684,7 @@ get_keycode_for_keysym_name (const char *name)
 }
 
 static void
-csd_xrandr_manager_init (MsdXrandrManager *manager)
+csd_xrandr_manager_init (CsdXrandrManager *manager)
 {
         manager->priv = csd_xrandr_manager_get_instance_private (manager);
 
@@ -2698,7 +2698,7 @@ csd_xrandr_manager_init (MsdXrandrManager *manager)
 static void
 csd_xrandr_manager_finalize (GObject *object)
 {
-        MsdXrandrManager *xrandr_manager;
+        CsdXrandrManager *xrandr_manager;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_XRANDR_MANAGER (object));
@@ -2711,7 +2711,7 @@ csd_xrandr_manager_finalize (GObject *object)
 }
 
 static gboolean
-register_manager_dbus (MsdXrandrManager *manager)
+register_manager_dbus (CsdXrandrManager *manager)
 {
         GError *error = NULL;
 
@@ -2730,7 +2730,7 @@ register_manager_dbus (MsdXrandrManager *manager)
         return TRUE;
 }
 
-MsdXrandrManager *
+CsdXrandrManager *
 csd_xrandr_manager_new (void)
 {
         if (manager_object != NULL) {

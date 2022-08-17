@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_TYPING_BREAK_PLUGIN                (csd_typing_break_plugin_get_type ())
-#define MSD_TYPING_BREAK_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_TYPING_BREAK_PLUGIN, MsdTypingBreakPlugin))
-#define MSD_TYPING_BREAK_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_TYPING_BREAK_PLUGIN, MsdTypingBreakPluginClass))
+#define MSD_TYPING_BREAK_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_TYPING_BREAK_PLUGIN, CsdTypingBreakPlugin))
+#define MSD_TYPING_BREAK_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_TYPING_BREAK_PLUGIN, CsdTypingBreakPluginClass))
 #define MSD_IS_TYPING_BREAK_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_TYPING_BREAK_PLUGIN))
 #define MSD_IS_TYPING_BREAK_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_TYPING_BREAK_PLUGIN))
-#define MSD_TYPING_BREAK_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_TYPING_BREAK_PLUGIN, MsdTypingBreakPluginClass))
+#define MSD_TYPING_BREAK_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_TYPING_BREAK_PLUGIN, CsdTypingBreakPluginClass))
 
-typedef struct MsdTypingBreakPluginPrivate MsdTypingBreakPluginPrivate;
+typedef struct CsdTypingBreakPluginPrivate CsdTypingBreakPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdTypingBreakPluginPrivate *priv;
-} MsdTypingBreakPlugin;
+        CsdTypingBreakPluginPrivate *priv;
+} CsdTypingBreakPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdTypingBreakPluginClass;
+} CsdTypingBreakPluginClass;
 
 GType   csd_typing_break_plugin_get_type            (void) G_GNUC_CONST;
 

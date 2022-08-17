@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_CLIPBOARD_MANAGER         (csd_clipboard_manager_get_type ())
-#define MSD_CLIPBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_MANAGER, MsdClipboardManager))
-#define MSD_CLIPBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_MANAGER, MsdClipboardManagerClass))
+#define MSD_CLIPBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManager))
+#define MSD_CLIPBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManagerClass))
 #define MSD_IS_CLIPBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_CLIPBOARD_MANAGER))
 #define MSD_IS_CLIPBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_CLIPBOARD_MANAGER))
-#define MSD_CLIPBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_CLIPBOARD_MANAGER, MsdClipboardManagerClass))
+#define MSD_CLIPBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_CLIPBOARD_MANAGER, CsdClipboardManagerClass))
 
-typedef struct MsdClipboardManagerPrivate MsdClipboardManagerPrivate;
+typedef struct CsdClipboardManagerPrivate CsdClipboardManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdClipboardManagerPrivate *priv;
-} MsdClipboardManager;
+        CsdClipboardManagerPrivate *priv;
+} CsdClipboardManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdClipboardManagerClass;
+} CsdClipboardManagerClass;
 
 GType                   csd_clipboard_manager_get_type            (void);
 
-MsdClipboardManager *       csd_clipboard_manager_new                 (void);
-gboolean                csd_clipboard_manager_start               (MsdClipboardManager *manager,
+CsdClipboardManager *       csd_clipboard_manager_new                 (void);
+gboolean                csd_clipboard_manager_start               (CsdClipboardManager *manager,
                                                                GError         **error);
-void                    csd_clipboard_manager_stop                (MsdClipboardManager *manager);
+void                    csd_clipboard_manager_stop                (CsdClipboardManager *manager);
 
 #ifdef __cplusplus
 }

@@ -248,7 +248,7 @@
 
   * Change default hinting style to 'hintslight'
   * Use 'rgba' (LCD subpixel) antialiasing by default
-  * CTK+3: add css theming for OSD (MsdOsdWindow) instead of using
+  * CTK+3: add css theming for OSD (CsdOsdWindow) instead of using
     hardcoded colors
   * CTK+3: fix drawing and changing of desktop background with 3.21
   * CTK+3: fix several deprecations

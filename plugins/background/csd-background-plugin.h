@@ -31,25 +31,25 @@
 extern "C" {
 #endif
 
-//class MsdBackgroundPlugin
+//class CsdBackgroundPlugin
 //{
 	#define MSD_TYPE_BACKGROUND_PLUGIN                (csd_background_plugin_get_type())
-	#define MSD_BACKGROUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST((o), MSD_TYPE_BACKGROUND_PLUGIN, MsdBackgroundPlugin))
-	#define MSD_BACKGROUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_BACKGROUND_PLUGIN, MsdBackgroundPluginClass))
+	#define MSD_BACKGROUND_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST((o), MSD_TYPE_BACKGROUND_PLUGIN, CsdBackgroundPlugin))
+	#define MSD_BACKGROUND_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_BACKGROUND_PLUGIN, CsdBackgroundPluginClass))
 	#define MSD_IS_BACKGROUND_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE((o), MSD_TYPE_BACKGROUND_PLUGIN))
 	#define MSD_IS_BACKGROUND_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE((k), MSD_TYPE_BACKGROUND_PLUGIN))
-	#define MSD_BACKGROUND_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS((o), MSD_TYPE_BACKGROUND_PLUGIN, MsdBackgroundPluginClass))
+	#define MSD_BACKGROUND_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS((o), MSD_TYPE_BACKGROUND_PLUGIN, CsdBackgroundPluginClass))
 
-	typedef struct MsdBackgroundPluginPrivate MsdBackgroundPluginPrivate;
+	typedef struct CsdBackgroundPluginPrivate CsdBackgroundPluginPrivate;
 
 	typedef struct {
 		CafeSettingsPlugin          parent;
-		MsdBackgroundPluginPrivate* priv;
-	} MsdBackgroundPlugin;
+		CsdBackgroundPluginPrivate* priv;
+	} CsdBackgroundPlugin;
 
 	typedef struct {
 		CafeSettingsPluginClass parent_class;
-	} MsdBackgroundPluginClass;
+	} CsdBackgroundPluginClass;
 
 	GType
 	csd_background_plugin_get_type (void) G_GNUC_CONST;

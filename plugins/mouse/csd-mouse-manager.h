@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_MOUSE_MANAGER         (csd_mouse_manager_get_type ())
-#define MSD_MOUSE_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_MANAGER, MsdMouseManager))
-#define MSD_MOUSE_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_MANAGER, MsdMouseManagerClass))
+#define MSD_MOUSE_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MOUSE_MANAGER, CsdMouseManager))
+#define MSD_MOUSE_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MOUSE_MANAGER, CsdMouseManagerClass))
 #define MSD_IS_MOUSE_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MOUSE_MANAGER))
 #define MSD_IS_MOUSE_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MOUSE_MANAGER))
-#define MSD_MOUSE_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MOUSE_MANAGER, MsdMouseManagerClass))
+#define MSD_MOUSE_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MOUSE_MANAGER, CsdMouseManagerClass))
 
-typedef struct MsdMouseManagerPrivate MsdMouseManagerPrivate;
+typedef struct CsdMouseManagerPrivate CsdMouseManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdMouseManagerPrivate *priv;
-} MsdMouseManager;
+        CsdMouseManagerPrivate *priv;
+} CsdMouseManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdMouseManagerClass;
+} CsdMouseManagerClass;
 
 GType                   csd_mouse_manager_get_type            (void);
 
-MsdMouseManager *       csd_mouse_manager_new                 (void);
-gboolean                csd_mouse_manager_start               (MsdMouseManager *manager,
+CsdMouseManager *       csd_mouse_manager_new                 (void);
+gboolean                csd_mouse_manager_start               (CsdMouseManager *manager,
                                                                GError         **error);
-void                    csd_mouse_manager_stop                (MsdMouseManager *manager);
+void                    csd_mouse_manager_stop                (CsdMouseManager *manager);
 
 #ifdef __cplusplus
 }

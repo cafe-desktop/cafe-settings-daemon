@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_XRDB_PLUGIN                (csd_xrdb_plugin_get_type ())
-#define MSD_XRDB_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRDB_PLUGIN, MsdXrdbPlugin))
-#define MSD_XRDB_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRDB_PLUGIN, MsdXrdbPluginClass))
+#define MSD_XRDB_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRDB_PLUGIN, CsdXrdbPlugin))
+#define MSD_XRDB_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRDB_PLUGIN, CsdXrdbPluginClass))
 #define MSD_IS_XRDB_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRDB_PLUGIN))
 #define MSD_IS_XRDB_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_XRDB_PLUGIN))
-#define MSD_XRDB_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRDB_PLUGIN, MsdXrdbPluginClass))
+#define MSD_XRDB_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRDB_PLUGIN, CsdXrdbPluginClass))
 
-typedef struct MsdXrdbPluginPrivate MsdXrdbPluginPrivate;
+typedef struct CsdXrdbPluginPrivate CsdXrdbPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin   parent;
-        MsdXrdbPluginPrivate *priv;
-} MsdXrdbPlugin;
+        CsdXrdbPluginPrivate *priv;
+} CsdXrdbPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdXrdbPluginClass;
+} CsdXrdbPluginClass;
 
 GType   csd_xrdb_plugin_get_type            (void) G_GNUC_CONST;
 

@@ -34,24 +34,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_MPRIS_PLUGIN                (csd_mpris_plugin_get_type ())
-#define MSD_MPRIS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_PLUGIN, MsdMprisPlugin))
-#define MSD_MPRIS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_PLUGIN, MsdMprisPluginClass))
+#define MSD_MPRIS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_PLUGIN, CsdMprisPlugin))
+#define MSD_MPRIS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_PLUGIN, CsdMprisPluginClass))
 #define MSD_IS_MPRIS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MPRIS_PLUGIN))
 #define MSD_IS_MPRIS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MPRIS_PLUGIN))
-#define MSD_MPRIS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MPRIS_PLUGIN, MsdMprisPluginClass))
+#define MSD_MPRIS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MPRIS_PLUGIN, CsdMprisPluginClass))
 
-typedef struct MsdMprisPluginPrivate MsdMprisPluginPrivate;
+typedef struct CsdMprisPluginPrivate CsdMprisPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdMprisPluginPrivate *priv;
-} MsdMprisPlugin;
+        CsdMprisPluginPrivate *priv;
+} CsdMprisPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdMprisPluginClass;
+} CsdMprisPluginClass;
 
 GType   csd_mpris_plugin_get_type            (void) G_GNUC_CONST;
 

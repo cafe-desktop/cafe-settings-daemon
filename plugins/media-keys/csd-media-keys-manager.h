@@ -28,42 +28,42 @@
 G_BEGIN_DECLS
 
 #define MSD_TYPE_MEDIA_KEYS_MANAGER         (csd_media_keys_manager_get_type ())
-#define MSD_MEDIA_KEYS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, MsdMediaKeysManager))
-#define MSD_MEDIA_KEYS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_MANAGER, MsdMediaKeysManagerClass))
+#define MSD_MEDIA_KEYS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManager))
+#define MSD_MEDIA_KEYS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManagerClass))
 #define MSD_IS_MEDIA_KEYS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MEDIA_KEYS_MANAGER))
 #define MSD_IS_MEDIA_KEYS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MEDIA_KEYS_MANAGER))
-#define MSD_MEDIA_KEYS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, MsdMediaKeysManagerClass))
+#define MSD_MEDIA_KEYS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MEDIA_KEYS_MANAGER, CsdMediaKeysManagerClass))
 
-typedef struct _MsdMediaKeysManager         MsdMediaKeysManager;
-typedef struct _MsdMediaKeysManagerClass    MsdMediaKeysManagerClass;
-typedef struct _MsdMediaKeysManagerPrivate  MsdMediaKeysManagerPrivate;
+typedef struct _CsdMediaKeysManager         CsdMediaKeysManager;
+typedef struct _CsdMediaKeysManagerClass    CsdMediaKeysManagerClass;
+typedef struct _CsdMediaKeysManagerPrivate  CsdMediaKeysManagerPrivate;
 
-struct _MsdMediaKeysManager
+struct _CsdMediaKeysManager
 {
         GObject                     parent;
-        MsdMediaKeysManagerPrivate *priv;
+        CsdMediaKeysManagerPrivate *priv;
 };
 
-struct _MsdMediaKeysManagerClass
+struct _CsdMediaKeysManagerClass
 {
         GObjectClass   parent_class;
-        void          (* media_player_key_pressed) (MsdMediaKeysManager *manager,
+        void          (* media_player_key_pressed) (CsdMediaKeysManager *manager,
                                                     const char          *application,
                                                     const char          *key);
 };
 
 GType                 csd_media_keys_manager_get_type                  (void);
 
-MsdMediaKeysManager * csd_media_keys_manager_new                       (void);
-gboolean              csd_media_keys_manager_start                     (MsdMediaKeysManager *manager,
+CsdMediaKeysManager * csd_media_keys_manager_new                       (void);
+gboolean              csd_media_keys_manager_start                     (CsdMediaKeysManager *manager,
                                                                         GError             **error);
-void                  csd_media_keys_manager_stop                      (MsdMediaKeysManager *manager);
+void                  csd_media_keys_manager_stop                      (CsdMediaKeysManager *manager);
 
-gboolean              csd_media_keys_manager_grab_media_player_keys    (MsdMediaKeysManager *manager,
+gboolean              csd_media_keys_manager_grab_media_player_keys    (CsdMediaKeysManager *manager,
                                                                         const char          *application,
                                                                         guint32              time,
                                                                         GError             **error);
-gboolean              csd_media_keys_manager_release_media_player_keys (MsdMediaKeysManager *manager,
+gboolean              csd_media_keys_manager_release_media_player_keys (CsdMediaKeysManager *manager,
                                                                         const char          *application,
                                                                         GError             **error);
 

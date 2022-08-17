@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_XRANDR_PLUGIN                (csd_xrandr_plugin_get_type ())
-#define MSD_XRANDR_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRANDR_PLUGIN, MsdXrandrPlugin))
-#define MSD_XRANDR_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRANDR_PLUGIN, MsdXrandrPluginClass))
+#define MSD_XRANDR_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRANDR_PLUGIN, CsdXrandrPlugin))
+#define MSD_XRANDR_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRANDR_PLUGIN, CsdXrandrPluginClass))
 #define MSD_IS_XRANDR_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRANDR_PLUGIN))
 #define MSD_IS_XRANDR_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_XRANDR_PLUGIN))
-#define MSD_XRANDR_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRANDR_PLUGIN, MsdXrandrPluginClass))
+#define MSD_XRANDR_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRANDR_PLUGIN, CsdXrandrPluginClass))
 
-typedef struct MsdXrandrPluginPrivate MsdXrandrPluginPrivate;
+typedef struct CsdXrandrPluginPrivate CsdXrandrPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdXrandrPluginPrivate *priv;
-} MsdXrandrPlugin;
+        CsdXrandrPluginPrivate *priv;
+} CsdXrandrPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdXrandrPluginClass;
+} CsdXrandrPluginClass;
 
 GType   csd_xrandr_plugin_get_type            (void) G_GNUC_CONST;
 

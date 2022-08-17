@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_KEYBOARD_PLUGIN                (csd_keyboard_plugin_get_type ())
-#define MSD_KEYBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBOARD_PLUGIN, MsdKeyboardPlugin))
-#define MSD_KEYBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBOARD_PLUGIN, MsdKeyboardPluginClass))
+#define MSD_KEYBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBOARD_PLUGIN, CsdKeyboardPlugin))
+#define MSD_KEYBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBOARD_PLUGIN, CsdKeyboardPluginClass))
 #define MSD_IS_KEYBOARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBOARD_PLUGIN))
 #define MSD_IS_KEYBOARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_KEYBOARD_PLUGIN))
-#define MSD_KEYBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBOARD_PLUGIN, MsdKeyboardPluginClass))
+#define MSD_KEYBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBOARD_PLUGIN, CsdKeyboardPluginClass))
 
-typedef struct MsdKeyboardPluginPrivate MsdKeyboardPluginPrivate;
+typedef struct CsdKeyboardPluginPrivate CsdKeyboardPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdKeyboardPluginPrivate *priv;
-} MsdKeyboardPlugin;
+        CsdKeyboardPluginPrivate *priv;
+} CsdKeyboardPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdKeyboardPluginClass;
+} CsdKeyboardPluginClass;
 
 GType   csd_keyboard_plugin_get_type            (void) G_GNUC_CONST;
 

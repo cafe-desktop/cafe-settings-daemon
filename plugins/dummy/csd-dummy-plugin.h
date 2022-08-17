@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_DUMMY_PLUGIN                (csd_dummy_plugin_get_type ())
-#define MSD_DUMMY_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_DUMMY_PLUGIN, MsdDummyPlugin))
-#define MSD_DUMMY_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_DUMMY_PLUGIN, MsdDummyPluginClass))
+#define MSD_DUMMY_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_DUMMY_PLUGIN, CsdDummyPlugin))
+#define MSD_DUMMY_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_DUMMY_PLUGIN, CsdDummyPluginClass))
 #define MSD_IS_DUMMY_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_DUMMY_PLUGIN))
 #define MSD_IS_DUMMY_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_DUMMY_PLUGIN))
-#define MSD_DUMMY_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_DUMMY_PLUGIN, MsdDummyPluginClass))
+#define MSD_DUMMY_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_DUMMY_PLUGIN, CsdDummyPluginClass))
 
-typedef struct MsdDummyPluginPrivate MsdDummyPluginPrivate;
+typedef struct CsdDummyPluginPrivate CsdDummyPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdDummyPluginPrivate *priv;
-} MsdDummyPlugin;
+        CsdDummyPluginPrivate *priv;
+} CsdDummyPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdDummyPluginClass;
+} CsdDummyPluginClass;
 
 GType   csd_dummy_plugin_get_type            (void) G_GNUC_CONST;
 

@@ -29,7 +29,7 @@
 
 #include "csd-media-keys-manager.h"
 
-static MsdMediaKeysManager *manager = NULL;
+static CsdMediaKeysManager *manager = NULL;
 
 int
 main (int    argc,

@@ -27,18 +27,18 @@
 #include "csd-a11y-keyboard-plugin.h"
 #include "csd-a11y-keyboard-manager.h"
 
-struct MsdA11yKeyboardPluginPrivate {
-        MsdA11yKeyboardManager *manager;
+struct CsdA11yKeyboardPluginPrivate {
+        CsdA11yKeyboardManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdA11yKeyboardPlugin, csd_a11y_keyboard_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdA11yKeyboardPlugin, csd_a11y_keyboard_plugin)
 
 static void
-csd_a11y_keyboard_plugin_init (MsdA11yKeyboardPlugin *plugin)
+csd_a11y_keyboard_plugin_init (CsdA11yKeyboardPlugin *plugin)
 {
         plugin->priv = csd_a11y_keyboard_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdA11yKeyboardPlugin initializing");
+        g_debug ("CsdA11yKeyboardPlugin initializing");
 
         plugin->priv->manager = csd_a11y_keyboard_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_a11y_keyboard_plugin_init (MsdA11yKeyboardPlugin *plugin)
 static void
 csd_a11y_keyboard_plugin_finalize (GObject *object)
 {
-        MsdA11yKeyboardPlugin *plugin;
+        CsdA11yKeyboardPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_A11Y_KEYBOARD_PLUGIN (object));
 
-        g_debug ("MsdA11yKeyboardPlugin finalizing");
+        g_debug ("CsdA11yKeyboardPlugin finalizing");
 
         plugin = MSD_A11Y_KEYBOARD_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_a11y_keyboard_plugin_class_init (MsdA11yKeyboardPluginClass *klass)
+csd_a11y_keyboard_plugin_class_init (CsdA11yKeyboardPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,6 +100,6 @@ csd_a11y_keyboard_plugin_class_init (MsdA11yKeyboardPluginClass *klass)
 }
 
 static void
-csd_a11y_keyboard_plugin_class_finalize (MsdA11yKeyboardPluginClass *klass)
+csd_a11y_keyboard_plugin_class_finalize (CsdA11yKeyboardPluginClass *klass)
 {
 }

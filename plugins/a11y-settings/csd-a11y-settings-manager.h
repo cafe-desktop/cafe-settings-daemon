@@ -26,31 +26,31 @@
 G_BEGIN_DECLS
 
 #define MSD_TYPE_A11Y_SETTINGS_MANAGER         (csd_a11y_settings_manager_get_type ())
-#define MSD_A11Y_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER, MsdA11ySettingsManager))
-#define MSD_A11Y_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_SETTINGS_MANAGER, MsdA11ySettingsManagerClass))
+#define MSD_A11Y_SETTINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER, CsdA11ySettingsManager))
+#define MSD_A11Y_SETTINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_SETTINGS_MANAGER, CsdA11ySettingsManagerClass))
 #define MSD_IS_A11Y_SETTINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER))
 #define MSD_IS_A11Y_SETTINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_A11Y_SETTINGS_MANAGER))
-#define MSD_A11Y_SETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER, MsdA11ySettingsManagerClass))
+#define MSD_A11Y_SETTINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_SETTINGS_MANAGER, CsdA11ySettingsManagerClass))
 
-typedef struct MsdA11ySettingsManagerPrivate MsdA11ySettingsManagerPrivate;
+typedef struct CsdA11ySettingsManagerPrivate CsdA11ySettingsManagerPrivate;
 
 typedef struct
 {
         GObject                        parent;
-        MsdA11ySettingsManagerPrivate *priv;
-} MsdA11ySettingsManager;
+        CsdA11ySettingsManagerPrivate *priv;
+} CsdA11ySettingsManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdA11ySettingsManagerClass;
+} CsdA11ySettingsManagerClass;
 
 GType                   csd_a11y_settings_manager_get_type            (void);
 
-MsdA11ySettingsManager *csd_a11y_settings_manager_new                 (void);
-gboolean                csd_a11y_settings_manager_start               (MsdA11ySettingsManager *manager,
+CsdA11ySettingsManager *csd_a11y_settings_manager_new                 (void);
+gboolean                csd_a11y_settings_manager_start               (CsdA11ySettingsManager *manager,
                                                                        GError         **error);
-void                    csd_a11y_settings_manager_stop                (MsdA11ySettingsManager *manager);
+void                    csd_a11y_settings_manager_stop                (CsdA11ySettingsManager *manager);
 
 G_END_DECLS
 

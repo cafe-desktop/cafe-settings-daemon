@@ -28,11 +28,11 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_LDSM_DIALOG             (csd_ldsm_dialog_get_type ())
-#define MSD_LDSM_DIALOG(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_LDSM_DIALOG, MsdLdsmDialog))
-#define MSD_LDSM_DIALOG_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_LDSM_DIALOG, MsdLdsmDialogClass))
+#define MSD_LDSM_DIALOG(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_LDSM_DIALOG, CsdLdsmDialog))
+#define MSD_LDSM_DIALOG_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_LDSM_DIALOG, CsdLdsmDialogClass))
 #define MSD_IS_LDSM_DIALOG(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_LDSM_DIALOG))
 #define MSD_IS_LDSM_DIALOG_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), MSD_TYPE_LDSM_DIALOG))
-#define MSD_LDSM_DIALOG_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), MSD_TYPE_LDSM_DIALOG, MsdLdsmDialogClass))
+#define MSD_LDSM_DIALOG_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), MSD_TYPE_LDSM_DIALOG, CsdLdsmDialogClass))
 
 enum
 {
@@ -40,24 +40,24 @@ enum
         MSD_LDSM_DIALOG_RESPONSE_ANALYZE = -21
 };
 
-typedef struct MsdLdsmDialogPrivate MsdLdsmDialogPrivate;
-typedef struct _MsdLdsmDialogClass MsdLdsmDialogClass;
-typedef struct _MsdLdsmDialog MsdLdsmDialog;
+typedef struct CsdLdsmDialogPrivate CsdLdsmDialogPrivate;
+typedef struct _CsdLdsmDialogClass CsdLdsmDialogClass;
+typedef struct _CsdLdsmDialog CsdLdsmDialog;
 
-struct _MsdLdsmDialogClass
+struct _CsdLdsmDialogClass
 {
         CtkDialogClass parent_class;
 };
 
-struct _MsdLdsmDialog
+struct _CsdLdsmDialog
 {
         CtkDialog parent_instance;
-        MsdLdsmDialogPrivate *priv;
+        CsdLdsmDialogPrivate *priv;
 };
 
 GType csd_ldsm_dialog_get_type (void) G_GNUC_CONST;
 
-MsdLdsmDialog * csd_ldsm_dialog_new (gboolean other_usable_partitions,
+CsdLdsmDialog * csd_ldsm_dialog_new (gboolean other_usable_partitions,
                                      gboolean other_partitions,
                                      gboolean display_baobab,
                                      gboolean display_empty_trash,

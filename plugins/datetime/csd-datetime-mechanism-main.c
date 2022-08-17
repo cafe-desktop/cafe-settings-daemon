@@ -123,7 +123,7 @@ int
 main (int argc, char **argv)
 {
         GMainLoop             *loop;
-        MsdDatetimeMechanism  *mechanism;
+        CsdDatetimeMechanism  *mechanism;
         DBusGProxy            *bus_proxy;
         DBusGConnection       *connection;
         int                    ret;

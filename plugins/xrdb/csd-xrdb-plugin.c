@@ -27,18 +27,18 @@
 #include "csd-xrdb-plugin.h"
 #include "csd-xrdb-manager.h"
 
-struct MsdXrdbPluginPrivate {
-        MsdXrdbManager *manager;
+struct CsdXrdbPluginPrivate {
+        CsdXrdbManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdXrdbPlugin, csd_xrdb_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdXrdbPlugin, csd_xrdb_plugin)
 
 static void
-csd_xrdb_plugin_init (MsdXrdbPlugin *plugin)
+csd_xrdb_plugin_init (CsdXrdbPlugin *plugin)
 {
         plugin->priv = csd_xrdb_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdXrdbPlugin initializing");
+        g_debug ("CsdXrdbPlugin initializing");
 
         plugin->priv->manager = csd_xrdb_manager_new ();
 }
@@ -46,12 +46,12 @@ csd_xrdb_plugin_init (MsdXrdbPlugin *plugin)
 static void
 csd_xrdb_plugin_finalize (GObject *object)
 {
-        MsdXrdbPlugin *plugin;
+        CsdXrdbPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_XRDB_PLUGIN (object));
 
-        g_debug ("MsdXrdbPlugin finalizing");
+        g_debug ("CsdXrdbPlugin finalizing");
 
         plugin = MSD_XRDB_PLUGIN (object);
 
@@ -88,7 +88,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_xrdb_plugin_class_init (MsdXrdbPluginClass *klass)
+csd_xrdb_plugin_class_init (CsdXrdbPluginClass *klass)
 {
         GObjectClass             *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -100,7 +100,7 @@ csd_xrdb_plugin_class_init (MsdXrdbPluginClass *klass)
 }
 
 static void
-csd_xrdb_plugin_class_finalize (MsdXrdbPluginClass *klass)
+csd_xrdb_plugin_class_finalize (CsdXrdbPluginClass *klass)
 {
 }
 

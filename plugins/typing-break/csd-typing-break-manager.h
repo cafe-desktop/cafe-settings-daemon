@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_TYPING_BREAK_MANAGER         (csd_typing_break_manager_get_type ())
-#define MSD_TYPING_BREAK_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_TYPING_BREAK_MANAGER, MsdTypingBreakManager))
-#define MSD_TYPING_BREAK_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_TYPING_BREAK_MANAGER, MsdTypingBreakManagerClass))
+#define MSD_TYPING_BREAK_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_TYPING_BREAK_MANAGER, CsdTypingBreakManager))
+#define MSD_TYPING_BREAK_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_TYPING_BREAK_MANAGER, CsdTypingBreakManagerClass))
 #define MSD_IS_TYPING_BREAK_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_TYPING_BREAK_MANAGER))
 #define MSD_IS_TYPING_BREAK_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_TYPING_BREAK_MANAGER))
-#define MSD_TYPING_BREAK_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_TYPING_BREAK_MANAGER, MsdTypingBreakManagerClass))
+#define MSD_TYPING_BREAK_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_TYPING_BREAK_MANAGER, CsdTypingBreakManagerClass))
 
-typedef struct MsdTypingBreakManagerPrivate MsdTypingBreakManagerPrivate;
+typedef struct CsdTypingBreakManagerPrivate CsdTypingBreakManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdTypingBreakManagerPrivate *priv;
-} MsdTypingBreakManager;
+        CsdTypingBreakManagerPrivate *priv;
+} CsdTypingBreakManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdTypingBreakManagerClass;
+} CsdTypingBreakManagerClass;
 
 GType                   csd_typing_break_manager_get_type            (void);
 
-MsdTypingBreakManager * csd_typing_break_manager_new                 (void);
-gboolean                csd_typing_break_manager_start               (MsdTypingBreakManager *manager,
+CsdTypingBreakManager * csd_typing_break_manager_new                 (void);
+gboolean                csd_typing_break_manager_start               (CsdTypingBreakManager *manager,
                                                                       GError               **error);
-void                    csd_typing_break_manager_stop                (MsdTypingBreakManager *manager);
+void                    csd_typing_break_manager_stop                (CsdTypingBreakManager *manager);
 
 #ifdef __cplusplus
 }

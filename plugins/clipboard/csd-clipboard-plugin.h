@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_CLIPBOARD_PLUGIN                (csd_clipboard_plugin_get_type ())
-#define MSD_CLIPBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_PLUGIN, MsdClipboardPlugin))
-#define MSD_CLIPBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_PLUGIN, MsdClipboardPluginClass))
+#define MSD_CLIPBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPlugin))
+#define MSD_CLIPBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPluginClass))
 #define MSD_IS_CLIPBOARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_CLIPBOARD_PLUGIN))
 #define MSD_IS_CLIPBOARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_CLIPBOARD_PLUGIN))
-#define MSD_CLIPBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_CLIPBOARD_PLUGIN, MsdClipboardPluginClass))
+#define MSD_CLIPBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPluginClass))
 
-typedef struct MsdClipboardPluginPrivate MsdClipboardPluginPrivate;
+typedef struct CsdClipboardPluginPrivate CsdClipboardPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdClipboardPluginPrivate *priv;
-} MsdClipboardPlugin;
+        CsdClipboardPluginPrivate *priv;
+} CsdClipboardPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdClipboardPluginClass;
+} CsdClipboardPluginClass;
 
 GType   csd_clipboard_plugin_get_type            (void) G_GNUC_CONST;
 

@@ -28,31 +28,31 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_XRDB_MANAGER         (csd_xrdb_manager_get_type ())
-#define MSD_XRDB_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRDB_MANAGER, MsdXrdbManager))
-#define MSD_XRDB_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRDB_MANAGER, MsdXrdbManagerClass))
+#define MSD_XRDB_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_XRDB_MANAGER, CsdXrdbManager))
+#define MSD_XRDB_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_XRDB_MANAGER, CsdXrdbManagerClass))
 #define MSD_IS_XRDB_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_XRDB_MANAGER))
 #define MSD_IS_XRDB_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_XRDB_MANAGER))
-#define MSD_XRDB_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRDB_MANAGER, MsdXrdbManagerClass))
+#define MSD_XRDB_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_XRDB_MANAGER, CsdXrdbManagerClass))
 
-typedef struct MsdXrdbManagerPrivate MsdXrdbManagerPrivate;
+typedef struct CsdXrdbManagerPrivate CsdXrdbManagerPrivate;
 
 typedef struct
 {
         GObject                     parent;
-        MsdXrdbManagerPrivate *priv;
-} MsdXrdbManager;
+        CsdXrdbManagerPrivate *priv;
+} CsdXrdbManager;
 
 typedef struct
 {
         GObjectClass   parent_class;
-} MsdXrdbManagerClass;
+} CsdXrdbManagerClass;
 
 GType                   csd_xrdb_manager_get_type            (void);
 
-MsdXrdbManager *        csd_xrdb_manager_new                 (void);
-gboolean                csd_xrdb_manager_start               (MsdXrdbManager *manager,
+CsdXrdbManager *        csd_xrdb_manager_new                 (void);
+gboolean                csd_xrdb_manager_start               (CsdXrdbManager *manager,
                                                               GError        **error);
-void                    csd_xrdb_manager_stop                (MsdXrdbManager *manager);
+void                    csd_xrdb_manager_stop                (CsdXrdbManager *manager);
 
 #ifdef __cplusplus
 }

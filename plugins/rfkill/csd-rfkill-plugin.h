@@ -31,23 +31,23 @@
 G_BEGIN_DECLS
 
 #define MSD_TYPE_RFKILL_PLUGIN                (csd_rfkill_plugin_get_type ())
-#define MSD_RFKILL_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_RFKILL_PLUGIN, MsdRfkillPlugin))
-#define MSD_RFKILL_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_RFKILL_PLUGIN, MsdRfkillPluginClass))
+#define MSD_RFKILL_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_RFKILL_PLUGIN, CsdRfkillPlugin))
+#define MSD_RFKILL_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_RFKILL_PLUGIN, CsdRfkillPluginClass))
 #define MSD_IS_RFKILL_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_RFKILL_PLUGIN))
 #define MSD_IS_RFKILL_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_RFKILL_PLUGIN))
-#define MSD_RFKILL_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_RFKILL_PLUGIN, MsdRfkillPluginClass))
+#define MSD_RFKILL_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_RFKILL_PLUGIN, CsdRfkillPluginClass))
 
-typedef struct _MsdRfkillPlugin         MsdRfkillPlugin;
-typedef struct _MsdRfkillPluginClass    MsdRfkillPluginClass;
-typedef struct _MsdRfkillPluginPrivate  MsdRfkillPluginPrivate;
+typedef struct _CsdRfkillPlugin         CsdRfkillPlugin;
+typedef struct _CsdRfkillPluginClass    CsdRfkillPluginClass;
+typedef struct _CsdRfkillPluginPrivate  CsdRfkillPluginPrivate;
 
-struct _MsdRfkillPlugin
+struct _CsdRfkillPlugin
 {
         CafeSettingsPlugin          parent;
-        MsdRfkillPluginPrivate  *priv;
+        CsdRfkillPluginPrivate  *priv;
 };
 
-struct _MsdRfkillPluginClass
+struct _CsdRfkillPluginClass
 {
         CafeSettingsPluginClass     parent_class;
 };

@@ -31,23 +31,23 @@
 G_BEGIN_DECLS
 
 #define MSD_TYPE_MEDIA_KEYS_PLUGIN                (csd_media_keys_plugin_get_type ())
-#define MSD_MEDIA_KEYS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, MsdMediaKeysPlugin))
-#define MSD_MEDIA_KEYS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_PLUGIN, MsdMediaKeysPluginClass))
+#define MSD_MEDIA_KEYS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPlugin))
+#define MSD_MEDIA_KEYS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPluginClass))
 #define MSD_IS_MEDIA_KEYS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN))
 #define MSD_IS_MEDIA_KEYS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MEDIA_KEYS_PLUGIN))
-#define MSD_MEDIA_KEYS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, MsdMediaKeysPluginClass))
+#define MSD_MEDIA_KEYS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MEDIA_KEYS_PLUGIN, CsdMediaKeysPluginClass))
 
-typedef struct _MsdMediaKeysPlugin         MsdMediaKeysPlugin;
-typedef struct _MsdMediaKeysPluginClass    MsdMediaKeysPluginClass;
-typedef struct _MsdMediaKeysPluginPrivate  MsdMediaKeysPluginPrivate;
+typedef struct _CsdMediaKeysPlugin         CsdMediaKeysPlugin;
+typedef struct _CsdMediaKeysPluginClass    CsdMediaKeysPluginClass;
+typedef struct _CsdMediaKeysPluginPrivate  CsdMediaKeysPluginPrivate;
 
-struct _MsdMediaKeysPlugin
+struct _CsdMediaKeysPlugin
 {
         CafeSettingsPlugin          parent;
-        MsdMediaKeysPluginPrivate  *priv;
+        CsdMediaKeysPluginPrivate  *priv;
 };
 
-struct _MsdMediaKeysPluginClass
+struct _CsdMediaKeysPluginClass
 {
         CafeSettingsPluginClass     parent_class;
 };

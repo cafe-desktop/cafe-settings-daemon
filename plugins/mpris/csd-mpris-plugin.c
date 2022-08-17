@@ -29,18 +29,18 @@
 #include "csd-mpris-plugin.h"
 #include "csd-mpris-manager.h"
 
-struct MsdMprisPluginPrivate {
-        MsdMprisManager *manager;
+struct CsdMprisPluginPrivate {
+        CsdMprisManager *manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdMprisPlugin, csd_mpris_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdMprisPlugin, csd_mpris_plugin)
 
 static void
-csd_mpris_plugin_init (MsdMprisPlugin *plugin)
+csd_mpris_plugin_init (CsdMprisPlugin *plugin)
 {
         plugin->priv = csd_mpris_plugin_get_instance_private (plugin);
 
-        g_debug ("MsdMprisPlugin initializing");
+        g_debug ("CsdMprisPlugin initializing");
 
         plugin->priv->manager = csd_mpris_manager_new ();
 }
@@ -48,12 +48,12 @@ csd_mpris_plugin_init (MsdMprisPlugin *plugin)
 static void
 csd_mpris_plugin_finalize (GObject *object)
 {
-        MsdMprisPlugin *plugin;
+        CsdMprisPlugin *plugin;
 
         g_return_if_fail (object != NULL);
         g_return_if_fail (MSD_IS_MPRIS_PLUGIN (object));
 
-        g_debug ("MsdMprisPlugin finalizing");
+        g_debug ("CsdMprisPlugin finalizing");
 
         plugin = MSD_MPRIS_PLUGIN (object);
 
@@ -90,7 +90,7 @@ impl_deactivate (CafeSettingsPlugin *plugin)
 }
 
 static void
-csd_mpris_plugin_class_init (MsdMprisPluginClass *klass)
+csd_mpris_plugin_class_init (CsdMprisPluginClass *klass)
 {
         GObjectClass           *object_class = G_OBJECT_CLASS (klass);
         CafeSettingsPluginClass *plugin_class = CAFE_SETTINGS_PLUGIN_CLASS (klass);
@@ -102,6 +102,6 @@ csd_mpris_plugin_class_init (MsdMprisPluginClass *klass)
 }
 
 static void
-csd_mpris_plugin_class_finalize (MsdMprisPluginClass *klass)
+csd_mpris_plugin_class_finalize (CsdMprisPluginClass *klass)
 {
 }

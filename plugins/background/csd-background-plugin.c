@@ -27,18 +27,18 @@
 #include "csd-background-plugin.h"
 #include "csd-background-manager.h"
 
-struct MsdBackgroundPluginPrivate {
-	MsdBackgroundManager* manager;
+struct CsdBackgroundPluginPrivate {
+	CsdBackgroundManager* manager;
 };
 
-CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (MsdBackgroundPlugin, csd_background_plugin)
+CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdBackgroundPlugin, csd_background_plugin)
 
 static void
-csd_background_plugin_init (MsdBackgroundPlugin* plugin)
+csd_background_plugin_init (CsdBackgroundPlugin* plugin)
 {
 	plugin->priv = csd_background_plugin_get_instance_private (plugin);
 
-	g_debug("MsdBackgroundPlugin initializing");
+	g_debug("CsdBackgroundPlugin initializing");
 
 	plugin->priv->manager = csd_background_manager_new();
 }
@@ -46,12 +46,12 @@ csd_background_plugin_init (MsdBackgroundPlugin* plugin)
 static void
 csd_background_plugin_finalize (GObject* object)
 {
-	MsdBackgroundPlugin* plugin;
+	CsdBackgroundPlugin* plugin;
 
 	g_return_if_fail(object != NULL);
 	g_return_if_fail(MSD_IS_BACKGROUND_PLUGIN(object));
 
-	g_debug("MsdBackgroundPlugin finalizing");
+	g_debug("CsdBackgroundPlugin finalizing");
 
 	plugin = MSD_BACKGROUND_PLUGIN(object);
 
@@ -92,7 +92,7 @@ impl_deactivate (CafeSettingsPlugin* plugin)
 }
 
 static void
-csd_background_plugin_class_init (MsdBackgroundPluginClass* klass)
+csd_background_plugin_class_init (CsdBackgroundPluginClass* klass)
 {
 	GObjectClass* object_class = G_OBJECT_CLASS(klass);
 	CafeSettingsPluginClass* plugin_class = CAFE_SETTINGS_PLUGIN_CLASS(klass);
@@ -104,7 +104,7 @@ csd_background_plugin_class_init (MsdBackgroundPluginClass* klass)
 }
 
 static void
-csd_background_plugin_class_finalize (MsdBackgroundPluginClass *klass)
+csd_background_plugin_class_finalize (CsdBackgroundPluginClass *klass)
 {
 }
 

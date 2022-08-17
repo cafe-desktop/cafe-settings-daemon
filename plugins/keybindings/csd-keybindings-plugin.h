@@ -32,24 +32,24 @@ extern "C" {
 #endif
 
 #define MSD_TYPE_KEYBINDINGS_PLUGIN                (csd_keybindings_plugin_get_type ())
-#define MSD_KEYBINDINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBINDINGS_PLUGIN, MsdKeybindingsPlugin))
-#define MSD_KEYBINDINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBINDINGS_PLUGIN, MsdKeybindingsPluginClass))
+#define MSD_KEYBINDINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBINDINGS_PLUGIN, CsdKeybindingsPlugin))
+#define MSD_KEYBINDINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBINDINGS_PLUGIN, CsdKeybindingsPluginClass))
 #define MSD_IS_KEYBINDINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBINDINGS_PLUGIN))
 #define MSD_IS_KEYBINDINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_KEYBINDINGS_PLUGIN))
-#define MSD_KEYBINDINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBINDINGS_PLUGIN, MsdKeybindingsPluginClass))
+#define MSD_KEYBINDINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBINDINGS_PLUGIN, CsdKeybindingsPluginClass))
 
-typedef struct MsdKeybindingsPluginPrivate MsdKeybindingsPluginPrivate;
+typedef struct CsdKeybindingsPluginPrivate CsdKeybindingsPluginPrivate;
 
 typedef struct
 {
         CafeSettingsPlugin    parent;
-        MsdKeybindingsPluginPrivate *priv;
-} MsdKeybindingsPlugin;
+        CsdKeybindingsPluginPrivate *priv;
+} CsdKeybindingsPlugin;
 
 typedef struct
 {
         CafeSettingsPluginClass parent_class;
-} MsdKeybindingsPluginClass;
+} CsdKeybindingsPluginClass;
 
 GType   csd_keybindings_plugin_get_type            (void) G_GNUC_CONST;
 
