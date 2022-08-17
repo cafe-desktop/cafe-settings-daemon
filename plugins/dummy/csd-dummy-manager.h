@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_DUMMY_MANAGER_H
-#define __MSD_DUMMY_MANAGER_H
+#ifndef __CSD_DUMMY_MANAGER_H
+#define __CSD_DUMMY_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_DUMMY_MANAGER         (csd_dummy_manager_get_type ())
-#define MSD_DUMMY_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_DUMMY_MANAGER, CsdDummyManager))
-#define MSD_DUMMY_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_DUMMY_MANAGER, CsdDummyManagerClass))
-#define MSD_IS_DUMMY_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_DUMMY_MANAGER))
-#define MSD_IS_DUMMY_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_DUMMY_MANAGER))
-#define MSD_DUMMY_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_DUMMY_MANAGER, CsdDummyManagerClass))
+#define CSD_TYPE_DUMMY_MANAGER         (csd_dummy_manager_get_type ())
+#define CSD_DUMMY_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_DUMMY_MANAGER, CsdDummyManager))
+#define CSD_DUMMY_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_DUMMY_MANAGER, CsdDummyManagerClass))
+#define CSD_IS_DUMMY_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_DUMMY_MANAGER))
+#define CSD_IS_DUMMY_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_DUMMY_MANAGER))
+#define CSD_DUMMY_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_DUMMY_MANAGER, CsdDummyManagerClass))
 
 typedef struct CsdDummyManagerPrivate CsdDummyManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_dummy_manager_stop                (CsdDummyManager *
 }
 #endif
 
-#endif /* __MSD_DUMMY_MANAGER_H */
+#endif /* __CSD_DUMMY_MANAGER_H */

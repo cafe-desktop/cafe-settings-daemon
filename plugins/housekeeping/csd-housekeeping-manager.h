@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_HOUSEKEEPING_MANAGER_H
-#define __MSD_HOUSEKEEPING_MANAGER_H
+#ifndef __CSD_HOUSEKEEPING_MANAGER_H
+#define __CSD_HOUSEKEEPING_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_HOUSEKEEPING_MANAGER         (csd_housekeeping_manager_get_type ())
-#define MSD_HOUSEKEEPING_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManager))
-#define MSD_HOUSEKEEPING_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManagerClass))
-#define MSD_IS_HOUSEKEEPING_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_HOUSEKEEPING_MANAGER))
-#define MSD_IS_HOUSEKEEPING_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_HOUSEKEEPING_MANAGER))
-#define MSD_HOUSEKEEPING_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManagerClass))
+#define CSD_TYPE_HOUSEKEEPING_MANAGER         (csd_housekeeping_manager_get_type ())
+#define CSD_HOUSEKEEPING_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManager))
+#define CSD_HOUSEKEEPING_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManagerClass))
+#define CSD_IS_HOUSEKEEPING_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_HOUSEKEEPING_MANAGER))
+#define CSD_IS_HOUSEKEEPING_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_HOUSEKEEPING_MANAGER))
+#define CSD_HOUSEKEEPING_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_HOUSEKEEPING_MANAGER, CsdHousekeepingManagerClass))
 
 typedef struct CsdHousekeepingManagerPrivate CsdHousekeepingManagerPrivate;
 
@@ -56,4 +56,4 @@ void                     csd_housekeeping_manager_stop          (CsdHousekeeping
 }
 #endif
 
-#endif /* __MSD_HOUSEKEEPING_MANAGER_H */
+#endif /* __CSD_HOUSEKEEPING_MANAGER_H */

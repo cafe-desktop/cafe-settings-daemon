@@ -38,7 +38,7 @@
 #include "cafe-settings-manager-glue.h"
 #include "cafe-settings-profile.h"
 
-#define MSD_MANAGER_DBUS_PATH "/org/cafe/SettingsDaemon"
+#define CSD_MANAGER_DBUS_PATH "/org/cafe/SettingsDaemon"
 
 #define DEFAULT_SETTINGS_PREFIX "org.cafe.SettingsDaemon"
 
@@ -338,7 +338,7 @@ register_manager (CafeSettingsManager *manager)
                 return FALSE;
         }
 
-        dbus_g_connection_register_g_object (manager->priv->connection, MSD_MANAGER_DBUS_PATH, G_OBJECT (manager));
+        dbus_g_connection_register_g_object (manager->priv->connection, CSD_MANAGER_DBUS_PATH, G_OBJECT (manager));
 
         return TRUE;
 }

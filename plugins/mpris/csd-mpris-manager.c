@@ -364,9 +364,9 @@ csd_mpris_manager_finalize (GObject *object)
     CsdMprisManager *mpris_manager;
 
     g_return_if_fail (object != NULL);
-    g_return_if_fail (MSD_IS_MPRIS_MANAGER (object));
+    g_return_if_fail (CSD_IS_MPRIS_MANAGER (object));
 
-    mpris_manager = MSD_MPRIS_MANAGER (object);
+    mpris_manager = CSD_MPRIS_MANAGER (object);
 
     g_return_if_fail (mpris_manager->priv != NULL);
 
@@ -379,10 +379,10 @@ csd_mpris_manager_new (void)
     if (manager_object != NULL) {
         g_object_ref (manager_object);
     } else {
-        manager_object = g_object_new (MSD_TYPE_MPRIS_MANAGER, NULL);
+        manager_object = g_object_new (CSD_TYPE_MPRIS_MANAGER, NULL);
         g_object_add_weak_pointer (manager_object,
                                    (gpointer *) &manager_object);
     }
 
-    return MSD_MPRIS_MANAGER (manager_object);
+    return CSD_MPRIS_MANAGER (manager_object);
 }

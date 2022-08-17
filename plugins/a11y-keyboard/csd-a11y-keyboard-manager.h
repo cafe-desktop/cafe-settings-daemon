@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_A11Y_KEYBOARD_MANAGER_H
-#define __MSD_A11Y_KEYBOARD_MANAGER_H
+#ifndef __CSD_A11Y_KEYBOARD_MANAGER_H
+#define __CSD_A11Y_KEYBOARD_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_A11Y_KEYBOARD_MANAGER         (csd_a11y_keyboard_manager_get_type ())
-#define MSD_A11Y_KEYBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_KEYBOARD_MANAGER, CsdA11yKeyboardManager))
-#define MSD_A11Y_KEYBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_KEYBOARD_MANAGER, CsdA11yKeyboardManagerClass))
-#define MSD_IS_A11Y_KEYBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_KEYBOARD_MANAGER))
-#define MSD_IS_A11Y_KEYBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_A11Y_KEYBOARD_MANAGER))
-#define MSD_A11Y_KEYBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_KEYBOARD_MANAGER, CsdA11yKeyboardManagerClass))
+#define CSD_TYPE_A11Y_KEYBOARD_MANAGER         (csd_a11y_keyboard_manager_get_type ())
+#define CSD_A11Y_KEYBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_A11Y_KEYBOARD_MANAGER, CsdA11yKeyboardManager))
+#define CSD_A11Y_KEYBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_A11Y_KEYBOARD_MANAGER, CsdA11yKeyboardManagerClass))
+#define CSD_IS_A11Y_KEYBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_A11Y_KEYBOARD_MANAGER))
+#define CSD_IS_A11Y_KEYBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_A11Y_KEYBOARD_MANAGER))
+#define CSD_A11Y_KEYBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_A11Y_KEYBOARD_MANAGER, CsdA11yKeyboardManagerClass))
 
 typedef struct CsdA11yKeyboardManagerPrivate CsdA11yKeyboardManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_a11y_keyboard_manager_stop                (CsdA11yKe
 }
 #endif
 
-#endif /* __MSD_A11Y_KEYBOARD_MANAGER_H */
+#endif /* __CSD_A11Y_KEYBOARD_MANAGER_H */

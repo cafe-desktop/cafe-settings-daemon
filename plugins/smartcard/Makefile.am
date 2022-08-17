@@ -14,7 +14,7 @@ libsmartcard_la_CPPFLAGS = \
 	-DCAFE_SETTINGS_LOCALEDIR=\""$(datadir)/locale"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
 	-DLIBDIR=\""$(libdir)"\" \
-	-DMSD_SMARTCARD_MANAGER_NSS_DB=\""$(NSS_DATABASE)"\" \
+	-DCSD_SMARTCARD_MANAGER_NSS_DB=\""$(NSS_DATABASE)"\" \
 	$(AM_CPPFLAGS)
 
 libsmartcard_la_CFLAGS = \
@@ -25,7 +25,7 @@ libsmartcard_la_CFLAGS = \
 	$(WARN_CFLAGS)
 
 libsmartcard_la_LDFLAGS = \
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 libsmartcard_la_LIBADD = \
 	$(SETTINGS_PLUGIN_LIBS)	\

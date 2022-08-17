@@ -26,7 +26,7 @@ libkeybindings_la_CFLAGS =		\
 	$(WARN_CFLAGS)
 
 libkeybindings_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)	\
+	$(CSD_PLUGIN_LDFLAGS)	\
 	$(NULL)
 
 libkeybindings_la_LIBADD  = 		\

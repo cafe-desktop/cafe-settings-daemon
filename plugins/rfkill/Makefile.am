@@ -24,7 +24,7 @@ librfkill_la_CFLAGS =			\
 	$(WARN_CFLAGS)
 
 librfkill_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 librfkill_la_LIBADD  =						\
 	$(RFKILL_LIBS)						\

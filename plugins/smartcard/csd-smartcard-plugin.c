@@ -43,9 +43,9 @@ struct CsdSmartcardPluginPrivate {
 
 typedef enum
 {
-    MSD_SMARTCARD_REMOVE_ACTION_NONE,
-    MSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN,
-    MSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT,
+    CSD_SMARTCARD_REMOVE_ACTION_NONE,
+    CSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN,
+    CSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT,
 } CsdSmartcardRemoveAction;
 
 #define SCREENSAVER_DBUS_NAME      "org.cafe.ScreenSaver"
@@ -57,7 +57,7 @@ typedef enum
 #define SM_DBUS_INTERFACE "org.gnome.SessionManager"
 #define SM_LOGOUT_MODE_FORCE 2
 
-#define MSD_SMARTCARD_SCHEMA "org.cafe.peripherals-smartcard"
+#define CSD_SMARTCARD_SCHEMA "org.cafe.peripherals-smartcard"
 #define KEY_REMOVE_ACTION "removal-action"
 
 CAFE_SETTINGS_PLUGIN_REGISTER_WITH_PRIVATE (CsdSmartcardPlugin, csd_smartcard_plugin);
@@ -142,11 +142,11 @@ csd_smartcard_plugin_finalize (GObject *object)
         CsdSmartcardPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_SMARTCARD_PLUGIN (object));
+        g_return_if_fail (CSD_IS_SMARTCARD_PLUGIN (object));
 
         g_debug ("CsdSmartcardPlugin finalizing");
 
-        plugin = MSD_SMARTCARD_PLUGIN (object);
+        plugin = CSD_SMARTCARD_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -184,22 +184,22 @@ get_configured_remove_action (CsdSmartcardPlugin *plugin)
         char *remove_action_string;
         CsdSmartcardRemoveAction remove_action;
 
-        settings = g_settings_new (MSD_SMARTCARD_SCHEMA);
+        settings = g_settings_new (CSD_SMARTCARD_SCHEMA);
         remove_action_string = g_settings_get_string (settings,
                                                       KEY_REMOVE_ACTION);
 
         if (remove_action_string == NULL) {
                 g_warning ("CsdSmartcardPlugin unable to get smartcard remove action");
-                remove_action = MSD_SMARTCARD_REMOVE_ACTION_NONE;
+                remove_action = CSD_SMARTCARD_REMOVE_ACTION_NONE;
         } else if (strcmp (remove_action_string, "none") == 0) {
-                remove_action = MSD_SMARTCARD_REMOVE_ACTION_NONE;
+                remove_action = CSD_SMARTCARD_REMOVE_ACTION_NONE;
         } else if (strcmp (remove_action_string, "lock_screen") == 0) {
-                remove_action = MSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN;
+                remove_action = CSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN;
         } else if (strcmp (remove_action_string, "force_logout") == 0) {
-                remove_action = MSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT;
+                remove_action = CSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT;
         } else {
                 g_warning ("CsdSmartcardPlugin unknown smartcard remove action");
-                remove_action = MSD_SMARTCARD_REMOVE_ACTION_NONE;
+                remove_action = CSD_SMARTCARD_REMOVE_ACTION_NONE;
         }
 
         g_object_unref (settings);
@@ -217,12 +217,12 @@ process_smartcard_removal (CsdSmartcardPlugin *plugin)
 
         switch (remove_action)
         {
-            case MSD_SMARTCARD_REMOVE_ACTION_NONE:
+            case CSD_SMARTCARD_REMOVE_ACTION_NONE:
                 return;
-            case MSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN:
+            case CSD_SMARTCARD_REMOVE_ACTION_LOCK_SCREEN:
                 lock_screen (plugin);
                 break;
-            case MSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT:
+            case CSD_SMARTCARD_REMOVE_ACTION_FORCE_LOGOUT:
                 force_logout (plugin);
                 break;
         }
@@ -252,7 +252,7 @@ static void
 impl_activate (CafeSettingsPlugin *plugin)
 {
         GError *error;
-        CsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
+        CsdSmartcardPlugin *smartcard_plugin = CSD_SMARTCARD_PLUGIN (plugin);
 
         if (smartcard_plugin->priv->is_active) {
                 g_debug ("CsdSmartcardPlugin Not activating smartcard plugin, because it's "
@@ -302,7 +302,7 @@ impl_activate (CafeSettingsPlugin *plugin)
 static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
-        CsdSmartcardPlugin *smartcard_plugin = MSD_SMARTCARD_PLUGIN (plugin);
+        CsdSmartcardPlugin *smartcard_plugin = CSD_SMARTCARD_PLUGIN (plugin);
 
         if (!smartcard_plugin->priv->is_active) {
                 g_debug ("CsdSmartcardPlugin Not deactivating smartcard plugin, "

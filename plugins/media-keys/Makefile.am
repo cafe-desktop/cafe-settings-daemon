@@ -50,7 +50,7 @@ libmedia_keys_la_CFLAGS =		\
 	$(NULL)
 
 libmedia_keys_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 libmedia_keys_la_LIBADD  = \
 	$(top_builddir)/plugins/common/libcommon.la \

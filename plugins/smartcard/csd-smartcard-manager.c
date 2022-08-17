@@ -49,18 +49,18 @@
 #include <secmod.h>
 #include <secerr.h>
 
-#ifndef MSD_SMARTCARD_MANAGER_NSS_DB
-#define MSD_SMARTCARD_MANAGER_NSS_DB SYSCONFDIR"/pki/nssdb"
+#ifndef CSD_SMARTCARD_MANAGER_NSS_DB
+#define CSD_SMARTCARD_MANAGER_NSS_DB SYSCONFDIR"/pki/nssdb"
 #endif
 
 typedef enum _CsdSmartcardManagerState CsdSmartcardManagerState;
 typedef struct _CsdSmartcardManagerWorker CsdSmartcardManagerWorker;
 
 enum _CsdSmartcardManagerState {
-        MSD_SMARTCARD_MANAGER_STATE_STOPPED = 0,
-        MSD_SMARTCARD_MANAGER_STATE_STARTING,
-        MSD_SMARTCARD_MANAGER_STATE_STARTED,
-        MSD_SMARTCARD_MANAGER_STATE_STOPPING,
+        CSD_SMARTCARD_MANAGER_STATE_STOPPED = 0,
+        CSD_SMARTCARD_MANAGER_STATE_STARTING,
+        CSD_SMARTCARD_MANAGER_STATE_STARTED,
+        CSD_SMARTCARD_MANAGER_STATE_STOPPING,
 };
 
 struct _CsdSmartcardManagerPrivate {
@@ -173,7 +173,7 @@ csd_smartcard_manager_set_property (GObject       *object,
                                     const GValue  *value,
                                     GParamSpec    *pspec)
 {
-        CsdSmartcardManager *manager = MSD_SMARTCARD_MANAGER (object);
+        CsdSmartcardManager *manager = CSD_SMARTCARD_MANAGER (object);
 
         switch (prop_id) {
                 case PROP_MODULE_PATH:
@@ -193,7 +193,7 @@ csd_smartcard_manager_get_property (GObject    *object,
                                     GValue     *value,
                                     GParamSpec *pspec)
 {
-        CsdSmartcardManager *manager = MSD_SMARTCARD_MANAGER (object);
+        CsdSmartcardManager *manager = CSD_SMARTCARD_MANAGER (object);
         char *module_path;
 
         switch (prop_id) {
@@ -237,7 +237,7 @@ csd_smartcard_manager_card_removed_handler (CsdSmartcardManager *manager,
                                             CsdSmartcard        *card)
 {
         g_debug ("informing smartcard of its removal");
-        _csd_smartcard_set_state (card, MSD_SMARTCARD_STATE_REMOVED);
+        _csd_smartcard_set_state (card, CSD_SMARTCARD_STATE_REMOVED);
         g_debug ("done");
 }
 
@@ -247,7 +247,7 @@ csd_smartcard_manager_card_inserted_handler (CsdSmartcardManager *manager,
 {
         g_debug ("informing smartcard of its insertion");
 
-        _csd_smartcard_set_state (card, MSD_SMARTCARD_STATE_INSERTED);
+        _csd_smartcard_set_state (card, CSD_SMARTCARD_STATE_INSERTED);
         g_debug ("done");
 
 }
@@ -343,7 +343,7 @@ csd_smartcard_manager_finalize (GObject *object)
         CsdSmartcardManager *manager;
         GObjectClass *gobject_class;
 
-        manager = MSD_SMARTCARD_MANAGER (object);
+        manager = CSD_SMARTCARD_MANAGER (object);
         gobject_class =
                 G_OBJECT_CLASS (csd_smartcard_manager_parent_class);
 
@@ -372,7 +372,7 @@ csd_smartcard_manager_new (const char *module_path)
 {
         CsdSmartcardManager *instance;
 
-        instance = MSD_SMARTCARD_MANAGER (g_object_new (MSD_TYPE_SMARTCARD_MANAGER,
+        instance = CSD_SMARTCARD_MANAGER (g_object_new (CSD_TYPE_SMARTCARD_MANAGER,
                                                         "module-path", module_path,
                                                         NULL));
 
@@ -486,8 +486,8 @@ out:
         if (should_stop) {
                 GError *error;
 
-                error = g_error_new (MSD_SMARTCARD_MANAGER_ERROR,
-                                     MSD_SMARTCARD_MANAGER_ERROR_WATCHING_FOR_EVENTS,
+                error = g_error_new (CSD_SMARTCARD_MANAGER_ERROR,
+                                     CSD_SMARTCARD_MANAGER_ERROR_WATCHING_FOR_EVENTS,
                                      "%s", (condition & G_IO_IN) ? g_strerror (errno) : _("received error or hang up from event source"));
 
                 csd_smartcard_manager_emit_error (manager, error);
@@ -561,9 +561,9 @@ load_nss (GError **error)
         NSS_INIT_OPTIMIZESPACE | NSS_INIT_PK11RELOAD;
 
         g_debug ("attempting to load NSS database '%s'",
-                  MSD_SMARTCARD_MANAGER_NSS_DB);
+                  CSD_SMARTCARD_MANAGER_NSS_DB);
 
-        status = NSS_Initialize (MSD_SMARTCARD_MANAGER_NSS_DB,
+        status = NSS_Initialize (CSD_SMARTCARD_MANAGER_NSS_DB,
                                  "", "", SECMOD_DB, flags);
 
         if (status != SECSuccess) {
@@ -575,8 +575,8 @@ load_nss (GError **error)
                 if (error_message_size == 0) {
                         g_debug ("NSS security system could not be initialized");
                         g_set_error (error,
-                                     MSD_SMARTCARD_MANAGER_ERROR,
-                                     MSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
+                                     CSD_SMARTCARD_MANAGER_ERROR,
+                                     CSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
                                      _("NSS security system could not be initialized"));
                         goto out;
                 }
@@ -585,8 +585,8 @@ load_nss (GError **error)
                 PR_GetErrorText (error_message);
 
                 g_set_error (error,
-                             MSD_SMARTCARD_MANAGER_ERROR,
-                             MSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
+                             CSD_SMARTCARD_MANAGER_ERROR,
+                             CSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
                              "%s", error_message);
                 g_debug ("NSS security system could not be initialized - %s",
                           error_message);
@@ -644,8 +644,8 @@ load_driver (char    *module_path,
 
         if (!module_explicitly_specified && module == NULL) {
                 g_set_error (error,
-                             MSD_SMARTCARD_MANAGER_ERROR,
-                             MSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
+                             CSD_SMARTCARD_MANAGER_ERROR,
+                             CSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
                              _("no suitable smartcard driver could be found"));
         } else if (module == NULL || !module->loaded) {
 
@@ -664,8 +664,8 @@ load_driver (char    *module_path,
                         g_debug ("smartcard driver '%s' could not be loaded",
                                   module_path);
                         g_set_error (error,
-                                     MSD_SMARTCARD_MANAGER_ERROR,
-                                     MSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
+                                     CSD_SMARTCARD_MANAGER_ERROR,
+                                     CSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
                                      _("smartcard driver '%s' could not be "
                                        "loaded"), module_path);
                         goto out;
@@ -675,8 +675,8 @@ load_driver (char    *module_path,
                 PR_GetErrorText (error_message);
 
                 g_set_error (error,
-                             MSD_SMARTCARD_MANAGER_ERROR,
-                             MSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
+                             CSD_SMARTCARD_MANAGER_ERROR,
+                             CSD_SMARTCARD_MANAGER_ERROR_LOADING_DRIVER,
                              "%s", error_message);
 
                 g_debug ("smartcard driver '%s' could not be loaded - %s",
@@ -721,12 +721,12 @@ csd_smartcard_manager_start (CsdSmartcardManager  *manager,
         GSource *source;
         GError *nss_error;
 
-        if (manager->priv->state == MSD_SMARTCARD_MANAGER_STATE_STARTED) {
+        if (manager->priv->state == CSD_SMARTCARD_MANAGER_STATE_STARTED) {
                 g_debug ("smartcard manager already started");
                 return TRUE;
         }
 
-        manager->priv->state = MSD_SMARTCARD_MANAGER_STATE_STARTING;
+        manager->priv->state = CSD_SMARTCARD_MANAGER_STATE_STARTING;
 
         worker_fd = -1;
 
@@ -748,8 +748,8 @@ csd_smartcard_manager_start (CsdSmartcardManager  *manager,
 
         if (!csd_smartcard_manager_create_worker (manager, &worker_fd, &manager->priv->worker_thread)) {
                 g_set_error (error,
-                             MSD_SMARTCARD_MANAGER_ERROR,
-                             MSD_SMARTCARD_MANAGER_ERROR_WATCHING_FOR_EVENTS,
+                             CSD_SMARTCARD_MANAGER_ERROR,
+                             CSD_SMARTCARD_MANAGER_ERROR_WATCHING_FOR_EVENTS,
                              _("could not watch for incoming card events - %s"),
                              g_strerror (errno));
 
@@ -777,29 +777,29 @@ csd_smartcard_manager_start (CsdSmartcardManager  *manager,
          */
         csd_smartcard_manager_get_all_cards (manager);
 
-        manager->priv->state = MSD_SMARTCARD_MANAGER_STATE_STARTED;
+        manager->priv->state = CSD_SMARTCARD_MANAGER_STATE_STARTED;
 
 out:
         /* don't leave it in a half started state
          */
-        if (manager->priv->state != MSD_SMARTCARD_MANAGER_STATE_STARTED) {
+        if (manager->priv->state != CSD_SMARTCARD_MANAGER_STATE_STARTED) {
                 g_debug ("smartcard manager could not be completely started");
                 csd_smartcard_manager_stop (manager);
         } else {
                 g_debug ("smartcard manager started");
         }
 
-        return manager->priv->state == MSD_SMARTCARD_MANAGER_STATE_STARTED;
+        return manager->priv->state == CSD_SMARTCARD_MANAGER_STATE_STARTED;
 }
 
 static gboolean
 csd_smartcard_manager_stop_now (CsdSmartcardManager *manager)
 {
-        if (manager->priv->state == MSD_SMARTCARD_MANAGER_STATE_STOPPED) {
+        if (manager->priv->state == CSD_SMARTCARD_MANAGER_STATE_STOPPED) {
                 return FALSE;
         }
 
-        manager->priv->state = MSD_SMARTCARD_MANAGER_STATE_STOPPED;
+        manager->priv->state = CSD_SMARTCARD_MANAGER_STATE_STOPPED;
         csd_smartcard_manager_stop_watching_for_events (manager);
 
         if (manager->priv->module != NULL) {
@@ -821,7 +821,7 @@ static void
 csd_smartcard_manager_queue_stop (CsdSmartcardManager *manager)
 {
 
-        manager->priv->state = MSD_SMARTCARD_MANAGER_STATE_STOPPING;
+        manager->priv->state = CSD_SMARTCARD_MANAGER_STATE_STOPPING;
 
         g_idle_add ((GSourceFunc) csd_smartcard_manager_stop_now, manager);
 }
@@ -829,7 +829,7 @@ csd_smartcard_manager_queue_stop (CsdSmartcardManager *manager)
 void
 csd_smartcard_manager_stop (CsdSmartcardManager *manager)
 {
-        if (manager->priv->state == MSD_SMARTCARD_MANAGER_STATE_STOPPED) {
+        if (manager->priv->state == CSD_SMARTCARD_MANAGER_STATE_STOPPED) {
                 return;
         }
 
@@ -1037,8 +1037,8 @@ csd_smartcard_manager_worker_emit_smartcard_removed (CsdSmartcardManagerWorker  
         return TRUE;
 
 error_out:
-        g_set_error (error, MSD_SMARTCARD_MANAGER_ERROR,
-                     MSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS,
+        g_set_error (error, CSD_SMARTCARD_MANAGER_ERROR,
+                     CSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS,
                      "%s", g_strerror (errno));
         return FALSE;
 }
@@ -1060,8 +1060,8 @@ csd_smartcard_manager_worker_emit_smartcard_inserted (CsdSmartcardManagerWorker 
         return TRUE;
 
 error_out:
-        g_set_error (error, MSD_SMARTCARD_MANAGER_ERROR,
-                     MSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS,
+        g_set_error (error, CSD_SMARTCARD_MANAGER_ERROR,
+                     CSD_SMARTCARD_MANAGER_ERROR_REPORTING_EVENTS,
                      "%s", g_strerror (errno));
         return FALSE;
 }
@@ -1095,8 +1095,8 @@ csd_smartcard_manager_worker_watch_for_and_process_event (CsdSmartcardManagerWor
                 /* FIXME: is there a function to convert from a PORT error
                  * code to a translated string?
                  */
-                g_set_error (error, MSD_SMARTCARD_MANAGER_ERROR,
-                             MSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
+                g_set_error (error, CSD_SMARTCARD_MANAGER_ERROR,
+                             CSD_SMARTCARD_MANAGER_ERROR_WITH_NSS,
                              _("encountered unexpected error while "
                                "waiting for smartcard events"));
                 goto out;
@@ -1253,7 +1253,7 @@ csd_smartcard_manager_create_worker (CsdSmartcardManager  *manager,
         return TRUE;
 }
 
-#ifdef MSD_SMARTCARD_MANAGER_ENABLE_TEST
+#ifdef CSD_SMARTCARD_MANAGER_ENABLE_TEST
 #include <glib.h>
 
 static GMainLoop *event_loop;

@@ -72,7 +72,7 @@ libxrandr_la_CFLAGS =			\
 	$(WARN_CFLAGS)
 
 libxrandr_la_LDFLAGS = 			\
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 libxrandr_la_LIBADD  =			\
 	$(SETTINGS_PLUGIN_LIBS)		\

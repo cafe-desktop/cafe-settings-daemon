@@ -51,11 +51,11 @@ csd_rfkill_plugin_finalize (GObject *object)
         CsdRfkillPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_RFKILL_PLUGIN (object));
+        g_return_if_fail (CSD_IS_RFKILL_PLUGIN (object));
 
         g_debug ("CsdRfkillPlugin finalizing");
 
-        plugin = MSD_RFKILL_PLUGIN (object);
+        plugin = CSD_RFKILL_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -75,7 +75,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating rfkill plugin");
 
         error = NULL;
-        res = csd_rfkill_manager_start (MSD_RFKILL_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_rfkill_manager_start (CSD_RFKILL_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start rfkill manager: %s", error->message);
                 g_error_free (error);
@@ -86,7 +86,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating rfkill plugin");
-        csd_rfkill_manager_stop (MSD_RFKILL_PLUGIN (plugin)->priv->manager);
+        csd_rfkill_manager_stop (CSD_RFKILL_PLUGIN (plugin)->priv->manager);
 }
 
 static void

@@ -330,7 +330,7 @@ csd_sound_manager_dispose (GObject *object)
 {
         CsdSoundManager *manager;
 
-        manager = MSD_SOUND_MANAGER (object);
+        manager = CSD_SOUND_MANAGER (object);
 
         csd_sound_manager_stop (manager);
 
@@ -358,9 +358,9 @@ csd_sound_manager_finalize (GObject *object)
         CsdSoundManager *sound_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_SOUND_MANAGER (object));
+        g_return_if_fail (CSD_IS_SOUND_MANAGER (object));
 
-        sound_manager = MSD_SOUND_MANAGER (object);
+        sound_manager = CSD_SOUND_MANAGER (object);
 
         g_return_if_fail (sound_manager->priv);
 
@@ -373,9 +373,9 @@ csd_sound_manager_new (void)
         if (manager_object) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_SOUND_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_SOUND_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object, (gpointer *) &manager_object);
         }
 
-        return MSD_SOUND_MANAGER (manager_object);
+        return CSD_SOUND_MANAGER (manager_object);
 }

@@ -20,7 +20,7 @@ libmpris_la_CFLAGS =			\
 	$(WARN_CFLAGS)
 
 libmpris_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 libmpris_la_LIBADD  = 		\
 	$(SETTINGS_PLUGIN_LIBS)

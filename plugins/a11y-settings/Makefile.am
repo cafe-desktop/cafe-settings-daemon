@@ -21,7 +21,7 @@ liba11y_settings_la_CFLAGS =		\
 	$(WARN_CFLAGS)
 
 liba11y_settings_la_LDFLAGS = 		\
-	$(MSD_PLUGIN_LDFLAGS)
+	$(CSD_PLUGIN_LDFLAGS)
 
 liba11y_settings_la_LIBADD  = 		\
 	$(SETTINGS_PLUGIN_LIBS)

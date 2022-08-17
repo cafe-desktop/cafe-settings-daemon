@@ -983,9 +983,9 @@ csd_clipboard_manager_finalize (GObject *object)
         CsdClipboardManager *clipboard_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_CLIPBOARD_MANAGER (object));
+        g_return_if_fail (CSD_IS_CLIPBOARD_MANAGER (object));
 
-        clipboard_manager = MSD_CLIPBOARD_MANAGER (object);
+        clipboard_manager = CSD_CLIPBOARD_MANAGER (object);
 
         g_return_if_fail (clipboard_manager->priv != NULL);
 
@@ -998,10 +998,10 @@ csd_clipboard_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_CLIPBOARD_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_CLIPBOARD_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_CLIPBOARD_MANAGER (manager_object);
+        return CSD_CLIPBOARD_MANAGER (manager_object);
 }

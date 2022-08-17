@@ -20,8 +20,8 @@
  *      Stefano Karapetsas <stefano@karapetsas.com>
  */
 
-#ifndef __MSD_MPRIS_PLUGIN_H__
-#define __MSD_MPRIS_PLUGIN_H__
+#ifndef __CSD_MPRIS_PLUGIN_H__
+#define __CSD_MPRIS_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -33,12 +33,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_MPRIS_PLUGIN                (csd_mpris_plugin_get_type ())
-#define MSD_MPRIS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_MPRIS_PLUGIN, CsdMprisPlugin))
-#define MSD_MPRIS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_MPRIS_PLUGIN, CsdMprisPluginClass))
-#define MSD_IS_MPRIS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_MPRIS_PLUGIN))
-#define MSD_IS_MPRIS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_MPRIS_PLUGIN))
-#define MSD_MPRIS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_MPRIS_PLUGIN, CsdMprisPluginClass))
+#define CSD_TYPE_MPRIS_PLUGIN                (csd_mpris_plugin_get_type ())
+#define CSD_MPRIS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_MPRIS_PLUGIN, CsdMprisPlugin))
+#define CSD_MPRIS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_MPRIS_PLUGIN, CsdMprisPluginClass))
+#define CSD_IS_MPRIS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_MPRIS_PLUGIN))
+#define CSD_IS_MPRIS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_MPRIS_PLUGIN))
+#define CSD_MPRIS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_MPRIS_PLUGIN, CsdMprisPluginClass))
 
 typedef struct CsdMprisPluginPrivate CsdMprisPluginPrivate;
 
@@ -62,4 +62,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 }
 #endif
 
-#endif /* __MSD_MPRIS_PLUGIN_H__ */
+#endif /* __CSD_MPRIS_PLUGIN_H__ */

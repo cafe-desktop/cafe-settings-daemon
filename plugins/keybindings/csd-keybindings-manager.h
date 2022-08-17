@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_KEYBINDINGS_MANAGER_H
-#define __MSD_KEYBINDINGS_MANAGER_H
+#ifndef __CSD_KEYBINDINGS_MANAGER_H
+#define __CSD_KEYBINDINGS_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_KEYBINDINGS_MANAGER         (csd_keybindings_manager_get_type ())
-#define MSD_KEYBINDINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManager))
-#define MSD_KEYBINDINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManagerClass))
-#define MSD_IS_KEYBINDINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBINDINGS_MANAGER))
-#define MSD_IS_KEYBINDINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_KEYBINDINGS_MANAGER))
-#define MSD_KEYBINDINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManagerClass))
+#define CSD_TYPE_KEYBINDINGS_MANAGER         (csd_keybindings_manager_get_type ())
+#define CSD_KEYBINDINGS_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManager))
+#define CSD_KEYBINDINGS_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManagerClass))
+#define CSD_IS_KEYBINDINGS_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_KEYBINDINGS_MANAGER))
+#define CSD_IS_KEYBINDINGS_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_KEYBINDINGS_MANAGER))
+#define CSD_KEYBINDINGS_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_KEYBINDINGS_MANAGER, CsdKeybindingsManagerClass))
 
 typedef struct CsdKeybindingsManagerPrivate CsdKeybindingsManagerPrivate;
 
@@ -58,4 +58,4 @@ void                    csd_keybindings_manager_stop                (CsdKeybindi
 }
 #endif
 
-#endif /* __MSD_KEYBINDINGS_MANAGER_H */
+#endif /* __CSD_KEYBINDINGS_MANAGER_H */

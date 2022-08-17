@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_BACKGROUND_MANAGER_H
-#define __MSD_BACKGROUND_MANAGER_H
+#ifndef __CSD_BACKGROUND_MANAGER_H
+#define __CSD_BACKGROUND_MANAGER_H
 
 #include <glib-object.h>
 
@@ -29,12 +29,12 @@ extern "C" {
 
 //class CsdBackgroundManager
 //{
-	#define MSD_TYPE_BACKGROUND_MANAGER         (csd_background_manager_get_type())
-	#define MSD_BACKGROUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST((o), MSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManager))
-	#define MSD_BACKGROUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManagerClass))
-	#define MSD_IS_BACKGROUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE((o), MSD_TYPE_BACKGROUND_MANAGER))
-	#define MSD_IS_BACKGROUND_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE((k), MSD_TYPE_BACKGROUND_MANAGER))
-	#define MSD_BACKGROUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS((o), MSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManagerClass))
+	#define CSD_TYPE_BACKGROUND_MANAGER         (csd_background_manager_get_type())
+	#define CSD_BACKGROUND_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST((o), CSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManager))
+	#define CSD_BACKGROUND_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManagerClass))
+	#define CSD_IS_BACKGROUND_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE((o), CSD_TYPE_BACKGROUND_MANAGER))
+	#define CSD_IS_BACKGROUND_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE((k), CSD_TYPE_BACKGROUND_MANAGER))
+	#define CSD_BACKGROUND_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS((o), CSD_TYPE_BACKGROUND_MANAGER, CsdBackgroundManagerClass))
 
 	typedef struct CsdBackgroundManagerPrivate CsdBackgroundManagerPrivate;
 
@@ -65,4 +65,4 @@ extern "C" {
 }
 #endif
 
-#endif /* __MSD_BACKGROUND_MANAGER_H */
+#endif /* __CSD_BACKGROUND_MANAGER_H */

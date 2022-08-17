@@ -57,7 +57,7 @@ csd_media_keys_plugin_dispose (GObject *object)
 
         g_debug ("CsdMediaKeysPlugin disposing");
 
-        plugin = MSD_MEDIA_KEYS_PLUGIN (object);
+        plugin = CSD_MEDIA_KEYS_PLUGIN (object);
 
         g_clear_object (&plugin->priv->manager);
 
@@ -75,7 +75,7 @@ impl_activate (CafeSettingsPlugin *plugin)
 #ifdef HAVE_LIBCAFEMIXER
         cafe_mixer_init ();
 #endif
-        res = csd_media_keys_manager_start (MSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_media_keys_manager_start (CSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start media_keys manager: %s", error->message);
                 g_error_free (error);
@@ -86,7 +86,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating media_keys plugin");
-        csd_media_keys_manager_stop (MSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager);
+        csd_media_keys_manager_stop (CSD_MEDIA_KEYS_PLUGIN (plugin)->priv->manager);
 }
 
 static void

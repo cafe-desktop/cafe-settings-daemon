@@ -49,11 +49,11 @@ csd_dummy_plugin_finalize (GObject *object)
         CsdDummyPlugin *plugin;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_DUMMY_PLUGIN (object));
+        g_return_if_fail (CSD_IS_DUMMY_PLUGIN (object));
 
         g_debug ("CsdDummyPlugin finalizing");
 
-        plugin = MSD_DUMMY_PLUGIN (object);
+        plugin = CSD_DUMMY_PLUGIN (object);
 
         g_return_if_fail (plugin->priv != NULL);
 
@@ -73,7 +73,7 @@ impl_activate (CafeSettingsPlugin *plugin)
         g_debug ("Activating dummy plugin");
 
         error = NULL;
-        res = csd_dummy_manager_start (MSD_DUMMY_PLUGIN (plugin)->priv->manager, &error);
+        res = csd_dummy_manager_start (CSD_DUMMY_PLUGIN (plugin)->priv->manager, &error);
         if (! res) {
                 g_warning ("Unable to start dummy manager: %s", error->message);
                 g_error_free (error);
@@ -84,7 +84,7 @@ static void
 impl_deactivate (CafeSettingsPlugin *plugin)
 {
         g_debug ("Deactivating dummy plugin");
-        csd_dummy_manager_stop (MSD_DUMMY_PLUGIN (plugin)->priv->manager);
+        csd_dummy_manager_stop (CSD_DUMMY_PLUGIN (plugin)->priv->manager);
 }
 
 static void

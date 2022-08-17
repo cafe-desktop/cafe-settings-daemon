@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_A11Y_SETTINGS_PLUGIN_H__
-#define __MSD_A11Y_SETTINGS_PLUGIN_H__
+#ifndef __CSD_A11Y_SETTINGS_PLUGIN_H__
+#define __CSD_A11Y_SETTINGS_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -29,12 +29,12 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_A11Y_SETTINGS_PLUGIN                (csd_a11y_settings_plugin_get_type ())
-#define MSD_A11Y_SETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPlugin))
-#define MSD_A11Y_SETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPluginClass))
-#define MSD_IS_A11Y_SETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN))
-#define MSD_IS_A11Y_SETTINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_A11Y_SETTINGS_PLUGIN))
-#define MSD_A11Y_SETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPluginClass))
+#define CSD_TYPE_A11Y_SETTINGS_PLUGIN                (csd_a11y_settings_plugin_get_type ())
+#define CSD_A11Y_SETTINGS_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPlugin))
+#define CSD_A11Y_SETTINGS_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPluginClass))
+#define CSD_IS_A11Y_SETTINGS_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_A11Y_SETTINGS_PLUGIN))
+#define CSD_IS_A11Y_SETTINGS_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_A11Y_SETTINGS_PLUGIN))
+#define CSD_A11Y_SETTINGS_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_A11Y_SETTINGS_PLUGIN, CsdA11ySettingsPluginClass))
 
 typedef struct CsdA11ySettingsPluginPrivate CsdA11ySettingsPluginPrivate;
 
@@ -56,4 +56,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 
 G_END_DECLS
 
-#endif /* __MSD_A11Y_SETTINGS_PLUGIN_H__ */
+#endif /* __CSD_A11Y_SETTINGS_PLUGIN_H__ */

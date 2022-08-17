@@ -17,8 +17,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#ifndef __MSD_COMMON_KEYGRAB_H
-#define __MSD_COMMON_KEYGRAB_H
+#ifndef __CSD_COMMON_KEYGRAB_H
+#define __CSD_COMMON_KEYGRAB_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -48,4 +48,4 @@ gboolean        key_uses_keycode (const Key *key,
 }
 #endif
 
-#endif /* __MSD_COMMON_KEYGRAB_H */
+#endif /* __CSD_COMMON_KEYGRAB_H */

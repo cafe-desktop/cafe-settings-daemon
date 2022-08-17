@@ -19,8 +19,8 @@
  * USA.
  */
 
-#ifndef __MSD_RFKILL_PLUGIN_H__
-#define __MSD_RFKILL_PLUGIN_H__
+#ifndef __CSD_RFKILL_PLUGIN_H__
+#define __CSD_RFKILL_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define MSD_TYPE_RFKILL_PLUGIN                (csd_rfkill_plugin_get_type ())
-#define MSD_RFKILL_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_RFKILL_PLUGIN, CsdRfkillPlugin))
-#define MSD_RFKILL_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_RFKILL_PLUGIN, CsdRfkillPluginClass))
-#define MSD_IS_RFKILL_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_RFKILL_PLUGIN))
-#define MSD_IS_RFKILL_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_RFKILL_PLUGIN))
-#define MSD_RFKILL_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_RFKILL_PLUGIN, CsdRfkillPluginClass))
+#define CSD_TYPE_RFKILL_PLUGIN                (csd_rfkill_plugin_get_type ())
+#define CSD_RFKILL_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_RFKILL_PLUGIN, CsdRfkillPlugin))
+#define CSD_RFKILL_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_RFKILL_PLUGIN, CsdRfkillPluginClass))
+#define CSD_IS_RFKILL_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_RFKILL_PLUGIN))
+#define CSD_IS_RFKILL_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_RFKILL_PLUGIN))
+#define CSD_RFKILL_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_RFKILL_PLUGIN, CsdRfkillPluginClass))
 
 typedef struct _CsdRfkillPlugin         CsdRfkillPlugin;
 typedef struct _CsdRfkillPluginClass    CsdRfkillPluginClass;
@@ -59,4 +59,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 
 G_END_DECLS
 
-#endif /* __MSD_RFKILL_PLUGIN_H__ */
+#endif /* __CSD_RFKILL_PLUGIN_H__ */

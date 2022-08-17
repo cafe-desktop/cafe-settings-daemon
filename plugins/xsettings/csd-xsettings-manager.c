@@ -104,10 +104,10 @@ struct CafeXSettingsManagerPrivate
         gint window_scale;
 };
 
-#define MSD_XSETTINGS_ERROR csd_xsettings_error_quark ()
+#define CSD_XSETTINGS_ERROR csd_xsettings_error_quark ()
 
 enum {
-        MSD_XSETTINGS_ERROR_INIT
+        CSD_XSETTINGS_ERROR_INIT
 };
 
 static void cafe_xsettings_manager_finalize (GObject *object);
@@ -912,8 +912,8 @@ cafe_xsettings_manager_start (CafeXSettingsManager *manager,
         cafe_settings_profile_start (NULL);
 
         if (!setup_xsettings_managers (manager)) {
-                g_set_error (error, MSD_XSETTINGS_ERROR,
-                             MSD_XSETTINGS_ERROR_INIT,
+                g_set_error (error, CSD_XSETTINGS_ERROR,
+                             CSD_XSETTINGS_ERROR_INIT,
                              "Could not initialize xsettings manager.");
                 return FALSE;
         }

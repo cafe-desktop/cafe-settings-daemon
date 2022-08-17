@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef MSD_DATETIME_MECHANISM_H
-#define MSD_DATETIME_MECHANISM_H
+#ifndef CSD_DATETIME_MECHANISM_H
+#define CSD_DATETIME_MECHANISM_H
 
 #include <glib-object.h>
 #include <dbus/dbus-glib.h>
@@ -28,12 +28,12 @@
 extern "C" {
 #endif
 
-#define MSD_DATETIME_TYPE_MECHANISM         (csd_datetime_mechanism_get_type ())
-#define MSD_DATETIME_MECHANISM(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanism))
-#define MSD_DATETIME_MECHANISM_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanismClass))
-#define MSD_DATETIME_IS_MECHANISM(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_DATETIME_TYPE_MECHANISM))
-#define MSD_DATETIME_IS_MECHANISM_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_DATETIME_TYPE_MECHANISM))
-#define MSD_DATETIME_MECHANISM_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanismClass))
+#define CSD_DATETIME_TYPE_MECHANISM         (csd_datetime_mechanism_get_type ())
+#define CSD_DATETIME_MECHANISM(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanism))
+#define CSD_DATETIME_MECHANISM_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanismClass))
+#define CSD_DATETIME_IS_MECHANISM(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_DATETIME_TYPE_MECHANISM))
+#define CSD_DATETIME_IS_MECHANISM_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_DATETIME_TYPE_MECHANISM))
+#define CSD_DATETIME_MECHANISM_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_DATETIME_TYPE_MECHANISM, CsdDatetimeMechanismClass))
 
 typedef struct CsdDatetimeMechanismPrivate CsdDatetimeMechanismPrivate;
 
@@ -50,16 +50,16 @@ typedef struct
 
 typedef enum
 {
-        MSD_DATETIME_MECHANISM_ERROR_GENERAL,
-        MSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED,
-        MSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE,
-        MSD_DATETIME_MECHANISM_NUM_ERRORS
+        CSD_DATETIME_MECHANISM_ERROR_GENERAL,
+        CSD_DATETIME_MECHANISM_ERROR_NOT_PRIVILEGED,
+        CSD_DATETIME_MECHANISM_ERROR_INVALID_TIMEZONE_FILE,
+        CSD_DATETIME_MECHANISM_NUM_ERRORS
 } CsdDatetimeMechanismError;
 
-#define MSD_DATETIME_MECHANISM_ERROR csd_datetime_mechanism_error_quark ()
+#define CSD_DATETIME_MECHANISM_ERROR csd_datetime_mechanism_error_quark ()
 
 GType csd_datetime_mechanism_error_get_type (void);
-#define MSD_DATETIME_MECHANISM_TYPE_ERROR (csd_datetime_mechanism_error_get_type ())
+#define CSD_DATETIME_MECHANISM_TYPE_ERROR (csd_datetime_mechanism_error_get_type ())
 
 
 GQuark                     csd_datetime_mechanism_error_quark         (void);
@@ -98,4 +98,4 @@ gboolean            csd_datetime_mechanism_set_hardware_clock_using_utc  (CsdDat
 }
 #endif
 
-#endif /* MSD_DATETIME_MECHANISM_H */
+#endif /* CSD_DATETIME_MECHANISM_H */

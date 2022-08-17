@@ -21,8 +21,8 @@
  * 02110-1301, USA.
  */
 
-#ifndef __MSD_KEYBOARD_XKB_H
-#define __MSD_KEYBOARD_XKB_H
+#ifndef __CSD_KEYBOARD_XKB_H
+#define __CSD_KEYBOARD_XKB_H
 
 #include <libxklavier/xklavier.h>
 #include "csd-keyboard-manager.h"

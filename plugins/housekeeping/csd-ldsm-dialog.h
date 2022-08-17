@@ -17,8 +17,8 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _MSD_LDSM_DIALOG_H_
-#define _MSD_LDSM_DIALOG_H_
+#ifndef _CSD_LDSM_DIALOG_H_
+#define _CSD_LDSM_DIALOG_H_
 
 #include <glib-object.h>
 #include <ctk/ctk.h>
@@ -27,17 +27,17 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_LDSM_DIALOG             (csd_ldsm_dialog_get_type ())
-#define MSD_LDSM_DIALOG(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), MSD_TYPE_LDSM_DIALOG, CsdLdsmDialog))
-#define MSD_LDSM_DIALOG_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), MSD_TYPE_LDSM_DIALOG, CsdLdsmDialogClass))
-#define MSD_IS_LDSM_DIALOG(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), MSD_TYPE_LDSM_DIALOG))
-#define MSD_IS_LDSM_DIALOG_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), MSD_TYPE_LDSM_DIALOG))
-#define MSD_LDSM_DIALOG_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), MSD_TYPE_LDSM_DIALOG, CsdLdsmDialogClass))
+#define CSD_TYPE_LDSM_DIALOG             (csd_ldsm_dialog_get_type ())
+#define CSD_LDSM_DIALOG(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CSD_TYPE_LDSM_DIALOG, CsdLdsmDialog))
+#define CSD_LDSM_DIALOG_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), CSD_TYPE_LDSM_DIALOG, CsdLdsmDialogClass))
+#define CSD_IS_LDSM_DIALOG(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CSD_TYPE_LDSM_DIALOG))
+#define CSD_IS_LDSM_DIALOG_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), CSD_TYPE_LDSM_DIALOG))
+#define CSD_LDSM_DIALOG_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CSD_TYPE_LDSM_DIALOG, CsdLdsmDialogClass))
 
 enum
 {
-        MSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH = -20,
-        MSD_LDSM_DIALOG_RESPONSE_ANALYZE = -21
+        CSD_LDSM_DIALOG_RESPONSE_EMPTY_TRASH = -20,
+        CSD_LDSM_DIALOG_RESPONSE_ANALYZE = -21
 };
 
 typedef struct CsdLdsmDialogPrivate CsdLdsmDialogPrivate;
@@ -69,4 +69,4 @@ CsdLdsmDialog * csd_ldsm_dialog_new (gboolean other_usable_partitions,
 }
 #endif
 
-#endif /* _MSD_LDSM_DIALOG_H_ */
+#endif /* _CSD_LDSM_DIALOG_H_ */

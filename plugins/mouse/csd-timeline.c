@@ -85,8 +85,8 @@ csd_timeline_direction_get_type (void)
   if (G_UNLIKELY (type == 0))
     {
       static const GEnumValue values[] = {
-	{ MSD_TIMELINE_DIRECTION_FORWARD,  "MSD_TIMELINE_DIRECTION_FORWARD",  "forward" },
-	{ MSD_TIMELINE_DIRECTION_BACKWARD, "MSD_TIMELINE_DIRECTION_BACKWARD", "backward" },
+	{ CSD_TIMELINE_DIRECTION_FORWARD,  "CSD_TIMELINE_DIRECTION_FORWARD",  "forward" },
+	{ CSD_TIMELINE_DIRECTION_BACKWARD, "CSD_TIMELINE_DIRECTION_BACKWARD", "backward" },
 	{ 0, NULL, NULL }
       };
 
@@ -104,9 +104,9 @@ csd_timeline_progress_type_get_type (void)
   if (G_UNLIKELY (type == 0))
     {
       static const GEnumValue values[] = {
-	{ MSD_TIMELINE_PROGRESS_LINEAR,      "MSD_TIMELINE_PROGRESS_LINEAR",      "linear" },
-	{ MSD_TIMELINE_PROGRESS_SINUSOIDAL,  "MSD_TIMELINE_PROGRESS_SINUSOIDAL",  "sinusoidal" },
-	{ MSD_TIMELINE_PROGRESS_EXPONENTIAL, "MSD_TIMELINE_PROGRESS_EXPONENTIAL", "exponential" },
+	{ CSD_TIMELINE_PROGRESS_LINEAR,      "CSD_TIMELINE_PROGRESS_LINEAR",      "linear" },
+	{ CSD_TIMELINE_PROGRESS_SINUSOIDAL,  "CSD_TIMELINE_PROGRESS_SINUSOIDAL",  "sinusoidal" },
+	{ CSD_TIMELINE_PROGRESS_EXPONENTIAL, "CSD_TIMELINE_PROGRESS_EXPONENTIAL", "exponential" },
 	{ 0, NULL, NULL }
       };
 
@@ -155,16 +155,16 @@ csd_timeline_class_init (CsdTimelineClass *class)
 				   g_param_spec_enum ("direction",
 						      "Direction",
 						      "Whether the timeline moves forward or backward in time",
-						      MSD_TYPE_TIMELINE_DIRECTION,
-						      MSD_TIMELINE_DIRECTION_FORWARD,
+						      CSD_TYPE_TIMELINE_DIRECTION,
+						      CSD_TIMELINE_DIRECTION_FORWARD,
 						      G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
 				   PROP_DIRECTION,
 				   g_param_spec_enum ("progress-type",
 						      "Progress type",
 						      "Type of progress through the timeline",
-						      MSD_TYPE_TIMELINE_PROGRESS_TYPE,
-						      MSD_TIMELINE_PROGRESS_LINEAR,
+						      CSD_TYPE_TIMELINE_PROGRESS_TYPE,
+						      CSD_TIMELINE_PROGRESS_LINEAR,
 						      G_PARAM_READWRITE));
   g_object_class_install_property (object_class,
 				   PROP_SCREEN,
@@ -221,7 +221,7 @@ csd_timeline_init (CsdTimeline *timeline)
 
   priv->fps = DEFAULT_FPS;
   priv->duration = 0;
-  priv->direction = MSD_TIMELINE_DIRECTION_FORWARD;
+  priv->direction = CSD_TIMELINE_DIRECTION_FORWARD;
   priv->screen = cdk_screen_get_default ();
 }
 
@@ -233,7 +233,7 @@ csd_timeline_set_property (GObject      *object,
 {
   CsdTimeline *timeline;
 
-  timeline = MSD_TIMELINE (object);
+  timeline = CSD_TIMELINE (object);
 
   switch (prop_id)
     {
@@ -270,7 +270,7 @@ csd_timeline_get_property (GObject    *object,
   CsdTimeline *timeline;
   CsdTimelinePrivate *priv;
 
-  timeline = MSD_TIMELINE (object);
+  timeline = CSD_TIMELINE (object);
   priv = csd_timeline_get_instance_private (timeline);
 
   switch (prop_id)
@@ -303,7 +303,7 @@ csd_timeline_finalize (GObject *object)
 {
   CsdTimelinePrivate *priv;
 
-  priv = csd_timeline_get_instance_private (MSD_TIMELINE (object));
+  priv = csd_timeline_get_instance_private (CSD_TIMELINE (object));
 
   if (priv->source_id)
     {
@@ -333,9 +333,9 @@ exponential_progress (gdouble progress)
 static CsdTimelineProgressFunc
 progress_type_to_func (CsdTimelineProgressType type)
 {
-  if (type == MSD_TIMELINE_PROGRESS_SINUSOIDAL)
+  if (type == CSD_TIMELINE_PROGRESS_SINUSOIDAL)
     return sinusoidal_progress;
-  else if (type == MSD_TIMELINE_PROGRESS_EXPONENTIAL)
+  else if (type == CSD_TIMELINE_PROGRESS_EXPONENTIAL)
     return exponential_progress;
 
   return NULL;
@@ -358,7 +358,7 @@ csd_timeline_run_frame (CsdTimeline *timeline,
 
       linear_progress = (gdouble) elapsed_time / priv->duration;
 
-      if (priv->direction == MSD_TIMELINE_DIRECTION_BACKWARD)
+      if (priv->direction == CSD_TIMELINE_DIRECTION_BACKWARD)
 	linear_progress = 1 - linear_progress;
 
       linear_progress = CLAMP (linear_progress, 0., 1.);
@@ -374,13 +374,13 @@ csd_timeline_run_frame (CsdTimeline *timeline,
 	progress = linear_progress;
     }
   else
-    progress = (priv->direction == MSD_TIMELINE_DIRECTION_FORWARD) ? 1.0 : 0.0;
+    progress = (priv->direction == CSD_TIMELINE_DIRECTION_FORWARD) ? 1.0 : 0.0;
 
   g_signal_emit (timeline, signals [FRAME], 0,
 		 CLAMP (progress, 0.0, 1.0));
 
-  if ((priv->direction == MSD_TIMELINE_DIRECTION_FORWARD && progress >= 1.0) ||
-      (priv->direction == MSD_TIMELINE_DIRECTION_BACKWARD && progress <= 0.0))
+  if ((priv->direction == CSD_TIMELINE_DIRECTION_FORWARD && progress >= 1.0) ||
+      (priv->direction == CSD_TIMELINE_DIRECTION_BACKWARD && progress <= 0.0))
     {
       if (!priv->loop)
 	{
@@ -417,7 +417,7 @@ csd_timeline_frame_idle_func (CsdTimeline *timeline)
 CsdTimeline *
 csd_timeline_new (guint duration)
 {
-  return g_object_new (MSD_TYPE_TIMELINE,
+  return g_object_new (CSD_TYPE_TIMELINE,
 		       "duration", duration,
 		       NULL);
 }
@@ -426,7 +426,7 @@ CsdTimeline *
 csd_timeline_new_for_screen (guint      duration,
 			     CdkScreen *screen)
 {
-  return g_object_new (MSD_TYPE_TIMELINE,
+  return g_object_new (CSD_TYPE_TIMELINE,
 		       "duration", duration,
 		       "screen", screen,
 		       NULL);
@@ -445,7 +445,7 @@ csd_timeline_start (CsdTimeline *timeline)
   CtkSettings *settings;
   gboolean enable_animations = FALSE;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -498,7 +498,7 @@ csd_timeline_pause (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -522,7 +522,7 @@ csd_timeline_rewind (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -551,7 +551,7 @@ csd_timeline_is_running (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), FALSE);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), FALSE);
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -571,7 +571,7 @@ csd_timeline_get_fps (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), 1);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), 1);
 
   priv = csd_timeline_get_instance_private (timeline);
   return priv->fps;
@@ -591,7 +591,7 @@ csd_timeline_set_fps (CsdTimeline *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
   g_return_if_fail (fps > 0);
 
   priv = csd_timeline_get_instance_private (timeline);
@@ -623,7 +623,7 @@ csd_timeline_get_loop (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), FALSE);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), FALSE);
 
   priv = csd_timeline_get_instance_private (timeline);
   return priv->loop;
@@ -643,7 +643,7 @@ csd_timeline_set_loop (CsdTimeline *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
   priv->loop = loop;
@@ -657,7 +657,7 @@ csd_timeline_set_duration (CsdTimeline *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -671,7 +671,7 @@ csd_timeline_get_duration (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), 0);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), 0);
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -691,7 +691,7 @@ csd_timeline_get_direction (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), MSD_TIMELINE_DIRECTION_FORWARD);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), CSD_TIMELINE_DIRECTION_FORWARD);
 
   priv = csd_timeline_get_instance_private (timeline);
   return priv->direction;
@@ -710,7 +710,7 @@ csd_timeline_set_direction (CsdTimeline          *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
   priv->direction = direction;
@@ -723,7 +723,7 @@ csd_timeline_get_screen (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), NULL);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), NULL);
 
   priv = csd_timeline_get_instance_private (timeline);
   return priv->screen;
@@ -735,7 +735,7 @@ csd_timeline_set_screen (CsdTimeline *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
   g_return_if_fail (CDK_IS_SCREEN (screen));
 
   priv = csd_timeline_get_instance_private (timeline);
@@ -754,7 +754,7 @@ csd_timeline_set_progress_type (CsdTimeline             *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -768,12 +768,12 @@ csd_timeline_get_progress_type (CsdTimeline *timeline)
 {
   CsdTimelinePrivate *priv;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), MSD_TIMELINE_PROGRESS_LINEAR);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), CSD_TIMELINE_PROGRESS_LINEAR);
 
   priv = csd_timeline_get_instance_private (timeline);
 
   if (priv->progress_func)
-    return MSD_TIMELINE_PROGRESS_LINEAR;
+    return CSD_TIMELINE_PROGRESS_LINEAR;
 
   return priv->progress_type;
 }
@@ -797,7 +797,7 @@ csd_timeline_set_progress_func (CsdTimeline             *timeline,
 {
   CsdTimelinePrivate *priv;
 
-  g_return_if_fail (MSD_IS_TIMELINE (timeline));
+  g_return_if_fail (CSD_IS_TIMELINE (timeline));
 
   priv = csd_timeline_get_instance_private (timeline);
   priv->progress_func = progress_func;
@@ -811,7 +811,7 @@ csd_timeline_get_progress (CsdTimeline *timeline)
   gdouble linear_progress, progress;
   guint elapsed_time;
 
-  g_return_val_if_fail (MSD_IS_TIMELINE (timeline), 0.0);
+  g_return_val_if_fail (CSD_IS_TIMELINE (timeline), 0.0);
 
   priv = csd_timeline_get_instance_private (timeline);
 
@@ -822,7 +822,7 @@ csd_timeline_get_progress (CsdTimeline *timeline)
 
   linear_progress = (gdouble) elapsed_time / priv->duration;
 
-  if (priv->direction == MSD_TIMELINE_DIRECTION_BACKWARD)
+  if (priv->direction == CSD_TIMELINE_DIRECTION_BACKWARD)
     linear_progress = 1 - linear_progress;
 
   linear_progress = CLAMP (linear_progress, 0., 1.);

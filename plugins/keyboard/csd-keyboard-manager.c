@@ -46,7 +46,7 @@
 
 #include "csd-keyboard-xkb.h"
 
-#define MSD_KEYBOARD_SCHEMA "org.cafe.peripherals-keyboard"
+#define CSD_KEYBOARD_SCHEMA "org.cafe.peripherals-keyboard"
 
 #define KEY_REPEAT         "repeat"
 #define KEY_CLICK          "click"
@@ -172,7 +172,7 @@ numlock_xkb_callback (CdkXEvent *xev_,
                         unsigned num_mask = numlock_NumLock_modifier_mask ();
                         unsigned locked_mods = xkbev->state.locked_mods;
                         int numlock_state = !! (num_mask & locked_mods);
-                        GSettings *settings = g_settings_new (MSD_KEYBOARD_SCHEMA);
+                        GSettings *settings = g_settings_new (CSD_KEYBOARD_SCHEMA);
                         numlock_set_settings_state (settings, numlock_state);
                         g_object_unref (settings);
                 }
@@ -284,7 +284,7 @@ start_keyboard_idle_cb (CsdKeyboardManager *manager)
         g_debug ("Starting keyboard manager");
 
         manager->priv->have_xkb = 0;
-        manager->priv->settings = g_settings_new (MSD_KEYBOARD_SCHEMA);
+        manager->priv->settings = g_settings_new (CSD_KEYBOARD_SCHEMA);
 
         /* Essential - xkb initialization should happen before */
         csd_keyboard_xkb_init (manager);
@@ -363,9 +363,9 @@ csd_keyboard_manager_finalize (GObject *object)
         CsdKeyboardManager *keyboard_manager;
 
         g_return_if_fail (object != NULL);
-        g_return_if_fail (MSD_IS_KEYBOARD_MANAGER (object));
+        g_return_if_fail (CSD_IS_KEYBOARD_MANAGER (object));
 
-        keyboard_manager = MSD_KEYBOARD_MANAGER (object);
+        keyboard_manager = CSD_KEYBOARD_MANAGER (object);
 
         g_return_if_fail (keyboard_manager->priv != NULL);
 
@@ -378,10 +378,10 @@ csd_keyboard_manager_new (void)
         if (manager_object != NULL) {
                 g_object_ref (manager_object);
         } else {
-                manager_object = g_object_new (MSD_TYPE_KEYBOARD_MANAGER, NULL);
+                manager_object = g_object_new (CSD_TYPE_KEYBOARD_MANAGER, NULL);
                 g_object_add_weak_pointer (manager_object,
                                            (gpointer *) &manager_object);
         }
 
-        return MSD_KEYBOARD_MANAGER (manager_object);
+        return CSD_KEYBOARD_MANAGER (manager_object);
 }

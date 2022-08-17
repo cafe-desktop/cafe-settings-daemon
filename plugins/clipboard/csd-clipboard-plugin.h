@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_CLIPBOARD_PLUGIN_H__
-#define __MSD_CLIPBOARD_PLUGIN_H__
+#ifndef __CSD_CLIPBOARD_PLUGIN_H__
+#define __CSD_CLIPBOARD_PLUGIN_H__
 
 #include <glib.h>
 #include <glib-object.h>
@@ -31,12 +31,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_CLIPBOARD_PLUGIN                (csd_clipboard_plugin_get_type ())
-#define MSD_CLIPBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPlugin))
-#define MSD_CLIPBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPluginClass))
-#define MSD_IS_CLIPBOARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_CLIPBOARD_PLUGIN))
-#define MSD_IS_CLIPBOARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_CLIPBOARD_PLUGIN))
-#define MSD_CLIPBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPluginClass))
+#define CSD_TYPE_CLIPBOARD_PLUGIN                (csd_clipboard_plugin_get_type ())
+#define CSD_CLIPBOARD_PLUGIN(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPlugin))
+#define CSD_CLIPBOARD_PLUGIN_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPluginClass))
+#define CSD_IS_CLIPBOARD_PLUGIN(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_CLIPBOARD_PLUGIN))
+#define CSD_IS_CLIPBOARD_PLUGIN_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_CLIPBOARD_PLUGIN))
+#define CSD_CLIPBOARD_PLUGIN_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_CLIPBOARD_PLUGIN, CsdClipboardPluginClass))
 
 typedef struct CsdClipboardPluginPrivate CsdClipboardPluginPrivate;
 
@@ -60,4 +60,4 @@ G_MODULE_EXPORT GType register_cafe_settings_plugin (GTypeModule *module);
 }
 #endif
 
-#endif /* __MSD_CLIPBOARD_PLUGIN_H__ */
+#endif /* __CSD_CLIPBOARD_PLUGIN_H__ */

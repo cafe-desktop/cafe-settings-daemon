@@ -89,7 +89,7 @@ grab_key_real (guint      keycode,
         }
 }
 
-/* Grab the key. In order to ignore MSD_IGNORED_MODS we need to grab
+/* Grab the key. In order to ignore CSD_IGNORED_MODS we need to grab
  * all combinations of the ignored modifiers and those actually used
  * for the binding (if any).
  *

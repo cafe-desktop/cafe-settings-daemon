@@ -24,7 +24,7 @@ libhousekeeping_la_CFLAGS = 		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)
 
-libhousekeeping_la_LDFLAGS = $(MSD_PLUGIN_LDFLAGS)
+libhousekeeping_la_LDFLAGS = $(CSD_PLUGIN_LDFLAGS)
 
 libhousekeeping_la_LIBADD = $(SETTINGS_PLUGIN_LIBS) $(GIOUNIX_LIBS) $(LIBNOTIFY_LIBS)
 

@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef __MSD_KEYBOARD_MANAGER_H
-#define __MSD_KEYBOARD_MANAGER_H
+#ifndef __CSD_KEYBOARD_MANAGER_H
+#define __CSD_KEYBOARD_MANAGER_H
 
 #include <glib-object.h>
 
@@ -27,12 +27,12 @@
 extern "C" {
 #endif
 
-#define MSD_TYPE_KEYBOARD_MANAGER         (csd_keyboard_manager_get_type ())
-#define MSD_KEYBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), MSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManager))
-#define MSD_KEYBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), MSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManagerClass))
-#define MSD_IS_KEYBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), MSD_TYPE_KEYBOARD_MANAGER))
-#define MSD_IS_KEYBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), MSD_TYPE_KEYBOARD_MANAGER))
-#define MSD_KEYBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), MSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManagerClass))
+#define CSD_TYPE_KEYBOARD_MANAGER         (csd_keyboard_manager_get_type ())
+#define CSD_KEYBOARD_MANAGER(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o), CSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManager))
+#define CSD_KEYBOARD_MANAGER_CLASS(k)     (G_TYPE_CHECK_CLASS_CAST((k), CSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManagerClass))
+#define CSD_IS_KEYBOARD_MANAGER(o)        (G_TYPE_CHECK_INSTANCE_TYPE ((o), CSD_TYPE_KEYBOARD_MANAGER))
+#define CSD_IS_KEYBOARD_MANAGER_CLASS(k)  (G_TYPE_CHECK_CLASS_TYPE ((k), CSD_TYPE_KEYBOARD_MANAGER))
+#define CSD_KEYBOARD_MANAGER_GET_CLASS(o) (G_TYPE_INSTANCE_GET_CLASS ((o), CSD_TYPE_KEYBOARD_MANAGER, CsdKeyboardManagerClass))
 
 typedef struct CsdKeyboardManagerPrivate CsdKeyboardManagerPrivate;
 
@@ -59,4 +59,4 @@ void                    csd_keyboard_manager_apply_settings      (CsdKeyboardMan
 }
 #endif
 
-#endif /* __MSD_KEYBOARD_MANAGER_H */
+#endif /* __CSD_KEYBOARD_MANAGER_H */
