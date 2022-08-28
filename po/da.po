@@ -2,24 +2,24 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # Allan Nordhøy <epost@anotheragency.no>, 2020
 # Joe Hansen <joedalton2@yahoo.dk>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>, 2020\n"
 "Language-Team: Danish (https://www.transifex.com/cafe/teams/13566/da/)\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/50-accessibility.xml.in:2
@@ -111,10 +111,10 @@ msgstr "RGBA-rækkefølge"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
 "Rækkefølgen af elementerne for underbilledpunkter på en LCD-skærm; bruges "
 "kun når billedpunktsudjævning er sat til »rgba«. Mulige værdier er: »rgb« "
@@ -171,8 +171,7 @@ msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
 msgstr ""
-"Accelerationsfaktor for musebevægelser. En værdi på -1 er systemets "
-"standard."
+"Accelerationsfaktor for musebevægelser. En værdi på -1 er systemets standard."
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:20
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:90
@@ -282,8 +281,8 @@ msgstr "Deaktiver pegeplade når der skrives"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
 msgstr ""
 "Sæt denne til TRUE hvis du kommer til at ramme pegepladen, mens du skriver."
 
@@ -404,8 +403,8 @@ msgid ""
 "Swap left and right buttons for left-handed touchpads with 'left', 'right' "
 "for right-handed, 'mouse' to follow the mouse setting."
 msgstr ""
-"Byt om på venstre og højre knapper for venstrehåndede pegeplader med »left«,"
-" »right« for højrehåndede, »mouse« for at følge museindstillingen. "
+"Byt om på venstre og højre knapper for venstrehåndede pegeplader med »left«, "
+"»right« for højrehåndede, »mouse« for at følge museindstillingen. "
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:86
 msgid ""
@@ -434,11 +433,11 @@ msgid ""
 "will be used."
 msgstr ""
 "Accelerationprofil brugt for pegeplade. Accelerationprofil kan angives til "
-"enten standard (»default«), der bruger standardprofilen for hver enhed, flad"
-" (»flat«), der accelererer via en enhedsspecifik konstant faktor afledt fra "
-"den konfigurerede markørhastighed, eller adaptiv (»adaptive«), der adapterer"
-" accelerationen afhængig af musebevægelsen. Hvis en mus ikke understøtter "
-"den konfigurerede profil vil »default« blive anvendt."
+"enten standard (»default«), der bruger standardprofilen for hver enhed, flad "
+"(»flat«), der accelererer via en enhedsspecifik konstant faktor afledt fra "
+"den konfigurerede markørhastighed, eller adaptiv (»adaptive«), der adapterer "
+"accelerationen afhængig af musebevægelsen. Hvis en mus ikke understøtter den "
+"konfigurerede profil vil »default« blive anvendt."
 
 #: data/org.cafe.SettingsDaemon.plugins.a11y-keyboard.gschema.xml.in:5
 #: data/org.cafe.SettingsDaemon.plugins.a11y-settings.gschema.xml.in:5
@@ -845,8 +844,8 @@ msgid ""
 "monitor settings are not touched at all (unless there is an explicit user "
 "configuration)."
 msgstr ""
-"Normalt konfigurerer cafe-settings-daemon interne og eksterne skærme jævnfør"
-" indstillingerne for turn_on_external_monitors_at_startup og "
+"Normalt konfigurerer cafe-settings-daemon interne og eksterne skærme jævnfør "
+"indstillingerne for turn_on_external_monitors_at_startup og "
 "turn_on_laptop_monitor_at_startup og bestemmer en passende kloning/side-"
 "efter-side tilstand. Angivelse af denne nøgle som True (sand) deaktiverer "
 "dette, og skærmindstillingerne røres ikke (med mindre der er en eksplicit "
@@ -858,8 +857,8 @@ msgstr "Slå ekstern skærm til efter systemopstart"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
 msgstr ""
 "Slå ekstern skærm til efter systemopstart, hvis brugeren tilslutter ekstern "
 "skærm ved systemopstart."
@@ -922,86 +921,86 @@ msgstr "Tilgængelighedstastatur"
 msgid "Accessibility keyboard plugin"
 msgstr "Tastaturtilgængelighedsmodul"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Der opstod en fejl ved visning af hjælp: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Vil du aktivere langsomme taster?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Vil du deaktivere langsomme taster?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
 msgstr ""
-"Du holdt lige skiftetasten trykket nede i 8 sekunder. Dette er en genvej til"
-" langsomme taster-faciliteten som påvirker den måde dit tastatur virker på."
+"Du holdt lige skiftetasten trykket nede i 8 sekunder. Dette er en genvej til "
+"langsomme taster-faciliteten som påvirker den måde dit tastatur virker på."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Aktiver ikke"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Deaktiver ikke"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Aktiver"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Deaktiver"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "Aktiver _ikke"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "Aktiver _ikke"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "A_ktiver"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Deaktiver"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Langsomme taster"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Vil du aktivere blivende taster?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Vil du deaktivere blivende taster?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1009,8 +1008,8 @@ msgstr ""
 "Du trykkede lige på skiftetasten 5 gange i træk. Dette er genvejen til "
 "blivende taster-faciliteten som påvirker den måde dit tastatur virker på."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1020,11 +1019,11 @@ msgstr ""
 "træk. Dette deaktiverer blivende taster-faciliteten som påvirker den måde "
 "dit tastatur virker på."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Blivende taster"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Indstillinger for universel tilgang"
@@ -1130,25 +1129,25 @@ msgstr ""
 "Fjerner automatisk lagre af miniaturebilleder og andre midlertidige filer, "
 "og advarer om lav diskplads"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Vis ikke nogen advarsler igen for dette filsystem"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "Vis ikke nogen advarsler igen"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "Diskenheden »%s« har kun %s resterende diskplads."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Denne computer har kun %s resterende diskplads."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1157,7 +1156,7 @@ msgstr ""
 "programmer eller filer, eller ved at flytte filer til en anden disk eller "
 "partition."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1165,7 +1164,7 @@ msgstr ""
 "Du kan frigøre plads ved at fjerne ubenyttede programmer eller filer, eller "
 "ved at flytte filer til en anden disk eller partition."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1173,28 +1172,28 @@ msgstr ""
 "Du kan frigøre plads ved at tømme papirkurven, fjerne ubenyttede programmer "
 "eller filer, eller ved at flytte filer til en ekstern disk."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
 msgstr ""
-"Du kan frigøre plads ved at fjerne ubrugte programmer eller filer, eller ved"
-" at flytte filer til en ekstern disk."
+"Du kan frigøre plads ved at fjerne ubrugte programmer eller filer, eller ved "
+"at flytte filer til en ekstern disk."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Lav resterende diskplads"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Tøm papirkurv"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Undersøg…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -1246,17 +1245,17 @@ msgstr "Tastegenveje"
 msgid "Keybindings plugin"
 msgstr "Modul for tastegenveje"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Tastegenvejen (%s) er ugyldig"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Tastegenvejen (%s) er ufuldstændig"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1322,15 +1321,15 @@ msgstr "Medietaster"
 msgid "Media keys plugin"
 msgstr "Medietastmodul"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
 "Kunne ikke finde standardterminal. Sikr dig, at kommandoen til din "
 "standardterminal er indstillet og peger på et gyldigt program."
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1339,46 +1338,46 @@ msgstr ""
 "Kunne ikke køre kommandoen: %s\n"
 "Kontroller at kommandoen er gyldig."
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "Pegeplade aktiveret"
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "Pegeplade deaktiveret"
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "Bluetooth deaktiveret"
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "Bluetooth aktiveret"
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "Flytilstand aktiveret"
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "Flytilstand deaktiveret"
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr "Tilstand for flyudstyr"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr "Ændring af skærmlayout"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "Ingen ekstern skærm"
@@ -1391,17 +1390,16 @@ msgstr "Mus"
 msgid "Mouse plugin"
 msgstr "Musemodul"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Kunne ikke aktivere musetilgængelighedsfaciliteter"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
-msgstr ""
-"Musetilgængelighed kræver at Mousetweaks er installeret på dit system."
+msgstr "Musetilgængelighed kræver at Mousetweaks er installeret på dit system."
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Indstillinger for mus"
 
@@ -1509,19 +1507,19 @@ msgstr "Tastepause"
 msgid "Typing break plugin"
 msgstr "Tastepausemodul"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Kunne ikke ændre monitorkonfiguration"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Kunne ikke genoprette displaykonfigurationen"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "Kunne ikke genoprette displaykonfigurationen fra sikkerhedskopi"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1533,97 +1531,97 @@ msgstr[1] ""
 "Skærmtilstanden vil blive nulstillet til dens sidste konfiguration om %d "
 "sekunder"
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Ser skærmbilledet acceptabelt ud?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "_Gendan foregående konfiguration"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Behold denne konfiguration"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Den valgte displaykonfiguration kunne ikke anvendes"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Kunne ikke genopfriske skærminformation: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Forsøger at ændre monitorkonfiguration alligevel."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Rotation understøttes ikke"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Kunne ikke gemme monitorkonfiguration"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr "Spejlning af uddata understøttes ikke"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Normal"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "Venstre"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "Højre"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "På hovedet"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr "TÆND"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr "Sluk for denne skærm"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr "SLUK"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr "Tænd for denne skærm"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr "Samme billede på alle skærme"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr "Spejl det samme billede til alle skærme og tænd for dem"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Konfigurer skærmindstillinger …"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr "Åbn dialogen til skærmkonfiguration (alle indstillinger)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Konfigurer skærmindstillinger"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Kunne ikke anvende gemt konfiguration for monitorer"
 
@@ -1635,7 +1633,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Indstil skærmstørrelse og rotation"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Kan ikke bestemme brugers hjemmemappe"
 

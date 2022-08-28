@@ -2,26 +2,26 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # ABE Tsunehiko, 2020
 # Mika Kobayashi, 2020
 # Wolfgang Ulbrich <cafe@raveit.de>, 2020
 # Kenzo Matsumoto <dicegeist@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Kenzo Matsumoto <dicegeist@gmail.com>, 2020\n"
 "Language-Team: Japanese (https://www.transifex.com/cafe/teams/13566/ja/)\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: data/50-accessibility.xml.in:2
@@ -75,7 +75,8 @@ msgstr "DPI"
 msgid ""
 "The resolution used for converting font sizes to pixel sizes, in dots per "
 "inch."
-msgstr "フォントの大きさをピクセル単位の大きさに変更する際に使用する解像度です。"
+msgstr ""
+"フォントの大きさをピクセル単位の大きさに変更する際に使用する解像度です。"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:27
 msgid "Antialiasing"
@@ -87,9 +88,10 @@ msgid ""
 "\"none\" for no antialiasing, \"grayscale\" for standard grayscale "
 "antialiasing, and \"rgba\" for subpixel antialiasing (LCD screens only)."
 msgstr ""
-"フォントを描画する際に使用するアンチエイリアスの種類を指定します。利用可能な値: \"none\" "
-"はアンチエイリアスを無効にする、\"grayscale\" は標準的なグレースケールのアンチエイリアス、\"rgba\" "
-"はサブピクセルをアンチエイリアスする (LCD 画面の場合のみ)"
+"フォントを描画する際に使用するアンチエイリアスの種類を指定します。利用可能な"
+"値: \"none\" はアンチエイリアスを無効にする、\"grayscale\" は標準的なグレース"
+"ケールのアンチエイリアス、\"rgba\" はサブピクセルをアンチエイリアスする (LCD "
+"画面の場合のみ)"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:32
 msgid "Hinting"
@@ -101,9 +103,10 @@ msgid ""
 "\"none\" for no hinting, \"slight\" for basic, \"medium\" for moderate, and "
 "\"full\" for maximum hinting (may cause distortion of letter forms)."
 msgstr ""
-"フォントを描画する際に使用するヒンティング (線幅を補正する) の種類を指定します。利用可能な値: \"none\" "
-"はヒンティングを無効にする、\"slight\" は基本的なヒンティングのみ、\"medium\" は穏やかなヒンテイング、\"full\" "
-"は最大限のヒンテイング (文字の形状に歪みが発生する可能性あり)"
+"フォントを描画する際に使用するヒンティング (線幅を補正する) の種類を指定しま"
+"す。利用可能な値: \"none\" はヒンティングを無効にする、\"slight\" は基本的な"
+"ヒンティングのみ、\"medium\" は穏やかなヒンテイング、\"full\" は最大限のヒン"
+"テイング (文字の形状に歪みが発生する可能性あり)"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:37
 msgid "RGBA order"
@@ -111,14 +114,15 @@ msgstr "RGBA の順番"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
-"LCD 画面でサブピクセルの各要素の順番を指定します (これは Antialiasing を \"rgba\" "
-"にセットした時にのみ適用されます)。利用可能な値: \"rgb\" は左端が赤色 (最も一般的)、\"bgr\" は左端が青色、\"vrgb\" "
-"は上端が赤色、\"vbgr\" は下端が赤色"
+"LCD 画面でサブピクセルの各要素の順番を指定します (これは Antialiasing を "
+"\"rgba\" にセットした時にのみ適用されます)。利用可能な値: \"rgb\" は左端が赤"
+"色 (最も一般的)、\"bgr\" は左端が青色、\"vrgb\" は上端が赤色、\"vbgr\" は下端"
+"が赤色"
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:25
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -140,7 +144,9 @@ msgstr "NumLock の状態を保存する"
 msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
-msgstr "TRUE にすると、CAFE が NumLock の LED の状態をセッションをまたいで記憶します。"
+msgstr ""
+"TRUE にすると、CAFE が NumLock の LED の状態をセッションをまたいで記憶しま"
+"す。"
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
@@ -156,7 +162,8 @@ msgstr "マウスボタンの向き"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:11
 msgid "Swap left and right mouse buttons for left-handed mice."
-msgstr "左利き用のマウスのためにマウスの左と右のボタンを入れ替えるかどうかです。"
+msgstr ""
+"左利き用のマウスのためにマウスの左と右のボタンを入れ替えるかどうかです。"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:15
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:85
@@ -167,7 +174,8 @@ msgstr "移動加速"
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr "マウスの動きを加速させる倍率を設定します。システムのデフォルト値は -1 です。"
+msgstr ""
+"マウスの動きを加速させる倍率を設定します。システムのデフォルト値は -1 です。"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:20
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:90
@@ -178,7 +186,9 @@ msgstr "移動時のしきい値"
 msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
-msgstr "マウスの動きが加速されるまでのポインターが動く距離を指定します。システムのデフォルト値は -1 です。"
+msgstr ""
+"マウスの動きが加速されるまでのポインターが動く距離を指定します。システムのデ"
+"フォルト値は -1 です。"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:25
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:95
@@ -230,7 +240,8 @@ msgstr "ポインターの位置を表示する"
 msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released."
-msgstr "コントロールキーを押して離した際、ポインターの現在位置を強調表示します。"
+msgstr ""
+"コントロールキーを押して離した際、ポインターの現在位置を強調表示します。"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:50
 msgid "Cursor theme"
@@ -257,8 +268,9 @@ msgid ""
 "Set this to one of \"none\", \"lock_screen\", or \"force_logout\". The "
 "action will get performed when the smartcard used for log in is removed."
 msgstr ""
-"\"none\"、\"lock_screen\"、あるいは \"force_logout\" "
-"のうちの一つを指定します。スマートカードがログインに使用されたり、取り出された場合にそのアクションが実行されます。"
+"\"none\"、\"lock_screen\"、あるいは \"force_logout\" のうちの一つを指定しま"
+"す。スマートカードがログインに使用されたり、取り出された場合にそのアクション"
+"が実行されます。"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:15
 msgid "Disable touchpad while typing"
@@ -266,9 +278,11 @@ msgstr "タイピング中にタッチパッドを無効にする"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
-msgstr "タイプ中に誤ってタッチ・パッドを押してしまう問題があるのであれば、TRUE に設定してください。"
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
+msgstr ""
+"タイプ中に誤ってタッチ・パッドを押してしまう問題があるのであれば、TRUE に設定"
+"してください。"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:20
 msgid "Enable mouse clicks with touchpad"
@@ -277,7 +291,9 @@ msgstr "タッチパッドでのマウス・クリックを有効にする"
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:21
 msgid ""
 "Set this to TRUE to be able to send mouse clicks by tapping on the touchpad."
-msgstr "この値を TRUE にすると、タッチ・パッドをタップすることで、マウス・クリックと同じ動作できるようにします。"
+msgstr ""
+"この値を TRUE にすると、タッチ・パッドをタップすることで、マウス・クリックと"
+"同じ動作できるようにします。"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:25
 msgid "Enable vertical edge scrolling"
@@ -348,7 +364,9 @@ msgstr "１本指タップのボタン"
 msgid ""
 "Select the button mapping for one-finger tap. Supported values are: 1: left "
 "mouse button 2: middle mouse button 3: right mouse button"
-msgstr "１本指でタップした場合のボタンマッピング。1は左クリック、2はミドルクリック、3は右クリック"
+msgstr ""
+"１本指でタップした場合のボタンマッピング。1は左クリック、2はミドルクリック、3"
+"は右クリック"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:70
 msgid "Two finger tap button"
@@ -358,7 +376,9 @@ msgstr "２本指タップのボタン"
 msgid ""
 "Select the button mapping for two-finger tap. Supported values are: 1: left "
 "mouse button 2: middle mouse button 3: right mouse button"
-msgstr "２本指でタップした場合のボタンマッピング。1は左クリック、2はミドルクリック、3は右クリック"
+msgstr ""
+"２本指でタップした場合のボタンマッピング。1は左クリック、2はミドルクリック、3"
+"は右クリック"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:75
 msgid "Three finger tap button"
@@ -368,7 +388,9 @@ msgstr "３本指タップのボタン"
 msgid ""
 "Select the button mapping for three-finger tap. Supported values are: 1: "
 "left mouse button 2: middle mouse button 3: right mouse button"
-msgstr "３本指でタップした場合のボタンマッピング。1は左クリック、2はミドルクリック、3は右クリック"
+msgstr ""
+"３本指でタップした場合のボタンマッピング。1は左クリック、2はミドルクリック、3"
+"は右クリック"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:80
 msgid "Touchpad button orientation"
@@ -496,7 +518,8 @@ msgid ""
 "Percentage free space threshold for initial warning of low disk space. If "
 "the percentage free space drops below this, a warning will be shown."
 msgstr ""
-"ディスクの残り容量が少なくなった時に最初に警告する閾値となる残り容量のパーセンテージ。残り容量のパーセンテージがこの値を下まわれば、警告が表示されます。"
+"ディスクの残り容量が少なくなった時に最初に警告する閾値となる残り容量のパーセ"
+"ンテージ。残り容量のパーセンテージがこの値を下まわれば、警告が表示されます。"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:20
 msgid "Subsequent free percentage notify threshold"
@@ -506,7 +529,9 @@ msgstr "空き容量の連続通知のパーセンテージの閾値"
 msgid ""
 "Specify the percentage that the free disk space should reduce by before "
 "issuing a subsequent warning."
-msgstr "空き容量の警告を連続して出す前に、何パーセント空き容量を減らさなくてはならないかを指定"
+msgstr ""
+"空き容量の警告を連続して出す前に、何パーセント空き容量を減らさなくてはならな"
+"いかを指定"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:25
 msgid "Free space no notify threshold"
@@ -516,7 +541,9 @@ msgstr "空き容量の警告の閾値"
 msgid ""
 "Specify an amount in GB. If the amount of free space is more than this, no "
 "warning will be shown."
-msgstr "容量をGB単位で指定します。空き容量がこの値を上まわれば、警告は表示されません。"
+msgstr ""
+"容量をGB単位で指定します。空き容量がこの値を上まわれば、警告は表示されませ"
+"ん。"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:30
 msgid "Minimum notify period for repeated warnings"
@@ -526,7 +553,9 @@ msgstr "警告の繰り返しの最小通知間隔"
 msgid ""
 "Specify a time in minutes. Subsequent warnings for a volume will not appear "
 "more often than this period."
-msgstr "時間を分単位で指定します。この時間より短い間隔で容量の警告を表示することはありません。"
+msgstr ""
+"時間を分単位で指定します。この時間より短い間隔で容量の警告を表示することはあ"
+"りません。"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:35
 msgid "Mount paths to ignore"
@@ -726,7 +755,9 @@ msgstr "再生する (または再生/一時停止する)"
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:131
 msgid "Binding to start playback (or toggle play/pause)."
-msgstr "再生を開始する (または再生と一時停止を切り替える) するキー・バインディングです。"
+msgstr ""
+"再生を開始する (または再生と一時停止を切り替える) するキー・バインディングで"
+"す。"
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:135
 msgid "Pause playback"
@@ -795,8 +826,11 @@ msgid ""
 "monitor settings are not touched at all (unless there is an explicit user "
 "configuration)."
 msgstr ""
-"通常、 "
-"CAFE設定デーモンは、スタートアップ時に外部モニタやラップトップモニタがオンになっているかどうかを検出して内蔵および外付けのモニタを設定し、クローンモードとサイドバイサイドモードのどちらが適切かを判断します。これらの機能はこのキーをTrueにすることで無効にすることができ、モニタの設定には(明示的なユーザ設定がある場合を除き)一切関与しなくなります。"
+"通常、 CAFE設定デーモンは、スタートアップ時に外部モニタやラップトップモニタが"
+"オンになっているかどうかを検出して内蔵および外付けのモニタを設定し、クローン"
+"モードとサイドバイサイドモードのどちらが適切かを判断します。これらの機能はこ"
+"のキーをTrueにすることで無効にすることができ、モニタの設定には(明示的なユーザ"
+"設定がある場合を除き)一切関与しなくなります。"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:25
 msgid "Turn on external monitor after system boot"
@@ -804,9 +838,11 @@ msgstr "システムの起動後に外部モニタを有効にする"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
-msgstr "システムのブート時に外部モニタが接続されている時、システムのブート後に外部モニタ有効にする。"
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
+msgstr ""
+"システムのブート時に外部モニタが接続されている時、システムのブート後に外部モ"
+"ニタ有効にする。"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:30
 msgid "Turn on laptop monitor after system boot"
@@ -816,7 +852,9 @@ msgstr "システムのブート後にラップトップのモニタを有効に
 msgid ""
 "Turn on laptop monitor after system boot if user plugs in external monitor "
 "on system boot."
-msgstr "システムのブート時に外部モニタが接続されている時、システムのブート後にラップトップのモニタを有効にする。"
+msgstr ""
+"システムのブート時に外部モニタが接続されている時、システムのブート後にラップ"
+"トップのモニタを有効にする。"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:35
 msgid "File for default configuration for RandR"
@@ -830,10 +868,11 @@ msgid ""
 "such a file, or has one that does not match the user's setup of monitors, "
 "then the file specified by this key will be used instead."
 msgstr ""
-"XRandR "
-"プラグインはこのキーで指定されたファイルをデフォルトの設定ファイルとして検索します。これはユーザのふつう、ホームディレクトリに保存されている "
-"~/.config/monitors.xml "
-"と同様のものです。もしそのようなファイルが無い場合、あるいはあったとしてもモニタの設定に合わない場合、このキーで指定されたファイルが代わりに使われます。"
+"XRandR プラグインはこのキーで指定されたファイルをデフォルトの設定ファイルとし"
+"て検索します。これはユーザのふつう、ホームディレクトリに保存されている ~/."
+"config/monitors.xml と同様のものです。もしそのようなファイルが無い場合、ある"
+"いはあったとしてもモニタの設定に合わない場合、このキーで指定されたファイルが"
+"代わりに使われます。"
 
 #: data/cafe-settings-daemon.desktop.in.in:4
 msgid "CAFE Settings Daemon"
@@ -863,104 +902,109 @@ msgstr "アクセシビリティ・キーボード"
 msgid "Accessibility keyboard plugin"
 msgstr "アクセシビリティ・キーボードのプラグイン"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "ヘルプを表示する際にエラーが発生しました: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "スロー・キーを有効にしますか?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "スロー・キーを無効にしますか?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
-msgstr "[SHIFT] キーを8秒間押下しました。これはスロー・キー機能のショートカットとして、キーボード操作に影響を与えるものです。"
+msgstr ""
+"[SHIFT] キーを8秒間押下しました。これはスロー・キー機能のショートカットとし"
+"て、キーボード操作に影響を与えるものです。"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "有効にしない"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "無効にしない"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "有効にする"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "無効にする"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "有効にしない(_N)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "無効にしない(_N)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "有効にする(_A)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "無効にする(_D)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "スロー・キーの警告"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "スティッキー・キーを有効にしますか?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "スティッキー・キーを無効にしますか?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
-msgstr "[SHIFT] キーを連続して5回押下しました。これはスティッキー・キー機能のショートカットとして、キーボード操作に影響を与えるものです。"
+msgstr ""
+"[SHIFT] キーを連続して5回押下しました。これはスティッキー・キー機能のショート"
+"カットとして、キーボード操作に影響を与えるものです。"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
 "keyboard works."
 msgstr ""
-"キーを一度に2回押下したか、あるいは [SHIFT] キーを連続して "
-"5回押下しました。これはスティッキー・キー機能を無効にし、キーボード操作に影響を与えるものです。"
+"キーを一度に2回押下したか、あるいは [SHIFT] キーを連続して 5回押下しました。"
+"これはスティッキー・キー機能を無効にし、キーボード操作に影響を与えるもので"
+"す。"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "スティッキー・キーの警告"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "ユニバーサル・アクセスの設定"
@@ -1063,64 +1107,71 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "このファイルシステムの警告は一切表示しない"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "警告を一切表示しない"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "ボリューム \"%s\" にはディスクの残りが %s しかありません。"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "このコンピュータにはディスクの残りが %s しかありません。"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
 msgstr ""
-"ゴミ箱を空にしたり、使っていないプログラムやファイルを削除したり、他のディスクやパーティションにファイルを移動することで、ディスクの空き容量を増やせます。"
+"ゴミ箱を空にしたり、使っていないプログラムやファイルを削除したり、他のディス"
+"クやパーティションにファイルを移動することで、ディスクの空き容量を増やせま"
+"す。"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
-msgstr "使っていないプログラムやファイルを削除したり、他のディスクやパーティションにファイルを移動することで、ディスク容量を増やせます。"
+msgstr ""
+"使っていないプログラムやファイルを削除したり、他のディスクやパーティションに"
+"ファイルを移動することで、ディスク容量を増やせます。"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
 msgstr ""
-"ゴミ箱を空にしたり、使っていないプログラムやファイルを削除したり、外付けディスクにファイルを移動することで、ディスクの空き容量を増やせます。"
+"ゴミ箱を空にしたり、使っていないプログラムやファイルを削除したり、外付けディ"
+"スクにファイルを移動することで、ディスクの空き容量を増やせます。"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
-msgstr "使っていないプログラムやファイルを削除したり、外付けディスクにファイルを移動することで、ディスクの空き容量を増やせます。"
+msgstr ""
+"使っていないプログラムやファイルを削除したり、外付けディスクにファイルを移動"
+"することで、ディスクの空き容量を増やせます。"
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "ディスクの空き容量が少ないです"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "ゴミ箱を空にする"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "調査中…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "無視"
 
@@ -1156,7 +1207,9 @@ msgstr "ゴミ箱にあるすべてのアイテムを空にしてもよろしい
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
-msgstr "ゴミ箱を空にすると、アイテムを復活させることはできません。それぞれ個別に削除することも可能です。"
+msgstr ""
+"ゴミ箱を空にすると、アイテムを復活させることはできません。それぞれ個別に削除"
+"することも可能です。"
 
 #: plugins/housekeeping/csd-ldsm-trash-empty.c:365
 msgid "_Empty Trash"
@@ -1170,17 +1223,17 @@ msgstr "キーバインディング"
 msgid "Keybindings plugin"
 msgstr "キーバインディングのプラグイン"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "キー・バインディング (%s) が無効です"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "キー・バインディング (%s) が完了していません"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1234,14 +1287,16 @@ msgstr "メディア・キー"
 msgid "Media keys plugin"
 msgstr "メディア・キーのプラグイン"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
-"デフォルトの端末を起動できませんでした。デフォルトの端末を起動するコマンドが指定され、それに対応するアプリケーションがインストールされているか確認して下さい。"
+"デフォルトの端末を起動できませんでした。デフォルトの端末を起動するコマンドが"
+"指定され、それに対応するアプリケーションがインストールされているか確認して下"
+"さい。"
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1250,46 +1305,46 @@ msgstr ""
 "コマンドを実行できませんでした: %s\n"
 "このコマンドがインストールされているか確認してください。"
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1302,16 +1357,18 @@ msgstr "マウス"
 msgid "Mouse plugin"
 msgstr "マウスのプラグイン"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "マウスの操作性に関する機能を有効にできませんでした"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
-msgstr "マウスのアクセシビリティに関する機能を有効にするには mousetweak がインストールされている必要があります。"
+msgstr ""
+"マウスのアクセシビリティに関する機能を有効にするには mousetweak がインストー"
+"ルされている必要があります。"
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "マウスを設定する"
 
@@ -1419,116 +1476,116 @@ msgstr "一休み"
 msgid "Typing break plugin"
 msgstr "一休みのプラグイン"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "モニタの設定に切り替えることができませんでした"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "ディスプレイの設定を元に戻せませんでした"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "バックアップしたディスプレイの設定に戻せませんでした"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
 "The display will be reset to its previous configuration in %d seconds"
 msgstr[0] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "ディスプレイの設定に問題はありませんか?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "前の設定に戻す(_R)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "この設定のままにする(_K)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "選択したディスプレイの設定を適用できませんでした"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "スクリーンの情報を更新できませんでした: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "いずれにせよ、モニタの設定を切り替えてみます"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "回転はサポートしていません"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "モニタの設定を保存できませんでした"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "標準"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "左"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "右"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "逆さま"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "ディスプレイの設定(_C)…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "ディスプレイの設定を変更します"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "保存したモニタの設定を適用できませんでした"
 
@@ -1540,7 +1597,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "画面の大きさや回転といった設定を管理します"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "ユーザのホーム・フォルダを確定できません"
 

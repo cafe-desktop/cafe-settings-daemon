@@ -2,23 +2,24 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
 # Wolfgang Ulbrich <cafe@raveit.de>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Wolfgang Ulbrich <cafe@raveit.de>, 2020\n"
-"Language-Team: Panjabi (Punjabi) (https://www.transifex.com/cafe/teams/13566/pa/)\n"
+"Language-Team: Panjabi (Punjabi) (https://www.transifex.com/cafe/teams/13566/"
+"pa/)\n"
+"Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/50-accessibility.xml.in:2
@@ -72,9 +73,7 @@ msgstr "DPI"
 msgid ""
 "The resolution used for converting font sizes to pixel sizes, in dots per "
 "inch."
-msgstr ""
-"ਫੋਂਟ ਸਾਈਜ਼ ਨੂੰ ਪਿਕਸਲ ਸਾਈਜ਼ 'ਚ ਬਦਲਣ ਲਈ ਵਰਤਣ ਜਾਣ ਵਾਲਾ ਰੈਜ਼ੋਲੂਸ਼ਨ ਡਾਟ ਪ੍ਰਤੀ "
-"ਇੰਚ।"
+msgstr "ਫੋਂਟ ਸਾਈਜ਼ ਨੂੰ ਪਿਕਸਲ ਸਾਈਜ਼ 'ਚ ਬਦਲਣ ਲਈ ਵਰਤਣ ਜਾਣ ਵਾਲਾ ਰੈਜ਼ੋਲੂਸ਼ਨ ਡਾਟ ਪ੍ਰਤੀ ਇੰਚ।"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:27
 msgid "Antialiasing"
@@ -86,10 +85,9 @@ msgid ""
 "\"none\" for no antialiasing, \"grayscale\" for standard grayscale "
 "antialiasing, and \"rgba\" for subpixel antialiasing (LCD screens only)."
 msgstr ""
-"ਫੋਂਟ ਰੈਡਰਿੰਗ ਲਈ ਵਰਤਣ ਵਾਸਤੇ ਐਂਟੀਅਲਾਈਸਿੰਗ ਦੀ ਟਾਈਪ ਹੈ। ਸੰਭਵ ਮੁੱਲ ਹਨ: ਬਿਨਾਂ "
-"ਐਂਟੀਅਲਾਈਸਿੰਗ ਲਈ \"none (ਕੋਈ ਨਹੀਂ)\", ਸਟੈਂਡਰਡ  ਗਰੇਸਕੇਲ ਐਂਟੀਅਲਾਈਸਿੰਗ ਵਾਸਤੇ "
-"\"grayscale (ਗਰੇਸਕੇਲ)\" ਅਤੇ ਸਬ-ਪਿਕਸਲ ਐਂਟੀਅਲਾਈਸਿੰਗ ਲਈ \"rgba\" (ਕੇਵਲ LCD "
-"ਸਕਰੀਨਾਂ ਲਈ ਹੀ)।"
+"ਫੋਂਟ ਰੈਡਰਿੰਗ ਲਈ ਵਰਤਣ ਵਾਸਤੇ ਐਂਟੀਅਲਾਈਸਿੰਗ ਦੀ ਟਾਈਪ ਹੈ। ਸੰਭਵ ਮੁੱਲ ਹਨ: ਬਿਨਾਂ ਐਂਟੀਅਲਾਈਸਿੰਗ ਲਈ "
+"\"none (ਕੋਈ ਨਹੀਂ)\", ਸਟੈਂਡਰਡ  ਗਰੇਸਕੇਲ ਐਂਟੀਅਲਾਈਸਿੰਗ ਵਾਸਤੇ \"grayscale (ਗਰੇਸਕੇਲ)\" ਅਤੇ ਸਬ-"
+"ਪਿਕਸਲ ਐਂਟੀਅਲਾਈਸਿੰਗ ਲਈ \"rgba\" (ਕੇਵਲ LCD ਸਕਰੀਨਾਂ ਲਈ ਹੀ)।"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:32
 msgid "Hinting"
@@ -101,9 +99,9 @@ msgid ""
 "\"none\" for no hinting, \"slight\" for basic, \"medium\" for moderate, and "
 "\"full\" for maximum hinting (may cause distortion of letter forms)."
 msgstr ""
-"ਫੋਂਟ ਰੈਡਰਿੰਗ ਕਰਨ ਦੌਰਾਨ ਹਿੰਟਿੰਗ ਦੀ ਟਾਈਪ ਹੈ। ਸੰਭਵ ਮੁੱਲ ਹਨ: ਨਾ ਹਿੰਟਿੰਗ ਲਈ "
-"\"none (ਕੋਈ ਨਹੀਂ)\", ਬੇਸਿਕ ਲਈ \"slight (ਹਲਕੀ)\", ਮੱਧਮ ਲਈ \"medium (ਮੱਧਮ)\" "
-"ਅਤੇ ਵੱਧ ਤੋਂ ਵੱਧ ਹਿੰਟਿੰਗ ਲਈ \"full (ਪੂਰੀ)\" (ਅੱਖਰ ਬਣਨ ਸਮੇਂ ਕਰੂਪ ਹੋ ਸਕਦੇ ਹਨ)।"
+"ਫੋਂਟ ਰੈਡਰਿੰਗ ਕਰਨ ਦੌਰਾਨ ਹਿੰਟਿੰਗ ਦੀ ਟਾਈਪ ਹੈ। ਸੰਭਵ ਮੁੱਲ ਹਨ: ਨਾ ਹਿੰਟਿੰਗ ਲਈ \"none (ਕੋਈ ਨਹੀਂ)\", "
+"ਬੇਸਿਕ ਲਈ \"slight (ਹਲਕੀ)\", ਮੱਧਮ ਲਈ \"medium (ਮੱਧਮ)\" ਅਤੇ ਵੱਧ ਤੋਂ ਵੱਧ ਹਿੰਟਿੰਗ ਲਈ "
+"\"full (ਪੂਰੀ)\" (ਅੱਖਰ ਬਣਨ ਸਮੇਂ ਕਰੂਪ ਹੋ ਸਕਦੇ ਹਨ)।"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:37
 msgid "RGBA order"
@@ -111,15 +109,14 @@ msgstr "RGBA ਕ੍ਰਮ"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
-"LCD ਸਕਰੀਨ ਉੱਤੇ ਸਬ-ਪਿਕਸਲ ਐਲੀਮੈਂਟ ਦਾ ਕ੍ਰਮ; ਕੇਵਲ ਤਾਂ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜਦੋਂ "
-"ਐਂਟੀਅਲਾਸਿੰਗ ਨੂੰ \"rgba\" ਸੈੱਟ ਕੀਤਾ ਹੋਵੇ। ਸੰਭਵ ਮੁੱਲ ਹਨ: ਖੱਬੇ ਤੋਂ ਲਾਲ ਲਈ "
-"\"rgb\" (ਸਭ ਤੋਂ ਆਮ), ਖੱਬੇ ਤੋਂ ਨੀਲੇ ਲਈ \"bgr\", ਉੱਤੇ ਤੋਂ ਲਾਲ ਲਈ \"vrgb\", ਤਲ "
-"ਤੋਂ ਲਾਲ ਲਈ \"vbgr\""
+"LCD ਸਕਰੀਨ ਉੱਤੇ ਸਬ-ਪਿਕਸਲ ਐਲੀਮੈਂਟ ਦਾ ਕ੍ਰਮ; ਕੇਵਲ ਤਾਂ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜਦੋਂ ਐਂਟੀਅਲਾਸਿੰਗ ਨੂੰ "
+"\"rgba\" ਸੈੱਟ ਕੀਤਾ ਹੋਵੇ। ਸੰਭਵ ਮੁੱਲ ਹਨ: ਖੱਬੇ ਤੋਂ ਲਾਲ ਲਈ \"rgb\" (ਸਭ ਤੋਂ ਆਮ), ਖੱਬੇ ਤੋਂ ਨੀਲੇ ਲਈ "
+"\"bgr\", ਉੱਤੇ ਤੋਂ ਲਾਲ ਲਈ \"vrgb\", ਤਲ ਤੋਂ ਲਾਲ ਲਈ \"vbgr\""
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:25
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -141,8 +138,7 @@ msgstr "ਨਮ-ਲਾਕ (NumLock) ਹਾਲਤ ਯਾਦ ਰੱਖੋ"
 msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
-msgstr ""
-"ਜਦੋਂ ਸਹੀਂ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਗਨੋਮ ਨਮ-ਲਾਕ LED ਦੀ ਹਾਲਤ ਸ਼ੈਸ਼ਨ ਦੌਰਾਨ ਯਾਦ ਰੱਖੇਗਾ।"
+msgstr "ਜਦੋਂ ਸਹੀਂ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਗਨੋਮ ਨਮ-ਲਾਕ LED ਦੀ ਹਾਲਤ ਸ਼ੈਸ਼ਨ ਦੌਰਾਨ ਯਾਦ ਰੱਖੇਗਾ।"
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
@@ -181,8 +177,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"ਦੂਰੀ ਪਿਕਸਲਾਂ ਵਿੱਚ ਜੋ ਕਿ ਸੰਕੇਤਕ ਨੂੰ ਤਹਿ ਕਰਨੀ ਪਵੇ ਤਾਂਕਿ ਐਕਸਲੇਟਿਡ ਮਾਊਸ ਗਤੀ "
-"ਸਰਗਰਮ ਹੋ ਸਕੇ ਮੁੱਲ -1 ਮੁੱਲ ਸਿਸਟਮ ਦਾ ਡਿਫਾਲਟ ਹੈ।"
+"ਦੂਰੀ ਪਿਕਸਲਾਂ ਵਿੱਚ ਜੋ ਕਿ ਸੰਕੇਤਕ ਨੂੰ ਤਹਿ ਕਰਨੀ ਪਵੇ ਤਾਂਕਿ ਐਕਸਲੇਟਿਡ ਮਾਊਸ ਗਤੀ ਸਰਗਰਮ ਹੋ ਸਕੇ ਮੁੱਲ "
+"-1 ਮੁੱਲ ਸਿਸਟਮ ਦਾ ਡਿਫਾਲਟ ਹੈ।"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:25
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:95
@@ -261,9 +257,9 @@ msgid ""
 "Set this to one of \"none\", \"lock_screen\", or \"force_logout\". The "
 "action will get performed when the smartcard used for log in is removed."
 msgstr ""
-"\"none (ਕੋਈ ਨਹੀਂ)\", \"lock_screen (ਸਕਰੀਨ ਲਾਕ ਕਰੋ)\", ਜਾਂ \"force_logout "
-"(ਧੱਕੇ ਨਾਲ ਲਾਗਆਉਟ)\" ਵਿੱਚੋਂ ਇੱਕ ਸੈੱਟ ਕਰੋ। ਇਹ ਕਾਰਵਾਈ ਕੀਤੀ ਜਾਵੇਗੀ, ਜਦੋਂ ਲਾਗਇਨ "
-"ਲਈ ਵਰਤਿਆ ਸਮਾਰਟ ਕਾਰਡ ਹਟਾਇਆ ਜਾਵੇਗਾ।"
+"\"none (ਕੋਈ ਨਹੀਂ)\", \"lock_screen (ਸਕਰੀਨ ਲਾਕ ਕਰੋ)\", ਜਾਂ \"force_logout (ਧੱਕੇ ਨਾਲ "
+"ਲਾਗਆਉਟ)\" ਵਿੱਚੋਂ ਇੱਕ ਸੈੱਟ ਕਰੋ। ਇਹ ਕਾਰਵਾਈ ਕੀਤੀ ਜਾਵੇਗੀ, ਜਦੋਂ ਲਾਗਇਨ ਲਈ ਵਰਤਿਆ ਸਮਾਰਟ ਕਾਰਡ "
+"ਹਟਾਇਆ ਜਾਵੇਗਾ।"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:15
 msgid "Disable touchpad while typing"
@@ -271,10 +267,9 @@ msgstr "ਲਿਖਣ ਦੌਰਾਨ ਟੱਚਪੈਡ ਆਯੋਗ ਕਰੋ"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
-msgstr ""
-"ਇਹ ਚੋਣ ਕਰੋ, ਜੇ ਤੁਹਾਨੂੰ ਲਿਖਣ ਦੌਰਾਨ ਗਲਤੀ ਨਾਲ ਟੱਚਪੈਚ ਛੋਹਣ ਦੀ ਸਮੱਸਿਆ ਆਉਂਦੀ ਹੈ।"
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
+msgstr "ਇਹ ਚੋਣ ਕਰੋ, ਜੇ ਤੁਹਾਨੂੰ ਲਿਖਣ ਦੌਰਾਨ ਗਲਤੀ ਨਾਲ ਟੱਚਪੈਚ ਛੋਹਣ ਦੀ ਸਮੱਸਿਆ ਆਉਂਦੀ ਹੈ।"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:20
 msgid "Enable mouse clicks with touchpad"
@@ -283,9 +278,7 @@ msgstr "ਟੱਚਪੈਡ ਨਾਲ ਮਾਊਂਸ ਕਲਿੱਕ ਯੋਗ"
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:21
 msgid ""
 "Set this to TRUE to be able to send mouse clicks by tapping on the touchpad."
-msgstr ""
-"ਇਹ ਚੋਣ ਕਰੋ, ਜੇ ਤੁਸੀਂ ਟੱਚਪੈਡ ਨੂੰ ਦਬਾ ਕੇ ਮਾਊਂਸ ਕਲਿੱਕ ਦਾ ਪ੍ਰਭਾਵ ਯੋਗ ਕਰਨਾ "
-"ਚਾਹੁੰਦੇ ਹੋ।"
+msgstr "ਇਹ ਚੋਣ ਕਰੋ, ਜੇ ਤੁਸੀਂ ਟੱਚਪੈਡ ਨੂੰ ਦਬਾ ਕੇ ਮਾਊਂਸ ਕਲਿੱਕ ਦਾ ਪ੍ਰਭਾਵ ਯੋਗ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:25
 msgid "Enable vertical edge scrolling"
@@ -504,8 +497,8 @@ msgid ""
 "Percentage free space threshold for initial warning of low disk space. If "
 "the percentage free space drops below this, a warning will be shown."
 msgstr ""
-"ਘੱਟ ਡਿਸਕ ਥਾਂ ਦੀ ਸ਼ੁਰੂਆਤੀ ਚੇਤਾਵਨੀ ਦੇਣ ਲਈ ਫੀਸਦੀ ਖਾਲੀ ਥਾਂ ਥਰੈਸ਼ਹੋਲਡ ਹੈ। ਜੇ "
-"ਫੀਸਦੀ ਖਾਲੀ ਥਾਂ ਇਸ ਤੋਂ ਘੱਟ ਜਾਵੇਗੀ ਤਾਂ ਚੇਤਾਵਨੀ ਵੇਖਾਈ ਜਾਵੇਗੀ।"
+"ਘੱਟ ਡਿਸਕ ਥਾਂ ਦੀ ਸ਼ੁਰੂਆਤੀ ਚੇਤਾਵਨੀ ਦੇਣ ਲਈ ਫੀਸਦੀ ਖਾਲੀ ਥਾਂ ਥਰੈਸ਼ਹੋਲਡ ਹੈ। ਜੇ ਫੀਸਦੀ ਖਾਲੀ ਥਾਂ ਇਸ "
+"ਤੋਂ ਘੱਟ ਜਾਵੇਗੀ ਤਾਂ ਚੇਤਾਵਨੀ ਵੇਖਾਈ ਜਾਵੇਗੀ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:20
 msgid "Subsequent free percentage notify threshold"
@@ -526,8 +519,7 @@ msgid ""
 "Specify an amount in GB. If the amount of free space is more than this, no "
 "warning will be shown."
 msgstr ""
-"ਮਾਤਰਾ GB ਵਿੱਚ ਦਿਓ। ਜੇ ਖਾਲੀ ਥਾਂ ਦੀ ਮਾਤਰਾ ਇਸ ਤੋਂ ਵੱਧ ਹੋਵੇ ਤਾਂ ਕੋਈ ਵੀ ਚੇਤਾਵਨੀ "
-"ਨਹੀਂ ਵੇਖਾਈਗੀ।"
+"ਮਾਤਰਾ GB ਵਿੱਚ ਦਿਓ। ਜੇ ਖਾਲੀ ਥਾਂ ਦੀ ਮਾਤਰਾ ਇਸ ਤੋਂ ਵੱਧ ਹੋਵੇ ਤਾਂ ਕੋਈ ਵੀ ਚੇਤਾਵਨੀ ਨਹੀਂ ਵੇਖਾਈਗੀ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:30
 msgid "Minimum notify period for repeated warnings"
@@ -537,9 +529,7 @@ msgstr "ਦੁਹਰਾਉ ਚੇਤਾਵਨੀ ਲਈ ਘੱਟੋ-ਘੱਟ �
 msgid ""
 "Specify a time in minutes. Subsequent warnings for a volume will not appear "
 "more often than this period."
-msgstr ""
-"ਸਮਾਂ ਮਿੰਟਾਂ ਵਿੱਚ ਦਿਉ। ਵਾਲੀਅਮ ਲਈ ਅਗਲੀ ਚੇਤਾਵਨੀ ਇਸ ਸਮੇਂ ਤੋਂ ਪਹਿਲਾਂ ਨਹੀਂ ਵੇਖਾਈ "
-"ਜਾਵੇਗੀ।"
+msgstr "ਸਮਾਂ ਮਿੰਟਾਂ ਵਿੱਚ ਦਿਉ। ਵਾਲੀਅਮ ਲਈ ਅਗਲੀ ਚੇਤਾਵਨੀ ਇਸ ਸਮੇਂ ਤੋਂ ਪਹਿਲਾਂ ਨਹੀਂ ਵੇਖਾਈ ਜਾਵੇਗੀ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:35
 msgid "Mount paths to ignore"
@@ -547,8 +537,7 @@ msgstr "ਅਣਡਿੱਠਾ ਕਰਨ ਲਈ ਮਾਊਂਟ ਪਾਥ"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:36
 msgid "Specify a list of mount paths to ignore when they run low on space."
-msgstr ""
-"ਮਾਊਂਟ ਪਾਥ ਦੀ ਲਿਸਟ ਦਿਓ, ਜੋ ਕਿ ਘੱਟ ਥਾਂ ਹੋਣ ਦੀ ਸੂਚਨਾ ਦੇਣ ਲਈ ਅਣਡਿੱਠਾ ਕੀਤਾ ਜਾਣਗੇ।"
+msgstr "ਮਾਊਂਟ ਪਾਥ ਦੀ ਲਿਸਟ ਦਿਓ, ਜੋ ਕਿ ਘੱਟ ਥਾਂ ਹੋਣ ਦੀ ਸੂਚਨਾ ਦੇਣ ਲਈ ਅਣਡਿੱਠਾ ਕੀਤਾ ਜਾਣਗੇ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:10
 msgid "Show OSD notification"
@@ -794,8 +783,7 @@ msgstr "ਡਿਸਪਲੇਅ ਨੂੰ ਨੋਟੀਫਿਕੇਸ਼ਨ ਖੇ
 msgid ""
 "Whether a notification icon with display-related things should be shown in "
 "the panel."
-msgstr ""
-"ਕੀ ਆਈਟਮ ਲਈ ਨੋਟੀਫਿਕੇਸ਼ਨ ਆਈਕਾਨ ਵੇਖਾਇਆ ਜਾਵੇ ਤਾਂ ਪੈਨਲ 'ਚ ਉੱਤੇ ਵੇਖਾਈ ਜਾਵੇਗੀ।"
+msgstr "ਕੀ ਆਈਟਮ ਲਈ ਨੋਟੀਫਿਕੇਸ਼ਨ ਆਈਕਾਨ ਵੇਖਾਇਆ ਜਾਵੇ ਤਾਂ ਪੈਨਲ 'ਚ ਉੱਤੇ ਵੇਖਾਈ ਜਾਵੇਗੀ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:20
 msgid "Do not touch monitor configuration"
@@ -817,11 +805,11 @@ msgstr "ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਬਾਅਦ ਬਾਹਰੀ 
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
 msgstr ""
-"ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਬਾਅਦ ਬਾਹਰੀ ਮਾਨੀਟਰ ਚਾਲੂ ਕਰੋ, ਜੇ ਯੂਜ਼ਰ ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਦੌਰਾਨ"
-" ਬਾਹਰੀ ਮਾਨੀਟਰ ਜੋੜੇ।"
+"ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਬਾਅਦ ਬਾਹਰੀ ਮਾਨੀਟਰ ਚਾਲੂ ਕਰੋ, ਜੇ ਯੂਜ਼ਰ ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਦੌਰਾਨ ਬਾਹਰੀ "
+"ਮਾਨੀਟਰ ਜੋੜੇ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:30
 msgid "Turn on laptop monitor after system boot"
@@ -832,8 +820,8 @@ msgid ""
 "Turn on laptop monitor after system boot if user plugs in external monitor "
 "on system boot."
 msgstr ""
-"ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਬਾਅਦ ਲੈਪਟਾਪ ਮਾਨੀਟਰ ਚਾਲੂ ਕਰੋ, ਜੇ ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੌਰਾਨ ਯੂਜ਼ਰ "
-"ਬਾਹਰੀ ਮਾਨੀਟਰ ਜੋੜੇ।"
+"ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੇ ਬਾਅਦ ਲੈਪਟਾਪ ਮਾਨੀਟਰ ਚਾਲੂ ਕਰੋ, ਜੇ ਸਿਸਟਮ ਬੂਟ ਕਰਨ ਦੌਰਾਨ ਯੂਜ਼ਰ ਬਾਹਰੀ "
+"ਮਾਨੀਟਰ ਜੋੜੇ।"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:35
 msgid "File for default configuration for RandR"
@@ -847,11 +835,10 @@ msgid ""
 "such a file, or has one that does not match the user's setup of monitors, "
 "then the file specified by this key will be used instead."
 msgstr ""
-"XRandR ਪਲੱਗਇਨ ਇਸ ਕੁੰਜੀ ਰਾਹੀਂ ਦਿੱਤੀ ਡਿਫਾਲਟ ਸੰਰਚਨਾ 'ਚ ਫਾਇਲ ਲੱਭੇਗੀ। ਇਹ "
-"~/.config/monitors.xml ਵਰਗੀ ਹੁੰਦੀ ਹੈ, ਜੋ ਕਿ ਆਮ ਤੌਰ ਉੱਤੇ ਯੂਜ਼ਰ ਦੀ ਘਰ "
-"ਡਾਇਰੈਕਟਰੀ 'ਚ ਸਟੋਰ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਜੇ ਯੂਜ਼ਰ ਕੋਲ ਇਹ ਫਾਇਲ ਨਾ ਹੋਵੇ  ਜਾਂ ਜੇ ਹੋਵੇ, "
-"ਪਰ ਯੂਜ਼ਰ ਦੇ ਮਾਨੀਟਰ ਸੈੱਟਅੱਪ ਨਾਲ ਨਾ ਮਿਲਦੀ ਹੋਵੇ ਤਾਂ, ਇਸ ਕੁੰਜੀ ਰਾਹੀਂ ਦਿੱਤੀ ਫਾਇਲ "
-"ਵਰਤੀ ਜਾਵੇਗੀ।"
+"XRandR ਪਲੱਗਇਨ ਇਸ ਕੁੰਜੀ ਰਾਹੀਂ ਦਿੱਤੀ ਡਿਫਾਲਟ ਸੰਰਚਨਾ 'ਚ ਫਾਇਲ ਲੱਭੇਗੀ। ਇਹ ~/.config/"
+"monitors.xml ਵਰਗੀ ਹੁੰਦੀ ਹੈ, ਜੋ ਕਿ ਆਮ ਤੌਰ ਉੱਤੇ ਯੂਜ਼ਰ ਦੀ ਘਰ ਡਾਇਰੈਕਟਰੀ 'ਚ ਸਟੋਰ ਕੀਤੀ ਜਾਂਦੀ "
+"ਹੈ। ਜੇ ਯੂਜ਼ਰ ਕੋਲ ਇਹ ਫਾਇਲ ਨਾ ਹੋਵੇ  ਜਾਂ ਜੇ ਹੋਵੇ, ਪਰ ਯੂਜ਼ਰ ਦੇ ਮਾਨੀਟਰ ਸੈੱਟਅੱਪ ਨਾਲ ਨਾ ਮਿਲਦੀ ਹੋਵੇ ਤਾਂ, "
+"ਇਸ ਕੁੰਜੀ ਰਾਹੀਂ ਦਿੱਤੀ ਫਾਇਲ ਵਰਤੀ ਜਾਵੇਗੀ।"
 
 #: data/cafe-settings-daemon.desktop.in.in:4
 msgid "CAFE Settings Daemon"
@@ -881,109 +868,108 @@ msgstr "ਅਸੈੱਸਬਿਲਟੀ ਕੀਬੋਰਡ"
 msgid "Accessibility keyboard plugin"
 msgstr "ਅਸੈੱਸਬਿਲਟੀ ਕੀਬੋਰਡ ਪਲੱਗਇਨ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "ਮੱਦਦ ਵੇਖਾਉਣ ਵਿੱਚ ਗਲਤੀ: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "ਕੀ ਤੁਸੀ ਹੌਲੀ-ਸਵਿੱਚ ਨੂੰ ਸਰਗਰਮ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "ਕੀ ਤੁਸੀ ਹੌਲੀ-ਸਵਿੱਚ ਨੂੰ ਬੇਅਸਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
 msgstr ""
-"ਤੁਸੀ ਸਿਫਟ (Shift) ਸਵਿੱਚ ਨੂੰ ਸਿਰਫ 8 ਵਾਰ ਦਬਾਉਣਾ ਹੈ। ਇਹ ਹੌਲੀ-ਸਵਿੱਚ ਫੀਚਰ ਦਾ "
-"ਸ਼ਾਰਟਕੱਟ ਹੈ, ਜੋ ਕਿ ਤੁਹਾਡੇ ਕੀ-ਬੋਰਡ ਦੇ ਕੰਮ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰੇਗਾ।"
+"ਤੁਸੀ ਸਿਫਟ (Shift) ਸਵਿੱਚ ਨੂੰ ਸਿਰਫ 8 ਵਾਰ ਦਬਾਉਣਾ ਹੈ। ਇਹ ਹੌਲੀ-ਸਵਿੱਚ ਫੀਚਰ ਦਾ ਸ਼ਾਰਟਕੱਟ ਹੈ, ਜੋ "
+"ਕਿ ਤੁਹਾਡੇ ਕੀ-ਬੋਰਡ ਦੇ ਕੰਮ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰੇਗਾ।"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "ਸਰਗਰਮ ਨਾ ਕਰੋ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "ਨਾ-ਸਰਗਰਮ ਨਾ ਕਰੋ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "ਸਰਗਰਮ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "ਨਾ-ਸਰਗਰਮ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "ਸਰਗਰਮ ਨਾ ਕਰੋ(_n)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "ਨਾ-ਸਰਗਰਮ ਨਾ ਕਰੋ(_n)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "ਸਰਗਰਮ(_A)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "ਨਾ-ਸਰਗਰਮ(_D)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "ਹੌਲੀ-ਸਵਿੱਚ ਚੇਤਾਵਨੀ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "ਕੀ ਤੁਸੀ ਸਟਿੱਕੀ-ਸਵਿੱਚ ਨੂੰ ਸਰਗਰਮ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "ਕੀ ਤੁਸੀ ਸਟਿੱਕੀ-ਸਵਿੱਚ ਨੂੰ ਬੇਅਸਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
 msgstr ""
-"ਤੁਸੀ ਸਿਫਟ (Shift) ਸਵਿੱਚ ਨੂੰ ਸਿਰਫ 5 ਵਾਰ ਦਬਾਉਣਾ ਹੈ। ਇਹ ਸਟਿੱਕੀ-ਸਵਿੱਚ ਫੀਚਰ ਦਾ "
-"ਸ਼ਾਰਟਕੱਟ ਹੈ, ਜੋ ਕਿ ਤੁਹਾਡੇ ਕੀ-ਬੋਰਡ ਦੇ ਕੰਮ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰੇਗਾ।"
+"ਤੁਸੀ ਸਿਫਟ (Shift) ਸਵਿੱਚ ਨੂੰ ਸਿਰਫ 5 ਵਾਰ ਦਬਾਉਣਾ ਹੈ। ਇਹ ਸਟਿੱਕੀ-ਸਵਿੱਚ ਫੀਚਰ ਦਾ ਸ਼ਾਰਟਕੱਟ ਹੈ, "
+"ਜੋ ਕਿ ਤੁਹਾਡੇ ਕੀ-ਬੋਰਡ ਦੇ ਕੰਮ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰੇਗਾ।"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
 "keyboard works."
 msgstr ""
-"ਤੁਸੀ ਇੱਕ ਕਤਾਰ ਵਿੱਚੋ ਦੋ ਕੀ ਇੱਕ ਵਾਰ ਦਬਾ ਸਕਦੇ ਹੋ ਜਾਂ ਸਿਫਟ (Shift) ਸਵਿੱਚ ਨੂੰ 5 "
-"ਵਾਰ ਇਹ ਸਟਿੱਕੀ ਸਵਿੱਚ ਫੀਚਰ ਨੂੰ ਚਾਲੂ ਕਰ ਸਕਦੇ ਹੋ, ਜੋ ਕਿ ਤੁਹਾਡਾ ਕੀ-ਬੋਰਡ ਤੇ ਕੰਮ "
-"ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਤਬਦੀਲ ਕਰਦਾ ਹੈ।"
+"ਤੁਸੀ ਇੱਕ ਕਤਾਰ ਵਿੱਚੋ ਦੋ ਕੀ ਇੱਕ ਵਾਰ ਦਬਾ ਸਕਦੇ ਹੋ ਜਾਂ ਸਿਫਟ (Shift) ਸਵਿੱਚ ਨੂੰ 5 ਵਾਰ ਇਹ ਸਟਿੱਕੀ "
+"ਸਵਿੱਚ ਫੀਚਰ ਨੂੰ ਚਾਲੂ ਕਰ ਸਕਦੇ ਹੋ, ਜੋ ਕਿ ਤੁਹਾਡਾ ਕੀ-ਬੋਰਡ ਤੇ ਕੰਮ ਕਰਨ ਦੇ ਢੰਗ ਨੂੰ ਤਬਦੀਲ ਕਰਦਾ ਹੈ।"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "ਸਟਿੱਕੀ ਸਵਿੱਚ ਚੇਤਾਵਨੀ"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "ਯੂਨੀਵਰਸਲ ਅਸੈੱਸ ਪਸੰਦ"
@@ -1086,70 +1072,70 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "ਇਸ ਫਾਇਲ ਸਿਸਟਮ ਲਈ ਮੈਨੂੰ ਕੋਈ ਵੀ ਚੇਤਾਵਨੀ ਨਾ ਵੇਖਾਓ।"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "ਕੋਈ ਵੀ ਚੇਤਾਵਨੀ ਮੁੜ ਕੇ ਨਾ ਵੇਖਾਓ"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "ਵਾਲੀਅਮ \"%s\" ਉੱਤੇ ਕੇਵਲ %s ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਰਹਿ ਗਈ ਹੈ।"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "ਇਹ ਕੰਪਿਊਟਰ ਉੱਤੇ ਕੇਵਲ %s ਡਿਸਕ ਥਾਂ ਬਾਕੀ ਰਹਿ ਗਈ ਹੈ।"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
 msgstr ""
-"ਤੁਸੀਂ ਰੱਦੀ ਖਾਲੀ ਕਰਕੇ, ਨਾ-ਵਰਤੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ "
-"ਹੋਰ ਡਿਸਕ ਜਾਂ ਪਾਰਟੀਸ਼ਨ ਉੱਤੇ ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਨੂੰ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
+"ਤੁਸੀਂ ਰੱਦੀ ਖਾਲੀ ਕਰਕੇ, ਨਾ-ਵਰਤੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹੋਰ ਡਿਸਕ ਜਾਂ "
+"ਪਾਰਟੀਸ਼ਨ ਉੱਤੇ ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਨੂੰ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
 msgstr ""
-"ਤੁਸੀਂ ਨਾ ਵਰਤੇ ਜਾਂਦੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ, ਜਾਂ ਕੁਝ ਫਾਇਲਾਂ ਨੂੰ ਹੋਰ "
-"ਡਿਸਕ ਜਾਂ ਪਾਰਟੀਸ਼ਨ ਉੱਤੇ ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
+"ਤੁਸੀਂ ਨਾ ਵਰਤੇ ਜਾਂਦੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ, ਜਾਂ ਕੁਝ ਫਾਇਲਾਂ ਨੂੰ ਹੋਰ ਡਿਸਕ ਜਾਂ ਪਾਰਟੀਸ਼ਨ ਉੱਤੇ "
+"ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
 msgstr ""
-"ਤੁਸੀਂ ਰੱਦੀ ਖਾਲੀ ਕਰਕੇ, ਨਾ-ਵਰਤੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ "
-"ਹੋਰ ਬਾਹਰੀ ਡਿਸਕ  ਉੱਤੇ ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਨੂੰ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
+"ਤੁਸੀਂ ਰੱਦੀ ਖਾਲੀ ਕਰਕੇ, ਨਾ-ਵਰਤੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹੋਰ ਬਾਹਰੀ ਡਿਸਕ  "
+"ਉੱਤੇ ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਨੂੰ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
 msgstr ""
-"ਤੁਸੀਂ ਨਾ ਵਰਤੇ ਜਾਂਦੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ, ਜਾਂ ਕੁਝ ਫਾਇਲਾਂ ਨੂੰ ਬਾਹਰੀ "
-"ਡਿਸਕ ਉੱਤੇ ਭੇਜ ਕੇ ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
+"ਤੁਸੀਂ ਨਾ ਵਰਤੇ ਜਾਂਦੇ ਪਰੋਗਰਾਮ ਜਾਂ ਫਾਇਲਾਂ ਨੂੰ ਹਟਾ ਕੇ, ਜਾਂ ਕੁਝ ਫਾਇਲਾਂ ਨੂੰ ਬਾਹਰੀ ਡਿਸਕ ਉੱਤੇ ਭੇਜ ਕੇ "
+"ਡਿਸਕ ਥਾਂ ਖਾਲੀ ਕਰ ਸਕਦੇ ਹੋ।"
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "ਘੱਟ ਡਿਸਕ ਥਾਂ"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "ਰੱਦੀ ਖਾਲੀ ਕਰੋ"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "ਜਾਂਚ ਕਰੋ…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "ਅਣਡਿੱਠਾ"
 
@@ -1186,8 +1172,8 @@ msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
 msgstr ""
-"ਜੇਕਰ ਤੁਸੀਂ ਰੱਦੀ ਨੂੰ ਖਾਲੀ ਕਰਨਾ ਚੁਣਿਆ ਤਾਂ, ਸਭ ਆਈਟਮਾਂ ਸਦਾ ਲਈ ਹਟਾ ਦਿੱਤੀਆਂ "
-"ਜਾਣਗੀਆਂ। ਤੁਸੀਂ ਇਹਨਾਂ ਨੂੰ ਬਾਅਦ ਵਿੱਚ ਵੀ ਹਟਾ ਸਕਦੇ ਹੋ।"
+"ਜੇਕਰ ਤੁਸੀਂ ਰੱਦੀ ਨੂੰ ਖਾਲੀ ਕਰਨਾ ਚੁਣਿਆ ਤਾਂ, ਸਭ ਆਈਟਮਾਂ ਸਦਾ ਲਈ ਹਟਾ ਦਿੱਤੀਆਂ ਜਾਣਗੀਆਂ। ਤੁਸੀਂ ਇਹਨਾਂ "
+"ਨੂੰ ਬਾਅਦ ਵਿੱਚ ਵੀ ਹਟਾ ਸਕਦੇ ਹੋ।"
 
 #: plugins/housekeeping/csd-ldsm-trash-empty.c:365
 msgid "_Empty Trash"
@@ -1201,17 +1187,17 @@ msgstr "ਕੀਬਾਈਡਿੰਗ"
 msgid "Keybindings plugin"
 msgstr "ਕੀਬਾਈਡਿੰਗ ਪਲੱਗਇਨ"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "ਕੀ-ਬਾਈਡਿੰਗ (%s) ਗਲਤ ਹੈ"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "ਕੀ-ਬਾਈਡਿੰਗ (%s) ਪੂਰੀ ਨਹੀਂ ਹੈ"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1265,15 +1251,15 @@ msgstr "ਮੀਡਿਆ ਸਵਿੱਚਾਂ"
 msgid "Media keys plugin"
 msgstr "ਮੀਡਿਆ ਸਵਿੱਚ ਪਲੱਗਇਨ"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
-"ਮੂਲ ਟਰਮੀਨਲ ਕਾਰਜ ਨਹੀਂ ਮਿਲਿਆ। ਜਾਂਚ ਕਰੋ ਕੀ ਤੁਹਾਡੀ ਮੂਲ ਟਰਮੀਨਲ ਕਮਾਂਡ ਸੈੱਟ ਕੀਤੀ "
-"ਹੋਈ ਹੈ ਅਤੇ ਇੱਕ ਠੀਕ ਕਾਰਜ ਲਈ ਇਸ਼ਾਰਾ ਕਰਦੀ ਹੈ।"
+"ਮੂਲ ਟਰਮੀਨਲ ਕਾਰਜ ਨਹੀਂ ਮਿਲਿਆ। ਜਾਂਚ ਕਰੋ ਕੀ ਤੁਹਾਡੀ ਮੂਲ ਟਰਮੀਨਲ ਕਮਾਂਡ ਸੈੱਟ ਕੀਤੀ ਹੋਈ ਹੈ ਅਤੇ ਇੱਕ "
+"ਠੀਕ ਕਾਰਜ ਲਈ ਇਸ਼ਾਰਾ ਕਰਦੀ ਹੈ।"
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1282,46 +1268,46 @@ msgstr ""
 "ਕਮਾਂਡ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ: %s\n"
 "ਜਾਂਚ ਲਵੋ ਕਿ ਇਹ ਕਮਾਂਡ ਠੀਕ ਹੈ"
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1334,16 +1320,16 @@ msgstr "ਮਾਊਸ"
 msgid "Mouse plugin"
 msgstr "ਮਾਊਂਸ ਪਲੱਗਇਨ"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "ਮਾਊਂਸ ਅਸੈੱਸਬਿਲਟੀ ਫੀਚਰ ਯੋਗ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr "ਮਾਊਂਸ ਸੁਲੱਭਤਾ ਲਈ ਤੁਹਾਡੇ ਸਿਸਟਮ ਉੱਤੇ Mousetweaks ਇੰਸਟਾਲ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।"
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "ਮਾਊਂਸ ਪਸੰਦ"
 
@@ -1451,19 +1437,19 @@ msgstr "ਲਿਖਣ ਬਰੇਕ"
 msgid "Typing break plugin"
 msgstr "ਟਾਈਪਿੰਗ ਬਰੇਕ ਪਲੱਗਇਨ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "ਮਾਨੀਟਰ ਸੰਰਚਨਾ ਲਈ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "ਡਿਸਪਲੇਅ ਦੀ ਸੰਰਚਨਾ ਰੀਸਟੋਰ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "ਡਿਸਪਲੇਅ ਦੀ ਸੰਰਚਨਾ ਨੂੰ ਬੈਕਅੱਪ ਤੋਂ ਰੀਸਟੋਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1471,97 +1457,97 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "ਕੀ ਡਿਸਪਲੇਅ ਠੀਕ ਵੇਖਾਈ ਦਿੰਦਾ ਹੈ?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "ਪਿਛਲੀ ਸੰਰਚਨਾ ਰੀਸਟੋਰ ਕਰੋ(_R)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "ਇਹ ਸੰਰਚਨਾ ਰੱਖੋ(_K)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "ਡਿਸਪਲੇਅ ਲਈ ਚੁਣੀ ਸੰਰਚਨਾ ਲਾਗੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕੀ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "ਸਕਰੀਨ ਜਾਣਕਾਰੀ ਤਾਜ਼ਾ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "ਕਿਵੇਂ ਵੀ ਮਾਨੀਟਰ ਸੰਰਚਨਾ ਲਈ ਬਦਲਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ।"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "ਘੁੰਮਾਉਣ ਲਈ ਸਹਾਇਕ ਨਹੀਂ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "ਮਾਨੀਟਰ ਸੰਰਚਨਾ ਸੰਭਾਲੀ ਨਹੀਂ ਜਾ ਸਕੀ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "ਆਮ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "ਖੱਬਾ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "ਸੱਜਾ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "ਉਤਲਾ ਹੇਠ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "ਡਿਸਪਲੇਅ ਸੈਟਿੰਗ ਸੰਰਚਨਾ(_C)…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "ਡਿਸਪਲੇਅ ਸੈਟਿੰਗ ਸੰਰਚਨਾ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "ਮਾਨੀਟਰਾਂ ਲਈ ਸੰਭਾਲੀ ਸੰਰਚਨਾ ਲਾਗੂ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"
 
@@ -1573,7 +1559,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "ਸਕਰੀਨ ਸਾਈਜ਼ ਅਤੇ ਘੁੰਮਾਉਣ ਸੈਟਿੰਗ ਸੈੱਟਅੱਪ"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "ਯੂਜ਼ਰ ਦੀ ਘਰ ਡਾਇਰੈਕਟਰੀ ਨਹੀਂ ਜਾਣੀ ਜਾ ਸਕਦੀ ਹੈ"
 

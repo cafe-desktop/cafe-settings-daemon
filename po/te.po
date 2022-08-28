@@ -2,22 +2,22 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>, 2020\n"
 "Language-Team: Telugu (https://www.transifex.com/cafe/teams/13566/te/)\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: te\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/50-accessibility.xml.in:2
@@ -71,9 +71,7 @@ msgstr "DPI"
 msgid ""
 "The resolution used for converting font sizes to pixel sizes, in dots per "
 "inch."
-msgstr ""
-"ఫాంటు పరిమాణాలు పిగ్జెల్ పరిమాణానికి మార్చుటకు ఉపయోగించిన తీవ్రత, ఒక్కో "
-"అంగుళకు బందివులలో."
+msgstr "ఫాంటు పరిమాణాలు పిగ్జెల్ పరిమాణానికి మార్చుటకు ఉపయోగించిన తీవ్రత, ఒక్కో అంగుళకు బందివులలో."
 
 #: data/org.cafe.font-rendering.gschema.xml.in:27
 msgid "Antialiasing"
@@ -85,10 +83,9 @@ msgid ""
 "\"none\" for no antialiasing, \"grayscale\" for standard grayscale "
 "antialiasing, and \"rgba\" for subpixel antialiasing (LCD screens only)."
 msgstr ""
-"ఫాంట్లను ప్రస్పుటంచేస్తున్నప్పుడు ఉపయోగించు వ్యతిరేకఉపనామకరణం రకం. సాద్యమగు "
-"విలువలు: \"ఏదీకాదు\" వ్యతిరేకఉపనామకరణం లేదు కు, \"గ్రేస్కేల్\" ప్రామాణిక "
-"గ్రేస్కేల్ వ్యతిరేకఉపనామకరణకు, మరియు \"rgba\" ఉపపిగ్జెల్ వ్యతిరేకఉపనామకరణంకు"
-" (LCD తెరలు మాత్రమే)."
+"ఫాంట్లను ప్రస్పుటంచేస్తున్నప్పుడు ఉపయోగించు వ్యతిరేకఉపనామకరణం రకం. సాద్యమగు విలువలు: "
+"\"ఏదీకాదు\" వ్యతిరేకఉపనామకరణం లేదు కు, \"గ్రేస్కేల్\" ప్రామాణిక గ్రేస్కేల్ వ్యతిరేకఉపనామకరణకు, మరియు "
+"\"rgba\" ఉపపిగ్జెల్ వ్యతిరేకఉపనామకరణంకు (LCD తెరలు మాత్రమే)."
 
 #: data/org.cafe.font-rendering.gschema.xml.in:32
 msgid "Hinting"
@@ -100,10 +97,9 @@ msgid ""
 "\"none\" for no hinting, \"slight\" for basic, \"medium\" for moderate, and "
 "\"full\" for maximum hinting (may cause distortion of letter forms)."
 msgstr ""
-"ఫాంట్లను ప్రస్పుటం చేస్తున్నప్పుడు ఉపయోగించవలిసిన హింటింగ్ రకం. సాధ్యమగు "
-"విలువలు: \"ఏదీకాదు\" హింటింగ్ కొరకు, \"స్వల్ప\" ప్రాదమికంకు, \"మద్యమం\" "
-"నవీనతకు, మరియు \"పూర్తిగా\" గరిష్ఠ హింటింగ్ కు (ఆక్షర రూపాల యొక్క విరూపంకు "
-"కారణం అవ్వొచ్చు)."
+"ఫాంట్లను ప్రస్పుటం చేస్తున్నప్పుడు ఉపయోగించవలిసిన హింటింగ్ రకం. సాధ్యమగు విలువలు: \"ఏదీకాదు\" "
+"హింటింగ్ కొరకు, \"స్వల్ప\" ప్రాదమికంకు, \"మద్యమం\" నవీనతకు, మరియు \"పూర్తిగా\" గరిష్ఠ హింటింగ్ "
+"కు (ఆక్షర రూపాల యొక్క విరూపంకు కారణం అవ్వొచ్చు)."
 
 #: data/org.cafe.font-rendering.gschema.xml.in:37
 msgid "RGBA order"
@@ -111,15 +107,15 @@ msgstr "RGBA క్రమం"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
-"LCD తెరపైన ఉపపిగ్జెల్సు మూలకాల యొక్క క్రమము; వ్యతిరేకఉపనామకరణం \"rgba\" కు "
-"అమర్చినప్పుడు మాత్రమే ఉపయోగించబడుతుంది. సాద్యమగు విలువలు: \"rgb\" ఎరుపు "
-"ఎడమవైపు ఉంచుటకు (దాదాపు సాదారణంగా), \"bgr\" బులుగు ఎడమవైపున ఉంచుటకు, "
-"\"vrgb\" ఎరుపు పైన ఉంచుటకు, \"vbgr\" ఎరుపు క్రిందన ఉంచుటకు."
+"LCD తెరపైన ఉపపిగ్జెల్సు మూలకాల యొక్క క్రమము; వ్యతిరేకఉపనామకరణం \"rgba\" కు అమర్చినప్పుడు మాత్రమే "
+"ఉపయోగించబడుతుంది. సాద్యమగు విలువలు: \"rgb\" ఎరుపు ఎడమవైపు ఉంచుటకు (దాదాపు సాదారణంగా), "
+"\"bgr\" బులుగు ఎడమవైపున ఉంచుటకు, \"vrgb\" ఎరుపు పైన ఉంచుటకు, \"vbgr\" ఎరుపు "
+"క్రిందన ఉంచుటకు."
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:25
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -141,8 +137,7 @@ msgstr "NumLock స్థితిని గుర్తుంచుకొను
 msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
-msgstr ""
-"సత్యముకు అమర్చితే, CAFE సెషన్ల మద్య NumLock LED స్థితిని గుర్తుంచుకొంటుంది."
+msgstr "సత్యముకు అమర్చితే, CAFE సెషన్ల మద్య NumLock LED స్థితిని గుర్తుంచుకొంటుంది."
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
@@ -169,8 +164,7 @@ msgstr ""
 msgid ""
 "Acceleration multiplier for mouse motion. A value of -1 is the system "
 "default."
-msgstr ""
-"మౌస్ గమనము కొరకు త్వరుణము గుణించునది. -1 విలువ సిస్టమ్ యొక్క అప్రమేయము."
+msgstr "మౌస్ గమనము కొరకు త్వరుణము గుణించునది. -1 విలువ సిస్టమ్ యొక్క అప్రమేయము."
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:20
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:90
@@ -182,8 +176,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"త్వరుణీకరించిన మౌస్ గమనము క్రియాశీలపరుచుటకు ముందు సూచిక తప్పుక కదులవలిసిన "
-"దూరము పిగ్జెల్స్‍‌లో. విలువ -1 సిస్టమ్‌యొక్క అప్రమేయము."
+"త్వరుణీకరించిన మౌస్ గమనము క్రియాశీలపరుచుటకు ముందు సూచిక తప్పుక కదులవలిసిన దూరము పిగ్జెల్స్‍‌లో. "
+"విలువ -1 సిస్టమ్‌యొక్క అప్రమేయము."
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:25
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:95
@@ -236,8 +230,7 @@ msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released."
 msgstr ""
-"Control కీ వత్తినప్పుడు మరియు వదిలినప్పుడు సూచికయొక్క ప్రస్తుత స్థానమును "
-"వుద్దీపనము చేయుము."
+"Control కీ వత్తినప్పుడు మరియు వదిలినప్పుడు సూచికయొక్క ప్రస్తుత స్థానమును వుద్దీపనము చేయుము."
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:50
 msgid "Cursor theme"
@@ -271,11 +264,9 @@ msgstr "టైపుచేయునప్పుడు టచ్‌పాడ్�
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
-msgstr ""
-"టైపు చేయునప్పుడు మీరు ప్రమాదవశాత్తు టచ్‌పాడ్‌ను తగిలే సమస్యవుంటే దీనిని "
-"TRUEకు అమర్చుము."
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
+msgstr "టైపు చేయునప్పుడు మీరు ప్రమాదవశాత్తు టచ్‌పాడ్‌ను తగిలే సమస్యవుంటే దీనిని TRUEకు అమర్చుము."
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:20
 msgid "Enable mouse clicks with touchpad"
@@ -284,9 +275,7 @@ msgstr "టచ్‌పాడ్‌తో మౌస్ నొక్కులన�
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:21
 msgid ""
 "Set this to TRUE to be able to send mouse clicks by tapping on the touchpad."
-msgstr ""
-"టట్‌పాడ్ పై టాప్‌చేయుట ద్వారా మౌస్ నొక్కులను పంపుటకు దీనిని TRUE కు "
-"అమర్చుము."
+msgstr "టట్‌పాడ్ పై టాప్‌చేయుట ద్వారా మౌస్ నొక్కులను పంపుటకు దీనిని TRUE కు అమర్చుము."
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:25
 msgid "Enable vertical edge scrolling"
@@ -534,9 +523,7 @@ msgstr "పునరావృత హెచ్చరికలు తెలుప�
 msgid ""
 "Specify a time in minutes. Subsequent warnings for a volume will not appear "
 "more often than this period."
-msgstr ""
-"నిముషాలలో సమయాన్ని తెలుపుము. ఈ సమయంకు మించి తరచుగా వాల్యూమ్ గురించి "
-"హెచ్చరికలు కనిపించవు."
+msgstr "నిముషాలలో సమయాన్ని తెలుపుము. ఈ సమయంకు మించి తరచుగా వాల్యూమ్ గురించి హెచ్చరికలు కనిపించవు."
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:35
 msgid "Mount paths to ignore"
@@ -544,9 +531,7 @@ msgstr "వదిలివేయవలసిన మౌంట్ పాత్‌�
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:36
 msgid "Specify a list of mount paths to ignore when they run low on space."
-msgstr ""
-"తక్కువ డిస్కు జాగానందు నడుచునప్పుడు వదిలివేయవలసిన మౌంట్ పాత్‌ల జాబితాను "
-"తెలుపుము."
+msgstr "తక్కువ డిస్కు జాగానందు నడుచునప్పుడు వదిలివేయవలసిన మౌంట్ పాత్‌ల జాబితాను తెలుపుము."
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:10
 msgid "Show OSD notification"
@@ -738,8 +723,7 @@ msgstr "ప్లే (లేదా ప్లే/నిలిపిఉంచు)"
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:131
 msgid "Binding to start playback (or toggle play/pause)."
-msgstr ""
-"ప్లేబ్యాక్ ప్రారంభించుటకు బందనం అయిఉంది (లేదా ప్లే/నిలిపిఉంచు మార్చుము)."
+msgstr "ప్లేబ్యాక్ ప్రారంభించుటకు బందనం అయిఉంది (లేదా ప్లే/నిలిపిఉంచు మార్చుము)."
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:135
 msgid "Pause playback"
@@ -815,8 +799,8 @@ msgstr ""
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
 msgstr ""
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:30
@@ -870,109 +854,108 @@ msgstr "అందుబాటు కీబోర్డు"
 msgid "Accessibility keyboard plugin"
 msgstr "అందుబాటు కీబోర్డు ప్లగ్ఇన్"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "సహాయం ప్రదర్శించుటలో అక్కడ ఒక దోషం ఉంది: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "నెమ్మది మీటలను క్రియాశీలం చేయాలా?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "నెమ్మది మీటల సౌకర్యాన్ని క్రియాహీనం చేయాలా?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
 msgstr ""
-"మీరు షిఫ్ట్ మీటను ౮8 సెకన్లు నొక్కివుంచారు. ఇది నెమ్మది మీటల విశిష్ఠ "
-"అంశానికి అడ్డదారి ఇది మీ మీటలపలకం పనిచేయు విధానంపై ప్రభావం చూపుతుంది."
+"మీరు షిఫ్ట్ మీటను ౮8 సెకన్లు నొక్కివుంచారు. ఇది నెమ్మది మీటల విశిష్ఠ అంశానికి అడ్డదారి ఇది మీ మీటలపలకం "
+"పనిచేయు విధానంపై ప్రభావం చూపుతుంది."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "క్రియాశీలం చేయవద్దు"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "క్రియాహీనం చేయవద్దు"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "క్రియాశీలించు"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "క్రియాహీనంచేయి"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "క్రియాశీలం చేయవద్దు(_n)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "క్రియాహీనం చేయవద్దు(_n)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "క్రియాశీలం (_A)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "క్రియాహీనం (_D)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "నెమ్మది మీటల అప్రమత్తం"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "చీటీ మీటలను క్రియాశీలం చేయాలా?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "చీటీ మీటలను క్రియాహీనం చేయాలా?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
 msgstr ""
-"షిఫ్ట్ మీటను మీరు వరుసక్రమంలో 5సార్లు నొక్కారు. ఇది చీటీ మీటల సౌకర్యానికి "
-"అడ్డదారిఇది మీ మీటల పలకం పనిపై ప్రభావం చూపుతుంది."
+"షిఫ్ట్ మీటను మీరు వరుసక్రమంలో 5సార్లు నొక్కారు. ఇది చీటీ మీటల సౌకర్యానికి అడ్డదారిఇది మీ మీటల పలకం పనిపై "
+"ప్రభావం చూపుతుంది."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
 "keyboard works."
 msgstr ""
-"మీరు రెండు షిఫ్ట్ మీటలను ఒకేసారి నొక్కారు. షిఫ్ట్ మీటను మీరు వరుసక్రమంలో "
-"5సార్లు నొక్కారు. ఇది చీటీ మీటల సౌకర్యానికి అడ్డదారి, ఇది మీ మీటల పలకం పనిపై"
-" ప్రభావం చూపుతుంది."
+"మీరు రెండు షిఫ్ట్ మీటలను ఒకేసారి నొక్కారు. షిఫ్ట్ మీటను మీరు వరుసక్రమంలో 5సార్లు నొక్కారు. ఇది చీటీ మీటల "
+"సౌకర్యానికి అడ్డదారి, ఇది మీ మీటల పలకం పనిపై ప్రభావం చూపుతుంది."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "చీటీ మీటల అప్రమత్తత"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "యూనివర్సల్ యాక్సిస్ అభీష్టాలు"
@@ -1075,72 +1058,70 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "ఏ హెచ్చరికలను మరలా చూపవద్దు"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "వాల్యూమ్ \"%s\" నందు %s డిస్క జాగా మాత్రమే మిగిలివుంది."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "కంప్యూటర్‌నందు %s డిస్కు జాగా మాత్రమే మిగిలివుంది."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
 msgstr ""
-"మీరు చెత్తకుండీను ఖాళీ చేయుట ద్వారా డిస్కు జాగాను ఖాళీ చేయవచ్చు, వుపయోగించని"
-" ప్రోగ్రాములను లేదా ఫైళ్ళను తీసివేసి, లేదా ఫైళ్ళను వేరే డిస్కు లేదా విభజనకు "
-"కదిల్చి."
+"మీరు చెత్తకుండీను ఖాళీ చేయుట ద్వారా డిస్కు జాగాను ఖాళీ చేయవచ్చు, వుపయోగించని ప్రోగ్రాములను లేదా ఫైళ్ళను "
+"తీసివేసి, లేదా ఫైళ్ళను వేరే డిస్కు లేదా విభజనకు కదిల్చి."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
 msgstr ""
-"ఉపయోగించని ఫైళ్ళను లేదా ప్రోగ్రాములను తీసివేయుటద్వారా, లేదా ఫైళ్ళను వేరే "
-"డిస్కు లేదా విభజనకు కదుల్చుట ద్వారా మీరు డిస్కును ఖాళీ చేయవచ్చు."
+"ఉపయోగించని ఫైళ్ళను లేదా ప్రోగ్రాములను తీసివేయుటద్వారా, లేదా ఫైళ్ళను వేరే డిస్కు లేదా విభజనకు కదుల్చుట ద్వారా "
+"మీరు డిస్కును ఖాళీ చేయవచ్చు."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
 msgstr ""
-"మీరు చెత్తకుండీను ఖాళీ చేయుట ద్వారా డిస్కు జాగాను ఖాళీ చేయవచ్చు, వుపయోగించని"
-" ప్రోగ్రాములను లేదా ఫైళ్ళను తీసివేసి, లేదా ఫైళ్ళను బాహ్య డిస్కునకు కదుల్చుట "
-"ద్వారా."
+"మీరు చెత్తకుండీను ఖాళీ చేయుట ద్వారా డిస్కు జాగాను ఖాళీ చేయవచ్చు, వుపయోగించని ప్రోగ్రాములను లేదా ఫైళ్ళను "
+"తీసివేసి, లేదా ఫైళ్ళను బాహ్య డిస్కునకు కదుల్చుట ద్వారా."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
 msgstr ""
-"ఉపయోగించని ఫైళ్ళను లేదా ప్రోగ్రాములను తీసివేయుటద్వారా, లేదా ఫైళ్ళను బాహ్య "
-"డిస్కునకు కదుల్చుట ద్వారా మీరు డిస్కును ఖాళీ చేయవచ్చు."
+"ఉపయోగించని ఫైళ్ళను లేదా ప్రోగ్రాములను తీసివేయుటద్వారా, లేదా ఫైళ్ళను బాహ్య డిస్కునకు కదుల్చుట ద్వారా మీరు "
+"డిస్కును ఖాళీ చేయవచ్చు."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "తక్కువ డిస్కు జాగా"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "చెత్తకుండీ ఖాళీచేయుము"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "వదిలివేయి"
 
@@ -1177,8 +1158,8 @@ msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
 msgstr ""
-"మీరు చెత్తకుండీని ఖాళీ చేయుట ఎంచుకుంటే, దానిలోని అన్ని అంశములు శాశ్వతంగా "
-"పోతాయి. మీరు వాటిని వేరుగా తొలగించగలరని గమనించండి."
+"మీరు చెత్తకుండీని ఖాళీ చేయుట ఎంచుకుంటే, దానిలోని అన్ని అంశములు శాశ్వతంగా పోతాయి. మీరు వాటిని వేరుగా "
+"తొలగించగలరని గమనించండి."
 
 #: plugins/housekeeping/csd-ldsm-trash-empty.c:365
 msgid "_Empty Trash"
@@ -1192,17 +1173,17 @@ msgstr "కీబందనాలు"
 msgid "Keybindings plugin"
 msgstr "కీబందనాలు ప్లగ్ఇన్"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "కీ బైండింగ్ (%s) చెల్లనిది"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "కీ బైండింగ్ (%s) పూర్తికానటువంటిది"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1256,16 +1237,15 @@ msgstr "మాద్యమం కీలు"
 msgid "Media keys plugin"
 msgstr "మాద్యమం కీల ప్లగ్ఇన్"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
-"అప్రమేయ టెర్మినల్‌ను పొందలేకపోతోంది. మీ అప్రమేయ టెర్మినల్ ఆదేశం "
-"అమర్చబడిఉంటునట్లు మరియు చెల్లునటువంటి అనువర్తనంను సూచించునట్లు "
-"నిర్ధారించుము."
+"అప్రమేయ టెర్మినల్‌ను పొందలేకపోతోంది. మీ అప్రమేయ టెర్మినల్ ఆదేశం అమర్చబడిఉంటునట్లు మరియు చెల్లునటువంటి "
+"అనువర్తనంను సూచించునట్లు నిర్ధారించుము."
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1274,46 +1254,46 @@ msgstr ""
 "ఆదేశాన్ని నిర్వర్తించలేదు: %s\n"
 "ఈ ఆదేశం వున్నదోలేదో సరిచూసుకోండి."
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1326,16 +1306,16 @@ msgstr "మౌస్"
 msgid "Mouse plugin"
 msgstr "మౌస్ ప్లగ్ఇన్"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "మౌస్ అందుబాటు సౌలభ్యాలను చేతనం చేయలేకపోయింది"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "మౌస్ అభీష్టాలు"
 
@@ -1443,19 +1423,19 @@ msgstr "టైపింగ్ విరామం"
 msgid "Typing break plugin"
 msgstr "టైపింగ్ విరామం ప్లగ్ఇన్"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "మానిటర్ ఆకృతీకరణను స్విచ్ చేయలేక పోయింది"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "ప్రదర్శనయొక్క ఆకృతీకరణను తిరిగివుంచ లేకపోయింది"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "బ్యాకప్‌నుండి ప్రదర్శనయొక్క ఆకృతీకరణను తిరిగివుంచ లేకపోయింది"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1463,97 +1443,97 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "ప్రదర్శన సరిగానే చూడబడుతుందా?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "మునుపటి ఆకృతీకరణను తిరిగివుంచుము (_R)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "ఈ ఆకృతీకరణను కలిగివుండుము (_K)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "ప్రదర్శన కొరకు యెంపికచేసిన ఆకృతీకరణలు ఆపాదింప బడలేవు"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "తెర సమాచారమును రీఫ్రెష్ చేయలేము: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "ఏమైనప్పటికి మానిటర్ ఆకృతీకరణను స్విచ్ చేయుటకు ప్రయత్నిస్తోంది."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "మానిటర్ ఆకృతీకరణను దాయలేక పోయింది"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "సాదారణ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "ఎడమ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "కుడి"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "పైనప్రక్క క్రిందకు"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "ప్రదర్శన అమర్పులను ఆకృతీకరించుము"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "మానిటర్ల కొరకు నిల్వవుంచిన ఆకృతీకరణను ఆపాదించలేక పోయింది"
 
@@ -1565,7 +1545,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "తెర పరిమాణంను మరియు సర్దుబాటు అమరికలను అమర్చుము"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "వినియోగదారుని నివాస డైరెక్టరీని నిర్ణయించలేకపోతోంది"
 

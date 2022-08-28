@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # tarakbumba <tarakbumba@gmail.com>, 2020
 # Murat Servan Kahraman, 2020
@@ -13,19 +13,19 @@
 # Butterfly <gokhanlnx@gmail.com>, 2020
 # Rahmi GENÇ <bt06sof@gmail.com>, 2020
 # Sabri Ünal <yakushabb@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>, 2020\n"
 "Language-Team: Turkish (https://www.transifex.com/cafe/teams/13566/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: data/50-accessibility.xml.in:2
@@ -80,8 +80,8 @@ msgid ""
 "The resolution used for converting font sizes to pixel sizes, in dots per "
 "inch."
 msgstr ""
-"Yazıtipi boyutlarını piksel boyutlarına çevirmek için kullanılan çözünürlük,"
-" inç başına nokta olarak."
+"Yazıtipi boyutlarını piksel boyutlarına çevirmek için kullanılan çözünürlük, "
+"inç başına nokta olarak."
 
 #: data/org.cafe.font-rendering.gschema.xml.in:27
 msgid "Antialiasing"
@@ -117,10 +117,10 @@ msgstr "RGBA sırası"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
 "LCD ekranında kullanılacak alt piksel öğelerinin sırası; sadece yumuşatma "
 "\"rgba\" olarak atandığında kullanılır. Geçerli değerler: \"rgb\" - kırmızı "
@@ -148,8 +148,7 @@ msgid ""
 "When set to true, CAFE will remember the state of the NumLock LED between "
 "sessions."
 msgstr ""
-"Seçildiğinde, CAFE bir oturumdan diğerine NumLock LED'inin durumunu "
-"hatırlar."
+"Seçildiğinde, CAFE bir oturumdan diğerine NumLock LED'inin durumunu hatırlar."
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:45
 msgid "NumLock state"
@@ -272,9 +271,9 @@ msgid ""
 "Set this to one of \"none\", \"lock_screen\", or \"force_logout\". The "
 "action will get performed when the smartcard used for log in is removed."
 msgstr ""
-"Bunu \"none\" (boş), \"lock_screen\" (ekranı kilitle), veya \"force_logout\""
-" (çıkışı zorla) değerlerinden birine atayın. Etkinlik, giriş yapmak için "
-"kullanılan akıllı kart çıkarıldığında gerçekleştirilecektir."
+"Bunu \"none\" (boş), \"lock_screen\" (ekranı kilitle), veya "
+"\"force_logout\" (çıkışı zorla) değerlerinden birine atayın. Etkinlik, giriş "
+"yapmak için kullanılan akıllı kart çıkarıldığında gerçekleştirilecektir."
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:15
 msgid "Disable touchpad while typing"
@@ -282,8 +281,8 @@ msgstr "Yazarken touchpad'i devre dışı bırak"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
 msgstr ""
 "Eğer yazarken touchpad'e dokunma sorunu yaşıyorsanız bunu doğru olarak "
 "atayın."
@@ -321,8 +320,7 @@ msgstr "Dikeyi iki parmakla kaydırmayı etkinleştir"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:36
 msgid "Set this to TRUE to allow vertical two-finger scrolling"
-msgstr ""
-"Dikeyi iki parmakla kaydırma izin vermek için bunu DOĞRU olarak ayarla"
+msgstr "Dikeyi iki parmakla kaydırma izin vermek için bunu DOĞRU olarak ayarla"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:40
 msgid "Enable horizontal two-finger scrolling"
@@ -340,8 +338,8 @@ msgstr "Doğal kaydırma"
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:46
 msgid "Set this to true to enable natural (reverse) scrolling for touchpads"
 msgstr ""
-"Dokunmatik panel doğal (ters) kaydırmayı etkinleştirmek için bunu doğru/true"
-" olarak ayarlayın"
+"Dokunmatik panel doğal (ters) kaydırmayı etkinleştirmek için bunu doğru/true "
+"olarak ayarlayın"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:50
 msgid "Enable touchpad"
@@ -385,8 +383,8 @@ msgid ""
 "Select the button mapping for two-finger tap. Supported values are: 1: left "
 "mouse button 2: middle mouse button 3: right mouse button"
 msgstr ""
-"Çift parmak tıklaması için düğme atamasını seç. Desteklenen değerler: 1: sol"
-" fare düğmesi 2: orta fare düğmesi 3: sağ fare düğmesi"
+"Çift parmak tıklaması için düğme atamasını seç. Desteklenen değerler: 1: sol "
+"fare düğmesi 2: orta fare düğmesi 3: sağ fare düğmesi"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:75
 msgid "Three finger tap button"
@@ -549,8 +547,8 @@ msgid ""
 "Specify the percentage that the free disk space should reduce by before "
 "issuing a subsequent warning."
 msgstr ""
-"Bir sonraki uyarının gösterilmesinden önce boş disk alanının yüzde olarak ne"
-" kadar düşmesi gerektiğini belirtin."
+"Bir sonraki uyarının gösterilmesinden önce boş disk alanının yüzde olarak ne "
+"kadar düşmesi gerektiğini belirtin."
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:25
 msgid "Free space no notify threshold"
@@ -573,8 +571,8 @@ msgid ""
 "Specify a time in minutes. Subsequent warnings for a volume will not appear "
 "more often than this period."
 msgstr ""
-"Dakika olarak bir süre belirleyin. Bir birim için birbirini izleyen uyarılar"
-" bu dönemden daha sık gösterilmeyecek."
+"Dakika olarak bir süre belirleyin. Bir birim için birbirini izleyen uyarılar "
+"bu dönemden daha sık gösterilmeyecek."
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:35
 msgid "Mount paths to ignore"
@@ -851,8 +849,8 @@ msgid ""
 msgstr ""
 "Genelde cafe-settings-daemon dahili ve harici monitörleri  "
 "turn_on_external_monitors_at_startup ve turn_on_laptop_monitor_at_startup "
-"ayarlarına dayanarak yapılandırır ve uygun bir klonlama/yan yana kipi seçer."
-" Bu anahtarı Doğru olarak ayarlamak bunu devre dışı bırakır ve monitör "
+"ayarlarına dayanarak yapılandırır ve uygun bir klonlama/yan yana kipi seçer. "
+"Bu anahtarı Doğru olarak ayarlamak bunu devre dışı bırakır ve monitör "
 "ayarlarına hiç dokunulmaz (kullanıcının alenen hazırladığı bir yapılandırma "
 "olmadığı sürece)."
 
@@ -862,8 +860,8 @@ msgstr "Sistemin başlatılmasının ardından harici ekranı etkinleştir"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
 msgstr ""
 "Sistemin başlatılmasının ardından kullanıcı harici ekran bağladıysa onu "
 "etkinleştir."
@@ -893,10 +891,10 @@ msgid ""
 "then the file specified by this key will be used instead."
 msgstr ""
 "XRandR eklentisi bu anahtar tarafından belirtilen dosyada varsayılan "
-"yapılandırma arayacaktır. Bu kullanıcıların ev dizinlerinde tutulan "
-"~/.config/monitors.xml dosyasına benzer. Eğer kullanıcı böyle bir dosyaya "
-"sahip değilse ya da kullanıcının dosyası ekran yapılandırmasına denk "
-"gelmiyorsa, bu anahtar tarafından belirtilen dosya kullanılacaktır."
+"yapılandırma arayacaktır. Bu kullanıcıların ev dizinlerinde tutulan ~/."
+"config/monitors.xml dosyasına benzer. Eğer kullanıcı böyle bir dosyaya sahip "
+"değilse ya da kullanıcının dosyası ekran yapılandırmasına denk gelmiyorsa, "
+"bu anahtar tarafından belirtilen dosya kullanılacaktır."
 
 #: data/cafe-settings-daemon.desktop.in.in:4
 msgid "CAFE Settings Daemon"
@@ -926,23 +924,23 @@ msgstr "Erişilebilirlik Klavyesi"
 msgid "Accessibility keyboard plugin"
 msgstr "Erişilebilirlik klavyesi eklentisi"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Yardım görüntülenirken hata oluştu: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Tuş Yavaşlatmasını aktif hale getirmek istiyor musunuz?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Tuş Yavaşlatmasını kapatmak istiyor musunuz?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -950,62 +948,62 @@ msgstr ""
 "Sadece Shift tuşunu 8 saniye basılı tutun.  Bu klavyenizin çalışma biçimini "
 "etkileyecek Tuş Yavaşlatması özelliği için bir kısayoldur."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Etkinleştirme"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Devre dışı bırakma"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Etkinleştir"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Devre dışı bırak"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "_Etkinleştirme"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "Etki_sizleştirme"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "_Etkinleştir"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Devre Dışı Bırak"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Tuş Yavaşlatması Uyarısı"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Yapışkan Tuşlar özelliğini aktif hale getirmek istiyor musunuz?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Yapışkan Tuşları kapatmak istiyor musunuz?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1013,8 +1011,8 @@ msgstr ""
 "Sadece Shift tuşuna 5 kere art arda basın.  Bu klavyenizin çalışma biçimini "
 "etkileyecek Yapışkan Tuşlar özelliği için bir kısayoldur."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1023,11 +1021,11 @@ msgstr ""
 "Aynı anda iki tuşa bastınız veya Shift tuşuna art arda 5 kere bastınız.  Bu "
 "klavyenizin çalışma biçimini etkileyecek Yapışkan Tuşlar özelliğini kapatır."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Yapışkan Tuş Uyarısı"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Evrensel Erişim Tercihleri"
@@ -1130,25 +1128,25 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Bu dosya sistemi için tekrar hiçbir uyarı gösterme"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "_Bir daha hiçbir uyarı gösterme"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "Birim \"%s\" üzerinde sadece %s disk alanı kaldı."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Bu bilgisayarda sadece %s disk alanı kaldı."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1157,7 +1155,7 @@ msgstr ""
 "dosyaları başka bir diske veya bölümlemeye taşıyarak disk boş alanınızı "
 "arttırabilirsiniz."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1165,7 +1163,7 @@ msgstr ""
 "Kullanmadığınız programları ya da dosyaları silerek ya da dosyaları başka "
 "bir diske veya bölümlemeye taşıyarak disk boş alanınızı arttırabilirsiniz."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1174,7 +1172,7 @@ msgstr ""
 "dosyaları başka bir harici diske taşıyarak disk boş alanınızı "
 "arttırabilirsiniz."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1183,19 +1181,19 @@ msgstr ""
 "bir harici diske taşıyarak disk boş alanınızı arttırabilirsiniz."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Düşük Disk Alanı"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Çöpü Boşalt"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "İncele..."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Yoksay"
 
@@ -1232,8 +1230,8 @@ msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
 msgstr ""
-"Eğer Çöpü boşaltmayı seçerseniz, çöpteki bütün öğeler tamamen kaybolacaktır."
-" Bunları ayrı ayrı da silebilirsiniz."
+"Eğer Çöpü boşaltmayı seçerseniz, çöpteki bütün öğeler tamamen kaybolacaktır. "
+"Bunları ayrı ayrı da silebilirsiniz."
 
 #: plugins/housekeeping/csd-ldsm-trash-empty.c:365
 msgid "_Empty Trash"
@@ -1247,17 +1245,17 @@ msgstr "Tuş bağları"
 msgid "Keybindings plugin"
 msgstr "Tuş bağları eklentisi"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Tuş bağı (%s) geçersiz"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Tuş bağı (%s) eksik"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1323,15 +1321,15 @@ msgstr "Ortam tuşları"
 msgid "Media keys plugin"
 msgstr "Ortam tuşları eklentisi"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
 "Öntanımlı uçbirim alınamadı. Öntanımlı uçbirim komutunuzun atandığını ve "
 "geçerli bir uygulamayı işaret ettiğini kontrol edin."
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1340,46 +1338,46 @@ msgstr ""
 "Komut çalıştırılamadı: %s\n"
 "Bu komutun geçerli olup olmadığını kontrol edin."
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "Touchpad etkin"
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "Dokunmatik panel devre dışı"
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "Bluetooth devre dışı"
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "Bluetooth etkin"
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "Uçak modu etkin"
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "Uçak modu devre dışı"
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr "Donanım Uçak Modu"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "Harici Ekran Yok"
@@ -1392,18 +1390,18 @@ msgstr "Fare"
 msgid "Mouse plugin"
 msgstr "Fare eklentisi"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Klavye erişilebilirlik özelliklerini etkinleştirilemedi"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "Fare yardımcısı Mousetweaks programının sisteminizde kurulu olmasını "
 "gerektirir."
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Fare Tercihleri"
 
@@ -1457,8 +1455,7 @@ msgstr "gelen kart olayları izlenemedi - %s"
 
 #: plugins/smartcard/csd-smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
-msgstr ""
-"akıllı kart olayları beklenirken beklenmedik bir hata ile karşılaşıldı"
+msgstr "akıllı kart olayları beklenirken beklenmedik bir hata ile karşılaşıldı"
 
 #: plugins/smartcard/csd-smartcard.c:148
 msgid "Slot ID"
@@ -1512,19 +1509,19 @@ msgstr "Yazım Molası"
 msgid "Typing break plugin"
 msgstr "Yazım molası eklentisi"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Ekran yapılandırması değiştirilemedi"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Ekran yapılandırması geri yüklenemedi"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "Ekran yapılandırması bir yedekten geri yüklenemedi"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1532,97 +1529,97 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Ekran görünümü tamam mı?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "Önceki _Yapılandırmaya Geri Dön"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "Bu _Yapılandırmayı Tut"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Ekranlar için seçilen yapılandırma uygulanamadı"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Ekran bilgilerini yenilenemedi: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Gene de ekran yapılandırmasına geçmeye çalışılıyor."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Döndürme desteklenmemektedir"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Ekran yapılandırması kaydedilemedi"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr "Yansıtma çıktıları desteklenmiyor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Normal"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "Sol"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "Sağ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "Baş Aşağı"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "Ekran Ayarlarını _Yapılandır..."
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Ekran ayarlarını yapılandır"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Ekranlar için kayıtlı yapılandırma uygulanamadı"
 
@@ -1634,7 +1631,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Ekran boyutu ve döndürme çevirimi ayarlarını ata"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Kullanıcı'nın ana dizini belirlenemedi"
 

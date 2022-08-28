@@ -2,22 +2,22 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Siranush <ss.m.95@mail.ru>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Siranush <ss.m.95@mail.ru>, 2020\n"
 "Language-Team: Armenian (https://www.transifex.com/cafe/teams/13566/hy/)\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hy\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/50-accessibility.xml.in:2
@@ -86,9 +86,9 @@ msgid ""
 "antialiasing, and \"rgba\" for subpixel antialiasing (LCD screens only)."
 msgstr ""
 "Ինֆորմացիայի աղավաղման տիպը օգտագործվում է, երբ ներկայացվում են "
-"տառատեսակները։ Հնարավոր արժեքներն են՝ \"none\" ինֆորմացիայի աղավաղման համար,"
-" \"grayscale\" ստանդարտ grayscale հակաինֆորմացիայի աղավաղման համար և "
-"\"rgba\" ենթակետիկ հակաինֆորմացիայի աղավաղման համար (LCD էկրանների միայն)։"
+"տառատեսակները։ Հնարավոր արժեքներն են՝ \"none\" ինֆորմացիայի աղավաղման համար, "
+"\"grayscale\" ստանդարտ grayscale հակաինֆորմացիայի աղավաղման համար և \"rgba\" "
+"ենթակետիկ հակաինֆորմացիայի աղավաղման համար (LCD էկրանների միայն)։"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:32
 msgid "Hinting"
@@ -111,15 +111,15 @@ msgstr "RGBA հրաման"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
 "Ենթակետիկի տարրերը LCD էկրանի վրա, միայն այն օգտագործվում է, երբ "
 "հակաինֆորմացիայի աղավաղումը սահմանում է \"rgba\"։ Հնարավոր արժեքներն են՝ "
-"\"rgb\" ձախի վրա կարմիրի համար (ամենատարածված), \"bgr\" ձախ կապույտի  համար,"
-" \"vrgb\" վերև կարմիրի համար, \"vbgr\" ներքև կարմիրի համար։"
+"\"rgb\" ձախի վրա կարմիրի համար (ամենատարածված), \"bgr\" ձախ կապույտի  համար, "
+"\"vrgb\" վերև կարմիրի համար, \"vbgr\" ներքև կարմիրի համար։"
 
 #: data/org.cafe.peripherals-keyboard.gschema.xml.in:25
 msgid "possible values are \"on\", \"off\", and \"custom\"."
@@ -240,8 +240,7 @@ msgid ""
 "Highlights the current location of the pointer when the Control key is "
 "pressed and released."
 msgstr ""
-"Ընդգծել ցուցիչի ընթացիկ դիրքը, երբ  Control ստեղնը սեղմվել և ազատ է "
-"արձակվել;"
+"Ընդգծել ցուցիչի ընթացիկ դիրքը, երբ  Control ստեղնը սեղմվել և ազատ է արձակվել;"
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:50
 msgid "Cursor theme"
@@ -278,8 +277,8 @@ msgstr "Անջատել զգայուն վահանակը մինչ մուքագրո
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
 msgstr ""
 "Սահմանել այս ճշմարիտ, եթե դուք ունեք խնդիրներ պատահաբար սեղմելու հետ "
 "touchpad հետ մինչ մուտքագրումը։"
@@ -334,8 +333,8 @@ msgstr "Բնական ոլորում"
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:46
 msgid "Set this to true to enable natural (reverse) scrolling for touchpads"
 msgstr ""
-"Սահմանել սա ճիշտ, որ հնարավորություն տա նական (հակադարձ) պտտել touchpad֊ների"
-" համար"
+"Սահմանել սա ճիշտ, որ հնարավորություն տա նական (հակադարձ) պտտել touchpad֊ների "
+"համար"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:50
 msgid "Enable touchpad"
@@ -379,8 +378,8 @@ msgid ""
 "Select the button mapping for two-finger tap. Supported values are: 1: left "
 "mouse button 2: middle mouse button 3: right mouse button"
 msgstr ""
-"Ընտրել կոճակի տեղագրման համար երկու մատ վերև։ Աջակցվող արժեքներն են՝ "
-"1:մկնիկի ձախ կոճակ, 2: մկնիկի մեջտեղի կոճակ, 3: մկնիկի աջ կոճակ"
+"Ընտրել կոճակի տեղագրման համար երկու մատ վերև։ Աջակցվող արժեքներն են՝ 1:"
+"մկնիկի ձախ կոճակ, 2: մկնիկի մեջտեղի կոճակ, 3: մկնիկի աջ կոճակ"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:75
 msgid "Three finger tap button"
@@ -391,8 +390,8 @@ msgid ""
 "Select the button mapping for three-finger tap. Supported values are: 1: "
 "left mouse button 2: middle mouse button 3: right mouse button"
 msgstr ""
-"Ընտրել կոճակի տեղագրման համար երեք մատ վերև։ Աջակցվող արժեքներն են՝ 1:մկնիկի"
-" ձախ կոճակ, 2: մկնիկի մեջտեղի կոճակ, 3: մկնիկի աջ կոճակ"
+"Ընտրել կոճակի տեղագրման համար երեք մատ վերև։ Աջակցվող արժեքներն են՝ 1:մկնիկի "
+"ձախ կոճակ, 2: մկնիկի մեջտեղի կոճակ, 3: մկնիկի աջ կոճակ"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:80
 msgid "Touchpad button orientation"
@@ -570,8 +569,8 @@ msgstr "Տեղադրված ուղիները անտեսել"
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:36
 msgid "Specify a list of mount paths to ignore when they run low on space."
 msgstr ""
-"Նշել տեղադրման ուղղիների ցանկը անտեսելու համար, երբ նրանք գործարկում են ցածր"
-" տարածք։"
+"Նշել տեղադրման ուղղիների ցանկը անտեսելու համար, երբ նրանք գործարկում են ցածր "
+"տարածք։"
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:10
 msgid "Show OSD notification"
@@ -847,8 +846,8 @@ msgstr "Համակարգային բեռնավորումից հետո միացն�
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
 msgstr ""
 "Համակարգային բեռնավորումից հետո միացնել արտաքին մոնիտորը, եթե օգտատերը "
 "միացնի արտաքին մոնիտորը համակարգային բեռնավորումով:"
@@ -911,23 +910,23 @@ msgstr "Մատչելի Ստեղնաշար"
 msgid "Accessibility keyboard plugin"
 msgstr "Ստեղնաշարի հասանելի կոնտակտներ"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Օգնության պատուհանը ցույց տալու սխալ կար այստեղ: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Ցանկանու՞մ եք ակտիվացնել Դանդաղ Ստեղներ։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Ցանկանու՞մ եք ապաակտիվացնել Դանդաղ Ստեղներ։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -935,62 +934,62 @@ msgstr ""
 "Դուք պարզապես իջեցրեք Shift ստեղնը 8 վարկյան։ Սա անջատում է  Slow Keys "
 "առանձնահատկությունը, որն ազդում է ձեր ստեղնաշարի աշխատանքի վրա։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Չակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Չապաակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Ակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Ապաակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "Չակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "Չապաակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "_Ակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Ապաակտիվացնել"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Դանդաղ Ստեղների Ազդանշան"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Ցանկանու՞մ եք ակտիվացնել Կպչուն Ստեղները։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Ցանկանու՞մ եք ապաակտիվացնել Կպչուն Ստեղները։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -999,8 +998,8 @@ msgstr ""
 "հրաման է Sticky Keys առանձնահատկության համար, որը ազդում է ձեր համակարգչի "
 "աշխատանքի ճանապարհի վրա։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1010,11 +1009,11 @@ msgstr ""
 "անգամ։ Սա անջատում է Sticky Keys առանձնահատկությունը, որն ազդում է ձեր "
 "ստեղնաշարի աշխատանքի վրա։"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Կպչուն Ստեղների Ազդանշան"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Ունիվերսալ Մուտքի Նախապատվություններ"
@@ -1041,8 +1040,7 @@ msgstr "Դարձնել _տեքստը ավելի մեծ և ավելի հեշտ կ
 
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
-msgstr ""
-"_Սեղմեք ստեղնաշարի դյուրանցումների մեկ ստեղնը միաժամանակ (Sticky Keys)"
+msgstr "_Սեղմեք ստեղնաշարի դյուրանցումների մեկ ստեղնը միաժամանակ (Sticky Keys)"
 
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
@@ -1118,25 +1116,25 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Կրկին չցուցադրել զգուշացումները այս ֆայլային համակարգի համար"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "Կրկին չցուցադրել որևէ զգուշացում"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "\"%s\" ծավալը ունի միայն %s ազատ սկավառակի տարածք։"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Այս համակարգիչը ունի միայն %s մանցած սկավառակի տարածք։"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1144,7 +1142,7 @@ msgstr ""
 "Դուք կարող եք ազատել սկավառակի տարածքը ջնջելով չօգտագործվող ծրագրերը և "
 "ֆայլերը, կամ տեղափոխել ֆայլերը այլ սկավառակ կամ մաս։"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1152,7 +1150,7 @@ msgstr ""
 "Դուք կարող եք ազատել սկավառակի տարածքը ջնջելով չօգտագործվող ծրագրերը և "
 "ֆայլերը, կամ տեղափոխել ֆայլերը այլ սկավառակ կամ մաս։"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1160,7 +1158,7 @@ msgstr ""
 "Դուք կարող եք ազատել սկավառակի տարածքը դատարկելով Զամբյուղը, ջնջելով "
 "չօգտագործվող ծրագրերը և ֆայլերը, կամ տեղափոխել ֆայլերը արտաքին սկավառակ։"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1169,19 +1167,19 @@ msgstr ""
 "ֆայլերը, կամ տեղափոխել ֆայլերը արտաքին սկավառակ։"
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Ցածր Սկավառակի Տարածություն"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Դատարկ Աղբարկղ"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Ուսումնասիրել..."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Անտեսել"
 
@@ -1233,17 +1231,17 @@ msgstr "Առանցքային կապերի "
 msgid "Keybindings plugin"
 msgstr "Առանցքային կապերի կոնտակտներ"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Առանցքային կապը (%s) անվավեր է"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Առանցքային կապը (%s) անավարտ է"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1309,15 +1307,15 @@ msgstr "Մեդիա բանալիներ"
 msgid "Media keys plugin"
 msgstr "Մեդիա ստեղների կոնտակտներ"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
 "Չի կարող ստանալ նախնական տերմինալը։ Ստուգել, որ ձեր նախնական տերմինալի "
 "հրամանը սահմանված է և կետերը վավերական ծրագրի։"
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1326,46 +1324,46 @@ msgstr ""
 "Չհաջողվեց կատարել հրաման: %s\n"
 "Ստուգել, որ սա վավեր հրաման է․"
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1378,17 +1376,17 @@ msgstr "Մկնիկ"
 msgid "Mouse plugin"
 msgstr "Մկնիկի կոնտակտներ"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Չհաջողվեց ակտիվացնել մկնիկի մատչելիության հատկանիշները"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "Մկնիկի հասանելիությունը պահանջում է Mousetweaks տեղադրել ձեր համակարգը։"
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Մկնիկի Նախընտրանքներ"
 
@@ -1496,19 +1494,19 @@ msgstr "Ընդհատել Մուտքագրումը"
 msgid "Typing break plugin"
 msgstr "Մեքենագրման ընդմիջման կոնտակտներ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Չհաջողվեց անջատել մոնիտորի կոնֆիգուռացիաները"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Չհաջողվեց վերականգնել ցուցադրման կոնֆիգուրացիան"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "Չհաջողվեց վերականգնել ցուցադրման կոնֆիգուրացիան կրկնօրինակից"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1516,97 +1514,97 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Ցուցադրել դիտումը OK?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "_Վերականգնել նախորդ կոնֆիգուրացիան"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Պահպանեք այս կարգավորումները"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Ընտրված կոնֆիգուրացիայի համար ցուցադրում չի կարող կիրառվել"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Չհաջողվեց թարմացնել էկրանի տեղեկությունները: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Համենայն դեպս փորձել անցնել մոնիտորի կոնֆիգուրացիաներին։"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Պտույտը չի ապահովվում"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Չհաջողվեց պահպանել մոնիտորի կոնֆիգուրացիան"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Նորմալ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "Ձախ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "Աջ"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "Գլխիվայր շուռ տված"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Կոնֆիգուրացնել Ցուցաբերման Պարամետրերը․․․"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Կոնֆիգուրացնել ցուցաբերման պարամետրերը"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Չհաջողվեց կիրառել պահվող կոնֆիգուրացիան մոնիտորների համար"
 
@@ -1618,7 +1616,7 @@ msgstr "XRևR"
 msgid "Set up screen size and rotation settings"
 msgstr "Կարգավորել էկրանի չափի և պտտման պարամետրերը"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Չի կարող որոշել օգտվողի տուն տեղեկատուն"
 

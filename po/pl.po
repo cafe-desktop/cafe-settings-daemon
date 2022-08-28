@@ -2,7 +2,7 @@
 # Copyright (C) YEAR CAFE Desktop Environment team
 # This file is distributed under the same license as the cafe-settings-daemon package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Piotr Drąg <piotrdrag@gmail.com>, 2020
 # Piotr Strębski <strebski@gmail.com>, 2020
@@ -18,20 +18,22 @@
 # Darek Witkowski, 2020
 # 161bd750cc8572440963b84e861d7973_ed8d533 <cbd6230593fe094da208a2693be73f8f_459393>, 2020
 # Daniel Tokarzewski <bezimo@gmail.com>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: cafe-settings-daemon 1.23.2\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2019-11-19 11:28+0100\n"
+"POT-Creation-Date: 2022-08-28 16:21+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Daniel Tokarzewski <bezimo@gmail.com>, 2020\n"
 "Language-Team: Polish (https://www.transifex.com/cafe/teams/13566/pl/)\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: data/50-accessibility.xml.in:2
 msgid "Accessibility"
@@ -85,8 +87,8 @@ msgid ""
 "The resolution used for converting font sizes to pixel sizes, in dots per "
 "inch."
 msgstr ""
-"Rozdzielczość do zmiany rozmiaru czcionek na rozmiar w pikselach, w punktach"
-" na cal."
+"Rozdzielczość do zmiany rozmiaru czcionek na rozmiar w pikselach, w punktach "
+"na cal."
 
 #: data/org.cafe.font-rendering.gschema.xml.in:27
 msgid "Antialiasing"
@@ -98,9 +100,9 @@ msgid ""
 "\"none\" for no antialiasing, \"grayscale\" for standard grayscale "
 "antialiasing, and \"rgba\" for subpixel antialiasing (LCD screens only)."
 msgstr ""
-"Rodzaj wygładzania renderowanych czcionek. Możliwe wartości to: \"brak\" dla"
-" wyłączonego wygładzania, \"Skala szarości\" dla standardowego wygładzania w"
-" skali szarości oraz \"rgba\" dla wygładzania podpikselowego (tylko ekrany "
+"Rodzaj wygładzania renderowanych czcionek. Możliwe wartości to: \"brak\" dla "
+"wyłączonego wygładzania, \"Skala szarości\" dla standardowego wygładzania w "
+"skali szarości oraz \"rgba\" dla wygładzania podpikselowego (tylko ekrany "
 "LCD)."
 
 #: data/org.cafe.font-rendering.gschema.xml.in:32
@@ -124,10 +126,10 @@ msgstr "kolejność RGBA"
 
 #: data/org.cafe.font-rendering.gschema.xml.in:38
 msgid ""
-"The order of subpixel elements on an LCD screen; only used when antialiasing"
-" is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
-"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red"
-" on bottom."
+"The order of subpixel elements on an LCD screen; only used when antialiasing "
+"is set to \"rgba\". Possible values are: \"rgb\" for red on left (most "
+"common), \"bgr\" for blue on left, \"vrgb\" for red on top, \"vbgr\" for red "
+"on bottom."
 msgstr ""
 "Kolejność składowych pikseli; używana tylko w wypadku wygładzania krawędzi "
 "\"rgba\". Możliwe wartości: \"rgb\" dla czerwonego po lewej stronie "
@@ -173,8 +175,7 @@ msgstr "Orientacja klawiszy myszy"
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:11
 msgid "Swap left and right mouse buttons for left-handed mice."
 msgstr ""
-"Zamień funkcje lewego klawisza myszy z prawym, w myszy dla osób "
-"leworęcznych."
+"Zamień funkcje lewego klawisza myszy z prawym, w myszy dla osób leworęcznych."
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:15
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:85
@@ -289,10 +290,10 @@ msgid ""
 "Set this to one of \"none\", \"lock_screen\", or \"force_logout\". The "
 "action will get performed when the smartcard used for log in is removed."
 msgstr ""
-"Należy ustawić na jedną z wartości: \"none\", (nic) \"lock_screen\" "
-"(zablokowanie ekranu) lub \"force_logout\" (wymuszenie wylogowania). "
-"Czynność zostanie wykonana, kiedy użytkownik wysunie kartę smartcard użytą "
-"do zalogowania."
+"Należy ustawić na jedną z wartości: \"none\", (nic) "
+"\"lock_screen\" (zablokowanie ekranu) lub \"force_logout\" (wymuszenie "
+"wylogowania). Czynność zostanie wykonana, kiedy użytkownik wysunie kartę "
+"smartcard użytą do zalogowania."
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:15
 msgid "Disable touchpad while typing"
@@ -300,8 +301,8 @@ msgstr "Wyłączenie panelu dotykowego podczas pisania"
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:16
 msgid ""
-"Set this to TRUE if you have problems with accidentally hitting the touchpad"
-" while typing."
+"Set this to TRUE if you have problems with accidentally hitting the touchpad "
+"while typing."
 msgstr ""
 "Powinno być ustawione na \"TRUE\", jeśli użytkownik ma problemy z "
 "przypadkowym naciskaniem panelu dotykowego podczas pisania."
@@ -428,8 +429,8 @@ msgid ""
 "Swap left and right buttons for left-handed touchpads with 'left', 'right' "
 "for right-handed, 'mouse' to follow the mouse setting."
 msgstr ""
-"Zamień lewy i prawy przycisk dla leworęcznych touchpadów z 'lewym', 'prawym'"
-" dla praworęcznych, 'mysz' działa w zależności od ustawień myszy."
+"Zamień lewy i prawy przycisk dla leworęcznych touchpadów z 'lewym', 'prawym' "
+"dla praworęcznych, 'mysz' działa w zależności od ustawień myszy."
 
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:86
 msgid ""
@@ -550,8 +551,7 @@ msgstr "Priorytet używania tej wtyczki"
 #: data/org.cafe.SettingsDaemon.plugins.xsettings.gschema.xml.in:11
 msgid "Priority to use for this plugin in cafe-settings-daemon startup queue"
 msgstr ""
-"Priorytet używania tej wtyczki podczas kolejki startowej cafe-settings-"
-"daemon"
+"Priorytet używania tej wtyczki podczas kolejki startowej cafe-settings-daemon"
 
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:15
 msgid "Free percentage notify threshold"
@@ -611,8 +611,7 @@ msgstr "Ignorowane ścieżki montowania"
 #: data/org.cafe.SettingsDaemon.plugins.housekeeping.gschema.xml.in:36
 msgid "Specify a list of mount paths to ignore when they run low on space."
 msgstr ""
-"Określenie listy ścieżek montowania do zignorowania, kiedy jest mało "
-"miejsca."
+"Określenie listy ścieżek montowania do zignorowania, kiedy jest mało miejsca."
 
 #: data/org.cafe.SettingsDaemon.plugins.media-keys.gschema.xml.in:10
 msgid "Show OSD notification"
@@ -877,10 +876,10 @@ msgid ""
 "monitor settings are not touched at all (unless there is an explicit user "
 "configuration)."
 msgstr ""
-"Zazwyczaj, cafe-settings-daemon konfiguruje wewnętrzne i zewnętrzne monitory"
-" stosownie do ustawień turn_on_external_monitors_at_startup i "
-"turn_on_laptop_monitor_at_startup i ustala odpowiedni tryb (klonowanie/jeden"
-" obok drugiego). Ustawienie tego klucza na wartość prawdy wyłącza to, i "
+"Zazwyczaj, cafe-settings-daemon konfiguruje wewnętrzne i zewnętrzne monitory "
+"stosownie do ustawień turn_on_external_monitors_at_startup i "
+"turn_on_laptop_monitor_at_startup i ustala odpowiedni tryb (klonowanie/jeden "
+"obok drugiego). Ustawienie tego klucza na wartość prawdy wyłącza to, i "
 "ustawienia monitora nie są wcale dotknięte (chyba że jest wyraźna "
 "konfiguracja użytkownika)"
 
@@ -890,8 +889,8 @@ msgstr "Włączenie zewnętrznego monitora po uruchomieniu systemu"
 
 #: data/org.cafe.SettingsDaemon.plugins.xrandr.gschema.xml.in:26
 msgid ""
-"Turn on external monitor after system boot if user plugs in external monitor"
-" on system boot."
+"Turn on external monitor after system boot if user plugs in external monitor "
+"on system boot."
 msgstr ""
 "Włączenie zewnętrznego monitora po uruchomieniu systemu, jeśli użytkownik "
 "podłączył go podczas uruchamiania."
@@ -920,8 +919,8 @@ msgid ""
 "such a file, or has one that does not match the user's setup of monitors, "
 "then the file specified by this key will be used instead."
 msgstr ""
-"Wtyczka XRandR będzie wyszukiwała domyślną konfigurację w pliku określonym w"
-" tym kluczu. Jest ona podobna do pliku ~/.config/monitors.xml, który zwykle "
+"Wtyczka XRandR będzie wyszukiwała domyślną konfigurację w pliku określonym w "
+"tym kluczu. Jest ona podobna do pliku ~/.config/monitors.xml, który zwykle "
 "jest przechowywany w katalogach domowych użytkowników. Jeśli użytkownik nie "
 "posiada takiego pliku, lub posiada plik nie pasujący do ustawienia "
 "monitorów, to zostanie użyty plik określony w tym kluczu."
@@ -954,23 +953,23 @@ msgstr "Dostępność klawiatury"
 msgid "Accessibility keyboard plugin"
 msgstr "Wtyczka dostępności klawiatury"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:444
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Wystąpił błąd podczas wyświetlania pomocy: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Włączyć funkcję powolnych klawiszy?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:573
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:637
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Wyłączyć funkcję powolnych klawiszy?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:574
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:638
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -978,62 +977,62 @@ msgstr ""
 "Przytrzymano przez osiem sekund klawisz Shift. Jest to skrót klawiszowy dla "
 "funkcji powolnych klawiszy, która wpływa na sposób pracy klawiatury."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Bez włączania"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:597
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:734
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Bez wyłączania"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Włącz"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:603
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:740
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Wyłącz"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "_Nie włączaj"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:659
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:798
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "_Nie wyłączaj"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "_Aktywuj"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:662
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:801
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Dezaktywuj"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:666
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Ostrzeżenie powolnych klawiszy"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:706
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:772
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Włączyć funkcję klawiszy trwałych?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Wyłączyć funkcję klawiszy trwałych?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1041,22 +1040,22 @@ msgstr ""
 "Przyciśnięto klawisz Shift pięć razy pod rząd. Jest to skrót klawiszowy dla "
 "funkcji trwałych klawiszy, która wpływa na sposób pracy klawiatury."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:711
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:777
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
 "keyboard works."
 msgstr ""
 "Przyciśnięto dwa klawisze na raz, lub przyciśnięto klawisz Shift pięć razy "
-"pod rząd. Wyłącza to funkcję trwałych klawiszy, która wpływa na sposób pracy"
-" klawiatury."
+"pod rząd. Wyłącza to funkcję trwałych klawiszy, która wpływa na sposób pracy "
+"klawiatury."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:805
+#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Ostrzeżenie trwałych klawiszy"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:766
+#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Preferencje dostępu uniwersalnego"
@@ -1089,14 +1088,12 @@ msgstr ""
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr ""
-"_Ignorowanie podwójnych naciśnięć klawiszy w jednym ciągu (klawisze "
-"odbijane)"
+"_Ignorowanie podwójnych naciśnięć klawiszy w jednym ciągu (klawisze odbijane)"
 
 #: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr ""
-"N_aciskanie i przytrzymywanie klawiszy, aby je zatwierdzić (klawisze "
-"powolne)"
+"N_aciskanie i przytrzymywanie klawiszy, aby je zatwierdzić (klawisze powolne)"
 
 #: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility settings"
@@ -1166,33 +1163,33 @@ msgstr ""
 "Automatycznie zmniejsza miniatury w pamięci podręcznej i inne pliki "
 "przejściowe, oraz ostrzega o małej ilości miejsca na dysku"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:63
+#: plugins/housekeeping/csd-ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Bez ponownego wyświetlania ostrzeżeń dla tego systemu plików"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:65
+#: plugins/housekeeping/csd-ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "Bez ponownego wyświetlania ostrzeżeń"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd-ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "Wolumin \"%s\" posiada tylko %s wolnego miejsca."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:81
+#: plugins/housekeeping/csd-ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Ten komputer posiada tylko %s wolnego miejsca."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd-ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
 msgstr ""
-"Można uwolnić trochę miejsca przez opróżnienie kosza, usunięcie nieużywanych"
-" programów albo plików lub przeniesienie plików na inny dysk lub partycję."
+"Można uwolnić trochę miejsca przez opróżnienie kosza, usunięcie nieużywanych "
+"programów albo plików lub przeniesienie plików na inny dysk lub partycję."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:100
+#: plugins/housekeeping/csd-ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1200,15 +1197,15 @@ msgstr ""
 "Można uwolnić trochę miejsca przez usunięcie nieużywanych programów albo "
 "plików lub przeniesienie plików na inny dysk lub partycję."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd-ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
 msgstr ""
-"Można uwolnić trochę miejsca przez opróżnienie kosza, usunięcie nieużywanych"
-" programów albo plików lub przeniesienie plików na dysk zewnętrzny."
+"Można uwolnić trochę miejsca przez opróżnienie kosza, usunięcie nieużywanych "
+"programów albo plików lub przeniesienie plików na dysk zewnętrzny."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:108
+#: plugins/housekeeping/csd-ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1217,19 +1214,19 @@ msgstr ""
 "plików lub przeniesienie plików na dysk zewnętrzny."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:204
+#: plugins/housekeeping/csd-ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Mało miejsca na dysku"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:439
+#: plugins/housekeeping/csd-ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Opróżnianie kosza"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:447
+#: plugins/housekeeping/csd-ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Sprawdzanie…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:454
+#: plugins/housekeeping/csd-ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Zignoruj"
 
@@ -1266,8 +1263,8 @@ msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
 msgstr ""
-"Jeżeli zostanie wybrane opróżnienie kosza, wszystkie elementy zostaną trwale"
-" usunięte. Można też usuwać je pojedynczo."
+"Jeżeli zostanie wybrane opróżnienie kosza, wszystkie elementy zostaną trwale "
+"usunięte. Można też usuwać je pojedynczo."
 
 #: plugins/housekeeping/csd-ldsm-trash-empty.c:365
 msgid "_Empty Trash"
@@ -1281,17 +1278,17 @@ msgstr "Skróty klawiszowe"
 msgid "Keybindings plugin"
 msgstr "Wtyczka skrótów klawiszowych"
 
-#: plugins/keybindings/csd-keybindings-manager.c:110
+#: plugins/keybindings/csd-keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Skrót klawiszowy (%s) jest nieprawidłowy"
 
-#: plugins/keybindings/csd-keybindings-manager.c:146
+#: plugins/keybindings/csd-keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Skrót klawiszowy (%s) jest niekompletny"
 
-#: plugins/keybindings/csd-keybindings-manager.c:488
+#: plugins/keybindings/csd-keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1357,15 +1354,15 @@ msgstr "Klawisze multimedialne"
 msgid "Media keys plugin"
 msgstr "Wtyczka klawiszy multimedialnych"
 
-#: plugins/media-keys/csd-media-keys-manager.c:187
+#: plugins/media-keys/csd-media-keys-manager.c:184
 msgid ""
-"Could not get default terminal. Verify that your default terminal command is"
-" set and points to a valid application."
+"Could not get default terminal. Verify that your default terminal command is "
+"set and points to a valid application."
 msgstr ""
 "Nie można uzyskać domyślnego terminala. Proszę sprawdzić, czy ustalone jest "
 "domyślne polecenie terminala i czy wskazuje na prawidłowy program."
 
-#: plugins/media-keys/csd-media-keys-manager.c:227
+#: plugins/media-keys/csd-media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1374,46 +1371,46 @@ msgstr ""
 "Nie można wykonać polecenia: %s\n"
 "Proszę sprawdzić, czy jest to prawidłowe polecenie."
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "Panel dotykowy włączony"
 
-#: plugins/media-keys/csd-media-keys-manager.c:641
+#: plugins/media-keys/csd-media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "Panel dotykowy wyłączony"
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd-media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "Bluetooth wyłączony"
 
-#: plugins/media-keys/csd-media-keys-manager.c:960
+#: plugins/media-keys/csd-media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "Bluetooth włączony"
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd-media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "Tryb Samolotowy włączony"
 
-#: plugins/media-keys/csd-media-keys-manager.c:967
+#: plugins/media-keys/csd-media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "Tryb Samolotowy wyłączony"
 
-#: plugins/media-keys/csd-media-keys-manager.c:998
+#: plugins/media-keys/csd-media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr "Sprzętowy Tryb Samolotowy"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1036
+#: plugins/media-keys/csd-media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr "Zmiana Układu Ekranu"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1040
+#: plugins/media-keys/csd-media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "Brak Ekranu Zewnętrznego"
@@ -1426,16 +1423,16 @@ msgstr "Mysz"
 msgid "Mouse plugin"
 msgstr "Wtyczka myszy"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd-mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Nie można włączyć funkcji dostępności myszy"
 
-#: plugins/mouse/csd-mouse-manager.c:1654
+#: plugins/mouse/csd-mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr "Dostępność myszy wymaga instalacji programu Mousetweaks."
 
-#: plugins/mouse/csd-mouse-manager.c:1657
+#: plugins/mouse/csd-mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Preferencje myszy"
 
@@ -1544,19 +1541,19 @@ msgstr "Przerwa w pisaniu"
 msgid "Typing break plugin"
 msgstr "Wtyczka przerwy w pisaniu"
 
-#: plugins/xrandr/csd-xrandr-manager.c:371
+#: plugins/xrandr/csd-xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Nie można przełączyć konfiguracji monitora"
 
-#: plugins/xrandr/csd-xrandr-manager.c:395
+#: plugins/xrandr/csd-xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Nie można odtworzyć konfiguracji ekranu"
 
-#: plugins/xrandr/csd-xrandr-manager.c:420
+#: plugins/xrandr/csd-xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "Nie można odtworzyć konfiguracji ekranu z kopii zapasowej"
 
-#: plugins/xrandr/csd-xrandr-manager.c:441
+#: plugins/xrandr/csd-xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1566,97 +1563,97 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:490
+#: plugins/xrandr/csd-xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Czy wyświetlany obraz wygląda poprawnie?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:497
+#: plugins/xrandr/csd-xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "_Przywróć poprzednią konfigurację"
 
-#: plugins/xrandr/csd-xrandr-manager.c:498
+#: plugins/xrandr/csd-xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Zachowaj konfigurację"
 
-#: plugins/xrandr/csd-xrandr-manager.c:579
+#: plugins/xrandr/csd-xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Wybrana konfiguracja ekranów nie mogła zostać zastosowana"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1178
+#: plugins/xrandr/csd-xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Nie można odświeżyć informacji o ekranie: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1182
+#: plugins/xrandr/csd-xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Mimo to zostanie podjęta próba przełączenia konfiguracji monitora."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1938
+#: plugins/xrandr/csd-xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Brak obsługi obracania"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2003
-#: plugins/xrandr/csd-xrandr-manager.c:2035
+#: plugins/xrandr/csd-xrandr-manager.c:2005
+#: plugins/xrandr/csd-xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Nie można zapisać konfiguracji monitora"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2057
+#: plugins/xrandr/csd-xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr "Kopie lustrzane wyjść nie wspierane"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2088
+#: plugins/xrandr/csd-xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Zwykły"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2089
+#: plugins/xrandr/csd-xrandr-manager.c:2091
 msgid "Left"
 msgstr "Lewo"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd-xrandr-manager.c:2092
 msgid "Right"
 msgstr "Prawo"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd-xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "Do góry nogami"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2180
+#: plugins/xrandr/csd-xrandr-manager.c:2182
 msgid "ON"
 msgstr "Włączony"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2181
+#: plugins/xrandr/csd-xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr "Wyłącz ten monitor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2184
+#: plugins/xrandr/csd-xrandr-manager.c:2186
 msgid "OFF"
 msgstr "Wyłączony"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2185
+#: plugins/xrandr/csd-xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr "Włącz ten monitor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2245
+#: plugins/xrandr/csd-xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr "Ten sam obraz na wszystkich monitorach"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2246
+#: plugins/xrandr/csd-xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr "Wykonaj lustrzane odbicie wyjścia na wszystkich monitorach i włącz je"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2293
+#: plugins/xrandr/csd-xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Skonfiguruj ustawienia wyświetlania…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2303
+#: plugins/xrandr/csd-xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr "Otwórz okno konfiguracji wyświetlacza (wszystkie ustawienia)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2356
+#: plugins/xrandr/csd-xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Konfiguruje ustawienia wyświetlania"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2416
+#: plugins/xrandr/csd-xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Nie można zastosować zachowanej konfiguracji dla monitorów"
 
@@ -1668,7 +1665,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Ustawia rozmiar i orientację ekranu"
 
-#: plugins/xrdb/csd-xrdb-manager.c:251 plugins/xrdb/csd-xrdb-manager.c:320
+#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Nie można ustalić katalogu domowego użytkownika"
 
