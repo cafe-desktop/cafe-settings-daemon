@@ -686,7 +686,7 @@ update_dialog (CsdMediaKeysManager *manager,
 
 #ifdef HAVE_LIBKANBERRA
         if (quiet == FALSE && sound_changed != FALSE && muted == FALSE && is_mic == FALSE)
-                ka_gtk_play_for_widget (manager->priv->dialog, 0,
+                ka_ctk_play_for_widget (manager->priv->dialog, 0,
                                         KA_PROP_EVENT_ID, "audio-volume-change",
                                         KA_PROP_EVENT_DESCRIPTION, "Volume changed through key press",
                                         KA_PROP_APPLICATION_NAME, PACKAGE_NAME,
