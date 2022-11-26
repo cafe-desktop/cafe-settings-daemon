@@ -232,8 +232,8 @@ AC_ARG_WITH(libkanberra,
     with_libkanberra=$withval, with_libkanberra=auto)
 
 if test "x$with_libkanberra" != "xno"; then
-    PKG_CHECK_MODULES(LIBKANBERRA, libkanberra-gtk3,
-              [AC_DEFINE(HAVE_LIBKANBERRA, 1, [Define if libkanberra-gtk3 is available])
+    PKG_CHECK_MODULES(LIBKANBERRA, libkanberra-ctk3,
+              [AC_DEFINE(HAVE_LIBKANBERRA, 1, [Define if libkanberra-ctk3 is available])
               have_libkanberra=yes], have_libkanberra=no)
     if test "x$have_libkanberra" = xno -a "x$with_libkanberra" = xyes; then
         AC_MSG_ERROR([libkanberra support requested but library not found])
