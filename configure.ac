@@ -226,17 +226,17 @@ AM_CONDITIONAL(HAVE_PULSE, test "x$have_pulse" = "xtrue")
 AC_SUBST(PULSE_CFLAGS)
 AC_SUBST(PULSE_LIBS)
 
-have_libcanberra=no
-AC_ARG_WITH(libcanberra,
-    AS_HELP_STRING([--without-libcanberra], [Disable sound events (default: auto)]),
-    with_libcanberra=$withval, with_libcanberra=auto)
+have_libkanberra=no
+AC_ARG_WITH(libkanberra,
+    AS_HELP_STRING([--without-libkanberra], [Disable sound events (default: auto)]),
+    with_libkanberra=$withval, with_libkanberra=auto)
 
-if test "x$with_libcanberra" != "xno"; then
-    PKG_CHECK_MODULES(LIBCANBERRA, libcanberra-gtk3,
-              [AC_DEFINE(HAVE_LIBCANBERRA, 1, [Define if libcanberra-gtk3 is available])
-              have_libcanberra=yes], have_libcanberra=no)
-    if test "x$have_libcanberra" = xno -a "x$with_libcanberra" = xyes; then
-        AC_MSG_ERROR([libcanberra support requested but library not found])
+if test "x$with_libkanberra" != "xno"; then
+    PKG_CHECK_MODULES(LIBCANBERRA, libkanberra-gtk3,
+              [AC_DEFINE(HAVE_LIBCANBERRA, 1, [Define if libkanberra-gtk3 is available])
+              have_libkanberra=yes], have_libkanberra=no)
+    if test "x$have_libkanberra" = xno -a "x$with_libkanberra" = xyes; then
+        AC_MSG_ERROR([libkanberra support requested but library not found])
     fi
 fi
 AC_SUBST(LIBCANBERRA_CFLAGS)
@@ -499,7 +499,7 @@ echo "
 
     PulseAudio support:       ${have_pulse}
     Libnotify support:        ${have_libnotify}
-    Libcanberra support:      ${have_libcanberra}
+    Libkanberra support:      ${have_libkanberra}
     Libcafemixer support:     ${have_libcafemixer}
     Smartcard support:        ${have_smartcard_support}
     RFKill support:           ${enable_rfkill}
