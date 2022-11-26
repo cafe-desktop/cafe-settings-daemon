@@ -36,7 +36,7 @@
 #include <libcafemixer/cafemixer.h>
 #endif
 
-#ifdef HAVE_LIBCANBERRA
+#ifdef HAVE_LIBKANBERRA
 #include <kanberra-gtk.h>
 #endif
 
@@ -684,7 +684,7 @@ update_dialog (CsdMediaKeysManager *manager,
                                           CSD_MEDIA_KEYS_WINDOW_ACTION_VOLUME);
         dialog_show (manager);
 
-#ifdef HAVE_LIBCANBERRA
+#ifdef HAVE_LIBKANBERRA
         if (quiet == FALSE && sound_changed != FALSE && muted == FALSE && is_mic == FALSE)
                 ca_gtk_play_for_widget (manager->priv->dialog, 0,
                                         CA_PROP_EVENT_ID, "audio-volume-change",

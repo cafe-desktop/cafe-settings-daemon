@@ -44,7 +44,7 @@ libmedia_keys_la_CPPFLAGS = \
 libmedia_keys_la_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
 	$(LIBCAFEMIXER_CFLAGS)		\
-	$(LIBCANBERRA_CFLAGS)		\
+	$(LIBKANBERRA_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)			\
 	$(NULL)
@@ -56,7 +56,7 @@ libmedia_keys_la_LIBADD  = \
 	$(top_builddir)/plugins/common/libcommon.la \
 	$(SETTINGS_PLUGIN_LIBS) \
 	$(LIBCAFEMIXER_LIBS) \
-	$(LIBCANBERRA_LIBS) \
+	$(LIBKANBERRA_LIBS) \
 	-lm
 
 plugin_in_files = 		\
@@ -117,7 +117,7 @@ test_media_keys_CPPFLAGS = \
 test_media_keys_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\
 	$(LIBCAFEMIXER_CFLAGS)		\
-	$(LIBCANBERRA_CFLAGS)		\
+	$(LIBKANBERRA_CFLAGS)		\
 	$(AM_CFLAGS)			\
 	$(WARN_CFLAGS)			\
 	$(NULL)
@@ -128,7 +128,7 @@ test_media_keys_LDADD = \
 	$(SETTINGS_DAEMON_LIBS) \
 	$(SETTINGS_PLUGIN_LIBS) \
 	$(LIBCAFEMIXER_LIBS) \
-	$(LIBCANBERRA_LIBS) \
+	$(LIBKANBERRA_LIBS) \
 	-lm
 
 ctkbuilderdir = $(pkgdatadir)
