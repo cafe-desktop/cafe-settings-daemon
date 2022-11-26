@@ -37,7 +37,7 @@
 #endif
 
 #ifdef HAVE_LIBKANBERRA
-#include <kanberra-gtk.h>
+#include <kanberra-ctk.h>
 #endif
 
 #include "cafe-settings-profile.h"
