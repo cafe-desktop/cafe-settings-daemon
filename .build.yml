@@ -19,7 +19,6 @@ requires:
     - gobject-introspection
     - gtk-doc-tools
     - iso-codes
-    - libcanberra-gtk3-dev
     - libdbus-glib-1-dev
     - libdconf-dev
     - libfontconfig1-dev
@@ -43,39 +42,18 @@ requires:
     - wget
     - x11proto-kb-dev
 
-    #packages required for ctk
-    - adwaita-icon-theme
-    - dconf-gsettings-backend
-    - gir1.2-atk-1.0
-    - hicolor-icon-theme
-    - libatk-bridge2.0-0
-    - libatk-bridge2.0-dev
-    - libcolord2
-    - libcups2
-    - libegl1-mesa-dev
-    - libepoxy0
-    - libepoxy-dev
-    - libfontconfig1-dev
-    - libfribidi-dev
-    - libgdk-pixbuf2.0-dev
-    - libjson-glib-1.0-0
-    - libpango1.0-dev
-    - librest-0.7-0
-    - libwayland-dev
-    - libxcomposite-dev
-    - libxcursor-dev
-    - libxdamage-dev
-    - libxext-dev
-    - libxfixes-dev
-    - libxi-dev
-    - libxinerama-dev
-    - libxkbcommon-dev
-    - libxrandr-dev
-    - wayland-protocols
+    #packages required for libkanberra
+    - gnome-pkg-tools
+    - libltdl-dev
+    - libasound2-dev
+    - libvorbis-dev
+    - libtdb-dev
+    - libgstreamer1.0-dev
 
 before_scripts:
   - ./html-cppcheck
   - ./debrepo-install 'libctk-3-dev gir1.2-ctk-3.0 libctk-3-common libctk-3-0'
+  - ./install-from-git https://github.com/cafe-desktop/libkanberra master
   - ./install-from-git https://github.com/cafe-desktop/cafe-common master
   - ./install-from-git https://github.com/cafe-desktop/cafe-desktop master
   - ./install-from-git https://github.com/cafe-desktop/libcafekbd master
