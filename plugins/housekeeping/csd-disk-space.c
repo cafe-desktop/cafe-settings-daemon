@@ -622,8 +622,7 @@ csd_ldsm_get_config ()
                 guint i;
 
                 for (i = 0; settings_list[i] != NULL; i++) {
-                        if (settings_list[i] != NULL)
-                                ignore_paths = g_slist_prepend (ignore_paths, g_strdup (settings_list[i]));
+                        ignore_paths = g_slist_prepend (ignore_paths, g_strdup (settings_list[i]));
                 }
 
                 /* Make sure we dont leave stale entries in ldsm_notified_hash */
