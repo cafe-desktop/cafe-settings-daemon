@@ -1,3 +1,10 @@
+### cafe-settings-daemon 1.25.1
+
+  * port from libcanberra to libkanberra
+  * csd-disk-space: avoid redundant condition
+  * cafe-settings-profile: reduce the scope of variable
+  * ci: some improvements
+
 ### cafe-settings-daemon 1.25.0
 
   * initial commit: mate-settings-daemon 1.24.1 fork

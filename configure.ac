@@ -2,7 +2,7 @@ AC_PREREQ([2.60])
 
 m4_define([csd_api_version_major],[1])
 m4_define([csd_api_version_minor],[25])
-m4_define([csd_api_version_micro],[0])
+m4_define([csd_api_version_micro],[1])
 m4_define([csd_api_version],
 	[csd_api_version_major.csd_api_version_minor.csd_api_version_micro])
 
