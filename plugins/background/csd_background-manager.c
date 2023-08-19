@@ -44,7 +44,7 @@
 #include <X11/Xatom.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-background-manager.h"
+#include "csd_background-manager.h"
 
 #define CAFE_SESSION_MANAGER_DBUS_NAME "org.gnome.SessionManager"
 #define CAFE_SESSION_MANAGER_DBUS_PATH "/org/gnome/SessionManager"

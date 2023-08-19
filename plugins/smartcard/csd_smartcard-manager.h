@@ -1,4 +1,4 @@
-/* csd-smartcard-manager.h - object for monitoring smartcard insertion and
+/* csd_smartcard-manager.h - object for monitoring smartcard insertion and
  *                           removal events
  *
  * Copyright (C) 2006, 2009 Red Hat, Inc.
@@ -24,7 +24,7 @@
 #define CSD_SMARTCARD_MANAGER_H
 
 #define CSD_SMARTCARD_ENABLE_INTERNAL_API
-#include "csd-smartcard.h"
+#include "csd_smartcard.h"
 
 #include <glib.h>
 #include <glib-object.h>

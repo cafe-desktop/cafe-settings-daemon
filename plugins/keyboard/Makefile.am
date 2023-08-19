@@ -14,12 +14,12 @@ icons_DATA = \
 	  kbd-capslock-on.png kbd-numlock-on.png kbd-scrolllock-on.png
 
 libkeyboard_la_SOURCES = 	\
-	csd-keyboard-plugin.h	\
-	csd-keyboard-plugin.c	\
-	csd-keyboard-manager.h	\
-	csd-keyboard-manager.c	\
-	csd-keyboard-xkb.h	\
-	csd-keyboard-xkb.c	\
+	csd_keyboard-plugin.h	\
+	csd_keyboard-plugin.c	\
+	csd_keyboard-manager.h	\
+	csd_keyboard-manager.c	\
+	csd_keyboard-xkb.h	\
+	csd_keyboard-xkb.c	\
 	delayed-dialog.h	\
 	delayed-dialog.c	\
 	$(NULL)

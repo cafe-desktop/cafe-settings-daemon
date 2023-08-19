@@ -39,7 +39,7 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-typing-break-manager.h"
+#include "csd_typing-break-manager.h"
 
 #define CAFE_BREAK_SCHEMA "org.cafe.typing-break"
 

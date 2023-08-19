@@ -1,4 +1,4 @@
-/* csd-smartcard-manager.c - object for monitoring smartcard insertion and
+/* csd_smartcard-manager.c - object for monitoring smartcard insertion and
  *                           removal events
  *
  * Copyright (C) 2006, 2009 Red Hat, Inc.
@@ -22,10 +22,10 @@
  */
 #include "config.h"
 
-#include "csd-smartcard-manager.h"
+#include "csd_smartcard-manager.h"
 
 #define SMARTCARD_ENABLE_INTERNAL_API
-#include "csd-smartcard.h"
+#include "csd_smartcard.h"
 
 #include <dirent.h>
 #include <errno.h>
@@ -361,7 +361,7 @@ csd_smartcard_manager_error_quark (void)
         static GQuark error_quark = 0;
 
         if (error_quark == 0) {
-                error_quark = g_quark_from_static_string ("csd-smartcard-manager-error-quark");
+                error_quark = g_quark_from_static_string ("csd_smartcard-manager-error-quark");
         }
 
         return error_quark;

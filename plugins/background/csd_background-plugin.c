@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-background-plugin.h"
-#include "csd-background-manager.h"
+#include "csd_background-plugin.h"
+#include "csd_background-manager.h"
 
 struct CsdBackgroundPluginPrivate {
 	CsdBackgroundManager* manager;

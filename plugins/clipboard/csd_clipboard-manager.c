@@ -44,7 +44,7 @@
 #include "list.h"
 
 #include "cafe-settings-profile.h"
-#include "csd-clipboard-manager.h"
+#include "csd_clipboard-manager.h"
 
 struct CsdClipboardManagerPrivate
 {

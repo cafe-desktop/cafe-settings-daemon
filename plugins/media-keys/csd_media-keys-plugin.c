@@ -30,8 +30,8 @@
 #endif
 
 #include "cafe-settings-plugin.h"
-#include "csd-media-keys-plugin.h"
-#include "csd-media-keys-manager.h"
+#include "csd_media-keys-plugin.h"
+#include "csd_media-keys-manager.h"
 
 struct _CsdMediaKeysPluginPrivate
 {

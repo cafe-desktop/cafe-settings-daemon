@@ -38,7 +38,7 @@
 #include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-xrdb-manager.h"
+#include "csd_xrdb-manager.h"
 
 #define SYSTEM_AD_DIR    SYSCONFDIR "/xrdb"
 #define GENERAL_AD       SYSTEM_AD_DIR "/General.ad"

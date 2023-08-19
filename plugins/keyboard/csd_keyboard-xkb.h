@@ -25,7 +25,7 @@
 #define __CSD_KEYBOARD_XKB_H
 
 #include <libxklavier/xklavier.h>
-#include "csd-keyboard-manager.h"
+#include "csd_keyboard-manager.h"
 
 void csd_keyboard_xkb_init(CsdKeyboardManager* manager);
 void csd_keyboard_xkb_shutdown(void);

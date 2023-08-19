@@ -915,23 +915,23 @@ msgstr "Teclat accessible"
 msgid "Accessibility keyboard plugin"
 msgstr "Connector de l'accessibilitat de teclat"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "S'ha produït un error en mostrar l'ajuda: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Voleu activar les «tecles lentes»?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Voleu desactivar les «tecles lentes»?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -940,62 +940,62 @@ msgstr ""
 "drecera per a la funcionalitat «tecles lentes», que afecta la forma de "
 "funcionar del teclat."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "No activis"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "No desactivis"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Activa"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Desactiva"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "_No activis"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "_No desactivis"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "_Activa"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Inactiva"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Alerta de «tecles lentes»"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Voleu activar les «tecles enganxoses»?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Voleu desactivar les «tecles enganxoses»?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1004,8 +1004,8 @@ msgstr ""
 "per a la funcionalitat «tecles enganxoses», que afecta la forma de funcionar "
 "del teclat."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1015,44 +1015,44 @@ msgstr ""
 "seguides. Això desactiva les «tecles enganxoses», que afecten la forma de "
 "funcionar del teclat."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Alerta de «tecles enganxoses»"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.c:764
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Preferències d'accés universal"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:86
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:86
 msgid "Use on-screen _keyboard"
 msgstr "Utilitza el _teclat a la pantalla"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:102
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:102
 msgid "Use screen _reader"
 msgstr "Utilitza el _lector de pantalla"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:118
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:118
 msgid "Use screen _magnifier"
 msgstr "Utilitza l'_ampliador de pantalla"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:134
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:134
 msgid "Enhance _contrast in colors"
 msgstr "Millora el _contrast dels colors"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:150
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:150
 msgid "Make _text larger and easier to read"
 msgstr "Fes el _text més gran i més fàcil de llegir"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
 msgstr "_Prem les dreceres de teclat una tecla a la vegada (tecles enganxoses)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr "_Ignora les pressions de tecles duplicades (tecles de rebot)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "Prem i _mantén les tecles per acceptar-les (tecles lentes)"
 
@@ -1124,25 +1124,25 @@ msgstr ""
 "Elimina automàticament la memòria cau de les miniatures i altres fitxers "
 "transitoris i adverteix sobre un espai de disc baix"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:60
+#: plugins/housekeeping/csd_ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "No tornis a mostrar cap advertència per aquest sistema de fitxers"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:62
+#: plugins/housekeeping/csd_ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "No tornis a mostrar més advertències"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:75
+#: plugins/housekeeping/csd_ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "Al volum «%s» només li queden %s d'espai de disc."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd_ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Aquest ordinador només li resta %s d'espai de disc."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:94
+#: plugins/housekeeping/csd_ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1151,7 +1151,7 @@ msgstr ""
 "supressió de programes o fitxers que no utilitzeu, o amb el trasllat de "
 "fitxers a un altre disc o partició."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd_ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1159,7 +1159,7 @@ msgstr ""
 "Podeu alliberar espai de disc amb la supressió de programes o fitxers que no "
 "utilitzeu, o amb el trasllat de fitxers a un altre disc o partició."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:102
+#: plugins/housekeeping/csd_ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1168,7 +1168,7 @@ msgstr ""
 "supressió de programes o fitxers que no utilitzeu, o amb el trasllat de "
 "fitxers a un disc extern."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd_ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1177,51 +1177,51 @@ msgstr ""
 "utilitzeu, o amb el trasllat de fitxers a un disc extern."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:201
+#: plugins/housekeeping/csd_ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Poc espai de disc"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:436
+#: plugins/housekeeping/csd_ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Buida la paperera"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:444
+#: plugins/housekeeping/csd_ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Examina…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:451
+#: plugins/housekeeping/csd_ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Ignora"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "S'està suprimint l'element %lu de %lu"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
 #, c-format
 msgid "Removing: %s"
 msgstr "S'està suprimint: %s"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
 msgid "Emptying the trash"
 msgstr "S'està buidant la paperera"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
 msgid "Preparing to empty trash…"
 msgstr "S'està preparant per buidar la paperera…"
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
 msgid "From: "
 msgstr "Des de: "
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
 msgid "Empty all of the items from the trash?"
 msgstr "Voleu buidar tots els elements de la paperera?"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1229,7 +1229,7 @@ msgstr ""
 "Si buideu la paperera, se'n perdran tots els elements per sempre. Tingueu en "
 "compte que també podeu eliminar-los per separat."
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
 msgid "_Empty Trash"
 msgstr "_Buida la paperera"
 
@@ -1241,17 +1241,17 @@ msgstr "Vinculacions"
 msgid "Keybindings plugin"
 msgstr "Connector de vinculacions"
 
-#: plugins/keybindings/csd-keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "La vinculació de tecla (%s) no és vàlida"
 
-#: plugins/keybindings/csd-keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "La vinculació de tecla (%s) és incompleta"
 
-#: plugins/keybindings/csd-keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1268,7 +1268,7 @@ msgstr "Teclat"
 msgid "Keyboard plugin"
 msgstr "Connector del teclat"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:119
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1285,15 +1285,15 @@ msgid ""
 " • The result of <b>%s</b>"
 msgstr ""
 
-#: plugins/keyboard/csd-keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:279
 msgid "_Layouts"
 msgstr "_Disposicions"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:286
 msgid "Keyboard _Preferences"
 msgstr "_Preferències del teclat"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:292
 msgid "Show _Current Layout"
 msgstr "Mostra la disposició a_ctual"
 
@@ -1305,7 +1305,7 @@ msgstr "Tecles multimèdia"
 msgid "Media keys plugin"
 msgstr "Connector de les tecles multimèdia"
 
-#: plugins/media-keys/csd-media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:184
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1313,7 +1313,7 @@ msgstr ""
 "No s'ha pogut obtenir el terminal per defecte. Verifiqueu que l'ordre que "
 "teniu establerta per al terminal per defecte existeixi."
 
-#: plugins/media-keys/csd-media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1322,46 +1322,46 @@ msgstr ""
 "No s'ha pogut executar l'ordre: %s\n"
 "Verifiqueu que sigui una ordre vàlida."
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "Ratolí tàctil habilitat"
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "Ratolí tàctil inhabilitat"
 
-#: plugins/media-keys/csd-media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "Bluetooth inhabilitat"
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "Bluetooth habilitat"
 
-#: plugins/media-keys/csd-media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "Mode avió habilitat"
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "Mode avió inhabilitat"
 
-#: plugins/media-keys/csd-media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr "Mode avió de maquinari"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr "Canvi de la disposició de la pantalla"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "No hi ha cap monitor extern"
@@ -1374,19 +1374,19 @@ msgstr "Ratolí"
 msgid "Mouse plugin"
 msgstr "Connector del ratolí"
 
-#: plugins/mouse/csd-mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr ""
 "No s'han pogut habilitar les funcionalitats d'accessibilitat del ratolí"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "L'accessibilitat del ratolí requereix que s'instal·li Mousetweaks al vostre "
 "sistema."
 
-#: plugins/mouse/csd-mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Preferències del ratolí"
 
@@ -1408,69 +1408,69 @@ msgstr "RFKill"
 msgid "Rfkill plugin"
 msgstr "Connector de RFKill"
 
-#: plugins/smartcard/csd-smartcard-manager.c:164
+#: plugins/smartcard/csd_smartcard-manager.c:164
 msgid "Module Path"
 msgstr "Camí al mòdul"
 
-#: plugins/smartcard/csd-smartcard-manager.c:165
+#: plugins/smartcard/csd_smartcard-manager.c:165
 msgid "path to smartcard PKCS #11 driver"
 msgstr "camí al controlador de targeta intel·ligent PKCS #11"
 
-#: plugins/smartcard/csd-smartcard-manager.c:491
+#: plugins/smartcard/csd_smartcard-manager.c:491
 msgid "received error or hang up from event source"
 msgstr "ha rebut un error o tall des de l'origen de l'esdeveniment"
 
-#: plugins/smartcard/csd-smartcard-manager.c:580
+#: plugins/smartcard/csd_smartcard-manager.c:580
 msgid "NSS security system could not be initialized"
 msgstr "No s'ha pogut inicialitzar el sistema de seguretat NSS"
 
-#: plugins/smartcard/csd-smartcard-manager.c:649
+#: plugins/smartcard/csd_smartcard-manager.c:649
 msgid "no suitable smartcard driver could be found"
 msgstr ""
 "no s'ha pogut trobar cap controlador adequat per a la targeta intel·ligent"
 
-#: plugins/smartcard/csd-smartcard-manager.c:669
+#: plugins/smartcard/csd_smartcard-manager.c:669
 #, c-format
 msgid "smartcard driver '%s' could not be loaded"
 msgstr "no s'ha pogut carregar el controlador de la targeta intel·ligent «%s»"
 
-#: plugins/smartcard/csd-smartcard-manager.c:753
+#: plugins/smartcard/csd_smartcard-manager.c:753
 #, c-format
 msgid "could not watch for incoming card events - %s"
 msgstr ""
 "no s'ha pogut observar si hi ha esdeveniments d'entrada de targeta - %s"
 
-#: plugins/smartcard/csd-smartcard-manager.c:1100
+#: plugins/smartcard/csd_smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
 msgstr ""
 "es va trobar un error inesperat en l'espera d'esdeveniments de targetes "
 "intel·ligents"
 
-#: plugins/smartcard/csd-smartcard.c:148
+#: plugins/smartcard/csd_smartcard.c:148
 msgid "Slot ID"
 msgstr "Id. sòcol"
 
-#: plugins/smartcard/csd-smartcard.c:149
+#: plugins/smartcard/csd_smartcard.c:149
 msgid "The slot the card is in"
 msgstr "La ranura on està la targeta"
 
-#: plugins/smartcard/csd-smartcard.c:155
+#: plugins/smartcard/csd_smartcard.c:155
 msgid "Slot Series"
 msgstr "Sèrie de ranures"
 
-#: plugins/smartcard/csd-smartcard.c:156
+#: plugins/smartcard/csd_smartcard.c:156
 msgid "per-slot card identifier"
 msgstr "identificador de targeta per ranura"
 
-#: plugins/smartcard/csd-smartcard.c:162 plugins/smartcard/csd-smartcard.c:163
+#: plugins/smartcard/csd_smartcard.c:162 plugins/smartcard/csd_smartcard.c:163
 msgid "name"
 msgstr "nom"
 
-#: plugins/smartcard/csd-smartcard.c:167
+#: plugins/smartcard/csd_smartcard.c:167
 msgid "Module"
 msgstr "Mòdul"
 
-#: plugins/smartcard/csd-smartcard.c:168
+#: plugins/smartcard/csd_smartcard.c:168
 msgid "smartcard driver"
 msgstr "controlador de la targeta intel·ligent"
 
@@ -1498,21 +1498,21 @@ msgstr "Descans de tecleig"
 msgid "Typing break plugin"
 msgstr "Connector de descans de tecleig"
 
-#: plugins/xrandr/csd-xrandr-manager.c:373
+#: plugins/xrandr/csd_xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "No s'ha pogut commutar la configuració del monitor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:397
+#: plugins/xrandr/csd_xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "No s'ha pogut restaurar la configuració de la pantalla"
 
-#: plugins/xrandr/csd-xrandr-manager.c:422
+#: plugins/xrandr/csd_xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr ""
 "No s'ha pogut restaurar la configuració de la pantalla des d'una còpia de "
 "seguretat"
 
-#: plugins/xrandr/csd-xrandr-manager.c:443
+#: plugins/xrandr/csd_xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1521,98 +1521,98 @@ msgstr[0] "La pantalla es restablirà a l'anterior configuració d'aquí %d sego
 msgstr[1] ""
 "La pantalla es restablirà a l'anterior configuració d'aquí %d segons"
 
-#: plugins/xrandr/csd-xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Es visualitza correctament la pantalla?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "_Restaura l'anterior configuració"
 
-#: plugins/xrandr/csd-xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Mantén aquesta configuració"
 
-#: plugins/xrandr/csd-xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "No s'ha pogut aplicar la configuració seleccionada per a pantalles"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "No s'ha pogut refrescar la informació de la pantalla: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr ""
 "S'està intentant commutar la configuració del monitor de totes maneres."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "No és compatible amb la rotació"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2005
-#: plugins/xrandr/csd-xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2005
+#: plugins/xrandr/csd_xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "No s'ha pogut desar la configuració del monitor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr "No és compatible amb la replicació de la sortida"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Normal"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2091
 msgid "Left"
 msgstr "Esquerra"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2092
 msgid "Right"
 msgstr "Dreta"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "De cap per avall"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2182
 msgid "ON"
 msgstr "Encès"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr "Engega aquest monitor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2186
 msgid "OFF"
 msgstr "Apagat"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr "Apaga aquest monitor"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr "La cafeixa sortida a tots els monitors"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr "Replica la cafeixa sortida a tots els monitors i els encén"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Configura els ajusts de la pantalla…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr "Obre el diàleg de configuració de la pantalla (tots els ajusts)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Configura els ajusts de la pantalla"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "No s'ha pogut aplicar la configuració emmagatzemada per als monitors"
 
@@ -1624,7 +1624,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Configura els ajusts de pantalla de la mida i de la rotació"
 
-#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "No es pot determinar el directori de l'usuari"
 

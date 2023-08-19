@@ -43,7 +43,7 @@
 #include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-mpris-manager.h"
+#include "csd_mpris-manager.h"
 #include "bus-watch-namespace.h"
 
 #define MPRIS_OBJECT_PATH  "/org/mpris/MediaPlayer2"

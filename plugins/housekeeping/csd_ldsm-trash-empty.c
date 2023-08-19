@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
- * csd-ldsm-trash-empty.c
+ * csd_ldsm-trash-empty.c
  * Copyright (C) Chris Coulson 2009 <chrisccoulson@googlemail.com>
  *	     (C) Ryan Lortie 2008
  *
- * csd-ldsm-trash-empty.c is free software: you can redistribute it and/or modify it
+ * csd_ldsm-trash-empty.c is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * csd-ldsm-trash-empty.c is distributed in the hope that it will be useful, but
+ * csd_ldsm-trash-empty.c is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
@@ -21,7 +21,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-#include "csd-ldsm-trash-empty.h"
+#include "csd_ldsm-trash-empty.h"
 
 #define BAUL_PREFS_SCHEMA "org.cafe.baul.preferences"
 #define BAUL_CONFIRM_TRASH_KEY "confirm-trash"

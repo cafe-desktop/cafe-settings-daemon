@@ -5,10 +5,10 @@ plugin_LTLIBRARIES =		\
 	$(NULL)
 
 libxsettings_la_SOURCES =	\
-	csd-xsettings-plugin.h	\
-	csd-xsettings-plugin.c	\
-	csd-xsettings-manager.h	\
-	csd-xsettings-manager.c	\
+	csd_xsettings-plugin.h	\
+	csd_xsettings-plugin.c	\
+	csd_xsettings-manager.h	\
+	csd_xsettings-manager.c	\
 	xsettings-common.h	\
 	xsettings-common.c	\
 	xsettings-manager.h	\

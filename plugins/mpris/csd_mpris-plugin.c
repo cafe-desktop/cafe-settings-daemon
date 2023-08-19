@@ -26,8 +26,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-mpris-plugin.h"
-#include "csd-mpris-manager.h"
+#include "csd_mpris-plugin.h"
+#include "csd_mpris-manager.h"
 
 struct CsdMprisPluginPrivate {
         CsdMprisManager *manager;

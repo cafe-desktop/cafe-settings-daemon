@@ -27,7 +27,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "csd-media-keys-manager.h"
+#include "csd_media-keys-manager.h"
 
 static CsdMediaKeysManager *manager = NULL;
 

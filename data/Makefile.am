@@ -51,8 +51,8 @@ pkgconfig_DATA = cafe-settings-daemon.pc
 
 man_MANS = \
 	cafe-settings-daemon.1 \
-	csd-datetime-mechanism.1 \
-	csd-locate-pointer.1
+	csd_datetime-mechanism.1 \
+	csd_locate-pointer.1
 
 #disabled until we support it
 xmldir = @CAFE_KEYBINDINGS_KEYSDIR@

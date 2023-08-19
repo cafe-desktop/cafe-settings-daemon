@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-sound-plugin.h"
-#include "csd-sound-manager.h"
+#include "csd_sound-plugin.h"
+#include "csd_sound-manager.h"
 
 struct CsdSoundPluginPrivate {
         CsdSoundManager *manager;

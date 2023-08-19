@@ -1,4 +1,4 @@
 [D-BUS Service]
 Name=org.cafe.SettingsDaemon.DateTimeMechanism
-Exec=@LIBEXECDIR@/csd-datetime-mechanism
+Exec=@LIBEXECDIR@/csd_datetime-mechanism
 User=root

@@ -55,7 +55,7 @@
 #endif
 
 #include "cafe-settings-profile.h"
-#include "csd-xrandr-manager.h"
+#include "csd_xrandr-manager.h"
 
 #define CONF_SCHEMA                                    "org.cafe.SettingsDaemon.plugins.xrandr"
 #define CONF_KEY_SHOW_NOTIFICATION_ICON                "show-notification-icon"
@@ -72,8 +72,8 @@
  */
 #define CONFIRMATION_DIALOG_SECONDS 30
 
-/* name of the icon files (csd-xrandr.svg, etc.) */
-#define CSD_XRANDR_ICON_NAME "csd-xrandr"
+/* name of the icon files (csd_xrandr.svg, etc.) */
+#define CSD_XRANDR_ICON_NAME "csd_xrandr"
 
 /* executable of the control center's display configuration capplet */
 #define CSD_XRANDR_DISPLAY_CAPPLET "cafe-display-properties"
@@ -146,8 +146,8 @@ log_open (void)
         if (log_file)
                 return;
 
-        toggle_filename = g_build_filename (g_get_home_dir (), "csd-debug-randr", NULL);
-        log_filename = g_build_filename (g_get_home_dir (), "csd-debug-randr.log", NULL);
+        toggle_filename = g_build_filename (g_get_home_dir (), "csd_debug-randr", NULL);
+        log_filename = g_build_filename (g_get_home_dir (), "csd_debug-randr.log", NULL);
 
         if (stat (toggle_filename, &st) != 0)
                 goto out;
@@ -155,7 +155,7 @@ log_open (void)
         log_file = fopen (log_filename, "a");
 
         if (log_file && ftell (log_file) == 0)
-                fprintf (log_file, "To keep this log from being created, please rm ~/csd-debug-randr\n");
+                fprintf (log_file, "To keep this log from being created, please rm ~/csd_debug-randr\n");
 
 out:
         g_free (toggle_filename);
@@ -598,7 +598,7 @@ out:
         return result;
 }
 
-/* DBus method for org.cafe.SettingsDaemon.XRANDR ApplyConfiguration; see csd-xrandr-manager.xml for the interface definition */
+/* DBus method for org.cafe.SettingsDaemon.XRANDR ApplyConfiguration; see csd_xrandr-manager.xml for the interface definition */
 static gboolean
 csd_xrandr_manager_apply_configuration (CsdXrandrManager *manager,
                                         GError          **error)
@@ -606,7 +606,7 @@ csd_xrandr_manager_apply_configuration (CsdXrandrManager *manager,
         return try_to_apply_intended_configuration (manager, NULL, CDK_CURRENT_TIME, error);
 }
 
-/* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see csd-xrandr-manager.xml for the interface definition */
+/* DBus method for org.cafe.SettingsDaemon.XRANDR_2 ApplyConfiguration; see csd_xrandr-manager.xml for the interface definition */
 static gboolean
 csd_xrandr_manager_2_apply_configuration (CsdXrandrManager *manager,
                                           gint64            parent_window_id,
@@ -630,7 +630,7 @@ csd_xrandr_manager_2_apply_configuration (CsdXrandrManager *manager,
 }
 
 /* We include this after the definition of csd_xrandr_manager_apply_configuration() so the prototype will already exist */
-#include "csd-xrandr-manager-glue.h"
+#include "csd_xrandr-manager-glue.h"
 
 static gboolean
 is_laptop (CafeRRScreen *screen, CafeRROutputInfo *output)

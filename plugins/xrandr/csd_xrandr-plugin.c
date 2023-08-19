@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-xrandr-plugin.h"
-#include "csd-xrandr-manager.h"
+#include "csd_xrandr-plugin.h"
+#include "csd_xrandr-manager.h"
 
 struct CsdXrandrPluginPrivate {
         CsdXrandrManager *manager;

@@ -21,7 +21,7 @@
  *
  */
 
-/* gcc -DHAVE_LIBNOTIFY -DTEST -Wall `pkg-config --cflags --libs gobject-2.0 gio-unix-2.0 glib-2.0 ctk+-2.0 libnotify` -o csd-disk-space-test csd-disk-space.c */
+/* gcc -DHAVE_LIBNOTIFY -DTEST -Wall `pkg-config --cflags --libs gobject-2.0 gio-unix-2.0 glib-2.0 ctk+-2.0 libnotify` -o csd_disk-space-test csd_disk-space.c */
 
 #include "config.h"
 
@@ -36,9 +36,9 @@
 #include <gio/gio.h>
 #include <ctk/ctk.h>
 
-#include "csd-disk-space.h"
-#include "csd-ldsm-dialog.h"
-#include "csd-ldsm-trash-empty.h"
+#include "csd_disk-space.h"
+#include "csd_ldsm-dialog.h"
+#include "csd_ldsm-trash-empty.h"
 
 
 #define GIGABYTE                   1024 * 1024 * 1024

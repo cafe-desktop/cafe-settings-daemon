@@ -41,8 +41,8 @@
 
 #include "system-timezone.h"
 
-#include "csd-datetime-mechanism.h"
-#include "csd-datetime-mechanism-glue.h"
+#include "csd_datetime-mechanism.h"
+#include "csd_datetime-mechanism-glue.h"
 
 static gboolean
 do_exit (gpointer user_data)

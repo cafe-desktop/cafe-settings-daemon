@@ -920,23 +920,23 @@ msgstr "Технології доступності"
 msgid "Accessibility keyboard plugin"
 msgstr "Втулок технологій доступности набірниці"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Помилка показу довідки: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Бажаєте увімкнути режим \"Повільні клавіші\"?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Бажаєте вимкнути режим \"Повільні клавіші\"?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -944,62 +944,62 @@ msgstr ""
 "Ви щойно утримували натисненою клавішу Shift впродовж 8 секунд. Це сигнал "
 "для увімкнення режиму \"Повільні клавіші\", який впливає на роботу набірниці."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Не активувати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Не деактивувати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Активувати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Деактивувати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "Н_е запускати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "_Не вимикати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "_Активувати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Деактивувати"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Сповіщення про режим \"Повільні клавіші\""
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Бажаєте увімкнути режим \"Липкі клавіші\"?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Бажаєте вимкнути режим \"Липкі клавіші\"?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1007,8 +1007,8 @@ msgstr ""
 "Ви щойно утримували натисненою клавішу Shift впродовж 5 секунд. Це сигнал "
 "для увімкнення режиму \"Липкі клавіші\", який впливає на роботу набірниці."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1018,45 +1018,45 @@ msgstr ""
 "Shift впродовж 5 секунд. Це сигнал для вимкнення режиму \"Липкі клавіші\", "
 "який впливає на роботу набірниці."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Сповіщення про режим \"Липкі клавіші\""
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.c:764
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Параметри універсального доступу"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:86
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:86
 msgid "Use on-screen _keyboard"
 msgstr "Використовувати _екранну набірницю"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:102
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:102
 msgid "Use screen _reader"
 msgstr "Використовувати _читання екрану"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:118
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:118
 msgid "Use screen _magnifier"
 msgstr "Використовувати _збільшувач екрану"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:134
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:134
 msgid "Enhance _contrast in colors"
 msgstr "Покращений _контраст у кольорах"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:150
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:150
 msgid "Make _text larger and easier to read"
 msgstr "Зробити _текст більшим та простішим для читання"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
 msgstr ""
 "Уводити сполучення клавіш _почерговим натисканням клавіш (Липкі клавіші)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr "_Нехтувати швидкі повторні натискання клавіш (Пружні клавіші)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "Приймати клавіші лише після т_ривалого натискання (Повільні клавіші)"
 
@@ -1128,25 +1128,25 @@ msgstr ""
 "Автоматично обрізає кеши-мініатюри та інші перехідні файли та попереджає про "
 "брак місця на диску"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:60
+#: plugins/housekeeping/csd_ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Більше не показувати попередження для цієї файлової системи"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:62
+#: plugins/housekeeping/csd_ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "Не показувати більше це повідомлення"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:75
+#: plugins/housekeeping/csd_ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "На томі \"%s\" залишилося лише %s дискового простору."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd_ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "На комп'ютері залишилося лише %s дискового простору."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:94
+#: plugins/housekeeping/csd_ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1154,7 +1154,7 @@ msgstr ""
 "Ви можете звільнити дисковий простір спорожняючи Смітник, вилучаючи зайві "
 "програми чи файли, або переміщенням файлів на інший диск чи розділ."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd_ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1162,7 +1162,7 @@ msgstr ""
 "Ви можете звільнити дисковий простір вилученням зайвих програм чи файлів, "
 "або переміщенням файлів на інший диск чи розділ."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:102
+#: plugins/housekeeping/csd_ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1170,7 +1170,7 @@ msgstr ""
 "Ви можете звільнити дисковий простір спорожняючи Смітник, вилучаючи зайві "
 "програми чи файли, або переміщенням файлів на зовнішній диск."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd_ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1179,51 +1179,51 @@ msgstr ""
 "або переміщенням файлів на зовнішній диск."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:201
+#: plugins/housekeeping/csd_ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Бракує місця на файловій системі"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:436
+#: plugins/housekeeping/csd_ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Спорожнити смітник"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:444
+#: plugins/housekeeping/csd_ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Запустити аналізатор використання дисків…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:451
+#: plugins/housekeeping/csd_ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Нехтувати"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "Вилучення елементу %lu з %lu"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
 #, c-format
 msgid "Removing: %s"
 msgstr "Вилучається: %s"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
 msgid "Emptying the trash"
 msgstr "Спорожняється смітник"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
 msgid "Preparing to empty trash…"
 msgstr "Підготовка до спорожнення смітника…"
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
 msgid "From: "
 msgstr "З:"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
 msgid "Empty all of the items from the trash?"
 msgstr "Вилучити усі елементи зі смітника?"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1231,7 +1231,7 @@ msgstr ""
 "Якщо Ви спорожните смітник, увесь його вміст буде остаточно втрачено. "
 "Зверніть увагу, Ви також можете вилучити їх окремо."
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
 msgid "_Empty Trash"
 msgstr "Спо_рожнити смітник"
 
@@ -1243,17 +1243,17 @@ msgstr "Сполучення клавіш"
 msgid "Keybindings plugin"
 msgstr "Втулок сполучень клавіш"
 
-#: plugins/keybindings/csd-keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Сполучення клавіш (%s) неправильне"
 
-#: plugins/keybindings/csd-keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Сполучення клавіш (%s) не завершене"
 
-#: plugins/keybindings/csd-keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1270,7 +1270,7 @@ msgstr "Набірниця"
 msgid "Keyboard plugin"
 msgstr "Втулок набірниці"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:119
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1299,15 +1299,15 @@ msgstr ""
 "• Результат <b>%s</b>\n"
 "• Результат <b>%s</b>"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:279
 msgid "_Layouts"
 msgstr "_Розкладки"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:286
 msgid "Keyboard _Preferences"
 msgstr "Параметри _набірниці"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:292
 msgid "Show _Current Layout"
 msgstr "Показати _поточну розладку"
 
@@ -1319,7 +1319,7 @@ msgstr "Мультимедійні клавіші"
 msgid "Media keys plugin"
 msgstr "Втулок мультимедійних клавіш"
 
-#: plugins/media-keys/csd-media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:184
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1327,7 +1327,7 @@ msgstr ""
 "Не вдається отримати типовий термінал. Перевірте, що обрана Вами типова "
 "термінальна програма справді вказує типову програму."
 
-#: plugins/media-keys/csd-media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1336,46 +1336,46 @@ msgstr ""
 "Не вдається виконати команду: %s\n"
 "Перевірте чи команда існує."
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "Чутлива панель увімкнена"
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "Чутлива панель вимкнена"
 
-#: plugins/media-keys/csd-media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "Bluetooth вимкнено"
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "Bluetooth увімкнено"
 
-#: plugins/media-keys/csd-media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "Увімкнено режим літака"
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "Режим літака вимкнено"
 
-#: plugins/media-keys/csd-media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "Немає зовнішнього дисплею"
@@ -1388,18 +1388,18 @@ msgstr "Миша"
 msgid "Mouse plugin"
 msgstr "Втулок миші"
 
-#: plugins/mouse/csd-mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Не вдається увімкнути спеціальні можливості миші"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "Щоб активувати спеціальні можливості миші, потрібно встановити службу "
 "Mousetweaks."
 
-#: plugins/mouse/csd-mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Параметри миші"
 
@@ -1421,66 +1421,66 @@ msgstr "Rfkill"
 msgid "Rfkill plugin"
 msgstr "Втулок Rfkill"
 
-#: plugins/smartcard/csd-smartcard-manager.c:164
+#: plugins/smartcard/csd_smartcard-manager.c:164
 msgid "Module Path"
 msgstr "Шлях до модулю"
 
-#: plugins/smartcard/csd-smartcard-manager.c:165
+#: plugins/smartcard/csd_smartcard-manager.c:165
 msgid "path to smartcard PKCS #11 driver"
 msgstr "шлях до драйвера PKCS #11 смарт-картки"
 
-#: plugins/smartcard/csd-smartcard-manager.c:491
+#: plugins/smartcard/csd_smartcard-manager.c:491
 msgid "received error or hang up from event source"
 msgstr "отримано помилку або сигнал скасовування від джерела"
 
-#: plugins/smartcard/csd-smartcard-manager.c:580
+#: plugins/smartcard/csd_smartcard-manager.c:580
 msgid "NSS security system could not be initialized"
 msgstr "Не вдалося ініціалізувати систему безпеки NSS"
 
-#: plugins/smartcard/csd-smartcard-manager.c:649
+#: plugins/smartcard/csd_smartcard-manager.c:649
 msgid "no suitable smartcard driver could be found"
 msgstr "відповідного драйвера для смарт-картки не знайдено"
 
-#: plugins/smartcard/csd-smartcard-manager.c:669
+#: plugins/smartcard/csd_smartcard-manager.c:669
 #, c-format
 msgid "smartcard driver '%s' could not be loaded"
 msgstr "не вдалося завантажити драйвер «%s» для смарт-картки"
 
-#: plugins/smartcard/csd-smartcard-manager.c:753
+#: plugins/smartcard/csd_smartcard-manager.c:753
 #, c-format
 msgid "could not watch for incoming card events - %s"
 msgstr "не вдалося отримати вхідні події від картки — %s"
 
-#: plugins/smartcard/csd-smartcard-manager.c:1100
+#: plugins/smartcard/csd_smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
 msgstr ""
 "трапилася непередбачувана помилка при очікуванні подій від смарт-картки"
 
-#: plugins/smartcard/csd-smartcard.c:148
+#: plugins/smartcard/csd_smartcard.c:148
 msgid "Slot ID"
 msgstr "Ідентифікатор слоту"
 
-#: plugins/smartcard/csd-smartcard.c:149
+#: plugins/smartcard/csd_smartcard.c:149
 msgid "The slot the card is in"
 msgstr "Слот, у якому знаходиться картка"
 
-#: plugins/smartcard/csd-smartcard.c:155
+#: plugins/smartcard/csd_smartcard.c:155
 msgid "Slot Series"
 msgstr "Серія слоту"
 
-#: plugins/smartcard/csd-smartcard.c:156
+#: plugins/smartcard/csd_smartcard.c:156
 msgid "per-slot card identifier"
 msgstr "ідентифікатор картки у слоті"
 
-#: plugins/smartcard/csd-smartcard.c:162 plugins/smartcard/csd-smartcard.c:163
+#: plugins/smartcard/csd_smartcard.c:162 plugins/smartcard/csd_smartcard.c:163
 msgid "name"
 msgstr "ім’я"
 
-#: plugins/smartcard/csd-smartcard.c:167
+#: plugins/smartcard/csd_smartcard.c:167
 msgid "Module"
 msgstr "Модуль"
 
-#: plugins/smartcard/csd-smartcard.c:168
+#: plugins/smartcard/csd_smartcard.c:168
 msgid "smartcard driver"
 msgstr "драйвер смарт-картки"
 
@@ -1508,19 +1508,19 @@ msgstr "Перерва у роботі"
 msgid "Typing break plugin"
 msgstr "Втулок перерви у роботі"
 
-#: plugins/xrandr/csd-xrandr-manager.c:373
+#: plugins/xrandr/csd_xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Не вдається застосувати конфігурацію моніторів"
 
-#: plugins/xrandr/csd-xrandr-manager.c:397
+#: plugins/xrandr/csd_xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Не вдається відновити конфігурацію моніторів"
 
-#: plugins/xrandr/csd-xrandr-manager.c:422
+#: plugins/xrandr/csd_xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "Не вдається відновити конфігурацію моніторів з резервної копії"
 
-#: plugins/xrandr/csd-xrandr-manager.c:443
+#: plugins/xrandr/csd_xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1530,97 +1530,97 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Конфігурація влаштовує?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "_Відновити попередню конфігурацію"
 
-#: plugins/xrandr/csd-xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Застосувати поточну конфігурацію"
 
-#: plugins/xrandr/csd-xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Не вдається застосувати обрану конфігурацію моніторів"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Не вдається оновити інформацію про екран: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Конфігурація моніторів застосовується примусово."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Поворот екрану не підтримується"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2005
-#: plugins/xrandr/csd-xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2005
+#: plugins/xrandr/csd_xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Не вдається зберегти конфігурацію моніторів"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr "Дзеркалювання виходів не підтримується"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Початкове"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2091
 msgid "Left"
 msgstr "Ліворуч"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2092
 msgid "Right"
 msgstr "Праворуч"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "Догоридриґа"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2182
 msgid "ON"
 msgstr "УВІМК"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr "Вимкнути цей монітор"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2186
 msgid "OFF"
 msgstr "ВИМК"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr "Увімкнути цей монітор"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr "Вихід однаковий в усіх моніторів"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Налаштувати параметри дисплею…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr "Відкрити діалогове вікно налаштування дисплея (усі налаштування)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Налаштувати параметри екрану"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Не вдається застосувати збережену конфігурацію моніторів"
 
@@ -1632,7 +1632,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Встановити розмір екрану та параметри повороту"
 
-#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Не вдається визначити домашній каталог користувача"
 

@@ -31,8 +31,8 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-smartcard-plugin.h"
-#include "csd-smartcard-manager.h"
+#include "csd_smartcard-plugin.h"
+#include "csd_smartcard-manager.h"
 
 struct CsdSmartcardPluginPrivate {
         CsdSmartcardManager *manager;

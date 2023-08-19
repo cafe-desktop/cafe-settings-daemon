@@ -27,7 +27,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "csd-a11y-preferences-dialog.h"
+#include "csd_a11y-preferences-dialog.h"
 
 static void
 test_window (void)

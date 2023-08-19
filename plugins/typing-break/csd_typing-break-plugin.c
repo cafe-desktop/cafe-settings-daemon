@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-typing-break-plugin.h"
-#include "csd-typing-break-manager.h"
+#include "csd_typing-break-plugin.h"
+#include "csd_typing-break-manager.h"
 
 struct CsdTypingBreakPluginPrivate {
         CsdTypingBreakManager *manager;

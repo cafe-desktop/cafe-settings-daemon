@@ -1,14 +1,14 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
  *
- * csd-ldsm-trash-empty.h
+ * csd_ldsm-trash-empty.h
  * Copyright (C) Chris Coulson 2009 <chrisccoulson@googlemail.com>
  *
- * csd-ldsm-trash-empty.h is free software: you can redistribute it and/or modify it
+ * csd_ldsm-trash-empty.h is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * csd-ldsm-trash-empty.h is distributed in the hope that it will be useful, but
+ * csd_ldsm-trash-empty.h is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
