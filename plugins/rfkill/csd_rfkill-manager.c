@@ -27,7 +27,7 @@
 #include <string.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-rfkill-manager.h"
+#include "csd_rfkill-manager.h"
 #include "rfkill-glib.h"
 #include "cafe-settings-bus.h"
 

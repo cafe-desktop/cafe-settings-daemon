@@ -2,10 +2,10 @@ plugin_LTLIBRARIES = \
 	libsound.la
 
 libsound_la_SOURCES = \
-	csd-sound-plugin.h \
-	csd-sound-plugin.c \
-	csd-sound-manager.h \
-	csd-sound-manager.c
+	csd_sound-plugin.h \
+	csd_sound-plugin.c \
+	csd_sound-manager.h \
+	csd_sound-manager.c
 
 libsound_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon \

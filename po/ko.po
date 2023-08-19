@@ -895,23 +895,23 @@ msgstr "접근성 키보드"
 msgid "Accessibility keyboard plugin"
 msgstr "접근성 키보드 플러그인"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "도움말을 보여주는 데 오류가 발생했습니다: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "느린 키를 사용하시겠습니까?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "느린 키를 해제하시겠습니까?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -919,62 +919,62 @@ msgstr ""
 "<Shift> 키를 8초 동안 누르고 있었습니다.  느린 키 기능을 사용하게 됩니다.  느"
 "린 키를 사용하면 키보드가 동작하는 방식이 달라집니다."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "활성하지 않기"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "비활성하지 않기"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "활성"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "비활성"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "활성하지 않기(_N)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "비활성하지 않기(_N)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "연결(_A)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "끊기(_D)"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "느린 키 알림"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "고정 키를 사용하시겠습니까?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "고정 키를 해제하시겠습니까?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -982,8 +982,8 @@ msgstr ""
 "<Shift> 키를 5번 연속해서 눌렀습니다.  고정 키 기능을 사용하게 됩니다.  고정 "
 "키를 사용하면 키보드가 동작하는 방식이 달라집니다."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -993,44 +993,44 @@ msgstr ""
 "능을 해제하게 됩니다.  고정 키를 해제하면 키보드가 동작하는 방식이 달라집니"
 "다."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "고정 키 알림"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.c:764
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "보편적 접근성 기본 설정"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:86
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:86
 msgid "Use on-screen _keyboard"
 msgstr "화면 키보드 사용(_K)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:102
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:102
 msgid "Use screen _reader"
 msgstr "화면 읽기 프로그램 사용(_R)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:118
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:118
 msgid "Use screen _magnifier"
 msgstr "화면 돋보기 사용(_M)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:134
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:134
 msgid "Enhance _contrast in colors"
 msgstr "고대비 색상(_C)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:150
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:150
 msgid "Make _text larger and easier to read"
 msgstr "글자를 크고 읽기 쉽게 만들기(_T)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
 msgstr "키보드 바로 가기를 누를 때 키를 하나씩 누르기(_P) (고정 키)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr "중복된 키 누름 무시(_I) (탄력 키)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "키를 오래 누르고 있어야 입력(_H) (느린 키)"
 
@@ -1100,25 +1100,25 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:60
+#: plugins/housekeeping/csd_ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "이 파일 시스템에 경고를 더 이상 표시하지 않음"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:62
+#: plugins/housekeeping/csd_ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "경고를 다시 표시하지 않기"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:75
+#: plugins/housekeeping/csd_ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "\"%s\" 볼륨에 디스크 공간이 %s 밖에 남지 않았습니다."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd_ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "이 컴퓨터에 디스크 공간이 %s 밖에 남지 않았습니다."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:94
+#: plugins/housekeeping/csd_ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1126,7 +1126,7 @@ msgstr ""
 "휴지통을 비우거나, 사용하지 않는 프로그램이나 파일을 지우거나, 파일을 다른 디"
 "스크나 파티션으로 옮기는 방법으로 디스크 공간을 확보할 수 있습니다."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd_ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1134,7 +1134,7 @@ msgstr ""
 "사용하지 않는 프로그램이나 파일을 지우거나, 파일을 다른 디스크나 파티션으로 "
 "옮기는 방법으로 디스크 공간을 확보할 수 있습니다."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:102
+#: plugins/housekeeping/csd_ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1142,7 +1142,7 @@ msgstr ""
 "휴지통을 비우거나, 파일을 외장 디스크로 옮기는 방법으로 디스크 공간을 확보할 "
 "수 있습니다."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd_ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1151,51 +1151,51 @@ msgstr ""
 "으로 디스크 공간을 확보할 수 있습니다."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:201
+#: plugins/housekeeping/csd_ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "디스크 공간 부족"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:436
+#: plugins/housekeeping/csd_ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "휴지통 비우기"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:444
+#: plugins/housekeeping/csd_ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "시험..."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:451
+#: plugins/housekeeping/csd_ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "무시"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "%lu개 항목 제거하는 중, 전체 %lu개"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
 #, c-format
 msgid "Removing: %s"
 msgstr "제거중: %s"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
 msgid "Emptying the trash"
 msgstr "휴지통을 비우는 중"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
 msgid "Preparing to empty trash…"
 msgstr "휴지통 비우는 중..."
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
 msgid "From: "
 msgstr "원본: "
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
 msgid "Empty all of the items from the trash?"
 msgstr "휴지통에 들어 있는 항목을 모두 비우시겠습니까?"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1203,7 +1203,7 @@ msgstr ""
 "휴지통을 비우면, 그 안의 항목은 완전히 지워집니다. 휴지통을 비우지 않고 따로 "
 "따로 삭제할 수도 있습니다."
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
 msgid "_Empty Trash"
 msgstr "휴지통 비우기(_E)"
 
@@ -1215,17 +1215,17 @@ msgstr "키바인딩"
 msgid "Keybindings plugin"
 msgstr "키바인딩 플러그인"
 
-#: plugins/keybindings/csd-keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "키 바인딩이 (%s) 잘못되었습니다"
 
-#: plugins/keybindings/csd-keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "키 바인딩이 (%s) 불완전합니다"
 
-#: plugins/keybindings/csd-keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1242,7 +1242,7 @@ msgstr "키보드"
 msgid "Keyboard plugin"
 msgstr "키보드 플러그인"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:119
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1271,15 +1271,15 @@ msgstr ""
 " • <b>%s</b>의 결과\n"
 " • <b>%s</b>의 결과"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:279
 msgid "_Layouts"
 msgstr "배치(_L)"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:286
 msgid "Keyboard _Preferences"
 msgstr "키보드 기본 설정(_P)"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:292
 msgid "Show _Current Layout"
 msgstr "현재 배치 표시(_C)"
 
@@ -1291,7 +1291,7 @@ msgstr "미디어 키"
 msgid "Media keys plugin"
 msgstr "미디어 키 플러그인"
 
-#: plugins/media-keys/csd-media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:184
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1299,7 +1299,7 @@ msgstr ""
 "기본 터미널을 얻을 수 없습니다. 기본 터미널 명령이 설정되어 있고 올바른 프로"
 "그램인지 확인해보시기 바랍니다."
 
-#: plugins/media-keys/csd-media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1308,46 +1308,46 @@ msgstr ""
 "명령을 실행할 수 없습니다: %s\n"
 "명령이 있는지 확인해보십시오."
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "터치패드 사용"
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "터치패드 사용 안 함"
 
-#: plugins/media-keys/csd-media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "블루투스 사용 안 함"
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "블루투스 사용"
 
-#: plugins/media-keys/csd-media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "비행기 모드 사용"
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "비행기 모드 사용 안 함"
 
-#: plugins/media-keys/csd-media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr "하드웨어 비행기 모드"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr "화면 배치 바꾸기"
 
-#: plugins/media-keys/csd-media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "외부 모니터 없음"
@@ -1360,17 +1360,17 @@ msgstr "마우스"
 msgid "Mouse plugin"
 msgstr "마우스 플러그인"
 
-#: plugins/mouse/csd-mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "마우스 접근성 기능을 사용할 수 없습니다"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "마우스 접근성 기능을 사용하려면 시스템에 마우스트윅스를 설치해야 합니다."
 
-#: plugins/mouse/csd-mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "마우스 기본 설정"
 
@@ -1392,66 +1392,66 @@ msgstr "Rfkill"
 msgid "Rfkill plugin"
 msgstr "Rfkill 플러그인"
 
-#: plugins/smartcard/csd-smartcard-manager.c:164
+#: plugins/smartcard/csd_smartcard-manager.c:164
 msgid "Module Path"
 msgstr "모듈 경로"
 
-#: plugins/smartcard/csd-smartcard-manager.c:165
+#: plugins/smartcard/csd_smartcard-manager.c:165
 msgid "path to smartcard PKCS #11 driver"
 msgstr "스마트카드 PKCS #11 드라이버 경로"
 
-#: plugins/smartcard/csd-smartcard-manager.c:491
+#: plugins/smartcard/csd_smartcard-manager.c:491
 msgid "received error or hang up from event source"
 msgstr "이벤트 소스에서 오류 또는 끊김 신호를 받았습니다"
 
-#: plugins/smartcard/csd-smartcard-manager.c:580
+#: plugins/smartcard/csd_smartcard-manager.c:580
 msgid "NSS security system could not be initialized"
 msgstr "NSS 보안 시스템을 초기화 할 수 없습니다"
 
-#: plugins/smartcard/csd-smartcard-manager.c:649
+#: plugins/smartcard/csd_smartcard-manager.c:649
 msgid "no suitable smartcard driver could be found"
 msgstr "적당한 스마트카드 드라이버를 찾을 수 없습니다"
 
-#: plugins/smartcard/csd-smartcard-manager.c:669
+#: plugins/smartcard/csd_smartcard-manager.c:669
 #, c-format
 msgid "smartcard driver '%s' could not be loaded"
 msgstr "'%s' 스마트카드 드라이버를 불러올 수 없습니다"
 
-#: plugins/smartcard/csd-smartcard-manager.c:753
+#: plugins/smartcard/csd_smartcard-manager.c:753
 #, c-format
 msgid "could not watch for incoming card events - %s"
 msgstr "카드 이벤트 수신을 볼 수 없습니다 - %s"
 
-#: plugins/smartcard/csd-smartcard-manager.c:1100
+#: plugins/smartcard/csd_smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
 msgstr ""
 "스마트카드 이벤트를 기다리는 동안 예상치 못한 몇가지 오류가 발생했습니다"
 
-#: plugins/smartcard/csd-smartcard.c:148
+#: plugins/smartcard/csd_smartcard.c:148
 msgid "Slot ID"
 msgstr "슬롯 ID"
 
-#: plugins/smartcard/csd-smartcard.c:149
+#: plugins/smartcard/csd_smartcard.c:149
 msgid "The slot the card is in"
 msgstr "카드가 들어간 슬롯"
 
-#: plugins/smartcard/csd-smartcard.c:155
+#: plugins/smartcard/csd_smartcard.c:155
 msgid "Slot Series"
 msgstr "슬롯 종류"
 
-#: plugins/smartcard/csd-smartcard.c:156
+#: plugins/smartcard/csd_smartcard.c:156
 msgid "per-slot card identifier"
 msgstr "슬롯당 카드 식별자"
 
-#: plugins/smartcard/csd-smartcard.c:162 plugins/smartcard/csd-smartcard.c:163
+#: plugins/smartcard/csd_smartcard.c:162 plugins/smartcard/csd_smartcard.c:163
 msgid "name"
 msgstr "이름"
 
-#: plugins/smartcard/csd-smartcard.c:167
+#: plugins/smartcard/csd_smartcard.c:167
 msgid "Module"
 msgstr "모듈"
 
-#: plugins/smartcard/csd-smartcard.c:168
+#: plugins/smartcard/csd_smartcard.c:168
 msgid "smartcard driver"
 msgstr "스마트카드 드라이버"
 
@@ -1479,116 +1479,116 @@ msgstr "입력 휴식 시간"
 msgid "Typing break plugin"
 msgstr "타이핑 휴식 시간 플러그인"
 
-#: plugins/xrandr/csd-xrandr-manager.c:373
+#: plugins/xrandr/csd_xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "모니터 설정을 전환할 수 없습니다."
 
-#: plugins/xrandr/csd-xrandr-manager.c:397
+#: plugins/xrandr/csd_xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "화면 설정을 복원할 수 없습니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:422
+#: plugins/xrandr/csd_xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "백업에서 화면 설정을 복원할 수 없습니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:443
+#: plugins/xrandr/csd_xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
 "The display will be reset to its previous configuration in %d seconds"
 msgstr[0] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "화면이 올바르게 보입니까?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "이전 설정 복구(_R)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "이 설정 유지(_K)"
 
-#: plugins/xrandr/csd-xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "선택한 화면 설정을 적용할 수 없습니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "화면 정보를 새로 읽어 올 수 없습니다: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "그래도 모니터 설정을 전환합니다."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "화면 회전을 지원하지 않습니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2005
-#: plugins/xrandr/csd-xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2005
+#: plugins/xrandr/csd_xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "모니터 설정을 저장할 수 없습니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr "미러링 출력을 지원하지 않습니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2090
 msgid "Normal"
 msgstr "보통"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2091
 msgid "Left"
 msgstr "왼쪽"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2092
 msgid "Right"
 msgstr "오른쪽"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "위 아래"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "디스플레이 설정 구성(_C)..."
 
-#: plugins/xrandr/csd-xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "디스플레이를 설정합니다"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "저장한 모니터 설정을 적용할 수 없습니다"
 
@@ -1600,7 +1600,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "화면 크기 및 회전 설정을 합니다"
 
-#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "사용자의 홈 디렉터리를 알 수 없습니다"
 

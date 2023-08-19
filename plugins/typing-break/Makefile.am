@@ -5,10 +5,10 @@ plugin_LTLIBRARIES =		\
 	$(NULL)
 
 libtyping_break_la_SOURCES = 		\
-	csd-typing-break-plugin.h	\
-	csd-typing-break-plugin.c	\
-	csd-typing-break-manager.h	\
-	csd-typing-break-manager.c	\
+	csd_typing-break-plugin.h	\
+	csd_typing-break-plugin.c	\
+	csd_typing-break-manager.h	\
+	csd_typing-break-manager.c	\
 	$(NULL)
 
 libtyping_break_la_CPPFLAGS = \

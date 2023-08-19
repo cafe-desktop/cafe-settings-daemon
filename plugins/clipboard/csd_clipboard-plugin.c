@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-clipboard-plugin.h"
-#include "csd-clipboard-manager.h"
+#include "csd_clipboard-plugin.h"
+#include "csd_clipboard-manager.h"
 
 struct CsdClipboardPluginPrivate {
         CsdClipboardManager *manager;

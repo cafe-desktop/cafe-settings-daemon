@@ -40,7 +40,7 @@
 #include <pulse/pulseaudio.h>
 #endif
 
-#include "csd-sound-manager.h"
+#include "csd_sound-manager.h"
 #include "cafe-settings-profile.h"
 
 struct CsdSoundManagerPrivate

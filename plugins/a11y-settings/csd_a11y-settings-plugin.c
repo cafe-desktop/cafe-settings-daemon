@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-a11y-settings-plugin.h"
-#include "csd-a11y-settings-manager.h"
+#include "csd_a11y-settings-plugin.h"
+#include "csd_a11y-settings-manager.h"
 
 struct CsdA11ySettingsPluginPrivate {
         CsdA11ySettingsManager *manager;

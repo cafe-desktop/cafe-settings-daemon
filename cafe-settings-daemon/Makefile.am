@@ -12,7 +12,7 @@ AM_CPPFLAGS = \
 	$(NULL)
 
 noinst_LTLIBRARIES = 			\
-	libcsd-profile.la		\
+	libcsd_profile.la		\
 	$(NULL)
 
 libcsd_profile_la_SOURCES =		\
@@ -82,7 +82,7 @@ cafe_settings_daemon_LDFLAGS = 	\
 	$(AM_LDFLAGS)
 
 cafe_settings_daemon_LDADD = 		\
-	libcsd-profile.la		\
+	libcsd_profile.la		\
 	$(SETTINGS_DAEMON_LIBS)	\
 	$(CAFE_DESKTOP_LIBS)    \
 	$(LIBNOTIFY_LIBS)

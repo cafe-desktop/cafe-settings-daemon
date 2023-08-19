@@ -41,14 +41,14 @@
 #endif
 
 #include "cafe-settings-profile.h"
-#include "csd-marshal.h"
-#include "csd-media-keys-manager.h"
-#include "csd-media-keys-manager-glue.h"
+#include "csd_marshal.h"
+#include "csd_media-keys-manager.h"
+#include "csd_media-keys-manager-glue.h"
 
 #include "eggaccelerators.h"
 #include "acme.h"
-#include "csd-media-keys-window.h"
-#include "csd-input-helper.h"
+#include "csd_media-keys-window.h"
+#include "csd_input-helper.h"
 
 #define CSD_DBUS_PATH "/org/cafe/SettingsDaemon"
 #define CSD_DBUS_NAME "org.cafe.SettingsDaemon"

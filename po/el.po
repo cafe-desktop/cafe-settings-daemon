@@ -934,23 +934,23 @@ msgstr "Προσιτότητα πληκτρολογίου"
 msgid "Accessibility keyboard plugin"
 msgstr "Πρόσθετη λειτουργία προσιτότητας πληκτρολογίου"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Υπήρξε σφάλμα κατά την εμφάνιση της βοήθειας: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Θέλετε να ενεργοποίησετε τα Αργά πλήκτρα;"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Θέλετε να απενεργοποιήσετε τα Αργά πλήκτρα;"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -959,62 +959,62 @@ msgstr ""
 "λειτουργία Αργά πλήκτρα, που επηρεάζει τον τρόπο λειτουργίας του "
 "πληκτρολογίου σας."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Να μην γίνει ενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Να μην γίνει απενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Ενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Απενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "Να _μην γίνει ενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "Να _μην γίνει απενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "Ενερ_γοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "Α_πενεργοποίηση"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Ειδοποίηση Αργών πλήκτρων"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Θέλετε να ενεργοποιήσετε τα Sticky Keys;"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Θέλετε να απενεργοποιήσετε τα Sticky Keys;"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1023,8 +1023,8 @@ msgstr ""
 "τη λειτουργία Sticky Keys, που επηρεάζει τον τρόπο λειτουργίας του "
 "πληκτρολογίου σας."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1034,46 +1034,46 @@ msgstr ""
 "Αυτό είναι μια συντόμευση για τη λειτουργία Sticky Keys, που επηρεάζει τον "
 "τρόπο λειτουργίας του πληκτρολογίου σας."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Ειδοποίηση Sticky Keys"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.c:764
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Προτιμήσεις καθολικής πρόσβασης"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:86
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:86
 msgid "Use on-screen _keyboard"
 msgstr "Χρήση _πληκτρολογίου οθόνης "
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:102
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:102
 msgid "Use screen _reader"
 msgstr "Χρήση _αναγνώστη οθόνης"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:118
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:118
 msgid "Use screen _magnifier"
 msgstr "Χρήση μεγε_θυντή οθόνης"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:134
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:134
 msgid "Enhance _contrast in colors"
 msgstr "Αύξηση αντί_θεσης στα χρώματα"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:150
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:150
 msgid "Make _text larger and easier to read"
 msgstr "Μεγέθυνση _κειμένου για εύκολη ανάγνωση"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
 msgstr ""
 "_Πατήστε ένα πλήκτρο την φορά στις συντομεύσεις πληκτρολογίου (Κολλημένα "
 "πλήκτρα)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr "Να α_γνοούνται τα διπλά πατήματα πλήκτρων:"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "Πατήστε και _κρατήστε τα πλήκτρα πατημένα για αποδοχή (Αργά πλήκτρα)"
 
@@ -1146,25 +1146,25 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:60
+#: plugins/housekeeping/csd_ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Να μην εμφανιστούν ξανά προειδοποιήσεις για αυτό το σύστημα αρχείων"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:62
+#: plugins/housekeeping/csd_ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "Να μην εμφανιστούν ξανά προειδοποιήσεις"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:75
+#: plugins/housekeeping/csd_ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "Ο τόμος \"%s\" έχει μόνο %s ελεύθερο χώρο."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd_ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Αυτός ο υπολογιστής έχει μόνο %s ελεύθερο χώρο στο δίσκο."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:94
+#: plugins/housekeeping/csd_ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1173,7 +1173,7 @@ msgstr ""
 "διαγράφοντας προγράμματα ή αρχεία που δεν χρησιμοποιείτε, ή μετακινώντας "
 "αρχεία σε έναν άλλο δίσκο ή κατάτμηση."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd_ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1181,7 +1181,7 @@ msgstr ""
 "Μπορείτε να ελευθερώσετε χώρο στον δίσκο διαγράφοντας προγράμματα ή αρχεία "
 "που δεν χρησιμοποιείτε, ή μετακινώντας αρχεία σε έναν άλλο δίσκο ή κατάτμηση."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:102
+#: plugins/housekeeping/csd_ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1190,7 +1190,7 @@ msgstr ""
 "διαγράφοντας προγράμματα ή αρχεία που δεν χρησιμοποιείτε, ή μετακινώντας "
 "αρχεία σε έναν εξωτερικό δίσκο."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd_ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1199,51 +1199,51 @@ msgstr ""
 "που δεν χρησιμοποιείτε, ή μετακινώντας αρχεία σε έναν εξωτερικό δίσκο."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:201
+#: plugins/housekeeping/csd_ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Λίγος χώρος στο δίσκο"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:436
+#: plugins/housekeeping/csd_ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Άδειασμα απορριμάτων"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:444
+#: plugins/housekeeping/csd_ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Εξέταση…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:451
+#: plugins/housekeeping/csd_ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Αγνόηση"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "Διαγραφή αντικειμένου %lu από %lu"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
 #, c-format
 msgid "Removing: %s"
 msgstr "Απομάκρυνση: %s"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
 msgid "Emptying the trash"
 msgstr "Άδειασμα των απορριμμάτων"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
 msgid "Preparing to empty trash…"
 msgstr "Προετοιμασία για άδειασμα απορριμμάτων…"
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
 msgid "From: "
 msgstr "Από: "
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
 msgid "Empty all of the items from the trash?"
 msgstr "Άδειασμα όλων των αντικειμένων από τον κάδο;"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1251,7 +1251,7 @@ msgstr ""
 "Αν αδειάσετε τα απορρίμματα, τα αντικείμενα θα διαγραφούν μόνιμα. Σημειώστε "
 "ότι μπορείτε να τα διαγράψετε και το καθένα ξεχωριστά."
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
 msgid "_Empty Trash"
 msgstr "Ά_δειασμα απορριμμάτων"
 
@@ -1263,17 +1263,17 @@ msgstr "Συνδυασμοί πλήκτρων"
 msgid "Keybindings plugin"
 msgstr "Πρόσθετη λειτουργία συνδυασμού πλήκτρων"
 
-#: plugins/keybindings/csd-keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Ο συνδυασμός πλήκτρων (%s) δεν είναι έγκυρος"
 
-#: plugins/keybindings/csd-keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Ο συνδυασμός πλήκτρων (%s) δεν είναι ολοκληρωμένος"
 
-#: plugins/keybindings/csd-keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1290,7 +1290,7 @@ msgstr "Πληκτρολόγιο"
 msgid "Keyboard plugin"
 msgstr "Πρόσθετη λειτουργία πληκτρολογίου"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:119
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1320,15 +1320,15 @@ msgstr ""
 "- Το αποτέλεσμα του <b>%s</b>\n"
 "- Το αποτέλεσμα του <b>%s</b>"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:279
 msgid "_Layouts"
 msgstr "_Διατάξεις"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:286
 msgid "Keyboard _Preferences"
 msgstr "Προτιμήσεις πληκτρολογίου"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:292
 msgid "Show _Current Layout"
 msgstr "Προβολή _τρέχουσας διάταξης"
 
@@ -1340,7 +1340,7 @@ msgstr "Πλήκτρα πολυμέσων"
 msgid "Media keys plugin"
 msgstr "Πρόσθετη λειτουργία πλήκτρων πολυμέσων"
 
-#: plugins/media-keys/csd-media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:184
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1348,7 +1348,7 @@ msgstr ""
 "Αδυναμία λήψης προεπιλεγμένου τερματικού. Βεβαιωθείτε ότι έχει ορισθεί η "
 "εντολή προεπιλεγμένου τερματικού και ότι δείχνει σε έγκυρη εφαρμογή."
 
-#: plugins/media-keys/csd-media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1357,46 +1357,46 @@ msgstr ""
 "Αδυναμία εκτέλεσης εντολής: %s\n"
 "Βεβαιωθείτε ότι είναι μια έγκυρη εντολή."
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1409,18 +1409,18 @@ msgstr "Ποντίκι"
 msgid "Mouse plugin"
 msgstr "Πρόσθετη λειτουργία ποντικιού"
 
-#: plugins/mouse/csd-mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Αδυναμία ενεργοποίησης χαρακτηριστικών προσιτότητας ποντικιού"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "Η προσιτότητα ποντικιού απαιτεί το mousetweaks να είναι εγκατεστημένο στο "
 "σύστημα σας."
 
-#: plugins/mouse/csd-mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Προτιμήσεις ποντικιού"
 
@@ -1442,65 +1442,65 @@ msgstr ""
 msgid "Rfkill plugin"
 msgstr ""
 
-#: plugins/smartcard/csd-smartcard-manager.c:164
+#: plugins/smartcard/csd_smartcard-manager.c:164
 msgid "Module Path"
 msgstr "Διαδρομή αρθρώματος"
 
-#: plugins/smartcard/csd-smartcard-manager.c:165
+#: plugins/smartcard/csd_smartcard-manager.c:165
 msgid "path to smartcard PKCS #11 driver"
 msgstr "διαδρομή για τον οδηγό έξυπνης κάρτας PKCS #11"
 
-#: plugins/smartcard/csd-smartcard-manager.c:491
+#: plugins/smartcard/csd_smartcard-manager.c:491
 msgid "received error or hang up from event source"
 msgstr "ελήφθη σφάλμα ή αποσύνδεση από την πηγή του γεγονότος"
 
-#: plugins/smartcard/csd-smartcard-manager.c:580
+#: plugins/smartcard/csd_smartcard-manager.c:580
 msgid "NSS security system could not be initialized"
 msgstr "Αδυναμία αρχικοποίησης του συστήματος ασφαλείας NSS"
 
-#: plugins/smartcard/csd-smartcard-manager.c:649
+#: plugins/smartcard/csd_smartcard-manager.c:649
 msgid "no suitable smartcard driver could be found"
 msgstr "δεν βρέθηκε κατάλληλος οδηγός έξυπνης κάρτας"
 
-#: plugins/smartcard/csd-smartcard-manager.c:669
+#: plugins/smartcard/csd_smartcard-manager.c:669
 #, c-format
 msgid "smartcard driver '%s' could not be loaded"
 msgstr "αδυναμία φόρτωσης του οδηγού έξυπνης κάρτας «%s»"
 
-#: plugins/smartcard/csd-smartcard-manager.c:753
+#: plugins/smartcard/csd_smartcard-manager.c:753
 #, c-format
 msgid "could not watch for incoming card events - %s"
 msgstr "αδυναμία παρακολούθησης εισερχομένων γεγονότων κάρτας - %s"
 
-#: plugins/smartcard/csd-smartcard-manager.c:1100
+#: plugins/smartcard/csd_smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
 msgstr "συνέβη μη αναμενόμενο σφάλμα κατά την αναμονή γεγονότων έξυπνης κάρτας"
 
-#: plugins/smartcard/csd-smartcard.c:148
+#: plugins/smartcard/csd_smartcard.c:148
 msgid "Slot ID"
 msgstr "ID υποδοχής κάρτας"
 
-#: plugins/smartcard/csd-smartcard.c:149
+#: plugins/smartcard/csd_smartcard.c:149
 msgid "The slot the card is in"
 msgstr "Η υποδοχή στην οποία βρίσκεται η κάρτα"
 
-#: plugins/smartcard/csd-smartcard.c:155
+#: plugins/smartcard/csd_smartcard.c:155
 msgid "Slot Series"
 msgstr "Σειρά υποδοχής"
 
-#: plugins/smartcard/csd-smartcard.c:156
+#: plugins/smartcard/csd_smartcard.c:156
 msgid "per-slot card identifier"
 msgstr "ταυτοποιητής κάρτας ανά υποδοχή"
 
-#: plugins/smartcard/csd-smartcard.c:162 plugins/smartcard/csd-smartcard.c:163
+#: plugins/smartcard/csd_smartcard.c:162 plugins/smartcard/csd_smartcard.c:163
 msgid "name"
 msgstr "όνομα"
 
-#: plugins/smartcard/csd-smartcard.c:167
+#: plugins/smartcard/csd_smartcard.c:167
 msgid "Module"
 msgstr "Άρθρωμα"
 
-#: plugins/smartcard/csd-smartcard.c:168
+#: plugins/smartcard/csd_smartcard.c:168
 msgid "smartcard driver"
 msgstr "οδηγός έξυπνης κάρτας"
 
@@ -1528,19 +1528,19 @@ msgstr "Διάλειμμα πληκτρολόγησης"
 msgid "Typing break plugin"
 msgstr "Πρόσθετη λειτουργία διαλείμματος πληκτρολόγησης"
 
-#: plugins/xrandr/csd-xrandr-manager.c:373
+#: plugins/xrandr/csd_xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Αδυναμία αλλαγής των ρυθμίσεων της οθόνης"
 
-#: plugins/xrandr/csd-xrandr-manager.c:397
+#: plugins/xrandr/csd_xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Αδυναμία επαναφοράς των ρυθμίσεων της οθόνης"
 
-#: plugins/xrandr/csd-xrandr-manager.c:422
+#: plugins/xrandr/csd_xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr "Αδυναμία επαναφοράς των ρυθμίσεων της οθόνης από αντίγραφο ασφαλείας"
 
-#: plugins/xrandr/csd-xrandr-manager.c:443
+#: plugins/xrandr/csd_xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1548,97 +1548,97 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Είναι ικανοποιητική η εμφάνιση της οθόνης;"
 
-#: plugins/xrandr/csd-xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "Επαναφο_ρά προηγούμενων ρυθμίσεων"
 
-#: plugins/xrandr/csd-xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Διατήρηση αυτών των ρυθμίσεων"
 
-#: plugins/xrandr/csd-xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Αδυναμία εφαρμογής των επιλεγμένων ρυθμίσεων στις οθόνες"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Αδυναμία ανανέωσης των πληροφοριών οθόνης: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Γίνεται παρόλα αυτά προσπάθεια αλλαγής των ρυθμίσεων της οθόνης."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Η περιστροφή δεν υποστηρίζεται"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2005
-#: plugins/xrandr/csd-xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2005
+#: plugins/xrandr/csd_xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Αδυναμία αποθήκευσης των ρυθμίσεων της οθόνης"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Κανονική"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2091
 msgid "Left"
 msgstr "Αριστερά"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2092
 msgid "Right"
 msgstr "Δεξιά"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "Αναποδογύρισμα"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Ρύθμιση οθόνης…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Ρύθμιση οθόνης"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Αδυναμία εφαρμογής των αποθηκευμένων ρυθμίσεων για τις οθόνες"
 
@@ -1650,7 +1650,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Ρύθμιση μεγέθους οθόνης και περιστροφής"
 
-#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Δεν είναι δυνατός ο εντοπισμός του αρχικού καταλόγου χρήστη"
 

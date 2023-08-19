@@ -40,10 +40,10 @@
 #include <dconf.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-keybindings-manager.h"
+#include "csd_keybindings-manager.h"
 #include "dconf-util.h"
 
-#include "csd-keygrab.h"
+#include "csd_keygrab.h"
 #include "eggaccelerators.h"
 
 #define GSETTINGS_KEYBINDINGS_DIR "/org/cafe/desktop/keybindings/"

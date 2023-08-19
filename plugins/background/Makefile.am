@@ -6,8 +6,8 @@ noinst_PROGRAMS = 			\
 
 test_background_SOURCES = 		\
 	test-background.c		\
-	csd-background-manager.h	\
-	csd-background-manager.c	\
+	csd_background-manager.h	\
+	csd_background-manager.c	\
 	$(NULL)
 
 test_background_CPPFLAGS = \
@@ -22,7 +22,7 @@ test_background_CFLAGS =		\
 	$(WARN_CFLAGS)
 
 test_background_LDADD =		\
-	$(top_builddir)/cafe-settings-daemon/libcsd-profile.la	\
+	$(top_builddir)/cafe-settings-daemon/libcsd_profile.la	\
 	$(SETTINGS_PLUGIN_LIBS)	\
 	$(CAFE_DESKTOP_LIBS)		\
 	$(X11_LIBS) \
@@ -33,10 +33,10 @@ plugin_LTLIBRARIES = \
 	$(NULL)
 
 libbackground_la_SOURCES = 		\
-	csd-background-plugin.h		\
-	csd-background-plugin.c		\
-	csd-background-manager.h	\
-	csd-background-manager.c	\
+	csd_background-plugin.h		\
+	csd_background-plugin.c		\
+	csd_background-manager.h	\
+	csd_background-manager.c	\
 	$(NULL)
 
 libbackground_la_CPPFLAGS = \

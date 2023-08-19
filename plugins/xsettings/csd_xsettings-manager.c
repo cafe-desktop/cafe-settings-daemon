@@ -40,7 +40,7 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-xsettings-manager.h"
+#include "csd_xsettings-manager.h"
 #include "xsettings-manager.h"
 #include "fontconfig-monitor.h"
 #include "wm-common.h"
@@ -119,7 +119,7 @@ static gpointer manager_object = NULL;
 static GQuark
 csd_xsettings_error_quark (void)
 {
-        return g_quark_from_static_string ("csd-xsettings-error-quark");
+        return g_quark_from_static_string ("csd_xsettings-error-quark");
 }
 
 static void

@@ -37,7 +37,7 @@
 #include <ctk/ctk.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-dummy-manager.h"
+#include "csd_dummy-manager.h"
 
 struct CsdDummyManagerPrivate
 {

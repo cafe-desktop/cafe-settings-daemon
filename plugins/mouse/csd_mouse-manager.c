@@ -45,8 +45,8 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-mouse-manager.h"
-#include "csd-input-helper.h"
+#include "csd_mouse-manager.h"
+#include "csd_input-helper.h"
 
 /* Keys with same names for both touchpad and mouse */
 #define KEY_LEFT_HANDED                  "left-handed"          /*  a boolean for mouse, an enum for touchpad */
@@ -1585,7 +1585,7 @@ set_locate_pointer (CsdMouseManager *manager,
                 if (manager->priv->locate_pointer_spawned)
                         return;
 
-                args[0] = LIBEXECDIR "/csd-locate-pointer";
+                args[0] = LIBEXECDIR "/csd_locate-pointer";
                 args[1] = NULL;
 
                 g_spawn_async (NULL, args, NULL,

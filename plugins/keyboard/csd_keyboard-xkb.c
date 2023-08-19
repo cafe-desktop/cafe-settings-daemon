@@ -37,7 +37,7 @@
 #include <libcafekbd/cafekbd-keyboard-config.h>
 #include <libcafekbd/cafekbd-util.h>
 
-#include "csd-keyboard-xkb.h"
+#include "csd_keyboard-xkb.h"
 #include "delayed-dialog.h"
 #include "cafe-settings-profile.h"
 

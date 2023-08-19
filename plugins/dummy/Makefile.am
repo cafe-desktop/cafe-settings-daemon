@@ -2,10 +2,10 @@ plugin_LTLIBRARIES = \
 	libdummy.la
 
 libdummy_la_SOURCES = 		\
-	csd-dummy-manager.c	\
-	csd-dummy-manager.h	\
-	csd-dummy-plugin.c	\
-	csd-dummy-plugin.h
+	csd_dummy-manager.c	\
+	csd_dummy-manager.h	\
+	csd_dummy-plugin.c	\
+	csd_dummy-plugin.h
 
 libdummy_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon		\

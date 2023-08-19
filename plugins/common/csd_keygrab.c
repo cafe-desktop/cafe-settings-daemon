@@ -32,7 +32,7 @@
 
 #include "eggaccelerators.h"
 
-#include "csd-keygrab.h"
+#include "csd_keygrab.h"
 
 /* these are the mods whose combinations are ignored by the keygrabbing code */
 static CdkModifierType csd_ignored_mods = 0;

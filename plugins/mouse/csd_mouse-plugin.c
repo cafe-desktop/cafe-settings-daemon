@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-mouse-plugin.h"
-#include "csd-mouse-manager.h"
+#include "csd_mouse-plugin.h"
+#include "csd_mouse-manager.h"
 
 struct CsdMousePluginPrivate {
         CsdMouseManager *manager;

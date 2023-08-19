@@ -5,10 +5,10 @@ plugin_LTLIBRARIES = \
 	$(NULL)
 
 libclipboard_la_SOURCES = 	\
-	csd-clipboard-plugin.h	\
-	csd-clipboard-plugin.c	\
-	csd-clipboard-manager.h	\
-	csd-clipboard-manager.c	\
+	csd_clipboard-plugin.h	\
+	csd_clipboard-plugin.c	\
+	csd_clipboard-manager.h	\
+	csd_clipboard-manager.c	\
 	xutils.h		\
 	xutils.c		\
 	list.h			\

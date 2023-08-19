@@ -908,23 +908,23 @@ msgstr "Accesibilitate tastatură"
 msgid "Accessibility keyboard plugin"
 msgstr "Modul accesibilitate tastatură"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "A intervenit o eroare la afișarea ajutorului: %s"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to activate Slow Keys?"
 msgstr "Doriți să activați „Tastele încete”?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Doriți să dezactivați „Tastele încete”?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -932,62 +932,62 @@ msgstr ""
 "Ați ținut tasta Shift apăsată timp de opt secunde. Aceasta este tasta ce "
 "activează „Tastele încete” și schimbă modul de funcționare al tastaturii."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't activate"
 msgstr "Nu activa"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
 msgid "Don't deactivate"
 msgstr "Nu dezactiva"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Activate"
 msgstr "Activează"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
 msgid "Deactivate"
 msgstr "Dezactivează"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't activate"
 msgstr "_Nu activa"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
 msgid "Do_n't deactivate"
 msgstr "_Nu dezactiva"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Activate"
 msgstr "_Activează"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
 msgid "_Deactivate"
 msgstr "_Dezactivează"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
 msgid "Slow Keys Alert"
 msgstr "Alertă pentru „Taste încete”"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Doriți să activați „Modificatorii persistenți”?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Doriți să dezactivați „Modificatorii persistenți”?"
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -995,8 +995,8 @@ msgstr ""
 "Ați apăsat Shift de cinci ori la rând. Aceasta este combinația ce activează "
 "„Modificatorii persistenți” și schimbă modul de funcționare al tastaturii."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1006,44 +1006,44 @@ msgstr ""
 "rând. Aceste acțiuni inactivează „Modificatorii persistenți” și schimbă "
 "modul de funcționare al tastaturii."
 
-#: plugins/a11y-keyboard/csd-a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
 msgid "Sticky Keys Alert"
 msgstr "Alertă „Modificatori persistenți”"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.c:764
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:14
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.c:764
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:14
 msgid "Universal Access Preferences"
 msgstr "Preferințe acces universal"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:86
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:86
 msgid "Use on-screen _keyboard"
 msgstr "Folosește _tastatura pe ecran"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:102
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:102
 msgid "Use screen _reader"
 msgstr "Folosește citito_rul de ecran"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:118
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:118
 msgid "Use screen _magnifier"
 msgstr "Folosește o _lupă de ecran"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:134
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:134
 msgid "Enhance _contrast in colors"
 msgstr "Îmbunătățește _contrastul în culori"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:150
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:150
 msgid "Make _text larger and easier to read"
 msgstr "Fă _textul mai mare și mai ușor de citit"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:166
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:166
 msgid "_Press keyboard shortcuts one key at a time (Sticky Keys)"
 msgstr "A_păsați scurtătura de tastatură, câte o tastă pe rând (taste încete)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:182
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:182
 msgid "_Ignore duplicate keypresses (Bounce Keys)"
 msgstr "_Ignoră apăsările duplicate de taste (taste ce sar)"
 
-#: plugins/a11y-keyboard/csd-a11y-preferences-dialog.ui:198
+#: plugins/a11y-keyboard/csd_a11y-preferences-dialog.ui:198
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "Tineți _apăsate tastele pentru a le accepta (Taste încete)"
 
@@ -1114,25 +1114,25 @@ msgid ""
 "about low disk space"
 msgstr ""
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:60
+#: plugins/housekeeping/csd_ldsm-dialog.c:60
 msgid "Don't show any warnings again for this file system"
 msgstr "Nu mai arăta nicio avertizare pentru acest sistem de fișiere"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:62
+#: plugins/housekeeping/csd_ldsm-dialog.c:62
 msgid "Don't show any warnings again"
 msgstr "Nu mai arăta avertizări"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:75
+#: plugins/housekeeping/csd_ldsm-dialog.c:75
 #, c-format
 msgid "The volume \"%s\" has only %s disk space remaining."
 msgstr "Volumul „%s” mai are doar %s spațiu liber pe disc."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:78
+#: plugins/housekeeping/csd_ldsm-dialog.c:78
 #, c-format
 msgid "This computer has only %s disk space remaining."
 msgstr "Acest calculator mai are doar %s spațiu liber pe disc."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:94
+#: plugins/housekeeping/csd_ldsm-dialog.c:94
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to another disk or partition."
@@ -1141,7 +1141,7 @@ msgstr ""
 "programelor sau fișierelor nefolosite sau prin mutarea fișierelor pe un alt "
 "disc sau partiție."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:97
+#: plugins/housekeeping/csd_ldsm-dialog.c:97
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to another disk or partition."
@@ -1150,7 +1150,7 @@ msgstr ""
 "fișierelor nefolosite sau prin mutarea fișierelor pe un alt disc sau "
 "partiție."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:102
+#: plugins/housekeeping/csd_ldsm-dialog.c:102
 msgid ""
 "You can free up disk space by emptying the Trash, removing unused programs "
 "or files, or moving files to an external disk."
@@ -1159,7 +1159,7 @@ msgstr ""
 "programelor sau fișierelor nefolosite sau prin mutarea fișierelor pe un disc "
 "extern."
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:105
+#: plugins/housekeeping/csd_ldsm-dialog.c:105
 msgid ""
 "You can free up disk space by removing unused programs or files, or by "
 "moving files to an external disk."
@@ -1168,51 +1168,51 @@ msgstr ""
 "fișierelor nefolosite sau prin mutarea fișierelor pe un disc extern."
 
 #. Set up all the window stuff here
-#: plugins/housekeeping/csd-ldsm-dialog.c:201
+#: plugins/housekeeping/csd_ldsm-dialog.c:201
 msgid "Low Disk Space"
 msgstr "Spațiu redus pe disc"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:436
+#: plugins/housekeeping/csd_ldsm-dialog.c:436
 msgid "Empty Trash"
 msgstr "Golește coșul de gunoi"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:444
+#: plugins/housekeeping/csd_ldsm-dialog.c:444
 msgid "Examine…"
 msgstr "Examinează…"
 
-#: plugins/housekeeping/csd-ldsm-dialog.c:451
+#: plugins/housekeeping/csd_ldsm-dialog.c:451
 msgid "Ignore"
 msgstr "Ignoră"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "Se șterge elementul: %lu din %lu"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
 #, c-format
 msgid "Removing: %s"
 msgstr "Se elimină: %s"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
 msgid "Emptying the trash"
 msgstr "Se golește coșul de gunoi"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
 msgid "Preparing to empty trash…"
 msgstr "Se pregătește golirea coșului de gunoi…"
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
 msgid "From: "
 msgstr "De la:"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
 msgid "Empty all of the items from the trash?"
 msgstr "Goliți toate elementele din coșul de gunoi?"
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1221,7 +1221,7 @@ msgstr ""
 "pierdute pentru totdeauna. Nu uitați că elementele din coșul de gunoi pot fi "
 "șterse și independent unul de celălalt."
 
-#: plugins/housekeeping/csd-ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
 msgid "_Empty Trash"
 msgstr "Gol_ește coșul de gunoi"
 
@@ -1233,17 +1233,17 @@ msgstr "Asociere taste"
 msgid "Keybindings plugin"
 msgstr "Modul asociere taste"
 
-#: plugins/keybindings/csd-keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:108
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Asocierea de taste (%s) nu este validă"
 
-#: plugins/keybindings/csd-keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:144
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Asocierea de taste (%s) este incompletă"
 
-#: plugins/keybindings/csd-keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:486
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1260,7 +1260,7 @@ msgstr "Tastatură"
 msgid "Keyboard plugin"
 msgstr "Modul tastatură"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:119
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1277,15 +1277,15 @@ msgid ""
 " • The result of <b>%s</b>"
 msgstr ""
 
-#: plugins/keyboard/csd-keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:279
 msgid "_Layouts"
 msgstr "Aran_jamente"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:286
 msgid "Keyboard _Preferences"
 msgstr "_Preferințe tastatură"
 
-#: plugins/keyboard/csd-keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:292
 msgid "Show _Current Layout"
 msgstr "Afișează aranjamentul a_ctual"
 
@@ -1297,7 +1297,7 @@ msgstr "Taste media"
 msgid "Media keys plugin"
 msgstr "Modul taste media"
 
-#: plugins/media-keys/csd-media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:184
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1305,7 +1305,7 @@ msgstr ""
 "Nu s-a putut obține terminalul implicit. Asigurați-vă că terminalul implicit "
 "e setat și conectat la o aplicație valabilă."
 
-#: plugins/media-keys/csd-media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:224
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1314,46 +1314,46 @@ msgstr ""
 "Nu s-a putut executa comanda: %s\n"
 "Asigurați-vă că aceasta este o comandă validă."
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:638
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:954
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:957
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:961
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:964
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:995
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1033
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd-media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1037
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
@@ -1366,18 +1366,18 @@ msgstr "Maus"
 msgid "Mouse plugin"
 msgstr "Modul maus"
 
-#: plugins/mouse/csd-mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1650
 msgid "Could not enable mouse accessibility features"
 msgstr "Nu s-au putut activa facilitățile pentru accesibilitatea mausului"
 
-#: plugins/mouse/csd-mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1652
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "Accesibilitățile mausului necesită instalarea Mousetweaks în sistemul "
 "dumneavoastră."
 
-#: plugins/mouse/csd-mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1655
 msgid "Mouse Preferences"
 msgstr "Preferințe maus"
 
@@ -1399,67 +1399,67 @@ msgstr ""
 msgid "Rfkill plugin"
 msgstr ""
 
-#: plugins/smartcard/csd-smartcard-manager.c:164
+#: plugins/smartcard/csd_smartcard-manager.c:164
 msgid "Module Path"
 msgstr "Cale modul"
 
-#: plugins/smartcard/csd-smartcard-manager.c:165
+#: plugins/smartcard/csd_smartcard-manager.c:165
 msgid "path to smartcard PKCS #11 driver"
 msgstr "calea către driverul smartcard PKCS #11"
 
-#: plugins/smartcard/csd-smartcard-manager.c:491
+#: plugins/smartcard/csd_smartcard-manager.c:491
 msgid "received error or hang up from event source"
 msgstr "primit eroare sau închidere de la sursa de evenimente"
 
-#: plugins/smartcard/csd-smartcard-manager.c:580
+#: plugins/smartcard/csd_smartcard-manager.c:580
 msgid "NSS security system could not be initialized"
 msgstr "Sistemul de securitate NSS nu a putut fi inițializat"
 
-#: plugins/smartcard/csd-smartcard-manager.c:649
+#: plugins/smartcard/csd_smartcard-manager.c:649
 msgid "no suitable smartcard driver could be found"
 msgstr "nu s-a găsit niciun driver de smartcard potrivit"
 
-#: plugins/smartcard/csd-smartcard-manager.c:669
+#: plugins/smartcard/csd_smartcard-manager.c:669
 #, c-format
 msgid "smartcard driver '%s' could not be loaded"
 msgstr "driverul de smartcard „%s” nu a putut fi încărcat"
 
-#: plugins/smartcard/csd-smartcard-manager.c:753
+#: plugins/smartcard/csd_smartcard-manager.c:753
 #, c-format
 msgid "could not watch for incoming card events - %s"
 msgstr "nu se pot urmări evenimentele inițiate de card - %s"
 
-#: plugins/smartcard/csd-smartcard-manager.c:1100
+#: plugins/smartcard/csd_smartcard-manager.c:1100
 msgid "encountered unexpected error while waiting for smartcard events"
 msgstr ""
 "s-a întâlnit o eroare neașteptată în timp ce se așteptau evenimente de la "
 "smartcard"
 
-#: plugins/smartcard/csd-smartcard.c:148
+#: plugins/smartcard/csd_smartcard.c:148
 msgid "Slot ID"
 msgstr "ID slot"
 
-#: plugins/smartcard/csd-smartcard.c:149
+#: plugins/smartcard/csd_smartcard.c:149
 msgid "The slot the card is in"
 msgstr "Conectorul în care se află cadrul"
 
-#: plugins/smartcard/csd-smartcard.c:155
+#: plugins/smartcard/csd_smartcard.c:155
 msgid "Slot Series"
 msgstr "Serie de sloturi"
 
-#: plugins/smartcard/csd-smartcard.c:156
+#: plugins/smartcard/csd_smartcard.c:156
 msgid "per-slot card identifier"
 msgstr "identificatorul cardului per-slot"
 
-#: plugins/smartcard/csd-smartcard.c:162 plugins/smartcard/csd-smartcard.c:163
+#: plugins/smartcard/csd_smartcard.c:162 plugins/smartcard/csd_smartcard.c:163
 msgid "name"
 msgstr "nume"
 
-#: plugins/smartcard/csd-smartcard.c:167
+#: plugins/smartcard/csd_smartcard.c:167
 msgid "Module"
 msgstr "Modul"
 
-#: plugins/smartcard/csd-smartcard.c:168
+#: plugins/smartcard/csd_smartcard.c:168
 msgid "smartcard driver"
 msgstr "driver smartcard"
 
@@ -1487,20 +1487,20 @@ msgstr "Pauze de lucru"
 msgid "Typing break plugin"
 msgstr "Modul pauze de lucru"
 
-#: plugins/xrandr/csd-xrandr-manager.c:373
+#: plugins/xrandr/csd_xrandr-manager.c:373
 msgid "Could not switch the monitor configuration"
 msgstr "Nu s-a putut comuta configurația monitorului"
 
-#: plugins/xrandr/csd-xrandr-manager.c:397
+#: plugins/xrandr/csd_xrandr-manager.c:397
 msgid "Could not restore the display's configuration"
 msgstr "Nu s-a putut restaura configurația ecranului"
 
-#: plugins/xrandr/csd-xrandr-manager.c:422
+#: plugins/xrandr/csd_xrandr-manager.c:422
 msgid "Could not restore the display's configuration from a backup"
 msgstr ""
 "Nu s-a putut restaura configurația ecranului dintr-o copie de siguranță"
 
-#: plugins/xrandr/csd-xrandr-manager.c:443
+#: plugins/xrandr/csd_xrandr-manager.c:443
 #, c-format
 msgid "The display will be reset to its previous configuration in %d second"
 msgid_plural ""
@@ -1509,97 +1509,97 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:492
 msgid "Does the display look OK?"
 msgstr "Ecranul arată bine?"
 
-#: plugins/xrandr/csd-xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:499
 msgid "_Restore Previous Configuration"
 msgstr "_Restaurează configurația anterioară"
 
-#: plugins/xrandr/csd-xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:500
 msgid "_Keep This Configuration"
 msgstr "_Păstrează această configurație"
 
-#: plugins/xrandr/csd-xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:581
 msgid "The selected configuration for displays could not be applied"
 msgstr "Configurația aleasă pentru ecrane nu a putut fi aplicată"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1180
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Nu s-a putut reîncărca informația ecranului: %s"
 
-#: plugins/xrandr/csd-xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1184
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Se încearcă oricum comutarea configurării monitorului."
 
-#: plugins/xrandr/csd-xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1940
 msgid "Rotation not supported"
 msgstr "Rotirea nu este suportată"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2005
-#: plugins/xrandr/csd-xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2005
+#: plugins/xrandr/csd_xrandr-manager.c:2037
 msgid "Could not save monitor configuration"
 msgstr "Nu s-a putut salva configurația monitorului"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2059
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2090
 msgid "Normal"
 msgstr "Normală"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2091
 msgid "Left"
 msgstr "Stânga"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2092
 msgid "Right"
 msgstr "Dreapta"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2093
 msgid "Upside Down"
 msgstr "Răsturnat"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2182
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2183
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2186
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2187
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2247
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2248
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2295
 msgid "_Configure Display Settings…"
 msgstr "_Configurare preferințe ecran…"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2305
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd-xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2358
 msgid "Configure display settings"
 msgstr "Configurare preferințe ecran"
 
-#: plugins/xrandr/csd-xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2424
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Nu s-a putut aplica configurația stocată pentru monitoare"
 
@@ -1611,7 +1611,7 @@ msgstr "XRandR"
 msgid "Set up screen size and rotation settings"
 msgstr "Definire dimensiune și rotire ecran"
 
-#: plugins/xrdb/csd-xrdb-manager.c:249 plugins/xrdb/csd-xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
 msgid "Cannot determine user's home directory"
 msgstr "Nu s-a putut determina dosarul personal al utilizatorului"
 

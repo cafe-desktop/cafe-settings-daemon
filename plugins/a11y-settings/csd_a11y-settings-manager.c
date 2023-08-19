@@ -35,7 +35,7 @@
 #include <gio/gio.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-a11y-settings-manager.h"
+#include "csd_a11y-settings-manager.h"
 
 struct CsdA11ySettingsManagerPrivate
 {

@@ -39,7 +39,7 @@
 #include <dbus/dbus-glib-lowlevel.h>
 
 
-#include "csd-datetime-mechanism.h"
+#include "csd_datetime-mechanism.h"
 
 static DBusGProxy *
 get_bus_proxy (DBusGConnection *connection)

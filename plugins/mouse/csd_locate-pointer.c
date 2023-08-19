@@ -1,4 +1,4 @@
-/* csd-locate-pointer.c
+/* csd_locate-pointer.c
  *
  * Copyright (C) 2008 Carlos Garnacho  <carlos@imendio.com>
  *
@@ -18,8 +18,8 @@
  */
 
 #include <ctk/ctk.h>
-#include "csd-timeline.h"
-#include "csd-locate-pointer.h"
+#include "csd_timeline.h"
+#include "csd_locate-pointer.h"
 
 #include <cdk/cdkkeysyms.h>
 #include <cdk/cdkx.h>

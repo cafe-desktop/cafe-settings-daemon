@@ -28,7 +28,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "csd-background-manager.h"
+#include "csd_background-manager.h"
 
 static gboolean
 idle (CsdBackgroundManager* manager)

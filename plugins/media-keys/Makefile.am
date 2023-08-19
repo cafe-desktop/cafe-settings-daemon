@@ -6,29 +6,29 @@ NULL =
 plugin_LTLIBRARIES = libmedia-keys.la
 
 BUILT_SOURCES = 			\
-	csd-media-keys-manager-glue.h	\
-	csd-marshal.h			\
-	csd-marshal.c			\
+	csd_media-keys-manager-glue.h	\
+	csd_marshal.h			\
+	csd_marshal.c			\
 	$(NULL)
 
-csd-media-keys-manager-glue.h: csd-media-keys-manager.xml Makefile
+csd_media-keys-manager-glue.h: csd_media-keys-manager.xml Makefile
 	$(AM_V_GEN) dbus-binding-tool --prefix=csd_media_keys_manager --mode=glib-server $< > xgen-$(@F) \
 	&& ( cmp -s xgen-$(@F) $@ || cp xgen-$(@F) $@ ) \
 	&& rm -f xgen-$(@F)
 
-csd-marshal.c: csd-marshal.list
+csd_marshal.c: csd_marshal.list
 	$(AM_V_GEN) $(GLIB_GENMARSHAL) --prefix=csd_marshal $< --body --prototypes --internal > $@
 
-csd-marshal.h: csd-marshal.list
+csd_marshal.h: csd_marshal.list
 	$(AM_V_GEN) $(GLIB_GENMARSHAL) --prefix=csd_marshal $< --header --internal > $@
 
 libmedia_keys_la_SOURCES = 		\
-	csd-media-keys-plugin.h		\
-	csd-media-keys-plugin.c		\
-	csd-media-keys-manager.h	\
-	csd-media-keys-manager.c	\
-	csd-media-keys-window.h		\
-	csd-media-keys-window.c		\
+	csd_media-keys-plugin.h		\
+	csd_media-keys-plugin.c		\
+	csd_media-keys-manager.h	\
+	csd_media-keys-manager.c	\
+	csd_media-keys-window.h		\
+	csd_media-keys-window.c		\
 	acme.h				\
 	$(BUILT_SOURCES)		\
 	$(NULL)
@@ -70,8 +70,8 @@ noinst_PROGRAMS =				\
 	$(NULL)
 
 test_media_window_SOURCES =			\
-	csd-media-keys-window.c			\
-	csd-media-keys-window.h			\
+	csd_media-keys-window.c			\
+	csd_media-keys-window.h			\
 	test-media-window.c			\
 	$(NULL)
 
@@ -98,10 +98,10 @@ test_media_window_LDADD = \
 	-lm
 
 test_media_keys_SOURCES =			\
-	csd-media-keys-manager.c		\
-	csd-media-keys-manager.h		\
-	csd-media-keys-window.h			\
-	csd-media-keys-window.c			\
+	csd_media-keys-manager.c		\
+	csd_media-keys-manager.h		\
+	csd_media-keys-window.h			\
+	csd_media-keys-window.c			\
 	test-media-keys.c			\
 	$(BUILT_SOURCES)			\
 	$(NULL)
@@ -123,7 +123,7 @@ test_media_keys_CFLAGS =		\
 	$(NULL)
 
 test_media_keys_LDADD = \
-	$(top_builddir)/cafe-settings-daemon/libcsd-profile.la \
+	$(top_builddir)/cafe-settings-daemon/libcsd_profile.la \
 	$(top_builddir)/plugins/common/libcommon.la \
 	$(SETTINGS_DAEMON_LIBS) \
 	$(SETTINGS_PLUGIN_LIBS) \
@@ -137,8 +137,8 @@ ctkbuilder_DATA =	\
 	$(NULL)
 
 EXTRA_DIST = 				\
-	csd-media-keys-manager.xml	\
-	csd-marshal.list		\
+	csd_media-keys-manager.xml	\
+	csd_marshal.list		\
 	$(plugin_in_files)		\
 	$(ctkbuilder_DATA)
 

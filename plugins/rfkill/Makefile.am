@@ -1,10 +1,10 @@
 plugin_LTLIBRARIES = librfkill.la
 
 librfkill_la_SOURCES = 		\
-	csd-rfkill-plugin.c	\
-	csd-rfkill-plugin.h	\
-	csd-rfkill-manager.c	\
-	csd-rfkill-manager.h	\
+	csd_rfkill-plugin.c	\
+	csd_rfkill-plugin.h	\
+	csd_rfkill-manager.c	\
+	csd_rfkill-manager.h	\
 	rfkill-glib.c		\
 	rfkill-glib.h		\
 	rfkill.h

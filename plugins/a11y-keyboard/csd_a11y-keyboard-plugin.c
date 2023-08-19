@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-a11y-keyboard-plugin.h"
-#include "csd-a11y-keyboard-manager.h"
+#include "csd_a11y-keyboard-plugin.h"
+#include "csd_a11y-keyboard-manager.h"
 
 struct CsdA11yKeyboardPluginPrivate {
         CsdA11yKeyboardManager *manager;

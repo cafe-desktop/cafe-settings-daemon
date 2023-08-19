@@ -1,10 +1,10 @@
 plugin_LTLIBRARIES = libmouse.la
 
 libmouse_la_SOURCES = 		\
-	csd-mouse-plugin.h	\
-	csd-mouse-plugin.c	\
-	csd-mouse-manager.h	\
-	csd-mouse-manager.c
+	csd_mouse-plugin.h	\
+	csd_mouse-plugin.c	\
+	csd_mouse-manager.h	\
+	csd_mouse-manager.c
 
 libmouse_la_CPPFLAGS = \
 	-I$(top_srcdir)/cafe-settings-daemon		\
@@ -31,13 +31,13 @@ plugin_in_files = mouse.cafe-settings-plugin.desktop.in
 
 plugin_DATA = $(plugin_in_files:.cafe-settings-plugin.desktop.in=.cafe-settings-plugin)
 
-libexec_PROGRAMS = csd-locate-pointer
+libexec_PROGRAMS = csd_locate-pointer
 
 csd_locate_pointer_SOURCES = 	\
-	csd-locate-pointer.h	\
-	csd-locate-pointer.c	\
-	csd-timeline.h		\
-	csd-timeline.c
+	csd_locate-pointer.h	\
+	csd_locate-pointer.c	\
+	csd_timeline.h		\
+	csd_timeline.c
 
 csd_locate_pointer_CFLAGS =		\
 	$(SETTINGS_PLUGIN_CFLAGS)	\

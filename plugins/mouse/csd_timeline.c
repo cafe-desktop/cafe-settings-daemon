@@ -1,4 +1,4 @@
-/* csd-timeline.c
+/* csd_timeline.c
  *
  * Copyright (C) 2008 Carlos Garnacho  <carlos@imendio.com>
  *
@@ -20,7 +20,7 @@
 #include <glib.h>
 #include <ctk/ctk.h>
 #include <math.h>
-#include "csd-timeline.h"
+#include "csd_timeline.h"
 
 #define MSECS_PER_SEC 1000
 #define FRAME_INTERVAL(nframes) (MSECS_PER_SEC / nframes)

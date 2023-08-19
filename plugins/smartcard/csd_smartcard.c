@@ -1,4 +1,4 @@
-/* csd-smartcard.c - smartcard object
+/* csd_smartcard.c - smartcard object
  *
  * Copyright (C) 2006 Ray Strode <rstrode@redhat.com>
  *
@@ -18,7 +18,7 @@
  * 02110-1301, USA.
  */
 #define CSD_SMARTCARD_ENABLE_INTERNAL_API
-#include "csd-smartcard.h"
+#include "csd_smartcard.h"
 
 #include <errno.h>
 #include <string.h>
@@ -415,7 +415,7 @@ GQuark csd_smartcard_error_quark (void)
         static GQuark error_quark = 0;
 
         if (error_quark == 0) {
-                error_quark = g_quark_from_static_string ("csd-smartcard-error-quark");
+                error_quark = g_quark_from_static_string ("csd_smartcard-error-quark");
         }
 
         return error_quark;

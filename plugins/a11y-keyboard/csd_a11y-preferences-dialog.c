@@ -35,14 +35,14 @@
 
 #include <gio/gio.h>
 
-#include "csd-a11y-preferences-dialog.h"
+#include "csd_a11y-preferences-dialog.h"
 
 #define SM_DBUS_NAME      "org.gnome.SessionManager"
 #define SM_DBUS_PATH      "/org/gnome/SessionManager"
 #define SM_DBUS_INTERFACE "org.gnome.SessionManager"
 
 
-#define CTKBUILDER_UI_FILE "csd-a11y-preferences-dialog.ui"
+#define CTKBUILDER_UI_FILE "csd_a11y-preferences-dialog.ui"
 
 #define KEY_A11Y_SCHEMA              "org.cafe.accessibility-keyboard"
 #define KEY_STICKY_KEYS_ENABLED      "stickykeys-enable"

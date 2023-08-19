@@ -25,8 +25,8 @@
 #include <string.h>
 
 #include "cafe-settings-profile.h"
-#include "csd-housekeeping-manager.h"
-#include "csd-disk-space.h"
+#include "csd_housekeeping-manager.h"
+#include "csd_disk-space.h"
 
 
 /* General */

@@ -27,7 +27,7 @@
 #include <glib/gi18n.h>
 #include <ctk/ctk.h>
 
-#include "csd-media-keys-window.h"
+#include "csd_media-keys-window.h"
 
 static gboolean
 update_state (CtkWidget *window)

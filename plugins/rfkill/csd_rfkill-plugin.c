@@ -25,8 +25,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-rfkill-manager.h"
-#include "csd-rfkill-plugin.h"
+#include "csd_rfkill-manager.h"
+#include "csd_rfkill-plugin.h"
 
 struct _CsdRfkillPluginPrivate
 {

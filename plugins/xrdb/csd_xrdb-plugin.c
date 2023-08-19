@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-xrdb-plugin.h"
-#include "csd-xrdb-manager.h"
+#include "csd_xrdb-plugin.h"
+#include "csd_xrdb-manager.h"
 
 struct CsdXrdbPluginPrivate {
         CsdXrdbManager *manager;

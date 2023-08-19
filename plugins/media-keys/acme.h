@@ -21,7 +21,7 @@
 #ifndef __ACME_H__
 #define __ACME_H__
 
-#include "csd-keygrab.h"
+#include "csd_keygrab.h"
 
 #define BINDING_SCHEMA "org.cafe.SettingsDaemon.plugins.media-keys"
 

@@ -9,10 +9,10 @@ plugin_LTLIBRARIES =	\
 	$(NULL)
 
 libxrdb_la_SOURCES = 		\
-	csd-xrdb-plugin.h	\
-	csd-xrdb-plugin.c	\
-	csd-xrdb-manager.h	\
-	csd-xrdb-manager.c	\
+	csd_xrdb-plugin.h	\
+	csd_xrdb-plugin.c	\
+	csd_xrdb-manager.h	\
+	csd_xrdb-manager.c	\
 	$(NULL)
 
 libxrdb_la_CPPFLAGS = \

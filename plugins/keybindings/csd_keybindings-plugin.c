@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-keybindings-plugin.h"
-#include "csd-keybindings-manager.h"
+#include "csd_keybindings-plugin.h"
+#include "csd_keybindings-manager.h"
 
 struct CsdKeybindingsPluginPrivate {
         CsdKeybindingsManager *manager;

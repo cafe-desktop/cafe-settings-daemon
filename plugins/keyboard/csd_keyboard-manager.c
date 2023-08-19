@@ -42,9 +42,9 @@
 #endif
 
 #include "cafe-settings-profile.h"
-#include "csd-keyboard-manager.h"
+#include "csd_keyboard-manager.h"
 
-#include "csd-keyboard-xkb.h"
+#include "csd_keyboard-xkb.h"
 
 #define CSD_KEYBOARD_SCHEMA "org.cafe.peripherals-keyboard"
 

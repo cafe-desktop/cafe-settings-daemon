@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-housekeeping-plugin.h"
-#include "csd-housekeeping-manager.h"
+#include "csd_housekeeping-plugin.h"
+#include "csd_housekeeping-manager.h"
 
 struct CsdHousekeepingPluginPrivate {
         CsdHousekeepingManager *manager;

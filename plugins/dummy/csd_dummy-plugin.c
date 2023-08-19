@@ -24,8 +24,8 @@
 #include <gmodule.h>
 
 #include "cafe-settings-plugin.h"
-#include "csd-dummy-plugin.h"
-#include "csd-dummy-manager.h"
+#include "csd_dummy-plugin.h"
+#include "csd_dummy-manager.h"
 
 struct CsdDummyPluginPrivate {
         CsdDummyManager *manager;

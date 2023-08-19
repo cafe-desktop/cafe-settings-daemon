@@ -48,8 +48,8 @@
 #endif /* HAVE_LIBNOTIFY */
 
 #include "cafe-settings-profile.h"
-#include "csd-a11y-keyboard-manager.h"
-#include "csd-a11y-preferences-dialog.h"
+#include "csd_a11y-keyboard-manager.h"
+#include "csd_a11y-preferences-dialog.h"
 
 #define CONFIG_SCHEMA "org.cafe.accessibility-keyboard"
 #define NOTIFICATION_TIMEOUT 30
