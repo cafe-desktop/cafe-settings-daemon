@@ -13,7 +13,7 @@
 # Felipe Rozelio <feliperozelio@gmail.com>, 2020
 # Marcelo Ghelman <marcelo.ghelman@gmail.com>, 2020
 # Victor Gonçalves <hotcyv@gmail.com>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Roger Araújo <roger.rf@gmail.com>, 2020
 # Rangel <carlosrangelsantos@gmail.com>, 2020
 # gustavo s, 2020

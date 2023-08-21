@@ -5,7 +5,7 @@
 #
 # Translators:
 # Alan Lee <bkrhlim@aol.com>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # D.K Kim <pepct84@gmail.com>, 2020
 # Seong-ho Cho <darkcircle.0426@gmail.com>, 2020
 # Stefano Karapetsas <stefano@karapetsas.com>, 2020

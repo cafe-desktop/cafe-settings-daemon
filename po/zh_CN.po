@@ -12,7 +12,7 @@
 # Cravix <dr.neemous@gmail.com>, 2020
 # Mingcong Bai <jeffbai@aosc.xyz>, 2020
 # liushuyu011 <liushuyu011@gmail.com>, 2020
-# Wolfgang Ulbrich <cafe@raveit.de>, 2020
+# Wolfgang Ulbrich <mate@raveit.de>, 2020
 # Mingye Wang <arthur200126@gmail.com>, 2020
 # zhangxianwei8 <zhang.xianwei8@zte.com.cn>, 2020
 #

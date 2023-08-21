@@ -559,7 +559,7 @@
 # Gabor Sari <saga at gnome dot hu>, 2003.
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2004, 2005, 2006, 2007, 2008, 2009, 2010.
-# Cafe ORY <orygnome at gmail d0t com>, 2006.
+# Mate ORY <orygnome at gmail d0t com>, 2006.
 
 
 
@@ -1023,7 +1023,7 @@
 # Andraž Tori <andraz.tori1@guest.arnes.si>, 2002.
 # Matjaž Horvat <m@owca.info>, 2005 - 2006.
 # Matic Žgur <mr.zgur@gmail.com>, 2006 - 2007.
-# Cafej Urbančič <gnomeju@svn.gnome.org>, 2007 - 2010.
+# Matej Urbančič <gnomeju@svn.gnome.org>, 2007 - 2010.
 #
 
 
