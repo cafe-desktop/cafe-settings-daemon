@@ -1,3 +1,11 @@
+### cafe-settings-daemon 1.25.2
+
+  * build: GLib 2.67.3 required
+  * rename csd- > csd_
+      - It fixes conflicts with cinnamon-settings-daemon installation
+  * Fix some author mails
+  * main: reduce the scope of variable
+
 ### cafe-settings-daemon 1.25.1
 
   * port from libcanberra to libkanberra
