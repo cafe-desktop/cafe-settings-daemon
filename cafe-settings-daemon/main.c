@@ -315,7 +315,6 @@ static void
 set_session_over_handler (DBusGConnection *bus, CafeSettingsManager *manager)
 {
         DBusGProxy *session_proxy;
-        DBusGProxy *private_proxy;
         gchar *client_id = NULL;
         const char *startup_id;
         GError *error = NULL;
@@ -362,6 +361,8 @@ set_session_over_handler (DBusGConnection *bus, CafeSettingsManager *manager)
                         g_error_free (error);
                 }
                 else {
+                        DBusGProxy *private_proxy;
+
                         /* get org.gnome.SessionManager.ClientPrivate interface */
                         private_proxy = dbus_g_proxy_new_for_name_owner (bus, CAFE_SESSION_DBUS_NAME,
                                                                          client_id, CAFE_SESSION_PRIVATE_DBUS_INTERFACE,
