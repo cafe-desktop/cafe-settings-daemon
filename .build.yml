@@ -38,7 +38,6 @@ requires:
     - libxml2-utils
     - libtool
     - make
-    - policykit-1
     - wget
     - x11proto-kb-dev
 
