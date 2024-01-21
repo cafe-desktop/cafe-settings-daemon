@@ -22,6 +22,7 @@ requires:
     - libdbus-glib-1-dev
     - libdconf-dev
     - libfontconfig1-dev
+    - libgirepository1.0-dev
     - libglib2.0-dev
     - libnotify-dev
     - libnss3-dev
