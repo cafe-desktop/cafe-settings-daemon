@@ -2411,7 +2411,7 @@ apply_intended_configuration (CsdXrandrManager *manager, const char *intended_fi
 
 #ifdef HAVE_RDA
 	if (rda_session_is_remote()) {
-		return;
+		return FALSE;
 	}
 #endif
 
