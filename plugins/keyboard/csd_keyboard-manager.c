@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright © 2001 Ximian, Inc.
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
@@ -160,8 +159,8 @@ static void numlock_set_settings_state(GSettings *settings, NumLockState new_sta
 
 static CdkFilterReturn
 numlock_xkb_callback (CdkXEvent *xev_,
-                      CdkEvent *cdkev_,
-                      gpointer xkb_event_code)
+		      CdkEvent  *cdkev_ G_GNUC_UNUSED,
+		      gpointer   xkb_event_code)
 {
         XEvent *xev = (XEvent *) xev_;
 
@@ -309,7 +308,7 @@ start_keyboard_idle_cb (CsdKeyboardManager *manager)
 
 gboolean
 csd_keyboard_manager_start (CsdKeyboardManager *manager,
-                            GError            **error)
+			    GError            **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 

@@ -122,8 +122,8 @@ csd_a11y_preferences_dialog_class_init (CsdA11yPreferencesDialogClass *klass)
 }
 
 static void
-on_response (CsdA11yPreferencesDialog *dialog,
-             gint                      response_id)
+on_response (CsdA11yPreferencesDialog *dialog G_GNUC_UNUSED,
+	     gint                      response_id)
 {
         switch (response_id) {
         default:
@@ -200,7 +200,7 @@ get_dpi_from_x_server (void)
 }
 
 static gboolean
-config_get_large_print (gboolean *is_writable)
+config_get_large_print (gboolean *is_writable G_GNUC_UNUSED)
 {
         GSettings   *settings;
         gboolean     ret;
@@ -451,7 +451,7 @@ on_at_screen_magnifier_checkbutton_toggled (CtkToggleButton          *button,
 
 static void
 on_large_print_checkbutton_toggled (CtkToggleButton          *button,
-                                    CsdA11yPreferencesDialog *dialog)
+				    CsdA11yPreferencesDialog *dialog G_GNUC_UNUSED)
 {
         config_set_large_print (ctk_toggle_button_get_active (button));
 }

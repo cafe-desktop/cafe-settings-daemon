@@ -445,7 +445,7 @@ ldsm_maybe_warn_mounts (GList *mounts,
 }
 
 static gboolean
-ldsm_check_all_mounts (gpointer data)
+ldsm_check_all_mounts (gpointer data G_GNUC_UNUSED)
 {
         GList *mounts;
         GList *l;
@@ -535,8 +535,8 @@ ldsm_check_all_mounts (gpointer data)
 
 static gboolean
 ldsm_is_hash_item_not_in_mounts (gpointer key,
-                                 gpointer value,
-                                 gpointer user_data)
+				 gpointer value G_GNUC_UNUSED,
+				 gpointer user_data)
 {
         GList *l;
 
@@ -554,8 +554,8 @@ ldsm_is_hash_item_not_in_mounts (gpointer key,
 }
 
 static void
-ldsm_mounts_changed (GObject  *monitor,
-                     gpointer  data)
+ldsm_mounts_changed (GObject  *monitor G_GNUC_UNUSED,
+		     gpointer  data G_GNUC_UNUSED)
 {
         GList *mounts;
 
@@ -577,8 +577,8 @@ ldsm_mounts_changed (GObject  *monitor,
 
 static gboolean
 ldsm_is_hash_item_in_ignore_paths (gpointer key,
-                                   gpointer value,
-                                   gpointer user_data)
+				   gpointer value G_GNUC_UNUSED,
+				   gpointer user_data G_GNUC_UNUSED)
 {
         return ldsm_mount_is_user_ignore (key);
 }
@@ -635,9 +635,9 @@ csd_ldsm_get_config ()
 }
 
 static void
-csd_ldsm_update_config (GSettings *settings,
-                        gchar *key,
-                        gpointer user_data)
+csd_ldsm_update_config (GSettings *settings G_GNUC_UNUSED,
+			gchar     *key G_GNUC_UNUSED,
+			gpointer   user_data G_GNUC_UNUSED)
 {
         csd_ldsm_get_config ();
 }

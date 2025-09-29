@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright © 2001 Ximian, Inc.
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
@@ -89,8 +88,8 @@ static gpointer manager_object = NULL;
 
 static CdkFilterReturn
 devicepresence_filter (CdkXEvent *xevent,
-                       CdkEvent  *event,
-                       gpointer   data)
+		       CdkEvent  *event G_GNUC_UNUSED,
+		       gpointer   data)
 {
         XEvent *xev = (XEvent *) xevent;
         G_GNUC_UNUSED XEventClass class_presence;
@@ -168,7 +167,7 @@ xkb_enabled (CsdA11yKeyboardManager *manager)
 }
 
 static XkbDescRec *
-get_xkb_desc_rec (CsdA11yKeyboardManager *manager)
+get_xkb_desc_rec (CsdA11yKeyboardManager *manager G_GNUC_UNUSED)
 {
         CdkDisplay *display;
         XkbDescRec *desc;
@@ -495,17 +494,17 @@ maybe_show_status_icon (CsdA11yKeyboardManager *manager)
 
 #ifdef HAVE_LIBNOTIFY
 static void
-on_notification_closed (NotifyNotification     *notification,
-                        CsdA11yKeyboardManager *manager)
+on_notification_closed (NotifyNotification     *notification G_GNUC_UNUSED,
+			CsdA11yKeyboardManager *manager)
 {
         g_object_unref (manager->priv->notification);
         manager->priv->notification = NULL;
 }
 
 static void
-on_slow_keys_action (NotifyNotification     *notification,
-                     const char             *action,
-                     CsdA11yKeyboardManager *manager)
+on_slow_keys_action (NotifyNotification     *notification G_GNUC_UNUSED,
+		     const char             *action,
+		     CsdA11yKeyboardManager *manager)
 {
         gboolean res;
         int      response_id;
@@ -529,9 +528,9 @@ on_slow_keys_action (NotifyNotification     *notification,
 }
 
 static void
-on_sticky_keys_action (NotifyNotification     *notification,
-                       const char             *action,
-                       CsdA11yKeyboardManager *manager)
+on_sticky_keys_action (NotifyNotification     *notification G_GNUC_UNUSED,
+		       const char             *action,
+		       CsdA11yKeyboardManager *manager)
 {
         gboolean res;
         int      response_id;
@@ -957,8 +956,8 @@ set_settings_from_server (CsdA11yKeyboardManager *manager)
 
 static CdkFilterReturn
 cb_xkb_event_filter (CdkXEvent              *xevent,
-                     CdkEvent               *ignored1,
-                     CsdA11yKeyboardManager *manager)
+		     CdkEvent               *ignored1 G_GNUC_UNUSED,
+		     CsdA11yKeyboardManager *manager)
 {
         XEvent   *xev   = (XEvent *) xevent;
         XkbEvent *xkbEv = (XkbEvent *) xevent;
@@ -983,9 +982,9 @@ cb_xkb_event_filter (CdkXEvent              *xevent,
 }
 
 static void
-keyboard_callback (GSettings              *settings,
-                   gchar                  *key,
-                   CsdA11yKeyboardManager *manager)
+keyboard_callback (GSettings              *settings G_GNUC_UNUSED,
+		   gchar                  *key G_GNUC_UNUSED,
+		   CsdA11yKeyboardManager *manager)
 {
         set_server_from_settings (manager);
         maybe_show_status_icon (manager);
@@ -1039,7 +1038,7 @@ start_a11y_keyboard_idle_cb (CsdA11yKeyboardManager *manager)
 
 gboolean
 csd_a11y_keyboard_manager_start (CsdA11yKeyboardManager *manager,
-                                 GError                **error)
+				 GError                **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 
@@ -1123,8 +1122,8 @@ csd_a11y_keyboard_manager_class_init (CsdA11yKeyboardManagerClass *klass)
 
 static void
 on_preferences_dialog_response (CtkDialog              *dialog,
-                                int                     response,
-                                CsdA11yKeyboardManager *manager)
+				int                     response G_GNUC_UNUSED,
+				CsdA11yKeyboardManager *manager)
 {
         g_signal_handlers_disconnect_by_func (dialog,
                                               on_preferences_dialog_response,
@@ -1135,8 +1134,8 @@ on_preferences_dialog_response (CtkDialog              *dialog,
 }
 
 static void
-on_status_icon_activate (CtkStatusIcon          *status_icon,
-                         CsdA11yKeyboardManager *manager)
+on_status_icon_activate (CtkStatusIcon          *status_icon G_GNUC_UNUSED,
+			 CsdA11yKeyboardManager *manager)
 {
         if (manager->priv->preferences_dialog == NULL) {
                 manager->priv->preferences_dialog = csd_a11y_preferences_dialog_new ();

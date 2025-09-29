@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007      William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -266,9 +265,9 @@ cafe_settings_plugin_info_fill_from_file (CafeSettingsPluginInfo *info,
 }
 
 static void
-plugin_enabled_cb (GSettings              *settings,
-                   gchar                  *key,
-                   CafeSettingsPluginInfo *info)
+plugin_enabled_cb (GSettings              *settings G_GNUC_UNUSED,
+		   gchar                  *key,
+		   CafeSettingsPluginInfo *info)
 {
         if (g_settings_get_boolean (info->priv->settings, key)) {
                 cafe_settings_plugin_info_activate (info);

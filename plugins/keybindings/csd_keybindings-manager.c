@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -440,8 +439,8 @@ get_exec_environment (XEvent *xevent)
 
 static CdkFilterReturn
 keybindings_filter (CdkXEvent             *cdk_xevent,
-                    CdkEvent              *event,
-                    CsdKeybindingsManager *manager)
+		    CdkEvent              *event G_GNUC_UNUSED,
+		    CsdKeybindingsManager *manager)
 {
         XEvent *xevent = (XEvent *) cdk_xevent;
         GSList *li;
@@ -500,11 +499,11 @@ keybindings_filter (CdkXEvent             *cdk_xevent,
 }
 
 static void
-bindings_callback (DConfClient           *client,
-                   gchar                 *prefix,
-                   GStrv                  changes,
-                   gchar                 *tag,
-                   CsdKeybindingsManager *manager)
+bindings_callback (DConfClient *client G_GNUC_UNUSED,
+		   gchar       *prefix G_GNUC_UNUSED,
+		   GStrv        changes G_GNUC_UNUSED,
+		   gchar       *tag G_GNUC_UNUSED,
+CsdKeybindingsManager *manager)
 {
         g_debug ("keybindings: received 'changed' signal from dconf");
 
@@ -517,7 +516,7 @@ bindings_callback (DConfClient           *client,
 
 gboolean
 csd_keybindings_manager_start (CsdKeybindingsManager *manager,
-                               GError               **error)
+			       GError               **error G_GNUC_UNUSED)
 {
         CdkDisplay  *dpy;
         CdkScreen   *screen;

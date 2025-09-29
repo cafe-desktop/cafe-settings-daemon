@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -104,7 +103,7 @@ csd_background_plugin_class_init (CsdBackgroundPluginClass* klass)
 }
 
 static void
-csd_background_plugin_class_finalize (CsdBackgroundPluginClass *klass)
+csd_background_plugin_class_finalize (CsdBackgroundPluginClass *klass G_GNUC_UNUSED)
 {
 }
 

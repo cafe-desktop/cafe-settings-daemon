@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2003 Ross Burton <ross@burtonini.com>
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
@@ -202,8 +201,8 @@ compare_basenames (gconstpointer a,
  * right order for processing.
  */
 static GSList*
-scan_for_files (CsdXrdbManager *manager,
-                GError        **error)
+scan_for_files (CsdXrdbManager *manager G_GNUC_UNUSED,
+		GError        **error)
 {
         const char *home_dir;
         GSList     *user_list;
@@ -354,9 +353,9 @@ write_all (int         fd,
 }
 
 static void
-child_watch_cb (GPid     pid,
-                int      status,
-                gpointer user_data)
+child_watch_cb (GPid     pid G_GNUC_UNUSED,
+		int      status,
+		gpointer user_data)
 {
         char *command = user_data;
 
@@ -473,16 +472,16 @@ apply_settings (CsdXrdbManager *manager,
 }
 
 static void
-theme_changed (CtkSettings    *settings,
-               GParamSpec     *pspec,
-               CsdXrdbManager *manager)
+theme_changed (CtkSettings    *settings G_GNUC_UNUSED,
+	       GParamSpec     *pspec G_GNUC_UNUSED,
+	       CsdXrdbManager *manager)
 {
         apply_settings (manager, ctk_widget_get_style (manager->priv->widget));
 }
 
 gboolean
 csd_xrdb_manager_start (CsdXrdbManager *manager,
-                        GError        **error)
+			GError        **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 

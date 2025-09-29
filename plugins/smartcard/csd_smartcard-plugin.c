@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2010 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -158,9 +157,9 @@ csd_smartcard_plugin_finalize (GObject *object)
 }
 
 static void
-smartcard_inserted_cb (CsdSmartcardManager *card_monitor,
-                       CsdSmartcard        *card,
-                       CsdSmartcardPlugin  *plugin)
+smartcard_inserted_cb (CsdSmartcardManager *card_monitor G_GNUC_UNUSED,
+		       CsdSmartcard        *card,
+		       CsdSmartcardPlugin  *plugin)
 {
         char *name;
 
@@ -178,7 +177,7 @@ user_logged_in_with_smartcard (void)
 }
 
 static CsdSmartcardRemoveAction
-get_configured_remove_action (CsdSmartcardPlugin *plugin)
+get_configured_remove_action (CsdSmartcardPlugin *plugin G_GNUC_UNUSED)
 {
         GSettings *settings;
         char *remove_action_string;
@@ -229,9 +228,9 @@ process_smartcard_removal (CsdSmartcardPlugin *plugin)
 }
 
 static void
-smartcard_removed_cb (CsdSmartcardManager *card_monitor,
-                      CsdSmartcard        *card,
-                      CsdSmartcardPlugin  *plugin)
+smartcard_removed_cb (CsdSmartcardManager *card_monitor G_GNUC_UNUSED,
+		      CsdSmartcard        *card,
+		      CsdSmartcardPlugin  *plugin)
 {
 
         char *name;
@@ -336,7 +335,6 @@ csd_smartcard_plugin_class_init (CsdSmartcardPluginClass *klass)
 }
 
 static void
-csd_smartcard_plugin_class_finalize (CsdSmartcardPluginClass *klass)
+csd_smartcard_plugin_class_finalize (CsdSmartcardPluginClass *klass G_GNUC_UNUSED)
 {
 }
-

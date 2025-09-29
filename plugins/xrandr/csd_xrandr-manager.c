@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  * Copyright (C) 2007, 2008 Red Hat, Inc
  *
@@ -284,7 +283,8 @@ log_configurations (CafeRRConfig **configs)
 }
 
 static void
-show_timestamps_dialog (CsdXrandrManager *manager, const char *msg)
+show_timestamps_dialog (CsdXrandrManager *manager G_GNUC_UNUSED,
+			const char       *msg G_GNUC_UNUSED)
 {
 #if 1
         return;
@@ -464,7 +464,9 @@ timeout_cb (gpointer data)
 }
 
 static void
-timeout_response_cb (CtkDialog *dialog, int response_id, gpointer data)
+timeout_response_cb (CtkDialog *dialog G_GNUC_UNUSED,
+		     int        response_id,
+		     gpointer   data)
 {
         TimeoutDialog *timeout = data;
 
@@ -1359,9 +1361,9 @@ out:
 }
 
 static CdkFilterReturn
-event_filter (CdkXEvent           *xevent,
-              CdkEvent            *event,
-              gpointer             data)
+event_filter (CdkXEvent *xevent,
+	      CdkEvent  *event G_GNUC_UNUSED,
+	      gpointer   data)
 {
         CsdXrandrManager *manager = data;
         XEvent *xev = (XEvent *) xevent;
@@ -1674,13 +1676,15 @@ run_display_capplet (CtkWidget *widget)
 }
 
 static void
-popup_menu_configure_display_cb (CtkMenuItem *item, gpointer data)
+popup_menu_configure_display_cb (CtkMenuItem *item,
+				 gpointer     data G_GNUC_UNUSED)
 {
         run_display_capplet (CTK_WIDGET (item));
 }
 
 static void
-status_icon_popup_menu_selection_done_cb (CtkMenuShell *menu_shell, gpointer data)
+status_icon_popup_menu_selection_done_cb (CtkMenuShell *menu_shell G_GNUC_UNUSED,
+					  gpointer      data)
 {
         CsdXrandrManager *manager = CSD_XRANDR_MANAGER (data);
         struct CsdXrandrManagerPrivate *priv = manager->priv;
@@ -1700,7 +1704,9 @@ status_icon_popup_menu_selection_done_cb (CtkMenuShell *menu_shell, gpointer dat
 #define OUTPUT_TITLE_ITEM_PADDING 4
 
 static void
-title_item_size_allocate_cb (CtkWidget *widget, CtkAllocation *allocation, gpointer data)
+title_item_size_allocate_cb (CtkWidget     *widget,
+			     CtkAllocation *allocation,
+			     gpointer       data G_GNUC_UNUSED)
 {
         /* When CtkMenu does size_request on its items, it asks them for their "toggle size",
          * which will be non-zero when there are check/radio items.  CtkMenu remembers
@@ -2329,7 +2335,8 @@ status_icon_popup_menu (CsdXrandrManager *manager, guint button, guint32 timesta
 }
 
 static void
-status_icon_activate_cb (CtkStatusIcon *status_icon, gpointer data)
+status_icon_activate_cb (CtkStatusIcon *status_icon G_GNUC_UNUSED,
+			 gpointer       data)
 {
         CsdXrandrManager *manager = CSD_XRANDR_MANAGER (data);
 
@@ -2338,7 +2345,10 @@ status_icon_activate_cb (CtkStatusIcon *status_icon, gpointer data)
 }
 
 static void
-status_icon_popup_menu_cb (CtkStatusIcon *status_icon, guint button, guint32 timestamp, gpointer data)
+status_icon_popup_menu_cb (CtkStatusIcon *status_icon G_GNUC_UNUSED,
+			   guint          button,
+			   guint32        timestamp,
+			   gpointer       data)
 {
         CsdXrandrManager *manager = CSD_XRANDR_MANAGER (data);
 
@@ -2395,9 +2405,9 @@ start_or_stop_icon (CsdXrandrManager *manager)
 }
 
 static void
-on_config_changed (GSettings        *settings,
-                   gchar            *key,
-                   CsdXrandrManager *manager)
+on_config_changed (GSettings        *settings G_GNUC_UNUSED,
+		   gchar            *key,
+		   CsdXrandrManager *manager)
 {
         if (g_strcmp0 (key, CONF_KEY_SHOW_NOTIFICATION_ICON) == 0)
                 start_or_stop_icon (manager);

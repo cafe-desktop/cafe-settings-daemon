@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -55,8 +54,8 @@ G_DEFINE_TYPE_WITH_PRIVATE (CsdDummyManager, csd_dummy_manager, G_TYPE_OBJECT)
 static gpointer manager_object = NULL;
 
 gboolean
-csd_dummy_manager_start (CsdDummyManager *manager,
-                               GError               **error)
+csd_dummy_manager_start (CsdDummyManager *manager G_GNUC_UNUSED,
+			 GError         **error G_GNUC_UNUSED)
 {
         g_debug ("Starting dummy manager");
         cafe_settings_profile_start (NULL);
@@ -65,16 +64,16 @@ csd_dummy_manager_start (CsdDummyManager *manager,
 }
 
 void
-csd_dummy_manager_stop (CsdDummyManager *manager)
+csd_dummy_manager_stop (CsdDummyManager *manager G_GNUC_UNUSED)
 {
         g_debug ("Stopping dummy manager");
 }
 
 static void
-csd_dummy_manager_set_property (GObject        *object,
-                               guint           prop_id,
-                               const GValue   *value,
-                               GParamSpec     *pspec)
+csd_dummy_manager_set_property (GObject      *object,
+				guint         prop_id,
+				const GValue *value G_GNUC_UNUSED,
+				GParamSpec   *pspec)
 {
         switch (prop_id) {
         default:
@@ -84,10 +83,10 @@ csd_dummy_manager_set_property (GObject        *object,
 }
 
 static void
-csd_dummy_manager_get_property (GObject        *object,
-                               guint           prop_id,
-                               GValue         *value,
-                               GParamSpec     *pspec)
+csd_dummy_manager_get_property (GObject    *object,
+				guint       prop_id,
+				GValue     *value G_GNUC_UNUSED,
+				GParamSpec *pspec)
 {
         switch (prop_id) {
         default:

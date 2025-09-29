@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -102,6 +101,6 @@ csd_mpris_plugin_class_init (CsdMprisPluginClass *klass)
 }
 
 static void
-csd_mpris_plugin_class_finalize (CsdMprisPluginClass *klass)
+csd_mpris_plugin_class_finalize (CsdMprisPluginClass *klass G_GNUC_UNUSED)
 {
 }

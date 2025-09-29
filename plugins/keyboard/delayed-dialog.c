@@ -69,7 +69,7 @@ csd_delayed_show_dialog (CtkWidget *dialog)
 }
 
 static gboolean
-delayed_show_timeout (gpointer data)
+delayed_show_timeout (gpointer data G_GNUC_UNUSED)
 {
         GSList *l;
 
@@ -84,7 +84,9 @@ delayed_show_timeout (gpointer data)
 }
 
 static CdkFilterReturn
-message_filter (CdkXEvent *xevent, CdkEvent *event, gpointer data)
+message_filter (CdkXEvent *xevent,
+		CdkEvent  *event G_GNUC_UNUSED,
+		gpointer   data G_GNUC_UNUSED)
 {
         XClientMessageEvent *evt;
         char *selection_name;

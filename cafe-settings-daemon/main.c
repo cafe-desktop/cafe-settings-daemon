@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -140,9 +139,9 @@ acquire_name_on_proxy (DBusGProxy *bus_proxy)
 }
 
 static DBusHandlerResult
-bus_message_handler (DBusConnection *connection,
-                     DBusMessage    *message,
-                     void           *user_data)
+bus_message_handler (DBusConnection *connection G_GNUC_UNUSED,
+		     DBusMessage    *message,
+		     void           *user_data G_GNUC_UNUSED)
 {
         if (dbus_message_is_signal (message,
                                     DBUS_INTERFACE_LOCAL,
@@ -223,13 +222,16 @@ bus_register (DBusGConnection *bus)
 }
 
 static void
-on_session_over (DBusGProxy *proxy, CafeSettingsManager *manager)
+on_session_over (DBusGProxy          *proxy G_GNUC_UNUSED,
+		 CafeSettingsManager *manager G_GNUC_UNUSED)
 {
         /* not used, see on_session_end instead */
 }
 
 static void
-on_session_query_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manager)
+on_session_query_end (DBusGProxy          *proxy,
+		      guint                flags G_GNUC_UNUSED,
+		      CafeSettingsManager *manager G_GNUC_UNUSED)
 {
         GError *error = NULL;
         gboolean ret = FALSE;
@@ -247,7 +249,9 @@ on_session_query_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manag
 }
 
 static void
-on_session_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manager)
+on_session_end (DBusGProxy          *proxy,
+		guint                flags G_GNUC_UNUSED,
+		CafeSettingsManager *manager)
 {
         GError *error = NULL;
         gboolean ret = FALSE;
@@ -268,7 +272,7 @@ on_session_end (DBusGProxy *proxy, guint flags, CafeSettingsManager *manager)
 }
 
 static void
-on_term_signal (int signal)
+on_term_signal (int signal G_GNUC_UNUSED)
 {
         /* Wake up main loop to tell it to shutdown */
         close (term_signal_pipe_fds[1]);
@@ -276,9 +280,9 @@ on_term_signal (int signal)
 }
 
 static gboolean
-on_term_signal_pipe_closed (GIOChannel *source,
-                            GIOCondition condition,
-                            gpointer data)
+on_term_signal_pipe_closed (GIOChannel  *source G_GNUC_UNUSED,
+			    GIOCondition condition G_GNUC_UNUSED,
+			    gpointer     data G_GNUC_UNUSED)
 {
         term_signal_pipe_fds[0] = -1;
 
@@ -445,7 +449,9 @@ parse_args (int *argc, char ***argv)
             g_setenv ("G_MESSAGES_DEBUG", "all", FALSE);
 }
 
-static void debug_changed (GSettings *settings, gchar *key, gpointer user_data)
+static void debug_changed (GSettings *settings,
+			   gchar     *key G_GNUC_UNUSED,
+			   gpointer   user_data G_GNUC_UNUSED)
 {
         debug = g_settings_get_boolean (settings, DEBUG_KEY);
         if (debug) {

@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * csd_ldsm-trash-empty.c
  * Copyright (C) Chris Coulson 2009 <chrisccoulson@googlemail.com>
  *	     (C) Ryan Lortie 2008
@@ -42,7 +41,7 @@ static GTimer *timer = NULL;
 static gboolean trash_empty_actually_deleting;
 
 static gboolean
-trash_empty_done (gpointer data)
+trash_empty_done (gpointer data G_GNUC_UNUSED)
 {
         ctk_widget_destroy (trash_empty_dialog);
         trash_empty_dialog = NULL;
@@ -55,7 +54,7 @@ trash_empty_done (gpointer data)
 }
 
 static gboolean
-trash_empty_update_dialog (gpointer user_data)
+trash_empty_update_dialog (gpointer user_data G_GNUC_UNUSED)
 {
         gsize deleted, total;
         GFile *file;
@@ -204,8 +203,8 @@ trash_empty_delete_contents (GIOSchedulerJob *job,
 
 static gboolean
 trash_empty_job (GIOSchedulerJob *job,
-                 GCancellable *cancellable,
-                 gpointer user_data)
+		 GCancellable    *cancellable,
+		 gpointer         user_data G_GNUC_UNUSED)
 {
         gsize deleted;
         GFile *trash;
@@ -316,8 +315,8 @@ trash_empty_start ()
 
 static void
 trash_empty_confirmation_response (CtkDialog *dialog,
-                                   gint       response_id,
-                                   gpointer   user_data)
+				   gint       response_id,
+				   gpointer   user_data G_GNUC_UNUSED)
 {
         if (response_id == CTK_RESPONSE_YES)
                 trash_empty_start ();
