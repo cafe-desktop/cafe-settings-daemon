@@ -30,6 +30,9 @@
 extern "C" {
 #endif /* __cplusplus */
 
+#define GNUC_UNUSED \
+  __attribute__ ((__unused__))
+
 typedef struct _XSettingsManager XSettingsManager;
 
 typedef void (*XSettingsTerminateFunc)  (void *cb_data);

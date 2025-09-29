@@ -54,7 +54,7 @@ typedef struct
 } TimeStampInfo;
 
 static Bool
-timestamp_predicate (Display *display,
+timestamp_predicate (Display *display GNUC_UNUSED,
 		     XEvent  *xevent,
 		     XPointer arg)
 {
@@ -217,8 +217,8 @@ xsettings_manager_process_event (XSettingsManager *manager,
 }
 
 XSettingsResult
-xsettings_manager_delete_setting (XSettingsManager *manager,
-                                  const char       *name)
+xsettings_manager_delete_setting (XSettingsManager *manager GNUC_UNUSED,
+				  const char       *name)
 {
   return xsettings_list_delete (&settings, name);
 }

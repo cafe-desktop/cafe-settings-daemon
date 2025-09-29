@@ -80,7 +80,7 @@ typedef struct
 } TimeStampInfo;
 
 static Bool
-timestamp_predicate (Display *display,
+timestamp_predicate (Display *display GNUC_UNUSED,
 		     XEvent  *xevent,
 		     XPointer arg)
 {

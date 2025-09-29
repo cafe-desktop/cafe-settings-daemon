@@ -25,6 +25,8 @@
 
 #include <X11/Xlib.h>
 
+#define GNUC_UNUSED \
+  __attribute__ ((__unused__))
 
 extern Atom XA_ATOM_PAIR;
 extern Atom XA_CLIPBOARD_MANAGER;
