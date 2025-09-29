@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
  *
@@ -102,6 +101,6 @@ csd_media_keys_plugin_class_init (CsdMediaKeysPluginClass *klass)
 }
 
 static void
-csd_media_keys_plugin_class_finalize (CsdMediaKeysPluginClass *klass)
+csd_media_keys_plugin_class_finalize (CsdMediaKeysPluginClass *klass G_GNUC_UNUSED)
 {
 }

@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  * Copyright (C) 2010,2011 Red Hat, Inc.
  *
@@ -249,9 +248,9 @@ engine_properties_changed (CsdRfkillManager *manager)
 }
 
 static void
-rfkill_changed (CcRfkillGlib     *rfkill,
+rfkill_changed (CcRfkillGlib     *rfkill G_GNUC_UNUSED,
 		GList            *events,
-		CsdRfkillManager  *manager)
+		CsdRfkillManager *manager)
 {
 	GList *l;
         int value;
@@ -299,7 +298,7 @@ rfkill_changed (CcRfkillGlib     *rfkill,
 static void
 rfkill_set_cb (GObject      *source_object,
 	       GAsyncResult *res,
-	       gpointer      user_data)
+	       gpointer      user_data G_GNUC_UNUSED)
 {
 	gboolean ret;
 	GError *error = NULL;
@@ -316,8 +315,8 @@ rfkill_set_cb (GObject      *source_object,
 
 static void
 set_wwan_complete (GObject      *object,
-                   GAsyncResult *result,
-                   gpointer      user_data)
+		   GAsyncResult *result,
+		   gpointer      user_data G_GNUC_UNUSED)
 {
         GError *error;
         GVariant *variant;
@@ -371,14 +370,14 @@ engine_set_airplane_mode (CsdRfkillManager *manager,
 }
 
 static gboolean
-handle_set_property (GDBusConnection *connection,
-                     const gchar     *sender,
-                     const gchar     *object_path,
-                     const gchar     *interface_name,
-                     const gchar     *property_name,
-                     GVariant        *value,
-                     GError         **error,
-                     gpointer         user_data)
+handle_set_property (GDBusConnection *connection G_GNUC_UNUSED,
+		     const gchar     *sender G_GNUC_UNUSED,
+		     const gchar     *object_path G_GNUC_UNUSED,
+		     const gchar     *interface_name G_GNUC_UNUSED,
+		     const gchar     *property_name,
+		     GVariant        *value,
+		     GError         **error G_GNUC_UNUSED,
+		     gpointer         user_data)
 {
         CsdRfkillManager *manager = CSD_RFKILL_MANAGER (user_data);
 
@@ -396,13 +395,13 @@ handle_set_property (GDBusConnection *connection,
 }
 
 static GVariant *
-handle_get_property (GDBusConnection *connection,
-                     const gchar     *sender,
-                     const gchar     *object_path,
-                     const gchar     *interface_name,
-                     const gchar     *property_name,
-                     GError         **error,
-                     gpointer         user_data)
+handle_get_property (GDBusConnection *connection G_GNUC_UNUSED,
+		     const gchar     *sender G_GNUC_UNUSED,
+		     const gchar     *object_path G_GNUC_UNUSED,
+		     const gchar     *interface_name G_GNUC_UNUSED,
+		     const gchar     *property_name,
+		     GError         **error G_GNUC_UNUSED,
+		     gpointer         user_data)
 {
         CsdRfkillManager *manager = CSD_RFKILL_MANAGER (user_data);
 
@@ -465,9 +464,9 @@ static const GDBusInterfaceVTable interface_vtable =
 };
 
 static void
-on_bus_gotten (GObject               *source_object,
-               GAsyncResult          *res,
-               CsdRfkillManager *manager)
+on_bus_gotten (GObject          *source_object G_GNUC_UNUSED,
+	       GAsyncResult     *res,
+	       CsdRfkillManager *manager)
 {
         GDBusConnection *connection;
         GError *error = NULL;
@@ -519,10 +518,10 @@ sync_wwan_enabled (CsdRfkillManager *manager)
 
 static void
 nm_signal (GDBusProxy *proxy,
-           char       *sender_name,
-           char       *signal_name,
-           GVariant   *parameters,
-           gpointer    user_data)
+	   char       *sender_name G_GNUC_UNUSED,
+	   char       *signal_name,
+	   GVariant   *parameters,
+	   gpointer    user_data)
 {
         CsdRfkillManager *manager = user_data;
         GVariant *changed;
@@ -543,9 +542,9 @@ nm_signal (GDBusProxy *proxy,
 }
 
 static void
-on_nm_proxy_gotten (GObject      *source,
-                    GAsyncResult *result,
-                    gpointer      user_data)
+on_nm_proxy_gotten (GObject      *source G_GNUC_UNUSED,
+		    GAsyncResult *result,
+		    gpointer      user_data)
 {
         CsdRfkillManager *manager = user_data;
         GDBusProxy *proxy;
@@ -575,9 +574,9 @@ on_nm_proxy_gotten (GObject      *source,
 
 static void
 sync_wwan_interesting (GDBusObjectManager *object_manager,
-                       GDBusObject        *object,
-                       GDBusInterface     *interface,
-                       gpointer            user_data)
+		       GDBusObject        *object G_GNUC_UNUSED,
+		       GDBusInterface     *interface G_GNUC_UNUSED,
+		       gpointer            user_data)
 {
         CsdRfkillManager *manager = user_data;
         GList *objects;
@@ -590,9 +589,9 @@ sync_wwan_interesting (GDBusObjectManager *object_manager,
 }
 
 static void
-on_mm_proxy_gotten (GObject      *source,
-                    GAsyncResult *result,
-                    gpointer      user_data)
+on_mm_proxy_gotten (GObject      *source G_GNUC_UNUSED,
+		    GAsyncResult *result,
+		    gpointer      user_data)
 {
         CsdRfkillManager *manager = user_data;
         GDBusObjectManager *proxy;
@@ -624,7 +623,7 @@ on_mm_proxy_gotten (GObject      *source,
 
 gboolean
 csd_rfkill_manager_start (CsdRfkillManager *manager,
-                         GError         **error)
+			  GError          **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 

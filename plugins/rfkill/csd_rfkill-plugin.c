@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  * Copyright (C) 2010 Red Hat, Inc.
  *
@@ -102,7 +101,6 @@ csd_rfkill_plugin_class_init (CsdRfkillPluginClass *klass)
 }
 
 static void
-csd_rfkill_plugin_class_finalize (CsdRfkillPluginClass *klass)
+csd_rfkill_plugin_class_finalize (CsdRfkillPluginClass *klass G_GNUC_UNUSED)
 {
 }
-

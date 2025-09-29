@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -100,6 +99,6 @@ cafe_xsettings_plugin_class_init (CafeXSettingsPluginClass *klass)
 }
 
 static void
-cafe_xsettings_plugin_class_finalize (CafeXSettingsPluginClass *klass)
+cafe_xsettings_plugin_class_finalize (CafeXSettingsPluginClass *klass G_GNUC_UNUSED)
 {
 }

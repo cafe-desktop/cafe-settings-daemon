@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 David Zeuthen <david@fubar.dk>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -120,7 +119,8 @@ get_system_bus (void)
 }
 
 int
-main (int argc, char **argv)
+main (int    argc G_GNUC_UNUSED,
+      char **argv G_GNUC_UNUSED)
 {
         GMainLoop             *loop;
         CsdDatetimeMechanism  *mechanism;

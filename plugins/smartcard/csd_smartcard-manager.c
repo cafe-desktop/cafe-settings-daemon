@@ -233,8 +233,8 @@ csd_smartcard_manager_set_module_path (CsdSmartcardManager *manager,
 }
 
 static void
-csd_smartcard_manager_card_removed_handler (CsdSmartcardManager *manager,
-                                            CsdSmartcard        *card)
+csd_smartcard_manager_card_removed_handler (CsdSmartcardManager *manager G_GNUC_UNUSED,
+					    CsdSmartcard        *card)
 {
         g_debug ("informing smartcard of its removal");
         _csd_smartcard_set_state (card, CSD_SMARTCARD_STATE_REMOVED);
@@ -242,8 +242,8 @@ csd_smartcard_manager_card_removed_handler (CsdSmartcardManager *manager,
 }
 
 static void
-csd_smartcard_manager_card_inserted_handler (CsdSmartcardManager *manager,
-                                             CsdSmartcard        *card)
+csd_smartcard_manager_card_inserted_handler (CsdSmartcardManager *manager G_GNUC_UNUSED,
+					     CsdSmartcard        *card)
 {
         g_debug ("informing smartcard of its insertion");
 
@@ -842,9 +842,9 @@ csd_smartcard_manager_stop (CsdSmartcardManager *manager)
 }
 
 static void
-csd_smartcard_manager_check_for_login_card (CK_SLOT_ID   slot_id,
-                                            CsdSmartcard *card,
-                                            gboolean     *is_inserted)
+csd_smartcard_manager_check_for_login_card (CK_SLOT_ID   slot_id G_GNUC_UNUSED,
+					    CsdSmartcard *card,
+					    gboolean     *is_inserted)
 {
         g_assert (is_inserted != NULL);
 

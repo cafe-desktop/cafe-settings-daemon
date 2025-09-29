@@ -481,9 +481,9 @@ _csd_smartcard_set_state (CsdSmartcard      *card,
  * and strdup it using NSPR's memory allocation routines.
  */
 static char *
-csd_smartcard_password_handler (PK11SlotInfo *slot,
-                                PRBool        is_retrying,
-                                const char   *password)
+csd_smartcard_password_handler (PK11SlotInfo *slot G_GNUC_UNUSED,
+				PRBool        is_retrying,
+				const char   *password)
 {
         if (is_retrying) {
                 return NULL;

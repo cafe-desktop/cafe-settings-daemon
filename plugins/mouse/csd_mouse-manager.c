@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -559,8 +558,8 @@ set_left_handed_all (CsdMouseManager *manager,
 
 static CdkFilterReturn
 devicepresence_filter (CdkXEvent *xevent,
-                       CdkEvent  *event,
-                       gpointer   data)
+		       CdkEvent  *event G_GNUC_UNUSED,
+		       gpointer   data)
 {
         XEvent *xev = (XEvent *) xevent;
         G_GNUC_UNUSED XEventClass class_presence;
@@ -958,8 +957,8 @@ set_disable_w_typing_synaptics (CsdMouseManager *manager,
 }
 
 static void
-set_disable_w_typing_libinput (CsdMouseManager *manager,
-                               gboolean         state)
+set_disable_w_typing_libinput (CsdMouseManager *manager G_GNUC_UNUSED,
+			       gboolean         state)
 {
         XDeviceInfo *device_info;
         gint n_devices;
@@ -1793,7 +1792,7 @@ csd_mouse_manager_idle_cb (CsdMouseManager *manager)
 
 gboolean
 csd_mouse_manager_start (CsdMouseManager *manager,
-                         GError         **error)
+			 GError         **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 

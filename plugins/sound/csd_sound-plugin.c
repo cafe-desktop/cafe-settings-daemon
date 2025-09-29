@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2008 Lennart Poettering <lennart@poettering.net>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -96,7 +95,6 @@ csd_sound_plugin_class_init (CsdSoundPluginClass *klass)
 }
 
 static void
-csd_sound_plugin_class_finalize (CsdSoundPluginClass *klass)
+csd_sound_plugin_class_finalize (CsdSoundPluginClass *klass G_GNUC_UNUSED)
 {
 }
-

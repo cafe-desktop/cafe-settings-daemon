@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -293,7 +292,8 @@ _load_all (CafeSettingsManager *manager)
 }
 
 static void
-_unload_plugin (CafeSettingsPluginInfo *info, gpointer user_data)
+_unload_plugin (CafeSettingsPluginInfo *info,
+		gpointer                user_data G_GNUC_UNUSED)
 {
         if (cafe_settings_plugin_info_get_enabled (info)) {
                 cafe_settings_plugin_info_deactivate (info);

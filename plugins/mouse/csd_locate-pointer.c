@@ -166,7 +166,7 @@ update_shape (CsdLocatePointerData *data)
 }
 
 static void
-timeline_frame_cb (CsdTimeline *timeline,
+timeline_frame_cb (CsdTimeline *timeline G_GNUC_UNUSED,
 		   gdouble      progress,
 		   gpointer     user_data)
 {
@@ -250,7 +250,7 @@ composited_changed (CdkScreen            *screen,
 }
 
 static void
-timeline_finished_cb (CsdTimeline *timeline,
+timeline_finished_cb (CsdTimeline *timeline G_GNUC_UNUSED,
 		      gpointer     user_data)
 {
   CsdLocatePointerData *data = (CsdLocatePointerData *) user_data;
@@ -266,8 +266,8 @@ timeline_finished_cb (CsdTimeline *timeline,
 }
 
 static void
-locate_pointer_unrealize_cb (CtkWidget            *widget,
-                             CsdLocatePointerData *data)
+locate_pointer_unrealize_cb (CtkWidget            *widget G_GNUC_UNUSED,
+			     CsdLocatePointerData *data)
 {
   if (data->window != NULL)
     {
@@ -279,8 +279,8 @@ locate_pointer_unrealize_cb (CtkWidget            *widget,
 }
 
 static void
-locate_pointer_realize_cb (CtkWidget            *widget,
-                           CsdLocatePointerData *data)
+locate_pointer_realize_cb (CtkWidget            *widget G_GNUC_UNUSED,
+			   CsdLocatePointerData *data)
 {
   CdkDisplay *display;
   CdkScreen *screen;
@@ -321,9 +321,9 @@ locate_pointer_realize_cb (CtkWidget            *widget,
 }
 
 static gboolean
-locate_pointer_draw_cb (CtkWidget      *widget,
-                        cairo_t        *cr,
-                        gpointer        user_data)
+locate_pointer_draw_cb (CtkWidget *widget G_GNUC_UNUSED,
+			cairo_t   *cr,
+			gpointer   user_data)
 {
   CsdLocatePointerData *data = (CsdLocatePointerData *) user_data;
   CdkScreen *screen = cdk_window_get_screen (data->window);
@@ -442,8 +442,8 @@ csd_locate_pointer (CdkDisplay *display)
 /* Owen magic */
 static CdkFilterReturn
 event_filter (CdkXEvent *cdkxevent,
-              CdkEvent  *event,
-              gpointer   user_data)
+	      CdkEvent  *event G_GNUC_UNUSED,
+	      gpointer   user_data)
 {
   XEvent *xevent = (XEvent *) cdkxevent;
   CdkDisplay *display = (CdkDisplay *) user_data;

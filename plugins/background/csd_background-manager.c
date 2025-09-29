@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2001 Ximian, Inc.
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  * Copyright (C) 2007 Red Hat, Inc.
@@ -232,7 +231,7 @@ draw_background (CsdBackgroundManager *manager,
 }
 
 static void
-on_bg_changed (CafeBG               *bg,
+on_bg_changed (CafeBG               *bg G_GNUC_UNUSED,
 	       CsdBackgroundManager *manager)
 {
 	g_debug ("Background changed");
@@ -240,7 +239,7 @@ on_bg_changed (CafeBG               *bg,
 }
 
 static void
-on_bg_transitioned (CafeBG               *bg,
+on_bg_transitioned (CafeBG               *bg G_GNUC_UNUSED,
 		    CsdBackgroundManager *manager)
 {
 	g_debug ("Background transitioned");
@@ -308,9 +307,9 @@ settings_change_event_idle_cb (CsdBackgroundManager *manager)
 }
 
 static gboolean
-settings_change_event_cb (GSettings            *settings,
-			  gpointer              keys,
-			  gint                  n_keys,
+settings_change_event_cb (GSettings            *settings G_GNUC_UNUSED,
+			  gpointer              keys G_GNUC_UNUSED,
+			  gint                  n_keys G_GNUC_UNUSED,
 			  CsdBackgroundManager *manager)
 {
 	CsdBackgroundManagerPrivate *p = manager->priv;
@@ -375,8 +374,8 @@ remove_background (CsdBackgroundManager *manager)
 }
 
 static void
-on_bg_handling_changed (GSettings            *settings,
-			const char           *key,
+on_bg_handling_changed (GSettings            *settings G_GNUC_UNUSED,
+			const char           *key G_GNUC_UNUSED,
 			CsdBackgroundManager *manager)
 {
 	CsdBackgroundManagerPrivate *p = manager->priv;
@@ -433,10 +432,10 @@ disconnect_session_manager_listener (CsdBackgroundManager* manager)
 }
 
 static void
-on_session_manager_signal (GDBusProxy   *proxy,
-			   const gchar  *sender_name,
+on_session_manager_signal (GDBusProxy   *proxy G_GNUC_UNUSED,
+			   const gchar  *sender_name G_GNUC_UNUSED,
 			   const gchar  *signal_name,
-			   GVariant     *parameters,
+			   GVariant     *parameters G_GNUC_UNUSED,
 			   gpointer      user_data)
 {
 	CsdBackgroundManager *manager = CSD_BACKGROUND_MANAGER (user_data);
@@ -478,7 +477,7 @@ draw_bg_after_session_loads (CsdBackgroundManager *manager)
 
 gboolean
 csd_background_manager_start (CsdBackgroundManager  *manager,
-			      GError               **error)
+			      GError               **error G_GNUC_UNUSED)
 {
 	CsdBackgroundManagerPrivate *p = manager->priv;
 

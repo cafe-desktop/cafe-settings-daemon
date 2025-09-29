@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 David Zeuthen <david@fubar.dk>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -45,7 +44,7 @@
 #include "csd_datetime-mechanism-glue.h"
 
 static gboolean
-do_exit (gpointer user_data)
+do_exit (gpointer user_data G_GNUC_UNUSED)
 {
         g_debug ("Exiting due to inactivity");
         exit (1);
@@ -466,8 +465,8 @@ csd_datetime_mechanism_set_timezone (CsdDatetimeMechanism  *mechanism,
 
 
 gboolean
-csd_datetime_mechanism_get_timezone (CsdDatetimeMechanism   *mechism,
-                                     DBusGMethodInvocation  *context)
+csd_datetime_mechanism_get_timezone (CsdDatetimeMechanism   *mechism G_GNUC_UNUSED,
+				     DBusGMethodInvocation  *context)
 {
   gchar *timezone;
 
@@ -481,8 +480,8 @@ csd_datetime_mechanism_get_timezone (CsdDatetimeMechanism   *mechism,
 }
 
 gboolean
-csd_datetime_mechanism_get_hardware_clock_using_utc (CsdDatetimeMechanism  *mechanism,
-                                                     DBusGMethodInvocation *context)
+csd_datetime_mechanism_get_hardware_clock_using_utc (CsdDatetimeMechanism  *mechanism G_GNUC_UNUSED,
+						     DBusGMethodInvocation *context)
 {
         char **lines;
         char *data;

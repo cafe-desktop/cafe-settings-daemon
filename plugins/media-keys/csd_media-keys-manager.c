@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2001-2003 Bastien Nocera <hadess@hadess.net>
  * Copyright (C) 2006-2007 William Jon McCann <mccann@jhu.edu>
  * Copyright (C) 2014 Michal Ratajsky <michal.ratajsky@gmail.com>
@@ -141,7 +140,7 @@ acme_error (char * msg)
 }
 
 static char *
-get_term_command (CsdMediaKeysManager *manager)
+get_term_command (CsdMediaKeysManager *manager G_GNUC_UNUSED)
 {
 	char *cmd_term, *cmd_args;
 	char *cmd = NULL;
@@ -476,8 +475,8 @@ dialog_show (CsdMediaKeysManager *manager)
 }
 
 static void
-do_url_action (CsdMediaKeysManager *manager,
-               const gchar         *scheme)
+do_url_action (CsdMediaKeysManager *manager G_GNUC_UNUSED,
+	       const gchar         *scheme)
 {
         GError *error = NULL;
         GAppInfo *app_info;
@@ -499,7 +498,7 @@ do_url_action (CsdMediaKeysManager *manager,
 }
 
 static void
-do_media_action (CsdMediaKeysManager *manager)
+do_media_action (CsdMediaKeysManager *manager G_GNUC_UNUSED)
 {
         GError *error = NULL;
         GAppInfo *app_info;
@@ -565,8 +564,8 @@ do_logout_action (CsdMediaKeysManager *manager)
 
 static void
 do_eject_action_cb (GDrive              *drive,
-                    GAsyncResult        *res,
-                    CsdMediaKeysManager *manager)
+		    GAsyncResult        *res,
+		    CsdMediaKeysManager *manager G_GNUC_UNUSED)
 {
         g_drive_eject_with_operation_finish (drive, res, NULL);
 }
@@ -853,34 +852,34 @@ update_default_input (CsdMediaKeysManager *manager)
 }
 
 static void
-on_context_state_notify (CafeMixerContext    *context,
-                         GParamSpec          *pspec,
-                         CsdMediaKeysManager *manager)
+on_context_state_notify (CafeMixerContext    *context G_GNUC_UNUSED,
+			 GParamSpec          *pspec G_GNUC_UNUSED,
+			 CsdMediaKeysManager *manager)
 {
         update_default_output (manager);
         update_default_input (manager);
 }
 
 static void
-on_context_default_output_notify (CafeMixerContext    *context,
-                                  GParamSpec          *pspec,
-                                  CsdMediaKeysManager *manager)
+on_context_default_output_notify (CafeMixerContext    *context G_GNUC_UNUSED,
+				  GParamSpec          *pspec G_GNUC_UNUSED,
+				  CsdMediaKeysManager *manager)
 {
         update_default_output (manager);
 }
 
 static void
-on_context_default_input_notify (CafeMixerContext    *context,
-                                 GParamSpec          *pspec,
-                                 CsdMediaKeysManager *manager)
+on_context_default_input_notify (CafeMixerContext    *context G_GNUC_UNUSED,
+				 GParamSpec          *pspec G_GNUC_UNUSED,
+				 CsdMediaKeysManager *manager)
 {
         update_default_input (manager);
 }
 
 static void
-on_context_stream_removed (CafeMixerContext    *context,
-                           const gchar         *name,
-                           CsdMediaKeysManager *manager)
+on_context_stream_removed (CafeMixerContext    *context G_GNUC_UNUSED,
+			   const gchar         *name,
+			   CsdMediaKeysManager *manager)
 {
         if (manager->priv->stream != NULL) {
                 CafeMixerStream *stream =
@@ -1061,9 +1060,9 @@ find_by_time (gconstpointer a,
  */
 gboolean
 csd_media_keys_manager_grab_media_player_keys (CsdMediaKeysManager *manager,
-                                               const char          *application,
-                                               guint32              time,
-                                               GError             **error)
+					       const char          *application,
+					       guint32              time,
+					       GError             **error G_GNUC_UNUSED)
 {
         GList       *iter;
         MediaPlayer *media_player;
@@ -1103,8 +1102,8 @@ csd_media_keys_manager_grab_media_player_keys (CsdMediaKeysManager *manager,
 
 gboolean
 csd_media_keys_manager_release_media_player_keys (CsdMediaKeysManager *manager,
-                                                  const char          *application,
-                                                  GError             **error)
+						  const char          *application,
+						  GError             **error G_GNUC_UNUSED)
 {
         GList *iter;
 
@@ -1160,19 +1159,19 @@ do_toggle_accessibility_key (const char *key)
 }
 
 static void
-do_magnifier_action (CsdMediaKeysManager *manager)
+do_magnifier_action (CsdMediaKeysManager *manager G_GNUC_UNUSED)
 {
         do_toggle_accessibility_key ("screen-magnifier-enabled");
 }
 
 static void
-do_screenreader_action (CsdMediaKeysManager *manager)
+do_screenreader_action (CsdMediaKeysManager *manager G_GNUC_UNUSED)
 {
         do_toggle_accessibility_key ("screen-reader-enabled");
 }
 
 static void
-do_on_screen_keyboard_action (CsdMediaKeysManager *manager)
+do_on_screen_keyboard_action (CsdMediaKeysManager *manager G_GNUC_UNUSED)
 {
         do_toggle_accessibility_key ("screen-keyboard-enabled");
 }
@@ -1343,8 +1342,8 @@ acme_get_screen_from_event (CsdMediaKeysManager *manager,
 
 static CdkFilterReturn
 acme_filter_events (CdkXEvent           *xevent,
-                    CdkEvent            *event,
-                    CsdMediaKeysManager *manager)
+		    CdkEvent            *event G_GNUC_UNUSED,
+		    CsdMediaKeysManager *manager)
 {
         XEvent    *xev = (XEvent *) xevent;
         XAnyEvent *xany = (XAnyEvent *) xevent;
@@ -1383,9 +1382,9 @@ acme_filter_events (CdkXEvent           *xevent,
 }
 
 static void
-on_rfkill_proxy_ready (GObject      *source,
-                       GAsyncResult *result,
-                       gpointer      data)
+on_rfkill_proxy_ready (GObject      *source G_GNUC_UNUSED,
+		       GAsyncResult *result,
+		       gpointer      data)
 {
         CsdMediaKeysManager *manager = data;
 
@@ -1394,10 +1393,10 @@ on_rfkill_proxy_ready (GObject      *source,
 }
 
 static void
-rfkill_appeared_cb (GDBusConnection *connection,
-                    const gchar     *name,
-                    const gchar     *name_owner,
-                    gpointer         user_data)
+rfkill_appeared_cb (GDBusConnection *connection G_GNUC_UNUSED,
+		    const gchar     *name G_GNUC_UNUSED,
+		    const gchar     *name_owner G_GNUC_UNUSED,
+		    gpointer         user_data)
 {
         CsdMediaKeysManager *manager = user_data;
 
@@ -1471,7 +1470,8 @@ start_media_keys_idle_cb (CsdMediaKeysManager *manager)
 }
 
 gboolean
-csd_media_keys_manager_start (CsdMediaKeysManager *manager, GError **error)
+csd_media_keys_manager_start (CsdMediaKeysManager *manager,
+			      GError             **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 

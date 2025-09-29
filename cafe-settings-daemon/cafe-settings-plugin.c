@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2002-2005 Paolo Maggi
  * Copyright (C) 2007      William Jon McCann <mccann@jhu.edu>
  *
@@ -26,7 +25,7 @@
 G_DEFINE_TYPE (CafeSettingsPlugin, cafe_settings_plugin, G_TYPE_OBJECT)
 
 static void
-dummy (CafeSettingsPlugin *plugin)
+dummy (CafeSettingsPlugin *plugin G_GNUC_UNUSED)
 {
         /* Empty */
 }
@@ -39,7 +38,7 @@ cafe_settings_plugin_class_init (CafeSettingsPluginClass *klass)
 }
 
 static void
-cafe_settings_plugin_init (CafeSettingsPlugin *plugin)
+cafe_settings_plugin_init (CafeSettingsPlugin *plugin G_GNUC_UNUSED)
 {
         /* Empty */
 }

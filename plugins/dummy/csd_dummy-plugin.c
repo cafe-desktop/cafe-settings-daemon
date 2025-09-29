@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -100,6 +99,6 @@ csd_dummy_plugin_class_init (CsdDummyPluginClass *klass)
 }
 
 static void
-csd_dummy_plugin_class_finalize (CsdDummyPluginClass *klass)
+csd_dummy_plugin_class_finalize (CsdDummyPluginClass *klass G_GNUC_UNUSED)
 {
 }

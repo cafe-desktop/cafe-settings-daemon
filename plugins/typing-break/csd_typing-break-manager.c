@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -72,8 +71,8 @@ typing_break_timeout (CsdTypingBreakManager *manager)
 
 static void
 child_watch (GPid                   pid,
-             int                    status,
-             CsdTypingBreakManager *manager)
+	     int                    status G_GNUC_UNUSED,
+	     CsdTypingBreakManager *manager)
 {
         if (pid == manager->priv->typing_monitor_pid) {
                 manager->priv->typing_monitor_pid = 0;
@@ -150,7 +149,7 @@ really_setup_typing_break (CsdTypingBreakManager *manager)
 
 gboolean
 csd_typing_break_manager_start (CsdTypingBreakManager *manager,
-                                GError               **error)
+				GError               **error G_GNUC_UNUSED)
 {
         gboolean     enabled;
 

@@ -230,8 +230,8 @@ do_cleanup_soon (CsdHousekeepingManager *manager)
 }
 
 static void
-settings_changed_callback (GSettings              *settings,
-			   const char             *key,
+settings_changed_callback (GSettings              *settings G_GNUC_UNUSED,
+			   const char             *key G_GNUC_UNUSED,
 			   CsdHousekeepingManager *manager)
 {
         do_cleanup_soon (manager);
@@ -239,7 +239,7 @@ settings_changed_callback (GSettings              *settings,
 
 gboolean
 csd_housekeeping_manager_start (CsdHousekeepingManager *manager,
-                                GError                **error)
+				GError                **error G_GNUC_UNUSED)
 {
         g_debug ("Starting housekeeping manager");
         cafe_settings_profile_start (NULL);
@@ -295,7 +295,7 @@ csd_housekeeping_manager_stop (CsdHousekeepingManager *manager)
 }
 
 static void
-csd_housekeeping_manager_class_init (CsdHousekeepingManagerClass *klass)
+csd_housekeeping_manager_class_init (CsdHousekeepingManagerClass *klass G_GNUC_UNUSED)
 {
 }
 

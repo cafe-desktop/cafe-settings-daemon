@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 Matthias Clasen
  * Copyright (C) 2007 Anders Carlsson
  * Copyright (C) 2007 Rodrigo Moya
@@ -809,8 +808,8 @@ clipboard_manager_process_event (CsdClipboardManager *manager,
 
 static CdkFilterReturn
 clipboard_manager_event_filter (CdkXEvent           *xevent,
-                                CdkEvent            *event,
-                                CsdClipboardManager *manager)
+				CdkEvent            *event G_GNUC_UNUSED,
+				CsdClipboardManager *manager)
 {
         if (clipboard_manager_process_event (manager, (XEvent *)xevent)) {
                 return CDK_FILTER_REMOVE;
@@ -821,10 +820,10 @@ clipboard_manager_event_filter (CdkXEvent           *xevent,
 
 static void
 clipboard_manager_watch_cb (CsdClipboardManager *manager,
-                            Window               window,
-                            Bool                 is_start,
-                            long                 mask,
-                            void                *cb_data)
+			    Window               window,
+			    Bool                 is_start,
+			    long                 mask G_GNUC_UNUSED,
+			    void                *cb_data G_GNUC_UNUSED)
 {
         CdkWindow  *cdkwin;
         CdkDisplay *display;
@@ -930,7 +929,7 @@ start_clipboard_idle_cb (CsdClipboardManager *manager)
 
 gboolean
 csd_clipboard_manager_start (CsdClipboardManager *manager,
-                             GError             **error)
+			     GError             **error G_GNUC_UNUSED)
 {
         cafe_settings_profile_start (NULL);
 

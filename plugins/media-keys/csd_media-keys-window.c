@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2006-2007 William Jon McCann <mccann@jhu.edu>
  *
  *
@@ -410,11 +409,11 @@ draw_speaker (cairo_t *cr,
 
 static gboolean
 render_speaker (CsdMediaKeysWindow *window,
-                cairo_t            *cr,
-                double              _x0,
-                double              _y0,
-                double              width,
-                double              height)
+		cairo_t            *cr,
+		double              _x0,
+		double              _y0,
+		double              width,
+		double              height G_GNUC_UNUSED)
 {
         GdkPixbuf         *pixbuf;
         int                icon_size;
@@ -632,11 +631,11 @@ draw_action_volume (CsdMediaKeysWindow *window,
 
 static gboolean
 render_custom (CsdMediaKeysWindow *window,
-               cairo_t            *cr,
-               double              _x0,
-               double              _y0,
-               double              width,
-               double              height)
+	       cairo_t            *cr,
+	       double              _x0,
+	       double              _y0,
+	       double              width,
+	       double              height G_GNUC_UNUSED)
 {
         GdkPixbuf         *pixbuf;
         int                icon_size;

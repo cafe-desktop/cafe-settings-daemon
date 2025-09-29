@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2013 Stefano Karapetsas <stefano@karapetsas.com>
  *               2013 Steve Zesch <stevezesch2@gmail.com>
  *               2007 William Jon McCann <mccann@jhu.edu>
@@ -88,10 +87,10 @@ get_player_name(const gchar *name)
 /* A media player was just run and should be
  * added to the head of media_player_queue. */
 static void
-mp_name_appeared (GDBusConnection  *connection,
-                  const gchar      *name,
-                  const gchar      *name_owner,
-                  gpointer          user_data)
+mp_name_appeared (GDBusConnection *connection G_GNUC_UNUSED,
+		  const gchar     *name,
+		  const gchar     *name_owner G_GNUC_UNUSED,
+		  gpointer         user_data)
 {
     CsdMprisManager *manager = user_data;
     gchar *player_name;
@@ -106,9 +105,9 @@ mp_name_appeared (GDBusConnection  *connection,
 /* A media player quit running and should be
  * removed from media_player_queue. */
 static void
-mp_name_vanished (GDBusConnection *connection,
-                  const gchar     *name,
-                  gpointer         user_data)
+mp_name_vanished (GDBusConnection *connection G_GNUC_UNUSED,
+		  const gchar     *name,
+		  gpointer         user_data)
 {
     CsdMprisManager *manager = user_data;
     gchar *player_name;
@@ -189,9 +188,9 @@ on_media_player_key_pressed (CsdMprisManager  *manager,
 }
 
 static void
-grab_media_player_keys_cb (GDBusProxy       *proxy,
-                           GAsyncResult     *res,
-                           CsdMprisManager  *manager)
+grab_media_player_keys_cb (GDBusProxy      *proxy,
+			   GAsyncResult    *res,
+			   CsdMprisManager *manager G_GNUC_UNUSED)
 {
     GVariant *variant;
     GError *error = NULL;
@@ -223,11 +222,11 @@ grab_media_player_keys (CsdMprisManager *manager)
 }
 
 static void
-key_pressed (GDBusProxy          *proxy,
-             gchar               *sender_name,
-             gchar               *signal_name,
-             GVariant            *parameters,
-             CsdMprisManager     *manager)
+key_pressed (GDBusProxy      *proxy G_GNUC_UNUSED,
+	     gchar           *sender_name G_GNUC_UNUSED,
+	     gchar           *signal_name,
+	     GVariant        *parameters,
+	     CsdMprisManager *manager)
 {
     char *app, *cmd;
 
@@ -242,9 +241,9 @@ key_pressed (GDBusProxy          *proxy,
 }
 
 static void
-got_proxy_cb (GObject           *source_object,
-              GAsyncResult      *res,
-              CsdMprisManager   *manager)
+got_proxy_cb (GObject         *source_object G_GNUC_UNUSED,
+	      GAsyncResult    *res,
+	      CsdMprisManager *manager)
 {
     GError *error = NULL;
 
@@ -264,10 +263,10 @@ got_proxy_cb (GObject           *source_object,
 }
 
 static void
-csd_name_appeared (GDBusConnection     *connection,
-                   const gchar         *name,
-                   const gchar         *name_owner,
-                   CsdMprisManager     *manager)
+csd_name_appeared (GDBusConnection *connection G_GNUC_UNUSED,
+		   const gchar     *name G_GNUC_UNUSED,
+		   const gchar     *name_owner G_GNUC_UNUSED,
+		   CsdMprisManager *manager)
 {
     g_dbus_proxy_new_for_bus (G_BUS_TYPE_SESSION,
                               G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES |
@@ -282,9 +281,9 @@ csd_name_appeared (GDBusConnection     *connection,
 }
 
 static void
-csd_name_vanished (GDBusConnection   *connection,
-                   const gchar       *name,
-                   CsdMprisManager   *manager)
+csd_name_vanished (GDBusConnection *connection G_GNUC_UNUSED,
+		   const gchar     *name G_GNUC_UNUSED,
+		   CsdMprisManager *manager)
 {
     if (manager->priv->media_keys_proxy != NULL) {
         g_object_unref (manager->priv->media_keys_proxy);
@@ -294,8 +293,8 @@ csd_name_vanished (GDBusConnection   *connection,
 
 
 gboolean
-csd_mpris_manager_start (CsdMprisManager   *manager,
-                         GError           **error)
+csd_mpris_manager_start (CsdMprisManager *manager,
+			 GError         **error G_GNUC_UNUSED)
 {
     g_debug ("Starting mpris manager");
     cafe_settings_profile_start (NULL);

@@ -133,13 +133,13 @@ dbus_name_has_namespace (const gchar *name,
 }
 
 static void
-name_owner_changed (GDBusConnection *connection,
-                    const gchar     *sender_name,
-                    const gchar     *object_path,
-                    const gchar     *interface_name,
-                    const gchar     *signal_name,
-                    GVariant        *parameters,
-                    gpointer         user_data)
+name_owner_changed (GDBusConnection *connection G_GNUC_UNUSED,
+		    const gchar     *sender_name G_GNUC_UNUSED,
+		    const gchar     *object_path G_GNUC_UNUSED,
+		    const gchar     *interface_name G_GNUC_UNUSED,
+		    const gchar     *signal_name G_GNUC_UNUSED,
+		    GVariant        *parameters,
+		    gpointer         user_data)
 {
   NamespaceWatcher *watcher = user_data;
   const gchar *name;
@@ -240,10 +240,10 @@ names_listed (GObject      *object,
 }
 
 static void
-connection_closed (GDBusConnection *connection,
-                   gboolean         remote_peer_vanished,
-                   GError          *error,
-                   gpointer         user_data)
+connection_closed (GDBusConnection *connection G_GNUC_UNUSED,
+		   gboolean         remote_peer_vanished G_GNUC_UNUSED,
+		   GError          *error G_GNUC_UNUSED,
+		   gpointer         user_data)
 {
   NamespaceWatcher *watcher = user_data;
 
@@ -251,9 +251,9 @@ connection_closed (GDBusConnection *connection,
 }
 
 static void
-got_bus (GObject      *object,
-         GAsyncResult *result,
-         gpointer      user_data)
+got_bus (GObject      *object G_GNUC_UNUSED,
+	 GAsyncResult *result,
+	 gpointer      user_data)
 {
   GDBusConnection *connection;
   NamespaceWatcher *watcher;

@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2007 William Jon McCann <mccann@jhu.edu>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -54,7 +53,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (CsdA11ySettingsManager, csd_a11y_settings_manager, G
 static gpointer manager_object = NULL;
 
 static void
-apps_settings_changed (GSettings              *settings,
+apps_settings_changed (GSettings              *settings G_GNUC_UNUSED,
 		       const char             *key,
 		       CsdA11ySettingsManager *manager)
 {
@@ -80,7 +79,7 @@ apps_settings_changed (GSettings              *settings,
 
 gboolean
 csd_a11y_settings_manager_start (CsdA11ySettingsManager *manager,
-                                 GError                **error)
+				 GError                **error G_GNUC_UNUSED)
 {
         g_debug ("Starting a11y_settings manager");
         cafe_settings_profile_start (NULL);

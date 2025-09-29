@@ -1,5 +1,4 @@
-/* -*- Mode: C; tab-width: 8; indent-tabs-mode: nil; c-basic-offset: 8 -*-
- *
+/*
  * Copyright (C) 2008 Lennart Poettering <lennart@poettering.net>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -61,7 +60,10 @@ static gpointer manager_object = NULL;
 #ifdef HAVE_PULSE
 
 static void
-sample_info_cb (pa_context *c, const pa_sample_info *i, int eol, void *userdata)
+sample_info_cb (pa_context           *c,
+		const pa_sample_info *i,
+		int                   eol G_GNUC_UNUSED,
+		void                 *userdata G_GNUC_UNUSED)
 {
         pa_operation *o;
 
@@ -201,19 +203,19 @@ trigger_flush (CsdSoundManager *manager)
 }
 
 static void
-gsettings_notify_cb (GSettings *client,
-                     gchar *key,
-                     CsdSoundManager *manager)
+gsettings_notify_cb (GSettings       *client G_GNUC_UNUSED,
+		     gchar           *key G_GNUC_UNUSED,
+		     CsdSoundManager *manager)
 {
         trigger_flush (manager);
 }
 
 static void
-file_monitor_changed_cb (GFileMonitor *monitor,
-                         GFile *file,
-                         GFile *other_file,
-                         GFileMonitorEvent event,
-                         CsdSoundManager *manager)
+file_monitor_changed_cb (GFileMonitor     *monitor G_GNUC_UNUSED,
+			 GFile            *file G_GNUC_UNUSED,
+			 GFile            *other_file G_GNUC_UNUSED,
+			 GFileMonitorEvent event G_GNUC_UNUSED,
+			 CsdSoundManager  *manager)
 {
         g_debug ("Theme dir changed");
         trigger_flush (manager);
@@ -251,7 +253,7 @@ register_directory_callback (CsdSoundManager *manager,
 
 gboolean
 csd_sound_manager_start (CsdSoundManager *manager,
-                         GError **error)
+			 GError         **error G_GNUC_UNUSED)
 {
 
 #ifdef HAVE_PULSE

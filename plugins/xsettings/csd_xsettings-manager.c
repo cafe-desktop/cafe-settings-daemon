@@ -704,8 +704,8 @@ update_xft_settings (CafeXSettingsManager *manager)
 }
 
 static void
-recalculate_scale_callback (CdkScreen            *screen,
-                            CafeXSettingsManager *manager)
+recalculate_scale_callback (CdkScreen            *screen G_GNUC_UNUSED,
+			    CafeXSettingsManager *manager)
 {
         int i;
         int new_scale = get_window_scale (manager);
@@ -721,9 +721,9 @@ recalculate_scale_callback (CdkScreen            *screen,
 }
 
 static void
-xft_callback (GSettings            *gsettings,
-              const gchar          *key,
-              CafeXSettingsManager *manager)
+xft_callback (GSettings            *gsettings G_GNUC_UNUSED,
+	      const gchar          *key G_GNUC_UNUSED,
+	      CafeXSettingsManager *manager)
 {
         int i;
 
@@ -735,8 +735,8 @@ xft_callback (GSettings            *gsettings,
 }
 
 static void
-fontconfig_callback (fontconfig_monitor_handle_t *handle,
-                     CafeXSettingsManager       *manager)
+fontconfig_callback (fontconfig_monitor_handle_t *handle G_GNUC_UNUSED,
+		     CafeXSettingsManager        *manager)
 {
         int i;
         int timestamp = time (NULL);
