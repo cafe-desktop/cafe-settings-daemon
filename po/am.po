@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-settings-daemon 1.23.2\n"
+"Project-Id-Version: cafe-settings-daemon 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2022-08-28 16:21+0200\n"
+"POT-Creation-Date: 2025-10-08 09:27+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: samson <sambelet@yahoo.com>, 2020\n"
 "Language-Team: Amharic (https://www.transifex.com/cafe/teams/13566/am/)\n"
@@ -837,51 +837,51 @@ msgid ""
 "then the file specified by this key will be used instead."
 msgstr ""
 
-#: data/cafe-settings-daemon.desktop.in.in:4
+#: data/cafe-settings-daemon.desktop.in.in:3
 msgid "CAFE Settings Daemon"
 msgstr "የ ሜት ማሰናጃ ረዳት"
 
-#: cafe-settings-daemon/main.c:65
+#: cafe-settings-daemon/main.c:64
 msgid "Enable debugging code"
 msgstr "ኮድ ማስተካከያ ማስቻያ"
 
-#: cafe-settings-daemon/main.c:66
+#: cafe-settings-daemon/main.c:65
 msgid "Replace the current daemon"
 msgstr "የ አሁኑን ረዳት መቀየሪያ"
 
-#: cafe-settings-daemon/main.c:67
+#: cafe-settings-daemon/main.c:66
 msgid "Don't become a daemon"
 msgstr "እረዳት አትሁን"
 
-#: cafe-settings-daemon/main.c:68
+#: cafe-settings-daemon/main.c:67
 msgid "Exit after a time (for debugging)"
 msgstr "ከ ተወሰነ ጊዜ በኋላ መውጫ (ለ ማስተካከያ)"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility Keyboard"
 msgstr "የ ፊደል ገበታ ጋር መድረሻ"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility keyboard plugin"
 msgstr "የ ፊደል ገበታ ተሰኪ ጋር መድረሻ"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:441
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "እርዳታ በ ማሳየት ላይ እንዳለ ስህተት ተፈጥሯል: %s"
 
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:569
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:633
+msgid "Do you want to activate Slow Keys?"
+msgstr "ዝግተኛ ቁልፎችን ማስጀመር ይፈልጋሉ?"
+
 #: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
 #: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
-msgid "Do you want to activate Slow Keys?"
+msgid "Do you want to deactivate Slow Keys?"
 msgstr "ዝግተኛ ቁልፎችን ማስጀመር ይፈልጋሉ?"
 
 #: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
 #: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
-msgid "Do you want to deactivate Slow Keys?"
-msgstr "ዝግተኛ ቁልፎችን ማስጀመር ይፈልጋሉ?"
-
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -889,62 +889,62 @@ msgstr ""
 "እርስዎ ተጭነው ይዘዋል የ Shift ቁልፍ ለ 8 ሰከንዶች: ይህ አቋራጭ ነው ለ ማዘግያ ቁልፍ ገጽታ: ይህ የ እርስዎን "
 "የ ፊደል ገበታ አሰራር ይቀይረዋል"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't activate"
 msgstr "አታስጀምር"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't deactivate"
 msgstr "አታስጀምር መተው"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Activate"
 msgstr "ማስጀመሪያ"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Deactivate"
 msgstr "አታስጀምር"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't activate"
 msgstr "አታስጀምር"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't deactivate"
 msgstr "አታስጀምር መተው"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Activate"
 msgstr "_ማስጀመሪያ"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Deactivate"
 msgstr "_አታስጀምር"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:663
 msgid "Slow Keys Alert"
 msgstr "የ ዝግተኛ ቁልፍ ማስጠንቀቂያ"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:703
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:769
 msgid "Do you want to activate Sticky Keys?"
 msgstr "ተጣባቂ ቁልፎችን ማስጀመር ይፈልጋሉ?"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "ተጣባቂ ቁልፎችን ማቦዘን ይፈልጋሉ?"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:706
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:772
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -952,8 +952,8 @@ msgstr ""
 "እርስዎ የ Shift ቁልፍ 5 ጊዜ ተጭነዋል በ ተከታታይ: ይህ አቋራጭ ነው ለ ተጣባቂ ቁልፎች ገጽታ: ይህ በ እርስዎ የ "
 "ፊደል ገበታ አሰራር ላይ ተጽእኖ ይፈጥራል"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:708
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:774
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -962,7 +962,7 @@ msgstr ""
 "እርስዎ አሁን ሁለት ቁልፎች በ አንድ ጊዜ ተጭነዋል: ወይንም የ Shift ቁልፍ 5 ጊዜ በ ተከታታይ ተጭነዋል: ይህ "
 "ተጣባቂ ቁልፍ ገጽታን ያጠፋዋል: ይህ የ እርስዎን የ ፊደል ገበታ አሰራር ይቀይረዋል"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:802
 msgid "Sticky Keys Alert"
 msgstr "የ ተጣባቂ ቁልፍ ማስጠንቀቂያ"
 
@@ -1003,27 +1003,27 @@ msgstr "_መተው የ ተባዙ ቁልፍ መጫኛዎች (መዝለያ ቁል�
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "ይጫኑ እና _ይያዙ ቁልፍ ለ መቀበል (የ ዝግታ ቁልፍ)"
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility settings"
 msgstr ""
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility settings plugin"
 msgstr ""
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:5
+#: plugins/background/background.cafe-settings-plugin.desktop.in:4
 msgid "Background"
 msgstr "መደብ "
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:6
+#: plugins/background/background.cafe-settings-plugin.desktop.in:5
 msgid "Background plugin"
 msgstr "የመደብ ተሰኪ"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:4
 msgid "Clipboard"
 msgstr "ቁራጭ ሰሌዳ "
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:6
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
 msgid "Clipboard plugin"
 msgstr "የቁራጭ ሰሌዳ ተሰኪ "
 
@@ -1051,19 +1051,19 @@ msgstr "የ ጠካራ አካል ሰአት ማሰናጃ"
 msgid "Privileges are required to configure the hardware clock."
 msgstr "የ ጠንካራ አክል ሰአት ማሰናጃ ለ መቀየር ቅድሚያ ያስፈልጋል"
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:4
 msgid "Dummy"
 msgstr "አሻንጉሊት"
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:6
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
 msgid "Dummy plugin"
 msgstr "የ አሻንጉሊት ተሰኪ"
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:4
 msgid "Housekeeping"
 msgstr ""
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:6
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
 msgid ""
 "Automatically prunes thumbnail caches and other transient files, and warns "
 "about low disk space"
@@ -1136,35 +1136,35 @@ msgstr "መመርመሪያ…"
 msgid "Ignore"
 msgstr "መተው "
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:96
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "እቃዎችን በማስወገድ ላይ %lu ከ %lu"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:116
 #, c-format
 msgid "Removing: %s"
 msgstr "በማስወገድ ላይ: %s"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:246
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:299
 msgid "Emptying the trash"
 msgstr "ቆሻሻውን ባዶ በማድረግ ላይ "
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:275
 msgid "Preparing to empty trash…"
 msgstr "ቆሻሻውን ባዶ ለማድረግ በማሰናዳት ላይ "
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:302
 msgid "From: "
 msgstr "ከ : "
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:354
 msgid "Empty all of the items from the trash?"
 msgstr "በቆሻሻ ውስጥ ያለውን ባዶ ላድርገው? "
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:357
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1172,29 +1172,29 @@ msgstr ""
 "እርስዎ ቆሻሻውን ባዶ ማድረግ ከ ፈለጉ: ሁሉም እቃዎች በ ቋሚነት ይጠፋሉ: እባክዎን ያስታውሱ እያንዳንዱን እቃ ለየብቻ "
 "ማጥፋት ይችላሉ"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:364
 msgid "_Empty Trash"
 msgstr "ቆሻሻውን ባዶ ማድረጊያ"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:4
 msgid "Keybindings"
 msgstr "ቁልፍ ማጣመሪያ"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:6
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
 msgid "Keybindings plugin"
 msgstr "የ ቁልፍ ማጣመሪያ ተሰኪ"
 
-#: plugins/keybindings/csd_keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:107
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "ቁልፍ ማጣመሪያው (%s) ዋጋ የለውም"
 
-#: plugins/keybindings/csd_keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:143
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "ቁልፍ ማጣመሪያው (%s) ሙሉ አይደለም"
 
-#: plugins/keybindings/csd_keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:485
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1203,15 +1203,15 @@ msgstr ""
 "ስህተት ተፈጥሯል በ ማስኬድ ላይ እንዳለ (%s)\n"
 "የ ተገናኘ ነው ከ ቁልፍ (%s) ጋር"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Keyboard"
 msgstr "የፊደል ገበታ"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Keyboard plugin"
 msgstr "የ ፊደል ገበታ ተሰኪ"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:118
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1228,27 +1228,27 @@ msgid ""
 " • The result of <b>%s</b>"
 msgstr ""
 
-#: plugins/keyboard/csd_keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:282
 msgid "_Layouts"
 msgstr "_እቅዶች"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:289
 msgid "Keyboard _Preferences"
 msgstr "የፊደል ገበታ _ምርጫዎች "
 
-#: plugins/keyboard/csd_keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:295
 msgid "Show _Current Layout"
 msgstr "የ _አሁኑን እቅድ ማሳያ"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:4
 msgid "Media keys"
 msgstr "መገናኛ ቁልፎች"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:6
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
 msgid "Media keys plugin"
 msgstr "የ መገናኛ ቁልፎች ተሰኪ"
 
-#: plugins/media-keys/csd_media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:183
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1256,7 +1256,7 @@ msgstr ""
 "ነባር ተርሚናል ማግኘት አልተቻለም: የ እርስዎ ነባር ተርሚናል ትእዛዝ መሰናዳቱን እና ወደ ትክክለኛው መተግበሪያ "
 "እንደሚያመለክት"
 
-#: plugins/media-keys/csd_media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:223
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1265,86 +1265,86 @@ msgstr ""
 "ትእዛዝ መፈጸም አልተቻለም: %s\n"
 "ትእዛዙ ትክክለኛ መሆኑን ያረጋግጡ"
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "ተችፓድ አስችለዋል"
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "ተችፓድ ተሰናክሏል"
 
-#: plugins/media-keys/csd_media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:953
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:956
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:960
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:963
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:994
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1032
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1036
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:4
 msgid "Mouse"
 msgstr "አይጥ "
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:6
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
 msgid "Mouse plugin"
 msgstr "የ አይጥ ተሰኪ"
 
-#: plugins/mouse/csd_mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1649
 msgid "Could not enable mouse accessibility features"
 msgstr "የ አይጥ ቁልፍ መደረሻ ገጽታዎችን ማስቻል አልተቻለም"
 
-#: plugins/mouse/csd_mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1651
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr "የ አይጥ መድረሻ የ አይጥ ማስተካከያ በ ቅድሚያ በ ስርአቱ ውስጥ መገጠም አለበት"
 
-#: plugins/mouse/csd_mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1654
 msgid "Mouse Preferences"
 msgstr "የ አይጥ ምርጫዎች "
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:4
 msgid "Mpris"
 msgstr "Mpris"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:6
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
 msgid "Mpris plugin"
 msgstr "Mpris ተሰኪ"
 
 #. Default Priority
 #. Priority=100
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:6
 msgid "Rfkill"
 msgstr ""
 
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:8
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
 msgid "Rfkill plugin"
 msgstr ""
 
@@ -1410,27 +1410,27 @@ msgstr "ክፍል"
 msgid "smartcard driver"
 msgstr "የ smartcard አካል"
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:4
 msgid "Smartcard"
 msgstr ""
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:6
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
 msgid "Smartcard plugin"
 msgstr ""
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:4
 msgid "Sound"
 msgstr "ድምፅ "
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:6
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
 msgid "Sound Sample Cache plugin"
 msgstr ""
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:4
 msgid "Typing Break"
 msgstr "የ መጻፊያ እረፍት"
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:6
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
 msgid "Typing break plugin"
 msgstr "የ መጻፊያ እረፍት ተሰኪ"
 
@@ -1454,124 +1454,124 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:494
 msgid "Does the display look OK?"
 msgstr "መመልከቻው ጥሩ ነው?"
 
-#: plugins/xrandr/csd_xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:501
 msgid "_Restore Previous Configuration"
 msgstr "ያለፈውን ማሰናጃ _እንደ ነበር መመለሻ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:502
 msgid "_Keep This Configuration"
 msgstr "ይህን ማሰናጃ _ማስቀመጫ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:583
 msgid "The selected configuration for displays could not be applied"
 msgstr "የ ተመረጠውን የ ማሳያ ማሰናጃ መፈጸም አይቻልም"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1182
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "የ መመልከቻውን መረጃ ማነቃቃት አይቻልም: %s"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1186
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "ለማንኛውም የ መመልከቻ ማሰናጃውን ለ መቀየር ልሞክር"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1946
 msgid "Rotation not supported"
 msgstr "ማዞሪያ የ ተደገፈ አይደለም"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2005
-#: plugins/xrandr/csd_xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2011
+#: plugins/xrandr/csd_xrandr-manager.c:2043
 msgid "Could not save monitor configuration"
 msgstr "የ መመልከቻ ማሰናጃ ማስቀመጥ አልተቻለም"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2065
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2096
 msgid "Normal"
 msgstr "መደበኛ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2097
 msgid "Left"
 msgstr "በ ግራ "
 
-#: plugins/xrandr/csd_xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2098
 msgid "Right"
 msgstr "በ ቀኝ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2099
 msgid "Upside Down"
 msgstr "የ ተገለበጠ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2188
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2189
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2192
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2193
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2253
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2254
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2301
 msgid "_Configure Display Settings…"
 msgstr "የ መመልከቻ _ማስተካከያ ማሰናጃ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2311
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2368
 msgid "Configure display settings"
 msgstr "የ መመልከቻ ማሰናጃ"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2434
 msgid "Could not apply the stored configuration for monitors"
 msgstr "የ ተቀመጠውን ማሰናጃ ማስተካከያ መፈጸም አልተቻለም"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:4
 msgid "XRandR"
 msgstr "XRandR"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:6
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
 msgid "Set up screen size and rotation settings"
 msgstr "የ መመልከቻ መጠን እና ማዞሪያ ማሰናጃ"
 
-#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:248 plugins/xrdb/csd_xrdb-manager.c:317
 msgid "Cannot determine user's home directory"
 msgstr "የ ተጠቃሚውን የ ቤት ዳይሬክቶሪ መወሰን አልተቻለም"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:4
 msgid "X Resource Database"
 msgstr "የ X ምንጮች ዳታበዝ"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:6
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
 msgid "Manage the X resource database"
 msgstr "የ X ምንጮች ዳታበዝ አስተዳዳሪ"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:4
 msgid "X Settings"
 msgstr "X ማሰናጃ"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:6
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
 msgid "Manage X Settings"
 msgstr "የ X ማሰናጃ አስተዳዳሪ"

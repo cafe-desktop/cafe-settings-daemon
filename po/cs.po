@@ -16,9 +16,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-settings-daemon 1.23.2\n"
+"Project-Id-Version: cafe-settings-daemon 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2022-08-28 16:21+0200\n"
+"POT-Creation-Date: 2025-10-08 09:27+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Lucas Lommer <drom@kdyne.net>, 2020\n"
 "Language-Team: Czech (https://www.transifex.com/cafe/teams/13566/cs/)\n"
@@ -900,51 +900,51 @@ msgstr ""
 "soubor, nebo má ten, který neodpovídá uživatelskému nastavení monitorů, pak "
 "soubor určený tímto klíčem bude používán místo něho."
 
-#: data/cafe-settings-daemon.desktop.in.in:4
+#: data/cafe-settings-daemon.desktop.in.in:3
 msgid "CAFE Settings Daemon"
 msgstr "Démon nastavení CAFE"
 
-#: cafe-settings-daemon/main.c:65
+#: cafe-settings-daemon/main.c:64
 msgid "Enable debugging code"
 msgstr "Povolí ladící kód"
 
-#: cafe-settings-daemon/main.c:66
+#: cafe-settings-daemon/main.c:65
 msgid "Replace the current daemon"
 msgstr "Nahradit aktuální daemon"
 
-#: cafe-settings-daemon/main.c:67
+#: cafe-settings-daemon/main.c:66
 msgid "Don't become a daemon"
 msgstr "Nestane se démonem"
 
-#: cafe-settings-daemon/main.c:68
+#: cafe-settings-daemon/main.c:67
 msgid "Exit after a time (for debugging)"
 msgstr "Ukončit po čase (pro účely ladění)"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility Keyboard"
 msgstr "Zpřístupnění klávesnice"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility keyboard plugin"
 msgstr "Zásuvný modul zpřístupnění klávesnice"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:441
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "Při zobrazování nápovědy došlo k chybě: %s"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:569
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:633
 msgid "Do you want to activate Slow Keys?"
 msgstr "Chcete aktivovat Pomalé klávesy?"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "Chcete deaktivovat Pomalé klávesy?"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -952,62 +952,62 @@ msgstr ""
 "Právě jste na 8 sekund podrželi klávesu Shift. To je zkratka funkce Pomalé "
 "klávesy, která má vliv na způsob fungování vaší klávesnice."
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't activate"
 msgstr "Neaktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't deactivate"
 msgstr "Nedeaktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Activate"
 msgstr "Aktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Deactivate"
 msgstr "Deaktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't activate"
 msgstr "_Neaktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't deactivate"
 msgstr "_Nedeaktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Activate"
 msgstr "_Aktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Deactivate"
 msgstr "_Deaktivovat"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:663
 msgid "Slow Keys Alert"
 msgstr "Upozornění na Pomalé klávesy"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:703
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:769
 msgid "Do you want to activate Sticky Keys?"
 msgstr "Chcete aktivovat Lepící klávesy?"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "Chcete deaktivovat Lepící klávesy?"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:706
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:772
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -1015,8 +1015,8 @@ msgstr ""
 "Právě jste pětkrát za sebou stiskli klávesu Shift. To je zkratka funkce "
 "Lepící klávesy, která má vliv na způsob fungování vaší klávesnice."
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:708
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:774
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -1026,7 +1026,7 @@ msgstr ""
 "klávesu Shift. To vypíná funkci Lepící klávesy, která má vliv na způsob "
 "fungování vaší klávesnice."
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:802
 msgid "Sticky Keys Alert"
 msgstr "Lepící klávesy"
 
@@ -1069,27 +1069,27 @@ msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr ""
 "_Stisknutím a podržením kláves dojde k jejich přijmutí (pomalé klávesy)"
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility settings"
 msgstr "Nastavení přístupnosti"
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility settings plugin"
 msgstr "Zásuvný modul nastavení přístupnosti"
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:5
+#: plugins/background/background.cafe-settings-plugin.desktop.in:4
 msgid "Background"
 msgstr "Pozadí"
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:6
+#: plugins/background/background.cafe-settings-plugin.desktop.in:5
 msgid "Background plugin"
 msgstr "Zásuvný modul pozadí"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:4
 msgid "Clipboard"
 msgstr "Schránka"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:6
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
 msgid "Clipboard plugin"
 msgstr "Zásuvný modul schránky"
 
@@ -1117,19 +1117,19 @@ msgstr "Nastavit hardwarové hodiny"
 msgid "Privileges are required to configure the hardware clock."
 msgstr "Ke změně taktu jsou vyžadována oprávnění."
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:4
 msgid "Dummy"
 msgstr "Prázdné"
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:6
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
 msgid "Dummy plugin"
 msgstr "Prázdný zásuvný modul"
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:4
 msgid "Housekeeping"
 msgstr "Úklid"
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:6
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
 msgid ""
 "Automatically prunes thumbnail caches and other transient files, and warns "
 "about low disk space"
@@ -1204,35 +1204,35 @@ msgstr "Zkoumá se…"
 msgid "Ignore"
 msgstr "Ignorovat"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:96
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "Odstraňování položky %lu z %lu"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:116
 #, c-format
 msgid "Removing: %s"
 msgstr "Odstraňování: %s"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:246
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:299
 msgid "Emptying the trash"
 msgstr "Vyprazdňování koše"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:275
 msgid "Preparing to empty trash…"
 msgstr "Příprava na vysypání koše…"
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:302
 msgid "From: "
 msgstr "Z: "
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:354
 msgid "Empty all of the items from the trash?"
 msgstr "Odstranit všechny položky z koše?"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:357
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1240,29 +1240,29 @@ msgstr ""
 "Pokud se rozhodnete vyprázdnit koš, všechny položky v něm budou natrvalo "
 "smazány. Vezměte prosím na vědomí, že je lze mazat po jedné."
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:364
 msgid "_Empty Trash"
 msgstr "_Vyprázdnit koš"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:4
 msgid "Keybindings"
 msgstr "Klávesové zkratky"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:6
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
 msgid "Keybindings plugin"
 msgstr "Zásuvný modul klávesových zkratek"
 
-#: plugins/keybindings/csd_keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:107
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "Svázání s klávesami (%s) není platné"
 
-#: plugins/keybindings/csd_keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:143
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "Svázání s klávesami (%s) není úplné"
 
-#: plugins/keybindings/csd_keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:485
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1271,15 +1271,15 @@ msgstr ""
 "Chyba při pokusu o spuštění (%s),\n"
 "což je svázáno s klávesou (%s)"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Keyboard"
 msgstr "Klávesnice"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Keyboard plugin"
 msgstr "Zásuvný modul klávesnice"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:118
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1308,27 +1308,27 @@ msgstr ""
 " • Výsledek <b>%s</b>\n"
 " • Výsledek <b>%s</b>"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:282
 msgid "_Layouts"
 msgstr "_Rozložení"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:289
 msgid "Keyboard _Preferences"
 msgstr "Př_edvolby klávesnice"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:295
 msgid "Show _Current Layout"
 msgstr "Zobrazit _Současné rozložení"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:4
 msgid "Media keys"
 msgstr "Multimediální klávesy"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:6
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
 msgid "Media keys plugin"
 msgstr "Zásuvný modul multimediálních kláves"
 
-#: plugins/media-keys/csd_media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:183
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1336,7 +1336,7 @@ msgstr ""
 "Nelze nalézt výchozí terminál. Ověřte prosím, zda je zadán příkaz výchozího "
 "terminálu a zda směřuje k platné aplikaci."
 
-#: plugins/media-keys/csd_media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:223
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1345,88 +1345,88 @@ msgstr ""
 "Nelze spustit příkaz: %s\n"
 "Ověřte prosím platnost příkazu."
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "Touchpad povolen"
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "Touchpad vypnutý"
 
-#: plugins/media-keys/csd_media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:953
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "Bluetooth je vypnuté"
 
-#: plugins/media-keys/csd_media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:956
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "Bluetooth je zapnuté"
 
-#: plugins/media-keys/csd_media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:960
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "Režim „letadlo“ je zapnutý"
 
-#: plugins/media-keys/csd_media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:963
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "Režim „letadlo“ je vypnutý"
 
-#: plugins/media-keys/csd_media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:994
 msgid "Hardware Airplane Mode"
 msgstr "Hardwarový režim „letadlo“"
 
-#: plugins/media-keys/csd_media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1032
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr "Změna rozložení obrazovky"
 
-#: plugins/media-keys/csd_media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1036
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "Žádný externí displej"
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:4
 msgid "Mouse"
 msgstr "Myš"
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:6
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
 msgid "Mouse plugin"
 msgstr "Zásuvný modul myši"
 
-#: plugins/mouse/csd_mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1649
 msgid "Could not enable mouse accessibility features"
 msgstr "Nezdařilo se povolení vlastností zpřístupnění myši"
 
-#: plugins/mouse/csd_mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1651
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr ""
 "Přizpůsobení myši vyžaduje mít nainstalované \"Mousetweaks\" ve vašem "
 "systému."
 
-#: plugins/mouse/csd_mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1654
 msgid "Mouse Preferences"
 msgstr "Předvolby myši"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:4
 msgid "Mpris"
 msgstr "Mpris"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:6
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
 msgid "Mpris plugin"
 msgstr "Zásuvný modul Mpris"
 
 #. Default Priority
 #. Priority=100
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:6
 msgid "Rfkill"
 msgstr "Rfkill"
 
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:8
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
 msgid "Rfkill plugin"
 msgstr "Zásuvný modul Rfkill"
 
@@ -1492,27 +1492,27 @@ msgstr "Modul"
 msgid "smartcard driver"
 msgstr "ovladač smartcard"
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:4
 msgid "Smartcard"
 msgstr "Smartcard"
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:6
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
 msgid "Smartcard plugin"
 msgstr "Zásuvný modul Smartcard"
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:4
 msgid "Sound"
 msgstr "Zvuk"
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:6
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
 msgid "Sound Sample Cache plugin"
 msgstr "Zásuvný modul Sound Sample Cache"
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:4
 msgid "Typing Break"
 msgstr "Přestávka ve psaní"
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:6
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
 msgid "Typing break plugin"
 msgstr "Zásuvný modul přestávky ve psaní"
 
@@ -1538,124 +1538,124 @@ msgstr[1] "Obrazovka se navrátí k předchozímu nastavení za %d sekundy"
 msgstr[2] "Obrazovka se navrátí k předchozímu nastavení za %d sekund"
 msgstr[3] "Obrazovka se navrátí k předchozímu nastavení za %d sekund"
 
-#: plugins/xrandr/csd_xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:494
 msgid "Does the display look OK?"
 msgstr "Vypadá displej v pořádku?"
 
-#: plugins/xrandr/csd_xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:501
 msgid "_Restore Previous Configuration"
 msgstr "_Obnovit předchozí nastavení"
 
-#: plugins/xrandr/csd_xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:502
 msgid "_Keep This Configuration"
 msgstr "Z_achovat toto nastavení"
 
-#: plugins/xrandr/csd_xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:583
 msgid "The selected configuration for displays could not be applied"
 msgstr "Vybrané nastavení displejů nemůže být použito"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1182
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "Nelze obnovit informace o obrazovce: %s"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1186
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "Přesto probíhá pokus o přepnutí nastavení monitoru."
 
-#: plugins/xrandr/csd_xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1946
 msgid "Rotation not supported"
 msgstr "Rotace není podporována"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2005
-#: plugins/xrandr/csd_xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2011
+#: plugins/xrandr/csd_xrandr-manager.c:2043
 msgid "Could not save monitor configuration"
 msgstr "Nelze uložit nastavení monitoru"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2065
 msgid "Mirroring outputs not supported"
 msgstr "Zrcadlení výstupů není podporováno"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2096
 msgid "Normal"
 msgstr "Normální"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2097
 msgid "Left"
 msgstr "Doleva"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2098
 msgid "Right"
 msgstr "Doprava"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2099
 msgid "Upside Down"
 msgstr "Převrátit"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2188
 msgid "ON"
 msgstr "ZAP"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2189
 msgid "Turn this monitor off"
 msgstr "Vypnout tento monitor"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2192
 msgid "OFF"
 msgstr "VYP"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2193
 msgid "Turn this monitor on"
 msgstr "Zapnout tento monitor"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2253
 msgid "Same output all monitors"
 msgstr "Stejný výstup všech monitorů"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2254
 msgid "Mirror same output to all monitors and turn them on"
 msgstr "Zapnout všechny monitory a zrcadlit na ně stejný výstup"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2301
 msgid "_Configure Display Settings…"
 msgstr "_Konfigurovat nastavení displeje…"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2311
 msgid "Open the display configuration dialog (all settings)"
 msgstr "Otevřít okno konfigurace displeje (všechna nastavení)"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2368
 msgid "Configure display settings"
 msgstr "Konfigurovat nastavení displeje"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2434
 msgid "Could not apply the stored configuration for monitors"
 msgstr "Nelze použít uložené nastavení monitorů"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:4
 msgid "XRandR"
 msgstr "XRandR"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:6
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
 msgid "Set up screen size and rotation settings"
 msgstr "Zvolit velikost obrazovky a nastavení otočení"
 
-#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:248 plugins/xrdb/csd_xrdb-manager.c:317
 msgid "Cannot determine user's home directory"
 msgstr "Nelze určit domovský adresář uživatele"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:4
 msgid "X Resource Database"
 msgstr "Databáze zdrojů X"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:6
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
 msgid "Manage the X resource database"
 msgstr "Spravovat databázi zdrojů X"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:4
 msgid "X Settings"
 msgstr "Nastavení X"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:6
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
 msgid "Manage X Settings"
 msgstr "Spravovat nastavení X"

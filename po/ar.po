@@ -12,9 +12,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-settings-daemon 1.23.2\n"
+"Project-Id-Version: cafe-settings-daemon 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2022-08-28 16:21+0200\n"
+"POT-Creation-Date: 2025-10-08 09:27+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: Mosaab Alzoubi <moceap@hotmail.com>, 2020\n"
 "Language-Team: Arabic (https://www.transifex.com/cafe/teams/13566/ar/)\n"
@@ -180,8 +180,8 @@ msgid ""
 "Distance in pixels the pointer must move before accelerated mouse motion is "
 "activated. A value of -1 is the system default."
 msgstr ""
-"المسافة بالبكسلات التي يجب أن تتحركها الفأرة قبل تنشيط تسريع حركة الفأرة."
-"القيمة -1 هي مبدئي النظام."
+"المسافة بالبكسلات التي يجب أن تتحركها الفأرة قبل تنشيط تسريع حركة "
+"الفأرة.القيمة -1 هي مبدئي النظام."
 
 #: data/org.cafe.peripherals-mouse.gschema.xml.in:25
 #: data/org.cafe.peripherals-touchpad.gschema.xml.in:95
@@ -851,51 +851,51 @@ msgstr ""
 "يطابق إعداداته للشاشة ، عندها سيتم التعديل على الملف ليلاءم هذا المفتاح و "
 "الذي سيعدّ بديلًا."
 
-#: data/cafe-settings-daemon.desktop.in.in:4
+#: data/cafe-settings-daemon.desktop.in.in:3
 msgid "CAFE Settings Daemon"
 msgstr "محثّ إعدادات متّة"
 
-#: cafe-settings-daemon/main.c:65
+#: cafe-settings-daemon/main.c:64
 msgid "Enable debugging code"
 msgstr "فعّل كود التنقيح"
 
-#: cafe-settings-daemon/main.c:66
+#: cafe-settings-daemon/main.c:65
 msgid "Replace the current daemon"
 msgstr "استبدل المحثّ الحالي"
 
-#: cafe-settings-daemon/main.c:67
+#: cafe-settings-daemon/main.c:66
 msgid "Don't become a daemon"
 msgstr "لا تصبح مُحثًا"
 
-#: cafe-settings-daemon/main.c:68
+#: cafe-settings-daemon/main.c:67
 msgid "Exit after a time (for debugging)"
 msgstr "اخرج بعد مدة (للتنقيح)"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility Keyboard"
 msgstr "إتاحة لوحة المفاتيح"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility keyboard plugin"
 msgstr "ملحق إتاحة لوحة المفاتيح"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:441
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "حصل خطأ عند عرض المساعدة: %s"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:569
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:633
 msgid "Do you want to activate Slow Keys?"
 msgstr "أتريد تفعيل المفاتيح البطيئة؟"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "أتريد تعطيل المفاتيح البطيئة؟"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -903,62 +903,62 @@ msgstr ""
 "لقد ضغطت مفتاح Shift لثمان ثوان. إنّ هذا إختصار ميزة المفاتيح البطيئة المؤثّر "
 "على طريقة عمل لوحة مفاتيحك."
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't activate"
 msgstr "لا تنشط"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't deactivate"
 msgstr "لا تعطل"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Activate"
 msgstr "نَشِّط"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Deactivate"
 msgstr "عَطِّل"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't activate"
 msgstr "_لا تنشط"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't deactivate"
 msgstr "_لا تعطل"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Activate"
 msgstr "_فعّل"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Deactivate"
 msgstr "_عطّل"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:663
 msgid "Slow Keys Alert"
 msgstr "تنبيه المفاتيح البطيئة"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:703
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:769
 msgid "Do you want to activate Sticky Keys?"
 msgstr "أتريد تفعيل المفاتيح اللاصقة؟"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "أتريد تعطيل المفاتيح اللاصقة؟"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:706
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:772
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -966,8 +966,8 @@ msgstr ""
 "لقد نقرت مفتاح Shift خمس مرات متتالية. هذا اختصار ميزة المفاتيح اللاصقة "
 "المؤثّر على طريقة عمل لوحة مفاتيحك."
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:708
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:774
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -976,7 +976,7 @@ msgstr ""
 "لقد ضغطت على مفتاحان في آن واحد أو نقرت مفتاح Shift خمس مرّات متتالية. يعطّل "
 "هذا ميزة المفاتيح اللاصقة المؤثّر على طريقة عمل لوحة مفاتيحك."
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:802
 msgid "Sticky Keys Alert"
 msgstr "تنبيه المفاتيح اللاصقة"
 
@@ -1017,27 +1017,27 @@ msgstr "_تجاهل نقرات المفاتيح المكررة"
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "اضغط وأم_سك الأزرار لتقبلهم (المفاتيح البطيئة)"
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility settings"
 msgstr ""
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility settings plugin"
 msgstr ""
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:5
+#: plugins/background/background.cafe-settings-plugin.desktop.in:4
 msgid "Background"
 msgstr "الخلفية"
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:6
+#: plugins/background/background.cafe-settings-plugin.desktop.in:5
 msgid "Background plugin"
 msgstr "ملحق الخلفية"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:4
 msgid "Clipboard"
 msgstr "الحافظة"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:6
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
 msgid "Clipboard plugin"
 msgstr "ملحق الحافظة"
 
@@ -1065,19 +1065,19 @@ msgstr "اضبط ساعة العتاد"
 msgid "Privileges are required to configure the hardware clock."
 msgstr "الصلاحيات مطلوبة لتغيير ساعة العتاد."
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:4
 msgid "Dummy"
 msgstr "لا شيء"
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:6
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
 msgid "Dummy plugin"
 msgstr "ملحق لا شيء"
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:4
 msgid "Housekeeping"
 msgstr ""
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:6
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
 msgid ""
 "Automatically prunes thumbnail caches and other transient files, and warns "
 "about low disk space"
@@ -1150,35 +1150,35 @@ msgstr "افحص…"
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:96
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "يحذف العنصر %lu من %lu"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:116
 #, c-format
 msgid "Removing: %s"
 msgstr "يحذف: %s"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:246
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:299
 msgid "Emptying the trash"
 msgstr "يفرغ المهملات"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:275
 msgid "Preparing to empty trash…"
 msgstr "يحضّر لإفراغ المهملات…"
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:302
 msgid "From: "
 msgstr "من:"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:354
 msgid "Empty all of the items from the trash?"
 msgstr "هل أفرغ كل العناصر من المهملات؟"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:357
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1186,29 +1186,29 @@ msgstr ""
 "إذا اخترت إفراغ المهملات، ستفقد كل العناصر الموجودة بها نهائيًا. لاحظ رجاءً "
 "إمكانية حذفهم بشكل منفصل."
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:364
 msgid "_Empty Trash"
 msgstr "أ_فرِغ المهملات"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:4
 msgid "Keybindings"
 msgstr "ارتباطات المفاتيح"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:6
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
 msgid "Keybindings plugin"
 msgstr "ملحق ارتباطات المفاتيح"
 
-#: plugins/keybindings/csd_keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:107
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "ارتباط المفتاح (%s) غير صالح"
 
-#: plugins/keybindings/csd_keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:143
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "ارتباط المفتاح (%s) غير مكتمل"
 
-#: plugins/keybindings/csd_keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:485
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1217,15 +1217,15 @@ msgstr ""
 "خطأ عند محاولة تشغيل(%s)\n"
 "المربوط بالمفتاح (%s)"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Keyboard"
 msgstr "لوحة المفاتيح"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Keyboard plugin"
 msgstr "ملحق لوحة المفاتيح"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:118
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1242,27 +1242,27 @@ msgid ""
 " • The result of <b>%s</b>"
 msgstr ""
 
-#: plugins/keyboard/csd_keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:282
 msgid "_Layouts"
 msgstr "الت_خطيطات"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:289
 msgid "Keyboard _Preferences"
 msgstr "_تفضيلات لوحة المفاتيح"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:295
 msgid "Show _Current Layout"
 msgstr "اعرض ال_تخطيط الحالي"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:4
 msgid "Media keys"
 msgstr "مفاتيح الوسائط"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:6
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
 msgid "Media keys plugin"
 msgstr "ملحق مفاتيح الوسائط"
 
-#: plugins/media-keys/csd_media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:183
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
@@ -1270,7 +1270,7 @@ msgstr ""
 "تعذر معرفة الطرفية الافتراضية. تحقق من أن أمر الطرفية الافتراضية لديك مُعدّ "
 "ويشير إلى تطبيق صالح."
 
-#: plugins/media-keys/csd_media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:223
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1279,86 +1279,86 @@ msgstr ""
 "تعذّر تنفيذ الأمر: %s\n"
 "تأكّد من أن هذا الأمر صالح."
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:953
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:956
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:960
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:963
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:994
 msgid "Hardware Airplane Mode"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1032
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr ""
 
-#: plugins/media-keys/csd_media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1036
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr ""
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:4
 msgid "Mouse"
 msgstr "الفأرة"
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:6
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
 msgid "Mouse plugin"
 msgstr "ملحق الفأرة"
 
-#: plugins/mouse/csd_mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1649
 msgid "Could not enable mouse accessibility features"
 msgstr "تعذّر تفعيل ميزات إتاحة الفأرة"
 
-#: plugins/mouse/csd_mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1651
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr "إتاحة الفأرة تتطلب تثبيت Mousetweaks على نظامك."
 
-#: plugins/mouse/csd_mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1654
 msgid "Mouse Preferences"
 msgstr "تفضيلات الفأرة"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:4
 msgid "Mpris"
 msgstr "Mpris"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:6
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
 msgid "Mpris plugin"
 msgstr "ملحق Mpris"
 
 #. Default Priority
 #. Priority=100
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:6
 msgid "Rfkill"
 msgstr ""
 
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:8
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
 msgid "Rfkill plugin"
 msgstr ""
 
@@ -1424,27 +1424,27 @@ msgstr "الوِحدة"
 msgid "smartcard driver"
 msgstr "معرّف البطاقة الذكية smartcard"
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:4
 msgid "Smartcard"
 msgstr ""
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:6
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
 msgid "Smartcard plugin"
 msgstr ""
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:4
 msgid "Sound"
 msgstr "الصوت"
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:6
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
 msgid "Sound Sample Cache plugin"
 msgstr ""
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:4
 msgid "Typing Break"
 msgstr "استراحة عن الكتابة"
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:6
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
 msgid "Typing break plugin"
 msgstr "ملحق استراحة الكتابة"
 
@@ -1472,124 +1472,124 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:494
 msgid "Does the display look OK?"
 msgstr "هل تبدو الشاشة جيدة؟"
 
-#: plugins/xrandr/csd_xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:501
 msgid "_Restore Previous Configuration"
 msgstr "ا_ستعد الإعدادات السابقة"
 
-#: plugins/xrandr/csd_xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:502
 msgid "_Keep This Configuration"
 msgstr "أبقِ _هذه الإعدادات"
 
-#: plugins/xrandr/csd_xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:583
 msgid "The selected configuration for displays could not be applied"
 msgstr "تعذّر تطبيق الإعداد المُختار"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1182
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "تعذّر تحديث معلومات الشاشة: %s"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1186
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "يحاول تبديل إعدادات الشاشة على أي حال."
 
-#: plugins/xrandr/csd_xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1946
 msgid "Rotation not supported"
 msgstr "التدوير غير مدعوم"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2005
-#: plugins/xrandr/csd_xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2011
+#: plugins/xrandr/csd_xrandr-manager.c:2043
 msgid "Could not save monitor configuration"
 msgstr "تعذّر حفظ إعدادات الشاشة"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2065
 msgid "Mirroring outputs not supported"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2096
 msgid "Normal"
 msgstr "عادية"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2097
 msgid "Left"
 msgstr "يسار"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2098
 msgid "Right"
 msgstr "يمين"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2099
 msgid "Upside Down"
 msgstr "رأسا على عقب"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2188
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2189
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2192
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2193
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2253
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2254
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2301
 msgid "_Configure Display Settings…"
 msgstr "ا_ضبط إعدادات أجهزة العرض…"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2311
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2368
 msgid "Configure display settings"
 msgstr "اضبط إعدادات أجهزة العرض"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2434
 msgid "Could not apply the stored configuration for monitors"
 msgstr "تعذّر تطبيق الإعدادات المحفوظة على الشاشات"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:4
 msgid "XRandR"
 msgstr "XRandR"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:6
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
 msgid "Set up screen size and rotation settings"
 msgstr "اختر إعدادات حجم الشاشة والدوران"
 
-#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:248 plugins/xrdb/csd_xrdb-manager.c:317
 msgid "Cannot determine user's home directory"
 msgstr "تعذّر تحديد الدليل المنزلي للمستخدم"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:4
 msgid "X Resource Database"
 msgstr "قاعدة بيانات موارد X"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:6
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
 msgid "Manage the X resource database"
 msgstr "أدر قاعدة بيانات موارد X"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:4
 msgid "X Settings"
 msgstr "إعدادات X"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:6
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
 msgid "Manage X Settings"
 msgstr "أدِر إعدادات X"

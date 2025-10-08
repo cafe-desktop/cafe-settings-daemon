@@ -18,9 +18,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cafe-settings-daemon 1.23.2\n"
+"Project-Id-Version: cafe-settings-daemon 2.0.0\n"
 "Report-Msgid-Bugs-To: https://cafe-desktop.org/\n"
-"POT-Creation-Date: 2022-08-28 16:21+0200\n"
+"POT-Creation-Date: 2025-10-08 09:27+0200\n"
 "PO-Revision-Date: 2020-02-16 15:02+0000\n"
 "Last-Translator: zhangxianwei8 <zhang.xianwei8@zte.com.cn>, 2020\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/cafe/teams/13566/"
@@ -844,51 +844,51 @@ msgstr ""
 "下的~/.config/monitors.xml。如果用户没有这样的文件，或者有一个不符合用户显示"
 "器的设置，然后本项指定的文件将被替代。"
 
-#: data/cafe-settings-daemon.desktop.in.in:4
+#: data/cafe-settings-daemon.desktop.in.in:3
 msgid "CAFE Settings Daemon"
 msgstr "CAFE 设置守护程序"
 
-#: cafe-settings-daemon/main.c:65
+#: cafe-settings-daemon/main.c:64
 msgid "Enable debugging code"
 msgstr "启用调试代码"
 
-#: cafe-settings-daemon/main.c:66
+#: cafe-settings-daemon/main.c:65
 msgid "Replace the current daemon"
 msgstr "替换当前守护程序"
 
-#: cafe-settings-daemon/main.c:67
+#: cafe-settings-daemon/main.c:66
 msgid "Don't become a daemon"
 msgstr "不成为守护进程"
 
-#: cafe-settings-daemon/main.c:68
+#: cafe-settings-daemon/main.c:67
 msgid "Exit after a time (for debugging)"
 msgstr "一段时间后退出(调试用)"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility Keyboard"
 msgstr "辅助功能键盘"
 
-#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-keyboard/a11y-keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility keyboard plugin"
 msgstr "辅助功能键盘插件"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:442
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:441
 #, c-format
 msgid "There was an error displaying help: %s"
 msgstr "显示帮助时出错：%s"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:569
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:633
 msgid "Do you want to activate Slow Keys?"
 msgstr "您想要激活迟缓按键吗？"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:570
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:634
 msgid "Do you want to deactivate Slow Keys?"
 msgstr "您想要禁用迟缓按键吗？"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:572
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:636
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:571
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:635
 msgid ""
 "You just held down the Shift key for 8 seconds.  This is the shortcut for "
 "the Slow Keys feature, which affects the way your keyboard works."
@@ -896,62 +896,62 @@ msgstr ""
 "您已经按下了 Shift 键 8 秒。这是迟缓按键功能的快捷键，这将影响您键盘工作的方"
 "式。"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't activate"
 msgstr "不激活"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:595
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:732
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:594
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:731
 msgid "Don't deactivate"
 msgstr "不禁用"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Activate"
 msgstr "激活"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:601
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:738
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:600
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:737
 msgid "Deactivate"
 msgstr "禁用"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't activate"
 msgstr "不激活(_N)"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:657
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:796
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:656
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:795
 msgid "Do_n't deactivate"
 msgstr "不禁用(_N)"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Activate"
 msgstr "激活(_A)"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:660
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:799
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:659
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:798
 msgid "_Deactivate"
 msgstr "断开(_D)"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:664
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:663
 msgid "Slow Keys Alert"
 msgstr "迟缓按键提醒"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:703
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:769
 msgid "Do you want to activate Sticky Keys?"
 msgstr "您想要激活粘滞键吗？"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:705
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:771
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:704
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:770
 msgid "Do you want to deactivate Sticky Keys?"
 msgstr "您想要禁用粘滞键吗？"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:707
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:773
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:706
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:772
 msgid ""
 "You just pressed the Shift key 5 times in a row.  This is the shortcut for "
 "the Sticky Keys feature, which affects the way your keyboard works."
@@ -959,8 +959,8 @@ msgstr ""
 "您刚刚连续按了五次 Shift 键。这是粘滞键特性的快捷键，这将影响您键盘的工作方"
 "式。"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:709
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:775
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:708
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:774
 msgid ""
 "You just pressed two keys at once, or pressed the Shift key 5 times in a "
 "row.  This turns off the Sticky Keys feature, which affects the way your "
@@ -969,7 +969,7 @@ msgstr ""
 "您刚刚同时按下了两个键，或连续按了五次 Shift 键。这是取消粘滞键特性的快捷键，"
 "这将影响您键盘的工作方式。"
 
-#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:803
+#: plugins/a11y-keyboard/csd_a11y-keyboard-manager.c:802
 msgid "Sticky Keys Alert"
 msgstr "粘滞键提醒"
 
@@ -1010,27 +1010,27 @@ msgstr "忽略快速重复按键(回键)(_I)"
 msgid "Press and _hold keys to accept them (Slow Keys)"
 msgstr "请按住键以接受慢速键(_H)"
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:4
 msgid "Accessibility settings"
 msgstr ""
 
-#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:6
+#: plugins/a11y-settings/a11y-settings.cafe-settings-plugin.desktop.in:5
 msgid "Accessibility settings plugin"
 msgstr ""
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:5
+#: plugins/background/background.cafe-settings-plugin.desktop.in:4
 msgid "Background"
 msgstr "背景"
 
-#: plugins/background/background.cafe-settings-plugin.desktop.in:6
+#: plugins/background/background.cafe-settings-plugin.desktop.in:5
 msgid "Background plugin"
 msgstr "背景插件"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:4
 msgid "Clipboard"
 msgstr "剪贴板"
 
-#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:6
+#: plugins/clipboard/clipboard.cafe-settings-plugin.desktop.in:5
 msgid "Clipboard plugin"
 msgstr "剪贴板插件"
 
@@ -1058,19 +1058,19 @@ msgstr "配置硬件时钟"
 msgid "Privileges are required to configure the hardware clock."
 msgstr "配置硬件时钟需要权限"
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:4
 msgid "Dummy"
 msgstr "傻瓜"
 
-#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:6
+#: plugins/dummy/dummy.cafe-settings-plugin.desktop.in:5
 msgid "Dummy plugin"
 msgstr "傻瓜插件"
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:4
 msgid "Housekeeping"
 msgstr ""
 
-#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:6
+#: plugins/housekeeping/housekeeping.cafe-settings-plugin.desktop.in:5
 msgid ""
 "Automatically prunes thumbnail caches and other transient files, and warns "
 "about low disk space"
@@ -1140,35 +1140,35 @@ msgstr "分析..."
 msgid "Ignore"
 msgstr "忽略"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:97
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:96
 #, c-format
 msgid "Removing item %lu of %lu"
 msgstr "正在删除 %lu 项目，共 %lu"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:117
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:116
 #, c-format
 msgid "Removing: %s"
 msgstr "正在删除：%s"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:247
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:300
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:246
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:299
 msgid "Emptying the trash"
 msgstr "清空回收站"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:276
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:275
 msgid "Preparing to empty trash…"
 msgstr "正在准备清空回收站..."
 
 #. Translators: "Emptying trash from <device>"
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:303
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:302
 msgid "From: "
 msgstr "来自："
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:355
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:354
 msgid "Empty all of the items from the trash?"
 msgstr "清空回收站中的全部项目吗？"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:358
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:357
 msgid ""
 "If you choose to empty the trash, all items in it will be permanently lost. "
 "Please note that you can also delete them separately."
@@ -1176,29 +1176,29 @@ msgstr ""
 "如果您选择清空回收站，其中的项目将被永久删除。请注意，您还可以单个删除其中的"
 "项目。"
 
-#: plugins/housekeeping/csd_ldsm-trash-empty.c:365
+#: plugins/housekeeping/csd_ldsm-trash-empty.c:364
 msgid "_Empty Trash"
 msgstr "清空回收站(_E)"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:4
 msgid "Keybindings"
 msgstr "键绑定"
 
-#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:6
+#: plugins/keybindings/keybindings.cafe-settings-plugin.desktop.in:5
 msgid "Keybindings plugin"
 msgstr "键绑定插件"
 
-#: plugins/keybindings/csd_keybindings-manager.c:108
+#: plugins/keybindings/csd_keybindings-manager.c:107
 #, c-format
 msgid "Key binding (%s) is invalid"
 msgstr "键绑定(%s)无效"
 
-#: plugins/keybindings/csd_keybindings-manager.c:144
+#: plugins/keybindings/csd_keybindings-manager.c:143
 #, c-format
 msgid "Key binding (%s) is incomplete"
 msgstr "键绑定(%s)不完整"
 
-#: plugins/keybindings/csd_keybindings-manager.c:486
+#: plugins/keybindings/csd_keybindings-manager.c:485
 #, c-format
 msgid ""
 "Error while trying to run (%s)\n"
@@ -1207,15 +1207,15 @@ msgstr ""
 "试图运行(%s)时出错\n"
 "与按键(%s)相关联"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:4
 msgid "Keyboard"
 msgstr "键盘"
 
-#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:6
+#: plugins/keyboard/keyboard.cafe-settings-plugin.desktop.in:5
 msgid "Keyboard plugin"
 msgstr "键盘插件"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:119
+#: plugins/keyboard/csd_keyboard-xkb.c:118
 #, c-format
 msgid ""
 "Error activating XKB configuration.\n"
@@ -1244,33 +1244,33 @@ msgstr ""
 "• <b>%s</b> 的返回结果\n"
 "• <b>%s</b> 的返回结果"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:279
+#: plugins/keyboard/csd_keyboard-xkb.c:282
 msgid "_Layouts"
 msgstr "布局(_L)"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:286
+#: plugins/keyboard/csd_keyboard-xkb.c:289
 msgid "Keyboard _Preferences"
 msgstr "键盘首选项(_P)"
 
-#: plugins/keyboard/csd_keyboard-xkb.c:292
+#: plugins/keyboard/csd_keyboard-xkb.c:295
 msgid "Show _Current Layout"
 msgstr "显示当前布局(_C)"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:4
 msgid "Media keys"
 msgstr "媒体键"
 
-#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:6
+#: plugins/media-keys/media-keys.cafe-settings-plugin.desktop.in:5
 msgid "Media keys plugin"
 msgstr "媒体键插件"
 
-#: plugins/media-keys/csd_media-keys-manager.c:184
+#: plugins/media-keys/csd_media-keys-manager.c:183
 msgid ""
 "Could not get default terminal. Verify that your default terminal command is "
 "set and points to a valid application."
 msgstr "无法获得默认终端。请检查您的默认终端是否已设置，并指向有效的应用程序。"
 
-#: plugins/media-keys/csd_media-keys-manager.c:224
+#: plugins/media-keys/csd_media-keys-manager.c:223
 #, c-format
 msgid ""
 "Couldn't execute command: %s\n"
@@ -1279,86 +1279,86 @@ msgstr ""
 "无法执行命令：%s\n"
 "请检查此命令是否有效。"
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:81
 msgid "Touchpad enabled"
 msgstr "触摸板已启用"
 
-#: plugins/media-keys/csd_media-keys-manager.c:638
+#: plugins/media-keys/csd_media-keys-manager.c:637
 #: plugins/media-keys/test-media-window.c:74
 msgid "Touchpad disabled"
 msgstr "触摸板已禁用"
 
-#: plugins/media-keys/csd_media-keys-manager.c:954
+#: plugins/media-keys/csd_media-keys-manager.c:953
 #: plugins/media-keys/test-media-window.c:88
 msgid "Bluetooth disabled"
 msgstr "蓝牙已禁用"
 
-#: plugins/media-keys/csd_media-keys-manager.c:957
+#: plugins/media-keys/csd_media-keys-manager.c:956
 #: plugins/media-keys/test-media-window.c:95
 msgid "Bluetooth enabled"
 msgstr "蓝牙已启用"
 
-#: plugins/media-keys/csd_media-keys-manager.c:961
+#: plugins/media-keys/csd_media-keys-manager.c:960
 #: plugins/media-keys/test-media-window.c:102
 msgid "Airplane mode enabled"
 msgstr "飞行模式已启用"
 
-#: plugins/media-keys/csd_media-keys-manager.c:964
+#: plugins/media-keys/csd_media-keys-manager.c:963
 #: plugins/media-keys/test-media-window.c:109
 msgid "Airplane mode disabled"
 msgstr "飞行模式已禁用"
 
-#: plugins/media-keys/csd_media-keys-manager.c:995
+#: plugins/media-keys/csd_media-keys-manager.c:994
 msgid "Hardware Airplane Mode"
 msgstr "硬件飞行模式"
 
-#: plugins/media-keys/csd_media-keys-manager.c:1033
+#: plugins/media-keys/csd_media-keys-manager.c:1032
 #: plugins/media-keys/test-media-window.c:123
 msgid "Changing Screen Layout"
 msgstr "更改屏幕布局"
 
-#: plugins/media-keys/csd_media-keys-manager.c:1037
+#: plugins/media-keys/csd_media-keys-manager.c:1036
 #: plugins/media-keys/test-media-window.c:116
 msgid "No External Display"
 msgstr "无外接显示器"
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:4
 msgid "Mouse"
 msgstr "鼠标"
 
-#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:6
+#: plugins/mouse/mouse.cafe-settings-plugin.desktop.in:5
 msgid "Mouse plugin"
 msgstr "鼠标插件"
 
-#: plugins/mouse/csd_mouse-manager.c:1650
+#: plugins/mouse/csd_mouse-manager.c:1649
 msgid "Could not enable mouse accessibility features"
 msgstr "不能启用鼠标快捷键功能"
 
-#: plugins/mouse/csd_mouse-manager.c:1652
+#: plugins/mouse/csd_mouse-manager.c:1651
 msgid ""
 "Mouse accessibility requires Mousetweaks to be installed on your system."
 msgstr "鼠标辅助功能需要在您的系统中安装 Mousetweaks。"
 
-#: plugins/mouse/csd_mouse-manager.c:1655
+#: plugins/mouse/csd_mouse-manager.c:1654
 msgid "Mouse Preferences"
 msgstr "鼠标首选项"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:4
 msgid "Mpris"
 msgstr "Mpris"
 
-#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:6
+#: plugins/mpris/mpris.cafe-settings-plugin.desktop.in:5
 msgid "Mpris plugin"
 msgstr "Mpris 插件"
 
 #. Default Priority
 #. Priority=100
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:6
 msgid "Rfkill"
 msgstr "Rfkill"
 
-#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:8
+#: plugins/rfkill/rfkill.cafe-settings-plugin.desktop.in:7
 msgid "Rfkill plugin"
 msgstr "Rfkill插件"
 
@@ -1424,27 +1424,27 @@ msgstr "模块"
 msgid "smartcard driver"
 msgstr "智能卡驱动程序"
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:4
 msgid "Smartcard"
 msgstr ""
 
-#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:6
+#: plugins/smartcard/smartcard.cafe-settings-plugin.desktop.in:5
 msgid "Smartcard plugin"
 msgstr ""
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:4
 msgid "Sound"
 msgstr "音效"
 
-#: plugins/sound/sound.cafe-settings-plugin.desktop.in:6
+#: plugins/sound/sound.cafe-settings-plugin.desktop.in:5
 msgid "Sound Sample Cache plugin"
 msgstr ""
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:4
 msgid "Typing Break"
 msgstr "打字间断"
 
-#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:6
+#: plugins/typing-break/typing-break.cafe-settings-plugin.desktop.in:5
 msgid "Typing break plugin"
 msgstr "打字间隔插件"
 
@@ -1467,124 +1467,124 @@ msgid_plural ""
 "The display will be reset to its previous configuration in %d seconds"
 msgstr[0] ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:492
+#: plugins/xrandr/csd_xrandr-manager.c:494
 msgid "Does the display look OK?"
 msgstr "显示是否正常？"
 
-#: plugins/xrandr/csd_xrandr-manager.c:499
+#: plugins/xrandr/csd_xrandr-manager.c:501
 msgid "_Restore Previous Configuration"
 msgstr "恢复之前的配置(_R)"
 
-#: plugins/xrandr/csd_xrandr-manager.c:500
+#: plugins/xrandr/csd_xrandr-manager.c:502
 msgid "_Keep This Configuration"
 msgstr "保持当前配置(_K)"
 
-#: plugins/xrandr/csd_xrandr-manager.c:581
+#: plugins/xrandr/csd_xrandr-manager.c:583
 msgid "The selected configuration for displays could not be applied"
 msgstr "无法为显示应用选定的配置"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1180
+#: plugins/xrandr/csd_xrandr-manager.c:1182
 #, c-format
 msgid "Could not refresh the screen information: %s"
 msgstr "无法刷新屏幕信息：%s"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1184
+#: plugins/xrandr/csd_xrandr-manager.c:1186
 msgid "Trying to switch the monitor configuration anyway."
 msgstr "正在尝试改变显示器配置。"
 
-#: plugins/xrandr/csd_xrandr-manager.c:1940
+#: plugins/xrandr/csd_xrandr-manager.c:1946
 msgid "Rotation not supported"
 msgstr "不支持旋转"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2005
-#: plugins/xrandr/csd_xrandr-manager.c:2037
+#: plugins/xrandr/csd_xrandr-manager.c:2011
+#: plugins/xrandr/csd_xrandr-manager.c:2043
 msgid "Could not save monitor configuration"
 msgstr "无法保存显示器配置"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2059
+#: plugins/xrandr/csd_xrandr-manager.c:2065
 msgid "Mirroring outputs not supported"
 msgstr "不支持镜像输出"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2090
+#: plugins/xrandr/csd_xrandr-manager.c:2096
 msgid "Normal"
 msgstr "正常"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2091
+#: plugins/xrandr/csd_xrandr-manager.c:2097
 msgid "Left"
 msgstr "左"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2092
+#: plugins/xrandr/csd_xrandr-manager.c:2098
 msgid "Right"
 msgstr "右"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2093
+#: plugins/xrandr/csd_xrandr-manager.c:2099
 msgid "Upside Down"
 msgstr "上下颠倒"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2182
+#: plugins/xrandr/csd_xrandr-manager.c:2188
 msgid "ON"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2183
+#: plugins/xrandr/csd_xrandr-manager.c:2189
 msgid "Turn this monitor off"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2186
+#: plugins/xrandr/csd_xrandr-manager.c:2192
 msgid "OFF"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2187
+#: plugins/xrandr/csd_xrandr-manager.c:2193
 msgid "Turn this monitor on"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2247
+#: plugins/xrandr/csd_xrandr-manager.c:2253
 msgid "Same output all monitors"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2248
+#: plugins/xrandr/csd_xrandr-manager.c:2254
 msgid "Mirror same output to all monitors and turn them on"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2295
+#: plugins/xrandr/csd_xrandr-manager.c:2301
 msgid "_Configure Display Settings…"
 msgstr "配置显示设置(_C)..."
 
-#: plugins/xrandr/csd_xrandr-manager.c:2305
+#: plugins/xrandr/csd_xrandr-manager.c:2311
 msgid "Open the display configuration dialog (all settings)"
 msgstr ""
 
-#: plugins/xrandr/csd_xrandr-manager.c:2358
+#: plugins/xrandr/csd_xrandr-manager.c:2368
 msgid "Configure display settings"
 msgstr "配置显示设置"
 
-#: plugins/xrandr/csd_xrandr-manager.c:2424
+#: plugins/xrandr/csd_xrandr-manager.c:2434
 msgid "Could not apply the stored configuration for monitors"
 msgstr "无法应用原保存的显示器配置。"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:4
 msgid "XRandR"
 msgstr "XRandR"
 
-#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:6
+#: plugins/xrandr/xrandr.cafe-settings-plugin.desktop.in:5
 msgid "Set up screen size and rotation settings"
 msgstr "设置屏幕尺寸及旋转"
 
-#: plugins/xrdb/csd_xrdb-manager.c:249 plugins/xrdb/csd_xrdb-manager.c:318
+#: plugins/xrdb/csd_xrdb-manager.c:248 plugins/xrdb/csd_xrdb-manager.c:317
 msgid "Cannot determine user's home directory"
 msgstr "无法确定用户的主目录"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:4
 msgid "X Resource Database"
 msgstr "X 资源数据库"
 
-#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:6
+#: plugins/xrdb/xrdb.cafe-settings-plugin.desktop.in:5
 msgid "Manage the X resource database"
 msgstr "管理 X 资源数据库"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:4
 msgid "X Settings"
 msgstr "X 设置"
 
-#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:6
+#: plugins/xsettings/xsettings.cafe-settings-plugin.desktop.in:5
 msgid "Manage X Settings"
 msgstr "管理 X 设置"
