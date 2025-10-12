@@ -1,3 +1,13 @@
+### cafe-settings-daemon 2.0.0
+
+  * ci: some improvements
+  * csd_smartcard-plugin: org.freedesktop.ScreenSaver instead org.cafe.ScreenSaver
+  * csd_xrandr-manager: Fix build with gcc 14
+  * add G_GNUC_UNUSED in unused parameters
+  * plugins: add GNUC_UNUSED in unused parameters
+  * avoid deprecated GTimeVal
+  * update translations
+
 ### cafe-settings-daemon 1.25.2
 
   * build: GLib 2.67.3 required
