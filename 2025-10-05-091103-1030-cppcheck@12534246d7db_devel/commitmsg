@@ -1,0 +1,6 @@
+avoid deprecated GTimeVal
+
+based in mate-settings-daemon commits:
+
+https://github.com/mate-desktop/mate-settings-daemon/commit/d91039ed8fdf6e33ff076a9cb236478576f26515
+https://github.com/mate-desktop/mate-settings-daemon/commit/1207980e643c7a8ed0a9dca7049d7a3c44475f3e
