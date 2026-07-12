@@ -1,3 +1,8 @@
+### cafe-settings-daemon 2.1.0
+
+  * Port from GdkPixbuf to CdkPixbuf
+
+
 ### cafe-settings-daemon 2.0.0
 
   * ci: some improvements
@@ -8,6 +13,7 @@
   * avoid deprecated GTimeVal
   * update translations
 
+
 ### cafe-settings-daemon 1.25.2
 
   * build: GLib 2.67.3 required
@@ -16,12 +22,14 @@
   * Fix some author mails
   * main: reduce the scope of variable
 
+
 ### cafe-settings-daemon 1.25.1
 
   * port from libcanberra to libkanberra
   * csd_disk-space: avoid redundant condition
   * cafe-settings-profile: reduce the scope of variable
   * ci: some improvements
+
 
 ### cafe-settings-daemon 1.25.0
 
